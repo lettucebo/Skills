@@ -1,0 +1,37 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+
+# Build output
+dist/
+build/
+output/
+
+# Logs
+*.log
