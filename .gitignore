@@ -18,9 +18,14 @@ package-lock.json
 __pycache__/
 *.pyc
 *.pyo
+*.egg-info/
+*.whl
 .venv/
 venv/
 .env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # .NET
 bin/
