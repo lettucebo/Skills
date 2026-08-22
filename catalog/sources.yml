@@ -1,0 +1,341 @@
+upstreams:
+  awesome-copilot:
+    repository: github/awesome-copilot
+    reference: refs/heads/main
+  anthropics:
+    repository: anthropics/skills
+    reference: refs/heads/main
+  cloudflare:
+    repository: cloudflare/skills
+    reference: refs/heads/main
+  microsoft:
+    repository: microsoft/skills
+    reference: refs/heads/main
+  aiskillstore:
+    repository: aiskillstore/marketplace
+    reference: refs/heads/main
+  wookstar:
+    repository: henkisdabro/wookstar-claude-plugins
+    reference: refs/heads/main
+
+mappings:
+  # awesome-copilot
+  - path: skills/azure/az-cost-optimize
+    upstream: awesome-copilot
+    source: skills/az-cost-optimize
+  - path: skills/azure/azure-architecture-autopilot
+    upstream: awesome-copilot
+    source: skills/azure-architecture-autopilot
+  - path: skills/azure/azure-deployment-preflight
+    upstream: awesome-copilot
+    source: skills/azure-deployment-preflight
+  - path: skills/azure/azure-devops-cli
+    upstream: awesome-copilot
+    source: skills/azure-devops-cli
+  - path: skills/azure/azure-pricing
+    upstream: awesome-copilot
+    source: skills/azure-pricing
+  - path: skills/azure/azure-resource-health-diagnose
+    upstream: awesome-copilot
+    source: skills/azure-resource-health-diagnose
+  - path: skills/azure/azure-resource-visualizer
+    upstream: awesome-copilot
+    source: skills/azure-resource-visualizer
+  - path: skills/azure/azure-role-selector
+    upstream: awesome-copilot
+    source: skills/azure-role-selector
+  - path: skills/azure/azure-static-web-apps
+    upstream: awesome-copilot
+    source: skills/azure-static-web-apps
+  - path: skills/chrome/chrome-devtools
+    upstream: awesome-copilot
+    source: skills/chrome-devtools
+  - path: skills/dotnet/csharp-async
+    upstream: awesome-copilot
+    source: skills/csharp-async
+  - path: skills/dotnet/csharp-docs
+    upstream: awesome-copilot
+    source: skills/csharp-docs
+  - path: skills/dotnet/csharp-mstest
+    upstream: awesome-copilot
+    source: skills/csharp-mstest
+  - path: skills/dotnet/csharp-nunit
+    upstream: awesome-copilot
+    source: skills/csharp-nunit
+  - path: skills/dotnet/csharp-tunit
+    upstream: awesome-copilot
+    source: skills/csharp-tunit
+  - path: skills/dotnet/csharp-xunit
+    upstream: awesome-copilot
+    source: skills/csharp-xunit
+  - path: skills/dotnet/dotnet-best-practices
+    upstream: awesome-copilot
+    source: skills/dotnet-best-practices
+  - path: skills/dotnet/dotnet-design-pattern-review
+    upstream: awesome-copilot
+    source: skills/dotnet-design-pattern-review
+  - path: skills/dotnet/dotnet-timezone
+    upstream: awesome-copilot
+    source: skills/dotnet-timezone
+  - path: skills/dotnet/dotnet-upgrade
+    upstream: awesome-copilot
+    source: skills/dotnet-upgrade
+  - path: skills/dotnet/editorconfig
+    upstream: awesome-copilot
+    source: skills/editorconfig
+  - path: skills/dotnet/ef-core
+    upstream: awesome-copilot
+    source: skills/ef-core
+  - path: skills/dotnet/nuget-manager
+    upstream: awesome-copilot
+    source: skills/nuget-manager
+  - path: skills/github/codeql
+    upstream: awesome-copilot
+    source: skills/codeql
+  - path: skills/github/dependabot
+    upstream: awesome-copilot
+    source: skills/dependabot
+  - path: skills/github/git-flow-branch-creator
+    upstream: awesome-copilot
+    source: skills/git-flow-branch-creator
+  - path: skills/github/github-issues
+    upstream: awesome-copilot
+    source: skills/github-issues
+  - path: skills/github/publish-to-pages
+    upstream: awesome-copilot
+    source: skills/publish-to-pages
+  - path: skills/github/secret-scanning
+    upstream: awesome-copilot
+    source: skills/secret-scanning
+  - path: skills/google-tag-manager/gtm-0-to-1-launch
+    upstream: awesome-copilot
+    source: skills/gtm-0-to-1-launch
+  - path: skills/google-tag-manager/gtm-ai-gtm
+    upstream: awesome-copilot
+    source: skills/gtm-ai-gtm
+  - path: skills/google-tag-manager/gtm-board-and-investor-communication
+    upstream: awesome-copilot
+    source: skills/gtm-board-and-investor-communication
+  - path: skills/google-tag-manager/gtm-developer-ecosystem
+    upstream: awesome-copilot
+    source: skills/gtm-developer-ecosystem
+  - path: skills/google-tag-manager/gtm-enterprise-account-planning
+    upstream: awesome-copilot
+    source: skills/gtm-enterprise-account-planning
+  - path: skills/google-tag-manager/gtm-enterprise-onboarding
+    upstream: awesome-copilot
+    source: skills/gtm-enterprise-onboarding
+  - path: skills/google-tag-manager/gtm-operating-cadence
+    upstream: awesome-copilot
+    source: skills/gtm-operating-cadence
+  - path: skills/google-tag-manager/gtm-partnership-architecture
+    upstream: awesome-copilot
+    source: skills/gtm-partnership-architecture
+  - path: skills/google-tag-manager/gtm-positioning-strategy
+    upstream: awesome-copilot
+    source: skills/gtm-positioning-strategy
+  - path: skills/google-tag-manager/gtm-product-led-growth
+    upstream: awesome-copilot
+    source: skills/gtm-product-led-growth
+  - path: skills/google-tag-manager/gtm-technical-product-pricing
+    upstream: awesome-copilot
+    source: skills/gtm-technical-product-pricing
+  - path: skills/power-platform/fabric-lakehouse
+    upstream: awesome-copilot
+    source: skills/fabric-lakehouse
+  - path: skills/power-platform/power-apps-code-app-scaffold
+    upstream: awesome-copilot
+    source: skills/power-apps-code-app-scaffold
+  - path: skills/power-platform/power-bi-dax-optimization
+    upstream: awesome-copilot
+    source: skills/power-bi-dax-optimization
+  - path: skills/power-platform/power-bi-model-design-review
+    upstream: awesome-copilot
+    source: skills/power-bi-model-design-review
+  - path: skills/power-platform/power-bi-performance-troubleshooting
+    upstream: awesome-copilot
+    source: skills/power-bi-performance-troubleshooting
+  - path: skills/power-platform/power-bi-report-design-consultation
+    upstream: awesome-copilot
+    source: skills/power-bi-report-design-consultation
+  - path: skills/power-platform/power-platform-mcp-connector-suite
+    upstream: awesome-copilot
+    source: skills/power-platform-mcp-connector-suite
+  - path: skills/power-platform/powerbi-modeling
+    upstream: awesome-copilot
+    source: skills/powerbi-modeling
+  - path: skills/vscode/create-implementation-plan
+    upstream: awesome-copilot
+    source: skills/create-implementation-plan
+  - path: skills/vscode/create-readme
+    upstream: awesome-copilot
+    source: skills/create-readme
+  - path: skills/vscode/create-specification
+    upstream: awesome-copilot
+    source: skills/create-specification
+  - path: skills/vscode/generate-custom-instructions-from-codebase
+    upstream: awesome-copilot
+    source: skills/generate-custom-instructions-from-codebase
+  - path: skills/vscode/git-commit
+    upstream: awesome-copilot
+    source: skills/git-commit
+  - path: skills/vscode/refactor
+    upstream: awesome-copilot
+    source: skills/refactor
+  - path: skills/vscode/refactor-plan
+    upstream: awesome-copilot
+    source: skills/refactor-plan
+  - path: skills/vscode/security-review
+    upstream: awesome-copilot
+    source: skills/security-review
+  # anthropics
+  - path: skills/claude/algorithmic-art
+    upstream: anthropics
+    source: skills/algorithmic-art
+  - path: skills/claude/brand-guidelines
+    upstream: anthropics
+    source: skills/brand-guidelines
+  - path: skills/claude/canvas-design
+    upstream: anthropics
+    source: skills/canvas-design
+  - path: skills/claude/claude-api
+    upstream: anthropics
+    source: skills/claude-api
+  - path: skills/claude/doc-coauthoring
+    upstream: anthropics
+    source: skills/doc-coauthoring
+  - path: skills/claude/docx
+    upstream: anthropics
+    source: skills/docx
+  - path: skills/claude/frontend-design
+    upstream: anthropics
+    source: skills/frontend-design
+  - path: skills/claude/internal-comms
+    upstream: anthropics
+    source: skills/internal-comms
+  - path: skills/claude/mcp-builder
+    upstream: anthropics
+    source: skills/mcp-builder
+  - path: skills/claude/pdf
+    upstream: anthropics
+    source: skills/pdf
+  - path: skills/claude/pptx
+    upstream: anthropics
+    source: skills/pptx
+  - path: skills/claude/skill-creator
+    upstream: anthropics
+    source: skills/skill-creator
+  - path: skills/claude/slack-gif-creator
+    upstream: anthropics
+    source: skills/slack-gif-creator
+  - path: skills/claude/theme-factory
+    upstream: anthropics
+    source: skills/theme-factory
+  - path: skills/claude/web-artifacts-builder
+    upstream: anthropics
+    source: skills/web-artifacts-builder
+  - path: skills/claude/webapp-testing
+    upstream: anthropics
+    source: skills/webapp-testing
+  - path: skills/claude/xlsx
+    upstream: anthropics
+    source: skills/xlsx
+  # cloudflare
+  - path: skills/cloudflare/agents-sdk
+    upstream: cloudflare
+    source: skills/agents-sdk
+  - path: skills/cloudflare/building-ai-agent-on-cloudflare
+    upstream: cloudflare
+    source: commands/build-agent.md
+  - path: skills/cloudflare/building-mcp-server-on-cloudflare
+    upstream: cloudflare
+    source: commands/build-mcp.md
+  - path: skills/cloudflare/cloudflare
+    upstream: cloudflare
+    source: skills/cloudflare
+  - path: skills/cloudflare/durable-objects
+    upstream: cloudflare
+    source: skills/durable-objects
+  - path: skills/cloudflare/sandbox-sdk
+    upstream: cloudflare
+    source: skills/sandbox-stable
+  - path: skills/cloudflare/web-perf
+    upstream: cloudflare
+    source: skills/web-perf
+  - path: skills/cloudflare/workers-best-practices
+    upstream: cloudflare
+    source: skills/workers-best-practices
+  - path: skills/cloudflare/wrangler
+    upstream: cloudflare
+    source: skills/wrangler
+  # microsoft
+  - path: skills/microsoft/cloud-solution-architect
+    upstream: microsoft
+    source: skills/cloud-solution-architect
+  - path: skills/microsoft/continual-learning
+    upstream: microsoft
+    source: skills/continual-learning
+  - path: skills/microsoft/copilot-sdk
+    upstream: microsoft
+    source: skills/copilot-sdk
+  - path: skills/microsoft/entra-agent-id
+    upstream: microsoft
+    source: skills/entra-agent-id
+  - path: skills/microsoft/frontend-design-review
+    upstream: microsoft
+    source: skills/frontend-design-review
+  - path: skills/microsoft/github-issue-creator
+    upstream: microsoft
+    source: skills/github-issue-creator
+  - path: skills/microsoft/mcp-builder
+    upstream: microsoft
+    source: skills/mcp-builder
+  - path: skills/microsoft/microsoft-agent-framework
+    upstream: microsoft
+    source: skills/microsoft-agent-framework
+  - path: skills/microsoft/microsoft-code-reference
+    upstream: microsoft
+    source: skills/microsoft-code-reference
+  - path: skills/microsoft/microsoft-docs
+    upstream: microsoft
+    source: skills/microsoft-docs
+  - path: skills/microsoft/podcast-generation
+    upstream: microsoft
+    source: skills/podcast-generation
+  - path: skills/microsoft/skill-creator
+    upstream: microsoft
+    source: skills/skill-creator
+  # aiskillstore
+  - path: skills/github/gh-cli
+    upstream: aiskillstore
+    source: skills/github/gh-cli
+  # wookstar
+  - path: skills/tampermonkey
+    upstream: wookstar
+    source: plugins/tampermonkey/skills/tampermonkey
+
+orphans:
+  - path: skills/dotnet/csharp-mcp-server-generator
+    note: No verified upstream source repository is currently documented for this skill.
+  - path: skills/github/create-github-pull-request-from-specification
+    note: No verified upstream source repository is currently documented for this skill.
+  - path: skills/vscode/code-review
+    note: Candidate upstream is https://github.com/awesome-skills/code-review-skill, but this mirror is intentionally tracked as an orphan until reviewed.
+
+local:
+  - root: skills/lettucebo
+    note: Reserved for future local/original skills. Registry coverage counts only existing SKILL.md files, and sync must never write this root.
+
+overrides:
+  - path: skills/cloudflare/building-ai-agent-on-cloudflare
+    transform: command-to-skill
+    source: commands/build-agent.md
+    note: Mirrors an upstream command document into the local skill registry as a curated skill folder.
+  - path: skills/cloudflare/building-mcp-server-on-cloudflare
+    transform: command-to-skill
+    source: commands/build-mcp.md
+    note: Mirrors an upstream command document into the local skill registry as a curated skill folder.
+  - path: skills/cloudflare/sandbox-sdk
+    transform: rename-local-skill
+    source: skills/sandbox-stable
+    note: Keeps the current local folder name while tracking the upstream stable Sandbox skill path.
