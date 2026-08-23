@@ -3,6 +3,7 @@ import path from 'node:path';
 
 import { parse } from 'yaml';
 import { createLinkExceptionKey } from './links.mjs';
+import { isShaReference } from './git-source.mjs';
 
 const { posix } = path;
 
@@ -113,11 +114,19 @@ function normalizeUpstreams(value) {
         throw new Error(`Upstream "${name}" must be an object.`);
       }
 
+      const reference = requireString(definition.reference, `upstreams.${name}.reference`);
+
+      if (isShaReference(reference)) {
+        throw new Error(
+          `upstreams.${name}.reference must be a branch or tag, not a commit SHA: ${reference}`,
+        );
+      }
+
       return [
         name,
         {
           repository: requireString(definition.repository, `upstreams.${name}.repository`),
-          reference: requireString(definition.reference, `upstreams.${name}.reference`),
+          reference,
         },
       ];
     }),
