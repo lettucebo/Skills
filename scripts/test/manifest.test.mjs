@@ -228,6 +228,175 @@ overrides: []
   });
 });
 
+test('loadManifest rejects duplicate link exception keys', async () => {
+  await withFixture('duplicate-link-exception', async (fixtureRoot) => {
+    await createSkill(fixtureRoot, path.join('skills', 'azure', 'alpha'));
+
+    const manifestPath = await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  awesome-copilot:
+    repository: github/awesome-copilot
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: awesome-copilot
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/missing.md
+    reason: First declaration.
+    upstreamUrl: https://example.invalid/awesome-copilot
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/missing.md
+    reason: Duplicate declaration.
+    upstreamUrl: https://example.invalid/awesome-copilot
+`,
+    );
+
+    await assert.rejects(
+      loadManifest(manifestPath),
+      /Link exception declared more than once: skills\/azure\/alpha\/SKILL\.md -> references\/missing\.md/,
+    );
+  });
+});
+
+test('loadManifest rejects absolute link exception source paths', async () => {
+  await withFixture('absolute-link-exception-source', async (fixtureRoot) => {
+    await createSkill(fixtureRoot, path.join('skills', 'azure', 'alpha'));
+
+    const manifestPath = await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  awesome-copilot:
+    repository: github/awesome-copilot
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: awesome-copilot
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: /skills/azure/alpha/SKILL.md
+    target: references/missing.md
+    reason: Invalid absolute source path.
+    upstreamUrl: https://example.invalid/awesome-copilot
+`,
+    );
+
+    await assert.rejects(
+      loadManifest(manifestPath),
+      /linkExceptions\[0\]\.sourcePath must be a repository-relative path\./,
+    );
+  });
+});
+
+test('loadManifest rejects non-relative link exception targets', async () => {
+  await withFixture('absolute-link-exception-target', async (fixtureRoot) => {
+    await createSkill(fixtureRoot, path.join('skills', 'azure', 'alpha'));
+
+    const manifestPath = await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  awesome-copilot:
+    repository: github/awesome-copilot
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: awesome-copilot
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: https://example.invalid/missing.md
+    reason: Invalid absolute target.
+    upstreamUrl: https://example.invalid/awesome-copilot
+`,
+    );
+
+    await assert.rejects(
+      loadManifest(manifestPath),
+      /linkExceptions\[0\]\.target must be a relative link target\./,
+    );
+  });
+});
+
+test('loadManifest rejects link exceptions without reasons', async () => {
+  await withFixture('missing-link-exception-reason', async (fixtureRoot) => {
+    await createSkill(fixtureRoot, path.join('skills', 'azure', 'alpha'));
+
+    const manifestPath = await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  awesome-copilot:
+    repository: github/awesome-copilot
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: awesome-copilot
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/missing.md
+    reason: ""
+    upstreamUrl: https://example.invalid/awesome-copilot
+`,
+    );
+
+    await assert.rejects(
+      loadManifest(manifestPath),
+      /linkExceptions\[0\]\.reason must be a non-empty string\./,
+    );
+  });
+});
+
+test('loadManifest rejects link exceptions whose source file does not exist', async () => {
+  await withFixture('missing-link-exception-source-file', async (fixtureRoot) => {
+    await createSkill(fixtureRoot, path.join('skills', 'azure', 'alpha'));
+
+    const manifestPath = await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  awesome-copilot:
+    repository: github/awesome-copilot
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: awesome-copilot
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/references/missing.md
+    target: references/also-missing.md
+    reason: Source file is absent.
+    upstreamUrl: https://example.invalid/awesome-copilot
+`,
+    );
+
+    await assert.rejects(
+      loadManifest(manifestPath),
+      /Link exception source file does not exist: skills\/azure\/alpha\/references\/missing\.md/,
+    );
+  });
+});
+
 test('loadManifest accepts the repository manifest with exact 99-skill coverage', async () => {
   const manifestPath = path.join(repoRoot, 'catalog', 'sources.yml');
   const manifest = await loadManifest(manifestPath);
@@ -237,11 +406,21 @@ test('loadManifest accepts the repository manifest with exact 99-skill coverage'
 
   assert.equal(manifest.mappings.length, 96);
   assert.equal(manifest.orphans.length, 3);
+  assert.equal(manifest.linkExceptions.length, 4);
   assert.equal(localCoverage, 0);
   assert.equal(coveredSkills, 99);
   assert.equal(
     manifest.local.map((entry) => entry.root).join(','),
     'skills/lettucebo',
+  );
+  assert.deepEqual(
+    manifest.linkExceptions.map((entry) => `${entry.sourcePath} -> ${entry.target}`).sort(),
+    [
+      'skills/cloudflare/building-mcp-server-on-cloudflare/SKILL.md -> references/tool-patterns.md',
+      'skills/cloudflare/cloudflare/references/durable-objects/README.md -> ../websockets/README.md',
+      'skills/cloudflare/cloudflare/references/tunnel/README.md -> ../access/',
+      'skills/cloudflare/cloudflare/references/tunnel/README.md -> ../warp/',
+    ],
   );
 
   const manifestText = await readFile(manifestPath, 'utf8');

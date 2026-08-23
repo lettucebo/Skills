@@ -1,7 +1,15 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 
 import { parse } from 'yaml';
+
+export class ManifestValidationError extends Error {
+  constructor(message, partialManifest) {
+    super(message);
+    this.name = 'ManifestValidationError';
+    this.partialManifest = partialManifest;
+  }
+}
 
 export async function loadManifest(manifestPath) {
   const absoluteManifestPath = path.resolve(manifestPath);
@@ -14,61 +22,80 @@ export async function loadManifest(manifestPath) {
 
   const repoRoot = path.resolve(path.dirname(absoluteManifestPath), '..');
   const existingSkillPaths = await collectSkillPaths(path.join(repoRoot, 'skills'));
-  const upstreams = normalizeUpstreams(parsed.upstreams);
-  const mappings = normalizeMappings(parsed.mappings, upstreams);
-  const orphans = normalizeOrphans(parsed.orphans);
-  const local = normalizeLocal(parsed.local);
-  const overrides = normalizeOverrides(parsed.overrides);
-
-  const coverageSources = new Map();
-  const existingSkillSet = new Set(existingSkillPaths);
-
-  for (const mapping of mappings) {
-    assertExistingSkillPath(mapping.path, existingSkillSet, 'Mapped');
-    addCoveragePath(coverageSources, mapping.path, 'mapping');
-  }
-
-  for (const orphan of orphans) {
-    assertExistingSkillPath(orphan.path, existingSkillSet, 'Orphan');
-    addCoveragePath(coverageSources, orphan.path, 'orphan');
-  }
-
-  for (const entry of local) {
-    const coveredByLocalRoot = existingSkillPaths.filter(
-      (skillPath) =>
-        skillPath === entry.root || skillPath.startsWith(`${entry.root}/`),
-    );
-
-    for (const coveredPath of coveredByLocalRoot) {
-      addCoveragePath(coverageSources, coveredPath, `local:${entry.root}`);
-    }
-  }
-
-  const uncoveredSkillPaths = existingSkillPaths.filter(
-    (skillPath) => !coverageSources.has(skillPath),
-  );
-
-  if (uncoveredSkillPaths.length > 0) {
-    throw new Error(
-      `Uncovered skill paths: ${uncoveredSkillPaths.sort().join(', ')}`,
-    );
-  }
-
-  const coveredPathSet = new Set([
-    ...mappings.map((entry) => entry.path),
-    ...orphans.map((entry) => entry.path),
-    ...Array.from(coverageSources.keys()),
-  ]);
-
-  validateOverrides(overrides, coveredPathSet, mappings);
-
-  return {
-    upstreams,
-    mappings,
-    orphans,
-    local,
-    overrides,
+  const partialManifest = {
+    upstreams: {},
+    mappings: [],
+    orphans: [],
+    local: [],
+    overrides: [],
+    linkExceptions: [],
   };
+
+  try {
+    await normalizeLinkExceptions(
+      parsed.linkExceptions ?? [],
+      repoRoot,
+      partialManifest.linkExceptions,
+    );
+    partialManifest.upstreams = normalizeUpstreams(parsed.upstreams);
+    partialManifest.mappings = normalizeMappings(
+      parsed.mappings,
+      partialManifest.upstreams,
+    );
+    partialManifest.orphans = normalizeOrphans(parsed.orphans);
+    partialManifest.local = normalizeLocal(parsed.local);
+    partialManifest.overrides = normalizeOverrides(parsed.overrides);
+
+    const coverageSources = new Map();
+    const existingSkillSet = new Set(existingSkillPaths);
+
+    for (const mapping of partialManifest.mappings) {
+      assertExistingSkillPath(mapping.path, existingSkillSet, 'Mapped');
+      addCoveragePath(coverageSources, mapping.path, 'mapping');
+    }
+
+    for (const orphan of partialManifest.orphans) {
+      assertExistingSkillPath(orphan.path, existingSkillSet, 'Orphan');
+      addCoveragePath(coverageSources, orphan.path, 'orphan');
+    }
+
+    for (const entry of partialManifest.local) {
+      const coveredByLocalRoot = existingSkillPaths.filter(
+        (skillPath) =>
+          skillPath === entry.root || skillPath.startsWith(`${entry.root}/`),
+      );
+
+      for (const coveredPath of coveredByLocalRoot) {
+        addCoveragePath(coverageSources, coveredPath, `local:${entry.root}`);
+      }
+    }
+
+    const uncoveredSkillPaths = existingSkillPaths.filter(
+      (skillPath) => !coverageSources.has(skillPath),
+    );
+
+    if (uncoveredSkillPaths.length > 0) {
+      throw new Error(
+        `Uncovered skill paths: ${uncoveredSkillPaths.sort().join(', ')}`,
+      );
+    }
+
+    const coveredPathSet = new Set([
+      ...partialManifest.mappings.map((entry) => entry.path),
+      ...partialManifest.orphans.map((entry) => entry.path),
+      ...Array.from(coverageSources.keys()),
+    ]);
+
+    validateOverrides(
+      partialManifest.overrides,
+      coveredPathSet,
+      partialManifest.mappings,
+    );
+  } catch (error) {
+    throw new ManifestValidationError(error.message, partialManifest);
+  }
+
+  return partialManifest;
 }
 
 function normalizeUpstreams(value) {
@@ -192,6 +219,59 @@ function normalizeOverrides(value) {
   });
 }
 
+async function normalizeLinkExceptions(value, repoRoot, normalizedExceptions = []) {
+  const linkExceptions = requireArray(value, 'linkExceptions');
+  const seenKeys = new Set();
+  const errors = [];
+
+  for (const [index, entry] of linkExceptions.entries()) {
+    try {
+      const normalizedEntry = requireObject(entry, `linkExceptions[${index}]`);
+      const linkException = {
+        sourcePath: normalizeRelativePath(
+          requireString(
+            normalizedEntry.sourcePath,
+            `linkExceptions[${index}].sourcePath`,
+          ),
+          `linkExceptions[${index}].sourcePath`,
+        ),
+        target: normalizeRelativeLinkTarget(
+          requireString(normalizedEntry.target, `linkExceptions[${index}].target`),
+          `linkExceptions[${index}].target`,
+        ),
+        reason: requireString(normalizedEntry.reason, `linkExceptions[${index}].reason`),
+        upstreamUrl: requireString(
+          normalizedEntry.upstreamUrl,
+          `linkExceptions[${index}].upstreamUrl`,
+        ),
+      };
+      const exceptionKey = createLinkExceptionKey(
+        linkException.sourcePath,
+        linkException.target,
+      );
+
+      if (seenKeys.has(exceptionKey)) {
+        throw new Error(`Link exception declared more than once: ${exceptionKey}`);
+      }
+
+      if (!(await fileExists(path.join(repoRoot, ...linkException.sourcePath.split('/'))))) {
+        throw new Error(`Link exception source file does not exist: ${linkException.sourcePath}`);
+      }
+
+      seenKeys.add(exceptionKey);
+      normalizedExceptions.push(linkException);
+    } catch (error) {
+      errors.push(error.message);
+    }
+  }
+
+  if (errors.length > 0) {
+    throw new Error(errors.join('\n'));
+  }
+
+  return normalizedExceptions;
+}
+
 function validateOverrides(overrides, coveredPaths, mappings) {
   const seenPaths = new Set();
   const mappingByPath = new Map(mappings.map((mapping) => [mapping.path, mapping]));
@@ -280,6 +360,38 @@ function normalizeRelativePath(value, fieldName) {
   }
 
   return normalized;
+}
+
+function normalizeRelativeLinkTarget(value, fieldName) {
+  const normalized = toPosixPath(value.trim());
+
+  if (!normalized) {
+    throw new Error(`${fieldName} must not be empty.`);
+  }
+
+  if (
+    normalized.startsWith('/')
+    || normalized.startsWith('#')
+    || /^[A-Za-z]:\//.test(normalized)
+    || /^[A-Za-z][A-Za-z0-9+.-]*:/u.test(normalized)
+  ) {
+    throw new Error(`${fieldName} must be a relative link target.`);
+  }
+
+  return normalized;
+}
+
+async function fileExists(targetPath) {
+  try {
+    const targetStat = await stat(targetPath);
+    return targetStat.isFile();
+  } catch {
+    return false;
+  }
+}
+
+function createLinkExceptionKey(sourcePath, target) {
+  return `${sourcePath} -> ${target}`;
 }
 
 function toPosixPath(value) {

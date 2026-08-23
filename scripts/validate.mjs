@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 import { parseSkillFrontmatter } from './lib/frontmatter.mjs';
 import { collectManagedRelativeLinks } from './lib/links.mjs';
-import { loadManifest } from './lib/manifest.mjs';
+import { loadManifest, ManifestValidationError } from './lib/manifest.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const defaultRepoRoot = path.resolve(__dirname, '..');
@@ -21,17 +21,24 @@ export async function validateRepository(repoRoot = defaultRepoRoot) {
   const absoluteRepoRoot = path.resolve(repoRoot);
   const skillsRoot = path.join(absoluteRepoRoot, 'skills');
   const errors = [];
+  let manifest;
 
   try {
-    await loadManifest(path.join(absoluteRepoRoot, 'catalog', 'sources.yml'));
+    manifest = await loadManifest(path.join(absoluteRepoRoot, 'catalog', 'sources.yml'));
   } catch (error) {
     errors.push(error.message);
+    manifest = error instanceof ManifestValidationError ? error.partialManifest : undefined;
   }
 
   const skillDirectories = await collectSkillDirectories(skillsRoot);
   const sourceRootErrors = await collectSourceRootErrors(skillsRoot, absoluteRepoRoot);
   const skillNames = new Map();
+  const warnings = [];
   let linkCount = 0;
+  const linkExceptionsByKey = new Map(
+    (manifest?.linkExceptions ?? []).map((entry) => [createLinkExceptionKey(entry.sourcePath, entry.target), entry]),
+  );
+  const matchedLinkExceptionKeys = new Set();
 
   errors.push(...sourceRootErrors);
 
@@ -39,16 +46,22 @@ export async function validateRepository(repoRoot = defaultRepoRoot) {
     const skillPath = toPosixPath(path.relative(absoluteRepoRoot, skillDirectory));
     const skillFilePath = path.join(skillDirectory, 'SKILL.md');
     const skillDocumentPath = `${skillPath}/SKILL.md`;
+    let skillText;
 
     try {
-      const skillText = await readFile(skillFilePath, 'utf8');
+      skillText = await readFile(skillFilePath, 'utf8');
+    } catch (error) {
+      errors.push(error.message);
+      continue;
+    }
+
+    try {
       const frontmatter = parseSkillFrontmatter(skillText, skillDocumentPath);
       const existingPaths = skillNames.get(frontmatter.name) ?? [];
       existingPaths.push(skillDocumentPath);
       skillNames.set(frontmatter.name, existingPaths);
     } catch (error) {
       errors.push(error.message);
-      continue;
     }
 
     const markdownFiles = await collectMarkdownFiles(skillDirectory);
@@ -64,7 +77,29 @@ export async function validateRepository(repoRoot = defaultRepoRoot) {
       linkCount += managedLinks.length;
 
       for (const link of managedLinks) {
-        if (!(await pathExists(path.join(absoluteRepoRoot, ...link.resolvedPath.split('/'))))) {
+        const linkExceptionKey = createLinkExceptionKey(markdownPath, link.originalTarget);
+        const linkException = linkExceptionsByKey.get(linkExceptionKey);
+        const targetExists = await pathExists(
+          path.join(absoluteRepoRoot, ...link.resolvedPath.split('/')),
+        );
+
+        if (linkException) {
+          matchedLinkExceptionKeys.add(linkExceptionKey);
+
+          if (targetExists) {
+            errors.push(
+              `Stale link exception in ${link.markdownPath}: ${link.originalTarget} now resolves to ${link.resolvedPath}`,
+            );
+            continue;
+          }
+
+          warnings.push(
+            `Known upstream broken link in ${link.markdownPath}: ${link.originalTarget} -> ${link.resolvedPath}`,
+          );
+          continue;
+        }
+
+        if (!targetExists) {
           errors.push(
             `Broken relative link in ${link.markdownPath}: ${link.originalTarget} -> ${link.resolvedPath}`,
           );
@@ -81,6 +116,18 @@ export async function validateRepository(repoRoot = defaultRepoRoot) {
     errors.push(`Duplicate skill name "${name}": ${skillPaths.sort().join(', ')}`);
   }
 
+  for (const linkException of manifest?.linkExceptions ?? []) {
+    const linkExceptionKey = createLinkExceptionKey(linkException.sourcePath, linkException.target);
+
+    if (matchedLinkExceptionKeys.has(linkExceptionKey)) {
+      continue;
+    }
+
+    errors.push(
+      `Stale link exception in ${linkException.sourcePath}: ${linkException.target} no longer exists in the source file`,
+    );
+  }
+
   const sortedErrors = errors.sort((left, right) => left.localeCompare(right));
 
   if (sortedErrors.length > 0) {
@@ -90,6 +137,8 @@ export async function validateRepository(repoRoot = defaultRepoRoot) {
   return {
     skillCount: skillDirectories.length,
     linkCount,
+    knownBrokenLinkCount: warnings.length,
+    warnings,
   };
 }
 
@@ -171,6 +220,10 @@ async function pathExists(targetPath) {
   }
 }
 
+function createLinkExceptionKey(sourcePath, target) {
+  return `${sourcePath} -> ${target}`;
+}
+
 function toPosixPath(value) {
   return value.replace(/\\/g, '/');
 }
@@ -178,7 +231,13 @@ function toPosixPath(value) {
 async function main() {
   try {
     const result = await validateRepository(defaultRepoRoot);
+    for (const warning of result.warnings) {
+      console.warn(warning);
+    }
     console.log(`Validated ${result.skillCount} skills`);
+    console.log(
+      `${result.knownBrokenLinkCount} known upstream broken link${result.knownBrokenLinkCount === 1 ? '' : 's'}`,
+    );
   } catch (error) {
     if (error instanceof ValidationError) {
       for (const validationError of error.errors) {

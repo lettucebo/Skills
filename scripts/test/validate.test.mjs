@@ -188,6 +188,451 @@ overrides: []
   });
 });
 
+test('validateRepository accepts broken managed relative markdown links with exact manifest exceptions', async () => {
+  await withFixture('accepted-link-exception', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      [
+        '---',
+        'name: alpha',
+        'description: Alpha skill',
+        '---',
+        '',
+        '[Broken reference](references/missing.md)',
+      ].join('\n'),
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  fixtures:
+    repository: fixtures/repo
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/missing.md
+    reason: Upstream fixture intentionally omits this reference.
+    upstreamUrl: https://example.invalid/fixtures/repo
+`,
+    );
+
+    const result = await validateRepository(fixtureRoot);
+
+    assert.equal(result.skillCount, 1);
+    assert.equal(result.linkCount, 1);
+    assert.equal(result.knownBrokenLinkCount, 1);
+    assert.deepEqual(result.warnings, [
+      'Known upstream broken link in skills/azure/alpha/SKILL.md: references/missing.md -> skills/azure/alpha/references/missing.md',
+    ]);
+  });
+});
+
+test('validateRepository still rejects broken managed relative markdown links when the manifest exception does not exactly match', async () => {
+  await withFixture('non-matching-link-exception', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      [
+        '---',
+        'name: alpha',
+        'description: Alpha skill',
+        '---',
+        '',
+        '[Broken reference](references/missing.md)',
+      ].join('\n'),
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  fixtures:
+    repository: fixtures/repo
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/other.md
+    reason: Does not match the actual broken link.
+    upstreamUrl: https://example.invalid/fixtures/repo
+`,
+    );
+
+    await expectValidationFailure(
+      fixtureRoot,
+      /Broken relative link in skills\/azure\/alpha\/SKILL\.md: references\/missing\.md -> skills\/azure\/alpha\/references\/missing\.md/,
+    );
+  });
+});
+
+test('validateRepository preserves known broken link classification when manifest has an unrelated validation failure', async () => {
+  await withFixture('manifest-failure-known-link', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      [
+        '---',
+        'name: alpha',
+        'description: Alpha skill',
+        '---',
+        '',
+        '[Broken reference](references/missing.md)',
+      ].join('\n'),
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  fixtures:
+    repository: fixtures/repo
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha-copy
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/missing.md
+    reason: Known upstream issue should stay classified as known.
+    upstreamUrl: https://example.invalid/fixtures/repo
+`,
+    );
+
+    await assert.rejects(
+      validateRepository(fixtureRoot),
+      (error) => {
+        assert.equal(error?.name, 'ValidationError');
+        assert.match(error.message, /covered more than once: skills\/azure\/alpha/);
+        assert.doesNotMatch(error.message, /Broken relative link in skills\/azure\/alpha\/SKILL\.md/);
+        return true;
+      },
+    );
+  });
+});
+
+test('validateRepository preserves known broken link classification when upstream validation fails before mappings', async () => {
+  await withFixture('upstream-failure-known-link', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      [
+        '---',
+        'name: alpha',
+        'description: Alpha skill',
+        '---',
+        '',
+        '[Broken reference](references/missing.md)',
+      ].join('\n'),
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams: []
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/missing.md
+    reason: Known upstream issue should stay classified as known.
+    upstreamUrl: https://example.invalid/fixtures/repo
+`,
+    );
+
+    await assert.rejects(
+      validateRepository(fixtureRoot),
+      (error) => {
+        assert.equal(error?.name, 'ValidationError');
+        assert.match(error.message, /Manifest upstreams must be an object\./);
+        assert.doesNotMatch(error.message, /Broken relative link in skills\/azure\/alpha\/SKILL\.md/);
+        return true;
+      },
+    );
+  });
+});
+
+test('validateRepository preserves known broken link classification when a later link exception entry is invalid', async () => {
+  await withFixture('invalid-later-link-exception', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      [
+        '---',
+        'name: alpha',
+        'description: Alpha skill',
+        '---',
+        '',
+        '[Broken reference](references/missing.md)',
+      ].join('\n'),
+    );
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/beta',
+      '---\nname: beta\ndescription: Beta skill\n---\n',
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  fixtures:
+    repository: fixtures/repo
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+  - path: skills/azure/beta
+    upstream: fixtures
+    source: skills/beta
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/missing.md
+    reason: Known upstream issue should stay classified as known.
+    upstreamUrl: https://example.invalid/fixtures/repo
+  - sourcePath: skills/azure/beta/SKILL.md
+    target: references/other.md
+    reason: ""
+    upstreamUrl: https://example.invalid/fixtures/repo
+`,
+    );
+
+    await assert.rejects(
+      validateRepository(fixtureRoot),
+      (error) => {
+        assert.equal(error?.name, 'ValidationError');
+        assert.match(error.message, /linkExceptions\[1\]\.reason must be a non-empty string\./);
+        assert.doesNotMatch(error.message, /Broken relative link in skills\/azure\/alpha\/SKILL\.md/);
+        return true;
+      },
+    );
+  });
+});
+
+test('validateRepository preserves known broken link classification when an earlier link exception entry is invalid', async () => {
+  await withFixture('invalid-earlier-link-exception', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      [
+        '---',
+        'name: alpha',
+        'description: Alpha skill',
+        '---',
+        '',
+        '[Broken reference](references/missing.md)',
+      ].join('\n'),
+    );
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/beta',
+      '---\nname: beta\ndescription: Beta skill\n---\n',
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  fixtures:
+    repository: fixtures/repo
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+  - path: skills/azure/beta
+    upstream: fixtures
+    source: skills/beta
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/beta/SKILL.md
+    target: references/other.md
+    reason: ""
+    upstreamUrl: https://example.invalid/fixtures/repo
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/missing.md
+    reason: Known upstream issue should stay classified as known.
+    upstreamUrl: https://example.invalid/fixtures/repo
+`,
+    );
+
+    await assert.rejects(
+      validateRepository(fixtureRoot),
+      (error) => {
+        assert.equal(error?.name, 'ValidationError');
+        assert.match(error.message, /linkExceptions\[0\]\.reason must be a non-empty string\./);
+        assert.doesNotMatch(error.message, /Broken relative link in skills\/azure\/alpha\/SKILL\.md/);
+        return true;
+      },
+    );
+  });
+});
+
+test('validateRepository rejects stale link exceptions when the target now resolves', async () => {
+  await withFixture('stale-link-exception-resolved', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      [
+        '---',
+        'name: alpha',
+        'description: Alpha skill',
+        '---',
+        '',
+        '[Guide](references/guide.md)',
+      ].join('\n'),
+    );
+    await writeRepoFile(
+      fixtureRoot,
+      'skills/azure/alpha/references/guide.md',
+      '# Guide\n',
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  fixtures:
+    repository: fixtures/repo
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/guide.md
+    reason: Stale once the target exists.
+    upstreamUrl: https://example.invalid/fixtures/repo
+`,
+    );
+
+    await expectValidationFailure(
+      fixtureRoot,
+      /Stale link exception in skills\/azure\/alpha\/SKILL\.md: references\/guide\.md now resolves to skills\/azure\/alpha\/references\/guide\.md/,
+    );
+  });
+});
+
+test('validateRepository rejects stale link exceptions when the source no longer contains the exact link target', async () => {
+  await withFixture('stale-link-exception-missing-link', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      [
+        '---',
+        'name: alpha',
+        'description: Alpha skill',
+        '---',
+        '',
+        '[Guide](references/guide-v2.md)',
+      ].join('\n'),
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  fixtures:
+    repository: fixtures/repo
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/guide.md
+    reason: Stale because the exact link changed.
+    upstreamUrl: https://example.invalid/fixtures/repo
+`,
+    );
+
+    await expectValidationFailure(
+      fixtureRoot,
+      /Stale link exception in skills\/azure\/alpha\/SKILL\.md: references\/guide\.md no longer exists in the source file/,
+    );
+  });
+});
+
+test('validateRepository does not mark known exceptions as stale when frontmatter validation fails', async () => {
+  await withFixture('frontmatter-failure-known-link', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      [
+        '---',
+        'name: ""',
+        'description: Alpha skill',
+        '---',
+        '',
+        '[Broken reference](references/missing.md)',
+      ].join('\n'),
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  fixtures:
+    repository: fixtures/repo
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: skills/azure/alpha/SKILL.md
+    target: references/missing.md
+    reason: Known upstream issue should stay classified as known.
+    upstreamUrl: https://example.invalid/fixtures/repo
+`,
+    );
+
+    await assert.rejects(
+      validateRepository(fixtureRoot),
+      (error) => {
+        assert.equal(error?.name, 'ValidationError');
+        assert.match(error.message, /Frontmatter field "name" must be a non-empty string: skills\/azure\/alpha\/SKILL\.md/);
+        assert.doesNotMatch(error.message, /Stale link exception in skills\/azure\/alpha\/SKILL\.md/);
+        return true;
+      },
+    );
+  });
+});
+
 test('validateRepository rejects source roots that expose installable SKILL.md files', async () => {
   await withFixture('source-root-skill', async (fixtureRoot) => {
     await createSkill(
@@ -319,5 +764,7 @@ overrides: []
 
     assert.equal(result.skillCount, 1);
     assert.equal(result.linkCount, 3);
+    assert.equal(result.knownBrokenLinkCount, 0);
+    assert.deepEqual(result.warnings, []);
   });
 });

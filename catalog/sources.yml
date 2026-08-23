@@ -355,3 +355,21 @@ overrides:
     transform: rename-frontmatter-name
     source: skills/skill-creator
     note: Renames the upstream frontmatter name "skill-creator" to "microsoft-skill-creator" to keep registry skill names globally unique.
+
+linkExceptions:
+  - sourcePath: skills/cloudflare/building-mcp-server-on-cloudflare/SKILL.md
+    target: references/tool-patterns.md
+    reason: Upstream cloudflare/skills currently ships this broken relative link and the local mirror must remain unchanged until upstream fixes it.
+    upstreamUrl: https://github.com/cloudflare/skills
+  - sourcePath: skills/cloudflare/cloudflare/references/durable-objects/README.md
+    target: ../websockets/README.md
+    reason: Upstream cloudflare/skills currently ships this broken relative link and the local mirror must remain unchanged until upstream fixes it.
+    upstreamUrl: https://github.com/cloudflare/skills
+  - sourcePath: skills/cloudflare/cloudflare/references/tunnel/README.md
+    target: ../access/
+    reason: Upstream cloudflare/skills currently ships this broken relative link and the local mirror must remain unchanged until upstream fixes it.
+    upstreamUrl: https://github.com/cloudflare/skills
+  - sourcePath: skills/cloudflare/cloudflare/references/tunnel/README.md
+    target: ../warp/
+    reason: Upstream cloudflare/skills currently ships this broken relative link and the local mirror must remain unchanged until upstream fixes it.
+    upstreamUrl: https://github.com/cloudflare/skills
