@@ -4,6 +4,10 @@ import path from 'node:path';
 import { parse } from 'yaml';
 import { createLinkExceptionKey } from './links.mjs';
 import { isShaReference } from './git-source.mjs';
+import {
+  assertNoDestinationCollisions,
+  assertNoPathTraversal,
+} from './guardrails.mjs';
 
 const { posix } = path;
 
@@ -58,6 +62,10 @@ export async function loadManifest(manifestPath) {
       assertExistingSkillPath(mapping.path, existingSkillSet, 'Mapped');
       addCoveragePath(coverageSources, mapping.path, 'mapping');
     }
+
+    assertNoDestinationCollisions(
+      partialManifest.mappings.map((mapping) => mapping.path),
+    );
 
     for (const orphan of partialManifest.orphans) {
       assertExistingSkillPath(orphan.path, existingSkillSet, 'Orphan');
@@ -380,7 +388,8 @@ async function walkSkillTree(currentPath, collectedPaths, skillsRoot) {
 }
 
 function normalizeRelativePath(value, fieldName) {
-  const normalized = toPosixPath(value.trim())
+  const safe = assertNoPathTraversal(value, fieldName);
+  const normalized = toPosixPath(safe.trim())
     .replace(/^\.\//, '')
     .replace(/\/+$/, '');
 

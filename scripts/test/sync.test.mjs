@@ -24,6 +24,19 @@ import {
 } from '../transform.mjs';
 import { assertWritableSkillPath, runSync, SyncProtectionError } from '../sync.mjs';
 
+function lockDoc(skills) {
+  return `${JSON.stringify(
+    {
+      release: '1.0.0',
+      generatedAt: '2026-01-01T00:00:00Z',
+      counts: { total: skills.length, mapped: skills.length, orphan: 0, local: 0 },
+      skills,
+    },
+    null,
+    2,
+  )}\n`;
+}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const runtimeRoot = path.join(__dirname, '.runtime');
 
@@ -630,6 +643,179 @@ test('runSync fails before writes and cleans up when a mapping targets a protect
       name.startsWith('skills-sync-'),
     );
     assert.deepEqual(leftovers, []);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Task 7: guardrail + classification exposed on the change set
+// ---------------------------------------------------------------------------
+
+test('runSync exposes a minor classification and unblocked guardrail for additions', async () => {
+  const workspace = await makeTempDir('sync-classify');
+  try {
+    const { repoRoot } = await buildSyncFixture(workspace);
+    const workspaceRoot = path.join(workspace, 'ws');
+
+    const repoHashBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+    const { changeSet } = await runSync({ repoRoot, dryRun: true, workspaceRoot });
+    const repoHashAfter = await hashDirectory(path.join(repoRoot, 'skills'));
+
+    // exposing classification must not weaken dry-run write safety
+    assert.equal(repoHashAfter, repoHashBefore);
+
+    // only additions changed; the unverified baseline is NOT counted as a change
+    assert.equal(changeSet.classification.diffClass, 'minor');
+    assert.equal(
+      changeSet.classification.commitMessage,
+      'feat(skills): sync new upstream skills',
+    );
+    assert.equal(changeSet.classification.pendingBaseline, 1);
+
+    assert.equal(changeSet.guardrail.blocked, false);
+    const demo = changeSet.guardrail.groups.find((group) => group.upstream === 'demo');
+    assert.equal(demo.removed, 0);
+    assert.equal(demo.status, 'ok');
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('runSync blocks and reports a major classification when a mapped skill is removed', async () => {
+  const workspace = await makeTempDir('sync-removed');
+  try {
+    const upstream = await initUpstreamRepo(path.join(workspace, 'upstream'), {
+      'skills/kept/SKILL.md': skillDoc('kept'),
+    });
+    const repoRoot = path.join(workspace, 'repo');
+    await writeFileEnsured(
+      path.join(repoRoot, 'skills', 'demo', 'kept', 'SKILL.md'),
+      skillDoc('kept'),
+    );
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'sources.yml'),
+      [
+        'upstreams:',
+        '  demo:',
+        `    repository: "${upstream.url}"`,
+        '    reference: refs/heads/main',
+        'mappings:',
+        '  - path: skills/demo/kept',
+        '    upstream: demo',
+        '    source: skills/kept',
+        'orphans: []',
+        'local: []',
+        'overrides: []',
+        'linkExceptions: []',
+        '',
+      ].join('\n'),
+    );
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'skills.lock.json'),
+      lockDoc([
+        {
+          path: 'skills/demo/kept',
+          name: 'kept',
+          category: 'mapped',
+          version: '1.0.0',
+          baseline: 'unverified',
+          license: 'Unknown',
+          redistributable: true,
+          snapshotHash: 'sha256:0',
+          upstream: {
+            repository: upstream.url,
+            reference: 'refs/heads/main',
+            source: 'skills/kept',
+            commit: null,
+          },
+        },
+        {
+          path: 'skills/demo/removed-one',
+          name: 'removed-one',
+          category: 'mapped',
+          version: '1.0.0',
+          baseline: 'unverified',
+          license: 'Unknown',
+          redistributable: true,
+          snapshotHash: 'sha256:1',
+          upstream: {
+            repository: upstream.url,
+            reference: 'refs/heads/main',
+            source: 'skills/removed-one',
+            commit: null,
+          },
+        },
+      ]),
+    );
+
+    const { changeSet } = await runSync({
+      repoRoot,
+      dryRun: true,
+      workspaceRoot: path.join(workspace, 'ws'),
+    });
+
+    assert.deepEqual(
+      changeSet.removed.map((entry) => entry.path),
+      ['skills/demo/removed-one'],
+    );
+    assert.equal(changeSet.classification.diffClass, 'major');
+    assert.equal(
+      changeSet.classification.commitMessage,
+      'feat(skills)!: sync upstream changes',
+    );
+
+    assert.equal(changeSet.guardrail.blocked, true);
+    const demo = changeSet.guardrail.groups.find((group) => group.upstream === 'demo');
+    assert.equal(demo.removed, 1);
+    assert.equal(demo.status, 'small-group-removal');
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('runSync fails fast on a malformed upstream SKILL.md instead of marking it unavailable', async () => {
+  const workspace = await makeTempDir('sync-malformed');
+  try {
+    const upstream = await initUpstreamRepo(path.join(workspace, 'upstream'), {
+      'skills/broken/SKILL.md': '# broken\n\nNo frontmatter here.\n',
+    });
+    const repoRoot = path.join(workspace, 'repo');
+    await writeFileEnsured(
+      path.join(repoRoot, 'skills', 'demo', 'broken', 'SKILL.md'),
+      skillDoc('broken'),
+    );
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'sources.yml'),
+      [
+        'upstreams:',
+        '  demo:',
+        `    repository: "${upstream.url}"`,
+        '    reference: refs/heads/main',
+        'mappings:',
+        '  - path: skills/demo/broken',
+        '    upstream: demo',
+        '    source: skills/broken',
+        'orphans: []',
+        'local: []',
+        'overrides: []',
+        'linkExceptions: []',
+        '',
+      ].join('\n'),
+    );
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'skills.lock.json'),
+      lockDoc([]),
+    );
+
+    await assert.rejects(
+      runSync({
+        repoRoot,
+        dryRun: true,
+        workspaceRoot: path.join(workspace, 'ws'),
+      }),
+      (error) => /frontmatter/i.test(error.message),
+    );
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }
