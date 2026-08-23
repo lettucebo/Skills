@@ -39,3 +39,4 @@ output/
 
 # Logs
 *.log
+scripts/test/.runtime/

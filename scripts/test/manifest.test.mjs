@@ -138,6 +138,37 @@ overrides: []
   });
 });
 
+test('loadManifest rejects overrides whose declared source disagrees with the mapping source', async () => {
+  await withFixture('override-source-mismatch', async (fixtureRoot) => {
+    await createSkill(fixtureRoot, path.join('skills', 'azure', 'alpha'));
+
+    const manifestPath = await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  awesome-copilot:
+    repository: github/awesome-copilot
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: awesome-copilot
+    source: skills/alpha
+orphans: []
+local: []
+overrides:
+  - path: skills/azure/alpha
+    transform: rename-local-skill
+    source: skills/beta
+`,
+    );
+
+    await assert.rejects(
+      loadManifest(manifestPath),
+      /Override source mismatch for skills\/azure\/alpha: expected skills\/alpha, received skills\/beta/,
+    );
+  });
+});
+
 test('loadManifest rejects the same skill path across categories', async () => {
   await withFixture('multi-category', async (fixtureRoot) => {
     await createSkill(fixtureRoot, path.join('skills', 'azure', 'alpha'));

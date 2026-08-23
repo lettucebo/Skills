@@ -60,7 +60,7 @@ export async function loadManifest(manifestPath) {
     ...Array.from(coverageSources.keys()),
   ]);
 
-  validateOverrides(overrides, coveredPathSet);
+  validateOverrides(overrides, coveredPathSet, mappings);
 
   return {
     upstreams,
@@ -192,8 +192,9 @@ function normalizeOverrides(value) {
   });
 }
 
-function validateOverrides(overrides, coveredPaths) {
+function validateOverrides(overrides, coveredPaths, mappings) {
   const seenPaths = new Set();
+  const mappingByPath = new Map(mappings.map((mapping) => [mapping.path, mapping]));
 
   for (const override of overrides) {
     if (!coveredPaths.has(override.path)) {
@@ -202,6 +203,18 @@ function validateOverrides(overrides, coveredPaths) {
 
     if (seenPaths.has(override.path)) {
       throw new Error(`Override declared more than once for path: ${override.path}`);
+    }
+
+    const coveredMapping = mappingByPath.get(override.path);
+
+    if (
+      coveredMapping &&
+      'source' in override &&
+      override.source !== coveredMapping.source
+    ) {
+      throw new Error(
+        `Override source mismatch for ${override.path}: expected ${coveredMapping.source}, received ${override.source}`,
+      );
     }
 
     seenPaths.add(override.path);

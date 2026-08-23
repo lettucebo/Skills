@@ -16,7 +16,7 @@ skills/
 ├── cloudflare/            ← Cloudflare Developer Platform 技能
 ├── dotnet/                ← .NET / C# 開發技能
 ├── github/                ← GitHub 工作流程技能
-├── google-tag-manager/    ← GTM 與 Go-To-Market 策略技能
+├── gtm/                   ← GTM 與 Go-To-Market 策略技能
 ├── microsoft/             ← Microsoft AI Foundry / Azure SDK 技能
 ├── power-platform/        ← Power BI、Power Apps、Fabric 技能
 ├── tampermonkey/          ← Tampermonkey 使用者腳本技能
@@ -41,7 +41,7 @@ hooks/                     ← Copilot Hook 腳本集合
 | [cloudflare](skills/cloudflare/) | 9 | Cloudflare Workers、Durable Objects、Agents SDK | [README](skills/cloudflare/README.md) |
 | [dotnet](skills/dotnet/) | 14 | C# 測試（NUnit/xUnit/MSTest/TUnit）、EF Core、NuGet、非同步 | — |
 | [github](skills/github/) | 8 | GitHub Issues、PR、CodeQL、Dependabot、gh CLI | — |
-| [google-tag-manager](skills/google-tag-manager/) | 11 | GTM 技術整合、產品策略、企業銷售、AI GTM | — |
+| [gtm](skills/gtm/) | 11 | GTM 技術整合、產品策略、企業銷售、AI GTM | — |
 | [microsoft](skills/microsoft/) | 12 | Azure SDK、AI Foundry、Copilot SDK、MCP Builder | [README](skills/microsoft/README.md) |
 | [power-platform](skills/power-platform/) | 8 | Power BI（DAX、模型、報表）、Power Apps、Fabric Lakehouse | — |
 | [tampermonkey](skills/tampermonkey/) | 1 | Tampermonkey 使用者腳本開發（API、安全、除錯） | — |
@@ -135,7 +135,7 @@ hooks/                     ← Copilot Hook 腳本集合
 | `publish-to-pages` | 發布到 GitHub Pages |
 | `secret-scanning` | GitHub Secret Scanning 設定 |
 
-### google-tag-manager（11 個）
+### gtm（11 個）
 
 | 技能 | 說明 |
 |------|------|

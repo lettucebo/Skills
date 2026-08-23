@@ -107,37 +107,37 @@ mappings:
   - path: skills/github/secret-scanning
     upstream: awesome-copilot
     source: skills/secret-scanning
-  - path: skills/google-tag-manager/gtm-0-to-1-launch
+  - path: skills/gtm/gtm-0-to-1-launch
     upstream: awesome-copilot
     source: skills/gtm-0-to-1-launch
-  - path: skills/google-tag-manager/gtm-ai-gtm
+  - path: skills/gtm/gtm-ai-gtm
     upstream: awesome-copilot
     source: skills/gtm-ai-gtm
-  - path: skills/google-tag-manager/gtm-board-and-investor-communication
+  - path: skills/gtm/gtm-board-and-investor-communication
     upstream: awesome-copilot
     source: skills/gtm-board-and-investor-communication
-  - path: skills/google-tag-manager/gtm-developer-ecosystem
+  - path: skills/gtm/gtm-developer-ecosystem
     upstream: awesome-copilot
     source: skills/gtm-developer-ecosystem
-  - path: skills/google-tag-manager/gtm-enterprise-account-planning
+  - path: skills/gtm/gtm-enterprise-account-planning
     upstream: awesome-copilot
     source: skills/gtm-enterprise-account-planning
-  - path: skills/google-tag-manager/gtm-enterprise-onboarding
+  - path: skills/gtm/gtm-enterprise-onboarding
     upstream: awesome-copilot
     source: skills/gtm-enterprise-onboarding
-  - path: skills/google-tag-manager/gtm-operating-cadence
+  - path: skills/gtm/gtm-operating-cadence
     upstream: awesome-copilot
     source: skills/gtm-operating-cadence
-  - path: skills/google-tag-manager/gtm-partnership-architecture
+  - path: skills/gtm/gtm-partnership-architecture
     upstream: awesome-copilot
     source: skills/gtm-partnership-architecture
-  - path: skills/google-tag-manager/gtm-positioning-strategy
+  - path: skills/gtm/gtm-positioning-strategy
     upstream: awesome-copilot
     source: skills/gtm-positioning-strategy
-  - path: skills/google-tag-manager/gtm-product-led-growth
+  - path: skills/gtm/gtm-product-led-growth
     upstream: awesome-copilot
     source: skills/gtm-product-led-growth
-  - path: skills/google-tag-manager/gtm-technical-product-pricing
+  - path: skills/gtm/gtm-technical-product-pricing
     upstream: awesome-copilot
     source: skills/gtm-technical-product-pricing
   - path: skills/power-platform/fabric-lakehouse
@@ -310,7 +310,7 @@ mappings:
     upstream: aiskillstore
     source: skills/github/gh-cli
   # wookstar
-  - path: skills/tampermonkey
+  - path: skills/tampermonkey/tampermonkey
     upstream: wookstar
     source: plugins/tampermonkey/skills/tampermonkey
 
@@ -339,3 +339,19 @@ overrides:
     transform: rename-local-skill
     source: skills/sandbox-stable
     note: Keeps the current local folder name while tracking the upstream stable Sandbox skill path.
+  - path: skills/claude/mcp-builder
+    transform: rename-frontmatter-name
+    source: skills/mcp-builder
+    note: Renames the upstream frontmatter name "mcp-builder" to "claude-mcp-builder" to keep registry skill names globally unique.
+  - path: skills/microsoft/mcp-builder
+    transform: rename-frontmatter-name
+    source: skills/mcp-builder
+    note: Renames the upstream frontmatter name "mcp-builder" to "microsoft-mcp-builder" to keep registry skill names globally unique.
+  - path: skills/claude/skill-creator
+    transform: rename-frontmatter-name
+    source: skills/skill-creator
+    note: Renames the upstream frontmatter name "skill-creator" to "claude-skill-creator" to keep registry skill names globally unique.
+  - path: skills/microsoft/skill-creator
+    transform: rename-frontmatter-name
+    source: skills/skill-creator
+    note: Renames the upstream frontmatter name "skill-creator" to "microsoft-skill-creator" to keep registry skill names globally unique.
