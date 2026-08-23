@@ -240,6 +240,19 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
         continue;
       }
 
+      if (!sourceStat.isDirectory()) {
+        // A non-directory upstream source (e.g. a single command markdown file
+        // consumed by an unimplemented `command-to-skill` transform) cannot be
+        // staged by the directory-based pipeline. Record it as a blocker rather
+        // than crashing so the dry-run diff/artifact stays deterministic.
+        unavailable.push({
+          path: mapping.path,
+          upstream: upstreamName,
+          reason: 'source-not-directory',
+        });
+        continue;
+      }
+
       const stagePath = path.join(stagingDir, ...mapping.path.split('/'));
       await mkdir(path.dirname(stagePath), { recursive: true });
       await cp(sourceAbs, stagePath, { recursive: true });
@@ -489,6 +502,8 @@ export async function runSync(options = {}) {
     const json = serializeChangeSet(changeSet);
 
     if (output) {
+      const outputDir = path.dirname(path.resolve(output));
+      await mkdir(outputDir, { recursive: true });
       await writeFile(output, json);
     }
 

@@ -237,6 +237,15 @@ async function stageMappedSkills({ manifest, workRoot, runGit }) {
         continue;
       }
 
+      if (!sourceStat.isDirectory()) {
+        // Non-directory upstream sources (e.g. a single command markdown file
+        // requiring an unimplemented `command-to-skill` transform) cannot be
+        // staged by the directory pipeline. Refuse cleanly so the baseline is
+        // all-or-nothing rather than crashing mid-stage.
+        unavailable.push({ path: mapping.path, upstream: upstreamName, reason: 'source-not-directory' });
+        continue;
+      }
+
       const stageDir = path.join(stagingDir, ...mapping.path.split('/'));
       await mkdir(path.dirname(stageDir), { recursive: true });
       await cp(sourceAbs, stageDir, { recursive: true });

@@ -579,6 +579,42 @@ test('applyBaseline refuses when a mapped source is missing upstream', async () 
   }
 });
 
+test('applyBaseline refuses a non-directory (command-to-skill) source and leaves repo intact', async () => {
+  const workspace = await makeTempDir('baseline-filesrc');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+
+    // Point a mapping at a single upstream file (analog of a command-to-skill
+    // `.md` source) which the directory pipeline cannot stage.
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources.replace('source: skills/beta', 'source: skills/beta/SKILL.md'),
+    );
+
+    const before = await hashDirectory(path.join(repoRoot, 'skills'));
+    const lockBefore = await readFile(
+      path.join(repoRoot, 'catalog', 'skills.lock.json'),
+      'utf8',
+    );
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree }),
+      (error) => error instanceof BaselineError && /unavailable|blocking/i.test(error.message),
+    );
+
+    // No crash, no partial mutation: repo bytes and lock are untouched.
+    assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), before);
+    assert.equal(
+      await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+      lockBefore,
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
 test('applyBaseline rolls back completely when post-apply validation fails', async () => {
   const workspace = await makeTempDir('baseline-rollback');
   try {

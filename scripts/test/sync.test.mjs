@@ -846,6 +846,46 @@ test('runSync reports baseline as blocked when a mapped source is missing', asyn
   }
 });
 
+test('runSync reports a non-directory source as a blocker instead of crashing', async () => {
+  const workspace = await makeTempDir('sync-baseline-filesrc');
+  try {
+    const { repoRoot } = await buildSyncFixture(workspace);
+
+    // Repoint a mapping at a single upstream file (analog of a command-to-skill
+    // `.md` source). The directory pipeline must not crash with ENOTDIR.
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFileEnsured(
+      sourcesPath,
+      sources.replace('source: skills/added-skill', 'source: skills/added-skill/SKILL.md'),
+    );
+
+    const { changeSet } = await runSync({
+      repoRoot,
+      dryRun: true,
+      workspaceRoot: path.join(workspace, 'ws'),
+    });
+
+    assert.ok(
+      changeSet.unavailable.some(
+        (entry) =>
+          entry.reason === 'source-not-directory' &&
+          entry.path === 'skills/demo/added-skill',
+      ),
+      'expected a source-not-directory unavailable entry',
+    );
+    assert.equal(changeSet.baseline.ready, false);
+    assert.ok(
+      changeSet.baseline.blockers.some(
+        (blocker) => blocker.type === 'source-not-directory',
+      ),
+      'expected a source-not-directory baseline blocker',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
 test('runSync reports baseline as blocked (not a deletion) when an upstream is unavailable', async () => {
   const workspace = await makeTempDir('sync-baseline-unavailable');
   try {
