@@ -4,6 +4,7 @@ import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { createLinkExceptionKey } from '../lib/links.mjs';
 import { loadManifest } from '../lib/manifest.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -397,6 +398,47 @@ linkExceptions:
   });
 });
 
+test('createLinkExceptionKey builds the manifest and validator match key', () => {
+  assert.equal(
+    createLinkExceptionKey('skills/azure/alpha/SKILL.md', 'references/missing.md'),
+    'skills/azure/alpha/SKILL.md -> references/missing.md',
+  );
+});
+
+test('loadManifest rejects link exceptions whose source path is outside any discovered skill root', async () => {
+  await withFixture('link-exception-non-skill-source', async (fixtureRoot) => {
+    await createSkill(fixtureRoot, path.join('skills', 'azure', 'alpha'));
+    await writeFile(path.join(fixtureRoot, 'README.md'), '# Fixture repo\n');
+
+    const manifestPath = await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  awesome-copilot:
+    repository: github/awesome-copilot
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: awesome-copilot
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+linkExceptions:
+  - sourcePath: README.md
+    target: references/missing.md
+    reason: Invalid non-skill source path.
+    upstreamUrl: https://example.invalid/awesome-copilot
+`,
+    );
+
+    await assert.rejects(
+      loadManifest(manifestPath),
+      /Link exception sourcePath is outside any discovered skill root: README\.md/,
+    );
+  });
+});
+
 test('loadManifest accepts the repository manifest with exact 99-skill coverage', async () => {
   const manifestPath = path.join(repoRoot, 'catalog', 'sources.yml');
   const manifest = await loadManifest(manifestPath);
@@ -414,7 +456,9 @@ test('loadManifest accepts the repository manifest with exact 99-skill coverage'
     'skills/lettucebo',
   );
   assert.deepEqual(
-    manifest.linkExceptions.map((entry) => `${entry.sourcePath} -> ${entry.target}`).sort(),
+    manifest.linkExceptions
+      .map((entry) => createLinkExceptionKey(entry.sourcePath, entry.target))
+      .sort(),
     [
       'skills/cloudflare/building-mcp-server-on-cloudflare/SKILL.md -> references/tool-patterns.md',
       'skills/cloudflare/cloudflare/references/durable-objects/README.md -> ../websockets/README.md',

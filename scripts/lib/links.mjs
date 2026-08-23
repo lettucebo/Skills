@@ -4,6 +4,10 @@ const { posix } = path;
 const MANAGED_ROOTS = new Set(['references', 'reference', 'scripts', 'assets']);
 const INLINE_LINK_PATTERN = /!?\[[^\]]*]\(([^)\r\n]+)\)/g;
 
+export function createLinkExceptionKey(sourcePath, target) {
+  return `${sourcePath} -> ${target}`;
+}
+
 export function collectManagedRelativeLinks(markdownText, options) {
   const sanitizedText = stripCodeExamples(markdownText);
   const matches = [];

@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { parseSkillFrontmatter } from './lib/frontmatter.mjs';
-import { collectManagedRelativeLinks } from './lib/links.mjs';
+import { collectManagedRelativeLinks, createLinkExceptionKey } from './lib/links.mjs';
 import { loadManifest, ManifestValidationError } from './lib/manifest.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -218,10 +218,6 @@ async function pathExists(targetPath) {
   } catch {
     return false;
   }
-}
-
-function createLinkExceptionKey(sourcePath, target) {
-  return `${sourcePath} -> ${target}`;
 }
 
 function toPosixPath(value) {

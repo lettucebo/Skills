@@ -2,6 +2,9 @@ import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 
 import { parse } from 'yaml';
+import { createLinkExceptionKey } from './links.mjs';
+
+const { posix } = path;
 
 export class ManifestValidationError extends Error {
   constructor(message, partialManifest) {
@@ -35,6 +38,7 @@ export async function loadManifest(manifestPath) {
     await normalizeLinkExceptions(
       parsed.linkExceptions ?? [],
       repoRoot,
+      existingSkillPaths,
       partialManifest.linkExceptions,
     );
     partialManifest.upstreams = normalizeUpstreams(parsed.upstreams);
@@ -219,7 +223,12 @@ function normalizeOverrides(value) {
   });
 }
 
-async function normalizeLinkExceptions(value, repoRoot, normalizedExceptions = []) {
+async function normalizeLinkExceptions(
+  value,
+  repoRoot,
+  existingSkillPaths,
+  normalizedExceptions = [],
+) {
   const linkExceptions = requireArray(value, 'linkExceptions');
   const seenKeys = new Set();
   const errors = [];
@@ -254,6 +263,12 @@ async function normalizeLinkExceptions(value, repoRoot, normalizedExceptions = [
         throw new Error(`Link exception declared more than once: ${exceptionKey}`);
       }
 
+      if (!isInsideAnySkillRoot(linkException.sourcePath, existingSkillPaths)) {
+        throw new Error(
+          `Link exception sourcePath is outside any discovered skill root: ${linkException.sourcePath}`,
+        );
+      }
+
       if (!(await fileExists(path.join(repoRoot, ...linkException.sourcePath.split('/'))))) {
         throw new Error(`Link exception source file does not exist: ${linkException.sourcePath}`);
       }
@@ -270,6 +285,15 @@ async function normalizeLinkExceptions(value, repoRoot, normalizedExceptions = [
   }
 
   return normalizedExceptions;
+}
+
+function isInsideAnySkillRoot(sourcePath, existingSkillPaths) {
+  return existingSkillPaths.some((skillPath) => {
+    const relativeToSkill = posix.relative(skillPath, sourcePath);
+    return relativeToSkill !== ''
+      && relativeToSkill !== '..'
+      && !relativeToSkill.startsWith('../');
+  });
 }
 
 function validateOverrides(overrides, coveredPaths, mappings) {
@@ -388,10 +412,6 @@ async function fileExists(targetPath) {
   } catch {
     return false;
   }
-}
-
-function createLinkExceptionKey(sourcePath, target) {
-  return `${sourcePath} -> ${target}`;
 }
 
 function toPosixPath(value) {
