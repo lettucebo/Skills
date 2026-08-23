@@ -5,7 +5,8 @@
   "scripts": {
     "test": "node --test",
     "catalog": "node scripts/catalog.mjs --bootstrap",
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "smoke:npx": "node scripts/smoke-npx.mjs"
   },
   "dependencies": {
     "yaml": "^2.8.1"
