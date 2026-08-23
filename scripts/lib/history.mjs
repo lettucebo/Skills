@@ -16,10 +16,11 @@ export function historyFileName(skillPath) {
  * re-running bootstrap never rewrites the original first-seen timestamp. On the
  * very first bootstrap there is no prior git-derived history that can be
  * resolved deterministically, so the current commit author timestamp is used
- * and documented as such in NOTICE.
+ * and documented as such in NOTICE. Bootstrap intentionally refuses to
+ * overwrite any history that has evolved beyond its single bootstrap entry.
  */
 export function buildBootstrapHistory({ skill, commitTimestamp, previousHistory }) {
-  const firstSeen = resolveFirstSeen(previousHistory, commitTimestamp);
+  const firstSeen = resolveFirstSeen(skill.path, previousHistory, commitTimestamp);
 
   return {
     path: skill.path,
@@ -39,7 +40,52 @@ export function buildBootstrapHistory({ skill, commitTimestamp, previousHistory 
   };
 }
 
-function resolveFirstSeen(previousHistory, commitTimestamp) {
-  const previousFirstSeen = previousHistory?.entries?.[0]?.firstSeen;
-  return typeof previousFirstSeen === 'string' ? previousFirstSeen : commitTimestamp;
+export function validateBootstrapHistory(skillPath, previousHistory) {
+  if (previousHistory === undefined) {
+    return undefined;
+  }
+
+  if (!Array.isArray(previousHistory?.entries)) {
+    throw new Error(
+      `Refusing to overwrite release history for ${skillPath}: existing history entries ` +
+        'must be an array with exactly one bootstrap entry.',
+    );
+  }
+
+  if (previousHistory.entries.length === 0) {
+    throw new Error(
+      `Refusing to overwrite release history for ${skillPath}: existing history must ` +
+        'contain exactly one bootstrap entry.',
+    );
+  }
+
+  if (previousHistory.entries.length > 1) {
+    throw new Error(
+      `Refusing to overwrite release history for ${skillPath}: existing history already ` +
+        `contains ${previousHistory.entries.length} entries; rerun bootstrap only on a ` +
+        'single bootstrap entry.',
+    );
+  }
+
+  const [previousEntry] = previousHistory.entries;
+
+  if (previousEntry?.kind !== 'bootstrap') {
+    throw new Error(
+      `Refusing to overwrite release history for ${skillPath}: existing history entry ` +
+        `kind must remain bootstrap, found ${JSON.stringify(previousEntry?.kind ?? null)}.`,
+    );
+  }
+
+  if (typeof previousEntry.firstSeen !== 'string') {
+    throw new Error(
+      `Refusing to overwrite release history for ${skillPath}: existing bootstrap entry ` +
+        'must preserve a string firstSeen timestamp.',
+    );
+  }
+
+  return previousEntry;
+}
+
+function resolveFirstSeen(skillPath, previousHistory, commitTimestamp) {
+  return validateBootstrapHistory(skillPath, previousHistory)?.firstSeen ?? commitTimestamp;
 }

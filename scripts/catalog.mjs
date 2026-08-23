@@ -1,12 +1,16 @@
 import { execFileSync } from 'node:child_process';
-import { access, readdir, readFile, rm, mkdir, writeFile } from 'node:fs/promises';
+import { readdir, readFile, rm, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { parseSkillFrontmatter } from './lib/frontmatter.mjs';
 import { loadManifest } from './lib/manifest.mjs';
 import { hashDirectory } from './lib/hash.mjs';
-import { buildBootstrapHistory, historyFileName } from './lib/history.mjs';
+import {
+  buildBootstrapHistory,
+  historyFileName,
+  validateBootstrapHistory,
+} from './lib/history.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const defaultRepoRoot = path.resolve(__dirname, '..');
@@ -169,17 +173,33 @@ export async function buildCatalog({ manifest, repoRoot, commitTimestamp, previo
   const generatedAt = resolveGeneratedAt(semanticLock, previous?.lock, commitTimestamp);
   const lock = { release: BOOTSTRAP_RELEASE, generatedAt, counts, skills };
 
-  const historyFiles = skills
-    .map((skill) => ({
+  const historyFiles = [];
+  const historyPathByFilename = new Map();
+
+  for (const skill of skills) {
+    const filename = historyFileName(skill.path);
+    const existingPath = historyPathByFilename.get(filename);
+
+    if (existingPath && existingPath !== skill.path) {
+      throw new Error(
+        `Refusing to generate ambiguous history filename ${JSON.stringify(filename)} for both ` +
+          `${JSON.stringify(existingPath)} and ${JSON.stringify(skill.path)}.`,
+      );
+    }
+
+    historyPathByFilename.set(filename, skill.path);
+    historyFiles.push({
       path: skill.path,
-      filename: historyFileName(skill.path),
+      filename,
       content: buildBootstrapHistory({
         skill,
         commitTimestamp,
         previousHistory: previous?.historyByPath?.get(skill.path),
       }),
-    }))
-    .sort((left, right) => compareStrings(left.filename, right.filename));
+    });
+  }
+
+  historyFiles.sort((left, right) => compareStrings(left.filename, right.filename));
 
   return { lock, historyFiles };
 }
@@ -306,6 +326,7 @@ async function bootstrap(repoRoot) {
     previous,
   });
 
+  assertNoProtectedHistoryDeletes(previous.historyFiles, historyFiles);
   await writeLockfile(repoRoot, lock);
   await writeHistoryFiles(repoRoot, historyFiles);
   await writeNotice(repoRoot, lock);
@@ -325,6 +346,7 @@ async function readPreviousState(repoRoot) {
   }
 
   const historyByPath = new Map();
+  const historyFiles = [];
   const historyDir = path.join(repoRoot, 'catalog', 'history');
 
   try {
@@ -335,21 +357,67 @@ async function readPreviousState(repoRoot) {
         continue;
       }
 
-      try {
-        const content = JSON.parse(await readFile(path.join(historyDir, entry.name), 'utf8'));
+      const historyPath = path.join(historyDir, entry.name);
+      const historyRelativePath = toPosixPath(path.relative(repoRoot, historyPath));
+      let content;
 
-        if (content?.path) {
-          historyByPath.set(content.path, content);
-        }
-      } catch {
-        // Ignore unreadable history files; they will be regenerated.
+      try {
+        content = JSON.parse(await readFile(historyPath, 'utf8'));
+      } catch (error) {
+        throw new Error(
+          `Refusing to load malformed history file ${historyRelativePath}: ${error.message}`,
+        );
       }
+
+      if (typeof content?.path !== 'string' || content.path.length === 0) {
+        throw new Error(
+          `Refusing to load malformed history file ${historyRelativePath}: expected a string path.`,
+        );
+      }
+
+      if (historyFileName(content.path) !== entry.name) {
+        throw new Error(
+          `Refusing to load malformed history file ${historyRelativePath}: expected path ` +
+            `${JSON.stringify(content.path)} to encode to ${JSON.stringify(entry.name)}.`,
+        );
+      }
+
+      historyByPath.set(content.path, content);
+      historyFiles.push({ filename: entry.name, content });
     }
-  } catch {
+  } catch (error) {
+    if (error?.code !== 'ENOENT') {
+      throw error;
+    }
+
     // No previous history directory.
   }
 
-  return { lock, historyByPath };
+  return { lock, historyByPath, historyFiles };
+}
+
+function assertNoProtectedHistoryDeletes(previousHistoryFiles, nextHistoryFiles) {
+  const nextHistoryByFilename = new Map(
+    nextHistoryFiles.map((file) => [file.filename, file.path]),
+  );
+
+  for (const previousHistoryFile of previousHistoryFiles ?? []) {
+    const nextPath = nextHistoryByFilename.get(previousHistoryFile.filename);
+
+    if (nextPath) {
+      if (previousHistoryFile.content.path !== nextPath) {
+        throw new Error(
+          `Refusing to overwrite release history file catalog/history/${previousHistoryFile.filename}: ` +
+            `existing path ${JSON.stringify(previousHistoryFile.content.path)} conflicts with ` +
+            `generated path ${JSON.stringify(nextPath)}.`,
+        );
+      }
+
+      continue;
+    }
+
+    validateBootstrapHistory(previousHistoryFile.content.path, previousHistoryFile.content);
+  }
 }
 
 function readGitCommit(repoRoot) {

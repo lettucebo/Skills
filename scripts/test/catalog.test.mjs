@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdir, rm, writeFile } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -32,6 +33,47 @@ async function writeManifest(fixtureRoot, content) {
   await mkdir(path.dirname(manifestPath), { recursive: true });
   await writeFile(manifestPath, content);
   return manifestPath;
+}
+
+function runCommand(command, args, cwd) {
+  return execFileSync(command, args, { cwd, encoding: 'utf8' });
+}
+
+async function copyCatalogRuntime(fixtureRoot) {
+  const sourceScriptsRoot = path.resolve(__dirname, '..');
+  const libSourceRoot = path.join(sourceScriptsRoot, 'lib');
+  const libEntries = await readdir(libSourceRoot, { withFileTypes: true });
+  const filesToCopy = [
+    ['catalog.mjs', 'scripts/catalog.mjs'],
+    ...libEntries
+      .filter((entry) => entry.isFile() && entry.name.endsWith('.mjs'))
+      .map((entry) => [`lib/${entry.name}`, `scripts/lib/${entry.name}`]),
+  ];
+
+  for (const [sourceRelativePath, targetRelativePath] of filesToCopy) {
+    const sourcePath = path.join(sourceScriptsRoot, sourceRelativePath);
+    const targetPath = path.join(fixtureRoot, targetRelativePath);
+    await mkdir(path.dirname(targetPath), { recursive: true });
+    await writeFile(targetPath, await readFile(sourcePath, 'utf8'));
+  }
+}
+
+async function initializeFixtureRepo(fixtureRoot) {
+  await writeFile(
+    path.join(fixtureRoot, 'README.md'),
+    '# Fixture README\n\n<!-- CATALOG:START -->\nold\n<!-- CATALOG:END -->\n',
+  );
+
+  runCommand('git', ['init'], fixtureRoot);
+  runCommand('git', ['config', 'core.autocrlf', 'false'], fixtureRoot);
+  runCommand('git', ['config', 'user.name', 'Fixture Tester'], fixtureRoot);
+  runCommand('git', ['config', 'user.email', 'fixture@example.test'], fixtureRoot);
+  runCommand('git', ['add', '.'], fixtureRoot);
+  runCommand(
+    'git',
+    ['commit', '-m', 'fixture bootstrap', '--date', '2020-01-01T00:00:00Z'],
+    fixtureRoot,
+  );
 }
 
 async function createSkill(fixtureRoot, relativeSkillPath, name, extraFiles = {}) {
@@ -87,6 +129,68 @@ async function setupFixture(fixtureRoot) {
   const manifestPath = await writeManifest(fixtureRoot, FIXTURE_MANIFEST);
   const manifest = await loadManifest(manifestPath);
   return manifest;
+}
+
+async function setupDoubleUnderscoreFixture(fixtureRoot) {
+  await createSkill(
+    fixtureRoot,
+    path.join('skills', 'azure', 'foo__bar'),
+    'foo__bar',
+  );
+
+  const manifest = await writeManifest(
+    fixtureRoot,
+    `
+upstreams:
+  awesome-copilot:
+    repository: github/awesome-copilot
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/foo__bar
+    upstream: awesome-copilot
+    source: skills/foo__bar
+orphans: []
+local: []
+overrides: []
+`,
+  );
+
+  return loadManifest(manifest);
+}
+
+async function setupHistoryCollisionFixture(fixtureRoot) {
+  await createSkill(
+    fixtureRoot,
+    path.join('skills', 'azure', 'foo__bar'),
+    'foo__bar',
+  );
+  await createSkill(
+    fixtureRoot,
+    path.join('skills', 'azure', 'foo', 'bar'),
+    'foo-bar',
+  );
+
+  const manifest = await writeManifest(
+    fixtureRoot,
+    `
+upstreams:
+  awesome-copilot:
+    repository: github/awesome-copilot
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/foo__bar
+    upstream: awesome-copilot
+    source: skills/foo__bar
+  - path: skills/azure/foo/bar
+    upstream: awesome-copilot
+    source: skills/foo/bar
+orphans: []
+local: []
+overrides: []
+`,
+  );
+
+  return loadManifest(manifest);
 }
 
 function findSkill(lock, skillPath) {
@@ -267,6 +371,397 @@ test('buildCatalog preserves the existing generatedAt when semantic output is un
     assert.equal(second.lock.generatedAt, first.lock.generatedAt);
     assert.deepEqual(second.lock, first.lock);
     assert.deepEqual(second.historyFiles, first.historyFiles);
+  });
+});
+
+test('buildCatalog keeps a one-entry bootstrap history byte-identical on second bootstrap', async () => {
+  await withFixture('history-bootstrap-idempotent', async (fixtureRoot) => {
+    const manifest = await setupFixture(fixtureRoot);
+    const first = await buildCatalog({
+      manifest,
+      repoRoot: fixtureRoot,
+      commitTimestamp: '2020-01-01T00:00:00Z',
+    });
+
+    const second = await buildCatalog({
+      manifest,
+      repoRoot: fixtureRoot,
+      commitTimestamp: '2099-12-31T23:59:59Z',
+      previous: {
+        lock: first.lock,
+        historyByPath: indexHistory(first.historyFiles),
+      },
+    });
+
+    assert.deepEqual(second.historyFiles, first.historyFiles);
+    assert.equal(
+      second.historyFiles.find((file) => file.path === 'skills/azure/alpha')?.content.entries[0]
+        ?.firstSeen,
+      '2020-01-01T00:00:00Z',
+    );
+  });
+});
+
+test('buildCatalog refuses to overwrite previous release history during bootstrap', async () => {
+  await withFixture('history-release-guard', async (fixtureRoot) => {
+    const manifest = await setupFixture(fixtureRoot);
+
+    await assert.rejects(
+      buildCatalog({
+        manifest,
+        repoRoot: fixtureRoot,
+        commitTimestamp: '2099-12-31T23:59:59Z',
+        previous: {
+          historyByPath: new Map([
+            [
+              'skills/azure/alpha',
+              {
+                path: 'skills/azure/alpha',
+                name: 'alpha',
+                category: 'mapped',
+                entries: [
+                  {
+                    release: '1.0.0',
+                    kind: 'bootstrap',
+                    version: '1.0.0',
+                    firstSeen: '2020-01-01T00:00:00Z',
+                    upstreamCommit: null,
+                    diffUrl: null,
+                    snapshotHash: 'sha256:first',
+                  },
+                  {
+                    release: '1.1.0',
+                    kind: 'release',
+                    version: '1.1.0',
+                    firstSeen: '2020-02-01T00:00:00Z',
+                    upstreamCommit: 'abc123',
+                    diffUrl: 'https://example.test/diff',
+                    snapshotHash: 'sha256:second',
+                  },
+                ],
+              },
+            ],
+          ]),
+        },
+      }),
+      /Refusing to overwrite release history for skills\/azure\/alpha: existing history already contains 2 entries; rerun bootstrap only on a single bootstrap entry\./,
+    );
+  });
+});
+
+test('buildCatalog refuses bootstrap histories whose only entry is not bootstrap', async () => {
+  await withFixture('history-kind-guard', async (fixtureRoot) => {
+    const manifest = await setupFixture(fixtureRoot);
+
+    await assert.rejects(
+      buildCatalog({
+        manifest,
+        repoRoot: fixtureRoot,
+        commitTimestamp: '2099-12-31T23:59:59Z',
+        previous: {
+          historyByPath: new Map([
+            [
+              'skills/azure/alpha',
+              {
+                path: 'skills/azure/alpha',
+                name: 'alpha',
+                category: 'mapped',
+                entries: [
+                  {
+                    release: '1.1.0',
+                    kind: 'release',
+                    version: '1.1.0',
+                    firstSeen: '2020-02-01T00:00:00Z',
+                    upstreamCommit: 'abc123',
+                    diffUrl: 'https://example.test/diff',
+                    snapshotHash: 'sha256:second',
+                  },
+                ],
+              },
+            ],
+          ]),
+        },
+      }),
+      /Refusing to overwrite release history for skills\/azure\/alpha: existing history entry kind must remain bootstrap, found "release"\./,
+    );
+  });
+});
+
+test('buildCatalog refuses malformed previous bootstrap history entries', async () => {
+  await withFixture('history-malformed-guard', async (fixtureRoot) => {
+    const manifest = await setupFixture(fixtureRoot);
+
+    await assert.rejects(
+      buildCatalog({
+        manifest,
+        repoRoot: fixtureRoot,
+        commitTimestamp: '2099-12-31T23:59:59Z',
+        previous: {
+          historyByPath: new Map([
+            [
+              'skills/azure/alpha',
+              {
+                path: 'skills/azure/alpha',
+                name: 'alpha',
+                category: 'mapped',
+                entries: [],
+              },
+            ],
+          ]),
+        },
+      }),
+      /Refusing to overwrite release history for skills\/azure\/alpha: existing history must contain exactly one bootstrap entry\./,
+    );
+
+    await assert.rejects(
+      buildCatalog({
+        manifest,
+        repoRoot: fixtureRoot,
+        commitTimestamp: '2099-12-31T23:59:59Z',
+        previous: {
+          historyByPath: new Map([
+            [
+              'skills/azure/alpha',
+              {
+                path: 'skills/azure/alpha',
+                name: 'alpha',
+                category: 'mapped',
+                entries: null,
+              },
+            ],
+          ]),
+        },
+      }),
+      /Refusing to overwrite release history for skills\/azure\/alpha: existing history entries must be an array with exactly one bootstrap entry\./,
+    );
+  });
+});
+
+test('catalog bootstrap refuses malformed on-disk history files instead of silently resetting them', async () => {
+  await withFixture('history-invalid-json-guard', async (fixtureRoot) => {
+    await setupFixture(fixtureRoot);
+    await copyCatalogRuntime(fixtureRoot);
+    await initializeFixtureRepo(fixtureRoot);
+
+    const historyPath = path.join(
+      fixtureRoot,
+      'catalog',
+      'history',
+      historyFileName('skills/azure/alpha'),
+    );
+    await mkdir(path.dirname(historyPath), { recursive: true });
+    await writeFile(historyPath, '{not valid json');
+
+    assert.throws(
+      () => runCommand('node', ['scripts/catalog.mjs', '--bootstrap'], fixtureRoot),
+      /Refusing to load malformed history file .*skills__azure__alpha\.json/,
+    );
+  });
+});
+
+test('catalog bootstrap refuses on-disk history files without a path', async () => {
+  await withFixture('history-missing-path-guard', async (fixtureRoot) => {
+    await setupFixture(fixtureRoot);
+    await copyCatalogRuntime(fixtureRoot);
+    await initializeFixtureRepo(fixtureRoot);
+
+    const historyPath = path.join(
+      fixtureRoot,
+      'catalog',
+      'history',
+      historyFileName('skills/azure/alpha'),
+    );
+    await mkdir(path.dirname(historyPath), { recursive: true });
+    await writeFile(
+      historyPath,
+      JSON.stringify({
+        name: 'alpha',
+        category: 'mapped',
+        entries: [],
+      }),
+    );
+
+    assert.throws(
+      () => runCommand('node', ['scripts/catalog.mjs', '--bootstrap'], fixtureRoot),
+      /Refusing to load malformed history file .*skills__azure__alpha\.json: expected a string path\./,
+    );
+  });
+});
+
+test('catalog bootstrap refuses on-disk history files whose path mismatches the filename', async () => {
+  await withFixture('history-path-mismatch-guard', async (fixtureRoot) => {
+    await setupFixture(fixtureRoot);
+    await copyCatalogRuntime(fixtureRoot);
+    await initializeFixtureRepo(fixtureRoot);
+
+    const historyPath = path.join(
+      fixtureRoot,
+      'catalog',
+      'history',
+      historyFileName('skills/azure/alpha'),
+    );
+    await mkdir(path.dirname(historyPath), { recursive: true });
+    await writeFile(
+      historyPath,
+      JSON.stringify({
+        path: 'skills/not-the-same',
+        name: 'alpha',
+        category: 'mapped',
+        entries: [
+          {
+            release: '1.0.0',
+            kind: 'bootstrap',
+            version: '1.0.0',
+            firstSeen: '1999-12-31T00:00:00Z',
+            upstreamCommit: null,
+            diffUrl: null,
+            snapshotHash: 'sha256:first',
+          },
+        ],
+      }),
+    );
+
+    assert.throws(
+      () => runCommand('node', ['scripts/catalog.mjs', '--bootstrap'], fixtureRoot),
+      /Refusing to load malformed history file .*skills__azure__alpha\.json: expected path "skills\/not-the-same" to encode to "skills__azure__alpha\.json"\./,
+    );
+  });
+});
+
+test('catalog bootstrap accepts generated histories for skill paths containing double underscores', async () => {
+  await withFixture('history-double-underscore', async (fixtureRoot) => {
+    const manifest = await setupDoubleUnderscoreFixture(fixtureRoot);
+    await copyCatalogRuntime(fixtureRoot);
+    await initializeFixtureRepo(fixtureRoot);
+
+    const { historyFiles } = await buildCatalog({
+      manifest,
+      repoRoot: fixtureRoot,
+      commitTimestamp: '2020-01-01T00:00:00Z',
+    });
+    const [historyFile] = historyFiles;
+    const historyPath = path.join(fixtureRoot, 'catalog', 'history', historyFile.filename);
+    await mkdir(path.dirname(historyPath), { recursive: true });
+    await writeFile(historyPath, JSON.stringify(historyFile.content, null, 2));
+
+    runCommand('node', ['scripts/catalog.mjs', '--bootstrap'], fixtureRoot);
+
+    const writtenHistory = JSON.parse(await readFile(historyPath, 'utf8'));
+    assert.equal(writtenHistory.path, 'skills/azure/foo__bar');
+    assert.equal(writtenHistory.entries[0].firstSeen, '2020-01-01T00:00:00Z');
+  });
+});
+
+test('buildCatalog refuses ambiguous history filenames for distinct skill paths', async () => {
+  await withFixture('history-filename-collision', async (fixtureRoot) => {
+    const manifest = await setupHistoryCollisionFixture(fixtureRoot);
+
+    await assert.rejects(
+      buildCatalog({
+        manifest,
+        repoRoot: fixtureRoot,
+        commitTimestamp: '2020-01-01T00:00:00Z',
+      }),
+      /Refusing to generate ambiguous history filename "skills__azure__foo__bar\.json" for both "(skills\/azure\/foo__bar|skills\/azure\/foo\/bar)" and "(skills\/azure\/foo__bar|skills\/azure\/foo\/bar)"\./,
+    );
+  });
+});
+
+test('catalog bootstrap refuses to delete stale release history for removed skills', async () => {
+  await withFixture('history-stale-release-guard', async (fixtureRoot) => {
+    await setupFixture(fixtureRoot);
+    await copyCatalogRuntime(fixtureRoot);
+    await initializeFixtureRepo(fixtureRoot);
+
+    const staleHistoryPath = path.join(
+      fixtureRoot,
+      'catalog',
+      'history',
+      historyFileName('skills/github/removed-skill'),
+    );
+    await mkdir(path.dirname(staleHistoryPath), { recursive: true });
+    await writeFile(
+      staleHistoryPath,
+      JSON.stringify({
+        path: 'skills/github/removed-skill',
+        name: 'removed-skill',
+        category: 'mapped',
+        entries: [
+          {
+            release: '1.0.0',
+            kind: 'bootstrap',
+            version: '1.0.0',
+            firstSeen: '2020-01-01T00:00:00Z',
+            upstreamCommit: null,
+            diffUrl: null,
+            snapshotHash: 'sha256:first',
+          },
+          {
+            release: '1.1.0',
+            kind: 'release',
+            version: '1.1.0',
+            firstSeen: '2020-02-01T00:00:00Z',
+            upstreamCommit: 'abc123',
+            diffUrl: 'https://example.test/diff',
+            snapshotHash: 'sha256:second',
+          },
+        ],
+      }),
+    );
+
+    assert.throws(
+      () => runCommand('node', ['scripts/catalog.mjs', '--bootstrap'], fixtureRoot),
+      /Refusing to overwrite release history for skills\/github\/removed-skill: existing history already contains 2 entries; rerun bootstrap only on a single bootstrap entry\./,
+    );
+  });
+});
+
+test('catalog bootstrap refuses stale release history whose filename collides with a current skill', async () => {
+  await withFixture('history-stale-collision-guard', async (fixtureRoot) => {
+    await setupDoubleUnderscoreFixture(fixtureRoot);
+    await copyCatalogRuntime(fixtureRoot);
+    await initializeFixtureRepo(fixtureRoot);
+
+    const staleHistoryPath = path.join(
+      fixtureRoot,
+      'catalog',
+      'history',
+      historyFileName('skills/azure/foo/bar'),
+    );
+    await mkdir(path.dirname(staleHistoryPath), { recursive: true });
+    await writeFile(
+      staleHistoryPath,
+      JSON.stringify({
+        path: 'skills/azure/foo/bar',
+        name: 'foo-bar',
+        category: 'mapped',
+        entries: [
+          {
+            release: '1.0.0',
+            kind: 'bootstrap',
+            version: '1.0.0',
+            firstSeen: '2020-01-01T00:00:00Z',
+            upstreamCommit: null,
+            diffUrl: null,
+            snapshotHash: 'sha256:first',
+          },
+          {
+            release: '1.1.0',
+            kind: 'release',
+            version: '1.1.0',
+            firstSeen: '2020-02-01T00:00:00Z',
+            upstreamCommit: 'abc123',
+            diffUrl: 'https://example.test/diff',
+            snapshotHash: 'sha256:second',
+          },
+        ],
+      }),
+    );
+
+    assert.throws(
+      () => runCommand('node', ['scripts/catalog.mjs', '--bootstrap'], fixtureRoot),
+      /Refusing to overwrite release history file catalog\/history\/skills__azure__foo__bar\.json: existing path "skills\/azure\/foo\/bar" conflicts with generated path "skills\/azure\/foo__bar"\./,
+    );
   });
 });
 
