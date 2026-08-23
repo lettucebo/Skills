@@ -820,3 +820,161 @@ test('runSync fails fast on a malformed upstream SKILL.md instead of marking it 
     await rm(workspace, { recursive: true, force: true });
   }
 });
+
+// ---------------------------------------------------------------------------
+// Task 8: baseline readiness summary
+// ---------------------------------------------------------------------------
+
+test('runSync reports baseline as blocked when a mapped source is missing', async () => {
+  const workspace = await makeTempDir('sync-baseline-blocked');
+  try {
+    const { repoRoot } = await buildSyncFixture(workspace);
+    const workspaceRoot = path.join(workspace, 'ws');
+
+    const { changeSet } = await runSync({ repoRoot, dryRun: true, workspaceRoot });
+
+    assert.equal(changeSet.baseline.ready, false);
+    assert.ok(
+      changeSet.baseline.blockers.some(
+        (blocker) =>
+          blocker.type === 'missing-source' && blocker.path === 'skills/demo/missing',
+      ),
+      'expected a missing-source blocker for skills/demo/missing',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('runSync reports baseline as blocked (not a deletion) when an upstream is unavailable', async () => {
+  const workspace = await makeTempDir('sync-baseline-unavailable');
+  try {
+    const repoRoot = path.join(workspace, 'repo');
+    await writeFileEnsured(
+      path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'),
+      skillDoc('alpha'),
+    );
+    const bogusUrl = pathToFileURL(path.join(workspace, 'nope', 'missing-repo')).href;
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'sources.yml'),
+      [
+        'upstreams:',
+        '  demo:',
+        `    repository: "${bogusUrl}"`,
+        '    reference: refs/heads/main',
+        'mappings:',
+        '  - path: skills/demo/alpha',
+        '    upstream: demo',
+        '    source: skills/alpha',
+        'orphans: []',
+        'local: []',
+        'overrides: []',
+        'linkExceptions: []',
+        '',
+      ].join('\n'),
+    );
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'skills.lock.json'),
+      lockDoc([
+        {
+          path: 'skills/demo/alpha',
+          name: 'alpha',
+          category: 'mapped',
+          version: '1.0.0',
+          baseline: 'unverified',
+          license: 'Unknown',
+          redistributable: true,
+          snapshotHash: 'sha256:0',
+          upstream: {
+            repository: bogusUrl,
+            reference: 'refs/heads/main',
+            source: 'skills/alpha',
+            commit: null,
+          },
+        },
+      ]),
+    );
+
+    const { changeSet } = await runSync({
+      repoRoot,
+      dryRun: true,
+      workspaceRoot: path.join(workspace, 'ws'),
+    });
+
+    // An unavailable upstream must be a baseline blocker, never a removal.
+    assert.deepEqual(changeSet.removed, []);
+    assert.equal(changeSet.baseline.ready, false);
+    assert.ok(
+      changeSet.baseline.blockers.some(
+        (blocker) => blocker.type === 'upstream-unavailable',
+      ),
+      'expected an upstream-unavailable blocker',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('runSync reports baseline as ready when every mapped upstream is available', async () => {
+  const workspace = await makeTempDir('sync-baseline-ready');
+  try {
+    const upstream = await initUpstreamRepo(path.join(workspace, 'upstream'), {
+      'skills/kept/SKILL.md': skillDoc('kept'),
+    });
+    const repoRoot = path.join(workspace, 'repo');
+    await writeFileEnsured(
+      path.join(repoRoot, 'skills', 'demo', 'kept', 'SKILL.md'),
+      skillDoc('kept'),
+    );
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'sources.yml'),
+      [
+        'upstreams:',
+        '  demo:',
+        `    repository: "${upstream.url}"`,
+        '    reference: refs/heads/main',
+        'mappings:',
+        '  - path: skills/demo/kept',
+        '    upstream: demo',
+        '    source: skills/kept',
+        'orphans: []',
+        'local: []',
+        'overrides: []',
+        'linkExceptions: []',
+        '',
+      ].join('\n'),
+    );
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'skills.lock.json'),
+      lockDoc([
+        {
+          path: 'skills/demo/kept',
+          name: 'kept',
+          category: 'mapped',
+          version: '1.0.0',
+          baseline: 'unverified',
+          license: 'Unknown',
+          redistributable: true,
+          snapshotHash: 'sha256:0',
+          upstream: {
+            repository: upstream.url,
+            reference: 'refs/heads/main',
+            source: 'skills/kept',
+            commit: null,
+          },
+        },
+      ]),
+    );
+
+    const { changeSet } = await runSync({
+      repoRoot,
+      dryRun: true,
+      workspaceRoot: path.join(workspace, 'ws'),
+    });
+
+    assert.equal(changeSet.baseline.ready, true);
+    assert.deepEqual(changeSet.baseline.blockers, []);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});

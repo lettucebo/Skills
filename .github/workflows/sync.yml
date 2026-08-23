@@ -1,0 +1,170 @@
+name: Sync upstream skills
+
+# Manual-only. No schedule/cron: the baseline and every sync are human-triggered
+# so a mass upstream change can never be applied unattended.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Plan only and upload the diff artifact (no repository writes).'
+        type: boolean
+        default: true
+      baseline:
+        description: 'Establish the verified upstream baseline. Requires dry_run = false.'
+        type: boolean
+        default: false
+
+# Least privilege by default; jobs widen only what they need.
+permissions:
+  contents: read
+
+jobs:
+  # Safe-contract gate: baseline is a real apply, so it must never run during a
+  # dry run. baseline=true + dry_run=true is rejected before any work happens.
+  guard:
+    name: Validate inputs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reject baseline during a dry run
+        if: ${{ inputs.baseline && inputs.dry_run }}
+        run: |
+          echo "::error::baseline=true requires dry_run=false. A baseline apply must not run during a dry run."
+          exit 1
+
+  dry-run:
+    name: Dry-run plan
+    needs: guard
+    if: ${{ !inputs.baseline }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run repository validator
+        run: node scripts/validate.mjs
+
+      - name: Plan upstream sync (metadata-only diff)
+        run: |
+          mkdir -p sync-report
+          node scripts/sync.mjs --dry-run --output sync-report/changeset.json
+
+      - name: Upload diff artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-changeset
+          path: sync-report/changeset.json
+          if-no-files-found: warn
+
+      - name: Open or update the sync failure issue
+        if: ${{ failure() }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Stable marker keeps this to ONE tracking issue that is reused and
+            // reopened, never a new issue per run. Only trusted values are
+            // interpolated; run metadata is passed via github-script, not shell.
+            const marker = '<!-- sync-dry-run-tracker -->';
+            const title = 'Upstream sync dry-run failing';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              marker,
+              '',
+              'The manual **Sync upstream skills** dry-run failed.',
+              '',
+              `- Run: ${runUrl}`,
+              `- Triggered by: @${context.actor}`,
+              `- Commit: ${context.sha}`,
+              '',
+              'Download the `sync-changeset` artifact (when present) for the metadata diff.',
+              'This issue is updated in place on each failing run; close it once the dry-run is green.',
+            ].join('\n');
+
+            const existing = await github.rest.search.issuesAndPullRequests({
+              q: `repo:${context.repo.owner}/${context.repo.repo} is:issue in:body "${marker}"`,
+            });
+            const tracked = existing.data.items.find((issue) => issue.pull_request === undefined);
+
+            if (tracked) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: tracked.number,
+                state: 'open',
+                body,
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: tracked.number,
+                body: `Dry-run failed again: ${runUrl}`,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
+
+  baseline-apply:
+    name: Establish verified baseline
+    needs: guard
+    # Only an explicit, non-dry baseline request reaches the apply engine.
+    if: ${{ inputs.baseline && !inputs.dry_run }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Full history so the commit lands on the manually selected branch.
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Pre-apply validation
+        run: node scripts/validate.mjs
+
+      - name: Apply verified upstream baseline
+        run: node scripts/sync.mjs --baseline
+
+      - name: Post-apply validation
+        run: node scripts/validate.mjs
+
+      - name: Commit baseline
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'chore(sync): establish verified upstream baseline'
+          # Push to the manually selected branch. The release tag is created by a
+          # later step/task after this commit lands; v1.0.0 is never moved.
+          git push origin HEAD:${{ github.ref_name }}

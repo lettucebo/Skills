@@ -21,6 +21,7 @@ import {
   evaluateDeletionGuards,
 } from './lib/guardrails.mjs';
 import { transformStaged } from './transform.mjs';
+import { applyBaseline } from './lib/baseline.mjs';
 
 const { posix } = path;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -404,6 +405,41 @@ function buildDeletionGroups({ manifest, lock, sources }) {
 }
 
 /**
+ * Summarizes whether a verified baseline can be established from this plan.
+ *
+ * Any unavailable upstream or missing mapped source is a hard blocker so a
+ * transient outage (e.g. an upstream requiring SAML/SSO) is recorded as
+ * blocking the baseline rather than being silently misread as a deletion. A
+ * blocked deletion guardrail or an unexpected mapped removal also block. The
+ * summary is deterministic: blockers are sorted by (type, path).
+ */
+function buildBaselineSummary(plan, guardrail) {
+  const blockers = [];
+
+  for (const entry of plan.unavailable) {
+    blockers.push({ type: entry.reason, path: entry.path, upstream: entry.upstream });
+  }
+
+  for (const entry of plan.removed) {
+    blockers.push({ type: 'unexpected-removal', path: entry.path });
+  }
+
+  if (guardrail.blocked) {
+    blockers.push({ type: 'deletion-guardrail-blocked' });
+  }
+
+  blockers.sort((left, right) => {
+    const byType = String(left.type).localeCompare(String(right.type));
+    if (byType !== 0) {
+      return byType;
+    }
+    return String(left.path ?? '').localeCompare(String(right.path ?? ''));
+  });
+
+  return { ready: blockers.length === 0, blockers };
+}
+
+/**
  * Plans an upstream sync and returns the deterministic dry-run change set.
  *
  * A fresh workspace is created under the OS temp dir (or `workspaceRoot` when
@@ -447,8 +483,9 @@ export async function runSync(options = {}) {
     const guardrail = evaluateDeletionGuards(
       buildDeletionGroups({ manifest, lock, sources: plan.sources }),
     );
+    const baseline = buildBaselineSummary(plan, guardrail);
 
-    const changeSet = { dryRun, ...plan, classification, guardrail };
+    const changeSet = { dryRun, ...plan, classification, guardrail, baseline };
     const json = serializeChangeSet(changeSet);
 
     if (output) {
@@ -462,13 +499,15 @@ export async function runSync(options = {}) {
 }
 
 function parseArgs(argv) {
-  const options = { dryRun: false };
+  const options = { dryRun: false, baseline: false };
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
 
     if (arg === '--dry-run') {
       options.dryRun = true;
+    } else if (arg === '--baseline') {
+      options.baseline = true;
     } else if (arg === '--output') {
       options.output = argv[index + 1];
       index += 1;
@@ -484,6 +523,16 @@ async function main() {
   const options = parseArgs(process.argv.slice(2));
 
   try {
+    if (options.baseline) {
+      if (options.dryRun) {
+        throw new Error('--baseline cannot be combined with --dry-run: baseline performs a real apply.');
+      }
+
+      const result = await applyBaseline({ baseline: true });
+      process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+      return;
+    }
+
     const { json } = await runSync({
       dryRun: options.dryRun,
       output: options.output,

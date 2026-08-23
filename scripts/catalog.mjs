@@ -462,7 +462,7 @@ async function writeNotice(repoRoot, lock) {
   await writeFile(path.join(repoRoot, 'NOTICE'), renderNotice(lock));
 }
 
-function renderNotice(lock) {
+export function renderNotice(lock) {
   const lines = [];
   lines.push('# NOTICE');
   lines.push('');
@@ -559,12 +559,28 @@ function renderNotice(lock) {
 
   lines.push('## Local modifications');
   lines.push('');
-  lines.push(
-    '- Mapped skills currently record `upstream.commit: null` and `baseline: "unverified"`.',
+
+  const hasUnverifiedMapped = lock.skills.some(
+    (skill) => skill.category === 'mapped' && skill.baseline === 'unverified',
   );
-  lines.push(
-    '  The `snapshotHash` describes the bytes vendored today, not a verified upstream commit.',
-  );
+
+  if (hasUnverifiedMapped) {
+    lines.push(
+      '- Mapped skills currently record `upstream.commit: null` and `baseline: "unverified"`.',
+    );
+    lines.push(
+      '  The `snapshotHash` describes the bytes vendored today, not a verified upstream commit.',
+    );
+  } else {
+    lines.push(
+      '- Mapped skills record a verified `upstream.commit` and `baseline: "verified"`.',
+    );
+    lines.push(
+      '  The `contentHash` is the upstream pre-stamp content identity; `snapshotHash` describes the',
+    );
+    lines.push('  vendored bytes after provenance stamping.');
+  }
+
   lines.push(
     '- Any future frontmatter source/version stamps added by this registry are local',
   );
@@ -581,6 +597,14 @@ function renderNotice(lock) {
 async function updateReadme(repoRoot, lock) {
   const readmePath = path.join(repoRoot, 'README.md');
   const readmeText = await readFile(readmePath, 'utf8');
+  await writeFile(readmePath, renderReadme(readmeText, lock));
+}
+
+/**
+ * Splices the deterministic catalog table between the README catalog markers,
+ * preserving everything outside the markers byte-for-byte.
+ */
+export function renderReadme(readmeText, lock) {
   const startIndex = readmeText.indexOf(README_MARKER_START);
   const endIndex = readmeText.indexOf(README_MARKER_END);
 
@@ -594,7 +618,7 @@ async function updateReadme(repoRoot, lock) {
   const after = readmeText.slice(endIndex);
   const generated = renderReadmeCatalog(lock);
 
-  await writeFile(readmePath, `${before}\n${generated}\n${after}`);
+  return `${before}\n${generated}\n${after}`;
 }
 
 function renderReadmeCatalog(lock) {
