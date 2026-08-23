@@ -1,0 +1,16 @@
+{
+  "path": "skills/github/codeql",
+  "name": "codeql",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:a361296a1cb382edd6a0f1ab4a0efa6c32dafc0dde975bf6931456b79d7b491e"
+    }
+  ]
+}

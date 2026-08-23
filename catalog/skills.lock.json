@@ -1,0 +1,1581 @@
+{
+  "release": "1.0.0",
+  "generatedAt": "2026-08-23T22:44:23+08:00",
+  "counts": {
+    "total": 99,
+    "mapped": 96,
+    "orphan": 3,
+    "local": 0
+  },
+  "skills": [
+    {
+      "path": "skills/azure/az-cost-optimize",
+      "name": "az-cost-optimize",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:094e0181e7bbbcab876af3f0bd4ddb1d1219cf2b3adae97685789f622cbf699f",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/az-cost-optimize",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/azure/azure-architecture-autopilot",
+      "name": "azure-architecture-autopilot",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:0e5040829b05b15004a8f95f9741e9bb57de0f1670e8945e769639ace78697c1",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/azure-architecture-autopilot",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/azure/azure-deployment-preflight",
+      "name": "azure-deployment-preflight",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:2f495c36d21b3a7f47d3ec5a08c9c9c64c892255a3532880a9dafe676a960f12",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/azure-deployment-preflight",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/azure/azure-devops-cli",
+      "name": "azure-devops-cli",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:f635e5ca902e91ce9712bf4304bca45d66785d072cd8c13099d360a9e876869b",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/azure-devops-cli",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/azure/azure-pricing",
+      "name": "azure-pricing",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:444325a5d0863b4adeea481bbf2924e2cf1f2fc1ba4fecfa93b4d73b64240cb7",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/azure-pricing",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/azure/azure-resource-health-diagnose",
+      "name": "azure-resource-health-diagnose",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:67a3e9da0f451425ce93759498ddf8bd0ae1611a4df1ef7f7db3784fecdd0c28",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/azure-resource-health-diagnose",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/azure/azure-resource-visualizer",
+      "name": "azure-resource-visualizer",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:c83c976a8bcdd5445113985213ebb67d8d6378730650d228a60ef802a21604b7",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/azure-resource-visualizer",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/azure/azure-role-selector",
+      "name": "azure-role-selector",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:3e6a9016410b3ef55bd51c220be126620c5671bb87a0366cb8ef4b6a29d7e9df",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/azure-role-selector",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/azure/azure-static-web-apps",
+      "name": "azure-static-web-apps",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:f9f79d44ed4d07d1c08df739e293e6ea30ed9c3a3f700a412d0da1141fee6d8a",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/azure-static-web-apps",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/chrome/chrome-devtools",
+      "name": "chrome-devtools",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:ecd899d1920405c2286abc850d2bdf3df1cb9cff5d326920f16c33fcce515b7f",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/chrome-devtools",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/algorithmic-art",
+      "name": "algorithmic-art",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:4ff96cf4b226122b01e5dcbbd72d4e57068af128251eae068b27ffb9bb9a8700",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/algorithmic-art",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/brand-guidelines",
+      "name": "brand-guidelines",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:abb30618bd6c3fb5cf445cb9188e5288139e78f0215bd1c696dda85c4bf059c3",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/brand-guidelines",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/canvas-design",
+      "name": "canvas-design",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:d29f65b90b882c8f1bfe696953c3dc74cba97b4e6ab3e3e315f73eb5678cc105",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/canvas-design",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/claude-api",
+      "name": "claude-api",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:c8d29fe81d2b950be43658315b7a410beb181fb8030f781874b4ac98cf6aacf3",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/claude-api",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/doc-coauthoring",
+      "name": "doc-coauthoring",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:08286b50480ba68dc6f85a9fc635ab8761af7b78588a117d9f08735c35fbf82f",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/doc-coauthoring",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/docx",
+      "name": "docx",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Proprietary",
+      "redistributable": false,
+      "snapshotHash": "sha256:407cfb21020cf4222082b13678e73b42558d0b9281cc76f90fd33f4717a295cb",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/docx",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/frontend-design",
+      "name": "frontend-design",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:2d7213d7574d5be4e90bff599a26be985b88058b9328a1751358ae9e15bfc53e",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/frontend-design",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/internal-comms",
+      "name": "internal-comms",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:d49060af3263f11baad4e6c0021d815c574dc98a1217078b1731efc191892ff0",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/internal-comms",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/mcp-builder",
+      "name": "claude-mcp-builder",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:17f6271784281998cc31a75d7600033b67d50d05384a0d3daf70d11c49fdc2fa",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/mcp-builder",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/pdf",
+      "name": "pdf",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Proprietary",
+      "redistributable": false,
+      "snapshotHash": "sha256:b22c2f0207f07ca166181680879e1999fc9662161891f871d9e7bc4540f050ac",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/pdf",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/pptx",
+      "name": "pptx",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Proprietary",
+      "redistributable": false,
+      "snapshotHash": "sha256:bc41d79e6854968cf56809790879b50d787cca311acbfde3a32084da23a99908",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/pptx",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/skill-creator",
+      "name": "claude-skill-creator",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:ca2930c29d3d552f13abdde7dc0da0af9f85c49924907d80787aaa3be1768c1b",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/skill-creator",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/slack-gif-creator",
+      "name": "slack-gif-creator",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:f664d047c076218462d854779c2e44a00c041f54c53ba7d8fc098ec0f5ef0364",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/slack-gif-creator",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/theme-factory",
+      "name": "theme-factory",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:b200d8a6698d161291e5a0d83c7c572815639f3a1cb66324b158cf1eff8ff061",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/theme-factory",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/web-artifacts-builder",
+      "name": "web-artifacts-builder",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:d2be084d8cd2f7be1c7623e94623c91438b27af9466d98a89429f609d9294da9",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/web-artifacts-builder",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/webapp-testing",
+      "name": "webapp-testing",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "snapshotHash": "sha256:ee25594ad716e94f4f373b732a10fde07b80aa5c4a21a03f58c756f5a9ae8ef0",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/webapp-testing",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/claude/xlsx",
+      "name": "xlsx",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Proprietary",
+      "redistributable": false,
+      "snapshotHash": "sha256:75fb3d2c1b711af994c3976390a7ae24bc9f69c42216ef880995803dfeabce10",
+      "upstream": {
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/xlsx",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/agents-sdk",
+      "name": "agents-sdk",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:c9caa4ac31d32728cf63fbe34ed562761da5e856c01081179bf84a291fa0f74f",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/agents-sdk",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/building-ai-agent-on-cloudflare",
+      "name": "building-ai-agent-on-cloudflare",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:02738cb0c42127268ac02d1588e08a800e9616141782814328f55ea1875d0e38",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "commands/build-agent.md",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/building-mcp-server-on-cloudflare",
+      "name": "building-mcp-server-on-cloudflare",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:b96d9fe240988ef1cbd6da768526d23103fcd26b32e368c602b21c0115146396",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "commands/build-mcp.md",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/cloudflare",
+      "name": "cloudflare",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:08e8ce23c3d9f7a2fcb0a0b6966f8baba07904ab8000613ae89991d16164b924",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/cloudflare",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/durable-objects",
+      "name": "durable-objects",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:86ca4554842eafcc2b02eb2fab40204f37d13d21f292893b26509a73ccbab3da",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/durable-objects",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/sandbox-sdk",
+      "name": "sandbox-sdk",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:581dc54405f0bf586e353120fbff09d4dfb3c93c12bc5322d39b71644c44d65c",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/sandbox-stable",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/web-perf",
+      "name": "web-perf",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:e0a3e99b82689223b9f5a010dd92def3fefe63212a6e7cf66bb7708c0375caa1",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/web-perf",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/workers-best-practices",
+      "name": "workers-best-practices",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:0b255595bb17e70310a9c1fcfea750772c50beed67bc790f3983bbd49472bd30",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/workers-best-practices",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/wrangler",
+      "name": "wrangler",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:e3039cba334e6b05652a314e9db0a9b1c6384da89d4f9079e182a279fd5d4b02",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/wrangler",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/csharp-async",
+      "name": "csharp-async",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:8ea03653e9104cdbe9d1d53f0185f55d8ec999d0403f102746d06e386147987f",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/csharp-async",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/csharp-docs",
+      "name": "csharp-docs",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:4f5eaee3f202fcd7244d86d7d3415f474ed13537ce27a58c42a53ee97ed48d09",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/csharp-docs",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/csharp-mcp-server-generator",
+      "name": "csharp-mcp-server-generator",
+      "category": "orphan",
+      "version": "1.0.0",
+      "baseline": null,
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:69cf550963b495a259c2d60ae0b2484b400118cd794edaa575aad8212fba0ade",
+      "upstream": null
+    },
+    {
+      "path": "skills/dotnet/csharp-mstest",
+      "name": "csharp-mstest",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:1a98ac8b25caaf4eebb371bda76359fad5f496a687a2fef5ce9dceb8949466ac",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/csharp-mstest",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/csharp-nunit",
+      "name": "csharp-nunit",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:f884ae3d61daa1a99407072d23816830c3363a06ebad9dca5a719d0e7d1c9c44",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/csharp-nunit",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/csharp-tunit",
+      "name": "csharp-tunit",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:ad431688c368815126a95c2bd3c3a488973c49bfcc17ea48c1ed555bad0f064a",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/csharp-tunit",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/csharp-xunit",
+      "name": "csharp-xunit",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:445fdf7c6b80f2ab148d9273b25c92d5f2fd4c347c59f32d56c2010896976884",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/csharp-xunit",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/dotnet-best-practices",
+      "name": "dotnet-best-practices",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:5cfded08cfbb8621d8c587a4b53ed44f9359f56fae24fbf75080bc9c512b747b",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/dotnet-best-practices",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/dotnet-design-pattern-review",
+      "name": "dotnet-design-pattern-review",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:33a37a8828ac950aa57ee59276005345f3d8a5fd88cf3505e59de2066e5a9f62",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/dotnet-design-pattern-review",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/dotnet-timezone",
+      "name": "dotnet-timezone",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:9c3f361cc46bcb959dfff67b4592de2109fd74663a88669ad6f298e26195ae33",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/dotnet-timezone",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/dotnet-upgrade",
+      "name": "dotnet-upgrade",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:5638fe13adeb165e35c402f4ed22e3e5a84f5683ff8128d667a0423187162ccf",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/dotnet-upgrade",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/editorconfig",
+      "name": "editorconfig",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:1e53e627d8bc190702fc1ab1e15cbc0528b498e9b4e99080bf11b6db8cb12007",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/editorconfig",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/ef-core",
+      "name": "ef-core",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:f4cbb3afaf9699c20ec699f372b4334a9eeb0e3380d6f57d5d774bb08206339f",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/ef-core",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/dotnet/nuget-manager",
+      "name": "nuget-manager",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:275d1273b9e030617c62b007ccae3dc6d240410881f76eceacfbe296f95c1674",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/nuget-manager",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/github/codeql",
+      "name": "codeql",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:a361296a1cb382edd6a0f1ab4a0efa6c32dafc0dde975bf6931456b79d7b491e",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/codeql",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/github/create-github-pull-request-from-specification",
+      "name": "create-github-pull-request-from-specification",
+      "category": "orphan",
+      "version": "1.0.0",
+      "baseline": null,
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:6a610bc40f5f31b9f5d0d8cdd4d5d40839ffc69191d72a2df086e0f952f0f724",
+      "upstream": null
+    },
+    {
+      "path": "skills/github/dependabot",
+      "name": "dependabot",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:e68a54cea843960f84f8112251aca2e6729f60be7105efc0ee7c5246edad8f1e",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/dependabot",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/github/gh-cli",
+      "name": "gh-cli",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:75d775cfffc8531dd5699da4fa0a158bca5c51fbf036fa55022e42f2f7be6bee",
+      "upstream": {
+        "repository": "aiskillstore/marketplace",
+        "reference": "refs/heads/main",
+        "source": "skills/github/gh-cli",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/github/git-flow-branch-creator",
+      "name": "git-flow-branch-creator",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:e7298fce40134f6b7e2d216122bef2d7015939efabe4f1416ee2d150c7066ac9",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/git-flow-branch-creator",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/github/github-issues",
+      "name": "github-issues",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:a188b132d27b80dac71519ff6e97aad99040a776ad4bb62af2cc117841044e28",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/github-issues",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/github/publish-to-pages",
+      "name": "publish-to-pages",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:ea37ee3692e95852a6ee8156958f4a9eccbe4cad07d50bd5ec887d0771fe3410",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/publish-to-pages",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/github/secret-scanning",
+      "name": "secret-scanning",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:25276dc05061850c14d2297ff26fb5fbc0e170c2acbac5ce79138ca03e9db9bf",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/secret-scanning",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-0-to-1-launch",
+      "name": "gtm-0-to-1-launch",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:9a4de20af0ba4c368e4b44416961727553a99b915cdd0afee2292bdc7ccd330c",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-0-to-1-launch",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-ai-gtm",
+      "name": "gtm-ai-gtm",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:231b3c5e565c09d0c567511ebbef7c0a30b511b5c9cd27911aaaefb2fee40266",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-ai-gtm",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-board-and-investor-communication",
+      "name": "gtm-board-and-investor-communication",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:2bb6ce1ece8f62f09fb6a36a4017bcde9238d520b090f45c23f072cf2ee3923c",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-board-and-investor-communication",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-developer-ecosystem",
+      "name": "gtm-developer-ecosystem",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:6a4cf4fbc341a5fca8fd39d7877d511cccb6331769daa8567ac5f037609f40b8",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-developer-ecosystem",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-enterprise-account-planning",
+      "name": "gtm-enterprise-account-planning",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:7e35336969629154fc2b2fbbc9dd2065df79d2193643aa671303a0c6ab3e1702",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-enterprise-account-planning",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-enterprise-onboarding",
+      "name": "gtm-enterprise-onboarding",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:f1ccd8324aa4a14f3017ac6f29c02bca7831bea369d93307e115ded4094bdc0c",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-enterprise-onboarding",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-operating-cadence",
+      "name": "gtm-operating-cadence",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:3ef7eea3f367abf0fb6f275540030eade6714ddb8ea738aade7e6d6dab24b08b",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-operating-cadence",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-partnership-architecture",
+      "name": "gtm-partnership-architecture",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:8e7811dc196baac2e65e3dbd768ac709453f7fc64967ecbc7d92cbbfde86fa9b",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-partnership-architecture",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-positioning-strategy",
+      "name": "gtm-positioning-strategy",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:bc65c6dc6359cdeb5c1d8af429d37c57f2f4bd15b33c1c108fb6edd800dba6c6",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-positioning-strategy",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-product-led-growth",
+      "name": "gtm-product-led-growth",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:c8cde4c8306ee71fa89cdc4c542a2dd7d5f28a400217518906e5f3227383d897",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-product-led-growth",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/gtm/gtm-technical-product-pricing",
+      "name": "gtm-technical-product-pricing",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:944c62bb42387e6b848dd9750d310078d90be9429f1f162bdeb16c6da7379419",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/gtm-technical-product-pricing",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/cloud-solution-architect",
+      "name": "cloud-solution-architect",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:3215a39563cbc577d3bcb26f9351848b448a20f4c164c037d92f3af220a5192e",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/cloud-solution-architect",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/continual-learning",
+      "name": "continual-learning",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:86870967b2e87466195949a9bf4a8df26b95546ff6d58f351508f2a6ea3146a1",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/continual-learning",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/copilot-sdk",
+      "name": "copilot-sdk",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:b6e5fe2e7562d044595168be096babd28bba18196881ec164336eda8f9773280",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/copilot-sdk",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/entra-agent-id",
+      "name": "entra-agent-id",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:e2f69a7e50c2495f627a23d365f37e63c613315a2c3b5f1430c144d2d9fe82b3",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/entra-agent-id",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/frontend-design-review",
+      "name": "frontend-design-review",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:3e323a24ff2f99be97099a8e55d63d6e7e646c3c9674b32087393a34b649773f",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/frontend-design-review",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/github-issue-creator",
+      "name": "github-issue-creator",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:b24a793ba0796c9f326718dbf711a973dfd5920179b86d25ec15e941c2684345",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/github-issue-creator",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/mcp-builder",
+      "name": "microsoft-mcp-builder",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:54fed6c47d8c45bf7bf731e3ed0939fab20a8f3f5994ec4f1c630c912d61ea94",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/mcp-builder",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/microsoft-agent-framework",
+      "name": "microsoft-agent-framework",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:2084301c5e04457d77210a9958571fea19670803a81ca1c6c27985196f01b58d",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/microsoft-agent-framework",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/microsoft-code-reference",
+      "name": "microsoft-code-reference",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:7d494a4e30418d4d3bca7f25d452040dc870dba46cca1297b2478268376383cb",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/microsoft-code-reference",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/microsoft-docs",
+      "name": "microsoft-docs",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:82e52e906b8e99d606fd7cab7ed6704864a0c640ad141db32266092dbf8b697c",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/microsoft-docs",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/podcast-generation",
+      "name": "podcast-generation",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:6abfea7cc549373455643f72ecb0ca399a0fadf32001ccf27933aefb7e1873cf",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/podcast-generation",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/microsoft/skill-creator",
+      "name": "microsoft-skill-creator",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:d3ebadfc3df916e8a211a2e2263af04219e53fc87dc58a78c8fd871b379bfb8e",
+      "upstream": {
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/skill-creator",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/power-platform/fabric-lakehouse",
+      "name": "fabric-lakehouse",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:b534d75542c477f7d843eedb5544577788d3cff21d8fd16272ba2048fd9e350e",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/fabric-lakehouse",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/power-platform/power-apps-code-app-scaffold",
+      "name": "power-apps-code-app-scaffold",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:025b47a9a8d8ab1c9100533a64fef4a3e57178d7386c548adda466c1d6939063",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/power-apps-code-app-scaffold",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/power-platform/power-bi-dax-optimization",
+      "name": "power-bi-dax-optimization",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:dafa18c7b613eaa8f821dacba8be55984185df3cf8382ee943764a180fd0e947",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/power-bi-dax-optimization",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/power-platform/power-bi-model-design-review",
+      "name": "power-bi-model-design-review",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:7581e8dc0188b33ec0bc86b0cd545e1db3e0e8502f8389adc4c227cc0dd7aa9e",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/power-bi-model-design-review",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/power-platform/power-bi-performance-troubleshooting",
+      "name": "power-bi-performance-troubleshooting",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:debcefd57156870ec682f6afc5fe998b8f72da74bec5189bc53e89873a5e9e15",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/power-bi-performance-troubleshooting",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/power-platform/power-bi-report-design-consultation",
+      "name": "power-bi-report-design-consultation",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:2bc415cd3ac1e6f0d251956b99c00138add84eed245c7f3609fa53de6e7f9b8f",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/power-bi-report-design-consultation",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/power-platform/power-platform-mcp-connector-suite",
+      "name": "power-platform-mcp-connector-suite",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:a4d5d2e3bf090d9e7bd7aa0d908d190811cbb38c78b540a33000f665c0078325",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/power-platform-mcp-connector-suite",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/power-platform/powerbi-modeling",
+      "name": "powerbi-modeling",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:c51fb02408c3a428f6879ef7963a47cc93d728b0ebc7d7b7b4f598fae892d000",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/powerbi-modeling",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/tampermonkey/tampermonkey",
+      "name": "tampermonkey",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:527e5d177242b1d58976ade2f9bed9e43b70316f442afdc7a6defc6bbd9c5ee9",
+      "upstream": {
+        "repository": "henkisdabro/wookstar-claude-plugins",
+        "reference": "refs/heads/main",
+        "source": "plugins/tampermonkey/skills/tampermonkey",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/vscode/code-review",
+      "name": "code-review-excellence",
+      "category": "orphan",
+      "version": "1.0.0",
+      "baseline": null,
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:cb45a129752f8cd29eb107a4e4abcdfd51e4045dd92b7a983f3debae825e2c1f",
+      "upstream": null
+    },
+    {
+      "path": "skills/vscode/create-implementation-plan",
+      "name": "create-implementation-plan",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:7d4805782d8a655a8a8c7dd4bc9e508e443c31f6a083321ac474a63370273553",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/create-implementation-plan",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/vscode/create-readme",
+      "name": "create-readme",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:c1d9750238c28b079d8893d5f0af7cfa4c3c43bc07dd5bdd14a3fd18ab94aade",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/create-readme",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/vscode/create-specification",
+      "name": "create-specification",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:843c114ecde0a1e83888f6b64f4e9af1db0c7c813cfe7518426efaf8ee638204",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/create-specification",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/vscode/generate-custom-instructions-from-codebase",
+      "name": "generate-custom-instructions-from-codebase",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:a2169821f3656c31d82197a3510b6acc5f832608ee70b41daf4eaf27dc071002",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/generate-custom-instructions-from-codebase",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/vscode/git-commit",
+      "name": "git-commit",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:12ca977b6e145c5164af303af5bbc551d0845ad65db323c37bf0a7459d4ee263",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/git-commit",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/vscode/refactor",
+      "name": "refactor",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "MIT",
+      "redistributable": true,
+      "snapshotHash": "sha256:27cf50e1cea03dacc0e0a8d0d1644c09afc927cbc097246c379508be8f03c841",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/refactor",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/vscode/refactor-plan",
+      "name": "refactor-plan",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:3bf3499f731a49e2c9673d8861fe4c2bf228686b643f20e59947e6f5e5173623",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/refactor-plan",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/vscode/security-review",
+      "name": "security-review",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:7bf6756c98b381fb69d04e3f7b44d680b1f7a60b75861d62197fddc0b2be8891",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/security-review",
+        "commit": null
+      }
+    }
+  ]
+}

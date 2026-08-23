@@ -1,0 +1,16 @@
+{
+  "path": "skills/claude/brand-guidelines",
+  "name": "brand-guidelines",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:abb30618bd6c3fb5cf445cb9188e5288139e78f0215bd1c696dda85c4bf059c3"
+    }
+  ]
+}

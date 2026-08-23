@@ -1,0 +1,16 @@
+{
+  "path": "skills/dotnet/csharp-mstest",
+  "name": "csharp-mstest",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:1a98ac8b25caaf4eebb371bda76359fad5f496a687a2fef5ce9dceb8949466ac"
+    }
+  ]
+}

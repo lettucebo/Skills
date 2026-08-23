@@ -1,0 +1,16 @@
+{
+  "path": "skills/vscode/create-implementation-plan",
+  "name": "create-implementation-plan",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:7d4805782d8a655a8a8c7dd4bc9e508e443c31f6a083321ac474a63370273553"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "path": "skills/dotnet/csharp-xunit",
+  "name": "csharp-xunit",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:445fdf7c6b80f2ab148d9273b25c92d5f2fd4c347c59f32d56c2010896976884"
+    }
+  ]
+}

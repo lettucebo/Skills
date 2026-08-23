@@ -1,0 +1,16 @@
+{
+  "path": "skills/claude/pdf",
+  "name": "pdf",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:b22c2f0207f07ca166181680879e1999fc9662161891f871d9e7bc4540f050ac"
+    }
+  ]
+}

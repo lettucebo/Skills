@@ -31,7 +31,12 @@ hooks/                     ← Copilot Hook 腳本集合
 
 ## 目前收錄的 Skills
 
+<!-- CATALOG:START -->
 共 **99 個技能**，來自 11 個來源。
+
+> 以下統計由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
+>
+> 目前所有 mapped 技能的 `baseline` 為 `unverified`，代表 lockfile 記錄的是目前 vendored 的內容快照（`snapshotHash`），尚未對應到已驗證的上游 commit。
 
 | 來源 | 數量 | 說明 | 文件 |
 |------|:----:|------|------|
@@ -45,7 +50,8 @@ hooks/                     ← Copilot Hook 腳本集合
 | [microsoft](skills/microsoft/) | 12 | Azure SDK、AI Foundry、Copilot SDK、MCP Builder | [README](skills/microsoft/README.md) |
 | [power-platform](skills/power-platform/) | 8 | Power BI（DAX、模型、報表）、Power Apps、Fabric Lakehouse | — |
 | [tampermonkey](skills/tampermonkey/) | 1 | Tampermonkey 使用者腳本開發（API、安全、除錯） | — |
-| [vscode](skills/vscode/) | 8 | 重構、規格撰寫、README 生成、安全審查、Git commit | — |
+| [vscode](skills/vscode/) | 9 | 重構、規格撰寫、README 生成、安全審查、Git commit | — |
+<!-- CATALOG:END -->
 
 ### azure（9 個）
 
@@ -187,10 +193,11 @@ hooks/                     ← Copilot Hook 腳本集合
 |------|------|
 | `tampermonkey` | Tampermonkey 使用者腳本開發（API、GM 函式、安全、TypeScript） |
 
-### vscode（8 個）
+### vscode（9 個）
 
 | 技能 | 說明 |
 |------|------|
+| `code-review` | 程式碼審查（orphan：尚未驗證上游來源） |
 | `create-implementation-plan` | 生成功能實作計畫 |
 | `create-readme` | 自動生成專案 README |
 | `create-specification` | 撰寫功能規格文件 |
@@ -252,4 +259,6 @@ description: 觸發技能載入的一行說明。
 
 ## 授權
 
-各 skill 來源的授權依其原始專案為準。`microsoft/skills` 採用 MIT License。
+- 本 registry 的工具程式（`scripts/`、`hooks/`）與未來的 `skills/lettucebo/` 原創技能採用 MIT License，詳見 [LICENSE](LICENSE)。
+- 各 vendored skill 保留其原始專案的授權；完整來源與授權對應請見 [NOTICE](NOTICE)。
+- `claude/docx`、`claude/pdf`、`claude/pptx`、`claude/xlsx` 為專有授權（Restricted，`redistributable: false`），使用前請先閱讀各技能資料夾內的 `LICENSE.txt`。

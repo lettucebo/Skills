@@ -1,0 +1,16 @@
+{
+  "path": "skills/claude/xlsx",
+  "name": "xlsx",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:75fb3d2c1b711af994c3976390a7ae24bc9f69c42216ef880995803dfeabce10"
+    }
+  ]
+}

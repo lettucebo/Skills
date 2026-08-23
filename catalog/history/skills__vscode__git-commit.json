@@ -1,0 +1,16 @@
+{
+  "path": "skills/vscode/git-commit",
+  "name": "git-commit",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:12ca977b6e145c5164af303af5bbc551d0845ad65db323c37bf0a7459d4ee263"
+    }
+  ]
+}

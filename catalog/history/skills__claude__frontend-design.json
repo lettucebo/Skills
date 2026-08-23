@@ -1,0 +1,16 @@
+{
+  "path": "skills/claude/frontend-design",
+  "name": "frontend-design",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:2d7213d7574d5be4e90bff599a26be985b88058b9328a1751358ae9e15bfc53e"
+    }
+  ]
+}

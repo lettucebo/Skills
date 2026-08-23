@@ -1,0 +1,16 @@
+{
+  "path": "skills/tampermonkey/tampermonkey",
+  "name": "tampermonkey",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:527e5d177242b1d58976ade2f9bed9e43b70316f442afdc7a6defc6bbd9c5ee9"
+    }
+  ]
+}

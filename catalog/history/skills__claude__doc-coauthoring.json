@@ -1,0 +1,16 @@
+{
+  "path": "skills/claude/doc-coauthoring",
+  "name": "doc-coauthoring",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:08286b50480ba68dc6f85a9fc635ab8761af7b78588a117d9f08735c35fbf82f"
+    }
+  ]
+}

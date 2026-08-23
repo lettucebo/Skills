@@ -1,0 +1,16 @@
+{
+  "path": "skills/claude/slack-gif-creator",
+  "name": "slack-gif-creator",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:f664d047c076218462d854779c2e44a00c041f54c53ba7d8fc098ec0f5ef0364"
+    }
+  ]
+}

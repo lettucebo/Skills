@@ -1,0 +1,16 @@
+{
+  "path": "skills/microsoft/continual-learning",
+  "name": "continual-learning",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:86870967b2e87466195949a9bf4a8df26b95546ff6d58f351508f2a6ea3146a1"
+    }
+  ]
+}

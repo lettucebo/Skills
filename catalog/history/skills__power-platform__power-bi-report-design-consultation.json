@@ -1,0 +1,16 @@
+{
+  "path": "skills/power-platform/power-bi-report-design-consultation",
+  "name": "power-bi-report-design-consultation",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:2bc415cd3ac1e6f0d251956b99c00138add84eed245c7f3609fa53de6e7f9b8f"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "path": "skills/claude/webapp-testing",
+  "name": "webapp-testing",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:ee25594ad716e94f4f373b732a10fde07b80aa5c4a21a03f58c756f5a9ae8ef0"
+    }
+  ]
+}

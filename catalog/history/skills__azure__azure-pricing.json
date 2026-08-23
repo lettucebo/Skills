@@ -1,0 +1,16 @@
+{
+  "path": "skills/azure/azure-pricing",
+  "name": "azure-pricing",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:444325a5d0863b4adeea481bbf2924e2cf1f2fc1ba4fecfa93b4d73b64240cb7"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "path": "skills/dotnet/editorconfig",
+  "name": "editorconfig",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:1e53e627d8bc190702fc1ab1e15cbc0528b498e9b4e99080bf11b6db8cb12007"
+    }
+  ]
+}

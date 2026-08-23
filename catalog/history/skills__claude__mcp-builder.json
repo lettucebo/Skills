@@ -1,0 +1,16 @@
+{
+  "path": "skills/claude/mcp-builder",
+  "name": "claude-mcp-builder",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:17f6271784281998cc31a75d7600033b67d50d05384a0d3daf70d11c49fdc2fa"
+    }
+  ]
+}

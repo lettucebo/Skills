@@ -212,6 +212,8 @@ async function collectSourceRootErrors(skillsRoot, repoRoot) {
 }
 
 async function pathExists(targetPath) {
+  // Uses fs.access, so this resolves true for either files or directories;
+  // directory targets are intentionally accepted (e.g. links to reference folders).
   try {
     await access(targetPath);
     return true;

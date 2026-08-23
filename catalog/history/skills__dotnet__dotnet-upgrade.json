@@ -1,0 +1,16 @@
+{
+  "path": "skills/dotnet/dotnet-upgrade",
+  "name": "dotnet-upgrade",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:5638fe13adeb165e35c402f4ed22e3e5a84f5683ff8128d667a0423187162ccf"
+    }
+  ]
+}

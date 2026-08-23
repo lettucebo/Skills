@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "catalog": "node scripts/catalog.mjs --bootstrap",
+    "validate": "node scripts/validate.mjs"
   },
   "dependencies": {
     "yaml": "^2.8.1"

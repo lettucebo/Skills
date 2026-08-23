@@ -1,0 +1,16 @@
+{
+  "path": "skills/claude/internal-comms",
+  "name": "internal-comms",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:d49060af3263f11baad4e6c0021d815c574dc98a1217078b1731efc191892ff0"
+    }
+  ]
+}

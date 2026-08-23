@@ -1,0 +1,16 @@
+{
+  "path": "skills/gtm/gtm-0-to-1-launch",
+  "name": "gtm-0-to-1-launch",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:9a4de20af0ba4c368e4b44416961727553a99b915cdd0afee2292bdc7ccd330c"
+    }
+  ]
+}

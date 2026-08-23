@@ -1,0 +1,16 @@
+{
+  "path": "skills/azure/azure-resource-health-diagnose",
+  "name": "azure-resource-health-diagnose",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:67a3e9da0f451425ce93759498ddf8bd0ae1611a4df1ef7f7db3784fecdd0c28"
+    }
+  ]
+}

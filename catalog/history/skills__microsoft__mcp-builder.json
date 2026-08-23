@@ -1,0 +1,16 @@
+{
+  "path": "skills/microsoft/mcp-builder",
+  "name": "microsoft-mcp-builder",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:54fed6c47d8c45bf7bf731e3ed0939fab20a8f3f5994ec4f1c630c912d61ea94"
+    }
+  ]
+}

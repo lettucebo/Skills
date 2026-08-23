@@ -1,0 +1,16 @@
+{
+  "path": "skills/dotnet/dotnet-timezone",
+  "name": "dotnet-timezone",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:9c3f361cc46bcb959dfff67b4592de2109fd74663a88669ad6f298e26195ae33"
+    }
+  ]
+}

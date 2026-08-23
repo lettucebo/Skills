@@ -1,0 +1,16 @@
+{
+  "path": "skills/github/publish-to-pages",
+  "name": "publish-to-pages",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:ea37ee3692e95852a6ee8156958f4a9eccbe4cad07d50bd5ec887d0771fe3410"
+    }
+  ]
+}

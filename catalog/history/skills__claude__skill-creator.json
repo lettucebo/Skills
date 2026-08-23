@@ -1,0 +1,16 @@
+{
+  "path": "skills/claude/skill-creator",
+  "name": "claude-skill-creator",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:ca2930c29d3d552f13abdde7dc0da0af9f85c49924907d80787aaa3be1768c1b"
+    }
+  ]
+}

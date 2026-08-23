@@ -1,0 +1,16 @@
+{
+  "path": "skills/github/dependabot",
+  "name": "dependabot",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:e68a54cea843960f84f8112251aca2e6729f60be7105efc0ee7c5246edad8f1e"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "path": "skills/power-platform/power-platform-mcp-connector-suite",
+  "name": "power-platform-mcp-connector-suite",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:a4d5d2e3bf090d9e7bd7aa0d908d190811cbb38c78b540a33000f665c0078325"
+    }
+  ]
+}
