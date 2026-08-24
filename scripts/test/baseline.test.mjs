@@ -667,3 +667,18 @@ test('applyBaseline rolls back completely when post-apply validation fails', asy
     await rm(workspace, { recursive: true, force: true });
   }
 });
+
+test('applyBaseline defaults repoRoot to the repository so the CLI cannot omit it', async () => {
+  // The CLI invokes applyBaseline without an explicit repoRoot. Every other
+  // parameter already defaults, so a missing default here surfaced only as an
+  // opaque path error at real apply time.
+  await assert.rejects(
+    () =>
+      applyBaseline({
+        baseline: true,
+        readGitStatus: async () => ' M some-file\n',
+      }),
+    (error) =>
+      error instanceof BaselineError && /working tree is not clean/.test(error.message),
+  );
+});

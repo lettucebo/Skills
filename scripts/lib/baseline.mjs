@@ -26,6 +26,7 @@ import {
   writeFile,
 } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { cloneUpstream, GitCloneError } from './git-source.mjs';
 import { evaluateDeletionGuards } from './guardrails.mjs';
@@ -37,6 +38,8 @@ import { renderNotice, renderReadme, serialize } from '../catalog.mjs';
 import { validateRepository } from '../validate.mjs';
 
 const execFileAsync = promisify(execFile);
+
+const defaultRepoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 /**
  * The baseline turns the unverified `v1.0.0` bootstrap snapshot into a verified
@@ -436,7 +439,7 @@ async function rollbackSwap(repoRoot, backupRoot, placed) {
  * fails. Never creates commits or tags.
  */
 export async function applyBaseline({
-  repoRoot,
+  repoRoot = defaultRepoRoot,
   baseline = false,
   readGitStatus = defaultReadGitStatus,
   now = () => new Date().toISOString(),
