@@ -1210,3 +1210,35 @@ test('E10: global.css mobile breakpoint addresses .install-block code overflow a
     '@media (max-width: 640px) must include a .install-block code rule to prevent horizontal overflow at 375px',
   );
 });
+
+// ─── K21: search-result-link hover must use :global() (Defect #3b) ────────────
+
+test('K21: search-result-link hover rule uses :global() to match runtime-created Pagefind nodes', () => {
+  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  // Astro scopes every <style> rule to [data-astro-cid-*] by default.
+  // Search result elements (<a class="search-result-link">) are created via innerHTML at
+  // runtime and therefore never receive the Astro scope attribute. A scoped rule like
+  // ".search-result-link:hover[data-astro-cid-xxx]" never matches them.
+  // The hover color/background rules must be wrapped in :global() so they apply to
+  // dynamically-created nodes and the WCAG AA hover contrast requirement is met.
+  assert.match(
+    searchCss,
+    /:global\(\s*\.search-result-link/,
+    'Search.astro must declare a :global(.search-result-link...) rule for runtime-created Pagefind nodes',
+  );
+});
+
+// ─── E11: nav-links must flex-wrap to prevent overflow at 375px ───────────────
+
+test('E11: .nav-links in global.css has flex-wrap: wrap to prevent overflow at 375px', () => {
+  const css = fs.readFileSync(path.join(siteRoot, 'src', 'styles', 'global.css'), 'utf8');
+  // The Sources section on the homepage renders a <ul class="nav-links"> with up to
+  // 11 source names. Without flex-wrap the items form a single flex row that extends
+  // far beyond the 375 px viewport (measured: scrollWidth=714px at clientWidth=360px).
+  // flex-wrap: wrap allows items to reflow without overflow.
+  assert.match(
+    readRule('.nav-links', css),
+    /flex-wrap:\s*wrap/,
+    '.nav-links must declare flex-wrap: wrap to prevent horizontal overflow at 375px',
+  );
+});

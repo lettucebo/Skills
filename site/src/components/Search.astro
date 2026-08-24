@@ -399,6 +399,27 @@ const origins = [...new Set(
     color: var(--cp-text);
   }
 
+  /* ── Runtime-created node overrides ────────────────────────────────
+   * Search result elements (<a class="search-result-link">) are built
+   * via innerHTML in the Pagefind callback.  They are never rendered by
+   * Astro's template engine and therefore never receive the component's
+   * [data-astro-cid-*] scope attribute.  Without these :global() rules
+   * the scoped selectors above (which compile to
+   * ".search-result-link:hover[data-astro-cid-*]") never match, leaving
+   * hover color as the inherited --cp-link-text (#0067b8) — which fails
+   * WCAG AA at 4.44:1 on the --cp-hover-surface backdrop.
+   */
+  :global(.search-result-link:hover) {
+    background: var(--cp-hover-surface);
+    box-shadow: inset 3px 0 0 var(--cp-accent);
+    text-decoration: none;
+    color: var(--cp-text);
+  }
+  :global(.search-result-link:hover .search-result-meta),
+  :global(.search-result-link:hover .search-result-excerpt) {
+    color: var(--cp-text);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .search-input,
     .search-result-link {

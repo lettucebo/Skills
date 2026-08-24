@@ -191,6 +191,7 @@ a:focus-visible {
   display: flex;
   gap: 16px;
   list-style: none;
+  flex-wrap: wrap;
 }
 .nav-links a {
   font-size: 0.875rem;
