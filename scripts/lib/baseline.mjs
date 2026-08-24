@@ -82,8 +82,11 @@ export class BaselineError extends Error {
  *
  * Mapped entries gain the resolved upstream `commit`, the pre-stamp
  * `contentHash` (the verified upstream content identity), the post-stamp
- * `snapshotHash` (the vendored bytes), and the baseline `version`. Orphan and
- * local entries pass through untouched so an orphan keeps `upstream: null`.
+ * `snapshotHash` (the vendored bytes), the baseline `version`, and the
+ * authoritative frontmatter `name` read from the staged content. Adopting the
+ * staged name matters when upstream renames a skill: the bootstrap lock derived
+ * its name from the stale vendored copy. Orphan and local entries pass through
+ * untouched so an orphan keeps `upstream: null`.
  * Refuses if a mapped skill is missing from `staged`, or if `staged` names a
  * path that is not a mapped skill, so the transition can never be partial.
  */
@@ -114,7 +117,7 @@ export function buildVerifiedLock({ lock, staged, release = BASELINE_RELEASE, ge
 
     return {
       path: skill.path,
-      name: skill.name,
+      name: stagedEntry.name ?? skill.name,
       category: skill.category,
       version: release,
       baseline: 'verified',
@@ -275,7 +278,17 @@ async function stageMappedSkills({ manifest, workRoot, runGit }) {
       });
 
       const snapshotHash = await hashDirectory(stageDir);
-      staged.set(mapping.path, { commit: clone.commit, contentHash, snapshotHash, stageDir });
+      const stagedFrontmatter = parseSkillFrontmatter(
+        await readFile(path.join(stageDir, 'SKILL.md'), 'utf8'),
+        `${mapping.path}/SKILL.md`,
+      );
+      staged.set(mapping.path, {
+        commit: clone.commit,
+        contentHash,
+        snapshotHash,
+        stageDir,
+        name: stagedFrontmatter.name,
+      });
     }
   }
 

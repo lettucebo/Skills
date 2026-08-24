@@ -682,3 +682,42 @@ test('applyBaseline defaults repoRoot to the repository so the CLI cannot omit i
       error instanceof BaselineError && /working tree is not clean/.test(error.message),
   );
 });
+
+test('buildVerifiedLock adopts the staged frontmatter name when upstream renamed a skill', () => {
+  // The bootstrap lock derives names from the stale vendored copy. Once the
+  // baseline replaces that copy with real upstream content, the authoritative
+  // name is whatever the staged SKILL.md declares after transforms.
+  const staged = new Map([
+    [
+      'skills/demo/alpha',
+      {
+        commit: 'a'.repeat(40),
+        contentHash: 'sha256:up-alpha',
+        snapshotHash: 'sha256:new-alpha',
+        name: 'alpha-renamed-upstream',
+      },
+    ],
+    [
+      'skills/demo/beta',
+      {
+        commit: 'b'.repeat(40),
+        contentHash: 'sha256:up-beta',
+        snapshotHash: 'sha256:new-beta',
+      },
+    ],
+  ]);
+
+  const lock = buildVerifiedLock({
+    lock: baseLock(),
+    staged,
+    release: '1.1.0',
+    generatedAt: '2026-02-02T00:00:00Z',
+  });
+
+  const alpha = lock.skills.find((skill) => skill.path === 'skills/demo/alpha');
+  assert.equal(alpha.name, 'alpha-renamed-upstream');
+
+  // Without a staged name the previous lock name is preserved.
+  const beta = lock.skills.find((skill) => skill.path === 'skills/demo/beta');
+  assert.equal(beta.name, 'beta');
+});
