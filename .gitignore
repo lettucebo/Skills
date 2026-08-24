@@ -45,3 +45,6 @@ scripts/test/.runtime/
 sync-report/
 .baseline-work-*/
 .baseline-backup-*/
+
+# Astro generated types
+.astro/

@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {
+  loadCatalog,
+  getSkillsBySource,
+  getUpstreamRepoForSource,
+  generateSourceInstallCommand,
+  sourceContainsRestricted,
+  RELEASE_VERSION,
+  RELEASE_PUBLISHED,
+} from '../../lib/catalog';
+import path from 'node:path';
+
+const repoRoot = path.resolve(process.cwd(), '..');
+const base = import.meta.env.BASE_URL;
+
+export async function getStaticPaths() {
+  const repoRoot = path.resolve(process.cwd(), '..');
+  const catalog = await loadCatalog(repoRoot);
+
+  return catalog.sources.map((source) => ({
+    params: { source },
+    props: {
+      source,
+      skills: getSkillsBySource(catalog.skills, source),
+      upstreamRepo: getUpstreamRepoForSource(catalog.skills, source),
+    },
+  }));
+}
+
+const { source, skills, upstreamRepo } = Astro.props;
+const hasRestricted = sourceContainsRestricted(source);
+const sourceCmd = generateSourceInstallCommand(source);
+---
+<Layout title={`${source} skills`}>
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href={base}>Catalog</a>
+    <span>/</span>
+    <span>{source}</span>
+  </nav>
+
+  <div class="source-header">
+    <h1>{source}</h1>
+    <p class="source-meta">
+      {skills.length} skill{skills.length !== 1 ? 's' : ''}
+      {upstreamRepo && (
+        <span>
+          &middot; Upstream: <a href={`https://github.com/${upstreamRepo}`} rel="noopener noreferrer">{upstreamRepo}</a>
+        </span>
+      )}
+    </p>
+  </div>
+
+  {sourceCmd && (
+    <div class="install-block">
+      <code>{sourceCmd}</code>
+      {!RELEASE_PUBLISHED && (
+        <p class="pending-note">⚠ Available after v{RELEASE_VERSION} is published</p>
+      )}
+    </div>
+  )}
+
+  {hasRestricted && !sourceCmd && (
+    <div class="warning-box">
+      <strong>⚠ No source-level install command</strong>
+      <p>
+        This source contains restricted skills with proprietary licenses that cannot
+        be redistributed. A bulk install command is suppressed to prevent inadvertent
+        installation of restricted content. Install individual skills instead.
+      </p>
+    </div>
+  )}
+
+  <table class="skill-table">
+    <thead>
+      <tr>
+        <th>Skill</th>
+        <th>Version</th>
+        <th>Status</th>
+        <th>License</th>
+      </tr>
+    </thead>
+    <tbody>
+      {skills.map((skill) => (
+        <tr>
+          <td>
+            <a href={`${base}skills/${skill.source}/${skill.slug}/`}>{skill.name}</a>
+          </td>
+          <td>v{skill.version}</td>
+          <td>
+            <span class={`badge badge--${skill.isRestricted ? 'restricted' : skill.isOrphan ? 'frozen' : skill.isLocal ? 'local' : 'synced'}`}>
+              {skill.statusLabel}
+            </span>
+          </td>
+          <td>{skill.license}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</Layout>

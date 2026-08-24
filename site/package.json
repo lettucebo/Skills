@@ -1,0 +1,21 @@
+{
+  "name": "skills-catalog-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test src/**/*.test.ts test/**/*.test.ts --import tsx"
+  },
+  "dependencies": {
+    "astro": "^5.9.0",
+    "marked": "^15.0.0",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}

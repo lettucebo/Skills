@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  loadCatalog,
+  computeCounts,
+  RELEASE_VERSION,
+  RELEASE_PUBLISHED,
+  RESTRICTED_PATHS,
+} from '../lib/catalog';
+import path from 'node:path';
+
+const repoRoot = path.resolve(process.cwd(), '..');
+const catalog = await loadCatalog(repoRoot);
+const counts = catalog.counts;
+const base = import.meta.env.BASE_URL;
+
+// Collect upstream repositories and their commits
+const upstreamRepos = new Map<string, Set<string>>();
+for (const skill of catalog.skills) {
+  if (skill.upstreamRepo && skill.upstreamCommit) {
+    if (!upstreamRepos.has(skill.upstreamRepo)) {
+      upstreamRepos.set(skill.upstreamRepo, new Set());
+    }
+    upstreamRepos.get(skill.upstreamRepo)!.add(skill.upstreamCommit);
+  }
+}
+
+const orphanSkills = catalog.skills.filter((s) => s.isOrphan);
+---
+<Layout title="Status">
+  <h1 style="margin-bottom:24px;">Registry Status</h1>
+
+  <div class="status-section">
+    <h2>Release</h2>
+    <p>
+      Version: <strong>v{RELEASE_VERSION}</strong>
+      {!RELEASE_PUBLISHED && <span class="badge badge--pending" style="margin-left:8px;">Release pending</span>}
+    </p>
+    <p style="color:var(--cp-text-muted);font-size:0.875rem;margin-top:8px;">
+      {RELEASE_PUBLISHED
+        ? `v${RELEASE_VERSION} is published and available for installation.`
+        : `v${RELEASE_VERSION} has not been tagged or pushed. Install commands will be available after publication.`
+      }
+    </p>
+  </div>
+
+  <div class="status-section">
+    <h2>Counts</h2>
+    <div class="status-grid">
+      <div class="status-stat">
+        <div class="stat-value">{counts.total}</div>
+        <div class="stat-label">Total Skills</div>
+      </div>
+      <div class="status-stat">
+        <div class="stat-value">{counts.mapped}</div>
+        <div class="stat-label">Mapped</div>
+      </div>
+      <div class="status-stat">
+        <div class="stat-value">{counts.orphan}</div>
+        <div class="stat-label">Frozen Orphans</div>
+      </div>
+      <div class="status-stat">
+        <div class="stat-value">{counts.local}</div>
+        <div class="stat-label">Local</div>
+      </div>
+      <div class="status-stat">
+        <div class="stat-value">{counts.restricted}</div>
+        <div class="stat-label">Restricted</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="status-section">
+    <h2>Baseline Verification</h2>
+    <p>
+      <strong>{counts.mapped}/{counts.mapped}</strong> mapped skills have verified baselines.
+    </p>
+    <p style="color:var(--cp-text-muted);font-size:0.875rem;margin-top:8px;">
+      All mapped skills are synced against their upstream repositories with verified content hashes.
+    </p>
+  </div>
+
+  <div class="status-section">
+    <h2>Upstream Repositories</h2>
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th>Repository</th>
+          <th>Resolved Commits</th>
+        </tr>
+      </thead>
+      <tbody>
+        {[...upstreamRepos.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([repo, commits]) => (
+          <tr>
+            <td>
+              <a href={`https://github.com/${repo}`} rel="noopener noreferrer">{repo}</a>
+            </td>
+            <td>
+              {[...commits].map((c) => (
+                <code style="margin-right:8px;">{c.slice(0, 7)}</code>
+              ))}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="status-section">
+    <h2>Frozen Orphans ({orphanSkills.length})</h2>
+    {orphanSkills.length > 0 ? (
+      <table class="skill-table">
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Source</th>
+            <th>Version</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orphanSkills.map((skill) => (
+            <tr>
+              <td>
+                <a href={`${base}skills/${skill.source}/${skill.slug}/`}>{skill.name}</a>
+              </td>
+              <td>{skill.source}</td>
+              <td>v{skill.version}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    ) : (
+      <p>No orphan skills.</p>
+    )}
+  </div>
+
+  <div class="status-section">
+    <h2>Restricted Skills ({RESTRICTED_PATHS.size})</h2>
+    <p style="color:var(--cp-text-muted);font-size:0.875rem;margin-bottom:8px;">
+      Restricted skills have proprietary licenses. Their content is not rendered on this site
+      and no install commands are generated.
+    </p>
+    <ul>
+      {[...RESTRICTED_PATHS].sort().map((p) => (
+        <li style="font-size:0.875rem;margin-bottom:4px;">
+          <code>{p}</code>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="status-section">
+    <h2>Known Limitations</h2>
+    <ul style="padding-left:20px;">
+      <li style="margin-bottom:8px;">
+        <strong>unadopted</strong> status flags are advisory; the website is generated from the
+        last committed lock file and does not query upstream at build time.
+      </li>
+      <li style="margin-bottom:8px;">
+        Search/filter functionality is planned for a future release (Pagefind integration).
+      </li>
+    </ul>
+  </div>
+</Layout>

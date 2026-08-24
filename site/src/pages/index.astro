@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  loadCatalog,
+  loadSkillBody,
+  computeCounts,
+  generateRepoInstallCommand,
+  generateSingleSkillInstallCommand,
+  generateSourceInstallCommand,
+  RELEASE_VERSION,
+  RELEASE_PUBLISHED,
+  sourceContainsRestricted,
+} from '../lib/catalog';
+import path from 'node:path';
+
+const repoRoot = path.resolve(process.cwd(), '..');
+const catalog = await loadCatalog(repoRoot);
+const counts = catalog.counts;
+const repoCmd = generateRepoInstallCommand();
+const base = import.meta.env.BASE_URL;
+
+function badgeClass(skill: typeof catalog.skills[0]): string {
+  if (skill.isRestricted) return 'badge badge--restricted';
+  if (skill.isOrphan) return 'badge badge--frozen';
+  if (skill.isLocal) return 'badge badge--local';
+  return 'badge badge--synced';
+}
+---
+<Layout title="Catalog">
+  <section class="hero">
+    <h1>Skills Registry</h1>
+    <div class="hero-meta">
+      <span class="badge badge--version">v{RELEASE_VERSION}</span>
+      {!RELEASE_PUBLISHED && <span class="badge badge--pending">Release pending</span>}
+    </div>
+    <p>
+      <strong>{counts.total}</strong> skills &middot;
+      <strong>{counts.mapped}</strong> synced &middot;
+      <strong>{counts.orphan}</strong> frozen
+    </p>
+  </section>
+
+  <section>
+    <h2>Install</h2>
+    <p>
+      Skills use <code>#ref</code> pinning (never <code>@version</code>).
+      Pin to a git tag for reproducible installs.
+    </p>
+    <div class="install-block">
+      <code>{repoCmd}</code>
+      {!RELEASE_PUBLISHED && (
+        <p class="pending-note">⚠ Available after v{RELEASE_VERSION} is published</p>
+      )}
+    </div>
+  </section>
+
+  <section>
+    <h2>Sources</h2>
+    <div class="filter-controls" aria-label="Filter controls (placeholder)">
+      <select aria-label="Filter by source" disabled>
+        <option value="">All sources</option>
+        {catalog.sources.map((s) => <option value={s}>{s}</option>)}
+      </select>
+      <select aria-label="Filter by license" disabled>
+        <option value="">All licenses</option>
+      </select>
+      <select aria-label="Filter by origin" disabled>
+        <option value="">All origins</option>
+      </select>
+    </div>
+    <ul class="nav-links" style="margin-bottom:16px;">
+      {catalog.sources.map((source) => (
+        <li><a href={`${base}sources/${source}/`}>{source}</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>All Skills ({counts.total})</h2>
+    <div class="card-grid">
+      {catalog.skills
+        .filter((s) => !s.isTombstone)
+        .map((skill) => (
+          <article class="card">
+            <a href={`${base}skills/${skill.source}/${skill.slug}/`}>
+              <div class="card-title">{skill.name}</div>
+              <div class="card-meta">
+                <span>{skill.source}</span>
+                <span>v{skill.version}</span>
+                <span class={badgeClass(skill)}>{skill.statusLabel}</span>
+                {skill.license !== 'Unknown' && <span>{skill.license}</span>}
+              </div>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
