@@ -1,10 +1,17 @@
 ---
 name: gtm-product-led-growth
-description: Build self-serve acquisition and expansion motions. Use when deciding PLG vs sales-led, optimizing activation, driving freemium conversion, building growth equations, or recognizing when product complexity demands human touch. Includes the parallel test where sales-led won 10x on revenue.
+description: Build self-serve acquisition and expansion motions. Use when
+  deciding PLG vs sales-led, optimizing activation, driving freemium conversion,
+  building growth equations, or recognizing when product complexity demands
+  human touch. Includes the parallel test where sales-led won 10x on revenue.
 license: MIT
 metadata:
   author: Smit Patel (https://linkedin.com/in/smitkpatel)
   source: https://github.com/beingsmit/technical-product-gtm
+x-source: github/awesome-copilot
+x-source-path: skills/gtm-product-led-growth
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Product-Led Growth

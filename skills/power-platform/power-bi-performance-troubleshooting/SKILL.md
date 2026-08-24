@@ -1,6 +1,12 @@
 ---
 name: power-bi-performance-troubleshooting
-description: 'Systematic Power BI performance troubleshooting prompt for identifying, diagnosing, and resolving performance issues in Power BI models, reports, and queries.'
+description: Systematic Power BI performance troubleshooting prompt for
+  identifying, diagnosing, and resolving performance issues in Power BI models,
+  reports, and queries.
+x-source: github/awesome-copilot
+x-source-path: skills/power-bi-performance-troubleshooting
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Power BI Performance Troubleshooting Guide

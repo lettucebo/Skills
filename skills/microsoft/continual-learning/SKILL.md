@@ -1,6 +1,12 @@
 ---
 name: continual-learning
-description: Guide for implementing continual learning in AI coding agents — hooks, memory scoping, reflection patterns. Use when setting up learning infrastructure for agents.
+description: Guide for implementing continual learning in AI coding agents —
+  hooks, memory scoping, reflection patterns. Use when setting up learning
+  infrastructure for agents.
+x-source: microsoft/skills
+x-source-path: .github/skills/continual-learning
+x-source-commit: cde32f9c7332b53de67faa7dadabb6873d02bb0c
+x-version: 1.1.0
 ---
 
 # Continual Learning for AI Coding Agents

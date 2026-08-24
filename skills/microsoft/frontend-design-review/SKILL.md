@@ -1,16 +1,26 @@
 ---
 name: frontend-design-review
 description: >
-  Review and create distinctive, production-grade frontend interfaces with high design quality and design system compliance.
-  Evaluates using three pillars: frictionless insight-to-action, quality craft, and trustworthy building.
-  USE FOR: PR reviews, design reviews, accessibility audits, design system compliance checks, creative frontend design,
-  UI code review, component reviews, responsive design checks, theme testing, and creating memorable UI.
-  DO NOT USE FOR: Backend API reviews, database schema reviews, infrastructure or DevOps work, pure business logic
-  without UI, or non-frontend code.
-acknowledgments: |
-  Design review principles and quality pillar framework created by @Quirinevwm (https://github.com/Quirinevwm).
+  Review and create distinctive, production-grade frontend interfaces with high
+  design quality and design system compliance. Evaluates using three pillars:
+  frictionless insight-to-action, quality craft, and trustworthy building. USE
+  FOR: PR reviews, design reviews, accessibility audits, design system
+  compliance checks, creative frontend design, UI code review, component
+  reviews, responsive design checks, theme testing, and creating memorable UI.
+  DO NOT USE FOR: Backend API reviews, database schema reviews, infrastructure
+  or DevOps work, pure business logic without UI, or non-frontend code.
+acknowledgments: >
+  Design review principles and quality pillar framework created by @Quirinevwm
+  (https://github.com/Quirinevwm).
+
   Creative frontend guidance inspired by Anthropic's frontend-design skill
-  (https://github.com/anthropics/skills/tree/main/skills/frontend-design). Licensed under respective terms.
+
+  (https://github.com/anthropics/skills/tree/main/skills/frontend-design).
+  Licensed under respective terms.
+x-source: microsoft/skills
+x-source-path: .github/skills/frontend-design-review
+x-source-commit: cde32f9c7332b53de67faa7dadabb6873d02bb0c
+x-version: 1.1.0
 ---
 
 # Frontend Design Review

@@ -1,6 +1,16 @@
 ---
 name: web-perf
-description: Analyzes web performance using Chrome DevTools MCP. Measures Core Web Vitals (FCP, LCP, TBT, CLS, Speed Index), identifies render-blocking resources, network dependency chains, layout shifts, caching issues, and accessibility gaps. Use when asked to audit, profile, debug, or optimize page load performance, Lighthouse scores, or site speed. Biases towards retrieval from current documentation over pre-trained knowledge.
+description: Analyzes web performance using Chrome DevTools MCP. Measures Core
+  Web Vitals (LCP, INP, CLS) and supplementary metrics (FCP, TBT, Speed Index),
+  identifies render-blocking resources, network dependency chains, layout
+  shifts, caching issues, and accessibility gaps. Use when asked to audit,
+  profile, debug, or optimize page load performance, Lighthouse scores, or site
+  speed. Biases towards retrieval from current documentation over pre-trained
+  knowledge.
+x-source: cloudflare/skills
+x-source-path: skills/web-perf
+x-source-commit: f96bff754e428838818017f75817f0f9428acd48
+x-version: 1.1.0
 ---
 
 # Web Performance Audit

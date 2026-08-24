@@ -1,6 +1,11 @@
 ---
 name: git-flow-branch-creator
-description: 'Intelligent Git Flow branch creator that analyzes git status/diff and creates appropriate branches following the nvie Git Flow branching model.'
+description: Intelligent Git Flow branch creator that analyzes git status/diff
+  and creates appropriate branches following the nvie Git Flow branching model.
+x-source: github/awesome-copilot
+x-source-path: skills/git-flow-branch-creator
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 ### Instructions

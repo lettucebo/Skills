@@ -1,10 +1,17 @@
 ---
 name: gtm-technical-product-pricing
-description: Pricing strategy for technical products. Use when choosing usage-based vs seat-based, designing freemium thresholds, structuring enterprise pricing conversations, deciding when to raise prices, or using price as a positioning signal.
+description: Pricing strategy for technical products. Use when choosing
+  usage-based vs seat-based, designing freemium thresholds, structuring
+  enterprise pricing conversations, deciding when to raise prices, or using
+  price as a positioning signal.
 license: MIT
 metadata:
   author: Smit Patel (https://linkedin.com/in/smitkpatel)
   source: https://github.com/beingsmit/technical-product-gtm
+x-source: github/awesome-copilot
+x-source-path: skills/gtm-technical-product-pricing
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Technical Product Pricing

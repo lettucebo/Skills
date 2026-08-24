@@ -1,6 +1,13 @@
 ---
 name: nuget-manager
-description: 'Manage NuGet packages in .NET projects/solutions. Use this skill when adding, removing, or updating NuGet package versions. It enforces using `dotnet` CLI for package management and provides strict procedures for direct file edits only when updating versions.'
+description: Manage NuGet packages in .NET projects/solutions. Use this skill
+  when adding, removing, or updating NuGet package versions. It enforces using
+  `dotnet` CLI for package management and provides strict procedures for direct
+  file edits only when updating versions.
+x-source: github/awesome-copilot
+x-source-path: skills/nuget-manager
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # NuGet Manager

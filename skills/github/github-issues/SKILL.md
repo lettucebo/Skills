@@ -1,6 +1,18 @@
 ---
 name: github-issues
-description: 'Create, update, and manage GitHub issues using MCP tools. Use this skill when users want to create bug reports, feature requests, or task issues, update existing issues, add labels/assignees/milestones, set issue fields (dates, priority, custom fields), set issue types, manage issue workflows, link issues, add dependencies, or track blocked-by/blocking relationships. Triggers on requests like "create an issue", "file a bug", "request a feature", "update issue X", "set the priority", "set the start date", "link issues", "add dependency", "blocked by", "blocking", or any GitHub issue management task.'
+description: Create, update, and manage GitHub issues using MCP tools. Use this
+  skill when users want to create bug reports, feature requests, or task issues,
+  update existing issues, add labels/assignees/milestones, set issue fields
+  (dates, priority, custom fields), set issue types, manage issue workflows,
+  link issues, add dependencies, or track blocked-by/blocking relationships.
+  Triggers on requests like "create an issue", "file a bug", "request a
+  feature", "update issue X", "set the priority", "set the start date", "link
+  issues", "add dependency", "blocked by", "blocking", or any GitHub issue
+  management task.
+x-source: github/awesome-copilot
+x-source-path: skills/github-issues
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # GitHub Issues
@@ -194,6 +206,7 @@ The following features require REST or GraphQL APIs beyond the basic MCP tools. 
 |------------|-------------|-----------|
 | Advanced search | Complex queries with boolean logic, date ranges, cross-repo search, issue field filters (`field.name:value`) | [references/search.md](references/search.md) |
 | Sub-issues & parent issues | Breaking work into hierarchical tasks | [references/sub-issues.md](references/sub-issues.md) |
+| Milestones | Create, read, update, close, reopen, delete milestones and manage milestone issues | [references/milestones.md](references/milestones.md) |
 | Issue dependencies | Tracking blocked-by / blocking relationships | [references/dependencies.md](references/dependencies.md) |
 | Issue types (advanced) | GraphQL operations beyond MCP `list_issue_types` / `type` param | [references/issue-types.md](references/issue-types.md) |
 | Projects V2 | Project boards, progress reports, field management | [references/projects.md](references/projects.md) |

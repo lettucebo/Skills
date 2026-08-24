@@ -1,6 +1,14 @@
 ---
 name: claude-skill-creator
-description: Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.
+description: Create new skills, modify and improve existing skills, and measure
+  skill performance. Use when users want to create a skill from scratch, edit,
+  or optimize an existing skill, run evals to test a skill, benchmark skill
+  performance with variance analysis, or optimize a skill's description for
+  better triggering accuracy.
+x-source: anthropics/skills
+x-source-path: skills/skill-creator
+x-source-commit: 3b3fad96af16a10759d930941b4520ba0c40edae
+x-version: 1.1.0
 ---
 
 # Skill Creator

@@ -11,6 +11,14 @@
       "upstreamCommit": null,
       "diffUrl": null,
       "snapshotHash": "sha256:ecd899d1920405c2286abc850d2bdf3df1cb9cff5d326920f16c33fcce515b7f"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "contentHash": "sha256:2f1317d0a1b5bc2169b176635d9205f6721e52731b06b9643c8f5e10634f41f3"
     }
   ]
 }

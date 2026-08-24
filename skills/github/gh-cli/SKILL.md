@@ -1,6 +1,12 @@
 ---
 name: gh-cli
-description: GitHub CLI (gh) comprehensive reference for repositories, issues, pull requests, Actions, projects, releases, gists, codespaces, organizations, extensions, and all GitHub operations from the command line.
+description: GitHub CLI (gh) comprehensive reference for repositories, issues,
+  pull requests, Actions, projects, releases, gists, codespaces, organizations,
+  extensions, and all GitHub operations from the command line.
+x-source: aiskillstore/marketplace
+x-source-path: skills/github/gh-cli
+x-source-commit: 27f583d0e4df7f0cef3c06840848a32efc55e1b4
+x-version: 1.1.0
 ---
 
 # GitHub CLI (gh)

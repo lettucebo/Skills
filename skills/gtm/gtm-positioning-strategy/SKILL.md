@@ -1,10 +1,17 @@
 ---
 name: gtm-positioning-strategy
-description: Find and own a defensible market position. Use when messaging sounds like competitors, conversion is weak despite awareness, repositioning a product, or testing positioning claims. Includes Crawl-Walk-Run rollout methodology and the word change that improved enterprise deal progression.
+description: Find and own a defensible market position. Use when messaging
+  sounds like competitors, conversion is weak despite awareness, repositioning a
+  product, or testing positioning claims. Includes Crawl-Walk-Run rollout
+  methodology and the word change that improved enterprise deal progression.
 license: MIT
 metadata:
   author: Smit Patel (https://linkedin.com/in/smitkpatel)
   source: https://github.com/beingsmit/technical-product-gtm
+x-source: github/awesome-copilot
+x-source-path: skills/gtm-positioning-strategy
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Positioning Strategy

@@ -1,10 +1,17 @@
 ---
 name: gtm-ai-gtm
-description: Go-to-market strategy for AI products. Use when positioning AI products, handling "who is responsible when it breaks" objections, pricing variable-cost AI, choosing between copilot/agent/teammate framing, or selling autonomous tools into enterprises.
+description: Go-to-market strategy for AI products. Use when positioning AI
+  products, handling "who is responsible when it breaks" objections, pricing
+  variable-cost AI, choosing between copilot/agent/teammate framing, or selling
+  autonomous tools into enterprises.
 license: MIT
 metadata:
   author: Smit Patel (https://linkedin.com/in/smitkpatel)
   source: https://github.com/beingsmit/technical-product-gtm
+x-source: github/awesome-copilot
+x-source-path: skills/gtm-ai-gtm
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # AI Product GTM

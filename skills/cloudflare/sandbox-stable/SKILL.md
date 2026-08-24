@@ -1,177 +1,119 @@
 ---
-name: sandbox-sdk
-description: Build sandboxed applications for secure code execution. Load when building AI code execution, code interpreters, CI/CD systems, interactive dev environments, or executing untrusted code. Covers Sandbox SDK lifecycle, commands, files, code interpreter, and preview URLs. Biases towards retrieval from Cloudflare docs over pre-trained knowledge.
+name: sandbox-stable
+description: Use when building or changing Cloudflare Sandbox apps on the
+  current stable @cloudflare/sandbox package (default npm tag)—commands,
+  sessions, files, ports, tunnels, terminals, bridge, production, or
+  deprecated-API cleanup while staying on stable. Not for
+  @cloudflare/sandbox@next (use sandbox-next) or for porting to 1.0 (use
+  sandbox-migrate-to-next).
+x-source: cloudflare/skills
+x-source-path: skills/sandbox-stable
+x-source-commit: f96bff754e428838818017f75817f0f9428acd48
+x-version: 1.1.0
 ---
 
-# Cloudflare Sandbox SDK
+# Sandbox SDK — stable package
 
-Build secure, isolated code execution environments on Cloudflare Workers.
+Isolated Linux environments on [Cloudflare Containers](https://developers.cloudflare.com/containers/), driven from Workers.
 
-## FIRST: Verify Installation
+**Prefer the main Sandbox docs and installed stable types over memory.** This skill is a gate, a contract, and a retrieval map—not a full manual.
 
-```bash
-npm install @cloudflare/sandbox
-docker info  # Must succeed - Docker required for local dev
+This line is the **current stable** default npm package. The main [Sandbox documentation](https://developers.cloudflare.com/sandbox/) describes it. Existing apps can stay here and keep shipping.
+
+We recommend **new projects** on `@cloudflare/sandbox@next` with **`sandbox-next`**. When you can, plan a move with **`sandbox-migrate-to-next`** so you are ready when 1.0 becomes the stable release. Do not force that port unless the user asks.
+
+## 1. Gate — confirm the package line
+
+Before writing code, inspect the app:
+
+| Check | Must match |
+| ----- | ---------- |
+| npm dependency | Default `@cloudflare/sandbox` (**not** `@next` / preview tags) |
+| Container image | Matching **stable** image (not `cloudflare/sandbox:next`) |
+
+| If you find… | Action |
+| ------------ | ------ |
+| `@cloudflare/sandbox@next` or a `next` image | **Stop.** Load **`sandbox-next`**. |
+| User wants to port to 1.0 / `@next` | **Stop.** Load **`sandbox-migrate-to-next`**. Do not half-apply preview APIs on a stable package. |
+| Only cleaning deprecated stable APIs | Stay here; use the [2026 deprecation guide](https://developers.cloudflare.com/sandbox/guides/2026-deprecation/). That is **not** a move to `@next`. |
+
+Never mix a stable Worker package with an `@next` container image (or the reverse).
+
+Skills install: [Agent setup](https://developers.cloudflare.com/agent-setup/) · [cloudflare/skills](https://github.com/cloudflare/skills)
+
+## 2. Contract — non-negotiables
+
+- `await sandbox.exec(command)` takes a **command string** and resolves when the command **finishes**, with buffered `stdout` / `stderr` / `exitCode` (and related fields).
+- Long-running and streaming work use the **stable** command APIs (`startProcess`, `execStream`, and related helpers)—not the `@next` single-handle model. Open the Commands docs; do not invent `@next` `output()` handles on stable.
+- **Sessions** can preserve working directory and environment across commands (default session / `enableDefaultSession`, `createSession`). See Sessions docs when state must carry across calls.
+- Interactive browser terminals often use **`sandbox.terminal(request)`** and session/xterm helpers on stable—not preview `createTerminal` unless the package is `@next`.
+- Prefer **RPC** transport when using tunnels or large/binary streaming. HTTP/WebSocket transports are deprecated (cleanup guide below).
+- Files, mounts, ports, tunnels, backups, lifecycle, and interpreter: use main docs for signatures; trust installed **stable** types.
+- Non-secret config in sandbox env; live credentials in the Worker. Use outbound handlers when processes call external APIs.
+- Production preview hostnames need wildcard DNS on a custom domain when using those URL patterns.
+- Do **not** apply `@next` argv/`process.output()` APIs while the dependency is still stable.
+- Self-deployed **bridge** stays on the stable package and image. [Bridge](https://developers.cloudflare.com/sandbox/bridge/)
+
+Minimal shape:
+
+```ts
+import { getSandbox, proxyToSandbox, Sandbox } from "@cloudflare/sandbox";
+
+export { Sandbox };
+
+const sandbox = getSandbox(env.Sandbox, "user-123");
+const result = await sandbox.exec('python3 -c "print(2 + 2)"');
+// result.stdout, result.exitCode, result.success
 ```
 
-## Retrieval Sources
+## 3. Retrieve — open the doc for the task
 
-Your knowledge of the Sandbox SDK may be outdated. **Prefer retrieval over pre-training** for any Sandbox SDK task.
+Fetch the page before implementing. Installed stable types win over guesses.
 
-| Resource | URL |
-|----------|-----|
-| Docs | https://developers.cloudflare.com/sandbox/ |
-| API Reference | https://developers.cloudflare.com/sandbox/api/ |
-| Examples | https://github.com/cloudflare/sandbox-sdk/tree/main/examples |
-| Get Started | https://developers.cloudflare.com/sandbox/get-started/ |
+| You need to… | Open |
+| ------------ | ---- |
+| Orient | [Sandbox overview](https://developers.cloudflare.com/sandbox/) |
+| First Worker, template, Docker | [Get started](https://developers.cloudflare.com/sandbox/get-started/) |
+| `exec`, streaming, background processes | [Commands API](https://developers.cloudflare.com/sandbox/api/commands/) · [Execute commands](https://developers.cloudflare.com/sandbox/guides/execute-commands/) · [Background processes](https://developers.cloudflare.com/sandbox/guides/background-processes/) · [Streaming output](https://developers.cloudflare.com/sandbox/guides/streaming-output/) |
+| Sessions / shell state across commands | [Sessions concept](https://developers.cloudflare.com/sandbox/concepts/sessions/) · [Sessions API](https://developers.cloudflare.com/sandbox/api/sessions/) |
+| `getSandbox` options, sleep, destroy | [Lifecycle API](https://developers.cloudflare.com/sandbox/api/lifecycle/) · [Sandbox options](https://developers.cloudflare.com/sandbox/configuration/sandbox-options/) |
+| Env vars | [Environment variables](https://developers.cloudflare.com/sandbox/configuration/environment-variables/) |
+| Files | [Files API](https://developers.cloudflare.com/sandbox/api/files/) · [Manage files](https://developers.cloudflare.com/sandbox/guides/manage-files/) · [File watching](https://developers.cloudflare.com/sandbox/api/file-watching/) |
+| Buckets / mounts | [Storage API](https://developers.cloudflare.com/sandbox/api/storage/) · [Mount buckets](https://developers.cloudflare.com/sandbox/guides/mount-buckets/) |
+| Backups | [Backups API](https://developers.cloudflare.com/sandbox/api/backups/) · [Backup and restore](https://developers.cloudflare.com/sandbox/guides/backup-restore/) |
+| Ports, preview URLs, expose | [Ports API](https://developers.cloudflare.com/sandbox/api/ports/) · [Expose services](https://developers.cloudflare.com/sandbox/guides/expose-services/) |
+| Tunnels | [Tunnels API](https://developers.cloudflare.com/sandbox/api/tunnels/) |
+| Proxy / Workers connections | [Proxy requests](https://developers.cloudflare.com/sandbox/guides/proxy-requests/) · [Workers connections](https://developers.cloudflare.com/sandbox/guides/workers-connections/) |
+| Browser / PTY terminal | [Terminal API](https://developers.cloudflare.com/sandbox/api/terminal/) · [Terminal concept](https://developers.cloudflare.com/sandbox/concepts/terminal/) · [Browser terminals](https://developers.cloudflare.com/sandbox/guides/browser-terminals/) |
+| Code interpreter | [Interpreter API](https://developers.cloudflare.com/sandbox/api/interpreter/) · [Code execution](https://developers.cloudflare.com/sandbox/guides/code-execution/) |
+| Git in the sandbox | [Git workflows](https://developers.cloudflare.com/sandbox/guides/git-workflows/) |
+| Secrets / egress | [Outbound traffic](https://developers.cloudflare.com/sandbox/guides/outbound-traffic/) |
+| WebSockets | [WebSocket connections](https://developers.cloudflare.com/sandbox/guides/websocket-connections/) |
+| Docker-in-Docker | [Docker in Docker](https://developers.cloudflare.com/sandbox/guides/docker-in-docker/) |
+| Production deploy | [Production deployment](https://developers.cloudflare.com/sandbox/guides/production-deployment/) |
+| Containers concept | [Containers](https://developers.cloudflare.com/sandbox/concepts/containers/) |
+| How-to index | [Guides](https://developers.cloudflare.com/sandbox/guides/) |
+| API index | [API reference](https://developers.cloudflare.com/sandbox/api/) |
+| Deprecated APIs **while staying on stable** | [2026 deprecation guide](https://developers.cloudflare.com/sandbox/guides/2026-deprecation/) |
+| Self-deployed bridge | [Bridge](https://developers.cloudflare.com/sandbox/bridge/) · [Bridge HTTP API](https://developers.cloudflare.com/sandbox/bridge/http-api/) |
+| Examples (stable/`main`) | [examples on GitHub](https://github.com/cloudflare/sandbox-sdk/tree/main/examples) |
+| New work on 1.0 preview | **`sandbox-next`** · [1.0 preview](https://developers.cloudflare.com/sandbox/1-0-preview/) |
+| Port existing app to `@next` | **`sandbox-migrate-to-next`** · [Migrate](https://developers.cloudflare.com/sandbox/1-0-preview/migrate/) |
 
-When implementing features, fetch the relevant doc page or example first.
+### Deprecated-API cleanup (stay on stable)
 
-## Required Configuration
+Update package + matching image first, then follow the guide. Typical search:
 
-**wrangler.jsonc** (exact - do not modify structure):
-
-```jsonc
-{
-  "containers": [{
-    "class_name": "Sandbox",
-    "image": "./Dockerfile",
-    "instance_type": "lite",
-    "max_instances": 1
-  }],
-  "durable_objects": {
-    "bindings": [{ "class_name": "Sandbox", "name": "Sandbox" }]
-  },
-  "migrations": [{ "new_sqlite_classes": ["Sandbox"], "tag": "v1" }]
-}
+```sh
+rg 'SANDBOX_TRANSPORT|transport:|exposePort\(|enableDefaultSession|execStream\(|readFileStream|writeFileStream'
 ```
 
-**Worker entry** - must re-export Sandbox class:
+This path does **not** switch you to `@next`.
 
-```typescript
-import { getSandbox } from '@cloudflare/sandbox';
-export { Sandbox } from '@cloudflare/sandbox';  // Required export
-```
+## 4. Before you ship
 
-## Quick Reference
-
-| Task | Method |
-|------|--------|
-| Get sandbox | `getSandbox(env.Sandbox, 'user-123')` |
-| Run command | `await sandbox.exec('python script.py')` |
-| Run code (interpreter) | `await sandbox.runCode(code, { language: 'python' })` |
-| Write file | `await sandbox.writeFile('/workspace/app.py', content)` |
-| Read file | `await sandbox.readFile('/workspace/app.py')` |
-| Create directory | `await sandbox.mkdir('/workspace/src', { recursive: true })` |
-| List files | `await sandbox.listFiles('/workspace')` |
-| Expose port | `await sandbox.exposePort(8080)` |
-| Destroy | `await sandbox.destroy()` |
-
-## Core Patterns
-
-### Execute Commands
-
-```typescript
-const sandbox = getSandbox(env.Sandbox, 'user-123');
-const result = await sandbox.exec('python --version');
-// result: { stdout, stderr, exitCode, success }
-```
-
-### Code Interpreter (Recommended for AI)
-
-Use `runCode()` for executing LLM-generated code with rich outputs:
-
-```typescript
-const ctx = await sandbox.createCodeContext({ language: 'python' });
-
-await sandbox.runCode('import pandas as pd; data = [1,2,3]', { context: ctx });
-const result = await sandbox.runCode('sum(data)', { context: ctx });
-// result.results[0].text = "6"
-```
-
-**Languages**: `python`, `javascript`, `typescript`
-
-State persists within context. Create explicit contexts for production.
-
-### File Operations
-
-```typescript
-await sandbox.mkdir('/workspace/project', { recursive: true });
-await sandbox.writeFile('/workspace/project/main.py', code);
-const file = await sandbox.readFile('/workspace/project/main.py');
-const files = await sandbox.listFiles('/workspace/project');
-```
-
-## When to Use What
-
-| Need | Use | Why |
-|------|-----|-----|
-| Shell commands, scripts | `exec()` | Direct control, streaming |
-| LLM-generated code | `runCode()` | Rich outputs, state persistence |
-| Build/test pipelines | `exec()` | Exit codes, stderr capture |
-| Data analysis | `runCode()` | Charts, tables, pandas |
-
-## Extending the Dockerfile
-
-Base image (`docker.io/cloudflare/sandbox:0.7.0`) includes Python 3.11, Node.js 20, and common tools.
-
-Add dependencies by extending the Dockerfile:
-
-```dockerfile
-FROM docker.io/cloudflare/sandbox:0.7.0
-
-# Python packages
-RUN pip install requests beautifulsoup4
-
-# Node packages (global)
-RUN npm install -g typescript
-
-# System packages
-RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
-
-EXPOSE 8080  # Required for local dev port exposure
-```
-
-Keep images lean - affects cold start time.
-
-## Preview URLs (Port Exposure)
-
-Expose HTTP services running in sandboxes:
-
-```typescript
-const { url } = await sandbox.exposePort(8080);
-// Returns preview URL for the service
-```
-
-**Production requirement**: Preview URLs need a custom domain with wildcard DNS (`*.yourdomain.com`). The `.workers.dev` domain does not support preview URL subdomains.
-
-See: https://developers.cloudflare.com/sandbox/guides/expose-services/
-
-## OpenAI Agents SDK Integration
-
-The SDK provides helpers for OpenAI Agents at `@cloudflare/sandbox/openai`:
-
-```typescript
-import { Shell, Editor } from '@cloudflare/sandbox/openai';
-```
-
-See `examples/openai-agents` for complete integration pattern.
-
-## Sandbox Lifecycle
-
-- `getSandbox()` returns immediately - container starts lazily on first operation
-- Containers sleep after 10 minutes of inactivity (configurable via `sleepAfter`)
-- Use `destroy()` to immediately free resources
-- Same `sandboxId` always returns same sandbox instance
-
-## Anti-Patterns
-
-- **Don't use internal clients** (`CommandClient`, `FileClient`) - use `sandbox.*` methods
-- **Don't skip the Sandbox export** - Worker won't deploy without `export { Sandbox }`
-- **Don't hardcode sandbox IDs for multi-user** - use user/session identifiers
-- **Don't forget cleanup** - call `destroy()` for temporary sandboxes
-
-## Detailed References
-
-- **[references/api-quick-ref.md](references/api-quick-ref.md)** - Full API with options and return types
-- **[references/examples.md](references/examples.md)** - Example index with use cases
+- Worker package and container image on the **same stable** line  
+- Typecheck against installed stable types  
+- No live secrets in sandbox env  
+- If using deprecated transports/helpers, finish or track [2026 deprecation](https://developers.cloudflare.com/sandbox/guides/2026-deprecation/) cleanup  
+- When the team is ready for 1.0, use **`sandbox-migrate-to-next`**—do not force cutover unprompted  

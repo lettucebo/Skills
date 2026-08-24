@@ -45,8 +45,9 @@ These skills have no verified upstream source repository and are tracked as orph
 
 ## Local modifications
 
-- Mapped skills currently record `upstream.commit: null` and `baseline: "unverified"`.
-  The `snapshotHash` describes the bytes vendored today, not a verified upstream commit.
+- Mapped skills record a verified `upstream.commit` and `baseline: "verified"`.
+  The `contentHash` is the upstream pre-stamp content identity; `snapshotHash` describes the
+  vendored bytes after provenance stamping.
 - Any future frontmatter source/version stamps added by this registry are local
   modifications to the upstream files, not upstream-provided metadata.
 - Bootstrap `firstSeen` timestamps are derived from the current git commit author

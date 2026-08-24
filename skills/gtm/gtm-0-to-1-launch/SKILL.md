@@ -1,10 +1,18 @@
 ---
 name: gtm-0-to-1-launch
-description: Launch new products from idea to first customers. Use when launching products, finding early adopters, building launch week playbooks, diagnosing why adoption stalls, or learning that press coverage does not equal growth. Includes the three-layer diagnosis, the 2-week experiment cycle, and the launch that got 50K impressions and 12 signups.
+description: Launch new products from idea to first customers. Use when
+  launching products, finding early adopters, building launch week playbooks,
+  diagnosing why adoption stalls, or learning that press coverage does not equal
+  growth. Includes the three-layer diagnosis, the 2-week experiment cycle, and
+  the launch that got 50K impressions and 12 signups.
 license: MIT
 metadata:
   author: Smit Patel (https://linkedin.com/in/smitkpatel)
   source: https://github.com/beingsmit/technical-product-gtm
+x-source: github/awesome-copilot
+x-source-path: skills/gtm-0-to-1-launch
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # 0-to-1 Launch

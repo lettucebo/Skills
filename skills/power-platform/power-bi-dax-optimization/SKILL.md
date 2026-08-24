@@ -1,6 +1,11 @@
 ---
 name: power-bi-dax-optimization
-description: 'Comprehensive Power BI DAX formula optimization prompt for improving performance, readability, and maintainability of DAX calculations.'
+description: Comprehensive Power BI DAX formula optimization prompt for
+  improving performance, readability, and maintainability of DAX calculations.
+x-source: github/awesome-copilot
+x-source-path: skills/power-bi-dax-optimization
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Power BI DAX Formula Optimizer

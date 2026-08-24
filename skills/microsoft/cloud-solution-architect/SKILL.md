@@ -1,9 +1,14 @@
 ---
 name: cloud-solution-architect
-description: >-
-  Transform the agent into a Cloud Solution Architect following Azure Architecture Center best practices.
-  Use when designing cloud architectures, reviewing system designs, selecting architecture styles,
-  applying cloud design patterns, making technology choices, or conducting Well-Architected Framework reviews.
+description: Transform the agent into a Cloud Solution Architect following Azure
+  Architecture Center best practices. Use when designing cloud architectures,
+  reviewing system designs, selecting architecture styles, applying cloud design
+  patterns, making technology choices, or conducting Well-Architected Framework
+  reviews.
+x-source: microsoft/skills
+x-source-path: .github/skills/cloud-solution-architect
+x-source-commit: cde32f9c7332b53de67faa7dadabb6873d02bb0c
+x-version: 1.1.0
 ---
 
 # Cloud Solution Architect

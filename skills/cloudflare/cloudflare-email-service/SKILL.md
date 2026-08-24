@@ -1,6 +1,16 @@
 ---
 name: cloudflare-email-service
-description: Send and receive transactional emails with Cloudflare Email Service (Email Sending + Email Routing). Use when building email sending (Workers binding or REST API), email routing, Agents SDK email handling, or integrating email into any app — Workers, Node.js, Python, Go, etc. Also use for email deliverability, SPF/DKIM/DMARC, wrangler email setup, MCP email tools, or when a coding agent needs to send emails. Even for simple requests like "add email to my Worker" — this skill has critical config details.
+description: Send and receive transactional emails with Cloudflare Email Service
+  (Email Sending + Email Routing). Use when building email sending (Workers
+  binding or REST API), email routing, Agents SDK email handling, or integrating
+  email into any app — Workers, Node.js, Python, Go, etc. Also use for email
+  deliverability, SPF/DKIM/DMARC, wrangler email setup, MCP email tools, or when
+  a coding agent needs to send emails. Even for simple requests like "add email
+  to my Worker" — this skill has critical config details.
+x-source: cloudflare/skills
+x-source-path: skills/cloudflare-email-service
+x-source-commit: f96bff754e428838818017f75817f0f9428acd48
+x-version: 1.1.0
 ---
 
 # Cloudflare Email Service

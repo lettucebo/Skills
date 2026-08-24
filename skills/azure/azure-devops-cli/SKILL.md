@@ -1,6 +1,13 @@
 ---
 name: azure-devops-cli
-description: Manage Azure DevOps resources via CLI including projects, repos, pipelines, builds, pull requests, work items, artifacts, and service endpoints. Use when working with Azure DevOps, az commands, devops automation, CI/CD, or when user mentions Azure DevOps CLI.
+description: Manage Azure DevOps resources via CLI including projects, repos,
+  pipelines, builds, pull requests, work items, artifacts, and service
+  endpoints. Use when working with Azure DevOps, az commands, devops automation,
+  CI/CD, or when user mentions Azure DevOps CLI.
+x-source: github/awesome-copilot
+x-source-path: skills/azure-devops-cli
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Azure DevOps CLI
@@ -92,3 +99,4 @@ Read the relevant reference file based on the user's task. Each file contains co
 | `references/org-and-security.md` | Projects, teams, users, permissions, wikis | Projects, Extensions, Teams, Users, Security groups/permissions, Service endpoints, Wikis, Admin |
 | `references/advanced-usage.md` | Output formatting, JMESPath queries | Output formats, JMESPath queries (basic + advanced), Global args, Common params, Git aliases |
 | `references/workflows-and-patterns.md` | Automation scripts, best practices, error handling | Common workflows, Best practices, Error handling, Scripting patterns, Real-world examples |
+| `references/long-comments-on-windows.md` | Long `--discussion`, `--description`, or `--content` values failing on Windows | The `cmd.exe` 8191 char cap on `az.cmd`, shell detection, and three verified workarounds (`azps.ps1`, native `--file-path`, `az devops invoke --in-file`) |

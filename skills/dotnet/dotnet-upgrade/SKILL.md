@@ -1,6 +1,11 @@
 ---
 name: dotnet-upgrade
-description: 'Ready-to-use prompts for comprehensive .NET framework upgrade analysis and execution'
+description: Ready-to-use prompts for comprehensive .NET framework upgrade
+  analysis and execution
+x-source: github/awesome-copilot
+x-source-path: skills/dotnet-upgrade
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Project Discovery & Assessment

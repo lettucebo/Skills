@@ -1,10 +1,17 @@
 ---
 name: gtm-enterprise-account-planning
-description: Strategic account planning and execution for enterprise deals. Use when planning complex sales cycles, managing multiple stakeholders, applying MEDDICC qualification, tracking deal health, or building mutual action plans. Includes the "stale MAP equals dead deal" pattern.
+description: Strategic account planning and execution for enterprise deals. Use
+  when planning complex sales cycles, managing multiple stakeholders, applying
+  MEDDICC qualification, tracking deal health, or building mutual action plans.
+  Includes the "stale MAP equals dead deal" pattern.
 license: MIT
 metadata:
   author: Smit Patel (https://linkedin.com/in/smitkpatel)
   source: https://github.com/beingsmit/technical-product-gtm
+x-source: github/awesome-copilot
+x-source-path: skills/gtm-enterprise-account-planning
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Enterprise Account Planning

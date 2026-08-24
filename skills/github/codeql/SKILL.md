@@ -1,6 +1,14 @@
 ---
 name: codeql
-description: Comprehensive guide for setting up and configuring CodeQL code scanning via GitHub Actions workflows and the CodeQL CLI. This skill should be used when users need help with code scanning configuration, CodeQL workflow files, CodeQL CLI commands, SARIF output, security analysis setup, or troubleshooting CodeQL analysis.
+description: Comprehensive guide for setting up and configuring CodeQL code
+  scanning via GitHub Actions workflows and the CodeQL CLI. This skill should be
+  used when users need help with code scanning configuration, CodeQL workflow
+  files, CodeQL CLI commands, SARIF output, security analysis setup, or
+  troubleshooting CodeQL analysis.
+x-source: github/awesome-copilot
+x-source-path: skills/codeql
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # CodeQL Code Scanning

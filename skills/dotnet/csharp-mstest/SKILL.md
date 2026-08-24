@@ -1,6 +1,11 @@
 ---
 name: csharp-mstest
-description: 'Get best practices for MSTest 3.x/4.x unit testing, including modern assertion APIs and data-driven tests'
+description: Get best practices for MSTest 3.x/4.x unit testing, including
+  modern assertion APIs and data-driven tests
+x-source: github/awesome-copilot
+x-source-path: skills/csharp-mstest
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # MSTest Best Practices (MSTest 3.x/4.x)
