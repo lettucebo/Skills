@@ -976,12 +976,13 @@ test('K6: search-result-link:hover uses --cp-hover-surface', () => {
 test('K7: hover has a distinct accent inset indicator', () => {
   const css = readGlobalCss();
   const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
-  // Table row hover must have an accent left border or box-shadow inset
-  const tableHover = readRule('.skill-table tr:hover');
+  // Table row hover: indicator lives on td:first-child (border-left-color) because
+  // inset box-shadow on <tr> is unreliable in Firefox with border-collapse: collapse.
+  const tdFirst = readRule('.skill-table tr:hover td:first-child', css);
   assert.match(
-    tableHover,
-    /box-shadow:\s*inset\s+3px\s+0\s+0\s+var\(--cp-accent\)|border-left:\s*3px solid var\(--cp-accent\)/,
-    'table row hover must have an accent inset indicator',
+    tdFirst,
+    /border-left-color:\s*var\(--cp-accent\)/,
+    'table row hover must set border-left-color: var(--cp-accent) on td:first-child',
   );
   // Search result hover must also have an accent indicator
   const searchHover = readRule('.search-result-link:hover', searchCss);
@@ -1107,10 +1108,11 @@ test('K16: skill-table tr:focus-within gets same hover surface and accent indica
     /background:\s*var\(--cp-hover-surface\)/,
     '.skill-table tr:focus-within must use --cp-hover-surface',
   );
+  // Indicator lives on td:first-child (border-left-color) not on tr (box-shadow).
   assert.match(
-    focusRow,
-    /box-shadow:\s*inset\s+3px\s+0\s+0\s+var\(--cp-accent\)|border-left:\s*3px solid var\(--cp-accent\)/,
-    '.skill-table tr:focus-within must have accent inset indicator',
+    readRule('.skill-table tr:focus-within td:first-child', css),
+    /border-left-color:\s*var\(--cp-accent\)/,
+    '.skill-table tr:focus-within td:first-child must have border-left-color: var(--cp-accent)',
   );
 });
 
@@ -1119,4 +1121,46 @@ test('K17: forced-colors block covers tr:focus-within alongside tr:hover', () =>
   const forcedSection = css.slice(css.indexOf('@media (forced-colors: active)'));
   assert.ok(forcedSection.length > 0, 'forced-colors block must exist');
   assert.match(forcedSection, /tr:focus-within/, 'forced-colors block must cover tr:focus-within');
+});
+
+// ─── K18–K19: Cross-browser table hover indicator ─────────────────
+
+test('K18: skill-table cross-browser indicator: tr:hover must not use box-shadow under border-collapse; td:first-child must carry the accent border-left-color', () => {
+  const css = readGlobalCss();
+  // Under border-collapse: collapse, inset box-shadow on <tr> is not reliably
+  // rendered in Firefox. The indicator must use border-left-color on td:first-child.
+  const trHover = readRule('.skill-table tr:hover', css);
+  assert.doesNotMatch(
+    trHover,
+    /box-shadow:/,
+    '.skill-table tr:hover must not use box-shadow (unreliable in Firefox with border-collapse: collapse)',
+  );
+  const tdHover = readRule('.skill-table tr:hover td:first-child', css);
+  assert.match(
+    tdHover,
+    /border-left-color:\s*var\(--cp-accent\)/,
+    '.skill-table tr:hover td:first-child must use border-left-color: var(--cp-accent)',
+  );
+  const tdFocus = readRule('.skill-table tr:focus-within td:first-child', css);
+  assert.match(
+    tdFocus,
+    /border-left-color:\s*var\(--cp-accent\)/,
+    '.skill-table tr:focus-within td:first-child must use border-left-color: var(--cp-accent)',
+  );
+});
+
+test('K19: skill-table first-column cells reserve 3px left border in rest state to prevent layout shift on hover', () => {
+  const css = readGlobalCss();
+  // A 3px transparent border is pre-allocated so that activating the accent
+  // indicator on hover/focus only changes color, never width — no layout shift.
+  assert.match(
+    readRule('.skill-table th:first-child', css),
+    /border-left:\s*3px solid transparent/,
+    '.skill-table th:first-child must reserve 3px transparent left border in rest state',
+  );
+  assert.match(
+    readRule('.skill-table td:first-child', css),
+    /border-left:\s*3px solid transparent/,
+    '.skill-table td:first-child must reserve 3px transparent left border in rest state',
+  );
 });

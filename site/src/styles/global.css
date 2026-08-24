@@ -514,11 +514,21 @@ a:focus-visible {
 }
 .skill-table tr:hover {
   background: var(--cp-hover-surface);
-  box-shadow: inset 3px 0 0 var(--cp-accent);
 }
 .skill-table tr:focus-within {
   background: var(--cp-hover-surface);
-  box-shadow: inset 3px 0 0 var(--cp-accent);
+}
+.skill-table th:first-child {
+  border-left: 3px solid transparent;
+}
+.skill-table td:first-child {
+  border-left: 3px solid transparent;
+}
+.skill-table tr:hover td:first-child {
+  border-left-color: var(--cp-accent);
+}
+.skill-table tr:focus-within td:first-child {
+  border-left-color: var(--cp-accent);
 }
 .skill-table tr:hover a {
   color: var(--cp-text);
@@ -642,11 +652,13 @@ a:focus-visible {
   }
   .skill-table tr:hover {
     outline: 2px solid Highlight;
-    box-shadow: none;
   }
   .skill-table tr:focus-within {
     outline: 2px solid Highlight;
-    box-shadow: none;
+  }
+  .skill-table tr:hover td:first-child,
+  .skill-table tr:focus-within td:first-child {
+    border-left-color: Highlight;
   }
 }
 
