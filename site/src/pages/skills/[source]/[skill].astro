@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import InstallCommand from '../../../components/InstallCommand.astro';
 import {
   loadCatalog,
   loadSkillBody,
@@ -44,9 +45,9 @@ function statusBadgeClass(): string {
 <Layout title={skill.name}>
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <a href={base}>Catalog</a>
-    <span>/</span>
+    <span aria-hidden="true">/</span>
     <a href={`${base}sources/${skill.source}/`}>{skill.source}</a>
-    <span>/</span>
+    <span aria-hidden="true">/</span>
     <span>{skill.name}</span>
   </nav>
 
@@ -104,11 +105,8 @@ function statusBadgeClass(): string {
     )}
 
     {!skill.isRestricted && installCmd && (
-      <div class="install-block" data-pagefind-ignore>
-        <code>{installCmd}</code>
-        {!RELEASE_PUBLISHED && (
-          <p class="pending-note">⚠ Available after v{RELEASE_VERSION} is published</p>
-        )}
+      <div data-pagefind-ignore>
+        <InstallCommand command={installCmd} />
       </div>
     )}
 

@@ -1,0 +1,49 @@
+---
+/**
+ * Reusable install-command component with accessible copy button.
+ * Progressive enhancement: copy button starts hidden, revealed by JS.
+ */
+import { RELEASE_VERSION, RELEASE_PUBLISHED } from '../lib/catalog';
+
+interface Props {
+  command: string;
+}
+
+const { command } = Astro.props;
+const uniqueId = `install-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="install-block">
+  <code id={`${uniqueId}-cmd`}>{command}</code>
+  <button
+    class="install-copy-btn"
+    aria-label="Copy install command"
+    data-copy-target={`${uniqueId}-cmd`}
+    hidden
+  >Copy</button>
+  <div class="copy-feedback" aria-live="polite" data-copy-feedback={uniqueId}></div>
+  {!RELEASE_PUBLISHED && (
+    <p class="pending-note">⚠ Available after v{RELEASE_VERSION} is published</p>
+  )}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.install-copy-btn').forEach((btn) => {
+    btn.hidden = false;
+    btn.addEventListener('click', async () => {
+      const targetId = btn.getAttribute('data-copy-target');
+      if (!targetId) return;
+      const codeEl = document.getElementById(targetId);
+      if (!codeEl) return;
+      const feedbackEl = btn.closest('.install-block')?.querySelector('[data-copy-feedback]');
+      try {
+        await navigator.clipboard.writeText(codeEl.textContent || '');
+        if (feedbackEl) feedbackEl.textContent = 'Copied!';
+        setTimeout(() => { if (feedbackEl) feedbackEl.textContent = ''; }, 2000);
+      } catch {
+        if (feedbackEl) feedbackEl.textContent = 'Copy failed — please copy manually.';
+        setTimeout(() => { if (feedbackEl) feedbackEl.textContent = ''; }, 3000);
+      }
+    });
+  });
+</script>
