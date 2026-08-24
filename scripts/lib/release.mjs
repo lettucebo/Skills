@@ -171,3 +171,28 @@ export async function planRelease({ diffClass, currentVersion, runGit = defaultR
 
   return { diffClass, currentVersion: current, nextVersion: next, nextTag, commitMessage };
 }
+
+/**
+ * Verifies that the highest semantic tag matches the expected release version
+ * and that the tag is an ancestor of HEAD. Refuses with a ReleaseError if
+ * either condition fails, preventing stale or orphaned tag states from
+ * corrupting a release.
+ */
+export async function assertTagReconciled(expectedRelease, { runGit = defaultRunGit } = {}) {
+  const highestVersion = await readCurrentVersion({ runGit });
+  if (highestVersion !== expectedRelease) {
+    throw new ReleaseError(
+      `Tag/lock mismatch: highest tag is v${highestVersion} but lock.release is ${expectedRelease}. ` +
+      `Reconcile tags before applying updates.`,
+    );
+  }
+
+  const tag = `v${expectedRelease}`;
+  try {
+    await runGit(['merge-base', '--is-ancestor', tag, 'HEAD']);
+  } catch {
+    throw new ReleaseError(
+      `Tag ${tag} is not an ancestor of HEAD. The release tag must be in the current branch's history.`,
+    );
+  }
+}

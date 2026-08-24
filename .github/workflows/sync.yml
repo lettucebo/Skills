@@ -232,7 +232,7 @@ jobs:
           git add -A
           git commit -m "${{ steps.apply.outputs.commit_message }}"
           git tag -a "${{ steps.apply.outputs.next_tag }}" -m "${{ steps.apply.outputs.commit_message }}"
-          git push origin HEAD:${{ github.ref_name }} --follow-tags
+          git push --atomic origin HEAD:${{ github.ref_name }} "refs/tags/${{ steps.apply.outputs.next_tag }}"
 
       - name: Upload sync report
         if: ${{ always() }}

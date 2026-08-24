@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -693,6 +693,154 @@ test('--apply combined with --baseline is rejected by the CLI', async () => {
       assert.match(error.stderr, /--apply cannot be combined with --baseline/);
     }
     assert.ok(threw, 'Expected CLI to reject --apply --baseline');
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Defect 3: release and tag must reconcile with lock
+// ---------------------------------------------------------------------------
+
+test('applyUpdate refuses when highest tag does not match lock.release', async () => {
+  const workspace = await makeTempDir('update-tagmismatch');
+  try {
+    const { upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
+
+    // Change upstream so update is not a no-op.
+    await updateUpstreamRepo(upstreamRoot, {
+      'skills/alpha/SKILL.md': skillDoc('alpha', 'Changed alpha.'),
+    });
+
+    // Create a higher tag that doesn't match lock release (1.1.0).
+    git(repoRoot, ['tag', '-a', 'v2.0.0', '-m', 'rogue tag']);
+
+    await assert.rejects(
+      applyUpdate({
+        repoRoot,
+        readGitStatus: cleanTree,
+        runGit: makeRunGit(repoRoot),
+      }),
+      (error) => error instanceof BaselineError && /mismatch|reconcil/i.test(error.message),
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate refuses when the lock release tag is not an ancestor of HEAD', async () => {
+  const workspace = await makeTempDir('update-noancestor');
+  try {
+    const { upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
+
+    // Change upstream so update is not a no-op.
+    await updateUpstreamRepo(upstreamRoot, {
+      'skills/alpha/SKILL.md': skillDoc('alpha', 'Changed alpha.'),
+    });
+
+    // Create a detached tag that points at a commit not in HEAD's ancestry.
+    // Delete the existing v1.1.0 tag, create a separate branch, tag it, come back.
+    git(repoRoot, ['tag', '-d', 'v1.1.0']);
+    git(repoRoot, ['checkout', '--orphan', 'detached-branch']);
+    git(repoRoot, ['commit', '-q', '--allow-empty', '-m', 'orphan commit']);
+    git(repoRoot, ['tag', '-a', 'v1.1.0', '-m', 'orphan tag']);
+    git(repoRoot, ['checkout', 'main']);
+
+    await assert.rejects(
+      applyUpdate({
+        repoRoot,
+        readGitStatus: cleanTree,
+        runGit: makeRunGit(repoRoot),
+      }),
+      (error) => error instanceof BaselineError && /ancestor/i.test(error.message),
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Defect 5: convergence regression test
+// ---------------------------------------------------------------------------
+
+test('applyUpdate converges: second apply after an upstream change is a no-op', async () => {
+  const workspace = await makeTempDir('update-converge');
+  try {
+    const { upstream, upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
+    const previousCommit = upstream.commit;
+
+    // 1. Change upstream.
+    const newCommit = await updateUpstreamRepo(upstreamRoot, {
+      'skills/alpha/SKILL.md': skillDoc('alpha', 'Convergence test body.'),
+    });
+
+    // 2. First apply: should succeed with changes.
+    const result1 = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-04-01T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+
+    assert.equal(result1.applied, true);
+    assert.deepEqual(result1.changed, ['skills/demo/alpha']);
+
+    // Simulate what the workflow does: commit and tag.
+    git(repoRoot, ['add', '-A']);
+    git(repoRoot, ['commit', '-q', '-m', result1.commitMessage]);
+    git(repoRoot, ['tag', '-a', result1.nextTag, '-m', result1.commitMessage]);
+
+    // Capture post-first-apply state.
+    const lockAfterFirst = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+    );
+    const alphaHistoryAfterFirst = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+    );
+    const skillsHashAfterFirst = await hashDirectory(path.join(repoRoot, 'skills'));
+
+    // 3. Second apply: no upstream change => no-op.
+    const result2 = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-04-02T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+
+    assert.equal(result2.applied, false);
+    assert.deepEqual(result2.changed, []);
+
+    // Lock unchanged.
+    const lockAfterSecond = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+    );
+    assert.deepEqual(lockAfterSecond, lockAfterFirst);
+
+    // History length unchanged.
+    const alphaHistoryAfterSecond = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+    );
+    assert.equal(alphaHistoryAfterSecond.entries.length, alphaHistoryAfterFirst.entries.length);
+
+    // Filesystem unchanged.
+    assert.equal(
+      await hashDirectory(path.join(repoRoot, 'skills')),
+      skillsHashAfterFirst,
+    );
+
+    // Vendored x-version matches lock per-skill version.
+    const alphaSkillMd = await readFile(
+      path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'),
+      'utf8',
+    );
+    const alphaLockEntry = lockAfterSecond.skills.find((s) => s.path === 'skills/demo/alpha');
+    assert.match(alphaSkillMd, new RegExp(`x-version: ${alphaLockEntry.version}`));
+
+    // Recomputed vendored hash equals snapshotHash in lock.
+    const recomputedAlphaHash = await hashDirectory(
+      path.join(repoRoot, 'skills', 'demo', 'alpha'),
+    );
+    assert.equal(recomputedAlphaHash, alphaLockEntry.snapshotHash);
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }
