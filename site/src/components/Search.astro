@@ -110,17 +110,10 @@ const origins = [...new Set(
       if (pagefind) return pagefind;
       statusEl.textContent = 'Loading search index…';
       resultsContainer.hidden = false;
-      try {
-        const mod = await import(PAGEFIND_PATH);
-        await mod.options({ baseUrl: base });
-        pagefind = mod;
-        return pagefind;
-      } catch (err) {
-        statusEl.textContent = 'Search is unavailable — index could not be loaded.';
-        if (fullCatalog) fullCatalog.hidden = false;
-        console.error('Pagefind load error:', err);
-        return null;
-      }
+      const mod = await import(PAGEFIND_PATH);
+      await mod.options({ baseUrl: base });
+      pagefind = mod;
+      return pagefind;
     }
 
     let debounceTimer = null;
@@ -150,7 +143,16 @@ const origins = [...new Set(
 
       if (fullCatalog) fullCatalog.hidden = true;
 
-      const pf = await loadPagefind();
+      let pf;
+      try {
+        pf = await loadPagefind();
+      } catch (err) {
+        if (gen !== generation) return;
+        statusEl.textContent = 'Search is unavailable — index could not be loaded.';
+        if (fullCatalog) fullCatalog.hidden = false;
+        console.error('Pagefind load error:', err);
+        return;
+      }
       if (gen !== generation) return;
       if (!pf) return;
 

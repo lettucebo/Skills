@@ -151,6 +151,82 @@ Additionally implemented three post-review UX fixes (InstallCommand timer race, 
 | Site build + Pagefind | 116 pages, 103 indexed |
 | Search integration tests | 4/4 pass |
 
+---
+
+## F2: Stale Loader Catch DOM Mutation Fix (this session — HEAD 4393ecd)
+
+### Bug Description
+
+`loadPagefind()` had a `catch` block that directly mutated `statusEl.textContent` and
+`fullCatalog.hidden` on import/options failure.  Because the catch fires inside a
+`Promise` that was created by a _previous_ `doSearch` invocation, it executes entirely
+outside any generation scope.  Sequence:
+
+1. User types → gen=1, `doSearch` calls `loadPagefind()` → dynamic `import()` starts (async).
+2. User clears input → gen=2, `doSearch` sees no query/filters → resets UI (catalog shown,
+   results hidden, status cleared) → **returns immediately**.
+3. The `import()` from step 1 rejects → `loadPagefind()`'s `catch` fires → sets
+   `statusEl.textContent = 'Search is unavailable…'`, hides catalog via `fullCatalog.hidden = false`.
+4. gen=1's `doSearch` resumes after the `await`, sees `gen !== generation`, returns — **but the
+   DOM is already mutated** by step 3 despite `doSearch` honoring the generation guard.
+
+### RED Phase
+
+New test added to `site/test/ux-hardening.test.ts`:
+
+```
+✖ F2: loadPagefind must not mutate DOM in catch — stale load errors must not clobber current UI (2.02ms)
+  AssertionError: loadPagefind must not set statusEl.textContent to the unavailable error
+    (fires without generation check)
+    actual matches: /statusEl\s*\.\s*textContent\s*=\s*['"`][^'"`]*unavailable/
+```
+
+Test confirmed FAIL against HEAD `4393ecd` for the expected reason (DOM mutation present in
+`loadPagefind` catch without generation check).
+
+### Fix — Minimal Changes to `site/src/components/Search.astro`
+
+**`loadPagefind`** — removed `catch` block entirely so any import/options failure propagates
+as a thrown exception (allows it to be caught with generation context in `doSearch`).
+Pre-`await` loading-message assignment retained (fires synchronously, no race).
+
+**`doSearch`** — replaced `const pf = await loadPagefind()` with a `try/catch` block:
+```javascript
+let pf;
+try {
+  pf = await loadPagefind();
+} catch (err) {
+  if (gen !== generation) return;          // stale load error → no UI mutation
+  statusEl.textContent = 'Search is unavailable — index could not be loaded.';
+  if (fullCatalog) fullCatalog.hidden = false;
+  console.error('Pagefind load error:', err);
+  return;
+}
+if (gen !== generation) return;
+if (!pf) return;
+```
+
+All existing behaviors preserved: loading message, pagefind reuse (`if (pagefind) return pagefind`),
+normal search errors, base path, debounce, filter logic.
+
+### GREEN Phase — Verification Evidence
+
+| Check | Result |
+|-------|--------|
+| F2 test (focused) | ✔ PASS (1.91ms) |
+| All site tests | ✔ 87/87 pass (was 86) |
+| All root tests | ✔ 286/286 pass (was 285) |
+| Site build | ✔ 116 pages built in 5.09s |
+| Pagefind index | ✔ 103 pages indexed |
+| F1 (generation counter) still passes | ✔ gen checks count ≥ 2 (now 5 total) |
+
+### Files Modified
+
+| File | Change |
+|------|--------|
+| `site/src/components/Search.astro` | Removed catch from `loadPagefind`; wrapped `await loadPagefind()` in try/catch in `doSearch` with generation guard before error UI |
+| `site/test/ux-hardening.test.ts` | Added F2 test (+1 test, 87 total) |
+
 ## Files Modified
 
 | File | Type |

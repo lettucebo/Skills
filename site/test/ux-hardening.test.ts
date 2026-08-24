@@ -306,6 +306,55 @@ test('F1: doSearch uses a monotonic generation counter to discard stale async re
   assert.ok(staleChecks >= 2, `Must check generation at least twice after awaited stages; found ${staleChecks}`);
 });
 
+// ─── F2: loadPagefind stale DOM mutation ────────────────────────────
+
+test('F2: loadPagefind must not mutate DOM in catch — stale load errors must not clobber current UI', () => {
+  const search = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+
+  const loadPfStart = search.indexOf('async function loadPagefind()');
+  const doSearchStart = search.indexOf('async function doSearch()');
+
+  assert.ok(loadPfStart !== -1, 'loadPagefind function must exist');
+  assert.ok(doSearchStart !== -1, 'doSearch function must exist');
+  assert.ok(doSearchStart > loadPfStart, 'doSearch must be defined after loadPagefind in source');
+
+  // Extract loadPagefind body (everything from its declaration up to doSearch).
+  // This is the region that fires outside any doSearch generation scope.
+  const loadPfBody = search.slice(loadPfStart, doSearchStart);
+
+  // loadPagefind must NOT set statusEl to an unavailable/error message.
+  // A catch block in loadPagefind fires after the import promise rejects — by then
+  // the user may have cleared their query (incrementing generation) so the UI is
+  // already reset.  Writing to statusEl here unconditionally overwrites that state.
+  assert.doesNotMatch(
+    loadPfBody,
+    /statusEl\s*\.\s*textContent\s*=\s*['"`][^'"`]*unavailable/,
+    'loadPagefind must not set statusEl.textContent to the unavailable error (fires without generation check)',
+  );
+
+  // loadPagefind must NOT restore fullCatalog visibility inside its own catch.
+  assert.doesNotMatch(
+    loadPfBody,
+    /fullCatalog\s*\.\s*hidden\s*=\s*false/,
+    'loadPagefind must not restore fullCatalog.hidden in its own catch (fires without generation check)',
+  );
+
+  // The load-unavailable message must live inside doSearch so it can be generation-guarded.
+  const unavailableIdx = search.indexOf('unavailable', doSearchStart);
+  assert.ok(
+    unavailableIdx > doSearchStart,
+    'Load-unavailable error message must be handled inside doSearch, not only in loadPagefind',
+  );
+
+  // A generation check must appear in doSearch BEFORE the unavailable message
+  // so that stale load errors produce no UI mutation.
+  const genCheckIdx = search.lastIndexOf('gen !== generation', unavailableIdx);
+  assert.ok(
+    genCheckIdx > doSearchStart,
+    'A generation check (gen !== generation) must appear in doSearch before the load-unavailable message',
+  );
+});
+
 // ─── Integration: Built HTML checks ─────────────────────────────────
 
 test('INT1: built public skill page has copy button', {
