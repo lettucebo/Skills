@@ -12,12 +12,13 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { hashDirectory } from './lib/hash.mjs';
+import { hashDirectory, isExcludedDirectoryName } from './lib/hash.mjs';
 import { loadManifest } from './lib/manifest.mjs';
 import { cloneUpstream, GitCloneError } from './lib/git-source.mjs';
 import {
   assertMappingsWritable,
   assertWritableSkillPath,
+  buildDeletionGroups,
   buildProtectedRoots,
   classifyDiff,
   commitMessageForDiffClass,
@@ -223,7 +224,12 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
 
       const stagePath = path.join(stagingDir, ...mapping.path.split('/'));
       await mkdir(path.dirname(stagePath), { recursive: true });
-      await cp(sourceAbs, stagePath, { recursive: true });
+      // Same exclusion as the apply path (and as the hash), so the planned
+      // contentHash is exactly the one a baseline/update would record.
+      await cp(sourceAbs, stagePath, {
+        recursive: true,
+        filter: (source) => !isExcludedDirectoryName(path.basename(source)),
+      });
 
       // Hash BEFORE transform/stamp: this is the future verified contentHash.
       const preStampHash = await hashDirectory(stagePath);
@@ -302,8 +308,25 @@ function serializeChangeSet(changeSet) {
   return `${JSON.stringify(changeSet, null, 2)}\n`;
 }
 
-function upstreamGroupKey(repository, reference) {
-  return `${repository}\u0000${reference}`;
+/**
+ * Builds one deletion-guard group per upstream from the manifest, lock, and
+ * plan.
+ *
+ * The grouping itself lives in `lib/guardrails.mjs` and is shared verbatim with
+ * `applyUpdate`, so the dry-run verdict and the apply verdict cannot diverge.
+ * The planner additionally passes clone availability and asks for manifest
+ * upstreams that have no lock entries yet, so an unavailable clone is reported
+ * even with no baseline.
+ */
+function buildPlanDeletionGroups({ manifest, lock, sources }) {
+  return buildDeletionGroups({
+    manifest,
+    lock,
+    availableByName: new Map(
+      (sources ?? []).map((source) => [source.upstream, source.available]),
+    ),
+    includeUnmappedUpstreams: true,
+  });
 }
 
 /**
@@ -327,62 +350,6 @@ function buildClassification(plan) {
     commitMessage: commitMessageForDiffClass(diffClass),
     pendingBaseline: plan.baselineRequired.length,
   };
-}
-
-/**
- * Builds one deletion-guard group per upstream from the manifest, lock, and
- * plan.
- *
- * The denominator (`declared`) is the baseline population of the upstream in
- * the lock, so a removal ratio is always well defined and never exceeds one. A
- * clone-failed upstream is passed through as `available: false` so the guard can
- * block it distinctly instead of ever inferring a removal from an outage.
- */
-function buildDeletionGroups({ manifest, lock, sources }) {
-  const nameByKey = new Map();
-  for (const [name, definition] of Object.entries(manifest.upstreams)) {
-    nameByKey.set(upstreamGroupKey(definition.repository, definition.reference), name);
-  }
-
-  const mappingPaths = new Set(manifest.mappings.map((mapping) => mapping.path));
-  const availableByName = new Map(
-    (sources ?? []).map((source) => [source.upstream, source.available]),
-  );
-
-  const declaredByGroup = new Map();
-  const removedByGroup = new Map();
-
-  for (const skill of lock?.skills ?? []) {
-    if (skill.category !== 'mapped') {
-      continue;
-    }
-
-    const key = upstreamGroupKey(skill.upstream?.repository, skill.upstream?.reference);
-    const group = nameByKey.get(key) ?? skill.upstream?.repository ?? key;
-
-    declaredByGroup.set(group, (declaredByGroup.get(group) ?? 0) + 1);
-
-    if (!mappingPaths.has(skill.path)) {
-      removedByGroup.set(group, (removedByGroup.get(group) ?? 0) + 1);
-    }
-  }
-
-  // Upstreams that are declared in the manifest but absent from the lock still
-  // deserve a group so an unavailable clone is reported even with no baseline.
-  for (const mapping of manifest.mappings) {
-    if (!declaredByGroup.has(mapping.upstream)) {
-      declaredByGroup.set(mapping.upstream, 0);
-    }
-  }
-
-  return [...declaredByGroup.keys()]
-    .sort()
-    .map((group) => ({
-      upstream: group,
-      declared: declaredByGroup.get(group) ?? 0,
-      removed: removedByGroup.get(group) ?? 0,
-      available: availableByName.get(group) ?? true,
-    }));
 }
 
 /**
@@ -459,7 +426,7 @@ export async function runSync(options = {}) {
 
     const classification = buildClassification(plan);
     const guardrail = evaluateDeletionGuards(
-      buildDeletionGroups({ manifest, lock, sources: plan.sources }),
+      buildPlanDeletionGroups({ manifest, lock, sources: plan.sources }),
     );
     const baseline = buildBaselineSummary(plan, guardrail);
 

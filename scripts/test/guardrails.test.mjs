@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdir, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -8,12 +8,14 @@ import { loadManifest, ManifestValidationError } from '../lib/manifest.mjs';
 import {
   assertNoDestinationCollisions,
   assertNoPathTraversal,
+  buildDeletionGroups,
   classifyDiff,
   commitMessageForDiffClass,
   COMMIT_MESSAGES,
   evaluateDeletionGuard,
   evaluateDeletionGuards,
   GuardrailError,
+  upstreamGroupKey,
 } from '../lib/guardrails.mjs';
 import {
   formatVersion,
@@ -27,6 +29,7 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const runtimeRoot = path.join(__dirname, '.runtime');
+const repoRoot = path.resolve(__dirname, '..', '..');
 
 async function withFixture(name, run) {
   const fixtureRoot = path.join(
@@ -178,6 +181,151 @@ test('evaluateDeletionGuards aggregates the blocked flag across groups', () => {
     { upstream: 'b', declared: 4, removed: 1 },
   ]);
   assert.equal(blocked.blocked, true);
+});
+
+// ---------------------------------------------------------------------------
+// buildDeletionGroups — the ONE grouping shared by plan and apply
+// ---------------------------------------------------------------------------
+
+const twoReferenceManifest = {
+  upstreams: {
+    demo: { repository: 'acme/skills', reference: 'refs/heads/main' },
+    legacy: { repository: 'acme/skills', reference: 'refs/tags/v1' },
+  },
+  mappings: [],
+};
+
+function mappedEntry(skillPath, reference) {
+  return {
+    path: skillPath,
+    category: 'mapped',
+    upstream: { repository: 'acme/skills', reference },
+  };
+}
+
+test('buildDeletionGroups splits one repository mapped at two references', () => {
+  const lock = {
+    skills: [
+      ...Array.from({ length: 12 }, (_, i) => mappedEntry(`skills/demo/m${i}`, 'refs/heads/main')),
+      ...Array.from({ length: 12 }, (_, i) => mappedEntry(`skills/legacy/l${i}`, 'refs/tags/v1')),
+    ],
+  };
+
+  const manifest = {
+    ...twoReferenceManifest,
+    // Five `demo` mappings are undeclared; every `legacy` mapping is kept.
+    mappings: [
+      ...Array.from({ length: 7 }, (_, i) => ({
+        path: `skills/demo/m${i + 5}`,
+        upstream: 'demo',
+        source: `skills/m${i + 5}`,
+      })),
+      ...Array.from({ length: 12 }, (_, i) => ({
+        path: `skills/legacy/l${i}`,
+        upstream: 'legacy',
+        source: `skills/l${i}`,
+      })),
+    ],
+  };
+
+  assert.deepEqual(buildDeletionGroups({ manifest, lock }), [
+    { upstream: 'demo', declared: 12, removed: 5, available: true },
+    { upstream: 'legacy', declared: 12, removed: 0, available: true },
+  ]);
+
+  assert.equal(
+    evaluateDeletionGuards(buildDeletionGroups({ manifest, lock })).blocked,
+    true,
+    '5/12 exceeds the 30% threshold — merging the two references into 5/24 would hide it',
+  );
+});
+
+test('buildDeletionGroups names each group after its manifest upstream', () => {
+  const lock = { skills: [mappedEntry('skills/demo/a', 'refs/heads/main')] };
+
+  assert.deepEqual(
+    buildDeletionGroups({ manifest: { ...twoReferenceManifest, mappings: [] }, lock }),
+    [{ upstream: 'demo', declared: 1, removed: 1, available: true }],
+  );
+});
+
+test('buildDeletionGroups falls back to the repository when no manifest upstream matches', () => {
+  const lock = { skills: [mappedEntry('skills/gone/a', 'refs/heads/dropped')] };
+
+  assert.deepEqual(
+    buildDeletionGroups({ manifest: { upstreams: {}, mappings: [] }, lock }),
+    [{ upstream: 'acme/skills', declared: 1, removed: 1, available: true }],
+  );
+});
+
+test('buildDeletionGroups only emits empty manifest upstreams when the planner asks', () => {
+  const lock = { skills: [] };
+  const manifest = {
+    ...twoReferenceManifest,
+    mappings: [{ path: 'skills/demo/a', upstream: 'demo', source: 'skills/a' }],
+  };
+
+  assert.deepEqual(buildDeletionGroups({ manifest, lock }), []);
+  assert.deepEqual(buildDeletionGroups({ manifest, lock, includeUnmappedUpstreams: true }), [
+    { upstream: 'demo', declared: 0, removed: 0, available: true },
+  ]);
+});
+
+test('buildDeletionGroups carries clone availability through unchanged', () => {
+  const lock = { skills: [mappedEntry('skills/demo/a', 'refs/heads/main')] };
+  const manifest = {
+    ...twoReferenceManifest,
+    mappings: [{ path: 'skills/demo/a', upstream: 'demo', source: 'skills/a' }],
+  };
+
+  assert.deepEqual(
+    buildDeletionGroups({
+      manifest,
+      lock,
+      availableByName: new Map([['demo', false]]),
+    }),
+    [{ upstream: 'demo', declared: 1, removed: 0, available: false }],
+  );
+});
+
+test('upstreamGroupKey distinguishes references of the same repository', () => {
+  assert.notEqual(
+    upstreamGroupKey('acme/skills', 'refs/heads/main'),
+    upstreamGroupKey('acme/skills', 'refs/tags/v1'),
+  );
+  assert.equal(
+    upstreamGroupKey('acme/skills', 'refs/heads/main'),
+    upstreamGroupKey('acme/skills', 'refs/heads/main'),
+  );
+});
+
+test('the planner and the apply both consume the shared grouping helper', async () => {
+  const sources = {
+    'scripts/sync.mjs': await readFile(path.join(repoRoot, 'scripts', 'sync.mjs'), 'utf8'),
+    'scripts/lib/baseline.mjs': await readFile(
+      path.join(repoRoot, 'scripts', 'lib', 'baseline.mjs'),
+      'utf8',
+    ),
+  };
+
+  for (const [file, source] of Object.entries(sources)) {
+    assert.match(
+      source,
+      /buildDeletionGroups/,
+      `${file} must group deletions through lib/guardrails.mjs`,
+    );
+    assert.doesNotMatch(
+      source,
+      /skill\.upstream\?\.repository \?\? 'unknown'/,
+      `${file} must not re-derive a grouping key; a repository-only key merges two references ` +
+        'of the same repository and halves the removal ratio',
+    );
+    assert.doesNotMatch(
+      source,
+      /^function buildDeletionGroups\(/m,
+      `${file} must import the shared helper, never re-declare it`,
+    );
+  }
 });
 
 // ---------------------------------------------------------------------------

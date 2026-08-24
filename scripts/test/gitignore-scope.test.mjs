@@ -20,6 +20,8 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { hashDirectory } from '../lib/hash.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '..', '..');
 const runtimeRoot = path.join(__dirname, '.runtime');
@@ -148,4 +150,113 @@ test('GI4: node_modules stays ignored even under skills/', async () => {
       'prevents accidentally committing thousands of files',
   );
   assert.ok(tracked.has('skills/upstream/demo/SKILL.md'));
+});
+
+// ─── GI5–GI7: the hash must cover exactly the trackable bytes ───────
+//
+// GI1–GI4 make git's view match the hash for build output, logs and dotenv.
+// The remaining asymmetry is `node_modules`, which stays ignored by design:
+// hashing it would claim provenance for bytes the commit can never contain, so
+// a fresh clone would fail to reproduce its own `snapshotHash`. The hash must
+// therefore exclude it too — the same rule, enforced on both sides.
+
+/** Writes a skill folder fixture and returns its absolute path. */
+async function writeSkillFixture(files) {
+  await mkdir(runtimeRoot, { recursive: true });
+  const root = await mkdtemp(path.join(runtimeRoot, 'hashscope-'));
+
+  for (const [relativePath, content] of Object.entries(files)) {
+    await writeFileEnsured(path.join(root, ...relativePath.split('/')), content);
+  }
+
+  return root;
+}
+
+test('GI5: a vendored node_modules tree does not change the content hash', async () => {
+  const base = {
+    'SKILL.md': '---\nname: demo\ndescription: demo\n---\n\n# demo\n',
+    'references/notes.md': '# notes\n',
+  };
+
+  const clean = await writeSkillFixture(base);
+  const polluted = await writeSkillFixture({
+    ...base,
+    'node_modules/left-pad/index.js': 'module.exports = () => {};\n',
+    'node_modules/left-pad/package.json': '{"name":"left-pad"}\n',
+    'assets/node_modules/nested/index.js': 'nested\n',
+  });
+
+  try {
+    assert.equal(
+      await hashDirectory(polluted),
+      await hashDirectory(clean),
+      'git refuses to track node_modules, so hashing it would record bytes the commit ' +
+        'cannot contain and the committed tree could never reproduce its own lock entry',
+    );
+  } finally {
+    await rm(clean, { recursive: true, force: true });
+    await rm(polluted, { recursive: true, force: true });
+  }
+});
+
+test('GI6: every file the hash covers is a file git will track', async () => {
+  const { collectHashableFiles } = await import('../lib/hash.mjs');
+
+  const files = {
+    'SKILL.md': '---\nname: demo\ndescription: demo\n---\n\n# demo\n',
+    'references/notes.md': '# notes\n',
+    'dist/bundle.js': 'built\n',
+    'build/output.txt': 'built\n',
+    'output/report.txt': 'built\n',
+    'bin/tool.ps1': 'tool\n',
+    'obj/intermediate.txt': 'obj\n',
+    'scripts/run.log': 'log\n',
+    '.env': 'PUBLIC_UPSTREAM_SAMPLE=1\n',
+    'node_modules/left-pad/index.js': 'dep\n',
+  };
+
+  const fixture = await writeSkillFixture(files);
+
+  try {
+    const hashed = await collectHashableFiles(fixture);
+    const tracked = await trackedPaths(
+      Object.keys(files).map((file) => `skills/upstream/demo/${file}`),
+    );
+
+    for (const relativePath of hashed) {
+      assert.ok(
+        tracked.has(`skills/upstream/demo/${relativePath}`),
+        `${relativePath} is hashed into the lockfile but git refuses to track it — ` +
+          'the committed tree could not reproduce its own snapshotHash',
+      );
+    }
+
+    assert.ok(hashed.includes('SKILL.md'));
+    assert.ok(hashed.includes('.env'), 'public upstream dotenv files are tracked, so they hash');
+    assert.equal(
+      hashed.some((file) => file.split('/').includes('node_modules')),
+      false,
+      'node_modules is ignored by git, so it must be excluded from the hash as well',
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
+});
+
+test('GI7: the ignore-exclusion rule is declared once and shared', async () => {
+  const { HASH_EXCLUDED_DIRECTORIES } = await import('../lib/hash.mjs');
+
+  assert.ok(
+    HASH_EXCLUDED_DIRECTORIES instanceof Set,
+    'the excluded directory names must be exported so staging and hashing cannot drift',
+  );
+  assert.deepEqual([...HASH_EXCLUDED_DIRECTORIES].sort(), ['.git', 'node_modules']);
+
+  const gitignore = await readFile(path.join(repoRoot, '.gitignore'), 'utf8');
+  assert.match(
+    gitignore,
+    /node_modules\/ is deliberately NOT re-included/,
+    'the .gitignore must keep documenting why node_modules is the one directory the ' +
+      'skills/** exception does not cover',
+  );
 });

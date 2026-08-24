@@ -20,6 +20,7 @@ import {
   renderMarkdownBody,
   RELEASE_VERSION,
   RELEASE_PUBLISHED,
+  parseReleasePublished,
   loadCatalog,
   loadSkillBody,
   getRestrictedSkills,
@@ -302,10 +303,17 @@ test('Markdown renderer handles code blocks and inline code safely', () => {
   assert.match(rendered, /&lt;script&gt;/);
 });
 
-// ─── Release Pending Flag ───────────────────────────────────────────
+// ─── Release Publication Flag ───────────────────────────────────────
+//
+// Publication is a build-time input resolved by the deploy workflow from tag
+// ancestry, so the only invariant that holds in BOTH modes is that the exported
+// flag mirrors the ambient input. Pinning it to `false` here used to break the
+// published deploy (`RELEASE_PUBLISHED=true`) on a stale expectation.
 
-test('release is pending (not published)', () => {
-  assert.equal(RELEASE_PUBLISHED, false);
+test('RELEASE_PUBLISHED mirrors the ambient build-time input in both modes', () => {
+  assert.equal(typeof RELEASE_PUBLISHED, 'boolean');
+  assert.equal(RELEASE_PUBLISHED, parseReleasePublished(process.env.RELEASE_PUBLISHED));
+  assert.equal(RELEASE_PUBLISHED, process.env.RELEASE_PUBLISHED === 'true');
 });
 
 // ─── Source derivation ──────────────────────────────────────────────

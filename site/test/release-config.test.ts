@@ -143,6 +143,38 @@ test('R8: published mode — RELEASE_PUBLISHED=true flips the site into publishe
   assert.equal(readFlagWithEnv('true'), true);
 });
 
+// ─── R10: no test may re-pin the flag to a literal ──────────────────
+//
+// A suite that asserts `RELEASE_PUBLISHED === false` passes locally and fails
+// in exactly the situation the derivation exists for: a deploy that correctly
+// injects `RELEASE_PUBLISHED=true`. The published-mode CI job would then fail
+// on a stale test rather than on a real defect, so the pin is banned outright.
+
+test('R10: no site test pins RELEASE_PUBLISHED to a literal boolean', () => {
+  const testDir = path.join(siteRoot, 'test');
+  const offenders: string[] = [];
+
+  for (const entry of fs.readdirSync(testDir)) {
+    if (!entry.endsWith('.ts')) continue;
+
+    const source = fs.readFileSync(path.join(testDir, entry), 'utf8');
+    const lines = source.split('\n');
+
+    lines.forEach((line, index) => {
+      if (/assert\.\w+\(\s*RELEASE_PUBLISHED\s*,\s*(true|false)\s*\)/.test(line)) {
+        offenders.push(`${entry}:${index + 1}`);
+      }
+    });
+  }
+
+  assert.deepEqual(
+    offenders,
+    [],
+    'RELEASE_PUBLISHED is a build-time input; assert it against the ambient input ' +
+      `(parseReleasePublished(process.env.RELEASE_PUBLISHED)), never a literal — ${offenders.join(', ')}`,
+  );
+});
+
 // ─── R9: consumers read the derived values, not literals ────────────
 
 test('R9: site pages and components consume the derived release constants', () => {

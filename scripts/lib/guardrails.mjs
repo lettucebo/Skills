@@ -254,6 +254,89 @@ export function evaluateDeletionGuards(groups = []) {
 }
 
 /**
+ * Canonical identity of an upstream for deletion-guard grouping.
+ *
+ * An upstream is a (repository, reference) PAIR, never a bare repository: the
+ * same repository may legitimately be mapped at two references (e.g. `main` and
+ * a frozen tag), and those are independent populations. Collapsing them would
+ * double the denominator of the removal ratio and let a mass deletion of one
+ * reference slip under the threshold.
+ */
+export function upstreamGroupKey(repository, reference) {
+  return `${repository}\u0000${reference}`;
+}
+
+/**
+ * Builds the deletion-guard groups from a manifest and a lockfile.
+ *
+ * This is the single implementation shared by the dry-run planner and the daily
+ * apply, so a removal that the plan blocks can never be applied:
+ *
+ *  - `declared` is the baseline population of the (repository, reference) pair
+ *    recorded in the lock, so a removal ratio is always well defined.
+ *  - `removed` counts mapped lock paths the manifest no longer declares.
+ *  - each group is named after the manifest upstream that owns the pair, so the
+ *    plan report and the apply error speak the same language. A lock entry with
+ *    no matching manifest upstream (an upstream that was renamed or dropped
+ *    outright) degrades to its repository, then to the raw key.
+ *
+ * `availableByName` marks clone-failed upstreams so the guard can block them
+ * distinctly instead of ever inferring a removal from an outage.
+ * `includeUnmappedUpstreams` additionally emits an empty group for a manifest
+ * upstream that has no lock entries yet, which the planner needs so an
+ * unavailable clone is still reported with no baseline.
+ */
+export function buildDeletionGroups({
+  manifest,
+  lock,
+  availableByName = new Map(),
+  includeUnmappedUpstreams = false,
+} = {}) {
+  const nameByKey = new Map();
+  for (const [name, definition] of Object.entries(manifest?.upstreams ?? {})) {
+    nameByKey.set(upstreamGroupKey(definition.repository, definition.reference), name);
+  }
+
+  const mappings = manifest?.mappings ?? [];
+  const mappingPaths = new Set(mappings.map((mapping) => mapping.path));
+
+  const declaredByGroup = new Map();
+  const removedByGroup = new Map();
+
+  for (const skill of lock?.skills ?? []) {
+    if (skill.category !== 'mapped') {
+      continue;
+    }
+
+    const key = upstreamGroupKey(skill.upstream?.repository, skill.upstream?.reference);
+    const group = nameByKey.get(key) ?? skill.upstream?.repository ?? key;
+
+    declaredByGroup.set(group, (declaredByGroup.get(group) ?? 0) + 1);
+
+    if (!mappingPaths.has(skill.path)) {
+      removedByGroup.set(group, (removedByGroup.get(group) ?? 0) + 1);
+    }
+  }
+
+  if (includeUnmappedUpstreams) {
+    for (const mapping of mappings) {
+      if (!declaredByGroup.has(mapping.upstream)) {
+        declaredByGroup.set(mapping.upstream, 0);
+      }
+    }
+  }
+
+  return [...declaredByGroup.keys()]
+    .sort()
+    .map((group) => ({
+      upstream: group,
+      declared: declaredByGroup.get(group) ?? 0,
+      removed: removedByGroup.get(group) ?? 0,
+      available: availableByName.get(group) ?? true,
+    }));
+}
+
+/**
  * Rejects any value that resolves to a `..` path segment after percent-decoding
  * and separator normalization.
  *

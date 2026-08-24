@@ -1303,3 +1303,270 @@ test('applyUpdate reports no-op when the mapping set and all content are unchang
     await rm(workspace, { recursive: true, force: true });
   }
 });
+
+// ---------------------------------------------------------------------------
+// Deletion-guard grouping key: one repository at two references
+//
+// The dry-run planner groups by (repository, reference) and names each group
+// after the manifest upstream. `applyUpdate` used to group by `repository`
+// alone, so two references of the SAME repository collapsed into one group with
+// a doubled denominator — a removal that the plan blocks would be applied.
+// ---------------------------------------------------------------------------
+
+/**
+ * Builds a verified-baseline fixture where one upstream repository is mapped at
+ * two references (`refs/heads/main` as `demo`, `refs/heads/legacy` as
+ * `legacy`), each contributing `perGroup` mapped skills.
+ */
+async function buildTwoReferenceFixture(workspace, { perGroup = 12 } = {}) {
+  const mainNames = Array.from({ length: perGroup }, (_, index) =>
+    `mainskill${String(index + 1).padStart(2, '0')}`,
+  );
+  const legacyNames = Array.from({ length: perGroup }, (_, index) =>
+    `legacyskill${String(index + 1).padStart(2, '0')}`,
+  );
+
+  const upstreamRoot = path.join(workspace, 'upstream');
+  const initial = await initUpstreamRepo(
+    upstreamRoot,
+    Object.fromEntries(
+      [...mainNames, ...legacyNames].map((name) => [
+        `skills/${name}/SKILL.md`,
+        skillDoc(name),
+      ]),
+    ),
+  );
+
+  // Freeze the legacy line, then move main forward so the two references of the
+  // same repository resolve to different commits.
+  const legacyCommit = initial.commit;
+  git(upstreamRoot, ['branch', 'legacy']);
+  const mainCommit = await updateUpstreamRepo(upstreamRoot, {
+    'MAIN.md': '# main line moved forward\n',
+  });
+
+  const groups = [
+    { upstream: 'demo', reference: 'refs/heads/main', commit: mainCommit, prefix: 'skills/demo', names: mainNames },
+    { upstream: 'legacy', reference: 'refs/heads/legacy', commit: legacyCommit, prefix: 'skills/legacy', names: legacyNames },
+  ];
+
+  const repoRoot = path.join(workspace, 'repo');
+  await mkdir(repoRoot, { recursive: true });
+  git(repoRoot, ['init', '-q', '-b', 'main']);
+  git(repoRoot, ['config', 'user.email', 'fixture@example.com']);
+  git(repoRoot, ['config', 'user.name', 'Fixture']);
+
+  const mappings = [];
+  const skills = [];
+
+  for (const group of groups) {
+    for (const name of group.names) {
+      const skillPath = `${group.prefix}/${name}`;
+      await writeFileEnsured(
+        path.join(repoRoot, ...skillPath.split('/'), 'SKILL.md'),
+        skillDoc(name),
+      );
+
+      mappings.push({ path: skillPath, source: `skills/${name}`, upstream: group.upstream });
+      skills.push({
+        path: skillPath,
+        name,
+        category: 'mapped',
+        version: '1.1.0',
+        baseline: 'verified',
+        license: 'Unknown',
+        redistributable: true,
+        snapshotHash: await hashDirectory(path.join(repoRoot, ...skillPath.split('/'))),
+        contentHash: await hashDirectory(path.join(upstreamRoot, 'skills', name)),
+        upstream: {
+          repository: pathToFileURL(upstreamRoot).href,
+          reference: group.reference,
+          source: `skills/${name}`,
+          commit: group.commit,
+        },
+      });
+    }
+  }
+
+  skills.sort((left, right) => (left.path < right.path ? -1 : 1));
+
+  await writeTwoReferenceManifest(repoRoot, pathToFileURL(upstreamRoot).href, mappings);
+
+  await writeFileEnsured(
+    path.join(repoRoot, 'catalog', 'skills.lock.json'),
+    `${JSON.stringify(
+      {
+        release: '1.1.0',
+        generatedAt: '2026-02-02T00:00:00Z',
+        counts: { total: skills.length, mapped: skills.length, orphan: 0, local: 0 },
+        skills,
+      },
+      null,
+      2,
+    )}\n`,
+  );
+
+  for (const skill of skills) {
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'history', `${skill.path.replace(/\//g, '__')}.json`),
+      `${JSON.stringify(
+        {
+          path: skill.path,
+          name: skill.name,
+          category: skill.category,
+          entries: [
+            {
+              release: '1.0.0',
+              kind: 'bootstrap',
+              version: '1.0.0',
+              firstSeen: '2026-01-01T00:00:00Z',
+              upstreamCommit: null,
+              diffUrl: null,
+              snapshotHash: skill.snapshotHash,
+            },
+            {
+              release: '1.1.0',
+              kind: 'baseline-verified',
+              version: '1.1.0',
+              upstreamCommit: skill.upstream.commit,
+              diffUrl: null,
+              contentHash: skill.contentHash,
+            },
+          ],
+        },
+        null,
+        2,
+      )}\n`,
+    );
+  }
+
+  await writeFileEnsured(path.join(repoRoot, 'NOTICE'), '# NOTICE\n\nplaceholder\n');
+  await writeFileEnsured(
+    path.join(repoRoot, 'README.md'),
+    ['# Fixture', '', '<!-- CATALOG:START -->', 'old', '<!-- CATALOG:END -->', ''].join('\n'),
+  );
+
+  git(repoRoot, ['add', '-A']);
+  git(repoRoot, ['commit', '-q', '-m', 'initial verified baseline']);
+  git(repoRoot, ['tag', '-a', 'v1.1.0', '-m', 'baseline']);
+
+  return { repoRoot, upstreamRoot, upstreamUrl: pathToFileURL(upstreamRoot).href, mappings };
+}
+
+/** Writes the two-reference manifest and commits so the tree stays clean. */
+async function writeTwoReferenceManifest(repoRoot, upstreamUrl, mappings, { commit = false } = {}) {
+  await writeFileEnsured(
+    path.join(repoRoot, 'catalog', 'sources.yml'),
+    [
+      'upstreams:',
+      '  demo:',
+      `    repository: "${upstreamUrl}"`,
+      '    reference: refs/heads/main',
+      '  legacy:',
+      `    repository: "${upstreamUrl}"`,
+      '    reference: refs/heads/legacy',
+      'mappings:',
+      ...mappings.flatMap((mapping) => [
+        `  - path: ${mapping.path}`,
+        `    upstream: ${mapping.upstream}`,
+        `    source: ${mapping.source}`,
+      ]),
+      'orphans: []',
+      'local: []',
+      'overrides: []',
+      'linkExceptions: []',
+      '',
+    ].join('\n'),
+  );
+
+  if (commit) {
+    git(repoRoot, ['add', '-A']);
+    git(repoRoot, ['commit', '-q', '-m', 'manifest: change mapping set']);
+  }
+}
+
+test('applyUpdate keeps one repository at two references in separate deletion groups', async () => {
+  const workspace = await makeTempDir('update-two-references');
+  try {
+    const { repoRoot, upstreamUrl, mappings } = await buildTwoReferenceFixture(workspace, {
+      perGroup: 12,
+    });
+
+    // Five of the twelve `demo` (refs/heads/main) mappings are undeclared:
+    //   per-reference group  → 5/12 = 41.7% > 30%  ⇒ BLOCKED
+    //   repository-only group → 5/24 = 20.8% ≤ 30% ⇒ silently applied
+    const removedPaths = mappings
+      .filter((mapping) => mapping.upstream === 'demo')
+      .slice(0, 5)
+      .map((mapping) => mapping.path);
+
+    for (const removedPath of removedPaths) {
+      await rm(path.join(repoRoot, ...removedPath.split('/')), { recursive: true, force: true });
+    }
+
+    await writeTwoReferenceManifest(
+      repoRoot,
+      upstreamUrl,
+      mappings.filter((mapping) => !removedPaths.includes(mapping.path)),
+      { commit: true },
+    );
+
+    const lockBefore = await readLockFile(repoRoot);
+    const treeBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+
+    await assert.rejects(
+      applyUpdate({ repoRoot, readGitStatus: cleanTree, runGit: makeRunGit(repoRoot) }),
+      (error) =>
+        error instanceof BaselineError &&
+        /deletion-threshold-exceeded/.test(error.message) &&
+        /\(5\/12\)/.test(error.message),
+      'the apply must group by (repository, reference) exactly like the dry-run planner; ' +
+        'grouping by repository alone doubles the denominator and lets the removal through',
+    );
+
+    assert.equal(await readLockFile(repoRoot), lockBefore, 'lock must not be mutated');
+    assert.equal(
+      await hashDirectory(path.join(repoRoot, 'skills')),
+      treeBefore,
+      'the skills tree must not be mutated',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate names deletion groups after the manifest upstream, like the planner', async () => {
+  const workspace = await makeTempDir('update-two-references-name');
+  try {
+    const { repoRoot, upstreamUrl, mappings } = await buildTwoReferenceFixture(workspace, {
+      perGroup: 12,
+    });
+
+    const removedPaths = mappings
+      .filter((mapping) => mapping.upstream === 'legacy')
+      .slice(0, 5)
+      .map((mapping) => mapping.path);
+
+    for (const removedPath of removedPaths) {
+      await rm(path.join(repoRoot, ...removedPath.split('/')), { recursive: true, force: true });
+    }
+
+    await writeTwoReferenceManifest(
+      repoRoot,
+      upstreamUrl,
+      mappings.filter((mapping) => !removedPaths.includes(mapping.path)),
+      { commit: true },
+    );
+
+    await assert.rejects(
+      applyUpdate({ repoRoot, readGitStatus: cleanTree, runGit: makeRunGit(repoRoot) }),
+      (error) =>
+        error instanceof BaselineError &&
+        /legacy: deletion-threshold-exceeded/.test(error.message),
+      'the blocked group must be reported under its manifest upstream name so the apply error ' +
+        'reads exactly like the dry-run guardrail report',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});

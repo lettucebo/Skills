@@ -272,6 +272,8 @@ const isSiteBuildStep = (s) =>
   /npm run build/.test(String(s.run ?? '')) &&
   (String(s.run).includes('--prefix site') || s['working-directory'] === 'site');
 
+const isUploadStep = (s) => String(s.uses ?? '').startsWith('actions/upload-pages-artifact');
+
 test('DP1: deploy-site build checkout fetches full history and tags', async () => {
   const wf = await loadWorkflow('deploy-site.yml');
   const checkout = stepsOf(wf.jobs?.build).find((s) =>
@@ -301,18 +303,42 @@ test('DP2: deploy-site resolves publication from the lock release and tag ancest
   assert.match(script, /GITHUB_OUTPUT/, 'the flag must be exported as a step output');
 });
 
-test('DP3: deploy-site runs the site unit tests BEFORE building the deployed artifact', async () => {
+test('DP3: deploy-site builds, then tests the built site, then uploads the artifact', async () => {
   const wf = await loadWorkflow('deploy-site.yml');
   const steps = stepsOf(wf.jobs?.build);
 
-  const testIdx = stepIndex(steps, isSiteTestStep);
   const buildIdx = stepIndex(steps, isSiteBuildStep);
+  const testIdx = stepIndex(steps, isSiteTestStep);
+  const uploadIdx = stepIndex(steps, isUploadStep);
 
-  assert.ok(testIdx >= 0, 'deploy-site must run the site unit tests');
   assert.ok(buildIdx >= 0, 'deploy-site must build the site');
+  assert.ok(testIdx >= 0, 'deploy-site must run the site unit tests');
+  assert.ok(uploadIdx >= 0, 'deploy-site must upload the Pages artifact');
+
   assert.ok(
-    testIdx < buildIdx,
-    'a GITHUB_TOKEN-triggered sync deploy must not publish untested content',
+    buildIdx < testIdx,
+    'the site suite contains dist-dependent guards that silently SKIP when dist/ is absent; ' +
+      'a clean CI checkout must build (Astro + Pagefind) before the tests run',
+  );
+  assert.ok(
+    testIdx < uploadIdx,
+    'a GITHUB_TOKEN-triggered sync deploy must not upload an artifact whose tests never ran',
+  );
+});
+
+test('DP6: the Pagefind postbuild runs exactly once, through the single build step', async () => {
+  const wf = await loadWorkflow('deploy-site.yml');
+  const steps = stepsOf(wf.jobs?.build);
+
+  assert.equal(
+    steps.filter(isSiteBuildStep).length,
+    1,
+    'a second `npm run build` would re-run the pagefind postbuild over the same dist for no gain',
+  );
+  assert.equal(
+    steps.filter((s) => /pagefind/i.test(String(s.run ?? ''))).length,
+    0,
+    'pagefind must stay wired through the site postbuild script, never invoked a second time',
   );
 });
 

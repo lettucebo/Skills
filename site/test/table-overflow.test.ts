@@ -46,6 +46,22 @@ test('TO1: markdown tables are wrapped in a focusable scroll container', () => {
   assert.match(html, /<\/table>\s*<\/div>/, 'the wrapper must close after the table');
 });
 
+test('TO1b: the scroll container stays keyboard reachable (tabindex must not be removed)', () => {
+  // A scrollable region that is not focusable is unreachable by keyboard
+  // (WCAG 2.1.1): the only way to scroll it would be a pointer. The extra tab
+  // stop this costs on table-heavy pages is a deliberate, accepted trade-off —
+  // see the "Table scroll regions add tab stops" residual risk. Removing the
+  // attribute to reduce tab stops would reintroduce a real a11y defect, so it
+  // is pinned separately from the markup shape asserted in TO1.
+  const html = renderMarkdownBody(MARKDOWN_TABLE);
+  const wrappers = html.match(/<div class="table-scroll"[^>]*>/g) ?? [];
+
+  assert.equal(wrappers.length, 1);
+  assert.match(wrappers[0], /tabindex="0"/);
+  assert.match(wrappers[0], /role="region"/, 'a focusable scroll container needs an accessible role');
+  assert.match(wrappers[0], /aria-label="[^"]+"/, 'the region must be named');
+});
+
 test('TO2: wrapping preserves table semantics in the DOM', () => {
   const html = renderMarkdownBody(MARKDOWN_TABLE);
 

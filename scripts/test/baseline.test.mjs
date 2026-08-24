@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
+import { existsSync } from 'node:fs';
 import { cp, mkdir, mkdtemp, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -244,11 +245,12 @@ test('appendBaselineHistoryEntry refuses history without a bootstrap entry', () 
 // applyBaseline (fixture integration)
 // ---------------------------------------------------------------------------
 
-async function buildBaselineFixture(workspace, { alphaUpstreamBody } = {}) {
+async function buildBaselineFixture(workspace, { alphaUpstreamBody, upstreamExtraFiles = {} } = {}) {
   const upstream = await initUpstreamRepo(path.join(workspace, 'upstream'), {
     'skills/alpha/SKILL.md': skillDoc('alpha', alphaUpstreamBody ?? 'Upstream alpha body.'),
     'skills/alpha/references/notes.md': '# alpha notes\n',
     'skills/beta/SKILL.md': skillDoc('beta', 'Upstream beta body.'),
+    ...upstreamExtraFiles,
   });
 
   const repoRoot = path.join(workspace, 'repo');
@@ -519,6 +521,52 @@ test('applyBaseline transitions lock and history to verified baseline', async ()
     const readme = await readFile(path.join(repoRoot, 'README.md'), 'utf8');
     assert.match(readme, /<!-- CATALOG:START -->/);
     assert.doesNotMatch(readme, /\nold\n/);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline never vendors an upstream node_modules tree', async () => {
+  const workspace = await makeTempDir('baseline-node-modules');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace, {
+      upstreamExtraFiles: {
+        'skills/alpha/node_modules/left-pad/index.js': 'module.exports = () => {};\n',
+        'skills/alpha/node_modules/left-pad/package.json': '{"name":"left-pad"}\n',
+        'skills/alpha/assets/node_modules/nested/index.js': 'nested\n',
+      },
+    });
+
+    await applyBaseline({
+      repoRoot,
+      baseline: true,
+      readGitStatus: cleanTree,
+      now: () => '2026-02-02T00:00:00Z',
+    });
+
+    const alphaDir = path.join(repoRoot, 'skills', 'demo', 'alpha');
+
+    assert.equal(
+      existsSync(path.join(alphaDir, 'node_modules')),
+      false,
+      'git ignores node_modules everywhere, so staging must not vendor bytes the commit ' +
+        'can never contain',
+    );
+    assert.equal(existsSync(path.join(alphaDir, 'assets', 'node_modules')), false);
+
+    // The rest of the upstream content is vendored normally.
+    assert.ok(existsSync(path.join(alphaDir, 'SKILL.md')));
+    assert.ok(existsSync(path.join(alphaDir, 'references', 'notes.md')));
+
+    const lock = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+    );
+    const alpha = lock.skills.find((skill) => skill.path === 'skills/demo/alpha');
+    assert.equal(
+      alpha.snapshotHash,
+      await hashDirectory(alphaDir),
+      'the recorded snapshot must describe exactly the vendored tree',
+    );
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }

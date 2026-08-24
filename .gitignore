@@ -63,9 +63,17 @@ site/test-results/
 # rules above must never win inside skills/. These files are already public in
 # their upstream repositories, so re-including them exposes nothing new.
 #
+# `.env` is re-included as an EXPLICIT, tested policy: an upstream `.env` that
+# is public in its own repository is vendored content like any other file, and
+# scripts/test/gitignore-scope.test.mjs (GI1/GI6) pins that it is both tracked
+# and hashed. This exception is scoped to skills/**; the repository's own `.env`
+# above stays ignored.
+#
 # node_modules/ is deliberately NOT re-included: a dependency tree is never
 # legitimate vendored content and re-including it would risk committing
-# thousands of files.
+# thousands of files. Because it can never be tracked, it is also excluded from
+# staging and from the hash (scripts/lib/hash.mjs HASH_EXCLUDED_DIRECTORIES), so
+# neither side ever claims provenance for bytes the other cannot see.
 !/skills/**/bin/
 !/skills/**/obj/
 !/skills/**/dist/

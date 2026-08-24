@@ -68,15 +68,6 @@ jobs:
           echo "published=$PUBLISHED" >> "$GITHUB_OUTPUT"
           echo "Release $TAG published=$PUBLISHED"
 
-      # The sync workflow deploys through this workflow after a GITHUB_TOKEN
-      # push, which never triggers the normal validate run. Without this step a
-      # synced commit could deploy without any site test having executed.
-      - name: Run site unit tests
-        run: npm test
-        working-directory: site
-        env:
-          RELEASE_PUBLISHED: ${{ steps.release.outputs.published }}
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
@@ -84,6 +75,20 @@ jobs:
 
       - name: Build site (Astro + Pagefind)
         run: npm run build
+        working-directory: site
+        env:
+          RELEASE_PUBLISHED: ${{ steps.release.outputs.published }}
+
+      # Ordering matters twice over. The sync workflow deploys through this
+      # workflow after a GITHUB_TOKEN push, which never triggers the normal
+      # validate run, so without this step a synced commit could deploy with no
+      # site test having executed. And the suite contains guards that read
+      # `site/dist` (Pagefind index, rendered pages) and SKIP themselves when it
+      # is absent — on a clean CI checkout those would silently vanish unless
+      # the build has already run. Testing here, before the upload, gates the
+      # artifact on a full non-skipping run.
+      - name: Run site unit tests against the built output
+        run: npm test
         working-directory: site
         env:
           RELEASE_PUBLISHED: ${{ steps.release.outputs.published }}

@@ -30,11 +30,12 @@ import { cloneUpstream, GitCloneError } from './git-source.mjs';
 import {
   assertMappingsWritable,
   assertWritableSkillPath,
+  buildDeletionGroups,
   classifyDiff,
   commitMessageForDiffClass,
   evaluateDeletionGuards,
 } from './guardrails.mjs';
-import { hashDirectory } from './hash.mjs';
+import { hashDirectory, isExcludedDirectoryName } from './hash.mjs';
 import { historyFileName } from './history.mjs';
 import { loadManifest } from './manifest.mjs';
 import { parseSkillFrontmatter } from './frontmatter.mjs';
@@ -267,7 +268,12 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
 
       const stageDir = path.join(stagingDir, ...mapping.path.split('/'));
       await mkdir(path.dirname(stageDir), { recursive: true });
-      await cp(sourceAbs, stageDir, { recursive: true });
+      // The same exclusion the hash applies: never stage bytes git refuses to
+      // track, or the vendored tree could not reproduce its own snapshotHash.
+      await cp(sourceAbs, stageDir, {
+        recursive: true,
+        filter: (source) => !isExcludedDirectoryName(path.basename(source)),
+      });
 
       // Hash BEFORE transform: this is the verified upstream content identity.
       const contentHash = await hashDirectory(stageDir);
@@ -948,29 +954,15 @@ export async function applyUpdate({
       );
     }
 
-    // Removals run through the shared deletion guardrails, grouped by upstream
-    // exactly like the dry-run planner, so plan and apply cannot diverge.
+    // Removals run through the shared deletion guardrails, grouped by the
+    // SAME (repository, reference) key the dry-run planner uses, so plan and
+    // apply cannot diverge.
     if (removedPaths.length > 0) {
       for (const removedPath of removedPaths) {
         assertWritableSkillPath(removedPath, protectedRoots);
       }
 
-      const groups = new Map();
-      for (const skill of lock.skills) {
-        if (skill.category !== 'mapped') continue;
-        const key = skill.upstream?.repository ?? 'unknown';
-        const group = groups.get(key) ?? {
-          upstream: key,
-          declared: 0,
-          removed: 0,
-          available: true,
-        };
-        group.declared += 1;
-        if (removedSet.has(skill.path)) group.removed += 1;
-        groups.set(key, group);
-      }
-
-      const verdict = evaluateDeletionGuards([...groups.values()]);
+      const verdict = evaluateDeletionGuards(buildDeletionGroups({ manifest, lock }));
 
       if (verdict.blocked) {
         const detail = verdict.groups
