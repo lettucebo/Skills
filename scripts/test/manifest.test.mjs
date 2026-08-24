@@ -439,18 +439,18 @@ linkExceptions:
   });
 });
 
-test('loadManifest accepts the repository manifest with exact 99-skill coverage', async () => {
+test('loadManifest accepts the repository manifest with exact 103-skill coverage', async () => {
   const manifestPath = path.join(repoRoot, 'catalog', 'sources.yml');
   const manifest = await loadManifest(manifestPath);
   const localCoverage = await countExistingLocalSkills(repoRoot, manifest.local);
   const coveredSkills =
     manifest.mappings.length + manifest.orphans.length + localCoverage;
 
-  assert.equal(manifest.mappings.length, 96);
+  assert.equal(manifest.mappings.length, 100);
   assert.equal(manifest.orphans.length, 3);
-  assert.equal(manifest.linkExceptions.length, 4);
+  assert.equal(manifest.linkExceptions.length, 3);
   assert.equal(localCoverage, 0);
-  assert.equal(coveredSkills, 99);
+  assert.equal(coveredSkills, 103);
   assert.equal(
     manifest.local.map((entry) => entry.root).join(','),
     'skills/lettucebo',
@@ -460,7 +460,6 @@ test('loadManifest accepts the repository manifest with exact 99-skill coverage'
       .map((entry) => createLinkExceptionKey(entry.sourcePath, entry.target))
       .sort(),
     [
-      'skills/cloudflare/building-mcp-server-on-cloudflare/SKILL.md -> references/tool-patterns.md',
       'skills/cloudflare/cloudflare/references/durable-objects/README.md -> ../websockets/README.md',
       'skills/cloudflare/cloudflare/references/tunnel/README.md -> ../access/',
       'skills/cloudflare/cloudflare/references/tunnel/README.md -> ../warp/',

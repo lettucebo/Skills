@@ -32,7 +32,7 @@ hooks/                     ← Copilot Hook 腳本集合
 ## 目前收錄的 Skills
 
 <!-- CATALOG:START -->
-共 **99 個技能**，來自 11 個來源。
+共 **103 個技能**，來自 11 個來源。
 
 > 以下統計由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
 >
@@ -43,7 +43,7 @@ hooks/                     ← Copilot Hook 腳本集合
 | [azure](skills/azure/) | 9 | Azure 雲端架構、部署、定價、DevOps | — |
 | [chrome](skills/chrome/) | 1 | Chrome DevTools 偵錯與效能分析 | — |
 | [claude](skills/claude/) | 17 | Claude API、文件生成、創意工具（PDF/PPTX/XLSX 等） | — |
-| [cloudflare](skills/cloudflare/) | 9 | Cloudflare Workers、Durable Objects、Agents SDK | [README](skills/cloudflare/README.md) |
+| [cloudflare](skills/cloudflare/) | 13 | Cloudflare Workers、Durable Objects、Agents SDK | [README](skills/cloudflare/README.md) |
 | [dotnet](skills/dotnet/) | 14 | C# 測試（NUnit/xUnit/MSTest/TUnit）、EF Core、NuGet、非同步 | — |
 | [github](skills/github/) | 8 | GitHub Issues、PR、CodeQL、Dependabot、gh CLI | — |
 | [gtm](skills/gtm/) | 11 | GTM 技術整合、產品策略、企業銷售、AI GTM | — |

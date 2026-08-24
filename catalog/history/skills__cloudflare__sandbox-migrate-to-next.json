@@ -1,0 +1,16 @@
+{
+  "path": "skills/cloudflare/sandbox-migrate-to-next",
+  "name": "sandbox-migrate-to-next",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-24T02:44:19+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:cfe44f6bc8423187f242b266e1fe60f5dbf7edc183d2d789fefc2c9c9dc6e4a5"
+    }
+  ]
+}

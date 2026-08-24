@@ -1,0 +1,16 @@
+{
+  "path": "skills/cloudflare/cloudflare-one-migrations",
+  "name": "cloudflare-one-migrations",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-24T02:44:19+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:23c28686d1f83e9c52b6053c62fa1980c45a5e2088182b3cf48067cd2184e3b6"
+    }
+  ]
+}

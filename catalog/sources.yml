@@ -244,21 +244,33 @@ mappings:
   - path: skills/cloudflare/agents-sdk
     upstream: cloudflare
     source: skills/agents-sdk
-  - path: skills/cloudflare/building-ai-agent-on-cloudflare
-    upstream: cloudflare
-    source: commands/build-agent.md
-  - path: skills/cloudflare/building-mcp-server-on-cloudflare
-    upstream: cloudflare
-    source: commands/build-mcp.md
   - path: skills/cloudflare/cloudflare
     upstream: cloudflare
     source: skills/cloudflare
+  - path: skills/cloudflare/cloudflare-email-service
+    upstream: cloudflare
+    source: skills/cloudflare-email-service
+  - path: skills/cloudflare/cloudflare-one
+    upstream: cloudflare
+    source: skills/cloudflare-one
+  - path: skills/cloudflare/cloudflare-one-migrations
+    upstream: cloudflare
+    source: skills/cloudflare-one-migrations
   - path: skills/cloudflare/durable-objects
     upstream: cloudflare
     source: skills/durable-objects
+  - path: skills/cloudflare/sandbox-migrate-to-next
+    upstream: cloudflare
+    source: skills/sandbox-migrate-to-next
+  - path: skills/cloudflare/sandbox-next
+    upstream: cloudflare
+    source: skills/sandbox-next
   - path: skills/cloudflare/sandbox-sdk
     upstream: cloudflare
     source: skills/sandbox-stable
+  - path: skills/cloudflare/turnstile-spin
+    upstream: cloudflare
+    source: skills/turnstile-spin
   - path: skills/cloudflare/web-perf
     upstream: cloudflare
     source: skills/web-perf
@@ -269,42 +281,47 @@ mappings:
     upstream: cloudflare
     source: skills/wrangler
   # microsoft
+  # microsoft/skills publishes installable copies under `.github/skills/<name>`.
+  # The `skills/` tree in that repository holds categorised symlinks, not skill
+  # folders, so it cannot be vendored.
   - path: skills/microsoft/cloud-solution-architect
     upstream: microsoft
-    source: skills/cloud-solution-architect
+    source: .github/skills/cloud-solution-architect
   - path: skills/microsoft/continual-learning
     upstream: microsoft
-    source: skills/continual-learning
+    source: .github/skills/continual-learning
   - path: skills/microsoft/copilot-sdk
     upstream: microsoft
-    source: skills/copilot-sdk
+    source: .github/skills/copilot-sdk
   - path: skills/microsoft/entra-agent-id
     upstream: microsoft
-    source: skills/entra-agent-id
+    source: .github/skills/entra-agent-id
   - path: skills/microsoft/frontend-design-review
     upstream: microsoft
-    source: skills/frontend-design-review
+    source: .github/skills/frontend-design-review
   - path: skills/microsoft/github-issue-creator
     upstream: microsoft
-    source: skills/github-issue-creator
+    source: .github/skills/github-issue-creator
   - path: skills/microsoft/mcp-builder
     upstream: microsoft
-    source: skills/mcp-builder
+    source: .github/skills/mcp-builder
+  # microsoft/skills does not publish these two. The vendored content is
+  # byte-identical to github/awesome-copilot, which is the real upstream.
   - path: skills/microsoft/microsoft-agent-framework
-    upstream: microsoft
+    upstream: awesome-copilot
     source: skills/microsoft-agent-framework
   - path: skills/microsoft/microsoft-code-reference
-    upstream: microsoft
+    upstream: awesome-copilot
     source: skills/microsoft-code-reference
   - path: skills/microsoft/microsoft-docs
     upstream: microsoft
-    source: skills/microsoft-docs
+    source: .github/skills/microsoft-docs
   - path: skills/microsoft/podcast-generation
     upstream: microsoft
-    source: skills/podcast-generation
+    source: .github/skills/podcast-generation
   - path: skills/microsoft/skill-creator
     upstream: microsoft
-    source: skills/skill-creator
+    source: .github/skills/skill-creator
   # aiskillstore
   - path: skills/github/gh-cli
     upstream: aiskillstore
@@ -327,14 +344,6 @@ local:
     note: Reserved for future local/original skills. Registry coverage counts only existing SKILL.md files, and sync must never write this root.
 
 overrides:
-  - path: skills/cloudflare/building-ai-agent-on-cloudflare
-    transform: command-to-skill
-    source: commands/build-agent.md
-    note: Mirrors an upstream command document into the local skill registry as a curated skill folder.
-  - path: skills/cloudflare/building-mcp-server-on-cloudflare
-    transform: command-to-skill
-    source: commands/build-mcp.md
-    note: Mirrors an upstream command document into the local skill registry as a curated skill folder.
   - path: skills/cloudflare/sandbox-sdk
     transform: rename-local-skill
     source: skills/sandbox-stable
@@ -345,7 +354,7 @@ overrides:
     note: Renames the upstream frontmatter name "mcp-builder" to "claude-mcp-builder" to keep registry skill names globally unique.
   - path: skills/microsoft/mcp-builder
     transform: rename-frontmatter-name
-    source: skills/mcp-builder
+    source: .github/skills/mcp-builder
     note: Renames the upstream frontmatter name "mcp-builder" to "microsoft-mcp-builder" to keep registry skill names globally unique.
   - path: skills/claude/skill-creator
     transform: rename-frontmatter-name
@@ -353,14 +362,10 @@ overrides:
     note: Renames the upstream frontmatter name "skill-creator" to "claude-skill-creator" to keep registry skill names globally unique.
   - path: skills/microsoft/skill-creator
     transform: rename-frontmatter-name
-    source: skills/skill-creator
+    source: .github/skills/skill-creator
     note: Renames the upstream frontmatter name "skill-creator" to "microsoft-skill-creator" to keep registry skill names globally unique.
 
 linkExceptions:
-  - sourcePath: skills/cloudflare/building-mcp-server-on-cloudflare/SKILL.md
-    target: references/tool-patterns.md
-    reason: Upstream cloudflare/skills currently ships this broken relative link and the local mirror must remain unchanged until upstream fixes it.
-    upstreamUrl: https://github.com/cloudflare/skills
   - sourcePath: skills/cloudflare/cloudflare/references/durable-objects/README.md
     target: ../websockets/README.md
     reason: Upstream cloudflare/skills currently ships this broken relative link and the local mirror must remain unchanged until upstream fixes it.

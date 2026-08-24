@@ -1,9 +1,9 @@
 {
   "release": "1.0.0",
-  "generatedAt": "2026-08-23T22:44:23+08:00",
+  "generatedAt": "2026-08-24T02:44:19+08:00",
   "counts": {
-    "total": 99,
-    "mapped": 96,
+    "total": 103,
+    "mapped": 100,
     "orphan": 3,
     "local": 0
   },
@@ -457,38 +457,6 @@
       }
     },
     {
-      "path": "skills/cloudflare/building-ai-agent-on-cloudflare",
-      "name": "building-ai-agent-on-cloudflare",
-      "category": "mapped",
-      "version": "1.0.0",
-      "baseline": "unverified",
-      "license": "Unknown",
-      "redistributable": true,
-      "snapshotHash": "sha256:02738cb0c42127268ac02d1588e08a800e9616141782814328f55ea1875d0e38",
-      "upstream": {
-        "repository": "cloudflare/skills",
-        "reference": "refs/heads/main",
-        "source": "commands/build-agent.md",
-        "commit": null
-      }
-    },
-    {
-      "path": "skills/cloudflare/building-mcp-server-on-cloudflare",
-      "name": "building-mcp-server-on-cloudflare",
-      "category": "mapped",
-      "version": "1.0.0",
-      "baseline": "unverified",
-      "license": "Unknown",
-      "redistributable": true,
-      "snapshotHash": "sha256:b96d9fe240988ef1cbd6da768526d23103fcd26b32e368c602b21c0115146396",
-      "upstream": {
-        "repository": "cloudflare/skills",
-        "reference": "refs/heads/main",
-        "source": "commands/build-mcp.md",
-        "commit": null
-      }
-    },
-    {
       "path": "skills/cloudflare/cloudflare",
       "name": "cloudflare",
       "category": "mapped",
@@ -501,6 +469,54 @@
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloudflare",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/cloudflare-email-service",
+      "name": "cloudflare-email-service",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:b6f7dfdb24e6d8447ab7ca16b68a52d5694053fe93be0e41d199802dd568c906",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/cloudflare-email-service",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/cloudflare-one",
+      "name": "cloudflare-one",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:9eeeb3c788502c080daa06ea5d28e86aac41c53cc4653236099de6f2ead5e02e",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/cloudflare-one",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/cloudflare-one-migrations",
+      "name": "cloudflare-one-migrations",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:23c28686d1f83e9c52b6053c62fa1980c45a5e2088182b3cf48067cd2184e3b6",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/cloudflare-one-migrations",
         "commit": null
       }
     },
@@ -521,6 +537,38 @@
       }
     },
     {
+      "path": "skills/cloudflare/sandbox-migrate-to-next",
+      "name": "sandbox-migrate-to-next",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:cfe44f6bc8423187f242b266e1fe60f5dbf7edc183d2d789fefc2c9c9dc6e4a5",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/sandbox-migrate-to-next",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/sandbox-next",
+      "name": "sandbox-next",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:8473408d516ee8443665a5d941b0085b8b72acd148a0a2aa35c313efb6ececdc",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/sandbox-next",
+        "commit": null
+      }
+    },
+    {
       "path": "skills/cloudflare/sandbox-sdk",
       "name": "sandbox-sdk",
       "category": "mapped",
@@ -533,6 +581,22 @@
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/sandbox-stable",
+        "commit": null
+      }
+    },
+    {
+      "path": "skills/cloudflare/turnstile-spin",
+      "name": "turnstile-spin",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "unverified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:285e2a349842c739c688313dfd7afaa3cc6b93addadf10ae02d2ef5a1aaffcea",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/turnstile-spin",
         "commit": null
       }
     },
@@ -1114,7 +1178,7 @@
       "upstream": {
         "repository": "microsoft/skills",
         "reference": "refs/heads/main",
-        "source": "skills/cloud-solution-architect",
+        "source": ".github/skills/cloud-solution-architect",
         "commit": null
       }
     },
@@ -1130,7 +1194,7 @@
       "upstream": {
         "repository": "microsoft/skills",
         "reference": "refs/heads/main",
-        "source": "skills/continual-learning",
+        "source": ".github/skills/continual-learning",
         "commit": null
       }
     },
@@ -1146,7 +1210,7 @@
       "upstream": {
         "repository": "microsoft/skills",
         "reference": "refs/heads/main",
-        "source": "skills/copilot-sdk",
+        "source": ".github/skills/copilot-sdk",
         "commit": null
       }
     },
@@ -1162,7 +1226,7 @@
       "upstream": {
         "repository": "microsoft/skills",
         "reference": "refs/heads/main",
-        "source": "skills/entra-agent-id",
+        "source": ".github/skills/entra-agent-id",
         "commit": null
       }
     },
@@ -1178,7 +1242,7 @@
       "upstream": {
         "repository": "microsoft/skills",
         "reference": "refs/heads/main",
-        "source": "skills/frontend-design-review",
+        "source": ".github/skills/frontend-design-review",
         "commit": null
       }
     },
@@ -1194,7 +1258,7 @@
       "upstream": {
         "repository": "microsoft/skills",
         "reference": "refs/heads/main",
-        "source": "skills/github-issue-creator",
+        "source": ".github/skills/github-issue-creator",
         "commit": null
       }
     },
@@ -1210,7 +1274,7 @@
       "upstream": {
         "repository": "microsoft/skills",
         "reference": "refs/heads/main",
-        "source": "skills/mcp-builder",
+        "source": ".github/skills/mcp-builder",
         "commit": null
       }
     },
@@ -1224,7 +1288,7 @@
       "redistributable": true,
       "snapshotHash": "sha256:2084301c5e04457d77210a9958571fea19670803a81ca1c6c27985196f01b58d",
       "upstream": {
-        "repository": "microsoft/skills",
+        "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/microsoft-agent-framework",
         "commit": null
@@ -1240,7 +1304,7 @@
       "redistributable": true,
       "snapshotHash": "sha256:7d494a4e30418d4d3bca7f25d452040dc870dba46cca1297b2478268376383cb",
       "upstream": {
-        "repository": "microsoft/skills",
+        "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/microsoft-code-reference",
         "commit": null
@@ -1258,7 +1322,7 @@
       "upstream": {
         "repository": "microsoft/skills",
         "reference": "refs/heads/main",
-        "source": "skills/microsoft-docs",
+        "source": ".github/skills/microsoft-docs",
         "commit": null
       }
     },
@@ -1274,7 +1338,7 @@
       "upstream": {
         "repository": "microsoft/skills",
         "reference": "refs/heads/main",
-        "source": "skills/podcast-generation",
+        "source": ".github/skills/podcast-generation",
         "commit": null
       }
     },
@@ -1290,7 +1354,7 @@
       "upstream": {
         "repository": "microsoft/skills",
         "reference": "refs/heads/main",
-        "source": "skills/skill-creator",
+        "source": ".github/skills/skill-creator",
         "commit": null
       }
     },

@@ -1,0 +1,16 @@
+{
+  "path": "skills/cloudflare/turnstile-spin",
+  "name": "turnstile-spin",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-24T02:44:19+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:285e2a349842c739c688313dfd7afaa3cc6b93addadf10ae02d2ef5a1aaffcea"
+    }
+  ]
+}

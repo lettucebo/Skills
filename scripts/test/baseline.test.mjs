@@ -120,17 +120,17 @@ test('buildVerifiedLock stamps mapped entries as verified and retains orphan ups
   const lock = buildVerifiedLock({
     lock: baseLock(),
     staged,
-    release: '1.0.1',
+    release: '1.1.0',
     generatedAt: '2026-02-02T00:00:00Z',
   });
 
-  assert.equal(lock.release, '1.0.1');
+  assert.equal(lock.release, '1.1.0');
   assert.equal(lock.generatedAt, '2026-02-02T00:00:00Z');
   assert.deepEqual(lock.counts, { total: 3, mapped: 2, orphan: 1, local: 0 });
 
   const alpha = lock.skills.find((skill) => skill.path === 'skills/demo/alpha');
   assert.equal(alpha.baseline, 'verified');
-  assert.equal(alpha.version, '1.0.1');
+  assert.equal(alpha.version, '1.1.0');
   assert.equal(alpha.contentHash, 'sha256:up-alpha');
   assert.equal(alpha.snapshotHash, 'sha256:new-alpha');
   assert.equal(alpha.upstream.commit, 'a'.repeat(40));
@@ -148,7 +148,7 @@ test('buildVerifiedLock refuses when a mapped skill is not staged', () => {
   ]);
 
   assert.throws(
-    () => buildVerifiedLock({ lock: baseLock(), staged, release: '1.0.1', generatedAt: 'x' }),
+    () => buildVerifiedLock({ lock: baseLock(), staged, release: '1.1.0', generatedAt: 'x' }),
     (error) => error instanceof BaselineError && /skills\/demo\/beta/.test(error.message),
   );
 });
@@ -161,7 +161,7 @@ test('buildVerifiedLock refuses when staged contains an unmapped path', () => {
   ]);
 
   assert.throws(
-    () => buildVerifiedLock({ lock: baseLock(), staged, release: '1.0.1', generatedAt: 'x' }),
+    () => buildVerifiedLock({ lock: baseLock(), staged, release: '1.1.0', generatedAt: 'x' }),
     (error) => error instanceof BaselineError && /skills\/demo\/ghost/.test(error.message),
   );
 });
@@ -191,8 +191,8 @@ function bootstrapHistory() {
 
 test('appendBaselineHistoryEntry appends a verification entry preserving bootstrap', () => {
   const next = appendBaselineHistoryEntry(bootstrapHistory(), {
-    release: '1.0.1',
-    version: '1.0.1',
+    release: '1.1.0',
+    version: '1.1.0',
     upstreamCommit: 'a'.repeat(40),
     contentHash: 'sha256:up-alpha',
   });
@@ -200,9 +200,9 @@ test('appendBaselineHistoryEntry appends a verification entry preserving bootstr
   assert.equal(next.entries.length, 2);
   assert.equal(next.entries[0].kind, 'bootstrap');
   assert.deepEqual(next.entries[1], {
-    release: '1.0.1',
+    release: '1.1.0',
     kind: 'baseline-verified',
-    version: '1.0.1',
+    version: '1.1.0',
     upstreamCommit: 'a'.repeat(40),
     diffUrl: null,
     contentHash: 'sha256:up-alpha',
@@ -211,14 +211,14 @@ test('appendBaselineHistoryEntry appends a verification entry preserving bootstr
 
 test('appendBaselineHistoryEntry is idempotent for an identical verification', () => {
   const once = appendBaselineHistoryEntry(bootstrapHistory(), {
-    release: '1.0.1',
-    version: '1.0.1',
+    release: '1.1.0',
+    version: '1.1.0',
     upstreamCommit: 'a'.repeat(40),
     contentHash: 'sha256:up-alpha',
   });
   const twice = appendBaselineHistoryEntry(once, {
-    release: '1.0.1',
-    version: '1.0.1',
+    release: '1.1.0',
+    version: '1.1.0',
     upstreamCommit: 'a'.repeat(40),
     contentHash: 'sha256:up-alpha',
   });
@@ -229,8 +229,8 @@ test('appendBaselineHistoryEntry is idempotent for an identical verification', (
 test('appendBaselineHistoryEntry refuses history without a bootstrap entry', () => {
   assert.throws(
     () => appendBaselineHistoryEntry({ path: 'x', entries: [] }, {
-      release: '1.0.1',
-      version: '1.0.1',
+      release: '1.1.0',
+      version: '1.1.0',
       upstreamCommit: 'a'.repeat(40),
       contentHash: 'sha256:up-alpha',
     }),
@@ -453,17 +453,17 @@ test('applyBaseline transitions lock and history to verified baseline', async ()
       now: () => '2026-02-02T00:00:00Z',
     });
 
-    assert.equal(result.release, '1.0.1');
+    assert.equal(result.release, '1.1.0');
 
     const lock = JSON.parse(
       await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
     );
-    assert.equal(lock.release, '1.0.1');
+    assert.equal(lock.release, '1.1.0');
     assert.equal(lock.counts.total, 4);
 
     const alpha = lock.skills.find((skill) => skill.path === 'skills/demo/alpha');
     assert.equal(alpha.baseline, 'verified');
-    assert.equal(alpha.version, '1.0.1');
+    assert.equal(alpha.version, '1.1.0');
     assert.equal(alpha.upstream.commit, upstream.commit);
     // contentHash is the upstream pre-stamp hash (verified content identity).
     assert.equal(alpha.contentHash, upstreamAlphaHash);

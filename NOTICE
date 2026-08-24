@@ -10,10 +10,10 @@ deterministically from `catalog/skills.lock.json`; do not edit it by hand.
 |---------------------|-----------|:------:|
 | aiskillstore/marketplace | refs/heads/main | 1 |
 | anthropics/skills | refs/heads/main | 17 |
-| cloudflare/skills | refs/heads/main | 9 |
-| github/awesome-copilot | refs/heads/main | 56 |
+| cloudflare/skills | refs/heads/main | 13 |
+| github/awesome-copilot | refs/heads/main | 58 |
 | henkisdabro/wookstar-claude-plugins | refs/heads/main | 1 |
-| microsoft/skills | refs/heads/main | 12 |
+| microsoft/skills | refs/heads/main | 10 |
 
 ## License summary
 
@@ -22,7 +22,7 @@ deterministically from `catalog/skills.lock.json`; do not edit it by hand.
 | Apache-2.0 | 12 |
 | MIT | 16 |
 | Proprietary | 4 |
-| Unknown | 67 |
+| Unknown | 71 |
 
 ## Restricted skills
 

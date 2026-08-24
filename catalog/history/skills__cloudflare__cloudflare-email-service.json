@@ -1,0 +1,16 @@
+{
+  "path": "skills/cloudflare/cloudflare-email-service",
+  "name": "cloudflare-email-service",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-24T02:44:19+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:b6f7dfdb24e6d8447ab7ca16b68a52d5694053fe93be0e41d199802dd568c906"
+    }
+  ]
+}

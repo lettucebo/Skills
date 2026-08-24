@@ -39,12 +39,19 @@ import { validateRepository } from '../validate.mjs';
 const execFileAsync = promisify(execFile);
 
 /**
- * The baseline establishes provenance, so it is published as the next patch
- * release. The existing `v1.0.0` tag is never moved; the tag for this release is
- * created by a later task after the commit lands.
+ * The baseline turns the unverified `v1.0.0` bootstrap snapshot into a verified
+ * upstream baseline and completes the Cloudflare full mirror.
+ *
+ * `1.1.0` is a deliberate, user-approved one-time SemVer exception: the mirror
+ * drops two obsolete command-derived skills, which would normally force a major
+ * bump, but `v1.0.0` was explicitly published as an unverified snapshot rather
+ * than a provenance claim. From `v1.1.0` onward the normal rule resumes and any
+ * skill removal increments the major version. The existing `v1.0.0` tag is never
+ * moved; the tag for this release is created by a later task after the commit
+ * lands.
  */
-export const BASELINE_RELEASE = '1.0.1';
-export const BASELINE_VERSION = '1.0.1';
+export const BASELINE_RELEASE = '1.1.0';
+export const BASELINE_VERSION = '1.1.0';
 export const BASELINE_HISTORY_KIND = 'baseline-verified';
 
 /**
