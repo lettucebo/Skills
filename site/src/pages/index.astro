@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Search from '../components/Search.astro';
 import {
   loadCatalog,
   loadSkillBody,
@@ -55,19 +56,12 @@ function badgeClass(skill: typeof catalog.skills[0]): string {
   </section>
 
   <section>
+    <h2>Search</h2>
+    <Search />
+  </section>
+
+  <section>
     <h2>Sources</h2>
-    <div class="filter-controls" aria-label="Filter controls (placeholder)">
-      <select aria-label="Filter by source" disabled>
-        <option value="">All sources</option>
-        {catalog.sources.map((s) => <option value={s}>{s}</option>)}
-      </select>
-      <select aria-label="Filter by license" disabled>
-        <option value="">All licenses</option>
-      </select>
-      <select aria-label="Filter by origin" disabled>
-        <option value="">All origins</option>
-      </select>
-    </div>
     <ul class="nav-links" style="margin-bottom:16px;">
       {catalog.sources.map((source) => (
         <li><a href={`${base}sources/${source}/`}>{source}</a></li>
