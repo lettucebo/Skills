@@ -30,6 +30,9 @@
   --cp-panel-strong: rgba(255, 255, 255, 0.96);
   --cp-sheen: rgba(255, 255, 255, 0.55);
   --cp-highlight: rgba(177, 31, 75, 0.12);
+  --cp-badge-soft-bg: #f9edf1;
+  --cp-badge-highlight-bg: #f6e4e9;
+  --cp-hover-surface: #e6e1da;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
@@ -62,6 +65,9 @@ html[data-theme="dark"] {
   --cp-panel-strong: rgba(41, 41, 41, 0.96);
   --cp-sheen: rgba(255, 255, 255, 0.04);
   --cp-highlight: rgba(253, 142, 161, 0.12);
+  --cp-badge-soft-bg: #47373a;
+  --cp-badge-highlight-bg: #423537;
+  --cp-hover-surface: #494546;
 }
 
 /* No-JS dark-theme fallback: when scoutTheme script hasn't set data-theme */
@@ -97,6 +103,9 @@ html[data-theme="dark"] {
     --cp-panel-strong: rgba(41, 41, 41, 0.96);
     --cp-sheen: rgba(255, 255, 255, 0.04);
     --cp-highlight: rgba(253, 142, 161, 0.12);
+    --cp-badge-soft-bg: #47373a;
+    --cp-badge-highlight-bg: #423537;
+    --cp-hover-surface: #494546;
   }
 }
 
@@ -229,16 +238,16 @@ a:focus-visible {
   white-space: nowrap;
 }
 .badge--version {
-  background: var(--cp-accent-soft);
+  background: var(--cp-badge-soft-bg);
   color: var(--cp-accent-text);
 }
 .badge--pending {
-  background: var(--cp-highlight);
+  background: var(--cp-badge-highlight-bg);
   color: var(--cp-warning-text);
   border: 1px solid var(--cp-warning);
 }
 .badge--synced {
-  background: var(--cp-accent-soft);
+  background: var(--cp-badge-soft-bg);
   color: var(--cp-success-text);
 }
 .badge--frozen {
@@ -246,7 +255,7 @@ a:focus-visible {
   color: var(--cp-muted-text);
 }
 .badge--restricted {
-  background: var(--cp-highlight);
+  background: var(--cp-badge-highlight-bg);
   color: var(--cp-danger-text);
 }
 .badge--local {
@@ -431,6 +440,10 @@ a:focus-visible {
 .warning-box strong {
   color: var(--cp-danger-text);
 }
+.warning-box a {
+  color: var(--cp-danger-text);
+  text-decoration: underline;
+}
 
 .info-box {
   background: var(--cp-accent-soft);
@@ -439,6 +452,10 @@ a:focus-visible {
   padding: 16px;
   margin: 16px 0;
   color: var(--cp-text);
+}
+.info-box a {
+  color: var(--cp-accent-text);
+  text-decoration: underline;
 }
 
 /* ─── History timeline ───────────────────────────────────────────── */
@@ -496,7 +513,8 @@ a:focus-visible {
   font-weight: 600;
 }
 .skill-table tr:hover {
-  background: var(--cp-surface-soft);
+  background: var(--cp-hover-surface);
+  box-shadow: inset 3px 0 0 var(--cp-accent);
 }
 
 /* ─── Status page ────────────────────────────────────────────────── */
@@ -609,6 +627,10 @@ a:focus-visible {
   }
   .warning-box {
     border: 2px solid Highlight;
+  }
+  .skill-table tr:hover {
+    outline: 2px solid Highlight;
+    box-shadow: none;
   }
 }
 

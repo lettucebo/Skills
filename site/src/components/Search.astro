@@ -352,7 +352,8 @@ const origins = [...new Set(
     transition: background 0.15s;
   }
   .search-result-link:hover {
-    background: var(--cp-surface-soft);
+    background: var(--cp-hover-surface);
+    box-shadow: inset 3px 0 0 var(--cp-accent);
     text-decoration: none;
   }
   .search-result-link:focus-visible {
@@ -385,6 +386,13 @@ const origins = [...new Set(
     color: var(--cp-text);
     border-radius: 2px;
     padding: 0 2px;
+  }
+
+  .search-result-link:hover .search-result-meta {
+    color: var(--cp-text);
+  }
+  .search-result-link:hover .search-result-excerpt {
+    color: var(--cp-text);
   }
 
   @media (prefers-reduced-motion: reduce) {

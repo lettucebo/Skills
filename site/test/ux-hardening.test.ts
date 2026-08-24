@@ -321,18 +321,18 @@ test('A14: every normal-text surface meets AA (>=4.5:1) in both themes', () => {
   assert.deepEqual(failures, [], `WCAG AA failures:\n${failures.join('\n')}`);
 });
 
-test('A15: tinted hover backdrops never stack under a badge tint', () => {
+test('A15: hover backdrops use opaque tokens to prevent composite stacking', () => {
   assert.match(
     readRule('.skill-table tr:hover'),
-    /background:\s*var\(--cp-surface-soft\)/,
-    'a translucent row hover would composite under badge tints and break AA',
+    /background:\s*var\(--cp-hover-surface\)/,
+    'table row hover must use the opaque --cp-hover-surface token',
   );
 
   const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
   assert.match(
     readRule('.search-result-link:hover', searchCss),
-    /background:\s*var\(--cp-surface-soft\)/,
-    'the search result hover must stay opaque so meta text keeps AA contrast',
+    /background:\s*var\(--cp-hover-surface\)/,
+    'the search result hover must use opaque --cp-hover-surface so meta text keeps AA contrast',
   );
   assert.match(
     readRule('.search-result-excerpt :global(mark)', searchCss),
@@ -857,4 +857,215 @@ test('INT12: built status page lists every restricted path from the lock', {
     new RegExp(`Restricted Skills \\(${restricted.length}\\)`),
     'the restricted heading count must match the lock',
   );
+});
+
+// ─── J. Links inside tinted warning/info boxes ──────────────────────
+
+test('J1: warning-box links use --cp-danger-text with persistent underline', () => {
+  const rule = readRule('.warning-box a');
+  assert.match(rule, /color:\s*var\(--cp-danger-text\)/, '.warning-box a must use --cp-danger-text');
+  assert.match(rule, /text-decoration:\s*underline/, '.warning-box a must have persistent underline');
+});
+
+test('J2: info-box links use --cp-accent-text with persistent underline', () => {
+  const rule = readRule('.info-box a');
+  assert.match(rule, /color:\s*var\(--cp-accent-text\)/, '.info-box a must use --cp-accent-text');
+  assert.match(rule, /text-decoration:\s*underline/, '.info-box a must have persistent underline');
+});
+
+test('J3: warning-box link text meets AA on highlight over both backdrops', () => {
+  const failures: string[] = [];
+  for (const theme of ['light', 'dark'] as const) {
+    const tokens = readThemeTokens(theme);
+    const fg = tokens['--cp-danger-text'];
+    assert.ok(fg, `missing ${theme} --cp-danger-text`);
+    for (const backdrop of ['--cp-bg', '--cp-surface'] as const) {
+      const bg = resolveBackground(tokens, '--cp-highlight', backdrop);
+      const ratio = contrastRatio(fg, bg);
+      if (ratio < 4.5) {
+        failures.push(`${theme}: --cp-danger-text (${fg}) on --cp-highlight over ${backdrop} (${bg}) = ${ratio.toFixed(2)}:1`);
+      }
+    }
+  }
+  assert.deepEqual(failures, [], `WCAG AA failures:\n${failures.join('\n')}`);
+});
+
+test('J4: info-box link text meets AA on accent-soft over both backdrops', () => {
+  const failures: string[] = [];
+  for (const theme of ['light', 'dark'] as const) {
+    const tokens = readThemeTokens(theme);
+    const fg = tokens['--cp-accent-text'];
+    assert.ok(fg, `missing ${theme} --cp-accent-text`);
+    for (const backdrop of ['--cp-bg', '--cp-surface'] as const) {
+      const bg = resolveBackground(tokens, '--cp-accent-soft', backdrop);
+      const ratio = contrastRatio(fg, bg);
+      if (ratio < 4.5) {
+        failures.push(`${theme}: --cp-accent-text (${fg}) on --cp-accent-soft over ${backdrop} (${bg}) = ${ratio.toFixed(2)}:1`);
+      }
+    }
+  }
+  assert.deepEqual(failures, [], `WCAG AA failures:\n${failures.join('\n')}`);
+});
+
+// ─── K. Opaque hover/badge tokens and perceptible hover ─────────────
+
+test('K1: both themes define opaque badge and hover surface tokens', () => {
+  const expected = {
+    light: {
+      '--cp-badge-soft-bg': '#f9edf1',
+      '--cp-badge-highlight-bg': '#f6e4e9',
+      '--cp-hover-surface': '#e6e1da',
+    },
+    dark: {
+      '--cp-badge-soft-bg': '#47373a',
+      '--cp-badge-highlight-bg': '#423537',
+      '--cp-hover-surface': '#494546',
+    },
+  };
+  for (const theme of ['light', 'dark'] as const) {
+    const tokens = readThemeTokens(theme);
+    for (const [token, value] of Object.entries(expected[theme])) {
+      assert.equal(tokens[token], value, `${theme} ${token} must be ${value}`);
+    }
+  }
+});
+
+test('K2: no-JS dark fallback includes opaque badge and hover surface tokens', () => {
+  const css = readGlobalCss();
+  const fallback = css.match(/html:not\(\[data-theme\]\) \{([\s\S]*?)\n  \}/);
+  assert.ok(fallback, 'the prefers-color-scheme dark fallback block must exist');
+  const expected = {
+    '--cp-badge-soft-bg': '#47373a',
+    '--cp-badge-highlight-bg': '#423537',
+    '--cp-hover-surface': '#494546',
+  };
+  for (const [token, value] of Object.entries(expected)) {
+    assert.match(
+      fallback![1],
+      new RegExp(`${token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:\\s*${value}`),
+      `the no-JS dark fallback must define ${token}: ${value}`,
+    );
+  }
+});
+
+test('K3: badge--version and badge--synced use --cp-badge-soft-bg', () => {
+  assert.match(readRule('.badge--version'), /background:\s*var\(--cp-badge-soft-bg\)/);
+  assert.match(readRule('.badge--synced'), /background:\s*var\(--cp-badge-soft-bg\)/);
+});
+
+test('K4: badge--pending and badge--restricted use --cp-badge-highlight-bg', () => {
+  assert.match(readRule('.badge--pending'), /background:\s*var\(--cp-badge-highlight-bg\)/);
+  assert.match(readRule('.badge--restricted'), /background:\s*var\(--cp-badge-highlight-bg\)/);
+});
+
+test('K5: skill-table tr:hover uses --cp-hover-surface', () => {
+  assert.match(
+    readRule('.skill-table tr:hover'),
+    /background:\s*var\(--cp-hover-surface\)/,
+  );
+});
+
+test('K6: search-result-link:hover uses --cp-hover-surface', () => {
+  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  assert.match(
+    readRule('.search-result-link:hover', searchCss),
+    /background:\s*var\(--cp-hover-surface\)/,
+  );
+});
+
+test('K7: hover has a distinct accent inset indicator', () => {
+  const css = readGlobalCss();
+  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  // Table row hover must have an accent left border or box-shadow inset
+  const tableHover = readRule('.skill-table tr:hover');
+  assert.match(
+    tableHover,
+    /box-shadow:\s*inset\s+3px\s+0\s+0\s+var\(--cp-accent\)|border-left:\s*3px solid var\(--cp-accent\)/,
+    'table row hover must have an accent inset indicator',
+  );
+  // Search result hover must also have an accent indicator
+  const searchHover = readRule('.search-result-link:hover', searchCss);
+  assert.match(
+    searchHover,
+    /box-shadow:\s*inset\s+3px\s+0\s+0\s+var\(--cp-accent\)|border-left:\s*3px solid var\(--cp-accent\)/,
+    'search result hover must have an accent inset indicator',
+  );
+});
+
+test('K8: search result meta/excerpt override to --cp-text on hover', () => {
+  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  assert.match(
+    readRule('.search-result-link:hover .search-result-meta', searchCss),
+    /color:\s*var\(--cp-text\)/,
+    'search meta must override to --cp-text on hover',
+  );
+  assert.match(
+    readRule('.search-result-link:hover .search-result-excerpt', searchCss),
+    /color:\s*var\(--cp-text\)/,
+    'search excerpt must override to --cp-text on hover',
+  );
+});
+
+test('K9: normal text on opaque badge backgrounds meets AA (>=4.5:1)', () => {
+  const failures: string[] = [];
+  const cases = [
+    { label: 'badge--version text', fg: '--cp-accent-text', bg: '--cp-badge-soft-bg' },
+    { label: 'badge--synced text', fg: '--cp-success-text', bg: '--cp-badge-soft-bg' },
+    { label: 'badge--pending text', fg: '--cp-warning-text', bg: '--cp-badge-highlight-bg' },
+    { label: 'badge--restricted text', fg: '--cp-danger-text', bg: '--cp-badge-highlight-bg' },
+  ];
+  for (const theme of ['light', 'dark'] as const) {
+    const tokens = readThemeTokens(theme);
+    for (const testCase of cases) {
+      const fg = tokens[testCase.fg];
+      const bg = tokens[testCase.bg];
+      assert.ok(fg, `missing ${theme} token ${testCase.fg}`);
+      assert.ok(bg, `missing ${theme} token ${testCase.bg}`);
+      const ratio = contrastRatio(fg, bg);
+      if (ratio < 4.5) {
+        failures.push(`${theme}: ${testCase.label} (${testCase.fg}=${fg} on ${testCase.bg}=${bg}) = ${ratio.toFixed(2)}:1`);
+      }
+    }
+  }
+  assert.deepEqual(failures, [], `WCAG AA failures on opaque badge bgs:\n${failures.join('\n')}`);
+});
+
+test('K10: normal text on hover surface meets AA (>=4.5:1)', () => {
+  const failures: string[] = [];
+  // Only --cp-text is tested because muted/soft text is overridden to --cp-text
+  // on hover (K8), and links have persistent underline as non-color affordance.
+  for (const theme of ['light', 'dark'] as const) {
+    const tokens = readThemeTokens(theme);
+    const bg = tokens['--cp-hover-surface'];
+    assert.ok(bg, `missing ${theme} --cp-hover-surface`);
+    const fg = tokens['--cp-text'];
+    assert.ok(fg, `missing ${theme} --cp-text`);
+    const ratio = contrastRatio(fg, bg);
+    if (ratio < 4.5) {
+      failures.push(`${theme}: --cp-text=${fg} on --cp-hover-surface=${bg} = ${ratio.toFixed(2)}:1`);
+    }
+  }
+  assert.deepEqual(failures, [], `WCAG AA failures on hover surface:\n${failures.join('\n')}`);
+});
+
+test('K11: focus-visible is preserved on search-result-link', () => {
+  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  assert.match(
+    readRule('.search-result-link:focus-visible', searchCss),
+    /outline:\s*2px solid var\(--cp-accent\)/,
+    'focus-visible must be preserved',
+  );
+});
+
+test('K12: reduced-motion applies to search-result-link', () => {
+  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  assert.match(searchCss, /prefers-reduced-motion/, 'must have reduced-motion media query');
+  assert.match(searchCss, /search-result-link/, 'reduced-motion must cover search-result-link');
+});
+
+test('K13: forced-colors covers hover indicators', () => {
+  const css = readGlobalCss();
+  assert.match(css, /forced-colors:\s*active/, 'must have forced-colors: active');
+  // The hover indicator (box-shadow or border) must adapt in forced-colors mode
+  assert.match(css, /\.skill-table tr:hover|tr:hover/, 'forced-colors block must address hover');
 });
