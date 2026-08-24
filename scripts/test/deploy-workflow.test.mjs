@@ -195,7 +195,7 @@ test('sync.yml has a deploy job that calls deploy-site.yml', async () => {
   );
 });
 
-test('sync.yml deploy job depends on update and only runs on no-op', async () => {
+test('sync.yml deploy runs after every successful update without applied gate', async () => {
   const wf = await loadWorkflow('sync.yml');
   const deployJob = wf.jobs?.deploy;
   assert.ok(deployJob, 'sync.yml must have a deploy job');
@@ -206,10 +206,32 @@ test('sync.yml deploy job depends on update and only runs on no-op', async () =>
     : [deployJob.needs].filter(Boolean);
   assert.ok(needs.includes('update'), 'sync deploy must depend on update job');
 
-  // Condition must check that update succeeded but did not apply (no-op)
+  // Condition must gate on update success — but must NOT gate on applied output.
+  // GITHUB_TOKEN pushes do not trigger downstream workflows (GitHub recursive-run
+  // protection), so skipping deploy when applied=true would silently suppress all
+  // post-apply deployments. Deploy must run after every successful update.
   const condition = String(deployJob.if ?? '');
-  assert.match(condition, /applied/, 'condition must reference applied output');
-  assert.match(condition, /true/, 'condition must check against true to gate on no-op');
+  assert.match(
+    condition,
+    /needs\.update\.result/,
+    'condition must gate on update result',
+  );
+  assert.doesNotMatch(
+    condition,
+    /needs\.update\.outputs\.applied/,
+    'deploy must not gate on applied output — GITHUB_TOKEN push never triggers deploy-site.yml',
+  );
+});
+
+test('sync.yml deploy comment does not claim GITHUB_TOKEN push triggers deploy-site', async () => {
+  const raw = await readFile(path.join(workflowDir, 'sync.yml'), 'utf8');
+  // The comment must not falsely claim a GITHUB_TOKEN push will trigger
+  // deploy-site.yml — GitHub recursive-run protection prevents this entirely.
+  assert.doesNotMatch(
+    raw,
+    /push event triggers deploy-site/i,
+    'comment must not claim GITHUB_TOKEN push triggers deploy-site.yml (recursive-run protection prevents this)',
+  );
 });
 
 test('sync.yml deploy does not rely on tag-created events', async () => {

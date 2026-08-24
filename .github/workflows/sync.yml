@@ -291,17 +291,19 @@ jobs:
               });
             }
 
-  # Deploy the site after a successful sync no-op. When update pushes to
-  # main (applied=true), the push event triggers deploy-site.yml directly,
-  # so calling it here would cause a duplicate deployment.
+  # Deploy the site after every successful update (applied or no-op).
+  # NOTE: GITHUB_TOKEN pushes do NOT trigger downstream workflows — GitHub's
+  # recursive-run protection blocks them entirely. The push made by the
+  # "Commit and tag" step above will not independently trigger deploy-site.yml.
+  # Deploy must always run here after a successful update to ensure the site
+  # reflects each sync result.
   deploy:
     name: Deploy site
     needs: [guard, update]
     if: >-
       always() &&
       needs.guard.result == 'success' &&
-      needs.update.result == 'success' &&
-      needs.update.outputs.applied != 'true'
+      needs.update.result == 'success'
     uses: ./.github/workflows/deploy-site.yml
     permissions:
       contents: read
