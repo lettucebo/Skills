@@ -2,6 +2,8 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { Marked } from 'marked';
 
+import { escapeHtmlAttribute, isSafeUrl } from './url-policy.ts';
+
 // ─── Site Configuration ─────────────────────────────────────────────
 
 export const RELEASE_VERSION = '1.1.0';
@@ -209,6 +211,47 @@ const marked = new Marked({
     html(_token) {
       // Strip all raw HTML to prevent XSS
       return '';
+    },
+
+    /**
+     * Markdown link syntax can still express a dangerous URL even with raw HTML
+     * stripped. Rejected links degrade to their visible text with no anchor.
+     */
+    link(token) {
+      const text = this.parser.parseInline(token.tokens);
+
+      if (!isSafeUrl(token.href)) {
+        return text;
+      }
+
+      let out = `<a href="${escapeHtmlAttribute(token.href)}"`;
+      if (token.title) {
+        out += ` title="${escapeHtmlAttribute(token.title)}"`;
+      }
+      return `${out}>${text}</a>`;
+    },
+
+    /**
+     * Rejected images degrade to their alt text with no image element. The alt
+     * text is always escaped: Marked resolves it through the text renderer,
+     * which returns raw (unescaped) inline HTML and would otherwise break out
+     * of the `alt` attribute.
+     */
+    image(token) {
+      const rawAlt = token.tokens
+        ? this.parser.parseInline(token.tokens, this.parser.textRenderer)
+        : token.text;
+      const alt = escapeHtmlAttribute(rawAlt ?? '');
+
+      if (!isSafeUrl(token.href)) {
+        return alt;
+      }
+
+      let out = `<img src="${escapeHtmlAttribute(token.href)}" alt="${alt}"`;
+      if (token.title) {
+        out += ` title="${escapeHtmlAttribute(token.title)}"`;
+      }
+      return `${out}>`;
     },
   },
 });
