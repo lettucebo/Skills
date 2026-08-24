@@ -2,10 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import {
   loadCatalog,
-  computeCounts,
+  computeBaselineVerification,
+  formatBaselineVerification,
+  getRestrictedSkills,
   RELEASE_VERSION,
   RELEASE_PUBLISHED,
-  RESTRICTED_PATHS,
 } from '../lib/catalog';
 import path from 'node:path';
 
@@ -13,6 +14,13 @@ const repoRoot = path.resolve(process.cwd(), '..');
 const catalog = await loadCatalog(repoRoot);
 const counts = catalog.counts;
 const base = import.meta.env.BASE_URL;
+
+const baselineSummary = formatBaselineVerification(
+  computeBaselineVerification(catalog.skills),
+);
+const restrictedSkills = getRestrictedSkills(catalog.skills)
+  .slice()
+  .sort((a, b) => a.path.localeCompare(b.path));
 
 // Collect upstream repositories and their commits
 const upstreamRepos = new Map<string, Set<string>>();
@@ -36,7 +44,7 @@ const orphanSkills = catalog.skills.filter((s) => s.isOrphan);
       Version: <strong>v{RELEASE_VERSION}</strong>
       {!RELEASE_PUBLISHED && <span class="badge badge--pending" style="margin-left:8px;">Release pending</span>}
     </p>
-    <p style="color:var(--cp-text-muted);font-size:0.875rem;margin-top:8px;">
+    <p style="color:var(--cp-muted-text);font-size:0.875rem;margin-top:8px;">
       {RELEASE_PUBLISHED
         ? `v${RELEASE_VERSION} is published and available for installation.`
         : `v${RELEASE_VERSION} has not been tagged or pushed. Install commands will be available after publication.`
@@ -73,10 +81,10 @@ const orphanSkills = catalog.skills.filter((s) => s.isOrphan);
   <div class="status-section">
     <h2>Baseline Verification</h2>
     <p>
-      <strong>{counts.mapped}/{counts.mapped}</strong> mapped skills have verified baselines.
+      <strong>{baselineSummary.headline}</strong> mapped skills have verified baselines.
     </p>
-    <p style="color:var(--cp-text-muted);font-size:0.875rem;margin-top:8px;">
-      All mapped skills are synced against their upstream repositories with verified content hashes.
+    <p style="color:var(--cp-muted-text);font-size:0.875rem;margin-top:8px;">
+      {baselineSummary.detail}
     </p>
   </div>
 
@@ -135,15 +143,15 @@ const orphanSkills = catalog.skills.filter((s) => s.isOrphan);
   </div>
 
   <div class="status-section">
-    <h2>Restricted Skills ({RESTRICTED_PATHS.size})</h2>
-    <p style="color:var(--cp-text-muted);font-size:0.875rem;margin-bottom:8px;">
+    <h2>Restricted Skills ({restrictedSkills.length})</h2>
+    <p style="color:var(--cp-muted-text);font-size:0.875rem;margin-bottom:8px;">
       Restricted skills have proprietary licenses. Their content is not rendered on this site
       and no install commands are generated.
     </p>
     <ul>
-      {[...RESTRICTED_PATHS].sort().map((p) => (
+      {restrictedSkills.map((skill) => (
         <li style="font-size:0.875rem;margin-bottom:4px;">
-          <code>{p}</code>
+          <code>{skill.path}</code>
         </li>
       ))}
     </ul>

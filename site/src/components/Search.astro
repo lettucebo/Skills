@@ -149,6 +149,7 @@ const origins = [...new Set(
       } catch (err) {
         if (gen !== generation) return;
         statusEl.textContent = 'Search is unavailable — index could not be loaded.';
+        resultList.innerHTML = '';
         if (fullCatalog) fullCatalog.hidden = false;
         console.error('Pagefind load error:', err);
         return;
@@ -200,6 +201,7 @@ const origins = [...new Set(
       } catch (err) {
         if (gen !== generation) return;
         statusEl.textContent = 'Search error — please try again.';
+        resultList.innerHTML = '';
         if (fullCatalog) fullCatalog.hidden = false;
         console.error('Pagefind search error:', err);
       }
@@ -296,7 +298,7 @@ const origins = [...new Set(
     border-color: var(--cp-accent);
   }
   .search-input::placeholder {
-    color: var(--cp-text-muted);
+    color: var(--cp-muted-text);
   }
 
   .filter-controls {
@@ -323,7 +325,7 @@ const origins = [...new Set(
 
   .search-status {
     font-size: 0.8125rem;
-    color: var(--cp-text-muted);
+    color: var(--cp-muted-text);
     margin-bottom: 12px;
   }
 
@@ -350,7 +352,7 @@ const origins = [...new Set(
     transition: background 0.15s;
   }
   .search-result-link:hover {
-    background: var(--cp-accent-soft);
+    background: var(--cp-surface-soft);
     text-decoration: none;
   }
   .search-result-link:focus-visible {
@@ -366,7 +368,7 @@ const origins = [...new Set(
 
   .search-result-meta {
     font-size: 0.75rem;
-    color: var(--cp-text-muted);
+    color: var(--cp-muted-text);
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
@@ -380,7 +382,7 @@ const origins = [...new Set(
   }
   .search-result-excerpt :global(mark) {
     background: var(--cp-highlight);
-    color: inherit;
+    color: var(--cp-text);
     border-radius: 2px;
     padding: 0 2px;
   }

@@ -41,10 +41,11 @@ output/
 *.log
 scripts/test/.runtime/
 
-# Sync tooling (local dry-run artifact + baseline apply scratch dirs)
+# Sync tooling (local dry-run artifact + baseline/update apply scratch dirs)
 sync-report/
 .baseline-work-*/
 .baseline-backup-*/
+.update-work-*/
 
 # Astro generated types
 .astro/

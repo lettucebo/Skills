@@ -44,6 +44,65 @@ function contrastRatio(fg: string, bg: string): number {
   return (lighter + 0.05) / (darker + 0.05);
 }
 
+// ─── Token-driven contrast helpers ──────────────────────────────────
+
+const globalCssPath = path.join(siteRoot, 'src', 'styles', 'global.css');
+
+function readGlobalCss(): string {
+  return fs.readFileSync(globalCssPath, 'utf8');
+}
+
+/** Reads the custom-property declarations of a theme block from global.css. */
+function readThemeTokens(theme: 'light' | 'dark'): Record<string, string> {
+  const css = readGlobalCss();
+  const selector = theme === 'light' ? ':root' : 'html\\[data-theme="dark"\\]';
+  const block = css.match(new RegExp(`${selector} \\{([\\s\\S]*?)\\n\\}`));
+  assert.ok(block, `global.css must declare a ${theme} theme block`);
+
+  const tokens: Record<string, string> = {};
+  for (const line of block![1].split('\n')) {
+    const declaration = line.match(/^\s*(--[a-z0-9-]+):\s*([^;]+);/i);
+    if (declaration) tokens[declaration[1]] = declaration[2].trim();
+  }
+  return tokens;
+}
+
+/** Alpha-composites `rgba(r, g, b, a)` over an opaque hex backdrop. */
+function compositeOver(color: string, backdrop: string): string {
+  const rgba = color.match(/^rgba\(\s*(\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\s*\)$/);
+  if (!rgba) return color;
+
+  const alpha = Number(rgba[4]);
+  const base = backdrop.replace(/^#/, '');
+  const out = [0, 1, 2].map((i) => {
+    const fg = Number(rgba[i + 1]);
+    const bg = parseInt(base.slice(i * 2, i * 2 + 2), 16);
+    return Math.round(alpha * fg + (1 - alpha) * bg);
+  });
+  return `#${out.map((v) => v.toString(16).padStart(2, '0')).join('')}`;
+}
+
+/** Resolves a background token to an opaque hex value over a page backdrop. */
+function resolveBackground(
+  tokens: Record<string, string>,
+  token: string,
+  backdropToken: string,
+): string {
+  const backdrop = tokens[backdropToken];
+  assert.ok(backdrop, `missing backdrop token ${backdropToken}`);
+  const value = tokens[token];
+  assert.ok(value, `missing background token ${token}`);
+  return compositeOver(value, backdrop);
+}
+
+/** Returns the declaration body of a CSS rule so token wiring can be asserted. */
+function readRule(selector: string, css: string = readGlobalCss()): string {
+  const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const rule = css.match(new RegExp(`${escaped}\\s*\\{([^}]*)\\}`));
+  assert.ok(rule, `CSS rule for "${selector}" must exist`);
+  return rule![1];
+}
+
 // ─── A. Contrast and Visual Accessibility ───────────────────────────
 
 test('A1: light warning text token #7a4b00 on #f7f4ef meets AA (>=4.5:1)', () => {
@@ -100,6 +159,191 @@ test('A8: global reduced-motion coverage for card transitions', () => {
 test('A9: forced-colors treatment exists', () => {
   const css = fs.readFileSync(path.join(siteRoot, 'src', 'styles', 'global.css'), 'utf8');
   assert.match(css, /forced-colors:\s*active/, 'Must have forced-colors: active treatment');
+});
+
+// ─── A10+. Complete AA text-contrast coverage ───────────────────────
+
+test('A10: both themes define the dedicated accessible text tokens', () => {
+  const expected = {
+    light: {
+      '--cp-success-text': '#147337',
+      '--cp-danger-text': '#b91c1c',
+      '--cp-accent-text': '#b11f4b',
+      '--cp-muted-text': '#5c5c5c',
+    },
+    dark: {
+      '--cp-success-text': '#4ade80',
+      '--cp-danger-text': '#fca5a5',
+      '--cp-accent-text': '#ffb3c1',
+      '--cp-muted-text': '#b0b0b0',
+    },
+  };
+
+  for (const theme of ['light', 'dark'] as const) {
+    const tokens = readThemeTokens(theme);
+    for (const [token, value] of Object.entries(expected[theme])) {
+      assert.equal(tokens[token], value, `${theme} ${token} must be ${value}`);
+    }
+  }
+
+  // The no-JS dark fallback must carry the same accessible tokens.
+  const css = readGlobalCss();
+  const fallback = css.match(/html:not\(\[data-theme\]\) \{([\s\S]*?)\n  \}/);
+  assert.ok(fallback, 'the prefers-color-scheme dark fallback block must exist');
+  for (const [token, value] of Object.entries(expected.dark)) {
+    assert.match(
+      fallback![1],
+      new RegExp(`${token}:\\s*${value}`),
+      `the no-JS dark fallback must define ${token}: ${value}`,
+    );
+  }
+});
+
+test('A11: original Clawpilot source tokens are preserved for decorative use', () => {
+  const light = readThemeTokens('light');
+  const dark = readThemeTokens('dark');
+
+  assert.equal(light['--cp-success'], '#16a34a');
+  assert.equal(light['--cp-danger'], '#dc2626');
+  assert.equal(light['--cp-accent'], '#b11f4b');
+  assert.equal(light['--cp-text-muted'], '#5c5c5c');
+  assert.equal(dark['--cp-success'], '#4ade80');
+  assert.equal(dark['--cp-danger'], '#f87171');
+  assert.equal(dark['--cp-accent'], '#fd8ea1');
+  assert.equal(dark['--cp-text-muted'], '#919191');
+
+  // Decorative border/background use of the source tokens stays untouched.
+  assert.match(readRule('.warning-box'), /border:\s*1px solid var\(--cp-danger\)/);
+  assert.match(readRule('.badge--pending'), /border:\s*1px solid var\(--cp-warning\)/);
+});
+
+test('A12: badge, warning and version text use the accessible text tokens', () => {
+  assert.match(readRule('.badge--synced'), /color:\s*var\(--cp-success-text\)/);
+  assert.match(readRule('.badge--restricted'), /color:\s*var\(--cp-danger-text\)/);
+  assert.match(readRule('.badge--version'), /color:\s*var\(--cp-accent-text\)/);
+  assert.match(readRule('.badge--frozen'), /color:\s*var\(--cp-muted-text\)/);
+  assert.match(readRule('.warning-box strong'), /color:\s*var\(--cp-danger-text\)/);
+});
+
+test('A13: small muted text surfaces use --cp-muted-text everywhere', () => {
+  for (const selector of [
+    '.nav-links a',
+    '.card-meta',
+    '.breadcrumbs',
+    '.detail-meta',
+    '.timeline-kind',
+    '.source-meta',
+    '.status-stat .stat-label',
+    '.site-footer',
+    '.install-copy-btn',
+  ]) {
+    assert.match(
+      readRule(selector),
+      /color:\s*var\(--cp-muted-text\)/,
+      `${selector} must use the accessible muted text token`,
+    );
+  }
+
+  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  for (const selector of ['.search-status', '.search-result-meta', '.search-input::placeholder']) {
+    assert.match(
+      readRule(selector, searchCss),
+      /color:\s*var\(--cp-muted-text\)/,
+      `${selector} must use the accessible muted text token`,
+    );
+  }
+
+  // No shipped source may still paint text with the low-contrast source token.
+  const shippedFiles = [
+    globalCssPath,
+    path.join(siteRoot, 'src', 'components', 'Search.astro'),
+    path.join(siteRoot, 'src', 'components', 'InstallCommand.astro'),
+    path.join(siteRoot, 'src', 'layouts', 'Layout.astro'),
+    path.join(siteRoot, 'src', 'pages', 'index.astro'),
+    path.join(siteRoot, 'src', 'pages', 'status.astro'),
+    path.join(siteRoot, 'src', 'pages', 'sources', '[source].astro'),
+    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+  ];
+  for (const file of shippedFiles) {
+    const content = fs.readFileSync(file, 'utf8');
+    assert.doesNotMatch(
+      content,
+      /color:\s*var\(--cp-text-muted\)/,
+      `${path.basename(file)} must not paint text with --cp-text-muted`,
+    );
+  }
+});
+
+test('A14: every normal-text surface meets AA (>=4.5:1) in both themes', () => {
+  /**
+   * fg/bg are token names; `bg` is alpha-composited over each page backdrop so
+   * translucent badge tints are measured as they actually render.
+   */
+  const cases = [
+    { label: 'body text', fg: '--cp-text', bg: '--cp-bg' },
+    { label: 'body text on surface', fg: '--cp-text', bg: '--cp-surface' },
+    { label: 'body text on soft surface', fg: '--cp-text', bg: '--cp-surface-soft' },
+    { label: 'info-box body', fg: '--cp-text', bg: '--cp-accent-soft' },
+    { label: 'warning-box body / search mark', fg: '--cp-text', bg: '--cp-highlight' },
+    { label: 'link', fg: '--cp-link-text', bg: '--cp-bg' },
+    { label: 'link on surface', fg: '--cp-link-text', bg: '--cp-surface' },
+    { label: 'link on hovered row (badge--local)', fg: '--cp-link-text', bg: '--cp-surface-soft' },
+    { label: 'muted text', fg: '--cp-muted-text', bg: '--cp-bg' },
+    { label: 'muted text on surface', fg: '--cp-muted-text', bg: '--cp-surface' },
+    { label: 'muted text on hovered row (badge--frozen)', fg: '--cp-muted-text', bg: '--cp-surface-soft' },
+    { label: 'soft text (card description, excerpt)', fg: '--cp-text-soft', bg: '--cp-bg' },
+    { label: 'soft text on surface', fg: '--cp-text-soft', bg: '--cp-surface' },
+    { label: 'badge--version', fg: '--cp-accent-text', bg: '--cp-accent-soft' },
+    { label: 'badge--synced', fg: '--cp-success-text', bg: '--cp-accent-soft' },
+    { label: 'badge--restricted / warning strong', fg: '--cp-danger-text', bg: '--cp-highlight' },
+    { label: 'badge--pending', fg: '--cp-warning-text', bg: '--cp-highlight' },
+    { label: 'pending note', fg: '--cp-warning-text', bg: '--cp-surface-soft' },
+  ];
+
+  const failures: string[] = [];
+  for (const theme of ['light', 'dark'] as const) {
+    const tokens = readThemeTokens(theme);
+    for (const backdrop of ['--cp-bg', '--cp-surface', '--cp-surface-soft']) {
+      for (const testCase of cases) {
+        const fg = tokens[testCase.fg];
+        assert.ok(fg, `missing ${theme} token ${testCase.fg}`);
+        const bg = resolveBackground(tokens, testCase.bg, backdrop);
+        const ratio = contrastRatio(fg, bg);
+        if (ratio < 4.5) {
+          failures.push(
+            `${theme}: ${testCase.label} (${testCase.fg} ${fg} on ${testCase.bg} over ${backdrop} = ${bg}) = ${ratio.toFixed(2)}:1`,
+          );
+        }
+      }
+    }
+  }
+
+  assert.deepEqual(failures, [], `WCAG AA failures:\n${failures.join('\n')}`);
+});
+
+test('A15: tinted hover backdrops never stack under a badge tint', () => {
+  assert.match(
+    readRule('.skill-table tr:hover'),
+    /background:\s*var\(--cp-surface-soft\)/,
+    'a translucent row hover would composite under badge tints and break AA',
+  );
+
+  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  assert.match(
+    readRule('.search-result-link:hover', searchCss),
+    /background:\s*var\(--cp-surface-soft\)/,
+    'the search result hover must stay opaque so meta text keeps AA contrast',
+  );
+  assert.match(
+    readRule('.search-result-excerpt :global(mark)', searchCss),
+    /color:\s*var\(--cp-text\)/,
+    'highlighted excerpt text must use full-strength text on the highlight tint',
+  );
+  assert.match(
+    readRule('.badge--local'),
+    /background:\s*var\(--cp-surface-soft\)/,
+    'badge--local text is a link colour and needs an opaque backdrop for AA',
+  );
 });
 
 // ─── B. Accurate UI Content and Navigation ──────────────────────────
@@ -417,4 +661,200 @@ test('INT7: built public skill page has card-description with text', {
 }, () => {
   const html = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
   assert.match(html, /card-description/, 'Index must have card descriptions');
+});
+
+// ─── H. Full-repo install disclosure ────────────────────────────────
+
+/** The Install section of the landing page, from its heading to its closing tag. */
+function readInstallSection(): string {
+  const index = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'index.astro'), 'utf8');
+  const start = index.indexOf('<h2>Install</h2>');
+  assert.ok(start !== -1, 'index.astro must have an Install section');
+  const end = index.indexOf('</section>', start);
+  assert.ok(end !== -1, 'the Install section must be closed');
+  return index.slice(start, end);
+}
+
+/** Restricted count read straight from the lock file — never hardcoded here. */
+function lockRestrictedCount(): number {
+  const lock = JSON.parse(
+    fs.readFileSync(path.resolve(siteRoot, '..', 'catalog', 'skills.lock.json'), 'utf8'),
+  );
+  return lock.skills.filter((s: { redistributable?: boolean }) => s.redistributable === false).length;
+}
+
+test('H1: the full-repo install command is kept as a supported path', () => {
+  const section = readInstallSection();
+  assert.match(section, /<InstallCommand command=\{repoCmd\}/, 'repo-level command must stay');
+});
+
+test('H2: a restricted-content warning sits beside the full-repo install command', () => {
+  const section = readInstallSection();
+  const commandIndex = section.indexOf('<InstallCommand command={repoCmd}');
+  const warningIndex = section.indexOf('warning-box');
+
+  assert.ok(warningIndex !== -1, 'the Install section must carry a warning box');
+  assert.ok(
+    warningIndex > commandIndex,
+    'the warning must sit directly beside (immediately after) the full-repo command',
+  );
+  assert.match(section, /non-redistributable/i, 'the warning must name the licensing risk');
+  assert.match(section, /review/i, 'the warning must tell users to review the upstream terms');
+  assert.match(
+    section,
+    /single source|one source|per-source|single skill|one skill/i,
+    'the warning must recommend source or single-skill installs instead',
+  );
+});
+
+test('H3: the warning derives its restricted count from catalog data, never a literal', () => {
+  const section = readInstallSection();
+  const actual = lockRestrictedCount();
+
+  assert.match(
+    section,
+    /restrictedCount|counts\.restricted|getRestrictedSkills/,
+    'the warning must read the count from derived catalog data',
+  );
+
+  if (actual === 0) {
+    // Nothing to disclose: the warning is conditional on there being restricted skills.
+    return;
+  }
+
+  // The section renders no numeric literal of its own — pluralisation lives in the
+  // frontmatter — so any occurrence of the current count would be hardcoded prose.
+  assert.ok(
+    !new RegExp(`\\b${actual}\\b`).test(section),
+    `the Install section must not hardcode the current restricted count (${actual})`,
+  );
+});
+
+test('INT8: built index page shows the derived restricted disclosure beside the repo command', {
+  skip: !distExists && 'dist/ not found',
+}, () => {
+  const html = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+  const count = lockRestrictedCount();
+
+  assert.match(
+    html,
+    /npx skills add lettucebo\/Skills#v1\.1\.0/,
+    'the full-repo install command must still be published',
+  );
+  assert.match(
+    html,
+    new RegExp(`includes\\s+${count}\\s+restricted skill`),
+    'the built warning must state the derived restricted count',
+  );
+  assert.match(
+    html,
+    new RegExp(`${count}\\s+proprietary, non-redistributable skill`),
+    'the built warning must describe the restricted skills as non-redistributable',
+  );
+  assert.match(html, /skills\/claude/, 'the built warning must name the affected source');
+});
+
+test('INT9: built source page for a restricted source publishes no bulk install command', {
+  skip: !distExists && 'dist/ not found',
+}, () => {
+  const html = fs.readFileSync(path.join(distDir, 'sources', 'claude', 'index.html'), 'utf8');
+  assert.doesNotMatch(
+    html,
+    /npx skills add lettucebo\/Skills\/skills\/claude/,
+    'a source containing restricted skills must not offer a bulk install command',
+  );
+  assert.match(html, /No source-level install command/, 'the suppression must be explained');
+});
+
+test('INT10: built source page for a clean source keeps its bulk install command', {
+  skip: !distExists && 'dist/ not found',
+}, () => {
+  const html = fs.readFileSync(path.join(distDir, 'sources', 'azure', 'index.html'), 'utf8');
+  assert.match(
+    html,
+    /npx skills add lettucebo\/Skills\/skills\/azure#v1\.1\.0/,
+    'sources without restricted skills must keep their bulk install command',
+  );
+});
+
+// ─── I. Real baseline verification reporting ────────────────────────
+
+test('I1: status page computes verified baselines instead of restating the mapped count', () => {
+  const status = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'status.astro'), 'utf8');
+
+  assert.doesNotMatch(
+    status,
+    /\{counts\.mapped\}\/\{counts\.mapped\}/,
+    'the verified ratio must not be a tautology built from the mapped count',
+  );
+  assert.match(
+    status,
+    /computeBaselineVerification/,
+    'the status page must compute baseline verification from the lock',
+  );
+});
+
+test('I2: status page renders the summary sentence from the computed verification', () => {
+  const status = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'status.astro'), 'utf8');
+
+  assert.doesNotMatch(
+    status,
+    /All mapped skills are synced against their upstream repositories with verified content hashes\./,
+    'the detail sentence must not be hardcoded to the all-verified case',
+  );
+  assert.match(
+    status,
+    /baselineSummary|formatBaselineVerification/,
+    'the detail sentence must come from the computed verification',
+  );
+});
+
+test('I3: status page lists restricted skills derived from the lock', () => {
+  const status = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'status.astro'), 'utf8');
+
+  assert.doesNotMatch(status, /RESTRICTED_PATHS/, 'the hardcoded restricted set must be gone');
+  assert.match(
+    status,
+    /getRestrictedSkills|getRestrictedPaths/,
+    'the restricted listing must derive from the lock-backed view models',
+  );
+});
+
+test('INT11: built status page reports the real verified/mapped ratio', {
+  skip: !distExists && 'dist/ not found',
+}, () => {
+  const html = fs.readFileSync(path.join(distDir, 'status', 'index.html'), 'utf8');
+  const lock = JSON.parse(
+    fs.readFileSync(path.resolve(siteRoot, '..', 'catalog', 'skills.lock.json'), 'utf8'),
+  );
+  const mapped = lock.skills.filter((s: { category: string }) => s.category === 'mapped');
+  const verified = mapped.filter((s: { baseline: string | null }) => s.baseline === 'verified');
+
+  assert.match(
+    html,
+    new RegExp(`${verified.length}\\s*/\\s*${mapped.length}</strong>\\s*mapped skills have verified baselines`),
+    'the status page must report the computed verified ratio',
+  );
+});
+
+test('INT12: built status page lists every restricted path from the lock', {
+  skip: !distExists && 'dist/ not found',
+}, () => {
+  const html = fs.readFileSync(path.join(distDir, 'status', 'index.html'), 'utf8');
+  const lock = JSON.parse(
+    fs.readFileSync(path.resolve(siteRoot, '..', 'catalog', 'skills.lock.json'), 'utf8'),
+  );
+  const restricted = lock.skills
+    .filter((s: { redistributable?: boolean }) => s.redistributable === false)
+    .map((s: { path: string }) => s.path);
+
+  assert.ok(restricted.length > 0, 'fixture precondition: the lock has restricted skills');
+  for (const restrictedPath of restricted) {
+    assert.ok(html.includes(restrictedPath), `status page must list ${restrictedPath}`);
+  }
+  assert.match(
+    html,
+    new RegExp(`Restricted Skills \\(${restricted.length}\\)`),
+    'the restricted heading count must match the lock',
+  );
 });

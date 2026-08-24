@@ -11,13 +11,6 @@ export const RELEASE_PUBLISHED = false;
 export const REPO_OWNER = 'lettucebo';
 export const REPO_NAME = 'Skills';
 
-export const RESTRICTED_PATHS = new Set([
-  'skills/claude/docx',
-  'skills/claude/pdf',
-  'skills/claude/pptx',
-  'skills/claude/xlsx',
-]);
-
 // ─── Types ──────────────────────────────────────────────────────────
 
 export interface LockUpstream {
@@ -109,6 +102,13 @@ export interface CatalogCounts {
   restricted: number;
 }
 
+export interface BaselineVerification {
+  mapped: number;
+  verified: number;
+  unverified: number;
+  allVerified: boolean;
+}
+
 // ─── Normalization ──────────────────────────────────────────────────
 
 export function deriveSourceFromPath(skillPath: string): string {
@@ -162,8 +162,86 @@ export function computeCounts(skills: SkillViewModel[]): CatalogCounts {
     mapped: skills.filter((s) => s.category === 'mapped').length,
     orphan: skills.filter((s) => s.isOrphan).length,
     local: skills.filter((s) => s.isLocal).length,
-    restricted: skills.filter((s) => s.isRestricted).length,
+    restricted: getRestrictedSkills(skills).length,
   };
+}
+
+/**
+ * Baseline verification is reported from the lock file itself rather than
+ * assumed: a mapped skill only counts as verified when its recorded baseline
+ * says so, so a partially verified release reports the real ratio.
+ */
+export function computeBaselineVerification(
+  skills: SkillViewModel[],
+): BaselineVerification {
+  const mapped = skills.filter((s) => s.category === 'mapped');
+  const verified = mapped.filter((s) => s.baseline === 'verified');
+
+  return {
+    mapped: mapped.length,
+    verified: verified.length,
+    unverified: mapped.length - verified.length,
+    allVerified: mapped.length > 0 && verified.length === mapped.length,
+  };
+}
+
+/**
+ * Renders the verification ratio and a matching summary sentence. The sentence
+ * has to stay true when the lock is only partially verified, so it is derived
+ * rather than asserted.
+ */
+export function formatBaselineVerification(
+  verification: BaselineVerification,
+): { headline: string; detail: string } {
+  const headline = `${verification.verified}/${verification.mapped}`;
+
+  if (verification.mapped === 0) {
+    return { headline, detail: 'This release contains no mapped skills.' };
+  }
+
+  if (verification.allVerified) {
+    return {
+      headline,
+      detail:
+        'All mapped skills are synced against their upstream repositories with verified content hashes.',
+    };
+  }
+
+  const noun = verification.unverified === 1 ? 'mapped skill does' : 'mapped skills do';
+  return {
+    headline,
+    detail: `${verification.unverified} ${noun} not have a verified baseline in the current lock file.`,
+  };
+}
+
+// ─── Restricted inventory (single source of truth: the lock file) ────
+
+/**
+ * The restricted inventory is derived from `redistributable === false` in the
+ * lock file. Nothing else may enumerate restricted skills, so a skill that
+ * becomes non-redistributable upstream is suppressed everywhere automatically.
+ * Tombstones are excluded: a removed skill is no longer shipped, so it neither
+ * ships restricted content nor justifies suppressing a bulk install.
+ */
+export function getRestrictedSkills(skills: SkillViewModel[]): SkillViewModel[] {
+  return skills.filter((s) => s.isRestricted && !s.isTombstone);
+}
+
+export function getRestrictedPaths(skills: SkillViewModel[]): string[] {
+  return getRestrictedSkills(skills)
+    .map((s) => s.path)
+    .sort();
+}
+
+export function getRestrictedSources(skills: SkillViewModel[]): string[] {
+  return [...new Set(getRestrictedSkills(skills).map((s) => s.source))].sort();
+}
+
+export function sourceContainsRestricted(
+  skills: SkillViewModel[],
+  source: string,
+): boolean {
+  return getRestrictedSkills(skills).some((s) => s.source === source);
 }
 
 // ─── Route helpers ──────────────────────────────────────────────────
@@ -178,8 +256,11 @@ export function generateRepoInstallCommand(): string {
   return `npx skills add ${REPO_OWNER}/${REPO_NAME}#v${RELEASE_VERSION}`;
 }
 
-export function generateSourceInstallCommand(source: string): string | null {
-  if (sourceContainsRestricted(source)) {
+export function generateSourceInstallCommand(
+  skills: SkillViewModel[],
+  source: string,
+): string | null {
+  if (sourceContainsRestricted(skills, source)) {
     return null;
   }
   return `npx skills add ${REPO_OWNER}/${REPO_NAME}/skills/${source}#v${RELEASE_VERSION}`;
@@ -193,15 +274,6 @@ export function generateSingleSkillInstallCommand(
     return null;
   }
   return `npx skills add "${REPO_OWNER}/${REPO_NAME}#v${RELEASE_VERSION}@${name}"`;
-}
-
-export function sourceContainsRestricted(source: string): boolean {
-  for (const restrictedPath of RESTRICTED_PATHS) {
-    if (restrictedPath.startsWith(`skills/${source}/`)) {
-      return true;
-    }
-  }
-  return false;
 }
 
 // ─── Markdown rendering ─────────────────────────────────────────────

@@ -9,6 +9,8 @@ import {
   generateRepoInstallCommand,
   generateSingleSkillInstallCommand,
   generateSourceInstallCommand,
+  getRestrictedSkills,
+  getRestrictedSources,
   RELEASE_VERSION,
   RELEASE_PUBLISHED,
   sourceContainsRestricted,
@@ -20,6 +22,14 @@ const catalog = await loadCatalog(repoRoot);
 const counts = catalog.counts;
 const repoCmd = generateRepoInstallCommand();
 const base = import.meta.env.BASE_URL;
+
+// The full-repo install disclosure is derived from the lock file so it stays
+// correct when the restricted inventory changes.
+const restrictedCount = getRestrictedSkills(catalog.skills).length;
+const restrictedPlural = restrictedCount === 1 ? '' : 's';
+const restrictedSourceLabel = getRestrictedSources(catalog.skills)
+  .map((source) => `skills/${source}`)
+  .join(', ');
 
 // Load descriptions for non-restricted, non-tombstone skills
 const skillDescriptions = new Map<string, string>();
@@ -60,6 +70,18 @@ function badgeClass(skill: typeof catalog.skills[0]): string {
       Pin to a git tag for reproducible installs.
     </p>
     <InstallCommand command={repoCmd} />
+    {restrictedCount > 0 && (
+      <div class="warning-box" role="note">
+        <strong>⚠ Full-repo install includes {restrictedCount} restricted skill{restrictedPlural}</strong>
+        <p>
+          This command installs the entire repository, including {restrictedCount} proprietary, non-redistributable skill{restrictedPlural} under <code>{restrictedSourceLabel}</code>. They are published here for reference only &mdash; you are responsible for reviewing and complying with their upstream licence terms before use.
+        </p>
+        <p>
+          To avoid them, install a single source or a single skill instead of the full repository.
+          The <a href={`${base}status/`}>Status page</a> lists every restricted skill.
+        </p>
+      </div>
+    )}
   </section>
 
   <section>

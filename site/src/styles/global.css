@@ -20,6 +20,10 @@
   --cp-warning-text: #7a4b00;
   --cp-link: #0078d4;
   --cp-link-text: #0067b8;
+  --cp-success-text: #147337;
+  --cp-danger-text: #b91c1c;
+  --cp-accent-text: #b11f4b;
+  --cp-muted-text: #5c5c5c;
   --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
   --cp-overlay: rgba(255, 255, 255, 0.8);
   --cp-panel: rgba(255, 255, 255, 0.86);
@@ -48,6 +52,10 @@ html[data-theme="dark"] {
   --cp-warning-text: #fbbf24;
   --cp-link: #4da6ff;
   --cp-link-text: #5aafff;
+  --cp-success-text: #4ade80;
+  --cp-danger-text: #fca5a5;
+  --cp-accent-text: #ffb3c1;
+  --cp-muted-text: #b0b0b0;
   --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
   --cp-overlay: rgba(41, 41, 41, 0.88);
   --cp-panel: rgba(41, 41, 41, 0.72);
@@ -79,6 +87,10 @@ html[data-theme="dark"] {
     --cp-warning-text: #fbbf24;
     --cp-link: #4da6ff;
     --cp-link-text: #5aafff;
+    --cp-success-text: #4ade80;
+    --cp-danger-text: #fca5a5;
+    --cp-accent-text: #ffb3c1;
+    --cp-muted-text: #b0b0b0;
     --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
     --cp-overlay: rgba(41, 41, 41, 0.88);
     --cp-panel: rgba(41, 41, 41, 0.72);
@@ -173,7 +185,7 @@ a:focus-visible {
 }
 .nav-links a {
   font-size: 0.875rem;
-  color: var(--cp-text-muted);
+  color: var(--cp-muted-text);
   font-weight: 500;
 }
 .nav-links a:hover {
@@ -218,7 +230,7 @@ a:focus-visible {
 }
 .badge--version {
   background: var(--cp-accent-soft);
-  color: var(--cp-accent);
+  color: var(--cp-accent-text);
 }
 .badge--pending {
   background: var(--cp-highlight);
@@ -227,23 +239,23 @@ a:focus-visible {
 }
 .badge--synced {
   background: var(--cp-accent-soft);
-  color: var(--cp-success);
+  color: var(--cp-success-text);
 }
 .badge--frozen {
   background: var(--cp-surface-soft);
-  color: var(--cp-text-muted);
+  color: var(--cp-muted-text);
 }
 .badge--restricted {
   background: var(--cp-highlight);
-  color: var(--cp-danger);
+  color: var(--cp-danger-text);
 }
 .badge--local {
-  background: var(--cp-accent-soft);
+  background: var(--cp-surface-soft);
   color: var(--cp-link-text);
 }
 .badge--removed {
   background: var(--cp-surface-soft);
-  color: var(--cp-text-soft);
+  color: var(--cp-muted-text);
 }
 
 /* ─── Cards ──────────────────────────────────────────────────────── */
@@ -277,7 +289,7 @@ a:focus-visible {
 }
 .card-meta {
   font-size: 0.75rem;
-  color: var(--cp-text-muted);
+  color: var(--cp-muted-text);
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
@@ -317,7 +329,7 @@ a:focus-visible {
 /* ─── Detail page ────────────────────────────────────────────────── */
 .breadcrumbs {
   font-size: 0.8125rem;
-  color: var(--cp-text-muted);
+  color: var(--cp-muted-text);
   margin-bottom: 16px;
 }
 .breadcrumbs a {
@@ -341,7 +353,7 @@ a:focus-visible {
   flex-wrap: wrap;
   align-items: center;
   font-size: 0.8125rem;
-  color: var(--cp-text-muted);
+  color: var(--cp-muted-text);
 }
 
 .detail-body {
@@ -417,7 +429,7 @@ a:focus-visible {
   color: var(--cp-text);
 }
 .warning-box strong {
-  color: var(--cp-danger);
+  color: var(--cp-danger-text);
 }
 
 .info-box {
@@ -452,7 +464,7 @@ a:focus-visible {
   min-width: 60px;
 }
 .timeline-kind {
-  color: var(--cp-text-muted);
+  color: var(--cp-muted-text);
 }
 
 /* ─── Source page ─────────────────────────────────────────────────── */
@@ -466,7 +478,7 @@ a:focus-visible {
 }
 .source-meta {
   font-size: 0.875rem;
-  color: var(--cp-text-muted);
+  color: var(--cp-muted-text);
 }
 .skill-table {
   width: 100%;
@@ -484,7 +496,7 @@ a:focus-visible {
   font-weight: 600;
 }
 .skill-table tr:hover {
-  background: var(--cp-accent-soft);
+  background: var(--cp-surface-soft);
 }
 
 /* ─── Status page ────────────────────────────────────────────────── */
@@ -518,7 +530,7 @@ a:focus-visible {
 }
 .status-stat .stat-label {
   font-size: 0.75rem;
-  color: var(--cp-text-muted);
+  color: var(--cp-muted-text);
 }
 
 /* ─── Filter controls (placeholder) ──────────────────────────────── */
@@ -561,7 +573,7 @@ a:focus-visible {
   border: 1px solid var(--cp-border);
   border-radius: 0.375rem;
   background: var(--cp-surface);
-  color: var(--cp-text-muted);
+  color: var(--cp-muted-text);
   font-size: 0.75rem;
   font-family: inherit;
   cursor: pointer;
@@ -606,7 +618,7 @@ a:focus-visible {
   padding: 24px;
   border-top: 1px solid var(--cp-border);
   font-size: 0.75rem;
-  color: var(--cp-text-muted);
+  color: var(--cp-muted-text);
   margin-top: 48px;
 }
 

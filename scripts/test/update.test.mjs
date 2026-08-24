@@ -953,3 +953,25 @@ test('applyUpdate refuses a mapping into the reserved local root before any clon
     await rm(workspace, { recursive: true, force: true });
   }
 });
+
+test('repository .gitignore ignores update staging work roots alongside baseline ones', async () => {
+  const repoRoot = path.resolve(__dirname, '..', '..');
+  const gitignore = await readFile(path.join(repoRoot, '.gitignore'), 'utf8');
+  const patterns = gitignore
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith('#'));
+
+  assert.ok(
+    patterns.includes('.baseline-work-*/'),
+    'baseline work roots must stay ignored',
+  );
+  assert.ok(
+    patterns.includes('.update-work-*/'),
+    'update staging work roots created by applyUpdate must be ignored',
+  );
+  assert.ok(
+    gitignore.indexOf('.update-work-*/') > gitignore.indexOf('# Sync tooling'),
+    'the update work pattern must live beside the other sync tooling scratch patterns',
+  );
+});

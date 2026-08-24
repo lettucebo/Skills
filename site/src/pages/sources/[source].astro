@@ -25,13 +25,13 @@ export async function getStaticPaths() {
       source,
       skills: getSkillsBySource(catalog.skills, source),
       upstreamRepo: getUpstreamRepoForSource(catalog.skills, source),
+      hasRestricted: sourceContainsRestricted(catalog.skills, source),
+      sourceCmd: generateSourceInstallCommand(catalog.skills, source),
     },
   }));
 }
 
-const { source, skills, upstreamRepo } = Astro.props;
-const hasRestricted = sourceContainsRestricted(source);
-const sourceCmd = generateSourceInstallCommand(source);
+const { source, skills, upstreamRepo, hasRestricted, sourceCmd } = Astro.props;
 ---
 <Layout title={`${source} skills`}>
   <nav class="breadcrumbs" aria-label="Breadcrumb">
