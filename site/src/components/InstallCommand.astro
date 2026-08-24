@@ -30,19 +30,21 @@ const uniqueId = `install-${Math.random().toString(36).slice(2, 8)}`;
 <script>
   document.querySelectorAll<HTMLButtonElement>('.install-copy-btn').forEach((btn) => {
     btn.hidden = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
     btn.addEventListener('click', async () => {
       const targetId = btn.getAttribute('data-copy-target');
       if (!targetId) return;
       const codeEl = document.getElementById(targetId);
       if (!codeEl) return;
       const feedbackEl = btn.closest('.install-block')?.querySelector('[data-copy-feedback]');
+      clearTimeout(timer);
       try {
         await navigator.clipboard.writeText(codeEl.textContent || '');
         if (feedbackEl) feedbackEl.textContent = 'Copied!';
-        setTimeout(() => { if (feedbackEl) feedbackEl.textContent = ''; }, 2000);
+        timer = setTimeout(() => { if (feedbackEl) feedbackEl.textContent = ''; }, 2000);
       } catch {
         if (feedbackEl) feedbackEl.textContent = 'Copy failed — please copy manually.';
-        setTimeout(() => { if (feedbackEl) feedbackEl.textContent = ''; }, 3000);
+        timer = setTimeout(() => { if (feedbackEl) feedbackEl.textContent = ''; }, 3000);
       }
     });
   });

@@ -271,6 +271,41 @@ test('E8: index page uses InstallCommand component', () => {
   assert.match(index, /<InstallCommand/, 'Index page must render InstallCommand');
 });
 
+// ─── C7: No-JS controls hidden ──────────────────────────────────────
+
+test('C7: noscript block contains style that hides .search-box and .filter-controls', () => {
+  const search = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  // The noscript element must contain a <style> that hides the interactive controls
+  // so they are not operable or misleading when JS is unavailable.
+  const noscriptContent = search.match(/<noscript>([\s\S]*?)<\/noscript>/)?.[1] ?? '';
+  assert.match(noscriptContent, /<style/, 'noscript must contain a <style> block');
+  assert.match(noscriptContent, /\.search-box/, 'noscript style must target .search-box');
+  assert.match(noscriptContent, /\.filter-controls/, 'noscript style must target .filter-controls');
+  assert.match(noscriptContent, /display:\s*none|visibility:\s*hidden/, 'noscript style must hide the controls');
+});
+
+// ─── E9: InstallCommand timer race ──────────────────────────────────
+
+test('E9: InstallCommand click handler clears prior feedback timer before scheduling a new one', () => {
+  const comp = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'InstallCommand.astro'), 'utf8');
+  // Must call clearTimeout so a rapid second click cancels the first timer
+  assert.match(comp, /clearTimeout\s*\(/, 'Must call clearTimeout to cancel any prior feedback timer');
+  // The setTimeout return value must be stored so it can be cleared
+  assert.match(comp, /\btimer\s*=\s*setTimeout\s*\(/, 'Must store the setTimeout handle in a variable for later cancellation');
+});
+
+// ─── F1: Search async stale-result race ─────────────────────────────
+
+test('F1: doSearch uses a monotonic generation counter to discard stale async results', () => {
+  const search = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  // Must declare a generation counter that every doSearch call increments
+  assert.match(search, /let\s+generation\s*=\s*0/, 'Must declare a generation counter initialized to 0');
+  assert.match(search, /\+\+generation/, 'Must increment generation on every doSearch invocation');
+  // After each awaited stage the current generation must be validated
+  const staleChecks = (search.match(/gen\s*!==\s*generation|generation\s*!==\s*gen/g) || []).length;
+  assert.ok(staleChecks >= 2, `Must check generation at least twice after awaited stages; found ${staleChecks}`);
+});
+
 // ─── Integration: Built HTML checks ─────────────────────────────────
 
 test('INT1: built public skill page has copy button', {

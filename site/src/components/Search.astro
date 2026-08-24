@@ -30,6 +30,7 @@ const origins = [...new Set(
 
 <div class="search-section" id="search-section">
   <noscript>
+    <style>.search-box, .filter-controls { display: none; }</style>
     <p class="info-box">Search and filter require JavaScript. You can browse the full catalog below.</p>
   </noscript>
 
@@ -123,6 +124,7 @@ const origins = [...new Set(
     }
 
     let debounceTimer = null;
+    let generation = 0;
 
     function buildFilters() {
       const filters = {};
@@ -133,6 +135,7 @@ const origins = [...new Set(
     }
 
     async function doSearch() {
+      const gen = ++generation;
       const query = searchInput.value.trim();
       const filters = buildFilters();
       const hasFilters = Object.keys(filters).length > 0;
@@ -148,6 +151,7 @@ const origins = [...new Set(
       if (fullCatalog) fullCatalog.hidden = true;
 
       const pf = await loadPagefind();
+      if (gen !== generation) return;
       if (!pf) return;
 
       statusEl.textContent = 'Searching…';
@@ -155,6 +159,7 @@ const origins = [...new Set(
 
       try {
         const search = await pf.search(query || null, { filters });
+        if (gen !== generation) return;
         if (search.results.length === 0) {
           statusEl.textContent = 'No matching skills found.';
           resultList.innerHTML = '';
@@ -167,6 +172,7 @@ const origins = [...new Set(
         const data = await Promise.all(
           search.results.map(r => r.data()),
         );
+        if (gen !== generation) return;
 
         resultList.innerHTML = data.map(function (item) {
           const meta = item.meta || {};
@@ -190,6 +196,7 @@ const origins = [...new Set(
             '</li>';
         }).join('');
       } catch (err) {
+        if (gen !== generation) return;
         statusEl.textContent = 'Search error — please try again.';
         if (fullCatalog) fullCatalog.hidden = false;
         console.error('Pagefind search error:', err);
