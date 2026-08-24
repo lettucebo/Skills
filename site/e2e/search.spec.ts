@@ -1,54 +1,111 @@
 /**
  * search.spec.ts — Search and filter interaction tests.
  *
- * Covers: keyword search, no-results state, clear (catalog restored),
- * filter controls (source/license/origin), rapid input (generation guard),
- * and search result click-through to a skill detail page.
+ * Every assertion waits on the settled `#search-status` live-region text *and*
+ * the rendered rows (see `waitForRenderedResults`) instead of a fixed sleep,
+ * and validates the content of what was rendered — destination URL, per-row
+ * metadata, final titles — rather than only counts.
  */
 import { test, expect } from '@playwright/test';
+import {
+  BASE,
+  NO_RESULTS_STATUS,
+  searchAndRead,
+  waitForRenderedResults,
+  waitForResultCount,
+  type ResultRow,
+} from './_helpers';
 
-const HOME = '/Skills/';
+const HOME = BASE;
+
+/**
+ * A search result must land on a skill detail page: /Skills/skills/<source>/<skill>/.
+ * The homepage (/Skills/) and source pages (/Skills/sources/<source>/) do NOT match.
+ */
+const SKILL_DETAIL_PATH_RE = /^\/Skills\/skills\/[^/]+\/[^/]+\/$/;
+
+/**
+ * A query with no match at all. Pagefind does fuzzy/partial word matching, so
+ * a run of latin letters still scores hits; only non-indexable symbols yield
+ * the genuine empty state.
+ */
+const NO_MATCH_QUERY = '\u2295\u221E\u2297\u222E\u2298';
+
+/**
+ * Known-good filter combination taken from catalog/skills.lock.json:
+ * `azure` + `MIT` + `Synced` is a non-empty, deterministic intersection.
+ */
+const COMBINED = { source: 'azure', license: 'MIT', origin: 'Synced' };
+
+/**
+ * Observation window (inside the page) used by the fault-injected generation
+ * guard test. It starts only AFTER the stalled first-query responses have all
+ * been delivered, so it is a bounded observation of an event that has already
+ * happened — not a sleep used to paper over flakiness.
+ */
+const STALE_OBSERVATION_WINDOW_MS = 1_500;
+
+/** Asserts every rendered row carries the metadata that was filtered on. */
+function assertEveryResultMatches(
+  rows: ResultRow[],
+  expected: { source?: string; license?: string; origin?: string },
+): void {
+  expect(rows.length, 'filtered search must return at least one result').toBeGreaterThan(0);
+  for (const row of rows) {
+    const where = `result "${row.title}" (meta: ${JSON.stringify(row.metaSpans)})`;
+    if (expected.source !== undefined) {
+      expect(row.source, `${where} must be from source "${expected.source}"`).toBe(expected.source);
+    }
+    if (expected.origin !== undefined) {
+      expect(row.origin, `${where} must show the "${expected.origin}" origin badge`).toBe(expected.origin);
+    }
+    if (expected.license !== undefined) {
+      expect(row.metaSpans, `${where} must show license "${expected.license}"`).toContain(expected.license);
+    }
+  }
+}
 
 test.describe('Search — keyword, filters, rapid input, click-through', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(HOME);
-    await page.waitForLoadState('networkidle');
   });
 
   // ── Keyword search ───────────────────────────────────────────────────
 
   test('keyword search shows results and hides full catalog', async ({ page }) => {
-    const searchInput = page.locator('#search-input');
-    await searchInput.fill('azure');
+    await page.locator('#search-input').fill('azure');
+    const rows = await waitForRenderedResults(page);
 
-    await expect(page.locator('#search-results')).toBeVisible({ timeout: 10_000 });
-
-    const items = page.locator('.search-result-item');
-    await expect(items.first()).toBeVisible({ timeout: 5_000 });
-    const count = await items.count();
-    expect(count, 'search for "azure" must return at least 1 result').toBeGreaterThan(0);
-
+    expect(rows.length, 'search for "azure" must return at least 1 result').toBeGreaterThan(0);
+    await expect(page.locator('#search-results')).toBeVisible();
     await expect(page.locator('#full-catalog')).toBeHidden();
   });
 
-  test('search result items have meta (source/version)', async ({ page }) => {
+  test('search result items have non-empty meta (source/version)', async ({ page }) => {
     await page.locator('#search-input').fill('azure');
-    await expect(page.locator('.search-result-item').first()).toBeVisible({ timeout: 10_000 });
+    const rows = await waitForRenderedResults(page);
 
-    const firstMeta = page.locator('.search-result-item').first().locator('.search-result-meta');
-    const metaText = await firstMeta.innerText();
-    expect(metaText.trim().length, 'first result meta must not be empty').toBeGreaterThan(0);
+    expect(rows.length).toBeGreaterThan(0);
+    for (const row of rows) {
+      expect(row.source, `result "${row.title}" must expose its source in the meta row`).not.toBe('');
+      expect(
+        row.metaSpans.some((s) => /^v\d/.test(s)),
+        `result "${row.title}" meta must include a version; got ${JSON.stringify(row.metaSpans)}`,
+      ).toBe(true);
+    }
   });
 
   // ── No-results state ──────────────────────────────────────────────────
 
-  test('no-results query shows status message and no items', async ({ page }) => {
-    await page.locator('#search-input').fill('⊕∞⊗∮⊘');
-    await page.waitForTimeout(4_000);
+  test('no-results query settles on the exact no-results message', async ({ page }) => {
+    await page.locator('#search-input').fill(NO_MATCH_QUERY);
 
-    const count = await page.locator('.search-result-item').count();
-    expect(count, 'no-results query must show 0 items').toBe(0);
+    // Web-first assertion: retries until the live region reaches its settled
+    // no-results text. A stuck "Searching…" or a stale count fails the test.
+    await expect(page.locator('#search-status')).toHaveText(NO_RESULTS_STATUS, { timeout: 20_000 });
 
+    await expect(page.locator('.search-result-item')).toHaveCount(0);
+    await expect(page.locator('#search-results')).toBeVisible();
     await expect(page.locator('#full-catalog')).toBeHidden();
   });
 
@@ -56,10 +113,9 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
 
   test('clearing search restores full catalog', async ({ page }) => {
     await page.locator('#search-input').fill('azure');
-    await expect(page.locator('#search-results')).toBeVisible({ timeout: 10_000 });
+    await waitForRenderedResults(page);
 
     await page.locator('#search-input').fill('');
-    await page.waitForTimeout(1_500);
 
     await expect(page.locator('#search-results')).toBeHidden();
     await expect(page.locator('#full-catalog')).toBeVisible();
@@ -67,85 +123,284 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
 
   // ── Source filter ─────────────────────────────────────────────────────
 
-  test('source filter returns results', async ({ page }) => {
-    await page.locator('#search-input').fill('');
-    await page.waitForTimeout(500);
-
+  test('source filter: every result belongs to the selected source', async ({ page }) => {
     await page.locator('#filter-source').selectOption('azure');
-    await expect(page.locator('.search-result-item').first()).toBeVisible({ timeout: 10_000 });
+    const rows = await waitForRenderedResults(page);
 
-    const count = await page.locator('.search-result-item').count();
-    expect(count, 'source filter must return at least 1 result').toBeGreaterThan(0);
-
+    assertEveryResultMatches(rows, { source: 'azure' });
     await expect(page.locator('#full-catalog')).toBeHidden();
   });
 
   test('clearing source filter restores full catalog', async ({ page }) => {
     await page.locator('#filter-source').selectOption('azure');
-    await expect(page.locator('.search-result-item').first()).toBeVisible({ timeout: 10_000 });
+    await waitForRenderedResults(page);
 
     await page.locator('#filter-source').selectOption('');
-    await page.waitForTimeout(1_500);
 
     await expect(page.locator('#full-catalog')).toBeVisible();
+    await expect(page.locator('#search-results')).toBeHidden();
   });
 
   // ── License filter ────────────────────────────────────────────────────
 
-  test('license filter returns results', async ({ page }) => {
+  test('license filter: every result carries the selected license', async ({ page }) => {
     await page.locator('#filter-license').selectOption('MIT');
-    await expect(page.locator('.search-result-item').first()).toBeVisible({ timeout: 10_000 });
-    const count = await page.locator('.search-result-item').count();
-    expect(count).toBeGreaterThan(0);
+    const rows = await waitForRenderedResults(page);
+
+    assertEveryResultMatches(rows, { license: 'MIT' });
   });
 
   // ── Origin filter ─────────────────────────────────────────────────────
 
-  test('origin (Frozen) filter returns results', async ({ page }) => {
+  test('origin filter: every result shows the Frozen badge', async ({ page }) => {
     await page.locator('#filter-origin').selectOption('Frozen');
-    await expect(page.locator('.search-result-item').first()).toBeVisible({ timeout: 10_000 });
-    const count = await page.locator('.search-result-item').count();
-    expect(count).toBeGreaterThan(0);
+    const rows = await waitForRenderedResults(page);
+
+    assertEveryResultMatches(rows, { origin: 'Frozen' });
+  });
+
+  // ── Combined filters ──────────────────────────────────────────────────
+
+  test('combined source + license + origin filters narrow to the exact intersection', async ({ page }) => {
+    await page.locator('#filter-source').selectOption(COMBINED.source);
+    const sourceOnly = await waitForRenderedResults(page);
+    assertEveryResultMatches(sourceOnly, { source: COMBINED.source });
+
+    await page.locator('#filter-license').selectOption(COMBINED.license);
+    await page.locator('#filter-origin').selectOption(COMBINED.origin);
+    const rows = await waitForRenderedResults(page);
+
+    // This combination is non-empty in catalog/skills.lock.json, so an empty
+    // result set is a real failure here, not an acceptable outcome.
+    assertEveryResultMatches(rows, COMBINED);
+
+    expect(
+      rows.length,
+      `combined filter must be a subset of the source-only result set ` +
+        `(${rows.length} vs ${sourceOnly.length})`,
+    ).toBeLessThanOrEqual(sourceOnly.length);
+
+    const sourceTitles = new Set(sourceOnly.map((r) => r.title));
+    for (const row of rows) {
+      expect(
+        sourceTitles.has(row.title),
+        `"${row.title}" must also appear under the source-only filter`,
+      ).toBe(true);
+    }
+
+    // The live region must agree with the DOM.
+    await waitForResultCount(page, rows.length);
   });
 
   // ── Rapid consecutive input (generation guard) ────────────────────────
 
-  test('rapid successive inputs show results for the last query only', async ({ page }) => {
+  test('rapid successive inputs render only the final query\u2019s results', async ({ page }) => {
+    const firstQuery = 'tampermonkey';
+    const finalQuery = 'terraform';
+
+    // Control runs: what each query settles to on its own.
+    const firstControl = await searchAndRead(page, firstQuery);
+    const firstStatus = (await page.locator('#search-status').innerText()).trim();
+    const finalControl = await searchAndRead(page, finalQuery);
+    const finalStatus = (await page.locator('#search-status').innerText()).trim();
+
+    expect(
+      firstControl.length,
+      `"${firstQuery}" must return results for this test to be meaningful`,
+    ).toBeGreaterThan(0);
+    expect(
+      finalControl.length,
+      `"${finalQuery}" must return results for this test to be meaningful`,
+    ).toBeGreaterThan(0);
+
+    const firstTitles = firstControl.map((r) => r.title).sort();
+    const finalTitles = finalControl.map((r) => r.title).sort();
+    const overlap = firstTitles.filter((t) => finalTitles.includes(t));
+    expect(
+      overlap,
+      `queries "${firstQuery}" and "${finalQuery}" must have disjoint result sets; overlap: ${overlap.join(', ')}`,
+    ).toEqual([]);
+    expect(
+      finalStatus,
+      'the two control queries must announce different counts so a stale status is detectable',
+    ).not.toBe(firstStatus);
+
+    // Case 1 — the first query fully renders, then the final query replaces it.
+    // Every stale row must be gone, not merely appended to or partially updated.
+    await page.goto(HOME);
     const input = page.locator('#search-input');
+    await input.fill(firstQuery);
+    const firstRendered = (await waitForRenderedResults(page)).map((r) => r.title).sort();
+    expect(firstRendered, 'control sanity: first query must render its own titles').toEqual(firstTitles);
 
-    for (const q of ['a', 'az', 'azu', 'azur']) {
-      await input.fill(q);
-      await page.waitForTimeout(80);
+    await input.fill(finalQuery);
+    await expect(page.locator('#search-status')).toHaveText(finalStatus, { timeout: 20_000 });
+    const afterReplace = (await waitForRenderedResults(page)).map((r) => r.title).sort();
+    expect(afterReplace, 'rendered titles must equal the final query control set').toEqual(finalTitles);
+    for (const staleTitle of firstTitles) {
+      expect(
+        afterReplace,
+        `stale result "${staleTitle}" from "${firstQuery}" must not survive the second query`,
+      ).not.toContain(staleTitle);
     }
-    await input.fill('azure');
-    await expect(page.locator('.search-result-item').first()).toBeVisible({ timeout: 12_000 });
 
-    const value = await input.inputValue();
-    expect(value).toBe('azure');
+    // Case 2 — both queries typed back-to-back with no wait, so the first
+    // search may still be in flight when the second one starts. The generation
+    // guard must ensure the older response never wins the render.
+    await page.goto(HOME);
+    await input.fill(firstQuery);
+    await input.fill(finalQuery);
 
-    const count = await page.locator('.search-result-item').count();
-    expect(count, 'final query must yield results').toBeGreaterThan(0);
+    await expect(page.locator('#search-status')).toHaveText(finalStatus, { timeout: 20_000 });
+    expect(await input.inputValue()).toBe(finalQuery);
+
+    const rapidRendered = (await waitForRenderedResults(page)).map((r) => r.title).sort();
+    expect(rapidRendered, 'rapid input must render only the final query results').toEqual(finalTitles);
+    for (const staleTitle of firstTitles) {
+      expect(
+        rapidRendered,
+        `stale result "${staleTitle}" from "${firstQuery}" must not be rendered`,
+      ).not.toContain(staleTitle);
+    }
+  });
+
+  // ── Overlapping searches (generation guard, fault-injected) ───────────
+
+  test('a slow first search cannot overwrite the newer query\u2019s results', async ({ page }) => {
+    const firstQuery = 'tampermonkey';
+    const finalQuery = 'terraform';
+
+    const firstControl = await searchAndRead(page, firstQuery);
+    const finalControl = await searchAndRead(page, finalQuery);
+    const finalStatus = (await page.locator('#search-status').innerText()).trim();
+
+    const firstTitles = firstControl.map((r) => r.title).sort();
+    const finalTitles = finalControl.map((r) => r.title).sort();
+    expect(firstTitles.length, `"${firstQuery}" must return results`).toBeGreaterThan(0);
+    expect(finalTitles.length, `"${finalQuery}" must return results`).toBeGreaterThan(0);
+    expect(
+      firstTitles.filter((t) => finalTitles.includes(t)),
+      'the two queries must have disjoint result sets',
+    ).toEqual([]);
+
+    // Record EVERY render of the result list, so a stale render that is later
+    // overwritten again still shows up. A plain end-state assertion would miss it.
+    await page.addInitScript(() => {
+      (window as unknown as { __renderLog: string[][] }).__renderLog = [];
+      const start = () => {
+        const list = document.getElementById('search-result-list');
+        if (!list) return;
+        new MutationObserver(() => {
+          const titles = Array.from(list.querySelectorAll('.search-result-title'))
+            .map((el) => (el.textContent ?? '').trim())
+            .sort();
+          (window as unknown as { __renderLog: string[][] }).__renderLog.push(titles);
+        }).observe(list, { childList: true, subtree: true });
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start);
+      } else {
+        start();
+      }
+    });
+
+    // Fault injection: stall the Pagefind fragment fetches belonging to the
+    // FIRST query only. Its doSearch() is then still awaiting result.data()
+    // while the second query completes and renders. Without the generation
+    // check after that await, the stale response overwrites the newer results.
+    let stall = true;
+    let stallsStarted = 0;
+    let stallsCompleted = 0;
+    await page.route('**/pagefind/fragment/**', async (route) => {
+      if (stall) {
+        stallsStarted += 1;
+        await new Promise((resolve) => setTimeout(resolve, 1_500));
+        await route.continue();
+        stallsCompleted += 1;
+        return;
+      }
+      await route.continue();
+    });
+
+    await page.goto(HOME);
+    const input = page.locator('#search-input');
+    await input.fill(firstQuery);
+
+    // Condition wait (not a sleep): proceed once the first query's fragment
+    // fetches are genuinely in flight.
+    await expect
+      .poll(() => stallsStarted, {
+        message: 'the first query must reach the fragment-fetch stage before the second query is typed',
+        timeout: 20_000,
+      })
+      .toBeGreaterThan(0);
+
+    stall = false;
+    await input.fill(finalQuery);
+
+    await expect(page.locator('#search-status')).toHaveText(finalStatus, { timeout: 20_000 });
+    const rendered = (await waitForRenderedResults(page)).map((r) => r.title).sort();
+    expect(rendered, 'the newer query must own the rendered results').toEqual(finalTitles);
+
+    // Let every stalled first-query response be delivered, then observe the
+    // render log for a bounded window so the stale continuation has run.
+    await expect
+      .poll(() => stallsCompleted, {
+        message: 'all stalled first-query fragment responses must be delivered',
+        timeout: 20_000,
+      })
+      .toBe(stallsStarted);
+
+    const renderLog: string[][] = await page.evaluate(
+      (waitMs) =>
+        new Promise((resolve) => {
+          setTimeout(
+            () => resolve((window as unknown as { __renderLog: string[][] }).__renderLog),
+            waitMs,
+          );
+        }),
+      STALE_OBSERVATION_WINDOW_MS,
+    );
+
+    const staleRenders = renderLog.filter((titles) => JSON.stringify(titles) === JSON.stringify(firstTitles));
+    expect(
+      staleRenders.length,
+      `the stale "${firstQuery}" response must never be rendered; render log was ${JSON.stringify(renderLog)}`,
+    ).toBe(0);
+    expect(
+      renderLog.at(-1),
+      `the last render must belong to "${finalQuery}"; render log was ${JSON.stringify(renderLog)}`,
+    ).toEqual(finalTitles);
+    await expect(page.locator('#search-status')).toHaveText(finalStatus);
   });
 
   // ── Click-through to skill detail page ───────────────────────────────
 
-  test('clicking a search result navigates to the skill detail page', async ({ page }) => {
+  test('clicking a search result navigates to that exact skill detail page', async ({ page }) => {
     await page.locator('#search-input').fill('cost optimize');
-    const firstLink = page.locator('.search-result-link').first();
-    await expect(firstLink).toBeVisible({ timeout: 10_000 });
+    const rows = await waitForRenderedResults(page);
+    expect(rows.length, 'query must return at least one result to click').toBeGreaterThan(0);
 
-    const href = await firstLink.getAttribute('href');
-    expect(href, 'result link must have href').toBeTruthy();
-    expect(href).toMatch(/\/Skills\//);
+    const target = rows[0];
+    const targetPath = new URL(target.href, page.url()).pathname;
+    expect(
+      targetPath,
+      `result href "${target.href}" must point at /Skills/skills/<source>/<skill>/`,
+    ).toMatch(SKILL_DETAIL_PATH_RE);
+    expect(target.title.length, 'result must expose a title to compare against the destination').toBeGreaterThan(0);
 
-    await firstLink.click();
-    await page.waitForLoadState('networkidle', { timeout: 15_000 });
+    await page.locator('.search-result-link').first().click();
+    await page.waitForURL((url) => SKILL_DETAIL_PATH_RE.test(url.pathname), { timeout: 15_000 });
 
-    const h1 = page.locator('h1').first();
-    await expect(h1).toBeVisible();
-    const title = await h1.innerText();
-    expect(title.trim().length, 'skill detail page must have h1 text').toBeGreaterThan(0);
+    const landedPath = new URL(page.url()).pathname;
+    expect(landedPath, 'must land on the href captured before the click').toBe(targetPath);
+    expect(landedPath, 'the homepage must not satisfy this assertion').not.toBe('/Skills/');
+    expect(landedPath, 'a source listing page must not satisfy this assertion').not.toMatch(
+      /^\/Skills\/sources\//,
+    );
 
-    expect(page.url()).toContain('/Skills/');
+    // The destination must be the skill named in the clicked result row.
+    await expect(page.locator('h1').first()).toHaveText(target.title);
+    await expect(page).toHaveTitle(`${target.title} | Skills Registry`);
   });
 });

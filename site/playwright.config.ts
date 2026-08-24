@@ -1,18 +1,23 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = 4321;
-const isCI = !!process.env.CI;
-
 /**
  * Playwright E2E configuration for the skills catalog site.
  *
- * - Local (CI=false): uses the system Chrome channel to avoid downloading browsers.
- * - CI: uses Playwright's installed Chromium (installed via `npx playwright install chromium`).
- * - webServer starts `astro preview` directly (not via `npm run preview`) to avoid the
- *   npm argument-forwarding problem on Windows where `npm run X -- --port` is unreliable.
+ * - Serves the freshly built `dist/` through `astro preview` on a dedicated
+ *   E2E port so a stray Astro dev server on the framework default port can
+ *   never be mistaken for the build under test. Override with E2E_PORT.
+ * - `reuseExistingServer: false` everywhere: reusing a foreign server would
+ *   silently test a different build. Playwright fails fast if the port is
+ *   already occupied, which is the intended, loud behaviour.
+ * - Local (CI unset): uses the system Chrome channel to avoid downloading browsers.
+ * - CI: uses Playwright's installed Chromium (`npx playwright install chromium`).
  * - baseURL includes the /Skills/ base path matching astro.config.mjs.
- * - test:e2e builds the site (including Pagefind postbuild) before this config runs.
+ * - `npm run test:e2e` builds the site (including the Pagefind postbuild) first.
  */
+const PORT = Number(process.env.E2E_PORT) || 4330;
+const isCI = !!process.env.CI;
+const BASE_URL = `http://127.0.0.1:${PORT}/Skills/`;
+
 export default defineConfig({
   testDir: './e2e',
 
@@ -23,7 +28,7 @@ export default defineConfig({
     : [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
 
   use: {
-    baseURL: `http://127.0.0.1:${PORT}/Skills/`,
+    baseURL: BASE_URL,
     headless: true,
     screenshot: 'only-on-failure',
     video: 'off',
@@ -40,9 +45,9 @@ export default defineConfig({
     command: process.platform === 'win32'
       ? `node_modules\\.bin\\astro.cmd preview --port ${PORT} --host 127.0.0.1`
       : `node_modules/.bin/astro preview --port ${PORT} --host 127.0.0.1`,
-    url: `http://127.0.0.1:${PORT}/Skills/`,
+    url: BASE_URL,
     timeout: 120_000,
-    // In CI always start fresh; locally reuse if a preview is already running on this port.
-    reuseExistingServer: !isCI,
+    // Never reuse: the E2E run must always exercise the dist produced by this run.
+    reuseExistingServer: false,
   },
 });

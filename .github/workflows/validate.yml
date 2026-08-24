@@ -32,6 +32,13 @@ jobs:
 
   check-site-changes:
     runs-on: ubuntu-latest
+    # Job-level permissions REPLACE the workflow-level block, so contents: read
+    # must be restated. dorny/paths-filter reads the PR file list through the
+    # REST API on pull_request events, which needs pull-requests: read — the
+    # workflow-level `contents: read` sets every other scope to none.
+    permissions:
+      contents: read
+      pull-requests: read
     outputs:
       changed: ${{ steps.filter.outputs.changed }}
     steps:

@@ -8,9 +8,9 @@
  * - clipboard feedback: copy button shows "Copied" aria-live message
  * - runtime search-result hover contrast: computed ratio >=4.5:1 on hover surface
  */
-import { test, expect, type Page } from '@playwright/test';
+import { test, expect } from '@playwright/test';
+import { BASE, resolveColorToken, waitForRenderedResults } from './_helpers';
 
-const BASE = '/Skills/';
 const SKILL_PAGE = `${BASE}skills/azure/az-cost-optimize/`;
 
 // ── Helpers ──────────────────────────────────────────────────────────
@@ -37,28 +37,6 @@ function parseRgb(color: string): [number, number, number] | null {
   return [parseInt(m[1]), parseInt(m[2]), parseInt(m[3])];
 }
 
-/**
- * Traverses up the DOM tree from `selector` to find the nearest ancestor
- * (inclusive) whose background is NOT transparent / rgba(0,0,0,0).
- * Returns [r, g, b] of that background.
- */
-async function nearestOpaqueBg(page: Page, selector: string): Promise<[number, number, number] | null> {
-  return page.evaluate((sel) => {
-    const start = document.querySelector(sel);
-    if (!start) return null;
-    let el: Element | null = start;
-    while (el && el !== document.body.parentElement) {
-      const bg = window.getComputedStyle(el).backgroundColor;
-      if (bg && bg !== 'transparent' && !bg.startsWith('rgba(0, 0, 0, 0)')) {
-        const m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-        if (m) return [parseInt(m[1]), parseInt(m[2]), parseInt(m[3])];
-      }
-      el = el.parentElement;
-    }
-    return null;
-  }, selector);
-}
-
 // ── No-JS fallback ────────────────────────────────────────────────────
 
 test.describe('No-JS fallback', () => {
@@ -82,29 +60,28 @@ test.describe('No-JS fallback', () => {
     await page.goto(BASE);
     await page.waitForLoadState('load');
 
-    // noscript block hides .search-box and .filter-controls
+    // Both are rendered unconditionally by Search.astro; the <noscript> <style>
+    // block is what hides them. Assert existence FIRST so a missing element
+    // (a rendering regression) can never masquerade as "hidden".
     const searchBox = page.locator('.search-box');
-    const filterControls = page.locator('.filter-controls');
+    await expect(searchBox).toHaveCount(1);
+    await expect(searchBox).toBeHidden();
 
-    // They should either not exist, or be hidden/have display:none
-    // Playwright toBeHidden() considers display:none, visibility:hidden, etc.
-    if ((await searchBox.count()) > 0) {
-      await expect(searchBox).toBeHidden();
-    }
-    if ((await filterControls.count()) > 0) {
-      await expect(filterControls).toBeHidden();
-    }
+    const filterControls = page.locator('.filter-controls');
+    await expect(filterControls).toHaveCount(1);
+    await expect(filterControls).toBeHidden();
   });
 
   test('copy button is hidden without JavaScript', async ({ page }) => {
     await page.goto(SKILL_PAGE);
     await page.waitForLoadState('load');
 
+    // az-cost-optimize is redistributable, so exactly one InstallCommand
+    // (and therefore one copy button) is rendered. Without JS the button
+    // keeps its server-rendered `hidden` attribute.
     const copyBtn = page.locator('.install-copy-btn');
-    if ((await copyBtn.count()) > 0) {
-      // Button starts hidden (JS reveals it); without JS it remains hidden
-      await expect(copyBtn.first()).toBeHidden();
-    }
+    await expect(copyBtn).toHaveCount(1);
+    await expect(copyBtn).toBeHidden();
   });
 });
 
@@ -163,45 +140,46 @@ test.describe('375px viewport — no overflow, vertical filters', () => {
 test.describe('Skip link', () => {
   test('skip link receives focus on first Tab press', async ({ page }) => {
     await page.goto(BASE);
-    await page.waitForLoadState('networkidle');
 
     await page.keyboard.press('Tab');
-    await page.waitForTimeout(150);
 
-    const focusedClass = await page.evaluate(() => document.activeElement?.className ?? '');
-    expect(focusedClass, 'first Tab must focus the skip link').toContain('skip-link');
+    await expect
+      .poll(async () => page.evaluate(() => document.activeElement?.className ?? ''), {
+        message: 'first Tab must focus the skip link',
+      })
+      .toContain('skip-link');
   });
 
   test('skip link is visible when focused', async ({ page }) => {
     await page.goto(BASE);
-    await page.waitForLoadState('networkidle');
+
+    const skipLink = page.locator('.skip-link');
+    await expect(skipLink).toHaveCount(1);
 
     await page.keyboard.press('Tab');
-    await page.waitForTimeout(150);
+    await expect(skipLink).toBeFocused();
 
-    // The skip link should be visible when focused (focus-visible reveals it)
-    const rect = await page.evaluate(() => {
-      const el = document.querySelector('.skip-link');
-      if (!el) return null;
+    // The skip link should be revealed (non-zero box) when focused.
+    const rect = await skipLink.evaluate((el) => {
       const r = el.getBoundingClientRect();
       return { width: r.width, height: r.height };
     });
-    expect(rect, 'skip link must exist in DOM').not.toBeNull();
-    expect(rect!.width, 'skip link must have non-zero width when focused').toBeGreaterThan(0);
-    expect(rect!.height, 'skip link must have non-zero height when focused').toBeGreaterThan(0);
+    expect(rect.width, 'skip link must have non-zero width when focused').toBeGreaterThan(0);
+    expect(rect.height, 'skip link must have non-zero height when focused').toBeGreaterThan(0);
   });
 
   test('pressing Enter on skip link moves focus to #main-content', async ({ page }) => {
     await page.goto(BASE);
-    await page.waitForLoadState('networkidle');
 
     await page.keyboard.press('Tab');
-    await page.waitForTimeout(150);
+    await expect(page.locator('.skip-link')).toBeFocused();
     await page.keyboard.press('Enter');
-    await page.waitForTimeout(200);
 
-    const focusedId = await page.evaluate(() => document.activeElement?.id ?? '');
-    expect(focusedId, 'Enter on skip link must move focus to #main-content').toBe('main-content');
+    await expect
+      .poll(async () => page.evaluate(() => document.activeElement?.id ?? ''), {
+        message: 'Enter on skip link must move focus to #main-content',
+      })
+      .toBe('main-content');
   });
 });
 
@@ -214,35 +192,28 @@ test.describe('Copy button — clipboard feedback', () => {
 
   test('clicking copy button shows feedback message', async ({ page }) => {
     await page.goto(SKILL_PAGE);
-    await page.waitForLoadState('networkidle');
 
     const copyBtn = page.locator('.install-copy-btn');
-    await expect(copyBtn).toBeVisible({ timeout: 5_000 });
+    await expect(copyBtn).toHaveCount(1);
+    await expect(copyBtn).toBeVisible();
 
     // Feedback region must be empty before click
-    const feedbackBefore = await page.locator('[data-copy-feedback]').innerText();
-    expect(feedbackBefore.trim()).toBe('');
+    await expect(page.locator('[data-copy-feedback]')).toHaveText('');
 
     await copyBtn.click();
-    await page.waitForTimeout(300);
 
-    const feedback = await page.locator('[data-copy-feedback]').innerText();
-    expect(
-      feedback.toLowerCase(),
-      'aria-live feedback region must mention "copied" after click',
-    ).toMatch(/copied|copy/);
+    await expect(page.locator('[data-copy-feedback]')).toHaveText('Copied!');
   });
 
   test('clipboard content matches the install command', async ({ page }) => {
     await page.goto(SKILL_PAGE);
-    await page.waitForLoadState('networkidle');
 
     const copyBtn = page.locator('.install-copy-btn');
-    await expect(copyBtn).toBeVisible({ timeout: 5_000 });
+    await expect(copyBtn).toBeVisible();
 
     const installCmd = await page.locator('.install-block code').innerText();
     await copyBtn.click();
-    await page.waitForTimeout(300);
+    await expect(page.locator('[data-copy-feedback]')).toHaveText('Copied!');
 
     const clipboardContent = await page.evaluate(() =>
       navigator.clipboard.readText().catch(() => null)
@@ -255,78 +226,110 @@ test.describe('Copy button — clipboard feedback', () => {
 
   test('rapid double-click: feedback persists after second click', async ({ page }) => {
     await page.goto(SKILL_PAGE);
-    await page.waitForLoadState('networkidle');
 
     const copyBtn = page.locator('.install-copy-btn');
-    await expect(copyBtn).toBeVisible({ timeout: 5_000 });
+    await expect(copyBtn).toBeVisible();
+    const feedback = page.locator('[data-copy-feedback]');
 
     await copyBtn.click();
-    await page.waitForTimeout(150);
+    await expect(feedback).toHaveText('Copied!');
     await copyBtn.click();
-    await page.waitForTimeout(300);
 
-    const feedback = await page.locator('[data-copy-feedback]').innerText();
-    expect(
-      feedback.toLowerCase(),
-      'feedback must still show after rapid double-click (timer reset)',
-    ).toMatch(/copied|copy/);
+    // The second click must reset the 2s clear-timer, so the message stays.
+    await expect(feedback).toHaveText('Copied!');
   });
 });
 
 // ── Search-result hover contrast ──────────────────────────────────────
 
 test.describe('Search-result link hover contrast', () => {
-  test('hovered search-result-link contrast ratio >= 4.5:1 (WCAG AA)', async ({ page }) => {
+  test('hover styling is applied and yields >= 4.5:1 contrast (WCAG AA)', async ({ page }) => {
     await page.goto(BASE);
-    await page.waitForLoadState('networkidle');
 
-    // Type a query to get search results
     await page.locator('#search-input').fill('azure');
-    await expect(page.locator('.search-result-link').first()).toBeVisible({ timeout: 10_000 });
+    await waitForRenderedResults(page);
 
-    // Hover over the first result link
-    await page.locator('.search-result-link').first().hover();
-    await page.waitForTimeout(100);
+    const link = page.locator('.search-result-link').first();
+    await expect(link).toBeVisible();
 
-    // Read computed text color and background of the hovered link
-    const colors = await page.evaluate(() => {
-      const link = document.querySelector('.search-result-link') as HTMLElement | null;
-      if (!link) return null;
-      const style = window.getComputedStyle(link);
-      const color = style.color;
-      const bg = style.backgroundColor;
-
-      // Traverse up for the nearest opaque background
-      function nearestOpaque(el: Element | null): string {
-        while (el && el !== document.documentElement) {
-          const elBg = window.getComputedStyle(el).backgroundColor;
-          if (elBg && elBg !== 'transparent' && !elBg.startsWith('rgba(0, 0, 0, 0)')) {
-            return elBg;
-          }
-          el = el.parentElement;
-        }
-        return 'rgb(255,255,255)';
-      }
-
-      const effectiveBg = (bg === 'transparent' || bg.startsWith('rgba(0, 0, 0, 0)'))
-        ? nearestOpaque(link.parentElement)
-        : bg;
-
-      return { color, bg: effectiveBg };
+    // Runtime-created Pagefind nodes carry no [data-astro-cid-*] attribute, so
+    // only the :global(.search-result-link:hover) rule can style them. Capture
+    // the un-hovered computed style first: if that rule is ever deleted, the
+    // hovered background stays identical (transparent) and this test fails.
+    const before = await link.evaluate((el) => {
+      const s = window.getComputedStyle(el);
+      return { background: s.backgroundColor, color: s.color };
     });
 
-    expect(colors, 'hovered .search-result-link must be present in DOM').not.toBeNull();
+    await link.hover();
 
-    const fg = parseRgb(colors!.color);
-    const bg = parseRgb(colors!.bg);
+    const hoverSurface = await resolveColorToken(page, '--cp-hover-surface');
+    const textColor = await resolveColorToken(page, '--cp-text');
 
-    expect(fg, `could not parse text color: ${colors!.color}`).not.toBeNull();
-    expect(bg, `could not parse background: ${colors!.bg}`).not.toBeNull();
+    // Web-first: retry until the hover transition has settled on the token value.
+    await expect
+      .poll(
+        async () => link.evaluate((el) => window.getComputedStyle(el).backgroundColor),
+        {
+          message:
+            'hovered .search-result-link background must resolve to var(--cp-hover-surface) — ' +
+            'the :global(.search-result-link:hover) rule must exist and match runtime Pagefind nodes',
+          timeout: 5_000,
+        },
+      )
+      .toBe(hoverSurface);
+
+    const after = await link.evaluate((el) => {
+      const s = window.getComputedStyle(el);
+      return { background: s.backgroundColor, color: s.color };
+    });
+
+    expect(
+      after.background,
+      `hover must change the background (before=${before.background}, after=${after.background})`,
+    ).not.toBe(before.background);
+    expect(
+      after.color,
+      'hovered link text colour must resolve to var(--cp-text)',
+    ).toBe(textColor);
+
+    const fg = parseRgb(after.color);
+    const bg = parseRgb(after.background);
+    expect(fg, `could not parse text color: ${after.color}`).not.toBeNull();
+    expect(bg, `could not parse background: ${after.background}`).not.toBeNull();
 
     const ratio = contrastRatio(fg!, bg!);
     expect(
       ratio,
-      `hovered .search-result-link contrast ratio is ${ratio.toFixed(2)}:1; must be >= 4.5:1 for WCAG AA (fg=${colors!.color}, bg=${colors!.bg})`,
+      `hovered .search-result-link contrast ratio is ${ratio.toFixed(2)}:1; must be >= 4.5:1 for WCAG AA ` +
+        `(fg=${after.color}, bg=${after.background})`,
     ).toBeGreaterThanOrEqual(4.5);
+  });
+
+  test('hovered meta and excerpt text also reach AA on the hover surface', async ({ page }) => {
+    await page.goto(BASE);
+
+    await page.locator('#search-input').fill('azure');
+    await waitForRenderedResults(page);
+
+    const link = page.locator('.search-result-link').first();
+    await link.hover();
+
+    const hoverSurface = await resolveColorToken(page, '--cp-hover-surface');
+    const bg = parseRgb(hoverSurface);
+    expect(bg, `could not parse --cp-hover-surface: ${hoverSurface}`).not.toBeNull();
+
+    for (const selector of ['.search-result-title', '.search-result-meta']) {
+      const child = link.locator(selector).first();
+      await expect(child, `${selector} must exist inside a search result`).toHaveCount(1);
+      const color = await child.evaluate((el) => window.getComputedStyle(el).color);
+      const fg = parseRgb(color);
+      expect(fg, `could not parse ${selector} color: ${color}`).not.toBeNull();
+      const ratio = contrastRatio(fg!, bg!);
+      expect(
+        ratio,
+        `${selector} contrast on hover is ${ratio.toFixed(2)}:1 (fg=${color}, bg=${hoverSurface}); must be >= 4.5:1`,
+      ).toBeGreaterThanOrEqual(4.5);
+    }
   });
 });

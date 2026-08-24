@@ -5,8 +5,7 @@
  * or a copy button. They must show a restricted badge and warning box.
  */
 import { test, expect } from '@playwright/test';
-
-const BASE = '/Skills/';
+import { BASE } from './_helpers';
 
 const RESTRICTED_SKILLS = [
   { source: 'claude', slug: 'docx' },
@@ -33,15 +32,11 @@ test.describe('Restricted skill pages', () => {
         expect(bodyText, 'restricted page must not show npx install string').not.toContain('npx skills add');
       });
 
-      test('copy button is absent or hidden', async ({ page }) => {
-        const copyBtn = page.locator('.install-copy-btn');
-        const count = await copyBtn.count();
-        if (count > 0) {
-          // If the button exists it must be hidden
-          const isHidden = await copyBtn.first().evaluate(el => (el as HTMLElement).hidden);
-          expect(isHidden, 'copy button on restricted page must be hidden').toBe(true);
-        }
-        // count === 0 is also acceptable (button not rendered at all)
+      test('no copy button is rendered at all', async ({ page }) => {
+        // Restricted skills get no install command, so InstallCommand (and its
+        // copy button) must never be rendered — not merely hidden.
+        await expect(page.locator('.install-copy-btn')).toHaveCount(0);
+        await expect(page.locator('.install-block')).toHaveCount(0);
       });
 
       test('restricted badge is visible', async ({ page }) => {

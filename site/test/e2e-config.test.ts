@@ -94,6 +94,51 @@ test('P3e: playwright.config.ts specifies outputDir outside source tree', () => 
   assert.match(config, /outputDir|output/, 'playwright.config.ts must specify an output directory');
 });
 
+test('P3f: playwright.config.ts uses the dedicated E2E port 4330 by default', () => {
+  const config = fs.readFileSync(path.join(siteRoot, 'playwright.config.ts'), 'utf8');
+  // 4321 is Astro's default dev/preview port; reusing it risks binding to an
+  // unrelated dev server that serves a different build.
+  assert.doesNotMatch(
+    config,
+    /\b4321\b/,
+    'playwright.config.ts must not use Astro default port 4321 (an unrelated dev server may own it)',
+  );
+  assert.match(config, /\b4330\b/, 'playwright.config.ts must default to the dedicated E2E port 4330');
+});
+
+test('P3g: playwright.config.ts allows a port override via environment variable', () => {
+  const config = fs.readFileSync(path.join(siteRoot, 'playwright.config.ts'), 'utf8');
+  assert.match(
+    config,
+    /process\.env\.E2E_PORT/,
+    'playwright.config.ts must honour an E2E_PORT environment override',
+  );
+});
+
+test('P3h: playwright.config.ts never reuses an existing web server', () => {
+  const config = fs.readFileSync(path.join(siteRoot, 'playwright.config.ts'), 'utf8');
+  assert.match(
+    config,
+    /reuseExistingServer:\s*false/,
+    'reuseExistingServer must be false so tests always run against the freshly built dist',
+  );
+  assert.doesNotMatch(
+    config,
+    /reuseExistingServer:\s*!isCI/,
+    'reuseExistingServer must not depend on CI — a stale local preview would serve a different build',
+  );
+});
+
+test('P3i: playwright.config.ts serves the built dist via astro preview', () => {
+  const config = fs.readFileSync(path.join(siteRoot, 'playwright.config.ts'), 'utf8');
+  assert.match(config, /preview/, 'webServer must run astro preview (deterministic dist output)');
+  assert.doesNotMatch(
+    config,
+    /astro(\.cmd)?['"`\s]+dev\b/,
+    'webServer must not run the dev server — E2E must test the built dist',
+  );
+});
+
 // ─── P4: e2e spec files ──────────────────────────────────────────────
 
 test('P4: e2e/ directory exists with spec files', () => {
@@ -132,7 +177,6 @@ test('P4e: a11y spec exists for accessibility checks', () => {
 });
 
 // ─── P5: gitignore covers test artifacts ─────────────────────────────
-
 test('P5: .gitignore excludes playwright result/report directories', () => {
   const root = path.resolve(siteRoot, '..');
   const gitignore = fs.readFileSync(path.join(root, '.gitignore'), 'utf8');
@@ -145,5 +189,151 @@ test('P5: .gitignore excludes playwright result/report directories', () => {
     combined,
     /playwright-results|test-results|playwright-report/,
     '.gitignore must exclude playwright test artifact directories',
+  );
+});
+
+// ─── P6: spec strength guards ────────────────────────────────────────
+//
+// These guard against the specific weak-assertion regressions found in the
+// D8 review: dead helpers, vacuous "if (count) then assert" passes, fixed
+// sleeps instead of settled-state waits, and destination-agnostic
+// click-through checks that the homepage would also satisfy.
+
+function readSpec(name: string): string {
+  return fs.readFileSync(path.join(siteRoot, 'e2e', name), 'utf8');
+}
+
+test('P6a: a11y spec contains no unused nearestOpaqueBg helper', () => {
+  const spec = readSpec('a11y.spec.ts');
+  assert.doesNotMatch(
+    spec,
+    /function nearestOpaqueBg|const nearestOpaqueBg/,
+    'the page-level nearestOpaqueBg helper was dead code and duplicated contrast logic — remove it',
+  );
+});
+
+test('P6b: a11y spec proves hover styling was applied via --cp-hover-surface', () => {
+  const spec = readSpec('a11y.spec.ts');
+  assert.match(
+    spec,
+    /--cp-hover-surface/,
+    'hover contrast test must compare the hovered background against the resolved --cp-hover-surface token',
+  );
+});
+
+test('P6c: a11y no-JS tests assert exact element counts before hidden', () => {
+  const spec = readSpec('a11y.spec.ts');
+  for (const selector of ['.search-box', '.filter-controls', '.install-copy-btn']) {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    assert.match(
+      spec,
+      new RegExp(`toHaveCount\\(1\\)[\\s\\S]{0,400}?${escaped}|${escaped}[\\s\\S]{0,400}?toHaveCount\\(1\\)`),
+      `no-JS test for ${selector} must assert it exists exactly once before asserting it is hidden`,
+    );
+  }
+  assert.doesNotMatch(
+    spec,
+    /if\s*\(\(await [A-Za-z]+\.count\(\)\)\s*>\s*0\)/,
+    'no-JS tests must not use optional "if count > 0" guards that pass vacuously when the element is missing',
+  );
+});
+
+test('P6d: search spec asserts the settled no-results status message', () => {
+  const spec = readSpec('search.spec.ts');
+  const helpers = fs.readFileSync(path.join(siteRoot, 'e2e', '_helpers.ts'), 'utf8');
+  assert.match(
+    helpers,
+    /No matching skills found\./,
+    'the settled no-results status text must be pinned to what Search.astro renders',
+  );
+  assert.match(
+    spec,
+    /NO_RESULTS_STATUS/,
+    'no-results test must assert the exact settled status message, not just an empty result list',
+  );
+});
+
+test('P6e: search spec has no fixed-sleep waits', () => {
+  const spec = readSpec('search.spec.ts');
+  assert.doesNotMatch(
+    spec,
+    /waitForTimeout/,
+    'search spec must use web-first assertions / settled-state waits instead of fixed timeouts',
+  );
+});
+
+test('P6f: search click-through asserts a skill detail destination path', () => {
+  const spec = readSpec('search.spec.ts');
+  assert.match(
+    spec,
+    /SKILL_DETAIL_PATH_RE/,
+    'click-through test must match the destination against a /Skills/skills/<source>/<skill>/ pattern',
+  );
+  assert.match(
+    spec,
+    /not\.toBe\('\/Skills\/'\)/,
+    'click-through test must explicitly assert the homepage does not satisfy it',
+  );
+});
+
+test('P6g: search filter tests validate every result row, not just the count', () => {
+  const spec = readSpec('search.spec.ts');
+  assert.match(
+    spec,
+    /assertEveryResultMatches/,
+    'filter tests must validate metadata of every rendered result against the selected filter values',
+  );
+});
+
+test('P6h: search spec covers a combined multi-filter case', () => {
+  const spec = readSpec('search.spec.ts');
+  assert.match(
+    spec,
+    /combined source \+ license \+ origin/i,
+    'search spec must include a combined source+license+origin filter case',
+  );
+});
+
+test('P6i: generation-guard test compares against a control result set', () => {
+  const spec = readSpec('search.spec.ts');
+  assert.match(
+    spec,
+    /disjoint/i,
+    'the rapid-input test must assert the two queries have disjoint result sets',
+  );
+  assert.match(
+    spec,
+    /finalControl|finalTitles/,
+    'the rapid-input test must compare rendered titles against the final query control set',
+  );
+});
+
+test('P6j: health spec asserts page-specific titles, not a generic "Skills" substring', () => {
+  const spec = readSpec('health.spec.ts');
+  assert.doesNotMatch(
+    spec,
+    /toContain\('Skills'\)/,
+    'a generic "Skills" substring is satisfied by every page and by the base path — assert real titles',
+  );
+  assert.match(spec, /Catalog \| Skills Registry/, 'homepage must be identified by its exact <title>');
+  assert.match(spec, /Registry Status/, 'status page must be identified by its exact <h1>');
+});
+
+test('P6k: health spec covers 404 handling', () => {
+  const spec = readSpec('health.spec.ts');
+  assert.match(spec, /toBe\(404\)/, 'health spec must assert real 404 responses for unknown paths');
+});
+
+test('P6l: restricted spec asserts no install/copy affordance is rendered', () => {
+  const spec = readSpec('restricted.spec.ts');
+  assert.doesNotMatch(
+    spec,
+    /if \(count > 0\)/,
+    'restricted spec must not use an optional guard that passes when the element is absent AND when it is present-but-visible',
+  );
+  assert.match(
+    spec,
+    /install-copy-btn'\)\)\.toHaveCount\(0\)/,
+    'restricted pages must render no copy button at all',
   );
 });
