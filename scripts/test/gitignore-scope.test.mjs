@@ -16,7 +16,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -81,6 +81,40 @@ const VENDORED_ARTIFACTS = [
   'skills/upstream/demo/obj/intermediate.txt',
   'skills/upstream/demo/scripts/run.log',
   'skills/upstream/demo/.env',
+];
+
+const IGNORED_VENDORED_ARTIFACTS = [
+  'skills/upstream/demo/.vscode/settings.json',
+  'skills/upstream/demo/.idea/workspace.xml',
+  'skills/upstream/demo/__pycache__/module.pyc',
+  'skills/upstream/demo/.venv/pyvenv.cfg',
+  'skills/upstream/demo/.DS_Store',
+  'skills/upstream/demo/profile.user',
+  'skills/upstream/demo/.astro/types.d.ts',
+  'skills/upstream/demo/demo.egg-info/PKG-INFO',
+  'skills/upstream/demo/.pytest_cache/v/cache/nodeids',
+  'skills/upstream/demo/Thumbs.db',
+  'skills/upstream/demo/Desktop.ini',
+  'skills/upstream/demo/editor.swp',
+  'skills/upstream/demo/editor.swo',
+  'skills/upstream/demo/backup~',
+  'skills/upstream/demo/module.pyo',
+  'skills/upstream/demo/package.whl',
+  'skills/upstream/demo/profile.suo',
+  'skills/upstream/demo/venv/pyvenv.cfg',
+  'skills/upstream/demo/.mypy_cache/cache.json',
+  'skills/upstream/demo/.ruff_cache/cache.json',
+  'skills/upstream/demo/.baseline-work-temp/state.json',
+  'skills/upstream/demo/.baseline-backup-temp/state.json',
+  'skills/upstream/demo/.update-work-temp/state.json',
+  'skills/upstream/demo/sync-report/plan.json',
+];
+
+const CASE_VARIANT_ARTIFACTS = [
+  '.VSCODE/settings.json',
+  'NODE_MODULES/pkg/index.js',
+  'PROFILE.USER',
+  'MODULE.PYC',
 ];
 
 const REPOSITORY_ARTIFACTS = [
@@ -152,6 +186,22 @@ test('GI4: node_modules stays ignored even under skills/', async () => {
   assert.ok(tracked.has('skills/upstream/demo/SKILL.md'));
 });
 
+test('GI4a: unsupported editor and cache artifacts stay ignored under skills/', async () => {
+  const tracked = await trackedPaths([
+    ...IGNORED_VENDORED_ARTIFACTS,
+    'skills/upstream/demo/SKILL.md',
+  ]);
+
+  for (const artifact of IGNORED_VENDORED_ARTIFACTS) {
+    assert.equal(
+      tracked.has(artifact),
+      false,
+      `${artifact} must remain ignored so staging and hashing cannot claim untrackable bytes`,
+    );
+  }
+  assert.ok(tracked.has('skills/upstream/demo/SKILL.md'));
+});
+
 // ─── GI5–GI7: the hash must cover exactly the trackable bytes ───────
 //
 // GI1–GI4 make git's view match the hash for build output, logs and dotenv.
@@ -213,6 +263,34 @@ test('GI6: every file the hash covers is a file git will track', async () => {
     'scripts/run.log': 'log\n',
     '.env': 'PUBLIC_UPSTREAM_SAMPLE=1\n',
     'node_modules/left-pad/index.js': 'dep\n',
+    '.vscode/settings.json': '{}\n',
+    '.idea/workspace.xml': '<project />\n',
+    '__pycache__/module.pyc': 'cache\n',
+    '.venv/pyvenv.cfg': 'home = fixture\n',
+    '.DS_Store': 'metadata\n',
+    'profile.user': 'user settings\n',
+    '.astro/types.d.ts': 'declare const fixture: true;\n',
+    'demo.egg-info/PKG-INFO': 'Metadata-Version: 2.1\n',
+    '.pytest_cache/v/cache/nodeids': '[]\n',
+    'Thumbs.db': 'thumbnail\n',
+    'Desktop.ini': '[.ShellClassInfo]\n',
+    'editor.swp': 'swap\n',
+    'editor.swo': 'swap\n',
+    'backup~': 'backup\n',
+    'module.pyo': 'cache\n',
+    'package.whl': 'wheel\n',
+    'profile.suo': 'user options\n',
+    'venv/pyvenv.cfg': 'home = fixture\n',
+    '.mypy_cache/cache.json': '{}\n',
+    '.ruff_cache/cache.json': '{}\n',
+    '.baseline-work-temp/state.json': '{}\n',
+    '.baseline-backup-temp/state.json': '{}\n',
+    '.update-work-temp/state.json': '{}\n',
+    'sync-report/plan.json': '{}\n',
+    '.VSCODE/settings.json': '{}\n',
+    'NODE_MODULES/pkg/index.js': 'dependency\n',
+    'PROFILE.USER': 'user settings\n',
+    'MODULE.PYC': 'cache\n',
   };
 
   const fixture = await writeSkillFixture(files);
@@ -238,19 +316,77 @@ test('GI6: every file the hash covers is a file git will track', async () => {
       false,
       'node_modules is ignored by git, so it must be excluded from the hash as well',
     );
+    for (const ignored of IGNORED_VENDORED_ARTIFACTS) {
+      const relativePath = ignored.replace('skills/upstream/demo/', '');
+      assert.equal(
+        hashed.includes(relativePath),
+        false,
+        `${relativePath} is ignored by git and must not be hashed`,
+      );
+    }
+    for (const artifact of CASE_VARIANT_ARTIFACTS) {
+      assert.equal(
+        hashed.includes(artifact),
+        false,
+        `${artifact} must be excluded consistently on case-sensitive and case-insensitive hosts`,
+      );
+    }
   } finally {
     await rm(fixture, { recursive: true, force: true });
   }
 });
 
-test('GI7: the ignore-exclusion rule is declared once and shared', async () => {
+test('GI7: hashing rejects every symbolic link with its relative path', async (t) => {
+  const fixture = await writeSkillFixture({
+    'SKILL.md': '---\nname: demo\ndescription: demo\n---\n\n# demo\n',
+  });
+  const linkPath = path.join(fixture, 'linked-skill.md');
+
+  try {
+    try {
+      await symlink('SKILL.md', linkPath);
+    } catch (error) {
+      if (error?.code === 'EPERM' || error?.code === 'EACCES') {
+        t.skip(`symbolic links cannot be created on this host: ${error.code}`);
+        return;
+      }
+      throw error;
+    }
+
+    await assert.rejects(
+      hashDirectory(fixture),
+      /symbolic link.*linked-skill\.md/i,
+      'a link must not be silently omitted from the provenance hash',
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
+});
+
+test('GI8: the ignore-exclusion rule is declared once and shared', async () => {
   const { HASH_EXCLUDED_DIRECTORIES } = await import('../lib/hash.mjs');
 
   assert.ok(
     HASH_EXCLUDED_DIRECTORIES instanceof Set,
     'the excluded directory names must be exported so staging and hashing cannot drift',
   );
-  assert.deepEqual([...HASH_EXCLUDED_DIRECTORIES].sort(), ['.git', 'node_modules']);
+  assert.deepEqual(
+    [...HASH_EXCLUDED_DIRECTORIES].sort(),
+    [
+      '.astro',
+      '.git',
+      '.idea',
+      '.mypy_cache',
+      '.pytest_cache',
+      '.ruff_cache',
+      '.venv',
+      '.vscode',
+      '__pycache__',
+      'node_modules',
+      'sync-report',
+      'venv',
+    ],
+  );
 
   const gitignore = await readFile(path.join(repoRoot, '.gitignore'), 'utf8');
   assert.match(

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { cp, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readFile, readdir, rm, symlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -387,7 +387,18 @@ function verifiedLock() {
 
 test('buildUpdateLock bumps only changed skills and leaves others untouched', () => {
   const staged = new Map([
-    ['skills/demo/alpha', { commit: 'c'.repeat(40), contentHash: 'sha256:new-alpha', snapshotHash: 'sha256:new-snap-alpha', name: 'alpha' }],
+    [
+      'skills/demo/alpha',
+      {
+        commit: 'c'.repeat(40),
+        contentHash: 'sha256:new-alpha',
+        snapshotHash: 'sha256:new-snap-alpha',
+        name: 'alpha',
+        repository: 'migrated/upstream',
+        reference: 'refs/tags/v2',
+        source: 'new-layout/alpha',
+      },
+    ],
     ['skills/demo/beta', { commit: 'd'.repeat(40), contentHash: 'sha256:new-beta', snapshotHash: 'sha256:new-snap-beta' }],
   ]);
 
@@ -405,7 +416,12 @@ test('buildUpdateLock bumps only changed skills and leaves others untouched', ()
   assert.equal(alpha.version, '1.1.1');
   assert.equal(alpha.contentHash, 'sha256:new-alpha');
   assert.equal(alpha.snapshotHash, 'sha256:new-snap-alpha');
-  assert.equal(alpha.upstream.commit, 'c'.repeat(40));
+  assert.deepEqual(alpha.upstream, {
+    repository: 'migrated/upstream',
+    reference: 'refs/tags/v2',
+    source: 'new-layout/alpha',
+    commit: 'c'.repeat(40),
+  });
 
   // Unchanged mapped skill stays exactly as before.
   const beta = lock.skills.find((s) => s.path === 'skills/demo/beta');
@@ -447,6 +463,181 @@ test('applyUpdate returns no-op when upstream has not changed', async () => {
     // Filesystem unchanged.
     assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), skillsBefore);
     assert.equal(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'), lockBefore);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate treats a reference-only migration with identical content as an update', async () => {
+  const workspace = await makeTempDir('update-reference-migration');
+  try {
+    const { upstream, upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
+    git(upstreamRoot, ['branch', 'legacy']);
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources.replace('reference: refs/heads/main', 'reference: refs/heads/legacy'),
+    );
+    git(repoRoot, ['add', '-A']);
+    git(repoRoot, ['commit', '-q', '-m', 'manifest: migrate reference']);
+
+    const result = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-03-03T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+
+    assert.equal(result.applied, true);
+    assert.deepEqual(result.changed, ['skills/demo/alpha', 'skills/demo/beta']);
+    const lock = JSON.parse(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'));
+    const alpha = lock.skills.find((skill) => skill.path === 'skills/demo/alpha');
+    assert.deepEqual(alpha.upstream, {
+      repository: upstream.url,
+      reference: 'refs/heads/legacy',
+      source: 'skills/alpha',
+      commit: upstream.commit,
+    });
+    assert.equal(alpha.contentHash, await hashDirectory(path.join(upstreamRoot, 'skills', 'alpha')));
+
+    const stamped = await readFile(path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), 'utf8');
+    assert.match(stamped, new RegExp(`x-source: ${upstream.url}`));
+    assert.match(stamped, /x-source-path: skills\/alpha/);
+    assert.match(stamped, new RegExp(`x-source-commit: ${upstream.commit}`));
+    assert.match(stamped, /x-version: 1\.1\.1/);
+
+    const history = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+    );
+    assert.equal(history.entries.at(-1).upstreamCommit, upstream.commit);
+    assert.ok(history.entries.at(-1).diffUrl, 'a same-repository migration retains a compare URL');
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate migrates repository and source with identical content without a cross-repository diff URL', async () => {
+  const workspace = await makeTempDir('update-repository-source-migration');
+  try {
+    const { upstream, repoRoot } = await buildUpdateFixture(workspace);
+    const migrated = await initUpstreamRepo(path.join(workspace, 'migrated-upstream'), {
+      'new-layout/alpha/SKILL.md': skillDoc('alpha', 'Alpha upstream body.'),
+      'new-layout/alpha/references/notes.md': '# alpha notes\n',
+      'new-layout/beta/SKILL.md': skillDoc('beta', 'Beta upstream body.'),
+    });
+    const lockBeforeMigration = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+    );
+    assert.equal(
+      await hashDirectory(path.join(workspace, 'migrated-upstream', 'new-layout', 'alpha')),
+      lockBeforeMigration.skills.find((skill) => skill.path === 'skills/demo/alpha').contentHash,
+      'the repository/source migration fixture must preserve alpha content bytes',
+    );
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources
+        .replace(`repository: "${upstream.url}"`, `repository: "${migrated.url}"`)
+        .replace('source: skills/alpha', 'source: new-layout/alpha')
+        .replace('source: skills/beta', 'source: new-layout/beta'),
+    );
+    git(repoRoot, ['add', '-A']);
+    git(repoRoot, ['commit', '-q', '-m', 'manifest: migrate repository and source']);
+
+    const result = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-03-03T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+
+    assert.equal(result.applied, true);
+    const lock = JSON.parse(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'));
+    const alpha = lock.skills.find((skill) => skill.path === 'skills/demo/alpha');
+    assert.deepEqual(alpha.upstream, {
+      repository: migrated.url,
+      reference: 'refs/heads/main',
+      source: 'new-layout/alpha',
+      commit: migrated.commit,
+    });
+    const stamped = await readFile(path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), 'utf8');
+    assert.match(stamped, new RegExp(`x-source: ${migrated.url}`));
+    assert.match(stamped, /x-source-path: new-layout\/alpha/);
+    assert.match(stamped, new RegExp(`x-source-commit: ${migrated.commit}`));
+
+    const history = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+    );
+    assert.equal(history.entries.at(-1).upstreamCommit, migrated.commit);
+    assert.equal(history.entries.at(-1).diffUrl, null);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate leaves every target untouched when a tuple-only migration fails validation', async () => {
+  const workspace = await makeTempDir('update-tuple-migration-rollback');
+  try {
+    const { upstream, repoRoot } = await buildUpdateFixture(workspace);
+    const migrated = await initUpstreamRepo(path.join(workspace, 'migrated-upstream'), {
+      'new-layout/alpha/SKILL.md': skillDoc('alpha', 'Alpha upstream body.'),
+      'new-layout/alpha/references/notes.md': '# alpha notes\n',
+      'new-layout/beta/SKILL.md': skillDoc('beta', 'Beta upstream body.'),
+    });
+    const lockBeforeMigration = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+    );
+    assert.equal(
+      await hashDirectory(path.join(workspace, 'migrated-upstream', 'new-layout', 'alpha')),
+      lockBeforeMigration.skills.find((skill) => skill.path === 'skills/demo/alpha').contentHash,
+      'the rollback fixture must exercise a tuple-only migration',
+    );
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources
+        .replace(`repository: "${upstream.url}"`, `repository: "${migrated.url}"`)
+        .replace('source: skills/alpha', 'source: new-layout/alpha')
+        .replace('source: skills/beta', 'source: new-layout/beta'),
+    );
+    git(repoRoot, ['add', '-A']);
+    git(repoRoot, ['commit', '-q', '-m', 'manifest: migrate repository and source']);
+
+    const skillsBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+    const lockBefore = await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8');
+    const historyBefore = await readFile(
+      path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'),
+      'utf8',
+    );
+    const noticeBefore = await readFile(path.join(repoRoot, 'NOTICE'), 'utf8');
+    const readmeBefore = await readFile(path.join(repoRoot, 'README.md'), 'utf8');
+
+    await assert.rejects(
+      applyUpdate({
+        repoRoot,
+        readGitStatus: cleanTree,
+        runGit: makeRunGit(repoRoot),
+        validate: async () => {
+          throw new Error('injected tuple migration validation failure');
+        },
+      }),
+      (error) => error instanceof BaselineError && /validation/i.test(error.message),
+    );
+
+    assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), skillsBefore);
+    assert.equal(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'), lockBefore);
+    assert.equal(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+      historyBefore,
+    );
+    assert.equal(await readFile(path.join(repoRoot, 'NOTICE'), 'utf8'), noticeBefore);
+    assert.equal(await readFile(path.join(repoRoot, 'README.md'), 'utf8'), readmeBefore);
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }
@@ -643,6 +834,47 @@ test('applyUpdate refuses when an upstream is unavailable (never treats as delet
     // No filesystem mutation.
     assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), before);
     assert.equal(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'), lockBefore);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate rejects upstream symbolic links without mutating the repository', async (t) => {
+  const workspace = await makeTempDir('update-symbolic-link');
+  try {
+    const { upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
+    const linkPath = path.join(upstreamRoot, 'skills', 'alpha', 'linked-skill.md');
+
+    try {
+      await symlink('SKILL.md', linkPath);
+    } catch (error) {
+      if (error?.code === 'EPERM' || error?.code === 'EACCES') {
+        t.skip(`symbolic links cannot be created on this host: ${error.code}`);
+        return;
+      }
+      throw error;
+    }
+    git(upstreamRoot, ['add', '-A']);
+    git(upstreamRoot, ['commit', '-q', '-m', 'add symbolic link']);
+
+    const skillsBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+    const lockBefore = await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8');
+    const historyBefore = await readFile(
+      path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'),
+      'utf8',
+    );
+
+    await assert.rejects(
+      applyUpdate({ repoRoot, readGitStatus: cleanTree, runGit: makeRunGit(repoRoot) }),
+      /symbolic link.*linked-skill\.md/i,
+    );
+
+    assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), skillsBefore);
+    assert.equal(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'), lockBefore);
+    assert.equal(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+      historyBefore,
+    );
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }

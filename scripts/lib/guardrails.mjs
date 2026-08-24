@@ -300,8 +300,8 @@ export function buildDeletionGroups({
   const mappings = manifest?.mappings ?? [];
   const mappingPaths = new Set(mappings.map((mapping) => mapping.path));
 
-  const declaredByGroup = new Map();
-  const removedByGroup = new Map();
+  const declaredByKey = new Map();
+  const removedByKey = new Map();
 
   for (const skill of lock?.skills ?? []) {
     if (skill.category !== 'mapped') {
@@ -309,31 +309,36 @@ export function buildDeletionGroups({
     }
 
     const key = upstreamGroupKey(skill.upstream?.repository, skill.upstream?.reference);
-    const group = nameByKey.get(key) ?? skill.upstream?.repository ?? key;
 
-    declaredByGroup.set(group, (declaredByGroup.get(group) ?? 0) + 1);
+    declaredByKey.set(key, (declaredByKey.get(key) ?? 0) + 1);
 
     if (!mappingPaths.has(skill.path)) {
-      removedByGroup.set(group, (removedByGroup.get(group) ?? 0) + 1);
+      removedByKey.set(key, (removedByKey.get(key) ?? 0) + 1);
     }
   }
 
   if (includeUnmappedUpstreams) {
     for (const mapping of mappings) {
-      if (!declaredByGroup.has(mapping.upstream)) {
-        declaredByGroup.set(mapping.upstream, 0);
+      const definition = manifest.upstreams[mapping.upstream];
+      const key = upstreamGroupKey(definition.repository, definition.reference);
+      if (!declaredByKey.has(key)) {
+        declaredByKey.set(key, 0);
       }
     }
   }
 
-  return [...declaredByGroup.keys()]
+  return [...declaredByKey.keys()]
     .sort()
-    .map((group) => ({
-      upstream: group,
-      declared: declaredByGroup.get(group) ?? 0,
-      removed: removedByGroup.get(group) ?? 0,
-      available: availableByName.get(group) ?? true,
-    }));
+    .map((key) => {
+      const [repository] = key.split('\u0000', 1);
+      const upstream = nameByKey.get(key) ?? repository ?? key;
+      return {
+        upstream,
+        declared: declaredByKey.get(key) ?? 0,
+        removed: removedByKey.get(key) ?? 0,
+        available: availableByName.get(upstream) ?? true,
+      };
+    });
 }
 
 /**

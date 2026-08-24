@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { cp, mkdir, mkdtemp, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readdir, readFile, rename, rm, symlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -383,7 +383,7 @@ async function buildBaselineFixture(workspace, { alphaUpstreamBody, upstreamExtr
     ['# Fixture', '', '<!-- CATALOG:START -->', 'old', '<!-- CATALOG:END -->', ''].join('\n'),
   );
 
-  return { upstream, repoRoot };
+  return { upstream, upstreamRoot: path.join(workspace, 'upstream'), repoRoot };
 }
 
 function mappedLockEntry(skillPath, name, source, snapshotHash, repository) {
@@ -567,6 +567,76 @@ test('applyBaseline never vendors an upstream node_modules tree', async () => {
       await hashDirectory(alphaDir),
       'the recorded snapshot must describe exactly the vendored tree',
     );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline rejects upstream symbolic links without mutating the repository', async (t) => {
+  const workspace = await makeTempDir('baseline-symbolic-link');
+  try {
+    const { repoRoot, upstreamRoot } = await buildBaselineFixture(workspace);
+    const linkPath = path.join(upstreamRoot, 'skills', 'alpha', 'linked-skill.md');
+
+    try {
+      await symlink('SKILL.md', linkPath);
+    } catch (error) {
+      if (error?.code === 'EPERM' || error?.code === 'EACCES') {
+        t.skip(`symbolic links cannot be created on this host: ${error.code}`);
+        return;
+      }
+      throw error;
+    }
+    git(upstreamRoot, ['add', '-A']);
+    git(upstreamRoot, ['commit', '-q', '-m', 'add symbolic link']);
+
+    const skillsBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+    const lockBefore = await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8');
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree }),
+      /symbolic link.*linked-skill\.md/i,
+    );
+
+    assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), skillsBefore);
+    assert.equal(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'), lockBefore);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline identifies a symbolic-link mapping source before staging', async (t) => {
+  const workspace = await makeTempDir('baseline-symbolic-source');
+  try {
+    const { repoRoot, upstreamRoot } = await buildBaselineFixture(workspace);
+    const linkPath = path.join(upstreamRoot, 'skills', 'linked-alpha');
+
+    try {
+      await symlink('alpha', linkPath, 'dir');
+    } catch (error) {
+      if (error?.code === 'EPERM' || error?.code === 'EACCES') {
+        t.skip(`symbolic links cannot be created on this host: ${error.code}`);
+        return;
+      }
+      throw error;
+    }
+    git(upstreamRoot, ['add', '-A']);
+    git(upstreamRoot, ['commit', '-q', '-m', 'add symbolic source link']);
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(sourcesPath, sources.replace('source: skills/alpha', 'source: skills/linked-alpha'));
+
+    const skillsBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+    const lockBefore = await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8');
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree }),
+      /symbolic link.*linked-alpha/i,
+    );
+
+    assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), skillsBefore);
+    assert.equal(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'), lockBefore);
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }

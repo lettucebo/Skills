@@ -258,6 +258,47 @@ test('buildDeletionGroups falls back to the repository when no manifest upstream
   );
 });
 
+test('buildDeletionGroups keeps absent references separate even when their display label is shared', () => {
+  const lock = {
+    skills: [
+      ...Array.from({ length: 12 }, (_, i) =>
+        mappedEntry(`skills/main/m${i}`, 'refs/heads/main'),
+      ),
+      ...Array.from({ length: 12 }, (_, i) =>
+        mappedEntry(`skills/legacy/l${i}`, 'refs/tags/v1'),
+      ),
+    ],
+  };
+  const manifest = {
+    upstreams: {},
+    mappings: [
+      ...Array.from({ length: 7 }, (_, i) => ({
+        path: `skills/main/m${i + 5}`,
+        upstream: 'replacement-main',
+        source: `skills/main/m${i + 5}`,
+      })),
+      ...Array.from({ length: 12 }, (_, i) => ({
+        path: `skills/legacy/l${i}`,
+        upstream: 'replacement-legacy',
+        source: `skills/legacy/l${i}`,
+      })),
+    ],
+  };
+
+  const groups = buildDeletionGroups({ manifest, lock });
+
+  assert.equal(groups.length, 2, 'a fallback label must not become the grouping identity');
+  assert.deepEqual(
+    groups.map(({ declared, removed }) => ({ declared, removed })).sort((a, b) => b.removed - a.removed),
+    [{ declared: 12, removed: 5 }, { declared: 12, removed: 0 }],
+  );
+  assert.equal(
+    evaluateDeletionGuards(groups).blocked,
+    true,
+    '5/12 must block; merging both absent references as 5/24 would incorrectly pass',
+  );
+});
+
 test('buildDeletionGroups only emits empty manifest upstreams when the planner asks', () => {
   const lock = { skills: [] };
   const manifest = {

@@ -13,17 +13,60 @@ import path from 'node:path';
  * reproduce, so the same rule is enforced on both sides of the pipeline: the
  * staging copy skips them and the digest never sees them.
  *
- * Every other artifact the repository `.gitignore` would normally hide (build
- * output, logs, `.env`) is explicitly re-included under `skills/**`, so it stays
- * both tracked and hashed.
+ * Vendored build output, logs, and `.env` files are explicitly re-included
+ * under `skills/**`, so they stay both tracked and hashed. OS/editor caches
+ * remain ignored and are excluded below from both staging and hashing.
  */
-export const HASH_EXCLUDED_DIRECTORIES = Object.freeze(new Set(['node_modules', '.git']));
+export const HASH_EXCLUDED_DIRECTORIES = Object.freeze(
+  new Set([
+    'node_modules',
+    '.git',
+    '.vscode',
+    '.idea',
+    '__pycache__',
+    '.venv',
+    'venv',
+    '.astro',
+    '.pytest_cache',
+    '.mypy_cache',
+    '.ruff_cache',
+    'sync-report',
+  ]),
+);
 
 /**
  * True when a directory entry must never be staged or hashed.
  */
 export function isExcludedDirectoryName(name) {
-  return HASH_EXCLUDED_DIRECTORIES.has(name);
+  const normalizedName = name.toLowerCase();
+  return (
+    HASH_EXCLUDED_DIRECTORIES.has(normalizedName) ||
+    normalizedName.endsWith('.egg-info') ||
+    normalizedName.startsWith('.baseline-work-') ||
+    normalizedName.startsWith('.baseline-backup-') ||
+    normalizedName.startsWith('.update-work-')
+  );
+}
+
+/**
+ * True when a file is ignored by git and therefore cannot be part of a
+ * reproducible provenance hash.
+ */
+export function isExcludedFileName(name) {
+  const normalizedName = name.toLowerCase();
+  return (
+    normalizedName === '.ds_store' ||
+    normalizedName === 'thumbs.db' ||
+    normalizedName === 'desktop.ini' ||
+    normalizedName.endsWith('.pyc') ||
+    normalizedName.endsWith('.pyo') ||
+    normalizedName.endsWith('.whl') ||
+    normalizedName.endsWith('.user') ||
+    normalizedName.endsWith('.suo') ||
+    normalizedName.endsWith('.swp') ||
+    normalizedName.endsWith('.swo') ||
+    normalizedName.endsWith('~')
+  );
 }
 
 /**
@@ -76,6 +119,11 @@ async function collectFiles(rootDirectory, currentDirectory, files) {
 
   for (const entry of entries) {
     const absolutePath = path.join(currentDirectory, entry.name);
+    const relativePath = toPosixPath(path.relative(rootDirectory, absolutePath));
+
+    if (entry.isSymbolicLink()) {
+      throw new Error(`Refusing to hash symbolic link: ${relativePath}`);
+    }
 
     if (entry.isDirectory()) {
       if (isExcludedDirectoryName(entry.name)) {
@@ -89,9 +137,13 @@ async function collectFiles(rootDirectory, currentDirectory, files) {
       continue;
     }
 
+    if (isExcludedFileName(entry.name)) {
+      continue;
+    }
+
     files.push({
       absolutePath,
-      relativePath: toPosixPath(path.relative(rootDirectory, absolutePath)),
+      relativePath,
     });
   }
 }

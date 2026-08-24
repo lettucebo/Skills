@@ -14,6 +14,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import {
   cp,
+  lstat,
   mkdir,
   mkdtemp,
   readFile,
@@ -35,7 +36,11 @@ import {
   commitMessageForDiffClass,
   evaluateDeletionGuards,
 } from './guardrails.mjs';
-import { hashDirectory, isExcludedDirectoryName } from './hash.mjs';
+import {
+  hashDirectory,
+  isExcludedDirectoryName,
+  isExcludedFileName,
+} from './hash.mjs';
 import { historyFileName } from './history.mjs';
 import { loadManifest } from './manifest.mjs';
 import { parseSkillFrontmatter } from './frontmatter.mjs';
@@ -189,9 +194,9 @@ async function defaultReadGitStatus(repoRoot) {
   return stdout;
 }
 
-async function statOrNull(targetPath) {
+async function lstatOrNull(targetPath) {
   try {
-    return await stat(targetPath);
+    return await lstat(targetPath);
   } catch (error) {
     if (error?.code === 'ENOENT') {
       return null;
@@ -250,11 +255,15 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
 
     for (const mapping of mappings) {
       const sourceAbs = path.join(cloneDir, ...mapping.source.split('/'));
-      const sourceStat = await statOrNull(sourceAbs);
+      const sourceStat = await lstatOrNull(sourceAbs);
 
       if (!sourceStat) {
         unavailable.push({ path: mapping.path, upstream: upstreamName, reason: 'missing-source' });
         continue;
+      }
+
+      if (sourceStat.isSymbolicLink()) {
+        throw new BaselineError(`Refusing to stage symbolic link: ${sourceAbs}`);
       }
 
       if (!sourceStat.isDirectory()) {
@@ -272,7 +281,20 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
       // track, or the vendored tree could not reproduce its own snapshotHash.
       await cp(sourceAbs, stageDir, {
         recursive: true,
-        filter: (source) => !isExcludedDirectoryName(path.basename(source)),
+        filter: async (source) => {
+          const sourceStat = await lstat(source);
+          const sourceName = path.basename(source);
+
+          if (sourceStat.isSymbolicLink()) {
+            throw new BaselineError(`Refusing to stage symbolic link: ${source}`);
+          }
+
+          if (sourceStat.isDirectory()) {
+            return !isExcludedDirectoryName(sourceName);
+          }
+
+          return !isExcludedFileName(sourceName);
+        },
       });
 
       // Hash BEFORE transform: this is the verified upstream content identity.
@@ -300,6 +322,9 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
         snapshotHash,
         stageDir,
         name: stagedFrontmatter.name,
+        repository: upstream.repository,
+        reference: upstream.reference,
+        source: mapping.source,
       });
     }
   }
@@ -705,6 +730,13 @@ export function buildUpdateLock({
       if (!stagedEntry) {
         throw new BaselineError(`Changed skill was not staged: ${skill.path}`);
       }
+      if (
+        !stagedEntry.repository ||
+        !stagedEntry.reference ||
+        !stagedEntry.source
+      ) {
+        throw new BaselineError(`Changed skill is missing upstream tuple: ${skill.path}`);
+      }
 
       return {
         path: skill.path,
@@ -716,7 +748,12 @@ export function buildUpdateLock({
         redistributable: skill.redistributable,
         snapshotHash: stagedEntry.snapshotHash,
         contentHash: stagedEntry.contentHash,
-        upstream: { ...skill.upstream, commit: stagedEntry.commit },
+        upstream: {
+          repository: stagedEntry.repository,
+          reference: stagedEntry.reference,
+          source: stagedEntry.source,
+          commit: stagedEntry.commit,
+        },
       };
     });
 
@@ -787,14 +824,15 @@ async function buildUpdateCandidate({
     const lockSkill = lock.skills.find((s) => s.path === skillPath);
     const { fileName, content } = await readHistoryDoc(repoRoot, skillPath);
     const previousCommit = lockSkill?.upstream?.commit ?? null;
-    const repository = lockSkill?.upstream?.repository ?? null;
+    const repository = stagedEntry.repository;
+    const sameRepository = lockSkill?.upstream?.repository === repository;
 
     const entry = {
       release,
       kind: 'upstream-update',
       version: bumpPatch(lockSkill.version),
       upstreamCommit: stagedEntry.commit,
-      diffUrl: diffUrl(repository, previousCommit, stagedEntry.commit),
+      diffUrl: sameRepository ? diffUrl(repository, previousCommit, stagedEntry.commit) : null,
       contentHash: stagedEntry.contentHash,
     };
 
@@ -984,7 +1022,11 @@ export async function applyUpdate({
       if (removedSet.has(skill.path)) continue;
       const stagedEntry = staged.get(skill.path);
       if (!stagedEntry) continue;
-      if (stagedEntry.contentHash !== skill.contentHash) {
+      const tupleChanged =
+        stagedEntry.repository !== skill.upstream?.repository ||
+        stagedEntry.reference !== skill.upstream?.reference ||
+        stagedEntry.source !== skill.upstream?.source;
+      if (stagedEntry.contentHash !== skill.contentHash || tupleChanged) {
         changedPaths.push(skill.path);
       }
     }
