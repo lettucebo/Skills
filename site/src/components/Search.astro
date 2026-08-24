@@ -193,7 +193,7 @@ const origins = [...new Set(
               (origin ? '<span class="badge badge--' + badgeType(origin) + '">' + escapeHtml(origin) + '</span>' : '') +
               (license && license !== 'Unknown' ? '<span>' + escapeHtml(license) + '</span>' : '') +
             '</span>' +
-            (item.excerpt ? '<span class="search-result-excerpt">' + item.excerpt + '</span>' : '') +
+            (item.excerpt ? '<span class="search-result-excerpt">' + sanitizeExcerpt(item.excerpt) + '</span>' : '') +
             '</a>' +
             '</li>';
         }).join('');
@@ -220,6 +220,32 @@ const origins = [...new Set(
     function escapeAttr(str) {
       return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
+
+    // --- sanitize-excerpt:start ---
+    /**
+     * Pagefind builds an excerpt by slicing the RAW indexed page text and only
+     * wrapping matched words in <mark>; it never escapes that text. Skill
+     * bodies legitimately contain HTML-like code samples (<!DOCTYPE html>,
+     * <script src=…>, <style>), so inserting an excerpt straight into
+     * innerHTML injects live markup.
+     *
+     * Escape the whole excerpt first, then restore ONLY Pagefind's own bare
+     * <mark>/</mark> highlight tags. No other tag and no attribute is ever
+     * re-enabled.
+     */
+    function sanitizeExcerpt(value) {
+      var escaped = String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+      return escaped
+        .replace(/&lt;mark&gt;/gi, '<mark>')
+        .replace(/&lt;\/mark&gt;/gi, '</mark>');
+    }
+    // --- sanitize-excerpt:end ---
 
     searchInput.addEventListener('input', function () {
       clearTimeout(debounceTimer);
