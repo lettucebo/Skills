@@ -52,10 +52,21 @@ test('deploy-site.yml triggers on workflow_call (reusable)', async () => {
 
 test('deploy-site.yml does NOT trigger on tag creation events', async () => {
   const wf = await loadWorkflow('deploy-site.yml');
-  const raw = await readFile(path.join(workflowDir, 'deploy-site.yml'), 'utf8');
-  // Must not depend on tag events for deployment
+  // Must not depend on tag events for deployment.
   assert.equal(wf.on?.create, undefined, 'must not trigger on create event');
-  assert.doesNotMatch(raw, /tags:/m, 'must not filter on tags');
+
+  // Assert on the parsed trigger section rather than the raw text: the build job
+  // legitimately uses `fetch-tags: true` so it can resolve the publication state
+  // of the release tag, which a raw /tags:/ scan would flag as a false positive.
+  for (const [event, config] of Object.entries(wf.on ?? {})) {
+    if (!config || typeof config !== 'object') continue;
+    assert.equal(config.tags, undefined, `trigger "${event}" must not filter on tags`);
+    assert.equal(
+      config['tags-ignore'],
+      undefined,
+      `trigger "${event}" must not filter on tags-ignore`,
+    );
+  }
 });
 
 // ─── deploy-site.yml — Official Pages Actions ──────────────────────

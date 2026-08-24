@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test",
+    "test": "node --test \"scripts/test/**/*.test.mjs\"",
     "catalog": "node scripts/catalog.mjs --bootstrap",
     "validate": "node scripts/validate.mjs",
     "sync": "node scripts/sync.mjs",

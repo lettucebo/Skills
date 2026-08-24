@@ -67,13 +67,24 @@ const cleanTree = async () => '';
 /**
  * Builds a fixture where the lock is already at a verified baseline state
  * (as required by applyUpdate).
+ *
+ * `extraSkills` adds N additional mapped skills to the same upstream group so
+ * deletion-guard thresholds (which only bite at a declared size of ten or more)
+ * can be exercised.
  */
-async function buildUpdateFixture(workspace, { alphaBody, betaBody } = {}) {
+async function buildUpdateFixture(workspace, { alphaBody, betaBody, extraSkills = 0 } = {}) {
+  const extraNames = Array.from({ length: extraSkills }, (_, index) =>
+    `extra${String(index + 1).padStart(2, '0')}`,
+  );
+
   const upstreamRoot = path.join(workspace, 'upstream');
   const upstream = await initUpstreamRepo(upstreamRoot, {
     'skills/alpha/SKILL.md': skillDoc('alpha', alphaBody ?? 'Alpha upstream body.'),
     'skills/alpha/references/notes.md': '# alpha notes\n',
     'skills/beta/SKILL.md': skillDoc('beta', betaBody ?? 'Beta upstream body.'),
+    ...Object.fromEntries(
+      extraNames.map((name) => [`skills/${name}/SKILL.md`, skillDoc(name)]),
+    ),
   });
 
   const repoRoot = path.join(workspace, 'repo');
@@ -97,6 +108,13 @@ async function buildUpdateFixture(workspace, { alphaBody, betaBody } = {}) {
     path.join(repoRoot, 'skills', 'demo', 'beta', 'SKILL.md'),
     skillDoc('beta', betaBody ?? 'Beta upstream body.'),
   );
+
+  for (const name of extraNames) {
+    await writeFileEnsured(
+      path.join(repoRoot, 'skills', 'demo', name, 'SKILL.md'),
+      skillDoc(name),
+    );
+  }
 
   // Orphan + local skills must never change.
   await writeFileEnsured(
@@ -122,6 +140,11 @@ async function buildUpdateFixture(workspace, { alphaBody, betaBody } = {}) {
       '  - path: skills/demo/beta',
       '    upstream: demo',
       '    source: skills/beta',
+      ...extraNames.flatMap((name) => [
+        `  - path: skills/demo/${name}`,
+        '    upstream: demo',
+        `    source: skills/${name}`,
+      ]),
       'orphans:',
       '  - path: skills/orphans/gamma',
       'local:',
@@ -141,6 +164,27 @@ async function buildUpdateFixture(workspace, { alphaBody, betaBody } = {}) {
   const betaSnapshotHash = await hashDirectory(path.join(repoRoot, 'skills', 'demo', 'beta'));
   const gammaHash = await hashDirectory(path.join(repoRoot, 'skills', 'orphans', 'gamma'));
   const localHash = await hashDirectory(path.join(repoRoot, 'skills', 'lettucebo', 'local-skill'));
+
+  const extraEntries = [];
+  for (const name of extraNames) {
+    extraEntries.push({
+      path: `skills/demo/${name}`,
+      name,
+      category: 'mapped',
+      version: '1.1.0',
+      baseline: 'verified',
+      license: 'Unknown',
+      redistributable: true,
+      snapshotHash: await hashDirectory(path.join(repoRoot, 'skills', 'demo', name)),
+      contentHash: await hashDirectory(path.join(upstreamRoot, 'skills', name)),
+      upstream: {
+        repository: upstream.url,
+        reference: 'refs/heads/main',
+        source: `skills/${name}`,
+        commit: upstream.commit,
+      },
+    });
+  }
 
   const skills = [
     {
@@ -177,6 +221,7 @@ async function buildUpdateFixture(workspace, { alphaBody, betaBody } = {}) {
         commit: upstream.commit,
       },
     },
+    ...extraEntries,
     {
       path: 'skills/lettucebo/local-skill',
       name: 'local-skill',
@@ -207,7 +252,12 @@ async function buildUpdateFixture(workspace, { alphaBody, betaBody } = {}) {
       {
         release: '1.1.0',
         generatedAt: '2026-02-02T00:00:00Z',
-        counts: { total: 4, mapped: 2, orphan: 1, local: 1 },
+        counts: {
+          total: 4 + extraNames.length,
+          mapped: 2 + extraNames.length,
+          orphan: 1,
+          local: 1,
+        },
         skills,
       },
       null,
@@ -974,4 +1024,282 @@ test('repository .gitignore ignores update staging work roots alongside baseline
     gitignore.indexOf('.update-work-*/') > gitignore.indexOf('# Sync tooling'),
     'the update work pattern must live beside the other sync tooling scratch patterns',
   );
+});
+
+// ---------------------------------------------------------------------------
+// Manifest mapping-set changes (added / removed mappings)
+//
+// `loadManifest` already refuses a manifest that disagrees with the on-disk
+// tree (a mapping without a directory, or a directory without a declaration),
+// so a real mapping-set change always moves the manifest AND the tree together.
+// These fixtures reproduce exactly that shape: what applyUpdate used to miss is
+// the resulting divergence between the manifest and the LOCKFILE.
+// ---------------------------------------------------------------------------
+
+/**
+ * Rewrites the fixture manifest with an explicit mapping list and commits, so
+ * the working tree stays clean (applyUpdate refuses a dirty tree).
+ */
+async function writeFixtureManifest(repoRoot, upstreamUrl, mappings) {
+  await writeFileEnsured(
+    path.join(repoRoot, 'catalog', 'sources.yml'),
+    [
+      'upstreams:',
+      '  demo:',
+      `    repository: "${upstreamUrl}"`,
+      '    reference: refs/heads/main',
+      'mappings:',
+      ...mappings.flatMap((mapping) => [
+        `  - path: ${mapping.path}`,
+        '    upstream: demo',
+        `    source: ${mapping.source}`,
+      ]),
+      'orphans:',
+      '  - path: skills/orphans/gamma',
+      'local:',
+      '  - root: skills/lettucebo',
+      'overrides: []',
+      'linkExceptions: []',
+      '',
+    ].join('\n'),
+  );
+
+  git(repoRoot, ['add', '-A']);
+  git(repoRoot, ['commit', '-q', '-m', 'manifest: change mapping set']);
+}
+
+/** The mapping list currently recorded in the lockfile. */
+async function mappingsFromLock(repoRoot) {
+  const lock = JSON.parse(
+    await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+  );
+
+  return lock.skills
+    .filter((skill) => skill.category === 'mapped')
+    .map((skill) => ({ path: skill.path, source: skill.upstream.source }));
+}
+
+async function readLockFile(repoRoot) {
+  return readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8');
+}
+
+/** Undeclares mappings and removes their vendored directories, then commits. */
+async function removeFixtureMappings(repoRoot, upstreamUrl, removedPaths) {
+  const mappings = (await mappingsFromLock(repoRoot)).filter(
+    (mapping) => !removedPaths.includes(mapping.path),
+  );
+
+  for (const removedPath of removedPaths) {
+    await rm(path.join(repoRoot, ...removedPath.split('/')), { recursive: true, force: true });
+  }
+
+  await writeFixtureManifest(repoRoot, upstreamUrl, mappings);
+}
+
+test('applyUpdate fails closed when the manifest adds a mapping the lock does not know', async () => {
+  const workspace = await makeTempDir('update-added');
+  try {
+    const { upstream, upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
+
+    // The operator vendors the new skill and declares it in the manifest.
+    await updateUpstreamRepo(upstreamRoot, { 'skills/delta/SKILL.md': skillDoc('delta') });
+    await writeFileEnsured(
+      path.join(repoRoot, 'skills', 'demo', 'delta', 'SKILL.md'),
+      skillDoc('delta'),
+    );
+
+    const mappings = await mappingsFromLock(repoRoot);
+    mappings.push({ path: 'skills/demo/delta', source: 'skills/delta' });
+    await writeFixtureManifest(repoRoot, upstream.url, mappings);
+
+    const lockBefore = await readLockFile(repoRoot);
+    const treeBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+
+    await assert.rejects(
+      applyUpdate({ repoRoot, readGitStatus: cleanTree, runGit: makeRunGit(repoRoot) }),
+      (error) =>
+        error instanceof BaselineError &&
+        /skills\/demo\/delta/.test(error.message) &&
+        /baseline/i.test(error.message),
+    );
+
+    assert.equal(await readLockFile(repoRoot), lockBefore, 'lock must not be mutated');
+    assert.equal(
+      await hashDirectory(path.join(repoRoot, 'skills')),
+      treeBefore,
+      'the skills tree must not be mutated',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate blocks a removed mapping in a small declared group', async () => {
+  const workspace = await makeTempDir('update-removed-small');
+  try {
+    const { upstream, repoRoot } = await buildUpdateFixture(workspace);
+
+    await removeFixtureMappings(repoRoot, upstream.url, ['skills/demo/beta']);
+
+    const lockBefore = await readLockFile(repoRoot);
+    const treeBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+
+    await assert.rejects(
+      applyUpdate({ repoRoot, readGitStatus: cleanTree, runGit: makeRunGit(repoRoot) }),
+      (error) =>
+        error instanceof BaselineError &&
+        /small-group-removal/.test(error.message) &&
+        /skills\/demo\/beta/.test(error.message),
+    );
+
+    assert.equal(await readLockFile(repoRoot), lockBefore, 'lock must not be mutated');
+    assert.equal(
+      await hashDirectory(path.join(repoRoot, 'skills')),
+      treeBefore,
+      'the skills tree must not be mutated',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate blocks removals above the deletion ratio threshold', async () => {
+  const workspace = await makeTempDir('update-removed-mass');
+  try {
+    const { upstream, repoRoot } = await buildUpdateFixture(workspace, { extraSkills: 10 });
+
+    await removeFixtureMappings(
+      repoRoot,
+      upstream.url,
+      ['extra01', 'extra02', 'extra03', 'extra04', 'extra05'].map((name) => `skills/demo/${name}`),
+    );
+
+    const lockBefore = await readLockFile(repoRoot);
+    const treeBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+
+    await assert.rejects(
+      applyUpdate({ repoRoot, readGitStatus: cleanTree, runGit: makeRunGit(repoRoot) }),
+      (error) =>
+        error instanceof BaselineError && /deletion-threshold-exceeded/.test(error.message),
+    );
+
+    assert.equal(await readLockFile(repoRoot), lockBefore, 'lock must not be mutated');
+    assert.equal(
+      await hashDirectory(path.join(repoRoot, 'skills')),
+      treeBefore,
+      'the skills tree must not be mutated',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate applies an allowed removal as a major release', async () => {
+  const workspace = await makeTempDir('update-removed-ok');
+  try {
+    const { upstream, repoRoot } = await buildUpdateFixture(workspace, { extraSkills: 10 });
+
+    await removeFixtureMappings(repoRoot, upstream.url, ['skills/demo/extra01']);
+
+    const result = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-03-03T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+
+    assert.equal(result.applied, true);
+    assert.deepEqual(result.removed, ['skills/demo/extra01']);
+    assert.deepEqual(result.changed, []);
+    assert.equal(result.release, '2.0.0');
+    assert.equal(result.nextTag, 'v2.0.0');
+    assert.equal(result.commitMessage, 'feat(skills)!: sync upstream changes');
+
+    const lock = JSON.parse(await readLockFile(repoRoot));
+    assert.equal(lock.release, '2.0.0');
+    assert.equal(
+      lock.skills.some((skill) => skill.path === 'skills/demo/extra01'),
+      false,
+      'the removed mapping must not survive as a phantom lock entry',
+    );
+    assert.equal(lock.counts.mapped, 11);
+    assert.equal(lock.counts.total, 13);
+    assert.equal(lock.skills.length, 13);
+
+    const history = JSON.parse(
+      await readFile(
+        path.join(repoRoot, 'catalog', 'history', 'skills__demo__extra01.json'),
+        'utf8',
+      ),
+    );
+    const last = history.entries.at(-1);
+    assert.equal(last.kind, 'mapping-removed');
+    assert.equal(last.release, '2.0.0');
+
+    // Orphan and local skills are untouched.
+    assert.ok(
+      await readFile(path.join(repoRoot, 'skills', 'orphans', 'gamma', 'SKILL.md'), 'utf8'),
+    );
+    assert.ok(
+      await readFile(
+        path.join(repoRoot, 'skills', 'lettucebo', 'local-skill', 'SKILL.md'),
+        'utf8',
+      ),
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate classifies a removal plus a content change as major', async () => {
+  const workspace = await makeTempDir('update-removed-and-changed');
+  try {
+    const { upstream, upstreamRoot, repoRoot } = await buildUpdateFixture(workspace, {
+      extraSkills: 10,
+    });
+
+    await updateUpstreamRepo(upstreamRoot, {
+      'skills/alpha/SKILL.md': skillDoc('alpha', 'Changed alpha body.'),
+    });
+
+    await removeFixtureMappings(repoRoot, upstream.url, ['skills/demo/extra02']);
+
+    const result = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-03-03T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+
+    assert.equal(result.applied, true);
+    assert.deepEqual(result.removed, ['skills/demo/extra02']);
+    assert.deepEqual(result.changed, ['skills/demo/alpha']);
+    assert.equal(result.commitMessage, 'feat(skills)!: sync upstream changes');
+    assert.equal(result.release, '2.0.0');
+
+    const lock = JSON.parse(await readLockFile(repoRoot));
+    const alpha = lock.skills.find((skill) => skill.path === 'skills/demo/alpha');
+    assert.equal(alpha.version, '1.1.1', 'per-skill versions still bump by patch');
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate reports no-op when the mapping set and all content are unchanged', async () => {
+  const workspace = await makeTempDir('update-noop-mapping');
+  try {
+    const { repoRoot } = await buildUpdateFixture(workspace, { extraSkills: 10 });
+
+    const result = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      runGit: makeRunGit(repoRoot),
+    });
+
+    assert.equal(result.applied, false);
+    assert.deepEqual(result.changed, []);
+    assert.deepEqual(result.removed, []);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
 });

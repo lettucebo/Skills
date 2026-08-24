@@ -38,7 +38,10 @@ jobs:
   dry-run:
     name: Dry-run plan
     needs: guard
-    if: ${{ github.event_name == 'workflow_dispatch' && !inputs.baseline }}
+    # Only an explicit dry-run dispatch plans. `dry_run=false` is an apply
+    # request and is handled by `update`; without the positive `inputs.dry_run`
+    # test both jobs would run for the same dispatch.
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && !inputs.baseline }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -176,10 +179,20 @@ jobs:
   update:
     name: Apply upstream updates
     needs: guard
-    # Runs on schedule (inputs is empty) and on manual dispatch when neither
-    # baseline nor dry_run is requested.
+    # Scheduled runs are gated on the free repository variable
+    # SKILLS_SYNC_ENABLED. The engine refuses to update until the release tag
+    # named by catalog/skills.lock.json exists and is an ancestor of HEAD, so
+    # while v<release> is unpublished every cron tick would fail reconciliation
+    # and reopen the tracking issue. The cron stays armed; the gate decides.
+    #
+    # To enable after publishing the release tag:
+    #   gh variable set SKILLS_SYNC_ENABLED --body true
+    # (Settings → Secrets and variables → Actions → Variables also works.)
+    #
+    # A manual `workflow_dispatch` apply (dry_run=false, baseline=false) is a
+    # deliberate operator action and is never gated.
     if: >-
-      github.event_name == 'schedule' ||
+      (github.event_name == 'schedule' && vars.SKILLS_SYNC_ENABLED == 'true') ||
       (github.event_name == 'workflow_dispatch' && !inputs.baseline && !inputs.dry_run)
     runs-on: ubuntu-latest
     permissions:

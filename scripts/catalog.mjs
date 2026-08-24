@@ -21,6 +21,11 @@ const BOOTSTRAP_VERSION = '1.0.0';
 const README_MARKER_START = '<!-- CATALOG:START -->';
 const README_MARKER_END = '<!-- CATALOG:END -->';
 
+const README_INSTALL_MARKER_START = '<!-- INSTALL:START -->';
+const README_INSTALL_MARKER_END = '<!-- INSTALL:END -->';
+
+const REPO_SLUG = 'lettucebo/Skills';
+
 /**
  * Skills whose upstream terms are proprietary and therefore not
  * redistributable. This set is intentionally explicit rather than inferred, so
@@ -603,6 +608,10 @@ async function updateReadme(repoRoot, lock) {
 /**
  * Splices the deterministic catalog table between the README catalog markers,
  * preserving everything outside the markers byte-for-byte.
+ *
+ * The install block (`<!-- INSTALL:START -->` … `<!-- INSTALL:END -->`) is
+ * optional but, when present, is regenerated from `lock.release` so a sync that
+ * bumps the release version cannot leave stale install commands behind.
  */
 export function renderReadme(readmeText, lock) {
   const startIndex = readmeText.indexOf(README_MARKER_START);
@@ -618,7 +627,75 @@ export function renderReadme(readmeText, lock) {
   const after = readmeText.slice(endIndex);
   const generated = renderReadmeCatalog(lock);
 
-  return `${before}\n${generated}\n${after}`;
+  return renderReadmeInstallSection(`${before}\n${generated}\n${after}`, lock);
+}
+
+function renderReadmeInstallSection(readmeText, lock) {
+  const startIndex = readmeText.indexOf(README_INSTALL_MARKER_START);
+  const endIndex = readmeText.indexOf(README_INSTALL_MARKER_END);
+
+  if (startIndex === -1 || endIndex === -1 || endIndex < startIndex) {
+    return readmeText;
+  }
+
+  const before = readmeText.slice(0, startIndex + README_INSTALL_MARKER_START.length);
+  const after = readmeText.slice(endIndex);
+
+  return `${before}\n${renderReadmeInstall(lock)}\n${after}`;
+}
+
+function renderReadmeInstall(lock) {
+  const tag = `v${lock.release}`;
+  const redistributable = lock.skills.filter((skill) => skill.redistributable !== false);
+  const restricted = lock.skills.filter((skill) => skill.redistributable === false);
+  const exampleSource =
+    redistributable.map((skill) => skill.path.split('/')[1]).sort(compareStrings)[0] ?? 'azure';
+  const exampleSkill =
+    redistributable.map((skill) => skill.name).sort(compareStrings)[0] ?? 'skill-name';
+  const restrictedSources = [
+    ...new Set(restricted.map((skill) => skill.path.split('/')[1])),
+  ].sort(compareStrings);
+
+  const lines = [];
+
+  lines.push('> 以下安裝指令由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。');
+  lines.push('');
+  lines.push(
+    `安裝一律使用 \`#<tag>\` 釘選版本（不支援 \`@version\` 或 semver range）。目前 lockfile 的 release 為 **${tag}**。`,
+  );
+  lines.push('');
+  lines.push('安裝整個 registry：');
+  lines.push('');
+  lines.push('```bash');
+  lines.push(`npx skills add ${REPO_SLUG}#${tag}`);
+  lines.push('```');
+  lines.push('');
+  lines.push('只安裝單一來源：');
+  lines.push('');
+  lines.push('```bash');
+  lines.push(`npx skills add ${REPO_SLUG}/skills/${exampleSource}#${tag}`);
+  lines.push('```');
+  lines.push('');
+  lines.push('只安裝單一技能：');
+  lines.push('');
+  lines.push('```bash');
+  lines.push(`npx skills add "${REPO_SLUG}#${tag}@${exampleSkill}"`);
+  lines.push('```');
+  lines.push('');
+  lines.push(
+    `> ⚠️ 上述指令需要 \`${tag}\` tag 已推送到 GitHub；若該 tag 尚未發布，\`npx skills\` 會找不到對應 ref 而失敗。`,
+  );
+
+  if (restricted.length > 0) {
+    lines.push('>');
+    lines.push(
+      `> ⚠️ 整個 registry 的安裝會包含 ${restricted.length} 個專有授權（\`redistributable: false\`）技能，皆位於 ${restrictedSources
+        .map((source) => `\`skills/${source}\``)
+        .join('、')}。若需避免，請改用單一來源或單一技能安裝。`,
+    );
+  }
+
+  return lines.join('\n');
 }
 
 function renderReadmeCatalog(lock) {

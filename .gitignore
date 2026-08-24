@@ -54,3 +54,22 @@ sync-report/
 site/playwright-results/
 site/playwright-report/
 site/test-results/
+
+# ── Vendored skill tree (skills/) ───────────────────────────────────────────
+# Everything under skills/ is vendored upstream CONTENT, and scripts/lib/hash.mjs
+# hashes every file it finds there into the lockfile (snapshotHash/contentHash).
+# A file that git ignores but the hash covers would make the committed tree fail
+# to reproduce its own lock entry, so the generic build-output, log and dotenv
+# rules above must never win inside skills/. These files are already public in
+# their upstream repositories, so re-including them exposes nothing new.
+#
+# node_modules/ is deliberately NOT re-included: a dependency tree is never
+# legitimate vendored content and re-including it would risk committing
+# thousands of files.
+!/skills/**/bin/
+!/skills/**/obj/
+!/skills/**/dist/
+!/skills/**/build/
+!/skills/**/output/
+!/skills/**/*.log
+!/skills/**/.env

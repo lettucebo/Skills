@@ -29,6 +29,8 @@ import { fileURLToPath } from 'node:url';
 import { cloneUpstream, GitCloneError } from './git-source.mjs';
 import {
   assertMappingsWritable,
+  assertWritableSkillPath,
+  classifyDiff,
   commitMessageForDiffClass,
   evaluateDeletionGuards,
 } from './guardrails.mjs';
@@ -665,41 +667,59 @@ function diffUrl(repository, previousCommit, newCommit) {
 }
 
 /**
- * Rebuilds the lockfile with only the changed skills updated.
+ * Rebuilds the lockfile with only the changed skills updated and the removed
+ * mappings dropped.
  *
  * Changed entries get a bumped patch version, updated hashes, commit, and
- * adopted staged name. Unchanged mapped entries, orphan entries, and local
- * entries pass through untouched.
+ * adopted staged name. Entries listed in `removedPaths` are dropped entirely so
+ * an undeclared mapping can never survive as a phantom lock entry. Unchanged
+ * mapped entries, orphan entries, and local entries pass through untouched.
+ * `counts` is always recomputed from the resulting skill list.
  */
-export function buildUpdateLock({ lock, staged, changedPaths, release, generatedAt }) {
+export function buildUpdateLock({
+  lock,
+  staged,
+  changedPaths,
+  removedPaths = [],
+  release,
+  generatedAt,
+}) {
   const changedSet = new Set(changedPaths);
+  const removedSet = new Set(removedPaths);
   const stagedMap = staged instanceof Map ? staged : new Map(Object.entries(staged));
 
-  const skills = lock.skills.map((skill) => {
-    if (skill.category !== 'mapped') return skill;
+  const skills = lock.skills
+    .filter((skill) => !removedSet.has(skill.path))
+    .map((skill) => {
+      if (skill.category !== 'mapped') return skill;
 
-    if (!changedSet.has(skill.path)) return skill;
+      if (!changedSet.has(skill.path)) return skill;
 
-    const stagedEntry = stagedMap.get(skill.path);
-    if (!stagedEntry) {
-      throw new BaselineError(`Changed skill was not staged: ${skill.path}`);
-    }
+      const stagedEntry = stagedMap.get(skill.path);
+      if (!stagedEntry) {
+        throw new BaselineError(`Changed skill was not staged: ${skill.path}`);
+      }
 
-    return {
-      path: skill.path,
-      name: stagedEntry.name ?? skill.name,
-      category: skill.category,
-      version: bumpPatch(skill.version),
-      baseline: 'verified',
-      license: skill.license,
-      redistributable: skill.redistributable,
-      snapshotHash: stagedEntry.snapshotHash,
-      contentHash: stagedEntry.contentHash,
-      upstream: { ...skill.upstream, commit: stagedEntry.commit },
-    };
-  });
+      return {
+        path: skill.path,
+        name: stagedEntry.name ?? skill.name,
+        category: skill.category,
+        version: bumpPatch(skill.version),
+        baseline: 'verified',
+        license: skill.license,
+        redistributable: skill.redistributable,
+        snapshotHash: stagedEntry.snapshotHash,
+        contentHash: stagedEntry.contentHash,
+        upstream: { ...skill.upstream, commit: stagedEntry.commit },
+      };
+    });
 
-  return { release, generatedAt, counts: lock.counts, skills };
+  const counts = { total: skills.length, mapped: 0, orphan: 0, local: 0 };
+  for (const skill of skills) {
+    counts[skill.category] += 1;
+  }
+
+  return { release, generatedAt, counts, skills };
 }
 
 /**
@@ -713,6 +733,7 @@ async function buildUpdateCandidate({
   lock,
   staged,
   changedPaths,
+  removedPaths = [],
   release,
   generatedAt,
 }) {
@@ -732,7 +753,23 @@ async function buildUpdateCandidate({
     await cp(stagedEntry.stageDir, dest, { recursive: true });
   }
 
-  const nextLock = buildUpdateLock({ lock, staged, changedPaths, release, generatedAt });
+  // Undeclared mappings leave the vendored tree; the history ledger keeps the
+  // provenance record so the removal stays auditable.
+  for (const skillPath of removedPaths) {
+    await rm(path.join(candidateRoot, ...skillPath.split('/')), {
+      recursive: true,
+      force: true,
+    });
+  }
+
+  const nextLock = buildUpdateLock({
+    lock,
+    staged,
+    changedPaths,
+    removedPaths,
+    release,
+    generatedAt,
+  });
 
   await writeFile(
     path.join(candidateRoot, 'catalog', 'skills.lock.json'),
@@ -759,6 +796,23 @@ async function buildUpdateCandidate({
     await writeFile(path.join(candidateRoot, 'catalog', 'history', fileName), serialize(next));
   }
 
+  for (const skillPath of removedPaths) {
+    const lockSkill = lock.skills.find((s) => s.path === skillPath);
+    const { fileName, content } = await readHistoryDoc(repoRoot, skillPath);
+
+    const entry = {
+      release,
+      kind: 'mapping-removed',
+      version: lockSkill?.version ?? null,
+      upstreamCommit: lockSkill?.upstream?.commit ?? null,
+      diffUrl: null,
+      contentHash: lockSkill?.contentHash ?? null,
+    };
+
+    const next = { ...content, entries: [...content.entries, entry] };
+    await writeFile(path.join(candidateRoot, 'catalog', 'history', fileName), serialize(next));
+  }
+
   await writeFile(path.join(candidateRoot, 'NOTICE'), renderNotice(nextLock));
 
   const readmeText = await readFile(path.join(repoRoot, 'README.md'), 'utf8');
@@ -772,10 +826,19 @@ async function buildUpdateCandidate({
  *
  * This is the daily cron engine. It refuses unless the working tree is clean
  * and every mapped skill has `baseline === "verified"`. It detects changes by
- * comparing pre-stamp content hashes, and if nothing changed, returns a no-op
- * result with zero filesystem mutations. When changes exist, the diff class is
- * `patch` (the daily cron never adds/removes mappings), and the release is
- * planned via `planRelease`. The apply is atomic: all-or-nothing swap with full
+ * comparing pre-stamp content hashes AND by diffing the manifest mapping set
+ * against the mapped paths recorded in the lockfile:
+ *
+ *  - A mapping present in the manifest but absent from the lock fails closed:
+ *    adopting it requires lock metadata (license, redistributability, history
+ *    bootstrap) that only the bootstrap/baseline flow can derive.
+ *  - A mapped lock path no longer declared by the manifest is a removal. It runs
+ *    through the shared deletion guardrails and, when allowed, is dropped from
+ *    the lock, deleted from the candidate tree, and recorded in the history
+ *    ledger. Removals classify as `major` via {@link classifyDiff}.
+ *
+ * If nothing changed and nothing was removed, it returns a no-op result with
+ * zero filesystem mutations. The apply is atomic: all-or-nothing swap with full
  * rollback on post-apply validation failure. Never creates commits or tags.
  */
 export async function applyUpdate({
@@ -800,7 +863,7 @@ export async function applyUpdate({
 
   // Protected-root guard: identical to the dry-run plan, applied here BEFORE
   // any clone, stage, or candidate write so plan and apply can never diverge.
-  assertMappingsWritable(manifest);
+  const protectedRoots = assertMappingsWritable(manifest);
 
   const lock = await readLock(absoluteRepoRoot);
 
@@ -848,15 +911,85 @@ export async function applyUpdate({
     }
 
     if (staged.size !== manifest.mappings.length) {
+      const stagedPaths = new Set(staged.keys());
+      const missing = manifest.mappings
+        .map((mapping) => mapping.path)
+        .filter((mappingPath) => !stagedPaths.has(mappingPath))
+        .sort();
+
       throw new BaselineError(
-        `Refusing update: staged ${staged.size} of ${manifest.mappings.length} mapped skills.`,
+        `Refusing update: staged ${staged.size} of ${manifest.mappings.length} mapped skills` +
+          `${missing.length > 0 ? ` (missing: ${missing.join(', ')})` : ''}.`,
       );
+    }
+
+    // Mapping-set diff: the manifest is the declaration, the lock is the record.
+    // Any divergence between them must be surfaced, never silently skipped.
+    const lockMappedPaths = lock.skills
+      .filter((skill) => skill.category === 'mapped')
+      .map((skill) => skill.path);
+    const lockMappedSet = new Set(lockMappedPaths);
+    const manifestPathSet = new Set(manifest.mappings.map((mapping) => mapping.path));
+
+    const addedPaths = [...manifestPathSet].filter((p) => !lockMappedSet.has(p)).sort();
+    const removedPaths = lockMappedPaths.filter((p) => !manifestPathSet.has(p)).sort();
+    const removedSet = new Set(removedPaths);
+
+    // Fail closed on adoption: a lock entry needs license, redistributability
+    // and a bootstrapped history ledger, none of which the daily engine can
+    // derive from a staged directory alone.
+    if (addedPaths.length > 0) {
+      throw new BaselineError(
+        `Refusing update: ${addedPaths.length} manifest mapping(s) are absent from the lockfile: ` +
+          `${addedPaths.join(', ')}. The daily update engine cannot adopt new mappings because lock ` +
+          `metadata (license, redistributable, history bootstrap) is only derived by the baseline ` +
+          `flow. Adopt them with \`node scripts/catalog.mjs --bootstrap\` followed by ` +
+          `\`node scripts/sync.mjs --baseline\`, then re-run the update.`,
+      );
+    }
+
+    // Removals run through the shared deletion guardrails, grouped by upstream
+    // exactly like the dry-run planner, so plan and apply cannot diverge.
+    if (removedPaths.length > 0) {
+      for (const removedPath of removedPaths) {
+        assertWritableSkillPath(removedPath, protectedRoots);
+      }
+
+      const groups = new Map();
+      for (const skill of lock.skills) {
+        if (skill.category !== 'mapped') continue;
+        const key = skill.upstream?.repository ?? 'unknown';
+        const group = groups.get(key) ?? {
+          upstream: key,
+          declared: 0,
+          removed: 0,
+          available: true,
+        };
+        group.declared += 1;
+        if (removedSet.has(skill.path)) group.removed += 1;
+        groups.set(key, group);
+      }
+
+      const verdict = evaluateDeletionGuards([...groups.values()]);
+
+      if (verdict.blocked) {
+        const detail = verdict.groups
+          .filter((group) => group.blocked)
+          .map((group) => `${group.upstream}: ${group.status} (${group.removed}/${group.declared})`)
+          .join('; ');
+
+        throw new BaselineError(
+          `Refusing update: deletion guard blocked ${removedPaths.length} undeclared mapping(s) ` +
+            `[${removedPaths.join(', ')}]. ${detail}.`,
+        );
+      }
     }
 
     // Change detection: compare pre-stamp contentHash against the lock.
     const changedPaths = [];
     for (const skill of lock.skills) {
       if (skill.category !== 'mapped') continue;
+      if (removedSet.has(skill.path)) continue;
       const stagedEntry = staged.get(skill.path);
       if (!stagedEntry) continue;
       if (stagedEntry.contentHash !== skill.contentHash) {
@@ -865,9 +998,10 @@ export async function applyUpdate({
     }
 
     // No-op: nothing changed, return immediately with no filesystem mutation.
-    if (changedPaths.length === 0) {
+    if (changedPaths.length === 0 && removedPaths.length === 0) {
       return {
         changed: [],
+        removed: [],
         release: null,
         nextTag: null,
         commitMessage: null,
@@ -875,8 +1009,12 @@ export async function applyUpdate({
       };
     }
 
-    // Plan release: daily updates are always patch-level.
-    const diffClass = 'patch';
+    // Plan release from the real diff shape: a removal is always breaking.
+    const diffClass = classifyDiff({
+      removed: removedPaths,
+      added: addedPaths,
+      changed: changedPaths,
+    });
     const releasePlan = await planRelease({ diffClass, runGit });
     const commitMessage = commitMessageForDiffClass(diffClass);
     const generatedAt = now();
@@ -915,6 +1053,7 @@ export async function applyUpdate({
       lock,
       staged,
       changedPaths,
+      removedPaths,
       release: releasePlan.nextVersion,
       generatedAt,
     });
@@ -949,6 +1088,7 @@ export async function applyUpdate({
 
     return {
       changed: changedPaths.sort(),
+      removed: removedPaths,
       release: releasePlan.nextVersion,
       nextTag: releasePlan.nextTag,
       commitMessage,
