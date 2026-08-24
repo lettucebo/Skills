@@ -197,7 +197,7 @@ async function statOrNull(targetPath) {
  * Clones each upstream once, stages every mapped skill, and records the verified
  * content hash before stamping plus the vendored hash after stamping.
  */
-async function stageMappedSkills({ manifest, workRoot, runGit }) {
+async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELINE_VERSION }) {
   const clonesDir = path.join(workRoot, 'clones');
   const stagingDir = path.join(workRoot, 'staging');
   await mkdir(clonesDir, { recursive: true });
@@ -274,7 +274,7 @@ async function stageMappedSkills({ manifest, workRoot, runGit }) {
         upstream,
         source: mapping.source,
         commit: clone.commit,
-        version: BASELINE_VERSION,
+        version,
       });
 
       const snapshotHash = await hashDirectory(stageDir);
@@ -776,6 +776,34 @@ export async function applyUpdate({
     const releasePlan = await planRelease({ diffClass, runGit });
     const commitMessage = commitMessageForDiffClass(diffClass);
     const generatedAt = now();
+
+    // Re-stamp changed skills with the correct bumped version so the on-disk
+    // `x-version` matches the lock's `version` and `snapshotHash` reflects
+    // the actual vendored bytes.
+    for (const skillPath of changedPaths) {
+      const stagedEntry = staged.get(skillPath);
+      const lockSkill = lock.skills.find((s) => s.path === skillPath);
+      const nextSkillVersion = bumpPatch(lockSkill.version);
+      const mapping = manifest.mappings.find((m) => m.path === skillPath);
+      const upstreamDef = manifest.upstreams[mapping.upstream];
+      const override = manifest.overrides.find((entry) => entry.path === skillPath);
+
+      await transformStaged({
+        skillDir: stagedEntry.stageDir,
+        skillPath,
+        override,
+        upstream: upstreamDef,
+        source: mapping.source,
+        commit: stagedEntry.commit,
+        version: nextSkillVersion,
+      });
+
+      stagedEntry.snapshotHash = await hashDirectory(stagedEntry.stageDir);
+      stagedEntry.name = parseSkillFrontmatter(
+        await readFile(path.join(stagedEntry.stageDir, 'SKILL.md'), 'utf8'),
+        `${skillPath}/SKILL.md`,
+      ).name;
+    }
 
     const nextLock = await buildUpdateCandidate({
       repoRoot: absoluteRepoRoot,
