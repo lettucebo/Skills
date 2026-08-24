@@ -1,0 +1,64 @@
+name: Deploy site to GitHub Pages
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_call:
+
+# Least privilege by default; only the deploy job escalates.
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.head_ref || 'deploy' }}
+  cancel-in-progress: ${{ github.head_ref != '' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install site dependencies
+        run: npm ci
+        working-directory: site
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: false
+
+      - name: Build site (Astro + Pagefind)
+        run: npm run build
+        working-directory: site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

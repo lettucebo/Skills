@@ -290,3 +290,20 @@ jobs:
                 body,
               });
             }
+
+  # Deploy the site after a successful sync no-op. When update pushes to
+  # main (applied=true), the push event triggers deploy-site.yml directly,
+  # so calling it here would cause a duplicate deployment.
+  deploy:
+    name: Deploy site
+    needs: [guard, update]
+    if: >-
+      always() &&
+      needs.guard.result == 'success' &&
+      needs.update.result == 'success' &&
+      needs.update.outputs.applied != 'true'
+    uses: ./.github/workflows/deploy-site.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
