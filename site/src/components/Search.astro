@@ -173,7 +173,7 @@ const origins = [...new Set(
             '<span class="search-result-title">' + escapeHtml(meta.title || item.url) + '</span>' +
             '<span class="search-result-meta">' +
               (source ? '<span>' + escapeHtml(source) + '</span>' : '') +
-              (version ? '<span>v' + escapeHtml(version) + '</span>' : '') +
+              (version ? '<span>' + escapeHtml(version) + '</span>' : '') +
               (origin ? '<span class="badge badge--' + badgeType(origin) + '">' + escapeHtml(origin) + '</span>' : '') +
               (license && license !== 'Unknown' ? '<span>' + escapeHtml(license) + '</span>' : '') +
             '</span>' +

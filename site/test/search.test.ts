@@ -167,3 +167,73 @@ test('Search component provides a no-results state', () => {
   );
   assert.match(template, /no.*result|not.*found|no.*match/i, 'Must indicate when no results found');
 });
+
+// ─── Regression: Version Double-v Fix ───────────────────────────────
+
+test('Search result rendering does not prepend extra v to version meta (prevents vv1.1.0)', () => {
+  const template = fs.readFileSync(
+    path.join(siteRoot, 'src', 'components', 'Search.astro'),
+    'utf8',
+  );
+  // meta.version is already stored as "v1.1.0" from the detail page.
+  // The JS must NOT prepend another "v" producing "vv1.1.0".
+  assert.doesNotMatch(
+    template,
+    /'<span>v'\s*\+\s*escapeHtml\(version\)/,
+    'Search JS must not prepend extra v to version meta (already contains v prefix)',
+  );
+});
+
+// ─── Regression: License UX ─────────────────────────────────────────
+
+test('skill detail page license visibility is conditional on not-Unknown', () => {
+  const template = fs.readFileSync(
+    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    'utf8',
+  );
+  // Must guard visible license on license !== 'Unknown'
+  assert.match(
+    template,
+    /skill\.license\s*!==\s*['"]Unknown['"]/,
+    'License visibility must be conditional on license !== Unknown',
+  );
+});
+
+test('skill detail page visible license display includes "License:" label', () => {
+  const template = fs.readFileSync(
+    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    'utf8',
+  );
+  assert.match(
+    template,
+    /License:/,
+    'Visible license must include "License:" label',
+  );
+});
+
+test('skill detail page raw license element for Pagefind has hidden attribute', () => {
+  const template = fs.readFileSync(
+    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    'utf8',
+  );
+  // The pagefind filter/meta element carrying the raw license value must be hidden
+  assert.match(
+    template,
+    /data-pagefind-filter="license"[^>]*hidden|hidden[^/\n>]*data-pagefind-filter="license"/,
+    'Raw license element for Pagefind must have hidden attribute',
+  );
+});
+
+// ─── Regression: Unexposed Version Filter Removed ────────────────────
+
+test('skill detail page does not have unexposed data-pagefind-filter="version"', () => {
+  const template = fs.readFileSync(
+    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    'utf8',
+  );
+  assert.doesNotMatch(
+    template,
+    /data-pagefind-filter="version"/,
+    'Unexposed version filter must be removed; data-pagefind-meta="version" alone suffices',
+  );
+});

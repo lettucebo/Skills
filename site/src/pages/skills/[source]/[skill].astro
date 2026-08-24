@@ -55,8 +55,11 @@ function statusBadgeClass(): string {
       <h1>{skill.name}</h1>
       <div class="detail-meta">
         <span class={statusBadgeClass()} data-pagefind-filter="origin">{skill.statusLabel}</span>
-        <span data-pagefind-meta="version" data-pagefind-filter="version">v{skill.version}</span>
-        <span data-pagefind-filter="license" data-pagefind-meta="license">{skill.license}</span>
+        <span data-pagefind-meta="version">v{skill.version}</span>
+        <span data-pagefind-filter="license" data-pagefind-meta="license" hidden>{skill.license}</span>
+        {skill.license && skill.license !== 'Unknown' && (
+          <span>License: {skill.license}</span>
+        )}
         <span data-pagefind-filter="source" data-pagefind-meta="source" hidden>{skill.source}</span>
         {skill.upstreamRepo && (
           <span>

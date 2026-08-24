@@ -48,7 +48,7 @@ test('pagefind indexes exactly 103 skill pages with filters and metadata', {
   // Verify filter index files exist
   const filterDir = path.join(distDir, 'pagefind', 'filter');
   const filterFiles = fs.readdirSync(filterDir).filter(f => f.endsWith('.pf_filter'));
-  assert.ok(filterFiles.length >= 4, `Must have at least 4 filter files (source, license, origin, version), got ${filterFiles.length}`);
+  assert.ok(filterFiles.length >= 3, `Must have at least 3 filter files (source, license, origin), got ${filterFiles.length}`);
 });
 
 // ─── Restricted Page Safety: HTML Content Check ─────────────────────
