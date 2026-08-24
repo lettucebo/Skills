@@ -39,3 +39,14 @@ test('Layout.astro: global.css is NOT imported inside a scoped <style> block', (
     );
   }
 });
+
+test('Layout.astro: main#main-content has tabindex="-1" for skip-link programmatic focus', () => {
+  // The skip link <a href="#main-content"> scrolls the viewport to <main> but the
+  // browser will not move keyboard focus there unless the element is programmatically
+  // focusable.  tabindex="-1" allows focus.focus() / fragment activation to work
+  // without adding <main> to the natural tab order.
+  assert.ok(
+    /id="main-content"[^>]*tabindex="-1"|tabindex="-1"[^>]*id="main-content"/.test(source),
+    'main#main-content must have tabindex="-1" so skip-link activation moves keyboard focus inside <main>',
+  );
+});

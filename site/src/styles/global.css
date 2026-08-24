@@ -691,4 +691,11 @@ a:focus-visible {
   .detail-body {
     padding: 16px;
   }
+  /* Prevent long install commands from causing horizontal viewport overflow at 375px.
+     overflow-x: auto on the block handles desktop scrolling; on mobile we also allow
+     the code to wrap so the document scrollWidth never exceeds clientWidth. */
+  .install-block code {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
 }

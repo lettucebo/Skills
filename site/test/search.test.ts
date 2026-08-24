@@ -224,6 +224,33 @@ test('skill detail page raw license element for Pagefind has hidden attribute', 
   );
 });
 
+// ─── Regression: C9 — fullCatalog lazy lookup ─────────────────────────
+
+test('C9: search IIFE must not capture #full-catalog at init time (lazy lookup required)', () => {
+  const template = fs.readFileSync(
+    path.join(siteRoot, 'src', 'components', 'Search.astro'),
+    'utf8',
+  );
+  // The inline script IIFE runs before #full-catalog is parsed into the DOM —
+  // that element is rendered by index.astro *after* the <Search /> component.
+  // Capturing it via getElementById at IIFE init always returns null, so
+  // fullCatalog.hidden is never toggled during search.
+  // Fix: look up #full-catalog lazily inside doSearch().
+  const iifeStart = template.indexOf('(function ()');
+  const doSearchStart = template.indexOf('async function doSearch');
+  assert.ok(iifeStart !== -1, 'IIFE must exist in Search.astro');
+  assert.ok(doSearchStart !== -1, 'doSearch must exist in Search.astro');
+  assert.ok(doSearchStart > iifeStart, 'doSearch must be inside the IIFE');
+  // The prolog (between IIFE start and doSearch declaration) must NOT contain
+  // a const fullCatalog = document.getElementById(...) assignment.
+  const iifeProlog = template.slice(iifeStart, doSearchStart);
+  assert.doesNotMatch(
+    iifeProlog,
+    /const\s+fullCatalog\s*=\s*document\.getElementById/,
+    'fullCatalog must not be captured at IIFE init — #full-catalog is after the script in DOM; use lazy lookup inside doSearch()',
+  );
+});
+
 // ─── Regression: Unexposed Version Filter Removed ────────────────────
 
 test('skill detail page does not have unexposed data-pagefind-filter="version"', () => {

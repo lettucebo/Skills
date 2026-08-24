@@ -1164,3 +1164,49 @@ test('K19: skill-table first-column cells reserve 3px left border in rest state 
     '.skill-table td:first-child must reserve 3px transparent left border in rest state',
   );
 });
+
+// ─── K20: search-result-link hover contrast (Defect #3) ───────────────
+
+test('K20: search-result-link:hover sets explicit color to override inherited --cp-link-text', () => {
+  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  // --cp-link-text (#0067b8 light / #5aafff dark) on --cp-hover-surface (#e6e1da light)
+  // is 4.44:1 — below WCAG AA 4.5:1. The <a> element inherits link-text color from
+  // the global "a { color: var(--cp-link-text) }" rule. On hover the background becomes
+  // --cp-hover-surface, so the hover rule must explicitly override color to --cp-text.
+  assert.match(
+    readRule('.search-result-link:hover', searchCss),
+    /color:\s*var\(--cp-text\)/,
+    '.search-result-link:hover must set color: var(--cp-text) — inherited --cp-link-text fails WCAG AA on the hover surface',
+  );
+});
+
+// ─── C8: noscript filter-controls specificity (Defect #4) ────────────
+
+test('C8: noscript .filter-controls rule must override Astro-scoped display:flex via !important', () => {
+  const search = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+  // Astro scoped CSS emits .filter-controls[data-astro-cid-*]{display:flex} (specificity 0,2,0).
+  // The noscript <style> rule .filter-controls{display:none} has specificity 0,1,0 — it loses.
+  // Using !important is the minimal, reliable override for a no-JS fallback stylesheet.
+  const noscriptContent = search.match(/<noscript>([\s\S]*?)<\/noscript>/)?.[1] ?? '';
+  assert.match(
+    noscriptContent,
+    /\.filter-controls\s*\{[^}]*display:\s*none\s*!important/,
+    'noscript must use "display: none !important" for .filter-controls to win over Astro-scoped specificity',
+  );
+});
+
+// ─── E10: install-block mobile overflow (Defect #5) ─────────────────
+
+test('E10: global.css mobile breakpoint addresses .install-block code overflow at 375px', () => {
+  const css = fs.readFileSync(path.join(siteRoot, 'src', 'styles', 'global.css'), 'utf8');
+  // .install-block code { white-space: nowrap } causes document scrollWidth > clientWidth
+  // at 375px viewport. The max-width:640px media query must override this.
+  const mobileStart = css.indexOf('@media (max-width: 640px)');
+  assert.ok(mobileStart !== -1, 'global.css must have @media (max-width: 640px)');
+  const afterMobile = css.slice(mobileStart);
+  assert.match(
+    afterMobile,
+    /\.install-block\s+code|install-block[\s\S]{0,300}\.install-block\s+code/,
+    '@media (max-width: 640px) must include a .install-block code rule to prevent horizontal overflow at 375px',
+  );
+});

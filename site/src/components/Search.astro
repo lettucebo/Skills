@@ -30,7 +30,7 @@ const origins = [...new Set(
 
 <div class="search-section" id="search-section">
   <noscript>
-    <style>.search-box, .filter-controls { display: none; }</style>
+    <style>.search-box, .filter-controls { display: none !important; }</style>
     <p class="info-box">Search and filter require JavaScript. You can browse the full catalog below.</p>
   </noscript>
 
@@ -102,7 +102,9 @@ const origins = [...new Set(
     const resultsContainer = document.getElementById('search-results');
     const statusEl = document.getElementById('search-status');
     const resultList = document.getElementById('search-result-list');
-    const fullCatalog = document.getElementById('full-catalog');
+    // NOTE: fullCatalog (#full-catalog) is rendered in index.astro *after* this
+    // <script> tag, so it is not yet in the DOM when the IIFE runs. Look it up
+    // lazily inside doSearch() instead of capturing it here.
 
     if (!searchInput || !resultsContainer || !statusEl || !resultList) return;
 
@@ -132,6 +134,7 @@ const origins = [...new Set(
       const query = searchInput.value.trim();
       const filters = buildFilters();
       const hasFilters = Object.keys(filters).length > 0;
+      const fullCatalog = document.getElementById('full-catalog');
 
       if (!query && !hasFilters) {
         resultsContainer.hidden = true;
@@ -355,6 +358,7 @@ const origins = [...new Set(
     background: var(--cp-hover-surface);
     box-shadow: inset 3px 0 0 var(--cp-accent);
     text-decoration: none;
+    color: var(--cp-text);
   }
   .search-result-link:focus-visible {
     outline: 2px solid var(--cp-accent);
