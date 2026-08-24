@@ -32,7 +32,7 @@ import { hashDirectory } from './hash.mjs';
 import { historyFileName } from './history.mjs';
 import { loadManifest } from './manifest.mjs';
 import { parseSkillFrontmatter } from './frontmatter.mjs';
-import { parseVersion, formatVersion, planRelease, readCurrentVersion } from './release.mjs';
+import { parseVersion, formatVersion, planRelease, readCurrentVersion, tagExists, assertTagReconciled } from './release.mjs';
 import { transformStaged } from '../transform.mjs';
 import { renderNotice, renderReadme, serialize } from '../catalog.mjs';
 import { validateRepository } from '../validate.mjs';
@@ -61,7 +61,7 @@ export const BASELINE_HISTORY_KIND = 'baseline-verified';
  * Files and directories the swap replaces atomically. Order is irrelevant to
  * correctness because backups are taken before any placement.
  */
-const SWAP_TARGETS = [
+export const SWAP_TARGETS = [
   { rel: 'skills', kind: 'dir' },
   { rel: 'catalog/history', kind: 'dir' },
   { rel: 'catalog/skills.lock.json', kind: 'file' },
@@ -409,8 +409,16 @@ async function assertUnchanged(repoRoot, candidateRoot, relativePath, label) {
   }
 }
 
-async function swapInCandidate(repoRoot, candidateRoot, backupRoot) {
-  const placed = [];
+/**
+ * Atomically swaps live repo targets with their candidate counterparts, backing
+ * up each original before placement. Tracks backed-up targets independently so
+ * rollback can restore every original even if placement fails partway through.
+ *
+ * Accepts injectable `renameOp` / `removeOp` for fault-injection tests.
+ * Exported so tests can exercise the swap logic directly.
+ */
+export async function swapInCandidate(repoRoot, candidateRoot, backupRoot, { renameOp = rename, removeOp = rm } = {}) {
+  const backedUp = [];
 
   try {
     for (const target of SWAP_TARGETS) {
@@ -419,25 +427,36 @@ async function swapInCandidate(repoRoot, candidateRoot, backupRoot) {
       const candidate = path.join(candidateRoot, ...target.rel.split('/'));
 
       await mkdir(path.dirname(backup), { recursive: true });
-      await rename(original, backup);
+      await renameOp(original, backup);
+      backedUp.push(target);
+
       await mkdir(path.dirname(original), { recursive: true });
-      await rename(candidate, original);
-      placed.push(target);
+      await renameOp(candidate, original);
     }
   } catch (error) {
-    await rollbackSwap(repoRoot, backupRoot, placed);
+    try {
+      await rollbackSwap(repoRoot, backupRoot, backedUp, { renameOp, removeOp });
+    } catch (rollbackError) {
+      const wrapped = new BaselineError(
+        `Swap failed and rollback also failed. Backup data preserved at ${backupRoot}. ` +
+        `Original error: ${error.message}. Rollback error: ${rollbackError.message}`,
+      );
+      wrapped.backupPath = backupRoot;
+      wrapped.rollbackFailed = true;
+      throw wrapped;
+    }
     throw error;
   }
 
-  return placed;
+  return backedUp;
 }
 
-async function rollbackSwap(repoRoot, backupRoot, placed) {
-  for (const target of [...placed].reverse()) {
+async function rollbackSwap(repoRoot, backupRoot, targets, { renameOp = rename, removeOp = rm } = {}) {
+  for (const target of [...targets].reverse()) {
     const original = path.join(repoRoot, ...target.rel.split('/'));
     const backup = path.join(backupRoot, ...target.rel.split('/'));
-    await rm(original, { recursive: true, force: true });
-    await rename(backup, original);
+    await removeOp(original, { recursive: true, force: true });
+    await renameOp(backup, original);
   }
 }
 
@@ -477,11 +496,53 @@ export async function applyBaseline({
   );
   const lock = await readLock(absoluteRepoRoot);
 
+  // --- One-time baseline guards (Defect 2) ---
+  // The baseline is a one-time migration from v1.0.0 bootstrap to v1.1.0
+  // verified. Once applied, it must never be re-run.
+  if (lock.release !== '1.0.0') {
+    throw new BaselineError(
+      `Refusing baseline: already established. Lock release is ${lock.release}, ` +
+      `expected 1.0.0. The baseline is a one-time migration.`,
+    );
+  }
+
+  for (const skill of lock.skills) {
+    if (skill.category === 'mapped' && skill.baseline !== 'unverified') {
+      throw new BaselineError(
+        `Refusing baseline: already established. Mapped skill ${skill.path} ` +
+        `has baseline "${skill.baseline}"; expected "unverified".`,
+      );
+    }
+  }
+
+  // Check that no history file contains a baseline-verified entry.
+  const historyDir = path.join(absoluteRepoRoot, 'catalog', 'history');
+  const historyEntries = await readdir(historyDir, { withFileTypes: true });
+  for (const entry of historyEntries) {
+    if (!entry.isFile() || !entry.name.endsWith('.json')) continue;
+    const histDoc = JSON.parse(await readFile(path.join(historyDir, entry.name), 'utf8'));
+    if (Array.isArray(histDoc.entries) && histDoc.entries.some((e) => e.kind === BASELINE_HISTORY_KIND)) {
+      throw new BaselineError(
+        `Refusing baseline: already established. History for ${histDoc.path} ` +
+        `already contains a ${BASELINE_HISTORY_KIND} entry.`,
+      );
+    }
+  }
+
+  // Check that the target tag does not already exist.
+  const targetTag = `v${BASELINE_RELEASE}`;
+  if (await tagExists(targetTag, { runGit: runGit ?? undefined })) {
+    throw new BaselineError(
+      `Refusing baseline: already established. Tag ${targetTag} already exists.`,
+    );
+  }
+
   const workRoot = await mkdtemp(path.join(absoluteRepoRoot, '.baseline-work-'));
   const backupRoot = path.join(workRoot, 'backup');
   const candidateRoot = path.join(workRoot, 'candidate');
   await mkdir(candidateRoot, { recursive: true });
 
+  let preserveWorkRoot = false;
   try {
     const { staged, unavailable, sources } = await stageMappedSkills({
       manifest,
@@ -540,7 +601,18 @@ export async function applyBaseline({
       await validate(absoluteRepoRoot);
       await assertStructuralIntegrity(absoluteRepoRoot, nextLock);
     } catch (error) {
-      await rollbackSwap(absoluteRepoRoot, backupRoot, placed);
+      try {
+        await rollbackSwap(absoluteRepoRoot, backupRoot, placed);
+      } catch (rollbackError) {
+        const wrapped = new BaselineError(
+          `Baseline post-apply validation failed and rollback also failed. ` +
+          `Backup data preserved at ${backupRoot}. ` +
+          `Validation error: ${error.message}. Rollback error: ${rollbackError.message}`,
+        );
+        wrapped.backupPath = backupRoot;
+        wrapped.rollbackFailed = true;
+        throw wrapped;
+      }
       throw new BaselineError(`Baseline post-apply validation failed; rolled back. ${error.message}`);
     }
 
@@ -550,8 +622,15 @@ export async function applyBaseline({
       counts: nextLock.counts,
       sources,
     };
+  } catch (error) {
+    if (error.rollbackFailed) {
+      preserveWorkRoot = true;
+    }
+    throw error;
   } finally {
-    await rm(workRoot, { recursive: true, force: true });
+    if (!preserveWorkRoot) {
+      await rm(workRoot, { recursive: true, force: true });
+    }
   }
 }
 
@@ -720,11 +799,22 @@ export async function applyUpdate({
     }
   }
 
+  // Tag/lock reconciliation guard: the highest tag must match the lock
+  // release and be an ancestor of HEAD.
+  try {
+    await assertTagReconciled(lock.release, { runGit: runGit ?? undefined });
+  } catch (error) {
+    throw new BaselineError(
+      `Refusing update: tag/lock reconciliation failed. ${error.message}`,
+    );
+  }
+
   const workRoot = await mkdtemp(path.join(absoluteRepoRoot, '.update-work-'));
   const backupRoot = path.join(workRoot, 'backup');
   const candidateRoot = path.join(workRoot, 'candidate');
   await mkdir(candidateRoot, { recursive: true });
 
+  let preserveWorkRoot = false;
   try {
     const { staged, unavailable, sources } = await stageMappedSkills({
       manifest,
@@ -828,7 +918,18 @@ export async function applyUpdate({
       await validate(absoluteRepoRoot);
       await assertStructuralIntegrity(absoluteRepoRoot, nextLock);
     } catch (error) {
-      await rollbackSwap(absoluteRepoRoot, backupRoot, placed);
+      try {
+        await rollbackSwap(absoluteRepoRoot, backupRoot, placed);
+      } catch (rollbackError) {
+        const wrapped = new BaselineError(
+          `Update post-apply validation failed and rollback also failed. ` +
+          `Backup data preserved at ${backupRoot}. ` +
+          `Validation error: ${error.message}. Rollback error: ${rollbackError.message}`,
+        );
+        wrapped.backupPath = backupRoot;
+        wrapped.rollbackFailed = true;
+        throw wrapped;
+      }
       throw new BaselineError(`Update post-apply validation failed; rolled back. ${error.message}`);
     }
 
@@ -839,7 +940,14 @@ export async function applyUpdate({
       commitMessage,
       applied: true,
     };
+  } catch (error) {
+    if (error.rollbackFailed) {
+      preserveWorkRoot = true;
+    }
+    throw error;
   } finally {
-    await rm(workRoot, { recursive: true, force: true });
+    if (!preserveWorkRoot) {
+      await rm(workRoot, { recursive: true, force: true });
+    }
   }
 }

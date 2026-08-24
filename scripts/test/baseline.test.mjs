@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { cp, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -11,6 +11,8 @@ import {
   appendBaselineHistoryEntry,
   BaselineError,
   buildVerifiedLock,
+  swapInCandidate,
+  SWAP_TARGETS,
 } from '../lib/baseline.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -720,4 +722,277 @@ test('buildVerifiedLock adopts the staged frontmatter name when upstream renamed
   // Without a staged name the previous lock name is preserved.
   const beta = lock.skills.find((skill) => skill.path === 'skills/demo/beta');
   assert.equal(beta.name, 'beta');
+});
+
+// ---------------------------------------------------------------------------
+// Defect 1: swapInCandidate rollback data-loss window
+// ---------------------------------------------------------------------------
+
+/**
+ * Builds a minimal swap fixture: a repo root, a candidate root, and a backup
+ * root, each with the SWAP_TARGETS populated so swapInCandidate can operate.
+ */
+async function buildSwapFixture(workspace) {
+  const repoRoot = path.join(workspace, 'repo');
+  const candidateRoot = path.join(workspace, 'candidate');
+  const backupRoot = path.join(workspace, 'backup');
+
+  // Create the original files in the repo root.
+  await writeFileEnsured(path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), skillDoc('alpha'));
+  await writeFileEnsured(path.join(repoRoot, 'catalog', 'history', 'alpha.json'), '{"path":"alpha"}');
+  await writeFileEnsured(path.join(repoRoot, 'catalog', 'skills.lock.json'), '{"release":"1.0.0"}');
+  await writeFileEnsured(path.join(repoRoot, 'NOTICE'), '# NOTICE\noriginal\n');
+  await writeFileEnsured(path.join(repoRoot, 'README.md'), '# README\noriginal\n');
+
+  // Create the candidate files (different content).
+  await writeFileEnsured(path.join(candidateRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), skillDoc('alpha-candidate'));
+  await writeFileEnsured(path.join(candidateRoot, 'catalog', 'history', 'alpha.json'), '{"path":"alpha-candidate"}');
+  await writeFileEnsured(path.join(candidateRoot, 'catalog', 'skills.lock.json'), '{"release":"1.1.0"}');
+  await writeFileEnsured(path.join(candidateRoot, 'NOTICE'), '# NOTICE\ncandidate\n');
+  await writeFileEnsured(path.join(candidateRoot, 'README.md'), '# README\ncandidate\n');
+
+  // Capture original hashes for each SWAP_TARGET.
+  const originalHashes = new Map();
+  for (const target of SWAP_TARGETS) {
+    const targetPath = path.join(repoRoot, ...target.rel.split('/'));
+    if (target.kind === 'dir') {
+      originalHashes.set(target.rel, await hashDirectory(targetPath));
+    } else {
+      originalHashes.set(target.rel, await readFile(targetPath, 'utf8'));
+    }
+  }
+
+  return { repoRoot, candidateRoot, backupRoot, originalHashes };
+}
+
+test('swapInCandidate restores all originals when placement fails after first backup', async () => {
+  const workspace = await makeTempDir('swap-fault-first');
+  try {
+    const { repoRoot, candidateRoot, backupRoot, originalHashes } = await buildSwapFixture(workspace);
+
+    let backupCount = 0;
+    const faultyRename = async (src, dest) => {
+      // Allow backup renames (original -> backup), count them.
+      // Fail on the FIRST placement rename (candidate -> original).
+      // During rollback, always succeed.
+      const isBackup = dest.startsWith(backupRoot);
+      if (isBackup) {
+        backupCount++;
+        return rename(src, dest);
+      }
+      // Check if this is a rollback rename (src is from backup).
+      if (src.startsWith(backupRoot)) {
+        return rename(src, dest);
+      }
+      // This is a placement rename; fail on the first one.
+      throw new Error('injected placement failure');
+    };
+
+    await assert.rejects(
+      swapInCandidate(repoRoot, candidateRoot, backupRoot, { renameOp: faultyRename }),
+      /injected placement failure/,
+    );
+
+    // The first target should have been backed up.
+    assert.ok(backupCount >= 1, 'at least one backup should have succeeded');
+
+    // Every original target must be restored byte-identically.
+    for (const target of SWAP_TARGETS) {
+      const targetPath = path.join(repoRoot, ...target.rel.split('/'));
+      if (target.kind === 'dir') {
+        assert.equal(
+          await hashDirectory(targetPath),
+          originalHashes.get(target.rel),
+          `${target.rel} should be restored byte-identically`,
+        );
+      } else {
+        assert.equal(
+          await readFile(targetPath, 'utf8'),
+          originalHashes.get(target.rel),
+          `${target.rel} should be restored byte-identically`,
+        );
+      }
+    }
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('swapInCandidate restores all originals when placement fails after a later backup', async () => {
+  const workspace = await makeTempDir('swap-fault-later');
+  try {
+    const { repoRoot, candidateRoot, backupRoot, originalHashes } = await buildSwapFixture(workspace);
+
+    let placementCount = 0;
+    let inRollback = false;
+    const faultyRename = async (src, dest) => {
+      // During rollback, always succeed.
+      if (inRollback) return rename(src, dest);
+      const isBackup = dest.startsWith(backupRoot);
+      if (isBackup) {
+        return rename(src, dest);
+      }
+      // Allow the first placement, fail on the second.
+      placementCount++;
+      if (placementCount > 1) {
+        inRollback = true;
+        throw new Error('injected later placement failure');
+      }
+      return rename(src, dest);
+    };
+
+    await assert.rejects(
+      swapInCandidate(repoRoot, candidateRoot, backupRoot, { renameOp: faultyRename }),
+      /injected later placement failure/,
+    );
+
+    // Every original target must be restored byte-identically.
+    for (const target of SWAP_TARGETS) {
+      const targetPath = path.join(repoRoot, ...target.rel.split('/'));
+      if (target.kind === 'dir') {
+        assert.equal(
+          await hashDirectory(targetPath),
+          originalHashes.get(target.rel),
+          `${target.rel} should be restored byte-identically`,
+        );
+      } else {
+        assert.equal(
+          await readFile(targetPath, 'utf8'),
+          originalHashes.get(target.rel),
+          `${target.rel} should be restored byte-identically`,
+        );
+      }
+    }
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('swapInCandidate preserves backup and surfaces both errors when rollback itself fails', async () => {
+  const workspace = await makeTempDir('swap-rollback-fail');
+  try {
+    const { repoRoot, candidateRoot, backupRoot } = await buildSwapFixture(workspace);
+
+    let placementAttempts = 0;
+    const faultyRename = async (src, dest) => {
+      const isBackup = dest.startsWith(backupRoot);
+      if (isBackup) {
+        return rename(src, dest);
+      }
+      placementAttempts++;
+      if (placementAttempts === 1) {
+        // First placement fails, triggering rollback.
+        throw new Error('injected placement failure');
+      }
+      // Rollback renames also fail (backup -> original is not a backup path).
+      throw new Error('injected rollback failure');
+    };
+
+    await assert.rejects(
+      swapInCandidate(repoRoot, candidateRoot, backupRoot, { renameOp: faultyRename }),
+      (err) => {
+        assert.ok(err instanceof BaselineError, 'must be BaselineError');
+        assert.equal(err.rollbackFailed, true, 'rollbackFailed must be true');
+        assert.ok(err.backupPath, 'error must include backupPath');
+        assert.match(err.message, /rollback/i, 'message must mention rollback');
+        assert.match(err.message, /placement failure/i, 'message must include original error');
+        return true;
+      },
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Defect 2: one-time baseline guards
+// ---------------------------------------------------------------------------
+
+test('applyBaseline refuses when lock.release is not 1.0.0 (already past bootstrap)', async () => {
+  const workspace = await makeTempDir('baseline-noboot');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+
+    // Tamper with the lock to simulate a post-baseline state.
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const lock = JSON.parse(await readFile(lockPath, 'utf8'));
+    lock.release = '1.1.0';
+    await writeFile(lockPath, `${JSON.stringify(lock, null, 2)}\n`);
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree }),
+      (error) => error instanceof BaselineError && /already|one-time|established/i.test(error.message),
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline refuses when any mapped skill is already verified', async () => {
+  const workspace = await makeTempDir('baseline-verified');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const lock = JSON.parse(await readFile(lockPath, 'utf8'));
+    const alpha = lock.skills.find((s) => s.path === 'skills/demo/alpha');
+    alpha.baseline = 'verified';
+    await writeFile(lockPath, `${JSON.stringify(lock, null, 2)}\n`);
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree }),
+      (error) => error instanceof BaselineError && /already|verified/i.test(error.message),
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline refuses when history already contains a baseline-verified entry', async () => {
+  const workspace = await makeTempDir('baseline-hist');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+
+    // Add a baseline-verified entry to one history file.
+    const historyPath = path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json');
+    const history = JSON.parse(await readFile(historyPath, 'utf8'));
+    history.entries.push({
+      release: '1.1.0',
+      kind: 'baseline-verified',
+      version: '1.1.0',
+      upstreamCommit: 'a'.repeat(40),
+      diffUrl: null,
+      contentHash: 'sha256:up-alpha',
+    });
+    await writeFile(historyPath, `${JSON.stringify(history, null, 2)}\n`);
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree }),
+      (error) => error instanceof BaselineError && /already|established/i.test(error.message),
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline refuses when target tag v1.1.0 already exists', async () => {
+  const workspace = await makeTempDir('baseline-tag');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+
+    // runGit that reports v1.1.0 tag exists.
+    const fakeRunGit = async (args) => {
+      if (args[0] === 'tag' && args[1] === '--list') {
+        return 'v1.1.0\n';
+      }
+      return '';
+    };
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree, runGit: fakeRunGit }),
+      (error) => error instanceof BaselineError && /already|tag|exist/i.test(error.message),
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
 });
