@@ -1,6 +1,6 @@
 {
   "release": "1.0.0",
-  "generatedAt": "2026-08-24T02:44:19+08:00",
+  "generatedAt": "2026-08-24T12:03:24+08:00",
   "counts": {
     "total": 103,
     "mapped": 100,
@@ -569,7 +569,7 @@
       }
     },
     {
-      "path": "skills/cloudflare/sandbox-sdk",
+      "path": "skills/cloudflare/sandbox-stable",
       "name": "sandbox-sdk",
       "category": "mapped",
       "version": "1.0.0",

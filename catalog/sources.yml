@@ -265,7 +265,7 @@ mappings:
   - path: skills/cloudflare/sandbox-next
     upstream: cloudflare
     source: skills/sandbox-next
-  - path: skills/cloudflare/sandbox-sdk
+  - path: skills/cloudflare/sandbox-stable
     upstream: cloudflare
     source: skills/sandbox-stable
   - path: skills/cloudflare/turnstile-spin
@@ -344,10 +344,6 @@ local:
     note: Reserved for future local/original skills. Registry coverage counts only existing SKILL.md files, and sync must never write this root.
 
 overrides:
-  - path: skills/cloudflare/sandbox-sdk
-    transform: rename-local-skill
-    source: skills/sandbox-stable
-    note: Keeps the current local folder name while tracking the upstream stable Sandbox skill path.
   - path: skills/claude/mcp-builder
     transform: rename-frontmatter-name
     source: skills/mcp-builder

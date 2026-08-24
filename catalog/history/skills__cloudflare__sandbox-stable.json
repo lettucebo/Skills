@@ -1,5 +1,5 @@
 {
-  "path": "skills/cloudflare/sandbox-sdk",
+  "path": "skills/cloudflare/sandbox-stable",
   "name": "sandbox-sdk",
   "category": "mapped",
   "entries": [
@@ -7,7 +7,7 @@
       "release": "1.0.0",
       "kind": "bootstrap",
       "version": "1.0.0",
-      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "firstSeen": "2026-08-24T12:03:24+08:00",
       "upstreamCommit": null,
       "diffUrl": null,
       "snapshotHash": "sha256:581dc54405f0bf586e353120fbff09d4dfb3c93c12bc5322d39b71644c44d65c"

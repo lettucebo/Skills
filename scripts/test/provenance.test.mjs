@@ -101,6 +101,33 @@ test('cloudflare mirrors every formal upstream skill directory exactly once', as
   );
 });
 
+test('cloudflare folder names match upstream skill names one-to-one', async () => {
+  const manifest = await loadManifest(manifestPath);
+  const cloudflareMappings = manifest.mappings.filter(
+    (mapping) => mapping.upstream === 'cloudflare',
+  );
+
+  for (const mapping of cloudflareMappings) {
+    assert.equal(
+      mapping.path,
+      `skills/cloudflare/${mapping.source.slice('skills/'.length)}`,
+      `${mapping.path} diverges from its upstream folder name`,
+    );
+  }
+});
+
+test('no override renames a local skill folder away from upstream', async () => {
+  const manifest = await loadManifest(manifestPath);
+
+  for (const override of manifest.overrides) {
+    assert.notEqual(
+      override.transform,
+      'rename-local-skill',
+      `override ${override.path} keeps a stale local folder name`,
+    );
+  }
+});
+
 test('no mapping depends on an unimplemented command-to-skill transform', async () => {
   const manifest = await loadManifest(manifestPath);
 
