@@ -49,3 +49,8 @@ sync-report/
 
 # Astro generated types
 .astro/
+
+# Playwright test artifacts (results, screenshots, reports)
+site/playwright-results/
+site/playwright-report/
+site/test-results/

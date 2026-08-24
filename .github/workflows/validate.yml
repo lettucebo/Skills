@@ -29,3 +29,48 @@ jobs:
 
       - name: Run repository validator
         run: node scripts/validate.mjs
+
+  check-site-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.filter.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for site/catalog/skills changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            changed:
+              - 'site/**'
+              - 'catalog/**'
+              - 'skills/**'
+
+  e2e:
+    needs: check-site-changes
+    if: needs.check-site-changes.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install site dependencies
+        run: npm --prefix site ci
+
+      - name: Install Playwright Chromium
+        run: npx --prefix site playwright install chromium --with-deps
+
+      - name: Run E2E tests
+        run: npm --prefix site run test:e2e
+        env:
+          CI: true

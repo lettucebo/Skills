@@ -1226,6 +1226,21 @@ test('K21: search-result-link hover rule uses :global() to match runtime-created
     /:global\(\s*\.search-result-link/,
     'Search.astro must declare a :global(.search-result-link...) rule for runtime-created Pagefind nodes',
   );
+
+  // Verify the :global(.search-result-link:hover) rule itself contains color: var(--cp-text).
+  // --cp-link-text (#0067b8 light / #5aafff dark) fails WCAG AA (4.44:1) on the hover surface;
+  // the rule must explicitly override to --cp-text for runtime-created Pagefind nodes that
+  // never receive the Astro scope attribute.
+  const globalHoverMatch = searchCss.match(/:global\(\s*\.search-result-link:hover\s*\)\s*\{([^}]*)\}/);
+  assert.ok(
+    globalHoverMatch,
+    ':global(.search-result-link:hover) rule must exist in Search.astro',
+  );
+  assert.match(
+    globalHoverMatch![1],
+    /color:\s*var\(--cp-text\)/,
+    ':global(.search-result-link:hover) rule must contain color: var(--cp-text) to satisfy WCAG AA on the hover surface',
+  );
 });
 
 // ─── E11: nav-links must flex-wrap to prevent overflow at 375px ───────────────
