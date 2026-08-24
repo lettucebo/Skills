@@ -5,6 +5,14 @@ on:
   push:
     branches: [main]
   workflow_call:
+    inputs:
+      ref:
+        description: >-
+          Commit SHA (or ref) to build. A reusable workflow inherits the
+          caller's original event context, so callers that create a new commit
+          must pass it explicitly; otherwise the pre-sync tree is deployed.
+        required: false
+        type: string
 
 # Least privilege by default; only the deploy job escalates.
 permissions:
@@ -20,6 +28,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # `inputs` is empty for push/pull_request, so those builds keep the
+          # current event SHA; workflow_call callers pin a newer commit.
+          ref: ${{ inputs.ref || github.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

@@ -185,6 +185,11 @@ jobs:
     permissions:
       contents: write
       issues: write
+    outputs:
+      # The exact commit the deploy job must build. Resolved AFTER any commit
+      # and push, so an applied sync deploys the new tree instead of the
+      # pre-sync SHA that the reusable workflow would otherwise inherit.
+      head_sha: ${{ steps.head.outputs.head_sha }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -233,6 +238,13 @@ jobs:
           git commit -m "${{ steps.apply.outputs.commit_message }}"
           git tag -a "${{ steps.apply.outputs.next_tag }}" -m "${{ steps.apply.outputs.commit_message }}"
           git push --atomic origin HEAD:${{ github.ref_name }} "refs/tags/${{ steps.apply.outputs.next_tag }}"
+
+      # Runs for BOTH an applied sync (new commit) and a no-op sync (unchanged
+      # checkout). Steps only run after every previous step succeeded, so this
+      # SHA always names a tree that is already pushed.
+      - name: Resolve deployable HEAD sha
+        id: head
+        run: echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Upload sync report
         if: ${{ always() }}
@@ -305,6 +317,11 @@ jobs:
       needs.guard.result == 'success' &&
       needs.update.result == 'success'
     uses: ./.github/workflows/deploy-site.yml
+    with:
+      # A reusable workflow inherits the caller's ORIGINAL event SHA, which is
+      # the pre-sync commit. Pass the post-push HEAD so the applied tree is the
+      # one that gets built and deployed.
+      ref: ${{ needs.update.outputs.head_sha }}
     permissions:
       contents: read
       pages: write

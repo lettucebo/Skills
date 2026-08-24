@@ -254,3 +254,147 @@ test('sync.yml deploy job has pages and id-token permissions', async () => {
   assert.equal(perms.pages, 'write', 'sync deploy must grant pages: write');
   assert.equal(perms['id-token'], 'write', 'sync deploy must grant id-token: write');
 });
+
+// ─── Finding 1: post-sync SHA must be the deployed tree ─────────────
+//
+// A reusable workflow inherits the CALLER's original event context, so
+// `github.sha` inside deploy-site.yml is the pre-sync commit even after the
+// sync update job pushes a new one. GITHUB_TOKEN pushes never trigger a second
+// workflow run, so without an explicit ref the applied sync is never deployed.
+
+function stepsOf(job) {
+  return job?.steps ?? [];
+}
+
+function findStepIndex(steps, predicate) {
+  return steps.findIndex(predicate);
+}
+
+/**
+ * Minimal evaluator for the `${{ a || b }}` fallback expression used by the
+ * build checkout. Mirrors GitHub Actions semantics: an undefined/empty
+ * left-hand operand falls through to the right-hand operand.
+ */
+function evaluateFallbackExpression(expression, context) {
+  const body = String(expression).trim().replace(/^\$\{\{/, '').replace(/\}\}$/, '').trim();
+  const operands = body.split('||').map((part) => part.trim());
+  for (const operand of operands) {
+    const value = operand
+      .split('.')
+      .reduce((scope, key) => (scope === undefined || scope === null ? undefined : scope[key]), context);
+    if (value !== undefined && value !== null && value !== '') {
+      return value;
+    }
+  }
+  return '';
+}
+
+test('deploy-site.yml declares an optional string ref input for workflow_call', async () => {
+  const wf = await loadWorkflow('deploy-site.yml');
+  const call = wf.on?.workflow_call;
+  assert.ok(call && typeof call === 'object', 'workflow_call must declare inputs');
+  const refInput = call.inputs?.ref;
+  assert.ok(refInput, 'workflow_call must declare a "ref" input so callers can pin the built commit');
+  assert.equal(refInput.type, 'string', 'ref input must be typed as string');
+  assert.notEqual(refInput.required, true, 'ref input must be optional');
+});
+
+test('deploy-site.yml build checkout pins the ref with an event-safe fallback', async () => {
+  const wf = await loadWorkflow('deploy-site.yml');
+  const steps = stepsOf(wf.jobs?.build);
+  const checkout = steps.find((s) => String(s.uses ?? '').startsWith('actions/checkout'));
+  assert.ok(checkout, 'build job must have a checkout step');
+  const ref = String(checkout.with?.ref ?? '');
+  assert.match(ref, /inputs\.ref/, 'checkout must honour the workflow_call ref input');
+  assert.match(ref, /github\.sha/, 'checkout must fall back to the triggering event SHA');
+});
+
+test('deploy-site.yml checkout ref resolves to the caller ref, else the event SHA', async () => {
+  const wf = await loadWorkflow('deploy-site.yml');
+  const steps = stepsOf(wf.jobs?.build);
+  const checkout = steps.find((s) => String(s.uses ?? '').startsWith('actions/checkout'));
+  assert.ok(checkout, 'build job must have a checkout step');
+  const ref = checkout.with?.ref;
+  assert.ok(ref, 'checkout must declare a ref');
+
+  // workflow_call with an explicit post-sync SHA builds that SHA.
+  assert.equal(
+    evaluateFallbackExpression(ref, { inputs: { ref: 'post-sync-sha' }, github: { sha: 'pre-sync-sha' } }),
+    'post-sync-sha',
+    'a caller-supplied ref must win',
+  );
+
+  // push / pull_request builds keep the current event SHA (inputs is empty).
+  assert.equal(
+    evaluateFallbackExpression(ref, { inputs: {}, github: { sha: 'event-sha' } }),
+    'event-sha',
+    'push and pull_request builds must retain the triggering event SHA',
+  );
+});
+
+test('sync.yml update job exposes a head_sha output wired to a step', async () => {
+  const wf = await loadWorkflow('sync.yml');
+  const updateJob = wf.jobs?.update;
+  assert.ok(updateJob, 'sync.yml must have an update job');
+  const headSha = String(updateJob.outputs?.head_sha ?? '');
+  assert.match(
+    headSha,
+    /steps\.[A-Za-z0-9_-]+\.outputs\.head_sha/,
+    'update job must expose head_sha from a step output',
+  );
+
+  const stepId = headSha.match(/steps\.([A-Za-z0-9_-]+)\.outputs\.head_sha/)?.[1];
+  const steps = stepsOf(updateJob);
+  assert.ok(
+    steps.some((s) => s.id === stepId),
+    `update job must contain the step "${stepId}" that produces head_sha`,
+  );
+});
+
+test('sync.yml resolves the pushed HEAD sha after commit and tag, for applied and no-op runs', async () => {
+  const wf = await loadWorkflow('sync.yml');
+  const updateJob = wf.jobs?.update;
+  assert.ok(updateJob, 'sync.yml must have an update job');
+  const steps = stepsOf(updateJob);
+
+  const headSha = String(updateJob.outputs?.head_sha ?? '');
+  const stepId = headSha.match(/steps\.([A-Za-z0-9_-]+)\.outputs\.head_sha/)?.[1];
+  const headIndex = findStepIndex(steps, (s) => s.id === stepId);
+  assert.ok(headIndex >= 0, 'the head_sha step must exist');
+
+  const commitIndex = findStepIndex(steps, (s) => /git tag/.test(String(s.run ?? '')));
+  assert.ok(commitIndex >= 0, 'update job must have a commit-and-tag step');
+  assert.ok(
+    headIndex > commitIndex,
+    'head_sha must be resolved AFTER the commit/tag push so it names the deployed tree',
+  );
+
+  const headStep = steps[headIndex];
+  assert.match(String(headStep.run ?? ''), /git rev-parse HEAD/, 'head_sha must come from git rev-parse HEAD');
+  assert.match(String(headStep.run ?? ''), /GITHUB_OUTPUT/, 'head_sha must be written to $GITHUB_OUTPUT');
+  assert.doesNotMatch(
+    String(headStep.if ?? ''),
+    /applied/,
+    'head_sha must also be produced for a no-op apply, not only when applied == true',
+  );
+});
+
+test('sync.yml deploy passes the resolved head sha to deploy-site.yml', async () => {
+  const wf = await loadWorkflow('sync.yml');
+  const deployJob = wf.jobs?.deploy;
+  assert.ok(deployJob, 'sync.yml must have a deploy job');
+  assert.match(
+    String(deployJob.with?.ref ?? ''),
+    /needs\.update\.outputs\.head_sha/,
+    'sync deploy must build the commit produced by the update job',
+  );
+});
+
+test('sync.yml still calls deploy-site.yml exactly once', async () => {
+  const wf = await loadWorkflow('sync.yml');
+  const callers = Object.values(wf.jobs ?? {}).filter((job) =>
+    /deploy-site\.yml/.test(String(job.uses ?? '')),
+  );
+  assert.equal(callers.length, 1, 'exactly one job may call deploy-site.yml (no duplicate deploys)');
+});
+
