@@ -295,7 +295,10 @@ a:focus-visible {
   font-weight: 600;
   color: var(--cp-text);
   margin-bottom: 4px;
-  word-break: break-word;
+  /* `anywhere` rather than `break-word`: only `anywhere` shrinks the
+     min-content contribution, which is what keeps the `1fr` grid track inside
+     the viewport when a card holds a long unbroken identifier or code token. */
+  overflow-wrap: anywhere;
 }
 .card-meta {
   font-size: 0.75rem;
@@ -314,6 +317,7 @@ a:focus-visible {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  overflow-wrap: anywhere;
 }
 
 /* ─── Install command ────────────────────────────────────────────── */
@@ -417,6 +421,22 @@ a:focus-visible {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 12px;
+}
+/* Horizontal scrolling is kept local to the table so the document itself never
+   overflows at 375px. The wrapper is tabbable because a scrollable region must
+   be reachable by keyboard (WCAG 2.1.1); the table keeps `display: table`, so
+   its semantics stay in the accessibility tree. */
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-bottom: 12px;
+}
+.table-scroll > table {
+  margin-bottom: 0;
+}
+.table-scroll:focus-visible {
+  outline: 2px solid var(--cp-accent);
+  outline-offset: 2px;
 }
 .detail-body th, .detail-body td {
   border: 1px solid var(--cp-border);
@@ -698,5 +718,14 @@ a:focus-visible {
   .install-block code {
     white-space: pre-wrap;
     word-break: break-all;
+  }
+  /* Long upstream URLs and unbroken identifiers (e.g. a 231-character token in
+     skills/cloudflare/sandbox-migrate-to-next) otherwise widen the document
+     past the viewport. Breaking mid-token is only enabled at mobile widths. */
+  .detail-body,
+  .detail-description,
+  .detail-meta,
+  .skill-table {
+    overflow-wrap: anywhere;
   }
 }

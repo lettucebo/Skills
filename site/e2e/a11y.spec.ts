@@ -3,7 +3,8 @@
  *
  * Covers:
  * - no-JS fallback: catalog still usable, controls and copy button hidden
- * - 375px viewport: no horizontal document overflow, filters stack vertically
+ * - 375px viewport: no horizontal document overflow across representative
+ *   table-heavy and long-URL pages, local table scrolling, vertical filters
  * - skip-link: receives focus on first Tab press, activates to main content
  * - clipboard feedback: copy button shows "Copied" aria-live message
  * - runtime search-result hover contrast: computed ratio >=4.5:1 on hover surface
@@ -12,6 +13,28 @@ import { test, expect } from '@playwright/test';
 import { BASE, resolveColorToken, waitForRenderedResults } from './_helpers';
 
 const SKILL_PAGE = `${BASE}skills/azure/az-cost-optimize/`;
+
+/**
+ * Representative pages for the 375px overflow sweep. The review's browser pass
+ * found overflow on 36 of 116 pages; these five cover every distinct cause
+ * rather than only the two pages the suite used to check.
+ */
+const RESPONSIVE_PAGES = [
+  { name: 'home', url: BASE, tables: false },
+  { name: 'skill detail (az-cost-optimize)', url: SKILL_PAGE, tables: false },
+  {
+    name: 'table-heavy skill (microsoft/copilot-sdk, 15 tables)',
+    url: `${BASE}skills/microsoft/copilot-sdk/`,
+    tables: true,
+  },
+  { name: 'source page (cloudflare)', url: `${BASE}sources/cloudflare/`, tables: true },
+  {
+    name: 'long-URL skill (cloudflare/sandbox-migrate-to-next)',
+    url: `${BASE}skills/cloudflare/sandbox-migrate-to-next/`,
+    tables: true,
+  },
+  { name: 'status page', url: `${BASE}status/`, tables: true },
+] as const;
 
 // ── Helpers ──────────────────────────────────────────────────────────
 
@@ -90,20 +113,80 @@ test.describe('No-JS fallback', () => {
 test.describe('375px viewport — no overflow, vertical filters', () => {
   test.use({ viewport: { width: 375, height: 812 } });
 
-  test('homepage has no horizontal document overflow at 375px', async ({ page }) => {
-    await page.goto(BASE);
-    await page.waitForLoadState('networkidle');
+  for (const page_ of RESPONSIVE_PAGES) {
+    test(`no horizontal document overflow at 375px — ${page_.name}`, async ({ page }) => {
+      await page.goto(page_.url);
+      await page.waitForLoadState('networkidle');
 
-    const { scrollWidth, clientWidth } = await page.evaluate(() => ({
-      scrollWidth: document.documentElement.scrollWidth,
-      clientWidth: document.documentElement.clientWidth,
-    }));
+      const { scrollWidth, clientWidth, widest } = await page.evaluate(() => {
+        const docWidth = document.documentElement.clientWidth;
+        let widest: string | null = null;
+        let widestRight = docWidth;
+        for (const el of Array.from(document.querySelectorAll('body *'))) {
+          const rect = el.getBoundingClientRect();
+          if (rect.width === 0 && rect.height === 0) continue;
+          if (rect.right > widestRight + 1) {
+            widestRight = rect.right;
+            widest = `${el.tagName.toLowerCase()}.${(el.className || '').toString().split(' ')[0]} right=${Math.round(rect.right)}`;
+          }
+        }
+        return {
+          scrollWidth: document.documentElement.scrollWidth,
+          clientWidth: docWidth,
+          widest,
+        };
+      });
 
-    expect(
-      scrollWidth,
-      `scrollWidth (${scrollWidth}) must not exceed clientWidth (${clientWidth}) at 375px`,
-    ).toBeLessThanOrEqual(clientWidth + 1); // +1 for sub-pixel rounding tolerance
-  });
+      expect(
+        scrollWidth,
+        `${page_.name}: scrollWidth (${scrollWidth}) must not exceed clientWidth (${clientWidth}) at 375px` +
+          (widest ? `; widest offender: ${widest}` : ''),
+      ).toBeLessThanOrEqual(clientWidth + 1); // +1 for sub-pixel rounding tolerance
+    });
+  }
+
+  for (const page_ of RESPONSIVE_PAGES.filter((p) => p.tables)) {
+    test(`tables scroll locally and keep their semantics — ${page_.name}`, async ({ page }) => {
+      await page.goto(page_.url);
+      await page.waitForLoadState('networkidle');
+
+      const report = await page.evaluate(() => {
+        const tables = Array.from(document.querySelectorAll('table'));
+        return tables.map((t) => {
+          const wrapper = t.parentElement as HTMLElement | null;
+          const style = wrapper ? window.getComputedStyle(wrapper) : null;
+          return {
+            display: window.getComputedStyle(t).display,
+            wrapped: wrapper?.classList.contains('table-scroll') ?? false,
+            overflowX: style?.overflowX ?? '',
+            tabindex: wrapper?.getAttribute('tabindex') ?? '',
+            role: wrapper?.getAttribute('role') ?? '',
+            labelled: Boolean(wrapper?.getAttribute('aria-label')),
+            wrapperWidth: wrapper ? Math.round(wrapper.getBoundingClientRect().width) : 0,
+            docWidth: document.documentElement.clientWidth,
+            rows: t.querySelectorAll('tr').length,
+          };
+        });
+      });
+
+      expect(report.length, `${page_.name} should render at least one table`).toBeGreaterThan(0);
+
+      for (const t of report) {
+        expect(t.wrapped, 'every table must sit in a .table-scroll container').toBe(true);
+        expect(t.overflowX, 'the container must scroll horizontally').toMatch(/auto|scroll/);
+        expect(t.tabindex, 'a scrollable region must be keyboard reachable').toBe('0');
+        expect(t.role).toBe('region');
+        expect(t.labelled, 'the region needs an accessible name').toBe(true);
+        // Semantics must survive: the table itself is never switched to block.
+        expect(t.display, 'the table must keep its table layout and ARIA role').toBe('table');
+        expect(t.rows).toBeGreaterThan(0);
+        expect(
+          t.wrapperWidth,
+          'the scroll container must stay inside the viewport',
+        ).toBeLessThanOrEqual(t.docWidth + 1);
+      }
+    });
+  }
 
   test('filter controls stack vertically at 375px', async ({ page }) => {
     await page.goto(BASE);
@@ -117,21 +200,6 @@ test.describe('375px viewport — no overflow, vertical filters', () => {
 
     // The mobile breakpoint (max-width: 640px) should set flex-direction: column
     expect(filterDirection, 'filter-controls must be flex-direction: column at 375px').toBe('column');
-  });
-
-  test('skill detail page has no horizontal overflow at 375px', async ({ page }) => {
-    await page.goto(SKILL_PAGE);
-    await page.waitForLoadState('networkidle');
-
-    const { scrollWidth, clientWidth } = await page.evaluate(() => ({
-      scrollWidth: document.documentElement.scrollWidth,
-      clientWidth: document.documentElement.clientWidth,
-    }));
-
-    expect(
-      scrollWidth,
-      `detail page scrollWidth (${scrollWidth}) must not exceed clientWidth (${clientWidth}) at 375px`,
-    ).toBeLessThanOrEqual(clientWidth + 1);
   });
 });
 

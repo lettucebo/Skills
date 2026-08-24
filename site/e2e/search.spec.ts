@@ -10,6 +10,7 @@ import { test, expect } from '@playwright/test';
 import {
   BASE,
   NO_RESULTS_STATUS,
+  countFromStatus,
   searchAndRead,
   waitForRenderedResults,
   waitForResultCount,
@@ -107,6 +108,64 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
     await expect(page.locator('.search-result-item')).toHaveCount(0);
     await expect(page.locator('#search-results')).toBeVisible();
     await expect(page.locator('#full-catalog')).toBeHidden();
+  });
+
+  // ── Live-region sequencing ────────────────────────────────────────────
+
+  /**
+   * The status line is the only live region, and it must never announce a
+   * count that the DOM has not rendered yet. A MutationObserver records the
+   * rendered row count at the exact moment each status text becomes visible
+   * to assistive technology.
+   */
+  test('every announced result count matches the rows already rendered', async ({ page }) => {
+    await page.evaluate(() => {
+      const w = window as unknown as { __statusLog?: Array<{ text: string; rows: number }> };
+      w.__statusLog = [];
+      const status = document.querySelector('#search-status');
+      if (!status) throw new Error('#search-status not found');
+      new MutationObserver(() => {
+        w.__statusLog!.push({
+          text: (status.textContent ?? '').trim(),
+          rows: document.querySelectorAll('.search-result-item').length,
+        });
+      }).observe(status, { childList: true, characterData: true, subtree: true });
+    });
+
+    await page.locator('#search-input').fill('azure');
+    await waitForRenderedResults(page);
+    await page.locator('#search-input').fill(NO_MATCH_QUERY);
+    await expect(page.locator('#search-status')).toHaveText(NO_RESULTS_STATUS, { timeout: 20_000 });
+
+    const log = await page.evaluate(
+      () => (window as unknown as { __statusLog: Array<{ text: string; rows: number }> }).__statusLog,
+    );
+
+    expect(log.length, 'the observer must have captured status updates').toBeGreaterThan(0);
+
+    const counted = log.filter((entry) => countFromStatus(entry.text) !== null);
+    expect(counted.length, 'at least one settled status must have been announced').toBeGreaterThan(0);
+
+    for (const entry of counted) {
+      expect(
+        entry.rows,
+        `status "${entry.text}" was announced while ${entry.rows} rows were rendered`,
+      ).toBe(countFromStatus(entry.text));
+    }
+  });
+
+  test('only the status line is a live region', async ({ page }) => {
+    const wiring = await page.evaluate(() => ({
+      status: document.querySelector('#search-status')?.getAttribute('aria-live') ?? null,
+      atomic: document.querySelector('#search-status')?.getAttribute('aria-atomic') ?? null,
+      container: document.querySelector('#search-results')?.getAttribute('aria-live') ?? null,
+      list: document.querySelector('#search-result-list')?.getAttribute('aria-live') ?? null,
+    }));
+
+    expect(wiring.status).toBe('polite');
+    expect(wiring.atomic).toBe('true');
+    expect(wiring.container, 'the results container must not re-announce every row').toBeNull();
+    expect(wiring.list).toBeNull();
   });
 
   // ── Clear → catalog restored ──────────────────────────────────────────
@@ -271,6 +330,7 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
     const finalQuery = 'terraform';
 
     const firstControl = await searchAndRead(page, firstQuery);
+    const firstStatus = (await page.locator('#search-status').innerText()).trim();
     const finalControl = await searchAndRead(page, finalQuery);
     const finalStatus = (await page.locator('#search-status').innerText()).trim();
 
@@ -282,6 +342,16 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
       firstTitles.filter((t) => finalTitles.includes(t)),
       'the two queries must have disjoint result sets',
     ).toEqual([]);
+    // The test waits for `finalStatus` before reading the rendered rows. If both
+    // queries announced the same count, that wait could be satisfied by the
+    // STALE first-query render and the assertions below would inspect the wrong
+    // state — passing or failing for the wrong reason. Requiring different
+    // counts makes the wait unambiguous instead of merely probable.
+    expect(
+      finalStatus,
+      `queries "${firstQuery}" and "${finalQuery}" must announce different counts so the ` +
+        `wait on "${finalStatus}" cannot be satisfied by the stale first-query render`,
+    ).not.toBe(firstStatus);
 
     // Record EVERY render of the result list, so a stale render that is later
     // overwritten again still shows up. A plain end-state assertion would miss it.

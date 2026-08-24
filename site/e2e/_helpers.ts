@@ -8,13 +8,6 @@ import { expect, type Page } from '@playwright/test';
 
 export const BASE = '/Skills/';
 
-/**
- * The Search component settles on exactly one of these two status strings.
- * Anything else ("Searching…", "Loading search index…", "") means the search
- * is still in flight, so every assertion must wait for this shape first.
- */
-export const SETTLED_STATUS = /^(\d+ results? found\.|No matching skills found\.)$/;
-
 export const NO_RESULTS_STATUS = 'No matching skills found.';
 
 /** A single rendered search result row, as the user sees it. */
@@ -29,11 +22,6 @@ export interface ResultRow {
   metaSpans: string[];
 }
 
-/** Waits until the live region reports a finished search (results or none). */
-export async function waitForSettledSearch(page: Page, timeout = 20_000): Promise<void> {
-  await expect(page.locator('#search-status')).toHaveText(SETTLED_STATUS, { timeout });
-}
-
 /** Parses "N results found." / "No matching skills found." into a count. */
 export function countFromStatus(status: string): number | null {
   const trimmed = status.trim();
@@ -45,9 +33,9 @@ export function countFromStatus(status: string): number | null {
 /**
  * Waits until the search UI is fully settled AND rendered, then returns the rows.
  *
- * Search.astro writes the status text before awaiting `result.data()` for each
- * hit, so a settled status alone does NOT mean the list is populated. Polling
- * until the announced count equals the rendered row count removes that race
+ * Search.astro announces the result count only after the rows are inserted, so
+ * a settled status now implies a populated list. Polling until the announced
+ * count equals the rendered row count still removes any transitional frame
  * without a fixed sleep, and additionally asserts the live region and the DOM
  * agree with each other.
  */

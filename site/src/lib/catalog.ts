@@ -1,15 +1,75 @@
 import { readFile } from 'node:fs/promises';
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { Marked } from 'marked';
-
+import { parse as parseYaml } from 'yaml';
 import { escapeHtmlAttribute, isSafeUrl } from './url-policy.ts';
 
 // ─── Site Configuration ─────────────────────────────────────────────
 
-export const RELEASE_VERSION = '1.1.0';
-export const RELEASE_PUBLISHED = false;
 export const REPO_OWNER = 'lettucebo';
 export const REPO_NAME = 'Skills';
+
+/**
+ * Walks up from the current working directory until `catalog/skills.lock.json`
+ * is found. `astro build`, `astro preview` and `node --test` all run with the
+ * site directory as cwd, while ad-hoc tooling may run from the repository root;
+ * both resolve to the same root here.
+ *
+ * Deliberately NOT based on `import.meta.url`: Astro bundles this module into
+ * `dist/chunks/*` for the SSG pass, where the module URL no longer describes
+ * the source tree layout.
+ */
+export function findRepoRoot(start: string = process.cwd()): string {
+  let dir = path.resolve(start);
+
+  for (;;) {
+    if (existsSync(path.join(dir, 'catalog', 'skills.lock.json'))) {
+      return dir;
+    }
+    const parent = path.dirname(dir);
+    if (parent === dir) break;
+    dir = parent;
+  }
+
+  throw new Error(
+    `Could not locate catalog/skills.lock.json above ${path.resolve(start)}`,
+  );
+}
+
+/**
+ * The release the site describes is the release recorded in the lock file.
+ * Reading it here means a sync that bumps `catalog/skills.lock.json` also moves
+ * every rendered version badge and install command, with no second edit.
+ */
+function readLockRelease(): string {
+  const lockPath = path.join(findRepoRoot(), 'catalog', 'skills.lock.json');
+  const lock = JSON.parse(readFileSync(lockPath, 'utf8')) as LockFile;
+
+  if (typeof lock.release !== 'string' || lock.release === '') {
+    throw new Error(`${lockPath} does not declare a release`);
+  }
+
+  return lock.release;
+}
+
+export const RELEASE_VERSION = readLockRelease();
+
+/**
+ * Publication is a build-time input, not a property of the repository content:
+ * the lock file records which release the tree *is*, and the `RELEASE_PUBLISHED`
+ * input records whether `v<release>` has actually been tagged and pushed.
+ *
+ * Only the exact string `'true'` enables published mode, so an unset, empty or
+ * malformed value always degrades to the safe "pending" rendering. The site
+ * never queries the network at runtime; the deploy workflow resolves the tag
+ * and passes the answer in.
+ */
+export function parseReleasePublished(value: string | undefined): boolean {
+  return value === 'true';
+}
+
+export const RELEASE_PUBLISHED = parseReleasePublished(process.env.RELEASE_PUBLISHED);
 
 // ─── Types ──────────────────────────────────────────────────────────
 
@@ -164,6 +224,46 @@ export function computeCounts(skills: SkillViewModel[]): CatalogCounts {
     local: skills.filter((s) => s.isLocal).length,
     restricted: getRestrictedSkills(skills).length,
   };
+}
+
+export interface StatusPartition {
+  total: number;
+  synced: number;
+  frozen: number;
+  local: number;
+  restricted: number;
+}
+
+/**
+ * Partitions the catalog exactly the way the badges and the origin filter do:
+ * restricted wins over frozen, frozen over local, everything else is synced.
+ *
+ * `counts.mapped` deliberately still counts every mapped lock entry (including
+ * restricted ones) for the status page; this partition is what the homepage
+ * summary line must use, because its buckets have to be disjoint and sum to the
+ * catalog total.
+ */
+export function computeStatusPartition(skills: SkillViewModel[]): StatusPartition {
+  const partition: StatusPartition = {
+    total: 0,
+    synced: 0,
+    frozen: 0,
+    local: 0,
+    restricted: 0,
+  };
+
+  for (const skill of skills) {
+    if (skill.isTombstone) continue;
+
+    partition.total += 1;
+
+    if (skill.isRestricted) partition.restricted += 1;
+    else if (skill.isOrphan) partition.frozen += 1;
+    else if (skill.isLocal) partition.local += 1;
+    else partition.synced += 1;
+  }
+
+  return partition;
 }
 
 /**
@@ -328,10 +428,30 @@ const marked = new Marked({
   },
 });
 
+/**
+ * Markdown tables are laid out at their min-content width, which overflows a
+ * 375px viewport on table-heavy skill pages. Each table is wrapped in a
+ * focusable scroll container so the horizontal scrolling stays local to the
+ * table instead of the document. The `<table>` element is left untouched, so
+ * its implicit ARIA role, rows, and cells all survive.
+ *
+ * Marked emits bare `<table>` tags and markdown cannot nest tables, so a
+ * non-greedy match over the rendered output is unambiguous.
+ */
+const RENDERED_TABLE_RE = /<table>[\s\S]*?<\/table>/g;
+
+function wrapTablesForMobileScrolling(html: string): string {
+  return html.replace(
+    RENDERED_TABLE_RE,
+    (table) =>
+      `<div class="table-scroll" role="region" aria-label="Table" tabindex="0">${table}</div>`,
+  );
+}
+
 export function renderMarkdownBody(markdown: string): string {
   const result = marked.parse(markdown);
   if (typeof result === 'string') {
-    return result;
+    return wrapTablesForMobileScrolling(result);
   }
   // Should not happen with sync parse, but handle gracefully
   return '';
@@ -341,6 +461,15 @@ export function renderMarkdownBody(markdown: string): string {
 
 const FRONTMATTER_RE = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)([\s\S]*)/;
 
+/**
+ * Splits a SKILL.md into its frontmatter description and its body.
+ *
+ * The frontmatter is parsed with the `yaml` package rather than pattern-matched:
+ * a line-scoped regex cannot see past `description: >` / `>-` / `|`, so block
+ * scalars used to render as the literal indicator character. Invalid YAML
+ * degrades to an empty description instead of throwing, because a single
+ * malformed vendored file must never break the whole catalog build.
+ */
 export function parseSkillMd(
   content: string,
 ): { description: string; body: string } {
@@ -352,17 +481,22 @@ export function parseSkillMd(
   const frontmatterBlock = match[1];
   const body = (match[2] ?? '').trim();
 
-  // Simple YAML parsing for description field
-  const descMatch = frontmatterBlock.match(
-    /^description:\s*["']?([\s\S]*?)["']?\s*$/m,
-  );
   let description = '';
-  if (descMatch) {
-    description = descMatch[1].trim();
-    // Handle multi-line YAML string
-    if (description.startsWith('"') || description.startsWith("'")) {
-      description = description.slice(1);
+
+  try {
+    const parsed = parseYaml(frontmatterBlock);
+
+    if (parsed && typeof parsed === 'object') {
+      const raw = (parsed as Record<string, unknown>).description;
+
+      if (typeof raw === 'string') {
+        description = raw.trim();
+      } else if (raw != null && typeof raw !== 'object') {
+        description = String(raw).trim();
+      }
     }
+  } catch {
+    description = '';
   }
 
   return { description, body };

@@ -8,13 +8,14 @@ import { defineConfig, devices } from '@playwright/test';
  *   never be mistaken for the build under test. Override with E2E_PORT.
  * - `reuseExistingServer: false` everywhere: reusing a foreign server would
  *   silently test a different build. Playwright fails fast if the port is
- *   already occupied, which is the intended, loud behaviour.
+ *   already occupied, which is the intended, loud behaviour — set E2E_PORT to
+ *   move the suite off a busy port.
  * - Local (CI unset): uses the system Chrome channel to avoid downloading browsers.
  * - CI: uses Playwright's installed Chromium (`npx playwright install chromium`).
  * - baseURL includes the /Skills/ base path matching astro.config.mjs.
  * - `npm run test:e2e` builds the site (including the Pagefind postbuild) first.
  */
-const PORT = Number(process.env.E2E_PORT) || 4330;
+const PORT = Number(process.env.E2E_PORT) || 4331;
 const isCI = !!process.env.CI;
 const BASE_URL = `http://127.0.0.1:${PORT}/Skills/`;
 

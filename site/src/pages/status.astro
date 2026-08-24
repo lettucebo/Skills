@@ -90,53 +90,57 @@ const orphanSkills = catalog.skills.filter((s) => s.isOrphan);
 
   <div class="status-section">
     <h2>Upstream Repositories</h2>
-    <table class="skill-table">
-      <thead>
-        <tr>
-          <th>Repository</th>
-          <th>Resolved Commits</th>
-        </tr>
-      </thead>
-      <tbody>
-        {[...upstreamRepos.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([repo, commits]) => (
+    <div class="table-scroll" role="region" aria-label="Upstream repositories" tabindex="0">
+      <table class="skill-table">
+        <thead>
           <tr>
-            <td>
-              <a href={`https://github.com/${repo}`} rel="noopener noreferrer">{repo}</a>
-            </td>
-            <td>
-              {[...commits].map((c) => (
-                <code style="margin-right:8px;">{c.slice(0, 7)}</code>
-              ))}
-            </td>
+            <th>Repository</th>
+            <th>Resolved Commits</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {[...upstreamRepos.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([repo, commits]) => (
+            <tr>
+              <td>
+                <a href={`https://github.com/${repo}`} rel="noopener noreferrer">{repo}</a>
+              </td>
+              <td>
+                {[...commits].map((c) => (
+                  <code style="margin-right:8px;">{c.slice(0, 7)}</code>
+                ))}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <div class="status-section">
     <h2>Frozen Orphans ({orphanSkills.length})</h2>
     {orphanSkills.length > 0 ? (
-      <table class="skill-table">
-        <thead>
-          <tr>
-            <th>Skill</th>
-            <th>Source</th>
-            <th>Version</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orphanSkills.map((skill) => (
+      <div class="table-scroll" role="region" aria-label="Frozen orphan skills" tabindex="0">
+        <table class="skill-table">
+          <thead>
             <tr>
-              <td>
-                <a href={`${base}skills/${skill.source}/${skill.slug}/`}>{skill.name}</a>
-              </td>
-              <td>{skill.source}</td>
-              <td>v{skill.version}</td>
+              <th>Skill</th>
+              <th>Source</th>
+              <th>Version</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {orphanSkills.map((skill) => (
+              <tr>
+                <td>
+                  <a href={`${base}skills/${skill.source}/${skill.slug}/`}>{skill.name}</a>
+                </td>
+                <td>{skill.source}</td>
+                <td>v{skill.version}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     ) : (
       <p>No orphan skills.</p>
     )}

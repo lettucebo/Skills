@@ -75,11 +75,16 @@ const origins = [...new Set(
     id="search-results"
     class="search-results"
     role="region"
-    aria-live="polite"
     aria-label="Search results"
     hidden
   >
-    <p id="search-status" class="search-status"></p>
+    <p
+      id="search-status"
+      class="search-status"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></p>
     <ul id="search-result-list" class="search-result-list"></ul>
   </div>
 </div>
@@ -172,9 +177,6 @@ const origins = [...new Set(
           return;
         }
 
-        statusEl.textContent = search.results.length + ' result' +
-          (search.results.length !== 1 ? 's' : '') + ' found.';
-
         const data = await Promise.all(
           search.results.map(r => r.data()),
         );
@@ -201,6 +203,11 @@ const origins = [...new Set(
             '</a>' +
             '</li>';
         }).join('');
+
+        // Announce the count only once the rows exist, so the number a screen
+        // reader hears always matches what is rendered.
+        statusEl.textContent = data.length + ' result' +
+          (data.length !== 1 ? 's' : '') + ' found.';
       } catch (err) {
         if (gen !== generation) return;
         statusEl.textContent = 'Search error — please try again.';

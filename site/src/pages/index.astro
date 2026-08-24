@@ -6,6 +6,7 @@ import {
   loadCatalog,
   loadSkillBody,
   computeCounts,
+  computeStatusPartition,
   generateRepoInstallCommand,
   generateSingleSkillInstallCommand,
   generateSourceInstallCommand,
@@ -20,6 +21,10 @@ import path from 'node:path';
 const repoRoot = path.resolve(process.cwd(), '..');
 const catalog = await loadCatalog(repoRoot);
 const counts = catalog.counts;
+// Disjoint buckets that mirror the rendered badges and the origin filter, so
+// the summary line adds up to the catalog total instead of double-counting the
+// restricted skills inside `counts.mapped`.
+const partition = computeStatusPartition(catalog.skills);
 const repoCmd = generateRepoInstallCommand();
 const base = import.meta.env.BASE_URL;
 
@@ -56,10 +61,11 @@ function badgeClass(skill: typeof catalog.skills[0]): string {
       {!RELEASE_PUBLISHED && <span class="badge badge--pending">Release pending</span>}
     </div>
     <p>
-      <strong>{counts.total}</strong> total &middot;
-      <strong>{counts.mapped}</strong> synced &middot;
-      <strong>{counts.orphan}</strong> frozen &middot;
-      <strong>{counts.restricted}</strong> restricted
+      <strong>{partition.total}</strong> total &middot;
+      <strong>{partition.synced}</strong> synced &middot;
+      <strong>{partition.frozen}</strong> frozen &middot;
+      {partition.local > 0 && (<><strong>{partition.local}</strong> local &middot; </>)}
+      <strong>{partition.restricted}</strong> restricted
     </p>
   </section>
 

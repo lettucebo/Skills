@@ -67,30 +67,32 @@ const { source, skills, upstreamRepo, hasRestricted, sourceCmd } = Astro.props;
     </div>
   )}
 
-  <table class="skill-table">
-    <thead>
-      <tr>
-        <th>Skill</th>
-        <th>Version</th>
-        <th>Status</th>
-        <th>License</th>
-      </tr>
-    </thead>
-    <tbody>
-      {skills.map((skill) => (
+  <div class="table-scroll" role="region" aria-label={`Skills in ${source.name}`} tabindex="0">
+    <table class="skill-table">
+      <thead>
         <tr>
-          <td>
-            <a href={`${base}skills/${skill.source}/${skill.slug}/`}>{skill.name}</a>
-          </td>
-          <td>v{skill.version}</td>
-          <td>
-            <span class={`badge badge--${skill.isRestricted ? 'restricted' : skill.isOrphan ? 'frozen' : skill.isLocal ? 'local' : 'synced'}`}>
-              {skill.statusLabel}
-            </span>
-          </td>
-          <td>{skill.license}</td>
+          <th>Skill</th>
+          <th>Version</th>
+          <th>Status</th>
+          <th>License</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {skills.map((skill) => (
+          <tr>
+            <td>
+              <a href={`${base}skills/${skill.source}/${skill.slug}/`}>{skill.name}</a>
+            </td>
+            <td>v{skill.version}</td>
+            <td>
+              <span class={`badge badge--${skill.isRestricted ? 'restricted' : skill.isOrphan ? 'frozen' : skill.isLocal ? 'local' : 'synced'}`}>
+                {skill.statusLabel}
+              </span>
+            </td>
+            <td>{skill.license}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 </Layout>

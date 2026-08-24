@@ -94,16 +94,22 @@ test('P3e: playwright.config.ts specifies outputDir outside source tree', () => 
   assert.match(config, /outputDir|output/, 'playwright.config.ts must specify an output directory');
 });
 
-test('P3f: playwright.config.ts uses the dedicated E2E port 4330 by default', () => {
+test('P3f: playwright.config.ts uses the dedicated E2E port 4331 by default', () => {
   const config = fs.readFileSync(path.join(siteRoot, 'playwright.config.ts'), 'utf8');
   // 4321 is Astro's default dev/preview port; reusing it risks binding to an
-  // unrelated dev server that serves a different build.
+  // unrelated dev server that serves a different build. 4330 is the documented
+  // default of several local proxy/debug tools, so the suite uses 4331.
   assert.doesNotMatch(
     config,
     /\b4321\b/,
     'playwright.config.ts must not use Astro default port 4321 (an unrelated dev server may own it)',
   );
-  assert.match(config, /\b4330\b/, 'playwright.config.ts must default to the dedicated E2E port 4330');
+  assert.doesNotMatch(
+    config,
+    /Number\(process\.env\.E2E_PORT\) \|\| 4330\b/,
+    'the E2E default port moved off 4330 to reduce collisions with other local tooling',
+  );
+  assert.match(config, /\b4331\b/, 'playwright.config.ts must default to the dedicated E2E port 4331');
 });
 
 test('P3g: playwright.config.ts allows a port override via environment variable', () => {
@@ -335,5 +341,38 @@ test('P6l: restricted spec asserts no install/copy affordance is rendered', () =
     spec,
     /install-copy-btn'\)\)\.toHaveCount\(0\)/,
     'restricted pages must render no copy button at all',
+  );
+});
+
+test('P6m: _helpers.ts carries no dead settled-status helper', () => {
+  const helpers = fs.readFileSync(path.join(siteRoot, 'e2e', '_helpers.ts'), 'utf8');
+  assert.doesNotMatch(
+    helpers,
+    /SETTLED_STATUS/,
+    'SETTLED_STATUS was only consumed by the unused waitForSettledSearch helper — remove both',
+  );
+  assert.doesNotMatch(
+    helpers,
+    /waitForSettledSearch/,
+    'waitForSettledSearch is dead code: every spec waits through waitForRenderedResults instead',
+  );
+});
+
+test('P6n: the fault-injected overlap test proves the two queries announce different counts', () => {
+  const spec = readSpec('search.spec.ts');
+  const start = spec.indexOf('a slow first search cannot overwrite');
+  assert.ok(start > -1, 'the fault-injected overlap test must exist');
+  const block = spec.slice(start);
+
+  assert.match(
+    block,
+    /firstStatus/,
+    'the overlap test must capture the first query status so a stale announcement is detectable',
+  );
+  assert.match(
+    block,
+    /not\.toBe\(firstStatus\)/,
+    'the overlap test waits on the final status text; if both queries announce the same count the ' +
+      'wait can be satisfied by the stale render, so the counts must be asserted different',
   );
 });

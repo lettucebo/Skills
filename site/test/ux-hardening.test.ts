@@ -386,7 +386,10 @@ test('B5: breadcrumb separators have aria-hidden="true"', () => {
 
 test('B6: landing page stats include restricted count explicitly', () => {
   const index = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'index.astro'), 'utf8');
-  assert.match(index, /counts\.restricted/, 'Landing page must display counts.restricted');
+  // The restricted count is now sourced from computeStatusPartition() so the
+  // headline stats form a true partition (see status-partition.test.ts); it is
+  // still rendered explicitly.
+  assert.match(index, /partition\.restricted/, 'Landing page must display the restricted count');
 });
 
 // ─── C. Search/Filter UX and Progressive Enhancement ────────────────
