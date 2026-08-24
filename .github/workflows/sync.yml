@@ -1,8 +1,8 @@
 name: Sync upstream skills
 
-# Manual-only. No schedule/cron: the baseline and every sync are human-triggered
-# so a mass upstream change can never be applied unattended.
 on:
+  schedule:
+    - cron: '0 3 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -13,6 +13,10 @@ on:
         description: 'Establish the verified upstream baseline. Requires dry_run = false.'
         type: boolean
         default: false
+
+concurrency:
+  group: sync-upstream-skills
+  cancel-in-progress: false
 
 # Least privilege by default; jobs widen only what they need.
 permissions:
@@ -34,7 +38,7 @@ jobs:
   dry-run:
     name: Dry-run plan
     needs: guard
-    if: ${{ !inputs.baseline }}
+    if: ${{ github.event_name == 'workflow_dispatch' && !inputs.baseline }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -168,3 +172,121 @@ jobs:
           # Push to the manually selected branch. The release tag is created by a
           # later step/task after this commit lands; v1.0.0 is never moved.
           git push origin HEAD:${{ github.ref_name }}
+
+  update:
+    name: Apply upstream updates
+    needs: guard
+    # Runs on schedule (inputs is empty) and on manual dispatch when neither
+    # baseline nor dry_run is requested.
+    if: >-
+      github.event_name == 'schedule' ||
+      (github.event_name == 'workflow_dispatch' && !inputs.baseline && !inputs.dry_run)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run repository validator
+        run: node scripts/validate.mjs
+
+      - name: Apply upstream updates
+        id: apply
+        run: |
+          mkdir -p sync-report
+          node scripts/sync.mjs --apply --output sync-report/result.json
+
+          # Read the engine result to decide whether to commit.
+          APPLIED=$(node -e "const r=JSON.parse(require('fs').readFileSync('sync-report/result.json','utf8'));process.stdout.write(String(r.applied))")
+          echo "applied=$APPLIED" >> "$GITHUB_OUTPUT"
+
+          if [ "$APPLIED" = "true" ]; then
+            COMMIT_MSG=$(node -e "const r=JSON.parse(require('fs').readFileSync('sync-report/result.json','utf8'));process.stdout.write(r.commitMessage)")
+            echo "commit_message=$COMMIT_MSG" >> "$GITHUB_OUTPUT"
+            NEXT_TAG=$(node -e "const r=JSON.parse(require('fs').readFileSync('sync-report/result.json','utf8'));process.stdout.write(r.nextTag)")
+            echo "next_tag=$NEXT_TAG" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and tag
+        if: steps.apply.outputs.applied == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "${{ steps.apply.outputs.commit_message }}"
+          git tag -a "${{ steps.apply.outputs.next_tag }}" -m "${{ steps.apply.outputs.commit_message }}"
+          git push origin HEAD:${{ github.ref_name }} --follow-tags
+
+      - name: Upload sync report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-update-result
+          path: sync-report/result.json
+          if-no-files-found: warn
+
+      - name: Open or update the update failure issue
+        if: ${{ failure() }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const marker = '<!-- sync-update-tracker -->';
+            const title = 'Daily upstream update failing';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              marker,
+              '',
+              'The daily **Sync upstream skills** update job failed.',
+              '',
+              `- Run: ${runUrl}`,
+              `- Triggered by: @${context.actor}`,
+              `- Commit: ${context.sha}`,
+              '',
+              'Download the `sync-update-result` artifact (when present) for the engine output.',
+              'This issue is updated in place on each failing run; close it once the update is green.',
+            ].join('\n');
+
+            const existing = await github.rest.search.issuesAndPullRequests({
+              q: `repo:${context.repo.owner}/${context.repo.repo} is:issue in:body "${marker}"`,
+            });
+            const tracked = existing.data.items.find((issue) => issue.pull_request === undefined);
+
+            if (tracked) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: tracked.number,
+                state: 'open',
+                body,
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: tracked.number,
+                body: `Update failed again: ${runUrl}`,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
