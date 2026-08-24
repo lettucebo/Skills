@@ -36,7 +36,7 @@ hooks/                     ← Copilot Hook 腳本集合
 
 > 以下統計由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
 >
-> 目前所有 mapped 技能的 `baseline` 為 `unverified`，代表 lockfile 記錄的是目前 vendored 的內容快照（`snapshotHash`），尚未對應到已驗證的上游 commit。
+> 全部 100 個 mapped 技能皆已 verified，每個技能的 upstream commit 與 contentHash 均已記錄。
 
 | 來源 | 數量 | 說明 | 文件 |
 |------|:----:|------|------|

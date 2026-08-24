@@ -636,7 +636,20 @@ function renderReadmeCatalog(lock) {
   lines.push('');
   lines.push('> 以下統計由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。');
   lines.push('>');
-  lines.push('> 目前所有 mapped 技能的 `baseline` 為 `unverified`，代表 lockfile 記錄的是目前 vendored 的內容快照（`snapshotHash`），尚未對應到已驗證的上游 commit。');
+
+  // Render actual baseline status from lock entries.
+  const mappedSkills = lock.skills.filter((s) => s.category === 'mapped');
+  const verifiedCount = mappedSkills.filter((s) => s.baseline === 'verified').length;
+  const unverifiedCount = mappedSkills.filter((s) => s.baseline === 'unverified').length;
+
+  if (unverifiedCount === 0 && verifiedCount > 0) {
+    lines.push(`> 全部 ${verifiedCount} 個 mapped 技能皆已 verified，每個技能的 upstream commit 與 contentHash 均已記錄。`);
+  } else if (verifiedCount === 0 && unverifiedCount > 0) {
+    lines.push(`> 目前全部 ${unverifiedCount} 個 mapped 技能的 \`baseline\` 為 \`unverified\`，代表 lockfile 記錄的是目前 vendored 的內容快照（\`snapshotHash\`），尚未對應到已驗證的上游 commit。`);
+  } else {
+    lines.push(`> 目前 ${verifiedCount} 個 mapped 技能已 verified（upstream commit 與 contentHash 已記錄），${unverifiedCount} 個仍為 unverified（僅記錄 vendored 快照 snapshotHash）。`);
+  }
+
   lines.push('');
   lines.push('| 來源 | 數量 | 說明 | 文件 |');
   lines.push('|------|:----:|------|------|');

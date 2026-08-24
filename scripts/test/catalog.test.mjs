@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { loadManifest } from '../lib/manifest.mjs';
 import { hashDirectory } from '../lib/hash.mjs';
 import { historyFileName } from '../lib/history.mjs';
-import { buildCatalog } from '../catalog.mjs';
+import { buildCatalog, renderReadme } from '../catalog.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const runtimeRoot = path.join(__dirname, '.runtime');
@@ -782,4 +782,76 @@ test('buildCatalog output is byte-identical across repeated runs with no previou
     assert.deepEqual(second.lock, first.lock);
     assert.deepEqual(second.historyFiles, first.historyFiles);
   });
+});
+
+// ---------------------------------------------------------------------------
+// Defect 4: renderReadme should render actual lock status, not hardcoded
+// ---------------------------------------------------------------------------
+
+function readmeTemplate() {
+  return '# Skills\n\n<!-- CATALOG:START -->\nold\n<!-- CATALOG:END -->\n';
+}
+
+function lockWithStatus(baselineStatus) {
+  return {
+    release: baselineStatus === 'verified' ? '1.1.0' : '1.0.0',
+    generatedAt: '2026-01-01T00:00:00Z',
+    counts: { total: 3, mapped: 2, orphan: 1, local: 0 },
+    skills: [
+      {
+        path: 'skills/demo/alpha',
+        name: 'alpha',
+        category: 'mapped',
+        version: '1.0.0',
+        baseline: baselineStatus,
+        license: 'MIT',
+        redistributable: true,
+        snapshotHash: 'sha256:aaa',
+        upstream: { repository: 'demo/upstream', reference: 'refs/heads/main', source: 'skills/alpha', commit: null },
+      },
+      {
+        path: 'skills/demo/beta',
+        name: 'beta',
+        category: 'mapped',
+        version: '1.0.0',
+        baseline: baselineStatus,
+        license: 'MIT',
+        redistributable: true,
+        snapshotHash: 'sha256:bbb',
+        upstream: { repository: 'demo/upstream', reference: 'refs/heads/main', source: 'skills/beta', commit: null },
+      },
+      {
+        path: 'skills/orphans/gamma',
+        name: 'gamma',
+        category: 'orphan',
+        version: '1.0.0',
+        baseline: null,
+        license: 'Unknown',
+        redistributable: true,
+        snapshotHash: 'sha256:ccc',
+        upstream: null,
+      },
+    ],
+  };
+}
+
+test('renderReadme shows verified status when all mapped skills are verified', () => {
+  const lock = lockWithStatus('verified');
+  const result = renderReadme(readmeTemplate(), lock);
+  assert.match(result, /verified/i);
+  assert.doesNotMatch(result, /unverified/i);
+});
+
+test('renderReadme shows unverified status when all mapped skills are unverified', () => {
+  const lock = lockWithStatus('unverified');
+  const result = renderReadme(readmeTemplate(), lock);
+  assert.match(result, /unverified/i);
+});
+
+test('renderReadme shows mixed status when some mapped skills are verified and some not', () => {
+  const lock = lockWithStatus('verified');
+  lock.skills[1] = { ...lock.skills[1], baseline: 'unverified' };
+  const result = renderReadme(readmeTemplate(), lock);
+  assert.match(result, /1.*verified/i);
+  assert.match(result, /1.*unverified/i);
 });
