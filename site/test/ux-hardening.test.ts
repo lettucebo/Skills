@@ -1069,3 +1069,54 @@ test('K13: forced-colors covers hover indicators', () => {
   // The hover indicator (box-shadow or border) must adapt in forced-colors mode
   assert.match(css, /\.skill-table tr:hover|tr:hover/, 'forced-colors block must address hover');
 });
+
+// ─── K14–K17: Hovered/focused row link contrast fix ──────────────────
+
+test('K14: --cp-link-text on --cp-hover-surface fails AA — defect evidence', () => {
+  // Documents that default link text (#0067b8 light / #5aafff dark) measured
+  // against the hover surface falls below 4.5:1. The fix overrides to --cp-text
+  // inside hover/focus-within rows (K15).
+  const checks = [
+    { theme: 'light', fg: '#0067b8', bg: '#e6e1da' },
+    { theme: 'dark',  fg: '#5aafff', bg: '#494546' },
+  ] as const;
+  for (const { theme, fg, bg } of checks) {
+    const ratio = contrastRatio(fg, bg);
+    assert.ok(
+      ratio < 4.5,
+      `${theme}: --cp-link-text (${fg}) on --cp-hover-surface (${bg}) = ${ratio.toFixed(2)}:1; expected < 4.5 to confirm defect`,
+    );
+  }
+});
+
+test('K15: skill-table hover/focus-within links use --cp-text with persistent underline', () => {
+  const css = readGlobalCss();
+  const hoverA = readRule('.skill-table tr:hover a', css);
+  assert.match(hoverA, /color:\s*var\(--cp-text\)/, '.skill-table tr:hover a must use --cp-text');
+  assert.match(hoverA, /text-decoration:\s*underline/, '.skill-table tr:hover a must have persistent underline');
+  const focusA = readRule('.skill-table tr:focus-within a', css);
+  assert.match(focusA, /color:\s*var\(--cp-text\)/, '.skill-table tr:focus-within a must use --cp-text');
+  assert.match(focusA, /text-decoration:\s*underline/, '.skill-table tr:focus-within a must have persistent underline');
+});
+
+test('K16: skill-table tr:focus-within gets same hover surface and accent indicator', () => {
+  const css = readGlobalCss();
+  const focusRow = readRule('.skill-table tr:focus-within', css);
+  assert.match(
+    focusRow,
+    /background:\s*var\(--cp-hover-surface\)/,
+    '.skill-table tr:focus-within must use --cp-hover-surface',
+  );
+  assert.match(
+    focusRow,
+    /box-shadow:\s*inset\s+3px\s+0\s+0\s+var\(--cp-accent\)|border-left:\s*3px solid var\(--cp-accent\)/,
+    '.skill-table tr:focus-within must have accent inset indicator',
+  );
+});
+
+test('K17: forced-colors block covers tr:focus-within alongside tr:hover', () => {
+  const css = readGlobalCss();
+  const forcedSection = css.slice(css.indexOf('@media (forced-colors: active)'));
+  assert.ok(forcedSection.length > 0, 'forced-colors block must exist');
+  assert.match(forcedSection, /tr:focus-within/, 'forced-colors block must cover tr:focus-within');
+});

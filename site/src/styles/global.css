@@ -516,6 +516,18 @@ a:focus-visible {
   background: var(--cp-hover-surface);
   box-shadow: inset 3px 0 0 var(--cp-accent);
 }
+.skill-table tr:focus-within {
+  background: var(--cp-hover-surface);
+  box-shadow: inset 3px 0 0 var(--cp-accent);
+}
+.skill-table tr:hover a {
+  color: var(--cp-text);
+  text-decoration: underline;
+}
+.skill-table tr:focus-within a {
+  color: var(--cp-text);
+  text-decoration: underline;
+}
 
 /* ─── Status page ────────────────────────────────────────────────── */
 .status-section {
@@ -629,6 +641,10 @@ a:focus-visible {
     border: 2px solid Highlight;
   }
   .skill-table tr:hover {
+    outline: 2px solid Highlight;
+    box-shadow: none;
+  }
+  .skill-table tr:focus-within {
     outline: 2px solid Highlight;
     box-shadow: none;
   }
