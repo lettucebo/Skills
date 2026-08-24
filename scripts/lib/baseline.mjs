@@ -27,7 +27,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { cloneUpstream, GitCloneError } from './git-source.mjs';
-import { commitMessageForDiffClass, evaluateDeletionGuards } from './guardrails.mjs';
+import {
+  assertMappingsWritable,
+  commitMessageForDiffClass,
+  evaluateDeletionGuards,
+} from './guardrails.mjs';
 import { hashDirectory } from './hash.mjs';
 import { historyFileName } from './history.mjs';
 import { loadManifest } from './manifest.mjs';
@@ -494,6 +498,11 @@ export async function applyBaseline({
   const manifest = await loadManifest(
     path.join(absoluteRepoRoot, 'catalog', 'sources.yml'),
   );
+
+  // Protected-root guard: identical to the dry-run plan, applied here BEFORE
+  // any clone, stage, or candidate write so plan and apply can never diverge.
+  assertMappingsWritable(manifest);
+
   const lock = await readLock(absoluteRepoRoot);
 
   // --- One-time baseline guards (Defect 2) ---
@@ -788,6 +797,11 @@ export async function applyUpdate({
   const manifest = await loadManifest(
     path.join(absoluteRepoRoot, 'catalog', 'sources.yml'),
   );
+
+  // Protected-root guard: identical to the dry-run plan, applied here BEFORE
+  // any clone, stage, or candidate write so plan and apply can never diverge.
+  assertMappingsWritable(manifest);
+
   const lock = await readLock(absoluteRepoRoot);
 
   // The daily update must never run before the verified baseline exists.

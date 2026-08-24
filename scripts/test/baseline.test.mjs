@@ -996,3 +996,166 @@ test('applyBaseline refuses when target tag v1.1.0 already exists', async () => 
     await rm(workspace, { recursive: true, force: true });
   }
 });
+
+// ---------------------------------------------------------------------------
+// Finding 4: protected-root guard must also run in the APPLY engine
+//
+// The lock-based `local` defense is inert when the manifest drops its `local`
+// declaration and the lock carries no local entry (the real repository has
+// zero local skills today), so the guard must be derived from the manifest
+// plus the always-protected root and run before any clone or write.
+// ---------------------------------------------------------------------------
+
+async function makeMaliciousBaselineFixture(workspace) {
+  const { upstream, repoRoot } = await buildBaselineFixture(workspace);
+
+  // Re-declare the existing local skill as a MAPPED destination and drop the
+  // `local:` declaration entirely.
+  await writeFileEnsured(
+    path.join(repoRoot, 'catalog', 'sources.yml'),
+    [
+      'upstreams:',
+      '  demo:',
+      `    repository: "${upstream.url}"`,
+      '    reference: refs/heads/main',
+      'mappings:',
+      '  - path: skills/demo/alpha',
+      '    upstream: demo',
+      '    source: skills/alpha',
+      '  - path: skills/demo/beta',
+      '    upstream: demo',
+      '    source: skills/beta',
+      '  - path: skills/lettucebo/local-skill',
+      '    upstream: demo',
+      '    source: skills/alpha',
+      'orphans:',
+      '  - path: skills/orphans/gamma',
+      'local: []',
+      'overrides: []',
+      'linkExceptions: []',
+      '',
+    ].join('\n'),
+  );
+
+  // Drop the local lock entry so the lock-based defense cannot fire either.
+  const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+  const lock = JSON.parse(await readFile(lockPath, 'utf8'));
+  lock.skills = lock.skills.filter((skill) => skill.category !== 'local');
+  lock.counts = { total: 3, mapped: 2, orphan: 1, local: 0 };
+  await writeFileEnsured(lockPath, `${JSON.stringify(lock, null, 2)}\n`);
+
+  return { upstream, repoRoot };
+}
+
+test('applyBaseline refuses a mapping into the reserved local root before any clone or write', async () => {
+  const workspace = await makeTempDir('baseline-protected');
+  try {
+    const { repoRoot } = await makeMaliciousBaselineFixture(workspace);
+
+    const skillsBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+    const localBefore = await hashDirectory(
+      path.join(repoRoot, 'skills', 'lettucebo', 'local-skill'),
+    );
+    const lockBefore = await readFile(
+      path.join(repoRoot, 'catalog', 'skills.lock.json'),
+      'utf8',
+    );
+
+    const gitCalls = [];
+    const runGit = async (args) => {
+      gitCalls.push(args);
+      return '';
+    };
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree, runGit }),
+      (error) => /protected root/i.test(error.message) && /lettucebo/.test(error.message),
+    );
+
+    assert.equal(
+      gitCalls.some((args) => args[0] === 'clone'),
+      false,
+      'the baseline must fail before any upstream clone',
+    );
+    assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), skillsBefore);
+    assert.equal(
+      await hashDirectory(path.join(repoRoot, 'skills', 'lettucebo', 'local-skill')),
+      localBefore,
+    );
+    assert.equal(
+      await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+      lockBefore,
+    );
+    assert.deepEqual(
+      (await readdir(repoRoot)).filter((name) => name.startsWith('.baseline-work-')),
+      [],
+      'no staging work directory may be left behind',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline refuses a mapping onto the reserved root itself', async () => {
+  const workspace = await makeTempDir('baseline-protected-root');
+  try {
+    const { upstream, repoRoot } = await buildBaselineFixture(workspace);
+
+    // The reserved root becomes a skill of its own and the local declaration
+    // plus the local lock entry are both removed.
+    await rm(path.join(repoRoot, 'skills', 'lettucebo', 'local-skill'), {
+      recursive: true,
+      force: true,
+    });
+    await writeFileEnsured(
+      path.join(repoRoot, 'skills', 'lettucebo', 'SKILL.md'),
+      skillDoc('lettucebo-root'),
+    );
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'sources.yml'),
+      [
+        'upstreams:',
+        '  demo:',
+        `    repository: "${upstream.url}"`,
+        '    reference: refs/heads/main',
+        'mappings:',
+        '  - path: skills/demo/alpha',
+        '    upstream: demo',
+        '    source: skills/alpha',
+        '  - path: skills/demo/beta',
+        '    upstream: demo',
+        '    source: skills/beta',
+        '  - path: skills/lettucebo',
+        '    upstream: demo',
+        '    source: skills/alpha',
+        'orphans:',
+        '  - path: skills/orphans/gamma',
+        'local: []',
+        'overrides: []',
+        'linkExceptions: []',
+        '',
+      ].join('\n'),
+    );
+
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const lock = JSON.parse(await readFile(lockPath, 'utf8'));
+    lock.skills = lock.skills.filter((skill) => skill.category !== 'local');
+    lock.counts = { total: 3, mapped: 2, orphan: 1, local: 0 };
+    await writeFileEnsured(lockPath, `${JSON.stringify(lock, null, 2)}\n`);
+
+    const rootBefore = await hashDirectory(path.join(repoRoot, 'skills', 'lettucebo'));
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree }),
+      (error) => /protected root/i.test(error.message) && /lettucebo/.test(error.message),
+    );
+
+    assert.equal(
+      await hashDirectory(path.join(repoRoot, 'skills', 'lettucebo')),
+      rootBefore,
+      'the reserved root must be byte-for-byte unchanged',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});

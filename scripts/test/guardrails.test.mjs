@@ -439,3 +439,73 @@ test('planRelease rejects an invalid current version', async () => {
     ReleaseError,
   );
 });
+
+// ---------------------------------------------------------------------------
+// Shared protected-root guard (Finding 4)
+//
+// The protected-root rule used to live in sync.mjs and was therefore applied by
+// dry-run planning ONLY. It must be a shared guardrail so plan and apply share
+// one implementation and cannot diverge.
+// ---------------------------------------------------------------------------
+
+test('guardrails exports the protected-root primitives', async () => {
+  const guardrails = await import('../lib/guardrails.mjs');
+
+  assert.ok(
+    Array.isArray(guardrails.ALWAYS_PROTECTED_ROOTS),
+    'guardrails must export ALWAYS_PROTECTED_ROOTS',
+  );
+  assert.ok(
+    guardrails.ALWAYS_PROTECTED_ROOTS.includes('skills/lettucebo'),
+    'skills/lettucebo must always be protected',
+  );
+  assert.equal(typeof guardrails.buildProtectedRoots, 'function');
+  assert.equal(typeof guardrails.assertWritableSkillPath, 'function');
+  assert.equal(typeof guardrails.SyncProtectionError, 'function');
+});
+
+test('buildProtectedRoots protects skills/lettucebo even with no local declaration', async () => {
+  const { buildProtectedRoots } = await import('../lib/guardrails.mjs');
+
+  assert.deepEqual(buildProtectedRoots({}), ['skills/lettucebo']);
+  assert.deepEqual(buildProtectedRoots({ local: [] }), ['skills/lettucebo']);
+  assert.deepEqual(
+    buildProtectedRoots({ local: [{ root: 'skills/private' }] }).sort(),
+    ['skills/lettucebo', 'skills/private'],
+  );
+});
+
+test('assertWritableSkillPath rejects the protected root and its descendants', async () => {
+  const { assertWritableSkillPath, buildProtectedRoots, SyncProtectionError } =
+    await import('../lib/guardrails.mjs');
+
+  const roots = buildProtectedRoots({ local: [] });
+
+  assert.throws(
+    () => assertWritableSkillPath('skills/lettucebo', roots),
+    (error) => error instanceof SyncProtectionError,
+  );
+  assert.throws(
+    () => assertWritableSkillPath('skills/lettucebo/evil', roots),
+    (error) => error instanceof SyncProtectionError,
+  );
+  assert.doesNotThrow(() => assertWritableSkillPath('skills/azure/az-cost-optimize', roots));
+  // A sibling directory that merely shares a prefix is NOT protected.
+  assert.doesNotThrow(() => assertWritableSkillPath('skills/lettucebo-public/x', roots));
+});
+
+test('sync.mjs re-exports the shared protected-root guard (single implementation)', async () => {
+  const guardrails = await import('../lib/guardrails.mjs');
+  const sync = await import('../sync.mjs');
+
+  assert.equal(
+    sync.assertWritableSkillPath,
+    guardrails.assertWritableSkillPath,
+    'sync must reuse the shared guardrail, not keep a private copy',
+  );
+  assert.equal(
+    sync.SyncProtectionError,
+    guardrails.SyncProtectionError,
+    'sync must reuse the shared error type',
+  );
+});

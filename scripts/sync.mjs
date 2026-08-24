@@ -16,9 +16,13 @@ import { hashDirectory } from './lib/hash.mjs';
 import { loadManifest } from './lib/manifest.mjs';
 import { cloneUpstream, GitCloneError } from './lib/git-source.mjs';
 import {
+  assertMappingsWritable,
+  assertWritableSkillPath,
+  buildProtectedRoots,
   classifyDiff,
   commitMessageForDiffClass,
   evaluateDeletionGuards,
+  SyncProtectionError,
 } from './lib/guardrails.mjs';
 import { transformStaged } from './transform.mjs';
 import { applyBaseline, applyUpdate } from './lib/baseline.mjs';
@@ -27,44 +31,8 @@ const { posix } = path;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const defaultRepoRoot = path.resolve(__dirname, '..');
 
-/**
- * Registry root that must never be written by sync, regardless of manifest
- * contents. `skills/lettucebo` is reserved for local/original skills.
- */
-const ALWAYS_PROTECTED_ROOTS = ['skills/lettucebo'];
-
-export class SyncProtectionError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = 'SyncProtectionError';
-  }
-}
-
-/**
- * Fails fast when a destination path falls inside a protected or local root.
- *
- * This runs before any staging or repo write so a bad mapping can never adopt
- * content into a reserved location.
- */
-export function assertWritableSkillPath(skillPath, protectedRoots) {
-  for (const root of protectedRoots) {
-    if (skillPath === root || skillPath.startsWith(`${root}/`)) {
-      throw new SyncProtectionError(
-        `Refusing to write skill path inside protected root "${root}": ${skillPath}`,
-      );
-    }
-  }
-}
-
-function buildProtectedRoots(manifest) {
-  const roots = new Set(ALWAYS_PROTECTED_ROOTS);
-
-  for (const entry of manifest.local ?? []) {
-    roots.add(entry.root);
-  }
-
-  return [...roots];
-}
+// Re-exported so existing sync consumers keep a single, shared implementation.
+export { assertWritableSkillPath, buildProtectedRoots, SyncProtectionError };
 
 async function readLock(repoRoot) {
   const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
@@ -473,16 +441,13 @@ export async function runSync(options = {}) {
     path.join(absoluteRepoRoot, 'catalog', 'sources.yml'),
   );
   const lock = await readLock(absoluteRepoRoot);
-  const protectedRoots = buildProtectedRoots(manifest);
 
   const baseWorkspace = workspaceRoot ?? os.tmpdir();
   await mkdir(baseWorkspace, { recursive: true });
   const workspace = await mkdtemp(path.join(baseWorkspace, 'skills-sync-'));
 
   try {
-    for (const mapping of manifest.mappings) {
-      assertWritableSkillPath(mapping.path, protectedRoots);
-    }
+    assertMappingsWritable(manifest);
 
     const plan = await planSync({
       repoRoot: absoluteRepoRoot,

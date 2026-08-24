@@ -15,6 +15,71 @@ export class GuardrailError extends Error {
   }
 }
 
+export class SyncProtectionError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'SyncProtectionError';
+  }
+}
+
+/**
+ * Registry roots that must never be written by sync, regardless of manifest
+ * contents. `skills/lettucebo` is reserved for local/original skills.
+ *
+ * This is deliberately independent of the lockfile: the lock's `local`
+ * category is empty whenever no local skill exists yet, and a hostile manifest
+ * can simply drop its `local:` declaration, so neither can be the only defense.
+ */
+export const ALWAYS_PROTECTED_ROOTS = Object.freeze(['skills/lettucebo']);
+
+/**
+ * Fails fast when a destination path falls inside a protected or local root.
+ *
+ * This runs before any staging or repo write so a bad mapping can never adopt
+ * content into a reserved location.
+ */
+export function assertWritableSkillPath(skillPath, protectedRoots) {
+  for (const root of protectedRoots) {
+    if (skillPath === root || skillPath.startsWith(`${root}/`)) {
+      throw new SyncProtectionError(
+        `Refusing to write skill path inside protected root "${root}": ${skillPath}`,
+      );
+    }
+  }
+
+  return skillPath;
+}
+
+/**
+ * Derives the protected roots for a manifest: the always-protected registry
+ * roots plus every declared local root.
+ */
+export function buildProtectedRoots(manifest) {
+  const roots = new Set(ALWAYS_PROTECTED_ROOTS);
+
+  for (const entry of manifest?.local ?? []) {
+    roots.add(entry.root);
+  }
+
+  return [...roots];
+}
+
+/**
+ * Asserts that every manifest mapping destination is writable.
+ *
+ * Shared by dry-run planning and by both apply engines so plan and apply can
+ * never diverge on which destinations are legal.
+ */
+export function assertMappingsWritable(manifest) {
+  const protectedRoots = buildProtectedRoots(manifest);
+
+  for (const mapping of manifest?.mappings ?? []) {
+    assertWritableSkillPath(mapping.path, protectedRoots);
+  }
+
+  return protectedRoots;
+}
+
 /**
  * Deletion guard threshold for a declared group of ten or more skills. A group
  * may lose up to (and including) this fraction of its members; anything
