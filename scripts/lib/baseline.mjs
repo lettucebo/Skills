@@ -1,15 +1,13 @@
 /**
- * Manual upstream baseline apply engine.
+ * Upstream apply engines: baseline verification and daily update.
  *
- * This module turns the current `unverified` bootstrap registry into a
- * `verified` upstream baseline. It is deliberately conservative: it refuses
- * unless the working tree is clean, every mapped upstream is available, and
- * every mapped skill can be staged. All work happens in a staging area first,
- * and the live repository is only mutated through an all-or-nothing directory
- * swap that is rolled back on any post-apply failure. Orphan and local skills
- * are never modified.
+ * Both engines are deliberately conservative: they refuse unless the working
+ * tree is clean, every mapped upstream is available, and every mapped skill can
+ * be staged. All work happens in a staging area first, and the live repository
+ * is only mutated through an all-or-nothing directory swap that is rolled back
+ * on any post-apply failure. Orphan and local skills are never modified.
  *
- * The engine never creates git commits or tags — that is the workflow's job.
+ * The engines never create git commits or tags — that is the workflow's job.
  */
 
 import { execFile } from 'node:child_process';
@@ -29,10 +27,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { cloneUpstream, GitCloneError } from './git-source.mjs';
-import { evaluateDeletionGuards } from './guardrails.mjs';
+import { commitMessageForDiffClass, evaluateDeletionGuards } from './guardrails.mjs';
 import { hashDirectory } from './hash.mjs';
+import { historyFileName } from './history.mjs';
 import { loadManifest } from './manifest.mjs';
 import { parseSkillFrontmatter } from './frontmatter.mjs';
+import { parseVersion, formatVersion, planRelease, readCurrentVersion } from './release.mjs';
 import { transformStaged } from '../transform.mjs';
 import { renderNotice, renderReadme, serialize } from '../catalog.mjs';
 import { validateRepository } from '../validate.mjs';
@@ -549,6 +549,267 @@ export async function applyBaseline({
       applied: [...staged.keys()].sort(),
       counts: nextLock.counts,
       sources,
+    };
+  } finally {
+    await rm(workRoot, { recursive: true, force: true });
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Daily upstream update engine
+// ---------------------------------------------------------------------------
+
+/**
+ * Bumps a semver version string by one patch level.
+ */
+function bumpPatch(version) {
+  const parsed = parseVersion(version);
+  return formatVersion({ major: parsed.major, minor: parsed.minor, patch: parsed.patch + 1 });
+}
+
+/**
+ * Builds a GitHub compare URL between two commits for a skill's upstream repo.
+ * Returns `null` when no previous commit is available.
+ */
+function diffUrl(repository, previousCommit, newCommit) {
+  if (!previousCommit) return null;
+  return `https://github.com/${repository}/compare/${previousCommit}...${newCommit}`;
+}
+
+/**
+ * Rebuilds the lockfile with only the changed skills updated.
+ *
+ * Changed entries get a bumped patch version, updated hashes, commit, and
+ * adopted staged name. Unchanged mapped entries, orphan entries, and local
+ * entries pass through untouched.
+ */
+export function buildUpdateLock({ lock, staged, changedPaths, release, generatedAt }) {
+  const changedSet = new Set(changedPaths);
+  const stagedMap = staged instanceof Map ? staged : new Map(Object.entries(staged));
+
+  const skills = lock.skills.map((skill) => {
+    if (skill.category !== 'mapped') return skill;
+
+    if (!changedSet.has(skill.path)) return skill;
+
+    const stagedEntry = stagedMap.get(skill.path);
+    if (!stagedEntry) {
+      throw new BaselineError(`Changed skill was not staged: ${skill.path}`);
+    }
+
+    return {
+      path: skill.path,
+      name: stagedEntry.name ?? skill.name,
+      category: skill.category,
+      version: bumpPatch(skill.version),
+      baseline: 'verified',
+      license: skill.license,
+      redistributable: skill.redistributable,
+      snapshotHash: stagedEntry.snapshotHash,
+      contentHash: stagedEntry.contentHash,
+      upstream: { ...skill.upstream, commit: stagedEntry.commit },
+    };
+  });
+
+  return { release, generatedAt, counts: lock.counts, skills };
+}
+
+/**
+ * Builds the candidate tree for a daily update: copies the live tree, replaces
+ * only the changed skills, updates the lock and history, and regenerates NOTICE
+ * and README.
+ */
+async function buildUpdateCandidate({
+  repoRoot,
+  candidateRoot,
+  lock,
+  staged,
+  changedPaths,
+  release,
+  generatedAt,
+}) {
+  await cp(path.join(repoRoot, 'skills'), path.join(candidateRoot, 'skills'), { recursive: true });
+  await cp(
+    path.join(repoRoot, 'catalog', 'history'),
+    path.join(candidateRoot, 'catalog', 'history'),
+    { recursive: true },
+  );
+
+  const changedSet = new Set(changedPaths);
+
+  for (const [skillPath, stagedEntry] of staged) {
+    if (!changedSet.has(skillPath)) continue;
+    const dest = path.join(candidateRoot, ...skillPath.split('/'));
+    await rm(dest, { recursive: true, force: true });
+    await cp(stagedEntry.stageDir, dest, { recursive: true });
+  }
+
+  const nextLock = buildUpdateLock({ lock, staged, changedPaths, release, generatedAt });
+
+  await writeFile(
+    path.join(candidateRoot, 'catalog', 'skills.lock.json'),
+    serialize(nextLock),
+  );
+
+  for (const skillPath of changedPaths) {
+    const stagedEntry = staged.get(skillPath);
+    const lockSkill = lock.skills.find((s) => s.path === skillPath);
+    const { fileName, content } = await readHistoryDoc(repoRoot, skillPath);
+    const previousCommit = lockSkill?.upstream?.commit ?? null;
+    const repository = lockSkill?.upstream?.repository ?? null;
+
+    const entry = {
+      release,
+      kind: 'upstream-update',
+      version: bumpPatch(lockSkill.version),
+      upstreamCommit: stagedEntry.commit,
+      diffUrl: diffUrl(repository, previousCommit, stagedEntry.commit),
+      contentHash: stagedEntry.contentHash,
+    };
+
+    const next = { ...content, entries: [...content.entries, entry] };
+    await writeFile(path.join(candidateRoot, 'catalog', 'history', fileName), serialize(next));
+  }
+
+  await writeFile(path.join(candidateRoot, 'NOTICE'), renderNotice(nextLock));
+
+  const readmeText = await readFile(path.join(repoRoot, 'README.md'), 'utf8');
+  await writeFile(path.join(candidateRoot, 'README.md'), renderReadme(readmeText, nextLock));
+
+  return nextLock;
+}
+
+/**
+ * Applies upstream updates to an already-verified baseline.
+ *
+ * This is the daily cron engine. It refuses unless the working tree is clean
+ * and every mapped skill has `baseline === "verified"`. It detects changes by
+ * comparing pre-stamp content hashes, and if nothing changed, returns a no-op
+ * result with zero filesystem mutations. When changes exist, the diff class is
+ * `patch` (the daily cron never adds/removes mappings), and the release is
+ * planned via `planRelease`. The apply is atomic: all-or-nothing swap with full
+ * rollback on post-apply validation failure. Never creates commits or tags.
+ */
+export async function applyUpdate({
+  repoRoot = defaultRepoRoot,
+  readGitStatus = defaultReadGitStatus,
+  now = () => new Date().toISOString(),
+  runGit,
+  validate = validateRepository,
+} = {}) {
+  const absoluteRepoRoot = path.resolve(repoRoot);
+
+  const status = await readGitStatus(absoluteRepoRoot);
+  if (status.trim() !== '') {
+    throw new BaselineError(
+      'Refusing to apply update: the git working tree is not clean. Commit or stash changes first.',
+    );
+  }
+
+  const manifest = await loadManifest(
+    path.join(absoluteRepoRoot, 'catalog', 'sources.yml'),
+  );
+  const lock = await readLock(absoluteRepoRoot);
+
+  // The daily update must never run before the verified baseline exists.
+  for (const skill of lock.skills) {
+    if (skill.category === 'mapped' && skill.baseline !== 'verified') {
+      throw new BaselineError(
+        `Refusing update: mapped skill ${skill.path} has baseline "${skill.baseline}"; all mapped skills must be verified before running daily updates.`,
+      );
+    }
+  }
+
+  const workRoot = await mkdtemp(path.join(absoluteRepoRoot, '.update-work-'));
+  const backupRoot = path.join(workRoot, 'backup');
+  const candidateRoot = path.join(workRoot, 'candidate');
+  await mkdir(candidateRoot, { recursive: true });
+
+  try {
+    const { staged, unavailable, sources } = await stageMappedSkills({
+      manifest,
+      workRoot,
+      runGit,
+    });
+
+    // Unavailable upstreams or missing sources are hard blockers — never treat
+    // them as deletions.
+    if (unavailable.length > 0) {
+      const detail = unavailable
+        .map((entry) => `${entry.path} (${entry.reason})`)
+        .join(', ');
+      throw new BaselineError(
+        `Refusing update: ${unavailable.length} mapped skill(s) are unavailable: ${detail}.`,
+      );
+    }
+
+    if (staged.size !== manifest.mappings.length) {
+      throw new BaselineError(
+        `Refusing update: staged ${staged.size} of ${manifest.mappings.length} mapped skills.`,
+      );
+    }
+
+    // Change detection: compare pre-stamp contentHash against the lock.
+    const changedPaths = [];
+    for (const skill of lock.skills) {
+      if (skill.category !== 'mapped') continue;
+      const stagedEntry = staged.get(skill.path);
+      if (!stagedEntry) continue;
+      if (stagedEntry.contentHash !== skill.contentHash) {
+        changedPaths.push(skill.path);
+      }
+    }
+
+    // No-op: nothing changed, return immediately with no filesystem mutation.
+    if (changedPaths.length === 0) {
+      return {
+        changed: [],
+        release: null,
+        nextTag: null,
+        commitMessage: null,
+        applied: false,
+      };
+    }
+
+    // Plan release: daily updates are always patch-level.
+    const diffClass = 'patch';
+    const releasePlan = await planRelease({ diffClass, runGit });
+    const commitMessage = commitMessageForDiffClass(diffClass);
+    const generatedAt = now();
+
+    const nextLock = await buildUpdateCandidate({
+      repoRoot: absoluteRepoRoot,
+      candidateRoot,
+      lock,
+      staged,
+      changedPaths,
+      release: releasePlan.nextVersion,
+      generatedAt,
+    });
+
+    // Protected paths must never be written.
+    for (const skill of lock.skills) {
+      if (skill.category === 'orphan' || skill.category === 'local') {
+        await assertUnchanged(absoluteRepoRoot, candidateRoot, skill.path, `${skill.category} skill`);
+      }
+    }
+
+    const placed = await swapInCandidate(absoluteRepoRoot, candidateRoot, backupRoot);
+
+    try {
+      await validate(absoluteRepoRoot);
+      await assertStructuralIntegrity(absoluteRepoRoot, nextLock);
+    } catch (error) {
+      await rollbackSwap(absoluteRepoRoot, backupRoot, placed);
+      throw new BaselineError(`Update post-apply validation failed; rolled back. ${error.message}`);
+    }
+
+    return {
+      changed: changedPaths.sort(),
+      release: releasePlan.nextVersion,
+      nextTag: releasePlan.nextTag,
+      commitMessage,
+      applied: true,
     };
   } finally {
     await rm(workRoot, { recursive: true, force: true });

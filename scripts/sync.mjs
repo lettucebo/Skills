@@ -21,7 +21,7 @@ import {
   evaluateDeletionGuards,
 } from './lib/guardrails.mjs';
 import { transformStaged } from './transform.mjs';
-import { applyBaseline } from './lib/baseline.mjs';
+import { applyBaseline, applyUpdate } from './lib/baseline.mjs';
 
 const { posix } = path;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -514,7 +514,7 @@ export async function runSync(options = {}) {
 }
 
 function parseArgs(argv) {
-  const options = { dryRun: false, baseline: false };
+  const options = { dryRun: false, baseline: false, apply: false };
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -523,6 +523,8 @@ function parseArgs(argv) {
       options.dryRun = true;
     } else if (arg === '--baseline') {
       options.baseline = true;
+    } else if (arg === '--apply') {
+      options.apply = true;
     } else if (arg === '--output') {
       options.output = argv[index + 1];
       index += 1;
@@ -538,6 +540,28 @@ async function main() {
   const options = parseArgs(process.argv.slice(2));
 
   try {
+    if (options.apply) {
+      if (options.dryRun) {
+        throw new Error('--apply cannot be combined with --dry-run: apply performs a real update.');
+      }
+      if (options.baseline) {
+        throw new Error('--apply cannot be combined with --baseline: use one or the other.');
+      }
+
+      const result = await applyUpdate();
+      const json = `${JSON.stringify(result, null, 2)}\n`;
+
+      if (options.output) {
+        const { mkdir: mkdirFs, writeFile: writeFileFs } = await import('node:fs/promises');
+        const outputPath = path.resolve(options.output);
+        await mkdirFs(path.dirname(outputPath), { recursive: true });
+        await writeFileFs(outputPath, json);
+      }
+
+      process.stdout.write(json);
+      return;
+    }
+
     if (options.baseline) {
       if (options.dryRun) {
         throw new Error('--baseline cannot be combined with --dry-run: baseline performs a real apply.');
