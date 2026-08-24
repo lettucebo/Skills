@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { readdir, readFile } from 'node:fs/promises';
+import { cp, lstat, readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 /**
@@ -67,6 +67,32 @@ export function isExcludedFileName(name) {
     normalizedName.endsWith('.swo') ||
     normalizedName.endsWith('~')
   );
+}
+
+/**
+ * Copies only the bytes represented by {@link hashDirectory}.
+ *
+ * The `lstat` happens before an exclusion decision so a hostile symbolic link
+ * cannot hide behind an ignored artifact name such as `node_modules`.
+ */
+export async function copyHashableDirectory(sourceDirectory, destinationDirectory) {
+  await cp(sourceDirectory, destinationDirectory, {
+    recursive: true,
+    filter: async (source) => {
+      const sourceStat = await lstat(source);
+      const sourceName = path.basename(source);
+
+      if (sourceStat.isSymbolicLink()) {
+        throw new Error(`Refusing to stage symbolic link: ${source}`);
+      }
+
+      if (sourceStat.isDirectory()) {
+        return !isExcludedDirectoryName(sourceName);
+      }
+
+      return !isExcludedFileName(sourceName);
+    },
+  });
 }
 
 /**

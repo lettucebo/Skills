@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readdir, readFile, rm, symlink, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -9,7 +9,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parse } from 'yaml';
 
 import { loadManifest, ManifestValidationError } from '../lib/manifest.mjs';
-import { hashDirectory } from '../lib/hash.mjs';
+import { copyHashableDirectory, hashDirectory } from '../lib/hash.mjs';
 import {
   cloneUpstream,
   isShaReference,
@@ -1014,6 +1014,142 @@ test('runSync reports baseline as ready when every mapped upstream is available'
 
     assert.equal(changeSet.baseline.ready, true);
     assert.deepEqual(changeSet.baseline.blockers, []);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Planner staging policy: must match the fail-closed apply pipeline
+// ---------------------------------------------------------------------------
+
+test('runSync rejects a symbolic-link mapping source with its path', async (t) => {
+  const workspace = await makeTempDir('sync-symbolic-source');
+  try {
+    const { repoRoot } = await buildSyncFixture(workspace);
+    const upstreamRoot = path.join(workspace, 'upstream');
+    const linkPath = path.join(upstreamRoot, 'skills', 'linked-skill');
+
+    try {
+      await symlink('mapped-skill', linkPath, 'dir');
+    } catch (error) {
+      if (error?.code === 'EPERM' || error?.code === 'EACCES') {
+        t.skip(`symbolic links cannot be created on this host: ${error.code}`);
+        return;
+      }
+      throw error;
+    }
+    git(upstreamRoot, ['add', '-A']);
+    git(upstreamRoot, ['commit', '-q', '-m', 'add symbolic source link']);
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources.replace('source: skills/mapped-skill', 'source: skills/linked-skill'),
+    );
+
+    await assert.rejects(
+      runSync({ repoRoot, dryRun: true, workspaceRoot: path.join(workspace, 'ws') }),
+      /symbolic link.*linked-skill/i,
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('runSync rejects nested symbolic links even when their names are excluded', async (t) => {
+  for (const excludedName of ['node_modules', '.vscode']) {
+    const workspace = await makeTempDir(`sync-symbolic-${excludedName.replace('.', '')}`);
+    try {
+      const { repoRoot } = await buildSyncFixture(workspace);
+      const upstreamRoot = path.join(workspace, 'upstream');
+      const linkPath = path.join(upstreamRoot, 'skills', 'mapped-skill', excludedName);
+
+      try {
+        await symlink('SKILL.md', linkPath);
+      } catch (error) {
+        if (error?.code === 'EPERM' || error?.code === 'EACCES') {
+          t.skip(`symbolic links cannot be created on this host: ${error.code}`);
+          return;
+        }
+        throw error;
+      }
+      git(upstreamRoot, ['add', '-A']);
+      git(upstreamRoot, ['commit', '-q', '-m', `add ${excludedName} symbolic link`]);
+
+      await assert.rejects(
+        runSync({ repoRoot, dryRun: true, workspaceRoot: path.join(workspace, 'ws') }),
+        new RegExp(`symbolic link.*${excludedName.replace('.', '\\.')}`, 'i'),
+      );
+    } finally {
+      await rm(workspace, { recursive: true, force: true });
+    }
+  }
+});
+
+test('shared staging policy excludes ignored artifacts while retaining explicit dotenv files', async () => {
+  const workspace = await makeTempDir('sync-stage-policy');
+  try {
+    const source = path.join(workspace, 'source');
+    const staged = path.join(workspace, 'staged');
+    await writeFileEnsured(path.join(source, 'SKILL.md'), skillDoc('mapped-skill'));
+    await writeFileEnsured(path.join(source, '.env'), 'PUBLIC_UPSTREAM_SAMPLE=1\n');
+    await writeFileEnsured(path.join(source, '.DS_Store'), 'Finder metadata\n');
+    await writeFileEnsured(path.join(source, '.vscode', 'settings.json'), '{}\n');
+    await writeFileEnsured(path.join(source, 'node_modules', 'pkg', 'index.js'), 'module.exports = {};\n');
+
+    await copyHashableDirectory(source, staged);
+
+    assert.equal(
+      await readFile(path.join(staged, '.env'), 'utf8'),
+      'PUBLIC_UPSTREAM_SAMPLE=1\n',
+    );
+    await assert.rejects(readFile(path.join(staged, '.DS_Store')), /ENOENT/);
+    await assert.rejects(readFile(path.join(staged, '.vscode', 'settings.json')), /ENOENT/);
+    await assert.rejects(
+      readFile(path.join(staged, 'node_modules', 'pkg', 'index.js')),
+      /ENOENT/,
+    );
+    assert.equal(
+      await hashDirectory(staged),
+      await hashDirectory(source),
+      'planner staging must contain exactly the bytes the shared hash policy covers',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('runSync reports no false change when verified content uses the apply staging policy', async () => {
+  const workspace = await makeTempDir('sync-ignored-no-change');
+  try {
+    const { repoRoot } = await buildSyncFixture(workspace);
+    const upstreamSkill = path.join(workspace, 'upstream', 'skills', 'mapped-skill');
+    await writeFileEnsured(path.join(upstreamSkill, '.DS_Store'), 'Finder metadata\n');
+    await writeFileEnsured(path.join(upstreamSkill, '.vscode', 'settings.json'), '{}\n');
+    await writeFileEnsured(path.join(upstreamSkill, '.env'), 'PUBLIC_UPSTREAM_SAMPLE=1\n');
+    git(path.join(workspace, 'upstream'), ['add', '-A']);
+    git(path.join(workspace, 'upstream'), ['commit', '-q', '-m', 'add ignored artifacts']);
+
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const lock = JSON.parse(await readFile(lockPath, 'utf8'));
+    lock.skills[0].baseline = 'verified';
+    lock.skills[0].contentHash = await hashDirectory(upstreamSkill);
+    await writeFile(lockPath, `${JSON.stringify(lock, null, 2)}\n`);
+
+    const { changeSet } = await runSync({
+      repoRoot,
+      dryRun: true,
+      workspaceRoot: path.join(workspace, 'ws'),
+    });
+
+    assert.deepEqual(changeSet.changed, []);
+    assert.deepEqual(changeSet.baselineRequired, []);
+    assert.ok(
+      changeSet.added.every((entry) => entry.path !== 'skills/demo/mapped-skill'),
+      'the verified mapping must not become an addition when ignored artifacts are present',
+    );
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }

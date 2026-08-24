@@ -1,18 +1,17 @@
 import {
-  cp,
+  lstat,
   mkdir,
   mkdtemp,
   readdir,
   readFile,
   rm,
-  stat,
   writeFile,
 } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { hashDirectory, isExcludedDirectoryName } from './lib/hash.mjs';
+import { copyHashableDirectory, hashDirectory } from './lib/hash.mjs';
 import { loadManifest } from './lib/manifest.mjs';
 import { cloneUpstream, GitCloneError } from './lib/git-source.mjs';
 import {
@@ -49,9 +48,9 @@ async function readLock(repoRoot) {
   }
 }
 
-async function statOrNull(targetPath) {
+async function lstatOrNull(targetPath) {
   try {
-    return await stat(targetPath);
+    return await lstat(targetPath);
   } catch (error) {
     if (error?.code === 'ENOENT') {
       return null;
@@ -62,7 +61,7 @@ async function statOrNull(targetPath) {
 }
 
 async function pathIsFile(targetPath) {
-  const info = await statOrNull(targetPath);
+  const info = await lstatOrNull(targetPath);
   return Boolean(info?.isFile());
 }
 
@@ -198,7 +197,7 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
 
     for (const mapping of mappings) {
       const sourceAbs = path.join(cloneDir, ...mapping.source.split('/'));
-      const sourceStat = await statOrNull(sourceAbs);
+      const sourceStat = await lstatOrNull(sourceAbs);
 
       if (!sourceStat) {
         unavailable.push({
@@ -207,6 +206,10 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
           reason: 'missing-source',
         });
         continue;
+      }
+
+      if (sourceStat.isSymbolicLink()) {
+        throw new Error(`Refusing to stage symbolic link: ${sourceAbs}`);
       }
 
       if (!sourceStat.isDirectory()) {
@@ -224,12 +227,9 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
 
       const stagePath = path.join(stagingDir, ...mapping.path.split('/'));
       await mkdir(path.dirname(stagePath), { recursive: true });
-      // Same exclusion as the apply path (and as the hash), so the planned
-      // contentHash is exactly the one a baseline/update would record.
-      await cp(sourceAbs, stagePath, {
-        recursive: true,
-        filter: (source) => !isExcludedDirectoryName(path.basename(source)),
-      });
+      // Same fail-closed exclusion and symlink policy as the apply path and
+      // hash, so the planned contentHash is exactly the applied contentHash.
+      await copyHashableDirectory(sourceAbs, stagePath);
 
       // Hash BEFORE transform/stamp: this is the future verified contentHash.
       const preStampHash = await hashDirectory(stagePath);

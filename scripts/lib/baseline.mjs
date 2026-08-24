@@ -37,9 +37,8 @@ import {
   evaluateDeletionGuards,
 } from './guardrails.mjs';
 import {
+  copyHashableDirectory,
   hashDirectory,
-  isExcludedDirectoryName,
-  isExcludedFileName,
 } from './hash.mjs';
 import { historyFileName } from './history.mjs';
 import { loadManifest } from './manifest.mjs';
@@ -277,25 +276,9 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
 
       const stageDir = path.join(stagingDir, ...mapping.path.split('/'));
       await mkdir(path.dirname(stageDir), { recursive: true });
-      // The same exclusion the hash applies: never stage bytes git refuses to
-      // track, or the vendored tree could not reproduce its own snapshotHash.
-      await cp(sourceAbs, stageDir, {
-        recursive: true,
-        filter: async (source) => {
-          const sourceStat = await lstat(source);
-          const sourceName = path.basename(source);
-
-          if (sourceStat.isSymbolicLink()) {
-            throw new BaselineError(`Refusing to stage symbolic link: ${source}`);
-          }
-
-          if (sourceStat.isDirectory()) {
-            return !isExcludedDirectoryName(sourceName);
-          }
-
-          return !isExcludedFileName(sourceName);
-        },
-      });
+      // The same exclusion and fail-closed symlink policy the hash applies:
+      // never stage bytes git refuses to track.
+      await copyHashableDirectory(sourceAbs, stageDir);
 
       // Hash BEFORE transform: this is the verified upstream content identity.
       const contentHash = await hashDirectory(stageDir);
