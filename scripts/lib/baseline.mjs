@@ -12,7 +12,7 @@
 
 import { execFile, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
-import { randomUUID } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { createInterface } from 'node:readline';
 import {
   cp,
@@ -22,6 +22,7 @@ import {
   open,
   readFile,
   readdir,
+  readlink,
   rename,
   rm,
   stat,
@@ -44,6 +45,7 @@ import {
   copyHashableDirectory,
   hashDirectory,
 } from './hash.mjs';
+import { assertClonePathBoundary } from './path-boundary.mjs';
 import { historyFileName } from './history.mjs';
 import { loadManifest } from './manifest.mjs';
 import { parseSkillFrontmatter } from './frontmatter.mjs';
@@ -599,9 +601,10 @@ function buildTransaction({
   journalPath,
   renameOp,
   targetRenameOp,
+  expectedSnapshots,
 }) {
   return {
-    version: 1,
+    version: 2,
     status: 'swapping',
     repoRoot,
     candidateRoot,
@@ -615,6 +618,7 @@ function buildTransaction({
       live: path.join(repoRoot, ...target.rel.split('/')),
       backup: path.join(backupRoot, ...target.rel.split('/')),
       candidate: path.join(candidateRoot, ...target.rel.split('/')),
+      expectedSnapshot: expectedSnapshots?.get(target.rel) ?? null,
       phase: 'live',
     })),
   };
@@ -627,7 +631,7 @@ async function writeTransaction(transaction) {
 
 function assertValidTransaction(transaction, journalPath) {
   if (
-    transaction?.version !== 1 ||
+    ![1, 2].includes(transaction?.version) ||
     !['swapping', 'validated'].includes(transaction.status) ||
     !Array.isArray(transaction.targets) ||
     transaction.targets.length !== SWAP_TARGETS.length ||
@@ -652,6 +656,12 @@ function assertValidTransaction(transaction, journalPath) {
       path.resolve(recorded.live) !== expectedLive ||
       path.resolve(recorded.backup) !== expectedBackup ||
       path.resolve(recorded.candidate) !== expectedCandidate ||
+      (recorded.expectedSnapshot !== undefined &&
+        recorded.expectedSnapshot !== null &&
+        (recorded.expectedSnapshot.kind !== target.kind ||
+          typeof recorded.expectedSnapshot.hash !== 'string')) ||
+      (transaction.version === 2 &&
+        (recorded.expectedSnapshot === undefined || recorded.expectedSnapshot === null)) ||
       !['live', 'moving-to-backup', 'backed-up', 'placing-candidate', 'placed'].includes(
         recorded.phase,
       )
@@ -670,6 +680,107 @@ async function removeTransactionArtifacts(transaction, journalPath) {
   await rm(journalPath, { force: true });
 }
 
+function updateExactBytes(digest, bytes) {
+  digest.update(String(bytes.length), 'utf8');
+  digest.update('\0');
+  digest.update(bytes);
+}
+
+function updateExactHash(digest, value) {
+  updateExactBytes(digest, Buffer.from(value, 'utf8'));
+}
+
+async function hashExactTarget(targetPath) {
+  const digest = createHash('sha256');
+
+  async function visit(currentPath) {
+    const info = await lstat(currentPath);
+    const relativePath = path.relative(targetPath, currentPath).replace(/\\/g, '/') || '.';
+    const mode = String(info.mode & 0o7777);
+
+    if (info.isDirectory()) {
+      updateExactHash(digest, 'directory');
+      updateExactHash(digest, relativePath);
+      updateExactHash(digest, mode);
+      const entries = await readdir(currentPath, { withFileTypes: true });
+      entries.sort((left, right) =>
+        left.name < right.name ? -1 : left.name > right.name ? 1 : 0,
+      );
+      for (const entry of entries) {
+        await visit(path.join(currentPath, entry.name));
+      }
+      return;
+    }
+
+    if (info.isFile()) {
+      updateExactHash(digest, 'file');
+      updateExactHash(digest, relativePath);
+      updateExactHash(digest, mode);
+      updateExactBytes(digest, await readFile(currentPath));
+      return;
+    }
+
+    if (info.isSymbolicLink()) {
+      updateExactHash(digest, 'symbolic-link');
+      updateExactHash(digest, relativePath);
+      updateExactHash(digest, mode);
+      updateExactHash(digest, await readlink(currentPath));
+      return;
+    }
+
+    throw new BaselineError(`Refusing to snapshot unsupported swap target entry: ${currentPath}.`);
+  }
+
+  await visit(targetPath);
+  return `sha256:${digest.digest('hex')}`;
+}
+
+export async function snapshotSwapTarget(targetPath, kind) {
+  const info = await lstat(targetPath);
+  if ((kind === 'dir' && !info.isDirectory()) || (kind === 'file' && !info.isFile())) {
+    throw new BaselineError(`Refusing to snapshot ${kind} swap target at ${targetPath}.`);
+  }
+
+  return { kind, hash: await hashExactTarget(targetPath) };
+}
+
+async function snapshotSwapTargets(repoRoot) {
+  const snapshots = new Map();
+  for (const target of SWAP_TARGETS) {
+    snapshots.set(
+      target.rel,
+      await snapshotSwapTarget(path.join(repoRoot, ...target.rel.split('/')), target.kind),
+    );
+  }
+  return snapshots;
+}
+
+async function backupMatchesExpectedSnapshot(target) {
+  if (!target.expectedSnapshot) {
+    return null;
+  }
+
+  const actual = await snapshotSwapTarget(target.backup, target.kind);
+  return (
+    actual.kind === target.expectedSnapshot.kind &&
+    actual.hash === target.expectedSnapshot.hash
+  );
+}
+
+async function assertBackupMatchesExpectedSnapshot(target) {
+  if (!(await backupMatchesExpectedSnapshot(target))) {
+    throw new BaselineError(
+      `Refusing to complete swap: backup for ${target.rel} changed from its expected snapshot.`,
+    );
+  }
+}
+
+async function assertBackupsMatchExpectedSnapshots(transaction) {
+  for (const target of transaction.targets) {
+    await assertBackupMatchesExpectedSnapshot(target);
+  }
+}
+
 async function recoverPendingTransaction(journalPath, { renameOp = durableTargetRename } = {}) {
   let transaction;
   try {
@@ -686,7 +797,41 @@ async function recoverPendingTransaction(journalPath, { renameOp = durableTarget
 
   assertValidTransaction(transaction, journalPath);
 
-  if (transaction.status !== 'validated') {
+  let shouldRestore = transaction.status !== 'validated';
+  if (!shouldRestore) {
+    if (
+      transaction.version !== 2 ||
+      transaction.targets.some((target) => !target.expectedSnapshot)
+    ) {
+      throw new BaselineError(
+        `Refusing to recover: validated transaction ${journalPath} lacks expected snapshots. ` +
+          'Inspect the candidate and remaining backups before retrying.',
+      );
+    }
+
+    const snapshots = [];
+    for (const target of transaction.targets) {
+      if (!target.expectedSnapshot) continue;
+      const backupInfo = await lstatOrNull(target.backup);
+      if (!backupInfo) {
+        snapshots.push({ target, state: 'removed' });
+        continue;
+      }
+      snapshots.push({
+        target,
+        state: (await backupMatchesExpectedSnapshot(target)) ? 'matches' : 'changed',
+      });
+    }
+
+    if (snapshots.some(({ state }) => state === 'changed')) {
+      throw new BaselineError(
+        `Refusing to recover: validated transaction ${journalPath} has a changed backup. ` +
+          'Inspect the candidate and remaining backups before retrying.',
+      );
+    }
+  }
+
+  if (shouldRestore) {
     for (const target of [...transaction.targets].reverse()) {
       const backupInfo = await lstatOrNull(target.backup);
       const liveInfo = await lstatOrNull(target.live);
@@ -715,8 +860,10 @@ async function recoverPendingTransaction(journalPath, { renameOp = durableTarget
 
 async function completeTransaction(transaction) {
   await syncSwapTargets(transaction.repoRoot);
+  await assertBackupsMatchExpectedSnapshots(transaction);
   transaction.status = 'validated';
   await writeTransaction(transaction);
+  await assertBackupsMatchExpectedSnapshots(transaction);
   await removeTransactionArtifacts(transaction, transaction.journalPath);
 }
 
@@ -779,16 +926,14 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
     sources.push({ upstream: upstreamName, available: true, commit: clone.commit });
 
     for (const mapping of mappings) {
-      const sourceAbs = path.join(cloneDir, ...mapping.source.split('/'));
-      const sourceStat = await lstatOrNull(sourceAbs);
+      const { path: sourceAbs, stat: sourceStat } = await assertClonePathBoundary(
+        cloneDir,
+        mapping.source,
+      );
 
       if (!sourceStat) {
         unavailable.push({ path: mapping.path, upstream: upstreamName, reason: 'missing-source' });
         continue;
-      }
-
-      if (sourceStat.isSymbolicLink()) {
-        throw new BaselineError(`Refusing to stage symbolic link: ${sourceAbs}`);
       }
 
       if (!sourceStat.isDirectory()) {
@@ -972,6 +1117,8 @@ export async function swapInCandidate(
     removeOp = rm,
     transaction,
     beforeFirstDestructiveMove,
+    afterCleanCheck,
+    afterBackupMove,
   } = {},
 ) {
   const backedUp = [];
@@ -996,8 +1143,22 @@ export async function swapInCandidate(
       if (index === 0 && beforeFirstDestructiveMove) {
         await beforeFirstDestructiveMove();
       }
+      if (index === 0 && afterCleanCheck) {
+        await afterCleanCheck();
+      }
       await activeRenameOp(original, backup);
       backedUp.push(target);
+      if (afterBackupMove) {
+        await afterBackupMove(transaction?.targets[index] ?? {
+          ...target,
+          live: original,
+          backup,
+          candidate,
+        });
+      }
+      if (transaction) {
+        await assertBackupMatchesExpectedSnapshot(transaction.targets[index]);
+      }
       if (transaction) {
         transaction.targets[index].phase = 'backed-up';
         await writeTransaction(transaction);
@@ -1058,6 +1219,8 @@ export async function applyBaseline({
   now = () => new Date().toISOString(),
   runGit,
   validate = validateRepository,
+  afterCleanCheck,
+  afterBackupMove,
 } = {}) {
   if (baseline !== true) {
     throw new BaselineError('Refusing to apply: baseline mode must be explicitly enabled.');
@@ -1193,6 +1356,7 @@ export async function applyBaseline({
       }
     }
 
+    const expectedSnapshots = await snapshotSwapTargets(absoluteRepoRoot);
     transaction = buildTransaction({
       repoRoot: absoluteRepoRoot,
       candidateRoot,
@@ -1201,12 +1365,15 @@ export async function applyBaseline({
       journalPath,
       renameOp: journalRenamer?.rename.bind(journalRenamer),
       targetRenameOp: journalRenamer?.rename.bind(journalRenamer) ?? durableTargetRename,
+      expectedSnapshots,
     });
 
     const placed = await swapInCandidate(absoluteRepoRoot, candidateRoot, backupRoot, {
       transaction,
       beforeFirstDestructiveMove: () =>
         assertUnchangedGitState(absoluteRepoRoot, initialStatus, readGitStatus),
+      afterCleanCheck,
+      afterBackupMove,
     });
 
     try {
@@ -1486,6 +1653,8 @@ export async function applyUpdate({
   now = () => new Date().toISOString(),
   runGit,
   validate = validateRepository,
+  afterCleanCheck,
+  afterBackupMove,
 } = {}) {
   const absoluteRepoRoot = path.resolve(repoRoot);
   const { commonGitDir } = await resolveGitDirectories(absoluteRepoRoot);
@@ -1706,6 +1875,7 @@ export async function applyUpdate({
       }
     }
 
+    const expectedSnapshots = await snapshotSwapTargets(absoluteRepoRoot);
     transaction = buildTransaction({
       repoRoot: absoluteRepoRoot,
       candidateRoot,
@@ -1714,12 +1884,15 @@ export async function applyUpdate({
       journalPath,
       renameOp: journalRenamer?.rename.bind(journalRenamer),
       targetRenameOp: journalRenamer?.rename.bind(journalRenamer) ?? durableTargetRename,
+      expectedSnapshots,
     });
 
     const placed = await swapInCandidate(absoluteRepoRoot, candidateRoot, backupRoot, {
       transaction,
       beforeFirstDestructiveMove: () =>
         assertUnchangedGitState(absoluteRepoRoot, initialStatus, readGitStatus),
+      afterCleanCheck,
+      afterBackupMove,
     });
 
     try {

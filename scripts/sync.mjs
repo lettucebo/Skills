@@ -12,6 +12,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { copyHashableDirectory, hashDirectory } from './lib/hash.mjs';
+import { assertClonePathBoundary } from './lib/path-boundary.mjs';
 import { loadManifest } from './lib/manifest.mjs';
 import { cloneUpstream, GitCloneError } from './lib/git-source.mjs';
 import {
@@ -167,13 +168,14 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
     }
 
     for (const container of containerDirs) {
-      const containerAbs = path.join(cloneDir, ...container.split('/'));
-      let entries;
-      try {
-        entries = await readdir(containerAbs, { withFileTypes: true });
-      } catch {
+      const { path: containerAbs, stat: containerStat } = await assertClonePathBoundary(
+        cloneDir,
+        container,
+      );
+      if (!containerStat?.isDirectory()) {
         continue;
       }
+      const entries = await readdir(containerAbs, { withFileTypes: true });
 
       for (const entry of entries) {
         if (!entry.isDirectory()) {
@@ -181,11 +183,19 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
         }
 
         const childSource = `${container}/${entry.name}`;
+        const { path: childAbs, stat: childStat } = await assertClonePathBoundary(
+          cloneDir,
+          childSource,
+        );
+        if (!childStat?.isDirectory()) {
+          continue;
+        }
+
         if (sourceSet.has(childSource)) {
           continue;
         }
 
-        if (await pathIsFile(path.join(containerAbs, entry.name, 'SKILL.md'))) {
+        if (await pathIsFile(path.join(childAbs, 'SKILL.md'))) {
           unadopted.push({
             upstream: upstreamName,
             source: childSource,
@@ -196,8 +206,10 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
     }
 
     for (const mapping of mappings) {
-      const sourceAbs = path.join(cloneDir, ...mapping.source.split('/'));
-      const sourceStat = await lstatOrNull(sourceAbs);
+      const { path: sourceAbs, stat: sourceStat } = await assertClonePathBoundary(
+        cloneDir,
+        mapping.source,
+      );
 
       if (!sourceStat) {
         unavailable.push({
@@ -206,10 +218,6 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
           reason: 'missing-source',
         });
         continue;
-      }
-
-      if (sourceStat.isSymbolicLink()) {
-        throw new Error(`Refusing to stage symbolic link: ${sourceAbs}`);
       }
 
       if (!sourceStat.isDirectory()) {
@@ -261,7 +269,25 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
         continue;
       }
 
-      if (lockEntry.contentHash && lockEntry.contentHash === preStampHash) {
+      const provenance = {
+        repository: {
+          from: lockEntry.upstream?.repository ?? null,
+          to: upstream.repository,
+        },
+        reference: {
+          from: lockEntry.upstream?.reference ?? null,
+          to: upstream.reference,
+        },
+        source: {
+          from: lockEntry.upstream?.source ?? null,
+          to: mapping.source,
+        },
+      };
+      const provenanceChanged = Object.values(provenance).some(
+        ({ from, to }) => from !== to,
+      );
+
+      if (lockEntry.contentHash && lockEntry.contentHash === preStampHash && !provenanceChanged) {
         // Verified baseline that still matches upstream: nothing to report.
         continue;
       }
@@ -271,6 +297,9 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
         preStampHash,
         contentHash: lockEntry.contentHash ?? null,
         upstreamCommit: clone.commit,
+        ...(provenanceChanged
+          ? { reason: 'provenance-change', provenance }
+          : {}),
       });
     }
   }

@@ -12,6 +12,7 @@ import {
   buildUpdateLock,
   BaselineError,
 } from '../lib/baseline.mjs';
+import { runSync } from '../sync.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const runtimeRoot = path.join(__dirname, '.runtime');
@@ -580,6 +581,59 @@ test('applyUpdate migrates repository and source with identical content without 
   }
 });
 
+test('dry-run and apply agree that a repository, reference, and source migration is a patch update', async () => {
+  const workspace = await makeTempDir('update-dry-run-tuple-migration');
+  try {
+    const { upstream, repoRoot } = await buildUpdateFixture(workspace);
+    const migratedRoot = path.join(workspace, 'migrated-upstream');
+    const migrated = await initUpstreamRepo(migratedRoot, {
+      'new-layout/alpha/SKILL.md': skillDoc('alpha', 'Alpha upstream body.'),
+      'new-layout/alpha/references/notes.md': '# alpha notes\n',
+      'new-layout/beta/SKILL.md': skillDoc('beta', 'Beta upstream body.'),
+    });
+    git(migratedRoot, ['tag', 'v2']);
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources
+        .replace(`repository: "${upstream.url}"`, `repository: "${migrated.url}"`)
+        .replace('reference: refs/heads/main', 'reference: refs/tags/v2')
+        .replace('source: skills/alpha', 'source: new-layout/alpha')
+        .replace('source: skills/beta', 'source: new-layout/beta'),
+    );
+    git(repoRoot, ['add', '-A']);
+    git(repoRoot, ['commit', '-q', '-m', 'manifest: migrate complete tuple']);
+
+    const { changeSet } = await runSync({
+      repoRoot,
+      dryRun: true,
+      workspaceRoot: path.join(workspace, 'planner-workspace'),
+    });
+    assert.deepEqual(
+      changeSet.changed.map((entry) => entry.path),
+      ['skills/demo/alpha', 'skills/demo/beta'],
+    );
+    assert.ok(
+      changeSet.changed.every((entry) => entry.reason === 'provenance-change'),
+      'same-content tuple migrations must explain why they are changed',
+    );
+    assert.equal(changeSet.classification.diffClass, 'patch');
+
+    const result = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-03-03T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+    assert.deepEqual(result.changed, changeSet.changed.map((entry) => entry.path));
+    assert.equal(result.commitMessage, 'fix(skills): sync upstream updates');
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
 test('applyUpdate leaves every target untouched when a tuple-only migration fails validation', async () => {
   const workspace = await makeTempDir('update-tuple-migration-rollback');
   try {
@@ -881,6 +935,59 @@ test('applyUpdate rejects upstream symbolic links without mutating the repositor
   }
 });
 
+test('applyUpdate rejects an ancestor link that escapes the clone root without mutation', async (t) => {
+  const workspace = await makeTempDir('update-ancestor-link');
+  try {
+    const { repoRoot, upstreamRoot } = await buildUpdateFixture(workspace);
+    const outsideRoot = path.join(workspace, 'outside');
+    await writeFileEnsured(
+      path.join(outsideRoot, 'skill', 'SKILL.md'),
+      skillDoc('alpha', 'Escaped content.'),
+    );
+    const linkPath = path.join(upstreamRoot, 'linked-dir');
+
+    try {
+      await symlink(outsideRoot, linkPath, 'dir');
+    } catch (error) {
+      if (error?.code === 'EPERM' || error?.code === 'EACCES') {
+        t.skip(`symbolic links cannot be created on this host: ${error.code}`);
+        return;
+      }
+      throw error;
+    }
+    git(upstreamRoot, ['add', '-A']);
+    git(upstreamRoot, ['commit', '-q', '-m', 'add escaping ancestor link']);
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources.replace('source: skills/alpha', 'source: linked-dir/skill'),
+    );
+
+    const skillsBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+    const lockBefore = await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8');
+    const historyBefore = await readFile(
+      path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'),
+      'utf8',
+    );
+
+    await assert.rejects(
+      applyUpdate({ repoRoot, readGitStatus: cleanTree, runGit: makeRunGit(repoRoot) }),
+      /(?:path boundary|symbolic link).*linked-dir/i,
+    );
+
+    assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), skillsBefore);
+    assert.equal(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'), lockBefore);
+    assert.equal(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+      historyBefore,
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
 test('applyUpdate rolls back completely when post-apply validation fails', async () => {
   const workspace = await makeTempDir('update-rollback');
   try {
@@ -1036,6 +1143,88 @@ test('applyUpdate preserves a mapped user edit that appears before the destructi
     );
     assert.equal(existsSync(path.join(repoRoot, '.git', '.skills-sync-apply.lock')), false);
     assert.equal(existsSync(path.join(repoRoot, '.git', '.skills-sync-transaction.json')), false);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate restores a user edit injected after the clean check and before candidate placement', async () => {
+  const workspace = await makeTempDir('update-post-clean-check-edit');
+  try {
+    const { upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
+    await updateUpstreamRepo(upstreamRoot, {
+      'skills/alpha/SKILL.md': skillDoc('alpha', 'Changed for post-clean-check edit.'),
+    });
+
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const historyPath = path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json');
+    const editedSkill = path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md');
+    const lockBefore = await readFile(lockPath, 'utf8');
+    const historyBefore = await readFile(historyPath, 'utf8');
+
+    await assert.rejects(
+      applyUpdate({
+        repoRoot,
+        readGitStatus: cleanTree,
+        runGit: makeRunGit(repoRoot),
+        afterCleanCheck: async () => {
+          const transaction = JSON.parse(
+            await readFile(path.join(repoRoot, '.git', '.skills-sync-transaction.json'), 'utf8'),
+          );
+          assert.match(
+            transaction.targets[0].expectedSnapshot?.hash ?? '',
+            /^sha256:/,
+            'the durable journal must record the pre-swap expected snapshot',
+          );
+          await writeFile(editedSkill, skillDoc('alpha', 'Edit after the clean check.'));
+        },
+      }),
+      (error) => error instanceof BaselineError && /backup.*(?:changed|expected|snapshot)/i.test(error.message),
+    );
+
+    assert.match(await readFile(editedSkill, 'utf8'), /Edit after the clean check\./);
+    assert.equal(await readFile(lockPath, 'utf8'), lockBefore);
+    assert.equal(await readFile(historyPath, 'utf8'), historyBefore);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate restores a user edit injected into the moved backup before candidate placement', async () => {
+  const workspace = await makeTempDir('update-post-backup-edit');
+  try {
+    const { upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
+    await updateUpstreamRepo(upstreamRoot, {
+      'skills/alpha/SKILL.md': skillDoc('alpha', 'Changed for post-backup edit.'),
+    });
+
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const historyPath = path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json');
+    const lockBefore = await readFile(lockPath, 'utf8');
+    const historyBefore = await readFile(historyPath, 'utf8');
+
+    await assert.rejects(
+      applyUpdate({
+        repoRoot,
+        readGitStatus: cleanTree,
+        runGit: makeRunGit(repoRoot),
+        afterBackupMove: async (target) => {
+          if (target.rel !== 'skills') return;
+          await writeFile(
+            path.join(target.backup, 'demo', 'alpha', 'SKILL.md'),
+            skillDoc('alpha', 'Edit after backup rename.'),
+          );
+        },
+      }),
+      (error) => error instanceof BaselineError && /backup.*(?:changed|expected|snapshot)/i.test(error.message),
+    );
+
+    assert.match(
+      await readFile(path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), 'utf8'),
+      /Edit after backup rename\./,
+    );
+    assert.equal(await readFile(lockPath, 'utf8'), lockBefore);
+    assert.equal(await readFile(historyPath, 'utf8'), historyBefore);
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }

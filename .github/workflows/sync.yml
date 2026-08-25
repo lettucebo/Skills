@@ -142,6 +142,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    outputs:
+      # The baseline must deploy the commit it just pushed, never the original
+      # workflow-dispatch SHA inherited by a reusable workflow.
+      head_sha: ${{ steps.head.outputs.head_sha }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -176,9 +180,14 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           git commit -m 'chore(sync): establish verified upstream baseline'
-          # Push to the manually selected branch. The release tag is created by a
-          # later step/task after this commit lands; v1.0.0 is never moved.
-          git push origin HEAD:${{ github.ref_name }}
+          RELEASE=$(node -p "JSON.parse(require('fs').readFileSync('catalog/skills.lock.json','utf8')).release")
+          TAG="v$RELEASE"
+          git tag -a "$TAG" -m 'chore(sync): establish verified upstream baseline'
+          git push --atomic origin HEAD:${{ github.ref_name }} "refs/tags/$TAG"
+
+      - name: Resolve deployable HEAD sha
+        id: head
+        run: echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
   update:
     name: Apply upstream updates
@@ -212,6 +221,9 @@ jobs:
       # and push, so an applied sync deploys the new tree instead of the
       # pre-sync SHA that the reusable workflow would otherwise inherit.
       head_sha: ${{ steps.head.outputs.head_sha }}
+      # A successful update job can be a no-op. Deploy only when the engine
+      # actually created and published an updated tree.
+      applied: ${{ steps.apply.outputs.applied }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -325,26 +337,29 @@ jobs:
               });
             }
 
-  # Deploy the site after every successful update (applied or no-op).
-  # NOTE: GITHUB_TOKEN pushes do NOT trigger downstream workflows — GitHub's
-  # recursive-run protection blocks them entirely. The push made by the
-  # "Commit and tag" step above will not independently trigger deploy-site.yml.
-  # Deploy must always run here after a successful update to ensure the site
-  # reflects each sync result.
+  # Deploy after exactly one successful main apply. GITHUB_TOKEN pushes and tags
+  # cannot be used as an implicit handoff because recursive-run protection
+  # prevents their workflows from running.
   deploy:
     name: Deploy site
-    needs: [guard, update]
+    needs: [guard, baseline-apply, update]
     if: >-
       always() &&
       needs.guard.result == 'success' &&
-      needs.update.result == 'success' &&
-      github.ref == 'refs/heads/main'
+      github.ref == 'refs/heads/main' &&
+      (
+        (needs.baseline-apply.result == 'success' && needs.update.result != 'success') ||
+        (
+          needs.baseline-apply.result != 'success' &&
+          needs.update.result == 'success' &&
+          needs.update.outputs.applied == 'true'
+        )
+      )
     uses: ./.github/workflows/deploy-site.yml
     with:
-      # A reusable workflow inherits the caller's ORIGINAL event SHA, which is
-      # the pre-sync commit. Pass the post-push HEAD so the applied tree is the
-      # one that gets built and deployed.
-      ref: ${{ needs.update.outputs.head_sha }}
+      # A reusable workflow inherits the caller's ORIGINAL event SHA. Select
+      # the post-push SHA from the one apply job that actually succeeded.
+      ref: ${{ needs.baseline-apply.result == 'success' && needs.baseline-apply.outputs.head_sha || needs.update.outputs.head_sha }}
     permissions:
       contents: read
       pages: write

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { cp, mkdir, mkdtemp, readdir, readFile, rename, rm, symlink, writeFile } from 'node:fs/promises';
+import { chmod, cp, mkdir, mkdtemp, readdir, readFile, rename, rm, stat, symlink, writeFile } from 'node:fs/promises';
 import { hostname } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -99,6 +99,59 @@ test('writeAtomicJson syncs the journal parent after the atomic rename', async (
     assert.deepEqual(
       JSON.parse(await readFile(defaultJournalPath, 'utf8')),
       { version: 1, status: 'validated' },
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('snapshotSwapTarget ordering is independent of host locale collation', async () => {
+  const workspace = await makeTempDir('snapshot-order');
+  try {
+    await writeFileEnsured(path.join(workspace, 'alpha.txt'), 'alpha');
+    await writeFileEnsured(path.join(workspace, 'zeta.txt'), 'zeta');
+    const expected = await baselineModule.snapshotSwapTarget(workspace, 'dir');
+    const originalLocaleCompare = String.prototype.localeCompare;
+
+    try {
+      String.prototype.localeCompare = function reverseCodeUnitOrder(other) {
+        const left = String(this);
+        const right = String(other);
+        return left < right ? 1 : left > right ? -1 : 0;
+      };
+      const actual = await baselineModule.snapshotSwapTarget(workspace, 'dir');
+      assert.equal(actual.hash, expected.hash);
+    } finally {
+      String.prototype.localeCompare = originalLocaleCompare;
+    }
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('snapshotSwapTarget length-prefixes file bytes so tree framing cannot collide', async () => {
+  const workspace = await makeTempDir('snapshot-framing');
+  try {
+    const treeA = path.join(workspace, 'tree-a');
+    const treeB = path.join(workspace, 'tree-b');
+    await writeFileEnsured(path.join(treeA, 'x'), 'a');
+    await writeFileEnsured(path.join(treeA, 'y'), 'b');
+    await writeFileEnsured(path.join(treeB, 'x'), '');
+
+    const xMode = String((await stat(path.join(treeA, 'x'))).mode & 0o7777);
+    const yMode = String((await stat(path.join(treeA, 'y'))).mode & 0o7777);
+    await writeFile(
+      path.join(treeB, 'x'),
+      Buffer.from(`a\0file\0y\0${yMode}\0b`, 'utf8'),
+    );
+    await chmod(path.join(treeB, 'x'), Number.parseInt(xMode, 10));
+
+    const snapshotA = await baselineModule.snapshotSwapTarget(treeA, 'dir');
+    const snapshotB = await baselineModule.snapshotSwapTarget(treeB, 'dir');
+    assert.notEqual(
+      snapshotA.hash,
+      snapshotB.hash,
+      'different tree topology and bytes must not share an exact snapshot hash',
     );
   } finally {
     await rm(workspace, { recursive: true, force: true });
@@ -875,6 +928,59 @@ test('applyBaseline identifies a symbolic-link mapping source before staging', a
   }
 });
 
+test('applyBaseline rejects an ancestor link that escapes the clone root without mutation', async (t) => {
+  const workspace = await makeTempDir('baseline-ancestor-link');
+  try {
+    const { repoRoot, upstreamRoot } = await buildBaselineFixture(workspace);
+    const outsideRoot = path.join(workspace, 'outside');
+    await writeFileEnsured(
+      path.join(outsideRoot, 'skill', 'SKILL.md'),
+      skillDoc('alpha', 'Escaped content.'),
+    );
+    const linkPath = path.join(upstreamRoot, 'linked-dir');
+
+    try {
+      await symlink(outsideRoot, linkPath, 'dir');
+    } catch (error) {
+      if (error?.code === 'EPERM' || error?.code === 'EACCES') {
+        t.skip(`symbolic links cannot be created on this host: ${error.code}`);
+        return;
+      }
+      throw error;
+    }
+    git(upstreamRoot, ['add', '-A']);
+    git(upstreamRoot, ['commit', '-q', '-m', 'add escaping ancestor link']);
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources.replace('source: skills/alpha', 'source: linked-dir/skill'),
+    );
+
+    const skillsBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+    const lockBefore = await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8');
+    const historyBefore = await readFile(
+      path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'),
+      'utf8',
+    );
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree }),
+      /(?:path boundary|symbolic link).*linked-dir/i,
+    );
+
+    assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), skillsBefore);
+    assert.equal(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'), lockBefore);
+    assert.equal(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+      historyBefore,
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
 test('applyBaseline refuses when an upstream is unavailable and leaves repo intact', async () => {
   const workspace = await makeTempDir('baseline-unavail');
   try {
@@ -1212,6 +1318,126 @@ for (const [targetIndex, target] of SWAP_TARGETS.entries()) {
   }
 }
 
+test('applyBaseline preserves recovery artifacts instead of restoring a partial validated backup', async () => {
+  const workspace = await makeTempDir('baseline-validated-partial-backup');
+  try {
+    const { repoRoot, candidateRoot, backupRoot } = await buildSwapFixture(workspace);
+    const targets = [];
+    for (const target of SWAP_TARGETS) {
+      const live = path.join(repoRoot, ...target.rel.split('/'));
+      targets.push({
+        ...target,
+        live,
+        backup: path.join(backupRoot, ...target.rel.split('/')),
+        candidate: path.join(candidateRoot, ...target.rel.split('/')),
+        expectedSnapshot: await baselineModule.snapshotSwapTarget(live, target.kind),
+        phase: 'placed',
+      });
+    }
+
+    for (const target of targets) {
+      await mkdir(path.dirname(target.backup), { recursive: true });
+      await rename(target.live, target.backup);
+      await rename(target.candidate, target.live);
+    }
+    await rm(path.join(backupRoot, 'skills', 'demo', 'alpha', 'SKILL.md'));
+
+    const journalPath = path.join(repoRoot, '.git', '.skills-sync-transaction.json');
+    await writeFile(
+      journalPath,
+      `${JSON.stringify({
+        version: 2,
+        status: 'validated',
+        repoRoot,
+        candidateRoot,
+        backupRoot,
+        workRoot: workspace,
+        targets,
+      }, null, 2)}\n`,
+    );
+
+    await assert.rejects(
+      applyBaseline({
+        repoRoot,
+        baseline: true,
+        readGitStatus: async () => ' M skills/demo/alpha/SKILL.md\n',
+      }),
+      (error) =>
+        error instanceof BaselineError &&
+        /validated transaction.*changed backup/i.test(error.message),
+    );
+
+    assert.match(
+      await readFile(path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), 'utf8'),
+      /alpha-candidate/,
+      'the complete candidate must remain live instead of being overwritten by the partial backup',
+    );
+    assert.equal(
+      existsSync(path.join(backupRoot, 'skills', 'demo', 'alpha', 'SKILL.md')),
+      false,
+      'the partial backup must remain available for manual recovery',
+    );
+    assert.equal(existsSync(journalPath), true, 'the journal must remain for operator recovery');
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline preserves a snapshot-less validated journal for manual recovery', async () => {
+  const workspace = await makeTempDir('baseline-legacy-validated-journal');
+  try {
+    const { repoRoot, candidateRoot, backupRoot } = await buildSwapFixture(workspace);
+    const targets = SWAP_TARGETS.map((target) => ({
+      ...target,
+      live: path.join(repoRoot, ...target.rel.split('/')),
+      backup: path.join(backupRoot, ...target.rel.split('/')),
+      candidate: path.join(candidateRoot, ...target.rel.split('/')),
+      phase: 'placed',
+    }));
+
+    for (const target of targets) {
+      await mkdir(path.dirname(target.backup), { recursive: true });
+      await rename(target.live, target.backup);
+      await rename(target.candidate, target.live);
+    }
+    await rm(path.join(backupRoot, 'skills', 'demo', 'alpha', 'SKILL.md'));
+
+    const journalPath = path.join(repoRoot, '.git', '.skills-sync-transaction.json');
+    await writeFile(
+      journalPath,
+      `${JSON.stringify({
+        version: 1,
+        status: 'validated',
+        repoRoot,
+        candidateRoot,
+        backupRoot,
+        workRoot: workspace,
+        targets,
+      }, null, 2)}\n`,
+    );
+
+    await assert.rejects(
+      applyBaseline({
+        repoRoot,
+        baseline: true,
+        readGitStatus: async () => ' M skills/demo/alpha/SKILL.md\n',
+      }),
+      (error) =>
+        error instanceof BaselineError &&
+        /validated transaction.*expected snapshots|inspect.*backup/i.test(error.message),
+    );
+
+    assert.match(
+      await readFile(path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), 'utf8'),
+      /alpha-candidate/,
+    );
+    assert.equal(existsSync(journalPath), true);
+    assert.equal(existsSync(backupRoot), true);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
 test('swapInCandidate restores all originals when placement fails after first backup', async () => {
   const workspace = await makeTempDir('swap-fault-first');
   try {
@@ -1400,6 +1626,112 @@ test('applyBaseline preserves a mapped user edit that appears before the destruc
     );
     assert.equal(existsSync(path.join(repoRoot, '.git', '.skills-sync-apply.lock')), false);
     assert.equal(existsSync(path.join(repoRoot, '.git', '.skills-sync-transaction.json')), false);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline restores a user edit injected after the clean check and before candidate placement', async () => {
+  const workspace = await makeTempDir('baseline-post-clean-check-edit');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const historyPath = path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json');
+    const editedSkill = path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md');
+    const lockBefore = await readFile(lockPath, 'utf8');
+    const historyBefore = await readFile(historyPath, 'utf8');
+
+    await assert.rejects(
+      applyBaseline({
+        repoRoot,
+        baseline: true,
+        readGitStatus: cleanTree,
+        afterCleanCheck: async () => {
+          const transaction = JSON.parse(
+            await readFile(path.join(repoRoot, '.git', '.skills-sync-transaction.json'), 'utf8'),
+          );
+          assert.match(
+            transaction.targets[0].expectedSnapshot?.hash ?? '',
+            /^sha256:/,
+            'the durable journal must record the pre-swap expected snapshot',
+          );
+          await writeFile(editedSkill, skillDoc('alpha', 'Edit after the clean check.'));
+        },
+      }),
+      (error) => error instanceof BaselineError && /backup.*(?:changed|expected|snapshot)/i.test(error.message),
+    );
+
+    assert.match(await readFile(editedSkill, 'utf8'), /Edit after the clean check\./);
+    assert.equal(await readFile(lockPath, 'utf8'), lockBefore);
+    assert.equal(await readFile(historyPath, 'utf8'), historyBefore);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline restores a permission-only user edit injected after the clean check', async (t) => {
+  if (process.platform === 'win32') {
+    t.skip('POSIX mode bits are not a portable Windows permission signal');
+    return;
+  }
+
+  const workspace = await makeTempDir('baseline-post-clean-check-mode');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const editedSkill = path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md');
+    const lockBefore = await readFile(lockPath, 'utf8');
+
+    await assert.rejects(
+      applyBaseline({
+        repoRoot,
+        baseline: true,
+        readGitStatus: cleanTree,
+        afterCleanCheck: async () => {
+          await chmod(editedSkill, 0o755);
+        },
+      }),
+      (error) => error instanceof BaselineError && /backup.*(?:changed|expected|snapshot)/i.test(error.message),
+    );
+
+    assert.equal((await stat(editedSkill)).mode & 0o777, 0o755);
+    assert.equal(await readFile(lockPath, 'utf8'), lockBefore);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline restores a user edit injected into the moved backup before candidate placement', async () => {
+  const workspace = await makeTempDir('baseline-post-backup-edit');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const historyPath = path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json');
+    const lockBefore = await readFile(lockPath, 'utf8');
+    const historyBefore = await readFile(historyPath, 'utf8');
+
+    await assert.rejects(
+      applyBaseline({
+        repoRoot,
+        baseline: true,
+        readGitStatus: cleanTree,
+        afterBackupMove: async (target) => {
+          if (target.rel !== 'skills') return;
+          await writeFile(
+            path.join(target.backup, 'demo', 'alpha', 'SKILL.md'),
+            skillDoc('alpha', 'Edit after backup rename.'),
+          );
+        },
+      }),
+      (error) => error instanceof BaselineError && /backup.*(?:changed|expected|snapshot)/i.test(error.message),
+    );
+
+    assert.match(
+      await readFile(path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), 'utf8'),
+      /Edit after backup rename\./,
+    );
+    assert.equal(await readFile(lockPath, 'utf8'), lockBefore);
+    assert.equal(await readFile(historyPath, 'utf8'), historyBefore);
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }

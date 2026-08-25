@@ -2,9 +2,10 @@
 
 ## Scope
 
-This report records the five final sync and release-safety fixes against
-`dba1df082f5ae8a232b992b1551a9c38c95d7f4f`, plus the correctness hardening
-identified during the final review.
+This report records the sync and release-safety fixes layered on
+`39dc8ac3ded0a8e757ef0bf51d19d590a3a6b7db`, including the four final
+high-confidence findings and the correctness hardening identified by final
+review.
 
 ## Decisions and implementation
 
@@ -90,16 +91,103 @@ still run an explicit dry-run, but cannot baseline, update, or deploy. Scheduled
 updates require both `main` and `SKILLS_SYNC_ENABLED == 'true'`. Direct
 pull-request site runs remain build-only, while a main push can still deploy.
 
-## Review outcome
+### 6. Clone mapping paths cannot escape through an ancestor link
 
-The final Council/Rubber Duck pass examined phase ordering, journal durability,
-linked-worktree paths, recovery semantics, lock ownership, user-edit timing,
-Pages credentials, and the workflow expression matrix. Independent read-only
-reviews found and drove fixes for journal directory durability, stale-lock
-reclamation, final pre-swap timing, linked-worktree cross-device renames, and
-Windows write-through durability. The proposed commit-only update change was
-rejected with test evidence because it would violate the per-skill provenance
-and scoped-release contract described above.
+`assertClonePathBoundary()` is shared by the dry-run planner and the common
+baseline/update staging pipeline. Starting from the trusted clone root, it
+`lstat`s every source component, rejects symbolic links and Windows junctions,
+then `realpath`s every existing component and proves it remains below the
+canonical clone root. It returns a missing final component to the existing
+missing-source path so that unavailable-source reporting is retained.
 
-No transient Windows `EPERM` was observed. No retry was added, so persistent
-filesystem errors remain visible rather than being hidden.
+The regressions create an ancestor directory link to content outside the clone
+and prove that dry-run, baseline, and update all fail before staging, hashing,
+or swapping. They assert that skills, lock, and history remain unchanged.
+Windows link-creation permission failures are conditional skips; the same
+symbolic-link scenarios run unconditionally on Linux CI. A separate
+Windows-only regression creates an escaping junction and verifies that the
+shared boundary rejects it before traversal.
+
+### 7. Dry-run recognizes provenance-only migrations
+
+The planner now compares the staged `repository`, `reference`, and `source`
+tuple with the lock entry in addition to `contentHash`. A same-byte migration
+is emitted in `changed` with `reason: "provenance-change"` and per-field
+`from`/`to` evidence, so normal classification produces the same patch release
+shape as `applyUpdate`.
+
+The regression migrates all three tuple fields while preserving bytes, confirms
+the dry-run entry and patch classification, then runs apply against the same
+fixture and proves its changed paths and commit class agree.
+
+### 8. Moved backups are verified and recovery fails closed
+
+Before a transaction journal is created, every live swap target receives an
+exact snapshot of path topology, bytes, symbolic-link targets, and
+POSIX mode bits. Version-2 transaction journals persist those
+expected snapshots. Immediately after each live-to-backup rename and before
+candidate placement, the backup is checked against its expected snapshot.
+Backups are checked again immediately before destructive cleanup.
+
+The snapshot intentionally does not claim to preserve ownership, ACL/security
+descriptors, extended attributes, or other metadata Node does not expose
+portably. Concurrent-edit protection covers bytes, topology, link targets, and
+the recorded mode bits; operators changing other metadata must serialize that
+administrative work outside a sync apply.
+
+An edit that reaches the moved backup through an open handle therefore aborts
+and restores the backup instead of committing the candidate. A validated
+journal with a changed backup, including a crash during recursive cleanup, now
+preserves its journal, candidate, and remaining artifacts for manual recovery
+rather than risking restoration of partial data. Legacy version-1 journals
+remain recoverable while swapping; a snapshot-less validated version-1 journal
+also fails closed for manual recovery. This closes the demonstrated overwrite
+window without claiming an impossible global filesystem lock.
+
+### 9. Baseline releases use the same explicit deployment handoff
+
+`baseline-apply` now creates and atomically pushes the release tag with its
+baseline commit, then emits `head_sha` after the push. The single reusable
+Pages deploy caller depends on guard, baseline, and update, runs only on main
+when exactly one apply job succeeded, and selects that successful job's
+post-push SHA. This does not rely on tag or `GITHUB_TOKEN` downstream workflow
+semantics, which GitHub recursive-run protection suppresses.
+
+The update job also publishes its `steps.apply.outputs.applied` value. A
+successful no-op update is therefore excluded from deployment: no new tree was
+committed or tagged. The workflow expression matrix covers main and feature
+refs, successful baseline and applied-update paths, no-op update, dry-run,
+failure, and conflicting dual-success states. It also proves there remains
+exactly one reusable deploy caller.
+
+## Council and Rubber Duck review outcome
+
+The final component-by-component review checked clone containment,
+planner/apply tuple convergence, journal-version compatibility, partial-backup
+recovery, POSIX mode-bit edits, and the Pages workflow truth table. Two
+recovery guards were retained from the interrupted work after verification:
+validated partial backups and snapshot-less legacy validated journals preserve
+artifacts for manual recovery instead of replacing a candidate or deleting
+evidence. The review also found and corrected the remaining deploy no-op gap:
+a successful update job is insufficient unless its engine output says
+`applied == 'true'`.
+
+The independent final review found that the partial validated-backup regression
+used a version-1 journal and therefore exercised only the legacy guard. The
+fixture now records production-generated expected snapshots in a version-2
+journal and accepts only the changed-backup failure. Snapshot traversal also
+uses code-unit ordering rather than locale collation; a RED/GREEN regression
+proves that changing host collation cannot change a persisted snapshot hash.
+The reviewer then supplied a concrete NUL-delimiter collision between two
+different directory trees. Snapshot fields and file bytes now use
+length-prefixed framing, and the reproduced collision is a passing regression,
+so the persisted digest is unambiguous rather than merely fail-closed in normal
+edits.
+
+The clone boundary deliberately rejects a mapping through any symbolic link or
+junction even when its current target is inside the clone; an operator must map
+the canonical non-reparse source instead. On Windows, the regression skips only
+when the host denies test-link creation (`EPERM`/`EACCES`); Linux CI runs it.
+The backup check is a demonstrated moved-backup verification, not a claim of
+global filesystem locking. No retry was added, so persistent filesystem errors
+remain visible rather than being hidden.

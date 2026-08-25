@@ -11,6 +11,10 @@ import { parse } from 'yaml';
 import { loadManifest, ManifestValidationError } from '../lib/manifest.mjs';
 import { copyHashableDirectory, hashDirectory } from '../lib/hash.mjs';
 import {
+  assertClonePathBoundary,
+  PathBoundaryError,
+} from '../lib/path-boundary.mjs';
+import {
   cloneUpstream,
   isShaReference,
   resolveCloneRef,
@@ -1024,6 +1028,34 @@ test('runSync reports baseline as ready when every mapped upstream is available'
 // Planner staging policy: must match the fail-closed apply pipeline
 // ---------------------------------------------------------------------------
 
+test('assertClonePathBoundary rejects an escaping Windows ancestor junction', async (t) => {
+  if (process.platform !== 'win32') {
+    t.skip('Windows junction semantics require Windows');
+    return;
+  }
+
+  const workspace = await makeTempDir('path-boundary-junction');
+  try {
+    const cloneRoot = path.join(workspace, 'clone');
+    const outsideRoot = path.join(workspace, 'outside');
+    await writeFileEnsured(
+      path.join(outsideRoot, 'skill', 'SKILL.md'),
+      skillDoc('escaped-junction'),
+    );
+    await mkdir(cloneRoot, { recursive: true });
+    await symlink(outsideRoot, path.join(cloneRoot, 'linked-dir'), 'junction');
+
+    await assert.rejects(
+      assertClonePathBoundary(cloneRoot, 'linked-dir/skill'),
+      (error) =>
+        error instanceof PathBoundaryError &&
+        /symbolic link or junction/i.test(error.message),
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
 test('runSync rejects a symbolic-link mapping source with its path', async (t) => {
   const workspace = await makeTempDir('sync-symbolic-source');
   try {
@@ -1054,6 +1086,52 @@ test('runSync rejects a symbolic-link mapping source with its path', async (t) =
       runSync({ repoRoot, dryRun: true, workspaceRoot: path.join(workspace, 'ws') }),
       /symbolic link.*linked-skill/i,
     );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('runSync rejects an ancestor link that escapes the clone root without mutating the repository', async (t) => {
+  const workspace = await makeTempDir('sync-ancestor-link');
+  try {
+    const { repoRoot } = await buildSyncFixture(workspace);
+    const upstreamRoot = path.join(workspace, 'upstream');
+    const outsideRoot = path.join(workspace, 'outside');
+    await writeFileEnsured(
+      path.join(outsideRoot, 'skill', 'SKILL.md'),
+      skillDoc('escaped-skill', 'This content is outside the clone.'),
+    );
+
+    const linkPath = path.join(upstreamRoot, 'linked-dir');
+    try {
+      await symlink(outsideRoot, linkPath, 'dir');
+    } catch (error) {
+      if (error?.code === 'EPERM' || error?.code === 'EACCES') {
+        t.skip(`symbolic links cannot be created on this host: ${error.code}`);
+        return;
+      }
+      throw error;
+    }
+    git(upstreamRoot, ['add', '-A']);
+    git(upstreamRoot, ['commit', '-q', '-m', 'add escaping ancestor link']);
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources.replace('source: skills/mapped-skill', 'source: linked-dir/skill'),
+    );
+
+    const skillsBefore = await hashDirectory(path.join(repoRoot, 'skills'));
+    const lockBefore = await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8');
+
+    await assert.rejects(
+      runSync({ repoRoot, dryRun: true, workspaceRoot: path.join(workspace, 'ws') }),
+      /(?:path boundary|symbolic link).*linked-dir/i,
+    );
+
+    assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), skillsBefore);
+    assert.equal(await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'), lockBefore);
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }
@@ -1151,6 +1229,73 @@ test('runSync reports no false change when verified content uses the apply stagi
       changeSet.added.every((entry) => entry.path !== 'skills/demo/mapped-skill'),
       'the verified mapping must not become an addition when ignored artifacts are present',
     );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('runSync reports a tuple-only migration as a patch provenance change', async () => {
+  const workspace = await makeTempDir('sync-tuple-only-migration');
+  try {
+    const { repoRoot } = await buildSyncFixture(workspace);
+    const migratedRoot = path.join(workspace, 'migrated');
+    const migrated = await initUpstreamRepo(migratedRoot, {
+      'new-layout/mapped-skill/SKILL.md': skillDoc('mapped-skill'),
+      'new-layout/mapped-skill/references/notes.md': '# notes\n',
+    });
+    git(migratedRoot, ['tag', 'v2']);
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    await writeFile(
+      sourcesPath,
+      [
+        'upstreams:',
+        '  demo:',
+        `    repository: "${migrated.url}"`,
+        '    reference: refs/tags/v2',
+        'mappings:',
+        '  - path: skills/demo/mapped-skill',
+        '    upstream: demo',
+        '    source: new-layout/mapped-skill',
+        'orphans: []',
+        'local: []',
+        'overrides: []',
+        'linkExceptions: []',
+        '',
+      ].join('\n'),
+    );
+    await rm(path.join(repoRoot, 'skills', 'demo', 'added-skill'), { recursive: true, force: true });
+    await rm(path.join(repoRoot, 'skills', 'demo', 'missing'), { recursive: true, force: true });
+
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const lock = JSON.parse(await readFile(lockPath, 'utf8'));
+    lock.skills[0].baseline = 'verified';
+    lock.skills[0].contentHash = await hashDirectory(
+      path.join(migratedRoot, 'new-layout', 'mapped-skill'),
+    );
+    await writeFile(lockPath, `${JSON.stringify(lock, null, 2)}\n`);
+
+    const { changeSet } = await runSync({
+      repoRoot,
+      dryRun: true,
+      workspaceRoot: path.join(workspace, 'ws'),
+    });
+
+    assert.deepEqual(changeSet.changed, [
+      {
+        path: 'skills/demo/mapped-skill',
+        preStampHash: lock.skills[0].contentHash,
+        contentHash: lock.skills[0].contentHash,
+        upstreamCommit: migrated.commit,
+        reason: 'provenance-change',
+        provenance: {
+          repository: { from: lock.skills[0].upstream.repository, to: migrated.url },
+          reference: { from: 'refs/heads/main', to: 'refs/tags/v2' },
+          source: { from: 'skills/mapped-skill', to: 'new-layout/mapped-skill' },
+        },
+      },
+    ]);
+    assert.equal(changeSet.classification.diffClass, 'patch');
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }

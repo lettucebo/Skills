@@ -282,7 +282,8 @@ test('SY7: sync deploy cannot call the reusable Pages workflow from a feature re
   const condition = await jobCondition('deploy');
   const needs = {
     guard: { result: 'success' },
-    update: { result: 'success' },
+    'baseline-apply': { result: 'skipped' },
+    update: { result: 'success', outputs: { applied: 'true' } },
   };
 
   assert.equal(
@@ -299,6 +300,101 @@ test('SY7: sync deploy cannot call the reusable Pages workflow from a feature re
     }),
     false,
   );
+});
+
+test('SY8: exactly one successful main apply invokes deploy with its post-push head SHA', async () => {
+  const wf = await loadWorkflow('sync.yml');
+  const baseline = wf.jobs?.['baseline-apply'];
+  const update = wf.jobs?.update;
+  const deploy = wf.jobs?.deploy;
+
+  assert.ok(baseline, 'sync.yml must retain the baseline job');
+  assert.ok(update, 'sync.yml must retain the update job');
+  assert.ok(deploy, 'sync.yml must declare one deploy job');
+
+  for (const [name, job] of [['baseline', baseline], ['update', update]]) {
+    const headSha = String(job.outputs?.head_sha ?? '');
+    const stepId = headSha.match(/steps\.([A-Za-z0-9_-]+)\.outputs\.head_sha/)?.[1];
+    const steps = stepsOf(job);
+    const headIndex = steps.findIndex((step) => step.id === stepId);
+    const pushIndex = steps.findIndex((step) => /git push/.test(String(step.run ?? '')));
+
+    assert.ok(stepId, `${name} must expose a head_sha output`);
+    assert.ok(headIndex > pushIndex, `${name} must resolve head_sha after it pushes`);
+    assert.match(String(steps[headIndex].run ?? ''), /git rev-parse HEAD/);
+  }
+  assert.equal(
+    String(update.outputs?.applied ?? ''),
+    '${{ steps.apply.outputs.applied }}',
+    'the deploy gate must distinguish an applied update from a successful no-op job',
+  );
+  const appliedStepId = String(update.outputs?.applied ?? '')
+    .match(/steps\.([A-Za-z0-9_-]+)\.outputs\.applied/)?.[1];
+  const appliedStep = stepsOf(update).find((step) => step.id === appliedStepId);
+  assert.ok(appliedStepId, 'the applied job output must name its producing step');
+  assert.ok(appliedStep, `the update job must contain the "${appliedStepId}" step`);
+  assert.match(
+    String(appliedStep.run ?? ''),
+    /applied=.*GITHUB_OUTPUT/s,
+    'the producing step must write applied to $GITHUB_OUTPUT',
+  );
+
+  const baselineCommit = stepsOf(baseline).find((step) => /git commit/.test(String(step.run ?? '')));
+  assert.match(String(baselineCommit?.run ?? ''), /git tag/);
+  assert.match(String(baselineCommit?.run ?? ''), /refs\/tags/);
+
+  const needs = Array.isArray(deploy.needs) ? deploy.needs : [deploy.needs].filter(Boolean);
+  assert.deepEqual(needs.sort(), ['baseline-apply', 'guard', 'update']);
+  assert.match(String(deploy.with?.ref ?? ''), /needs\.baseline-apply\.outputs\.head_sha/);
+  assert.match(String(deploy.with?.ref ?? ''), /needs\.update\.outputs\.head_sha/);
+  assert.equal(
+    Object.values(wf.jobs ?? {}).filter((job) => /deploy-site\.yml/.test(String(job.uses ?? ''))).length,
+    1,
+    'the reusable deployment must have exactly one caller',
+  );
+
+  const condition = String(deploy.if ?? '');
+  const mainContext = (baselineResult, updateResult, updateApplied = null) => ({
+    github: { event_name: 'workflow_dispatch', ref: 'refs/heads/main' },
+    needs: {
+      guard: { result: 'success' },
+      'baseline-apply': { result: baselineResult },
+      update: {
+        result: updateResult,
+        outputs: updateApplied === null ? {} : { applied: updateApplied },
+      },
+    },
+  });
+  const cases = [
+    ['main baseline success', mainContext('success', 'skipped'), true],
+    ['main update success', mainContext('skipped', 'success', 'true'), true],
+    ['main update no-op success', mainContext('skipped', 'success', 'false'), false],
+    ['main update success without apply output', mainContext('skipped', 'success'), false],
+    ['main baseline failure', mainContext('failure', 'skipped'), false],
+    ['main update failure', mainContext('skipped', 'failure', 'true'), false],
+    ['main no-op dry-run', mainContext('skipped', 'skipped'), false],
+    ['main conflicting successes', mainContext('success', 'success', 'true'), false],
+    [
+      'feature baseline success',
+      {
+        ...mainContext('success', 'skipped'),
+        github: { event_name: 'workflow_dispatch', ref: 'refs/heads/feature/sync' },
+      },
+      false,
+    ],
+    [
+      'feature update success',
+      {
+        ...mainContext('skipped', 'success'),
+        github: { event_name: 'workflow_dispatch', ref: 'refs/heads/feature/sync' },
+      },
+      false,
+    ],
+  ];
+
+  for (const [label, context, expected] of cases) {
+    assert.equal(evaluateExpression(condition, context), expected, label);
+  }
 });
 
 test('SY6: enabling the cron is documented for operators', async () => {

@@ -227,7 +227,7 @@ test('sync.yml has a deploy job that calls deploy-site.yml', async () => {
   );
 });
 
-test('sync.yml deploy runs after every successful update without applied gate', async () => {
+test('sync.yml deploy requires an applied update', async () => {
   const wf = await loadWorkflow('sync.yml');
   const deployJob = wf.jobs?.deploy;
   assert.ok(deployJob, 'sync.yml must have a deploy job');
@@ -238,20 +238,19 @@ test('sync.yml deploy runs after every successful update without applied gate', 
     : [deployJob.needs].filter(Boolean);
   assert.ok(needs.includes('update'), 'sync deploy must depend on update job');
 
-  // Condition must gate on update success — but must NOT gate on applied output.
-  // GITHUB_TOKEN pushes do not trigger downstream workflows (GitHub recursive-run
-  // protection), so skipping deploy when applied=true would silently suppress all
-  // post-apply deployments. Deploy must run after every successful update.
+  // A successful update job may be a no-op, which has no new tree to deploy.
+  // GITHUB_TOKEN pushes still cannot trigger a downstream workflow, so the
+  // reusable caller must gate on the engine output instead of a tag event.
   const condition = String(deployJob.if ?? '');
   assert.match(
     condition,
     /needs\.update\.result/,
     'condition must gate on update result',
   );
-  assert.doesNotMatch(
+  assert.match(
     condition,
     /needs\.update\.outputs\.applied/,
-    'deploy must not gate on applied output — GITHUB_TOKEN push never triggers deploy-site.yml',
+    'deploy must exclude a successful no-op update job',
   );
 });
 
