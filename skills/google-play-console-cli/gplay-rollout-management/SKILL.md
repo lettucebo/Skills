@@ -1,6 +1,12 @@
 ---
 name: gplay-rollout-management
-description: Staged rollout orchestration and monitoring for Google Play releases. Use when implementing gradual release strategies.
+description: Staged rollout orchestration and monitoring for Google Play
+  releases. Use when implementing gradual release strategies.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-rollout-management
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Staged Rollout Management

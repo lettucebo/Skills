@@ -255,7 +255,12 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
       });
 
       if (!lockEntry) {
-        added.push({ path: mapping.path, preStampHash, upstreamCommit: clone.commit });
+        added.push({
+          path: mapping.path,
+          category: 'mapped',
+          preStampHash,
+          upstreamCommit: clone.commit,
+        });
         continue;
       }
 
@@ -302,6 +307,36 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
           : {}),
       });
     }
+  }
+
+  for (const orphan of manifest.orphans) {
+    if (lockByPath.has(orphan.path)) {
+      continue;
+    }
+
+    added.push({
+      path: orphan.path,
+      category: 'orphan',
+      snapshotHash: await hashDirectory(
+        path.join(repoRoot, ...orphan.path.split('/')),
+      ),
+      upstreamCommit: null,
+    });
+  }
+
+  for (const skillPath of manifest.localSkillPaths) {
+    if (lockByPath.has(skillPath)) {
+      continue;
+    }
+
+    added.push({
+      path: skillPath,
+      category: 'local',
+      snapshotHash: await hashDirectory(
+        path.join(repoRoot, ...skillPath.split('/')),
+      ),
+      upstreamCommit: null,
+    });
   }
 
   for (const skill of lock?.skills ?? []) {

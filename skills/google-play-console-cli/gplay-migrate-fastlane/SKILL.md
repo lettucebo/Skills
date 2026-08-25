@@ -1,6 +1,13 @@
 ---
 name: gplay-migrate-fastlane
-description: Migration from Fastlane supply to gplay CLI using the gplay migrate fastlane command. Use when asked to convert a Fastlane-based Play Store workflow to gplay, or to import existing Fastlane metadata directories.
+description: Migration from Fastlane supply to gplay CLI using the gplay migrate
+  fastlane command. Use when asked to convert a Fastlane-based Play Store
+  workflow to gplay, or to import existing Fastlane metadata directories.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-migrate-fastlane
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Fastlane Migration

@@ -1,0 +1,16 @@
+{
+  "path": "skills/google-play-console-cli/gplay-ppp-pricing",
+  "name": "gplay-ppp-pricing",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "firstSeen": "2026-08-26T00:32:45+08:00",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "contentHash": "sha256:15478f3953fcc1dc56a7b558b0b848008a4cdea770b25b128f17f73c28bce0e9"
+    }
+  ]
+}

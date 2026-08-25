@@ -1,6 +1,13 @@
 ---
 name: gplay-gradle-build
-description: Build, sign, and package Android apps with Gradle before uploading to Google Play. Use when asked to create an APK or AAB, configure signing, or set up build pipelines.
+description: Build, sign, and package Android apps with Gradle before uploading
+  to Google Play. Use when asked to create an APK or AAB, configure signing, or
+  set up build pipelines.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-gradle-build
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Gradle Build for Google Play

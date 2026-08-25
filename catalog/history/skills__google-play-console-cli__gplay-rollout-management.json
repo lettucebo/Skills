@@ -1,0 +1,16 @@
+{
+  "path": "skills/google-play-console-cli/gplay-rollout-management",
+  "name": "gplay-rollout-management",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "firstSeen": "2026-08-26T00:32:45+08:00",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "contentHash": "sha256:469a2c368f9fc4d7f66e2c24966a89e3b5bbac99fa04bc56aa2fe4eecc1e0eab"
+    }
+  ]
+}

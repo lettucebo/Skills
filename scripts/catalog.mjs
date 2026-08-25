@@ -48,6 +48,10 @@ const SOURCE_META = {
   },
   dotnet: { description: 'C# 測試（NUnit/xUnit/MSTest/TUnit）、EF Core、NuGet、非同步', doc: '—' },
   github: { description: 'GitHub Issues、PR、CodeQL、Dependabot、gh CLI', doc: '—' },
+  'google-play-console-cli': {
+    description: 'Google Play 發布、審查、測試、定價與營運自動化',
+    doc: '—',
+  },
   gtm: { description: 'GTM 技術整合、產品策略、企業銷售、AI GTM', doc: '—' },
   microsoft: {
     description: 'Azure SDK、AI Foundry、Copilot SDK、MCP Builder',

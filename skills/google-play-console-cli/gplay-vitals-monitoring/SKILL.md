@@ -1,6 +1,16 @@
 ---
 name: gplay-vitals-monitoring
-description: Monitor Android app stability and performance from the Play Developer Reporting API via gplay vitals. Use to query crash/ANR rates, detect release regressions with anomaly detection, filter error issues/reports with AIP-160 expressions, and break down startup/rendering/battery metrics by dimension. Use when asked to check crash rates, ANR rates, error trends, performance data, or to gate a release on stability.
+description: Monitor Android app stability and performance from the Play
+  Developer Reporting API via gplay vitals. Use to query crash/ANR rates, detect
+  release regressions with anomaly detection, filter error issues/reports with
+  AIP-160 expressions, and break down startup/rendering/battery metrics by
+  dimension. Use when asked to check crash rates, ANR rates, error trends,
+  performance data, or to gate a release on stability.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-vitals-monitoring
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # App Vitals Monitoring

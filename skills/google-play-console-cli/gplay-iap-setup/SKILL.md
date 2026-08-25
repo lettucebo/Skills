@@ -1,6 +1,14 @@
 ---
 name: gplay-iap-setup
-description: In-app products, subscriptions, base plans, and offers setup for Google Play monetization, including bulk-localizing subscription display names, descriptions, and benefits across all locales. Use when configuring in-app purchases or subscription products.
+description: In-app products, subscriptions, base plans, and offers setup for
+  Google Play monetization, including bulk-localizing subscription display
+  names, descriptions, and benefits across all locales. Use when configuring
+  in-app purchases or subscription products.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-iap-setup
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # In-App Purchase Setup for Google Play

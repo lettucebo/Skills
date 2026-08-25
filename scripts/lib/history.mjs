@@ -4,6 +4,12 @@
  * Each skill owns one history file under `catalog/history/`. The file name is
  * derived from the skill's stable key (its repository-relative folder path) by
  * replacing path separators, so the mapping is one-to-one and reversible.
+ *
+ * Skills present during the original v1.0.0 bootstrap begin with a `bootstrap`
+ * entry. Skills first adopted later begin with their adoption entry
+ * (`baseline-verified`, `mapping-added`, `orphan-added`, or `local-added`) and
+ * carry `firstSeen` there. Bootstrap-only validators below intentionally reject
+ * those ledgers because the one-time bootstrap command must never rewrite them.
  */
 export function historyFileName(skillPath) {
   return `${skillPath.replace(/\//g, '__')}.json`;

@@ -17,6 +17,9 @@ upstreams:
   wookstar:
     repository: henkisdabro/wookstar-claude-plugins
     reference: refs/heads/main
+  google-play-console-cli:
+    repository: tamtom/gplay-cli-skills
+    reference: refs/heads/main
 
 mappings:
   # awesome-copilot
@@ -330,6 +333,58 @@ mappings:
   - path: skills/tampermonkey/tampermonkey
     upstream: wookstar
     source: plugins/tampermonkey/skills/tampermonkey
+  # google-play-console-cli
+  # Upstream gplay-submission-checks references gplay-preflight. That skill is
+  # intentionally still unadopted pending explicit review; keep the mirror
+  # byte-faithful and surface it through the sync report instead of rewriting it.
+  - path: skills/google-play-console-cli/gplay-cli-usage
+    upstream: google-play-console-cli
+    source: skills/gplay-cli-usage
+  - path: skills/google-play-console-cli/gplay-gradle-build
+    upstream: google-play-console-cli
+    source: skills/gplay-gradle-build
+  - path: skills/google-play-console-cli/gplay-iap-setup
+    upstream: google-play-console-cli
+    source: skills/gplay-iap-setup
+  - path: skills/google-play-console-cli/gplay-metadata-sync
+    upstream: google-play-console-cli
+    source: skills/gplay-metadata-sync
+  - path: skills/google-play-console-cli/gplay-migrate-fastlane
+    upstream: google-play-console-cli
+    source: skills/gplay-migrate-fastlane
+  - path: skills/google-play-console-cli/gplay-ppp-pricing
+    upstream: google-play-console-cli
+    source: skills/gplay-ppp-pricing
+  - path: skills/google-play-console-cli/gplay-purchase-verification
+    upstream: google-play-console-cli
+    source: skills/gplay-purchase-verification
+  - path: skills/google-play-console-cli/gplay-release-flow
+    upstream: google-play-console-cli
+    source: skills/gplay-release-flow
+  - path: skills/google-play-console-cli/gplay-reports-download
+    upstream: google-play-console-cli
+    source: skills/gplay-reports-download
+  - path: skills/google-play-console-cli/gplay-review-management
+    upstream: google-play-console-cli
+    source: skills/gplay-review-management
+  - path: skills/google-play-console-cli/gplay-rollout-management
+    upstream: google-play-console-cli
+    source: skills/gplay-rollout-management
+  - path: skills/google-play-console-cli/gplay-screenshot-automation
+    upstream: google-play-console-cli
+    source: skills/gplay-screenshot-automation
+  - path: skills/google-play-console-cli/gplay-submission-checks
+    upstream: google-play-console-cli
+    source: skills/gplay-submission-checks
+  - path: skills/google-play-console-cli/gplay-testers-orchestration
+    upstream: google-play-console-cli
+    source: skills/gplay-testers-orchestration
+  - path: skills/google-play-console-cli/gplay-user-management
+    upstream: google-play-console-cli
+    source: skills/gplay-user-management
+  - path: skills/google-play-console-cli/gplay-vitals-monitoring
+    upstream: google-play-console-cli
+    source: skills/gplay-vitals-monitoring
 
 orphans:
   - path: skills/dotnet/csharp-mcp-server-generator

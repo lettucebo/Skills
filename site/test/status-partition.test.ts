@@ -4,12 +4,12 @@
  * The homepage used to render `total · counts.mapped · counts.orphan ·
  * counts.restricted`, but `counts.mapped` counts every `category === "mapped"`
  * entry INCLUDING the four restricted ones. With the real lock that reads
- * "103 total · 100 synced · 3 frozen · 4 restricted", i.e. 107 skills across a
- * 103-skill catalog, and it disagrees with both the rendered badges and the
+ * "119 total · 116 synced · 3 frozen · 4 restricted", i.e. 123 skills across a
+ * 119-skill catalog, and it disagrees with both the rendered badges and the
  * origin filter (which treat restricted as its own bucket).
  *
- * The status page keeps its own `100 mapped` wording on purpose: there really
- * are 100 mapped lock entries. Only the homepage line has to be a partition.
+ * The status page keeps its own `116 mapped` wording on purpose: there really
+ * are 116 mapped lock entries. Only the homepage line has to be a partition.
  */
 import test from 'node:test';
 import assert from 'node:assert/strict';

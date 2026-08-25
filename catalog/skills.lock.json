@@ -1,9 +1,9 @@
 {
   "release": "1.1.0",
-  "generatedAt": "2026-08-24T04:17:37.322Z",
+  "generatedAt": "2026-08-25T16:32:45.000Z",
   "counts": {
-    "total": 103,
-    "mapped": 100,
+    "total": 119,
+    "mapped": 116,
     "orphan": 3,
     "local": 0
   },
@@ -1048,6 +1048,278 @@
         "reference": "refs/heads/main",
         "source": "skills/secret-scanning",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-cli-usage",
+      "name": "gplay-cli-usage",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:f32ef09a68e5738d1cf0184d27d72927a4ac95c7b9e658bf225ec3cb680dc6df",
+      "contentHash": "sha256:862ce0ce874324c9485a1c1faf8feed4eb46a855126cf3065f31d2392e2d67d8",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-cli-usage",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-gradle-build",
+      "name": "gplay-gradle-build",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:09aa0de03b44745dbe1fb7a03c256a877338a1d56c2c49ece4426a8b8f8440ed",
+      "contentHash": "sha256:fc7a94a8c3ec67edd36dd6c806c9868bffff3312fa60bf47d58d9eb80ed3b5a8",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-gradle-build",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-iap-setup",
+      "name": "gplay-iap-setup",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:be7f65fe687143197c145dc6d9092345131619d013f8a98b6a112e38f2bd54a5",
+      "contentHash": "sha256:3a5b419d3d5602d8dd1cbd97f8c24f4ba24d4dd5493a16a06fc7cd1621d1578a",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-iap-setup",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-metadata-sync",
+      "name": "gplay-metadata-sync",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:470810b2c801f6d5998938c7cd5489ee7aea2b5aae71a0f1760750b519639678",
+      "contentHash": "sha256:3ffd9e98717989465c23c773f44b76c80f511ca2331d2480c64a2d8a04c416d9",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-metadata-sync",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-migrate-fastlane",
+      "name": "gplay-migrate-fastlane",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:70db21d6316cd595b0556cc84d4c9756c9be6b526ebe30ee8e16c60e3377febb",
+      "contentHash": "sha256:ce2c756c401a0d33933b8d0d153b91d6909f8c1c4ee4209a667e94378a570bbe",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-migrate-fastlane",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-ppp-pricing",
+      "name": "gplay-ppp-pricing",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:74238fe8bda8b2a29fb078d792effad13f4a41e64a9f0e2b325fb3198ab94171",
+      "contentHash": "sha256:15478f3953fcc1dc56a7b558b0b848008a4cdea770b25b128f17f73c28bce0e9",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-ppp-pricing",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-purchase-verification",
+      "name": "gplay-purchase-verification",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:d9cae157dfd804e7fd4663ab44e75265aee0f0c9b90afe1687791bf47a2dbaa3",
+      "contentHash": "sha256:58aac8f1c340b4a365caf5e2cfc6be01a2f44588e27c01ad145c601d418812d1",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-purchase-verification",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-release-flow",
+      "name": "gplay-release-flow",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:6aac4dad72dde215a54344a820f45ba5b712dbbc22cc6b3f04530dfb2a1d5b64",
+      "contentHash": "sha256:72518d0ff6ab37ba2fceb59e2a100e268a9969fb6395ee9ed8ee6b5b48f00eff",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-release-flow",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-reports-download",
+      "name": "gplay-reports-download",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:25b68004ea83da48e800b62a34ed77c6c99c10da84b60a41c782c1e8aa96e9bf",
+      "contentHash": "sha256:03994061feea3d09e7a2050263290edf71b9f3250b50d0f25cd8a4cd1ae70445",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-reports-download",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-review-management",
+      "name": "gplay-review-management",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:945c72732b4f9c735f15203b2e2b3b3373727b148772ad851d31da6866fe15fb",
+      "contentHash": "sha256:0ff0eceb983e986e925c1a76ac7518f8c2d99730a0f3a15b41b8adea975a9c64",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-review-management",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-rollout-management",
+      "name": "gplay-rollout-management",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:0669c9fc63204df6776261e1f5612a11735754621087ac230077dec508e794df",
+      "contentHash": "sha256:469a2c368f9fc4d7f66e2c24966a89e3b5bbac99fa04bc56aa2fe4eecc1e0eab",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-rollout-management",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-screenshot-automation",
+      "name": "gplay-screenshot-automation",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:98db962f6acea6d13a81a4e90b3704fec1e77e12379b57617b0fc955e28526a9",
+      "contentHash": "sha256:9f93238d7d2013e8b027b27ad2694bce85e0423452d6f518f94f362f5e1401de",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-screenshot-automation",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-submission-checks",
+      "name": "gplay-submission-checks",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:ed1734f863b2afe49a50b3d95b84fb681e63c399a82cf867a2be17b6f8c59cba",
+      "contentHash": "sha256:c7a415f85f1091c29df56afa9c6d76eca8ac76cd883c1d90fb7a836d2209fae0",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-submission-checks",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-testers-orchestration",
+      "name": "gplay-testers-orchestration",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:db0de51fc6034c2947040b87e3d82daf4efc5dbf2a6fc8d0517283c6a14767a5",
+      "contentHash": "sha256:01b011ad95c66d888504a14b7e2a0446cc17d1dfb89d6712e1ee51b4ff115d65",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-testers-orchestration",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-user-management",
+      "name": "gplay-user-management",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:a8ed9f87ac628584f27b3879d24eaa79dc4776ee6b7343000e451ce640086772",
+      "contentHash": "sha256:9bd8e65f6fa2e4e4b8c1c7f6f029e05f34e1578428f3d635c2c138790fdcfdb6",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-user-management",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      }
+    },
+    {
+      "path": "skills/google-play-console-cli/gplay-vitals-monitoring",
+      "name": "gplay-vitals-monitoring",
+      "category": "mapped",
+      "version": "1.1.0",
+      "baseline": "verified",
+      "license": "Unknown",
+      "redistributable": true,
+      "snapshotHash": "sha256:2dc769afdb15959899958954ef0fc7f4ca1713dd56fa278ecf4641c33189acb0",
+      "contentHash": "sha256:196c32fc5001a72082f060c02a87da97b77fe0a11f53ce316268e2773fee40e1",
+      "upstream": {
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "source": "skills/gplay-vitals-monitoring",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712"
       }
     },
     {

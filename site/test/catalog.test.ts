@@ -259,7 +259,7 @@ test('source without restricted skills has a source command', async () => {
 
 // ─── Route Parameter Derivation ─────────────────────────────────────
 
-test('route params derived from all 103 skills are unique', async () => {
+test('route params derived from all 119 skills are unique', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const params = catalog.skills.map((s) => deriveRouteParams(s));
   const keys = params.map((p) => `${p.source}/${p.skill}`);
@@ -269,12 +269,12 @@ test('route params derived from all 103 skills are unique', async () => {
 
 // ─── Count Verification ─────────────────────────────────────────────
 
-test('current lock yields counts: 103 total, 100 mapped, 3 orphan, 0 local, 4 restricted', async () => {
+test('current lock yields counts: 119 total, 116 mapped, 3 orphan, 0 local, 4 restricted', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const counts = computeCounts(catalog.skills);
 
-  assert.equal(counts.total, 103);
-  assert.equal(counts.mapped, 100);
+  assert.equal(counts.total, 119);
+  assert.equal(counts.mapped, 116);
   assert.equal(counts.orphan, 3);
   assert.equal(counts.local, 0);
   assert.equal(counts.restricted, 4);
@@ -497,13 +497,13 @@ test('computeBaselineVerification counts restricted mapped skills too', () => {
   });
 });
 
-test('current lock has 100 of 100 mapped skills verified', async () => {
+test('current lock has 116 of 116 mapped skills verified', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const verification = computeBaselineVerification(catalog.skills);
 
   assert.equal(verification.mapped, catalog.counts.mapped);
-  assert.equal(verification.mapped, 100);
-  assert.equal(verification.verified, 100);
+  assert.equal(verification.mapped, 116);
+  assert.equal(verification.verified, 116);
   assert.equal(verification.unverified, 0);
   assert.equal(verification.allVerified, true);
 });

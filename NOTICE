@@ -14,6 +14,7 @@ deterministically from `catalog/skills.lock.json`; do not edit it by hand.
 | github/awesome-copilot | refs/heads/main | 58 |
 | henkisdabro/wookstar-claude-plugins | refs/heads/main | 1 |
 | microsoft/skills | refs/heads/main | 10 |
+| tamtom/gplay-cli-skills | refs/heads/main | 16 |
 
 ## License summary
 
@@ -22,7 +23,7 @@ deterministically from `catalog/skills.lock.json`; do not edit it by hand.
 | Apache-2.0 | 12 |
 | MIT | 16 |
 | Proprietary | 4 |
-| Unknown | 71 |
+| Unknown | 87 |
 
 ## Restricted skills
 

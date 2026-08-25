@@ -1630,13 +1630,131 @@ async function removeFixtureMappings(repoRoot, upstreamUrl, removedPaths) {
   await writeFixtureManifest(repoRoot, upstreamUrl, mappings);
 }
 
-test('applyUpdate fails closed when the manifest adds a mapping the lock does not know', async () => {
+test('applyUpdate atomically adopts a manifest mapping the lock does not know', async () => {
   const workspace = await makeTempDir('update-added');
   try {
     const { upstream, upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
 
     // The operator vendors the new skill and declares it in the manifest.
-    await updateUpstreamRepo(upstreamRoot, { 'skills/delta/SKILL.md': skillDoc('delta') });
+    const deltaCommit = await updateUpstreamRepo(upstreamRoot, {
+      'skills/delta/SKILL.md': skillDoc('delta'),
+    });
+    await writeFileEnsured(
+      path.join(repoRoot, 'skills', 'demo', 'delta', 'SKILL.md'),
+      skillDoc('delta'),
+    );
+
+    const mappings = await mappingsFromLock(repoRoot);
+    mappings.push({ path: 'skills/demo/delta', source: 'skills/delta' });
+    await writeFixtureManifest(repoRoot, upstream.url, mappings);
+
+    const { changeSet } = await runSync({
+      repoRoot,
+      dryRun: true,
+      workspaceRoot: path.join(workspace, 'planner-workspace'),
+    });
+    assert.deepEqual(
+      changeSet.added.map((entry) => entry.path),
+      ['skills/demo/delta'],
+    );
+    assert.equal(changeSet.classification.diffClass, 'minor');
+
+    const result = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-03-03T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+
+    assert.equal(result.applied, true);
+    assert.deepEqual(result.added, ['skills/demo/delta']);
+    assert.deepEqual(result.changed, []);
+    assert.deepEqual(result.removed, []);
+    assert.equal(result.release, '1.2.0');
+    assert.equal(result.nextTag, 'v1.2.0');
+    assert.equal(result.commitMessage, 'feat(skills): sync new upstream skills');
+
+    const lock = JSON.parse(await readLockFile(repoRoot));
+    assert.deepEqual(lock.counts, { total: 5, mapped: 3, orphan: 1, local: 1 });
+    const delta = lock.skills.find((skill) => skill.path === 'skills/demo/delta');
+    assert.deepEqual(
+      {
+        name: delta.name,
+        category: delta.category,
+        version: delta.version,
+        baseline: delta.baseline,
+        license: delta.license,
+        redistributable: delta.redistributable,
+        upstream: delta.upstream,
+      },
+      {
+        name: 'delta',
+        category: 'mapped',
+        version: '1.0.0',
+        baseline: 'verified',
+        license: 'Unknown',
+        redistributable: true,
+        upstream: {
+          repository: upstream.url,
+          reference: 'refs/heads/main',
+          source: 'skills/delta',
+          commit: deltaCommit,
+        },
+      },
+    );
+    assert.equal(
+      delta.snapshotHash,
+      await hashDirectory(path.join(repoRoot, 'skills', 'demo', 'delta')),
+    );
+
+    const stamped = await readFile(
+      path.join(repoRoot, 'skills', 'demo', 'delta', 'SKILL.md'),
+      'utf8',
+    );
+    assert.match(stamped, /x-source-path: skills\/delta/);
+    assert.match(stamped, new RegExp(`x-source-commit: ${deltaCommit}`));
+    assert.match(stamped, /x-version: 1\.0\.0/);
+
+    const history = JSON.parse(
+      await readFile(
+        path.join(
+          repoRoot,
+          'catalog',
+          'history',
+          'skills__demo__delta.json',
+        ),
+        'utf8',
+      ),
+    );
+    assert.deepEqual(history, {
+      path: 'skills/demo/delta',
+      name: 'delta',
+      category: 'mapped',
+      entries: [
+        {
+          release: '1.2.0',
+          kind: 'mapping-added',
+          version: '1.0.0',
+          firstSeen: '2026-03-03T00:00:00Z',
+          upstreamCommit: deltaCommit,
+          diffUrl: null,
+          contentHash: delta.contentHash,
+        },
+      ],
+    });
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate rolls back a newly adopted mapping when validation fails', async () => {
+  const workspace = await makeTempDir('update-added-rollback');
+  try {
+    const { upstream, upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
+
+    await updateUpstreamRepo(upstreamRoot, {
+      'skills/delta/SKILL.md': skillDoc('delta'),
+    });
     await writeFileEnsured(
       path.join(repoRoot, 'skills', 'demo', 'delta', 'SKILL.md'),
       skillDoc('delta'),
@@ -1650,19 +1768,182 @@ test('applyUpdate fails closed when the manifest adds a mapping the lock does no
     const treeBefore = await hashDirectory(path.join(repoRoot, 'skills'));
 
     await assert.rejects(
-      applyUpdate({ repoRoot, readGitStatus: cleanTree, runGit: makeRunGit(repoRoot) }),
+      applyUpdate({
+        repoRoot,
+        readGitStatus: cleanTree,
+        runGit: makeRunGit(repoRoot),
+        validate: async () => {
+          throw new Error('forced adoption validation failure');
+        },
+      }),
       (error) =>
         error instanceof BaselineError &&
-        /skills\/demo\/delta/.test(error.message) &&
-        /baseline/i.test(error.message),
+        /post-apply validation failed; rolled back/.test(error.message),
     );
 
-    assert.equal(await readLockFile(repoRoot), lockBefore, 'lock must not be mutated');
+    assert.equal(await readLockFile(repoRoot), lockBefore);
+    assert.equal(await hashDirectory(path.join(repoRoot, 'skills')), treeBefore);
     assert.equal(
-      await hashDirectory(path.join(repoRoot, 'skills')),
-      treeBefore,
-      'the skills tree must not be mutated',
+      existsSync(
+        path.join(
+          repoRoot,
+          'catalog',
+          'history',
+          'skills__demo__delta.json',
+        ),
+      ),
+      false,
     );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate adopts a new original skill from a declared local root', async () => {
+  const workspace = await makeTempDir('update-added-local');
+  try {
+    const { repoRoot } = await buildUpdateFixture(workspace);
+    const localPath = 'skills/lettucebo/new-local';
+    await writeFileEnsured(
+      path.join(repoRoot, ...localPath.split('/'), 'SKILL.md'),
+      skillDoc('new-local'),
+    );
+    const snapshotHash = await hashDirectory(
+      path.join(repoRoot, ...localPath.split('/')),
+    );
+
+    const { changeSet } = await runSync({
+      repoRoot,
+      dryRun: true,
+      workspaceRoot: path.join(workspace, 'planner-workspace'),
+    });
+    assert.deepEqual(
+      changeSet.added.map((entry) => ({
+        path: entry.path,
+        category: entry.category,
+      })),
+      [{ path: localPath, category: 'local' }],
+    );
+    assert.equal(changeSet.classification.diffClass, 'minor');
+
+    const result = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-03-03T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+
+    assert.equal(result.applied, true);
+    assert.deepEqual(result.added, [localPath]);
+    assert.deepEqual(result.changed, []);
+    assert.equal(result.release, '1.2.0');
+
+    const lock = JSON.parse(await readLockFile(repoRoot));
+    const local = lock.skills.find((skill) => skill.path === localPath);
+    assert.deepEqual(local, {
+      path: localPath,
+      name: 'new-local',
+      category: 'local',
+      version: '1.0.0',
+      baseline: null,
+      license: 'Unknown',
+      redistributable: true,
+      snapshotHash,
+      upstream: null,
+    });
+
+    const history = JSON.parse(
+      await readFile(
+        path.join(
+          repoRoot,
+          'catalog',
+          'history',
+          'skills__lettucebo__new-local.json',
+        ),
+        'utf8',
+      ),
+    );
+    assert.deepEqual(history.entries, [
+      {
+        release: '1.2.0',
+        kind: 'local-added',
+        version: '1.0.0',
+        firstSeen: '2026-03-03T00:00:00Z',
+        upstreamCommit: null,
+        diffUrl: null,
+        snapshotHash,
+      },
+    ]);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate adopts a new declared orphan snapshot', async () => {
+  const workspace = await makeTempDir('update-added-orphan');
+  try {
+    const { repoRoot } = await buildUpdateFixture(workspace);
+    const orphanPath = 'skills/orphans/new-orphan';
+    await writeFileEnsured(
+      path.join(repoRoot, ...orphanPath.split('/'), 'SKILL.md'),
+      skillDoc('new-orphan'),
+    );
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources.replace(
+        '  - path: skills/orphans/gamma\nlocal:',
+        `  - path: skills/orphans/gamma\n  - path: ${orphanPath}\nlocal:`,
+      ),
+    );
+
+    const { changeSet } = await runSync({
+      repoRoot,
+      dryRun: true,
+      workspaceRoot: path.join(workspace, 'planner-workspace'),
+    });
+    assert.deepEqual(
+      changeSet.added.map((entry) => ({
+        path: entry.path,
+        category: entry.category,
+      })),
+      [{ path: orphanPath, category: 'orphan' }],
+    );
+
+    const result = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-03-03T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+    assert.deepEqual(result.added, [orphanPath]);
+
+    const lock = JSON.parse(await readLockFile(repoRoot));
+    const orphan = lock.skills.find((skill) => skill.path === orphanPath);
+    assert.equal(orphan.category, 'orphan');
+    assert.equal(orphan.version, '1.0.0');
+    assert.equal(orphan.baseline, null);
+    assert.equal(orphan.upstream, null);
+    assert.equal(
+      orphan.snapshotHash,
+      await hashDirectory(path.join(repoRoot, ...orphanPath.split('/'))),
+    );
+
+    const history = JSON.parse(
+      await readFile(
+        path.join(
+          repoRoot,
+          'catalog',
+          'history',
+          'skills__orphans__new-orphan.json',
+        ),
+        'utf8',
+      ),
+    );
+    assert.equal(history.entries[0].kind, 'orphan-added');
+    assert.equal(history.entries[0].snapshotHash, orphan.snapshotHash);
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }

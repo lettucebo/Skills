@@ -16,6 +16,7 @@ skills/
 ├── cloudflare/            ← Cloudflare Developer Platform 技能
 ├── dotnet/                ← .NET / C# 開發技能
 ├── github/                ← GitHub 工作流程技能
+├── google-play-console-cli/ ← Google Play 發布與營運技能
 ├── gtm/                   ← GTM 與 Go-To-Market 策略技能
 ├── microsoft/             ← Microsoft AI Foundry / Azure SDK 技能
 ├── power-platform/        ← Power BI、Power Apps、Fabric 技能
@@ -32,11 +33,11 @@ hooks/                     ← Copilot Hook 腳本集合
 ## 目前收錄的 Skills
 
 <!-- CATALOG:START -->
-共 **103 個技能**，來自 11 個來源。
+共 **119 個技能**，來自 12 個來源。
 
 > 以下統計由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
 >
-> 全部 100 個 mapped 技能皆已 verified，每個技能的 upstream commit 與 contentHash 均已記錄。
+> 全部 116 個 mapped 技能皆已 verified，每個技能的 upstream commit 與 contentHash 均已記錄。
 
 | 來源 | 數量 | 說明 | 文件 |
 |------|:----:|------|------|
@@ -46,6 +47,7 @@ hooks/                     ← Copilot Hook 腳本集合
 | [cloudflare](skills/cloudflare/) | 13 | Cloudflare Workers、Durable Objects、Agents SDK | [README](skills/cloudflare/README.md) |
 | [dotnet](skills/dotnet/) | 14 | C# 測試（NUnit/xUnit/MSTest/TUnit）、EF Core、NuGet、非同步 | — |
 | [github](skills/github/) | 8 | GitHub Issues、PR、CodeQL、Dependabot、gh CLI | — |
+| [google-play-console-cli](skills/google-play-console-cli/) | 16 | Google Play 發布、審查、測試、定價與營運自動化 | — |
 | [gtm](skills/gtm/) | 11 | GTM 技術整合、產品策略、企業銷售、AI GTM | — |
 | [microsoft](skills/microsoft/) | 12 | Azure SDK、AI Foundry、Copilot SDK、MCP Builder | [README](skills/microsoft/README.md) |
 | [power-platform](skills/power-platform/) | 8 | Power BI（DAX、模型、報表）、Power Apps、Fabric Lakehouse | — |
@@ -104,13 +106,15 @@ cp -r /path/to/Skills/skills/dotnet/ef-core your-project/.github/skills/
 
 `catalog/sources.yml` 是唯一的宣告來源：每個 `SKILL.md` 都必須恰好被 `mappings`、`orphans`、`local` 其中一類涵蓋，否則驗證會失敗。
 
-1. 在 `catalog/sources.yml` 宣告該技能
+1. 將 skill 資料夾加入對應的 `skills/<source>/<skill>/` 路徑，並在 `catalog/sources.yml` 宣告
    - 有上游來源：加入對應 source 的 `mappings`（需指定 upstream repository 與 `source` 路徑）
    - 無上游來源、僅保留快照：加入 `orphans`
    - 本倉庫原創：放在 `skills/lettucebo/`，並加入 `local`
-2. 若為原創技能，於對應目錄放入符合格式的 `SKILL.md`
-3. 執行 `npm test` 與 `node scripts/validate.mjs` 驗證 manifest、lockfile 與連結
-4. 由 `scripts/catalog.mjs` 重新產生 lockfile、`NOTICE` 與本 README 的產生區塊（請勿手動編輯 `<!-- CATALOG:START -->` 與 `<!-- INSTALL:START -->` 區塊）
+2. 先提交 skill 與 manifest，並確認目前 lock release 的 tag 已發布且為 `HEAD` 的 ancestor
+3. 執行 `node scripts/sync.mjs --apply`；mapped skill 會從 upstream 重新 staging、驗證 provenance 並建立 `mapping-added` history，local/orphan skill 則會保留本地快照並建立對應的 added history。新 skill 都從 `1.0.0` 開始，並依 minor release 更新 lockfile、`NOTICE` 與本 README 的產生區塊
+4. 執行 `npm test` 與 `node scripts/validate.mjs`，再提交同步器產生的變更
+
+`scripts/catalog.mjs --bootstrap` 與 `node scripts/sync.mjs --baseline` 只供首次建立 registry 使用；verified baseline 建立後不可用來新增 mapping。請勿手動編輯 `<!-- CATALOG:START -->` 與 `<!-- INSTALL:START -->` 區塊。
 
 `SKILL.md` 必要格式：
 

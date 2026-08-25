@@ -1,6 +1,13 @@
 ---
 name: gplay-user-management
-description: User and grant management for Google Play Console via gplay users and gplay grants commands. Use when asked to manage developer account users, account-wide permissions, or per-app access grants.
+description: User and grant management for Google Play Console via gplay users
+  and gplay grants commands. Use when asked to manage developer account users,
+  account-wide permissions, or per-app access grants.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-user-management
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # User & Grant Management

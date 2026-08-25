@@ -1,6 +1,13 @@
 ---
 name: gplay-purchase-verification
-description: Server-side purchase verification for in-app products and subscriptions using Google Play Developer API. Use when implementing receipt validation in your backend.
+description: Server-side purchase verification for in-app products and
+  subscriptions using Google Play Developer API. Use when implementing receipt
+  validation in your backend.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-purchase-verification
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Purchase Verification for Google Play

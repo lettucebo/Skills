@@ -35,6 +35,7 @@ export async function loadManifest(manifestPath) {
     mappings: [],
     orphans: [],
     local: [],
+    localSkillPaths: [],
     overrides: [],
     linkExceptions: [],
   };
@@ -80,8 +81,11 @@ export async function loadManifest(manifestPath) {
 
       for (const coveredPath of coveredByLocalRoot) {
         addCoveragePath(coverageSources, coveredPath, `local:${entry.root}`);
+        partialManifest.localSkillPaths.push(coveredPath);
       }
     }
+
+    partialManifest.localSkillPaths.sort();
 
     const uncoveredSkillPaths = existingSkillPaths.filter(
       (skillPath) => !coverageSources.has(skillPath),

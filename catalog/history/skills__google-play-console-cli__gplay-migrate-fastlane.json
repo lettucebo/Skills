@@ -1,0 +1,16 @@
+{
+  "path": "skills/google-play-console-cli/gplay-migrate-fastlane",
+  "name": "gplay-migrate-fastlane",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "firstSeen": "2026-08-26T00:32:45+08:00",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "contentHash": "sha256:ce2c756c401a0d33933b8d0d153b91d6909f8c1c4ee4209a667e94378a570bbe"
+    }
+  ]
+}

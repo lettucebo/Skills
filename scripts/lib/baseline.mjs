@@ -51,7 +51,7 @@ import { loadManifest } from './manifest.mjs';
 import { parseSkillFrontmatter } from './frontmatter.mjs';
 import { parseVersion, formatVersion, planRelease, readCurrentVersion, tagExists, assertTagReconciled } from './release.mjs';
 import { transformStaged } from '../transform.mjs';
-import { renderNotice, renderReadme, serialize } from '../catalog.mjs';
+import { renderNotice, renderReadme, resolveLicense, serialize } from '../catalog.mjs';
 import { validateRepository } from '../validate.mjs';
 
 const execFileAsync = promisify(execFile);
@@ -73,6 +73,7 @@ const defaultRepoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)
 export const BASELINE_RELEASE = '1.1.0';
 export const BASELINE_VERSION = '1.1.0';
 export const BASELINE_HISTORY_KIND = 'baseline-verified';
+export const ADDED_SKILL_VERSION = '1.0.0';
 export const APPLY_LOCK_FILE = '.skills-sync-apply.lock';
 export const TRANSACTION_JOURNAL_FILE = '.skills-sync-transaction.json';
 
@@ -970,7 +971,13 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
         await readFile(path.join(stageDir, 'SKILL.md'), 'utf8'),
         `${mapping.path}/SKILL.md`,
       );
+      const { license, redistributable } = await resolveLicense(
+        stagingDir,
+        mapping.path,
+        stagedFrontmatter,
+      );
       staged.set(mapping.path, {
+        category: 'mapped',
         commit: clone.commit,
         contentHash,
         snapshotHash,
@@ -979,6 +986,8 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
         repository: upstream.repository,
         reference: upstream.reference,
         source: mapping.source,
+        license,
+        redistributable,
       });
     }
   }
@@ -1459,25 +1468,61 @@ function diffUrl(repository, previousCommit, newCommit) {
   return `https://github.com/${repository}/compare/${previousCommit}...${newCommit}`;
 }
 
+async function readOptionalHistoryDoc(repoRoot, skillPath, name) {
+  const fileName = historyFileName(skillPath);
+
+  try {
+    const content = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'history', fileName), 'utf8'),
+    );
+
+    if (
+      content.path !== skillPath ||
+      !Array.isArray(content.entries)
+    ) {
+      throw new BaselineError(`Invalid history ledger for added skill: ${skillPath}`);
+    }
+
+    return { fileName, content };
+  } catch (error) {
+    if (error.code !== 'ENOENT') {
+      throw error;
+    }
+
+    return {
+      fileName,
+      content: {
+        path: skillPath,
+        name,
+        category: 'mapped',
+        entries: [],
+      },
+    };
+  }
+}
+
 /**
- * Rebuilds the lockfile with only the changed skills updated and the removed
+ * Rebuilds the lockfile with added and changed skills updated and removed
  * mappings dropped.
  *
- * Changed entries get a bumped patch version, updated hashes, commit, and
- * adopted staged name. Entries listed in `removedPaths` are dropped entirely so
- * an undeclared mapping can never survive as a phantom lock entry. Unchanged
- * mapped entries, orphan entries, and local entries pass through untouched.
- * `counts` is always recomputed from the resulting skill list.
+ * Added entries start at version 1.0.0 with verified staged provenance and
+ * conservatively derived license metadata. Changed entries get a bumped patch
+ * version, updated hashes, commit, and adopted staged name. Entries listed in
+ * `removedPaths` are dropped entirely so an undeclared mapping can never survive
+ * as a phantom lock entry. Unchanged mapped entries, orphan entries, and local
+ * entries pass through untouched. `counts` is always recomputed.
  */
 export function buildUpdateLock({
   lock,
   staged,
+  addedPaths = [],
   changedPaths,
   removedPaths = [],
   release,
   generatedAt,
 }) {
   const changedSet = new Set(changedPaths);
+  const addedSet = new Set(addedPaths);
   const removedSet = new Set(removedPaths);
   const stagedMap = staged instanceof Map ? staged : new Map(Object.entries(staged));
 
@@ -1519,6 +1564,65 @@ export function buildUpdateLock({
       };
     });
 
+  for (const skillPath of addedSet) {
+    if (skills.some((skill) => skill.path === skillPath)) {
+      throw new BaselineError(`Added skill already exists in lock: ${skillPath}`);
+    }
+
+    const stagedEntry = stagedMap.get(skillPath);
+    if (!stagedEntry) {
+      throw new BaselineError(`Added skill was not staged: ${skillPath}`);
+    }
+    if (
+      !stagedEntry.snapshotHash ||
+      !stagedEntry.name ||
+      !stagedEntry.license ||
+      typeof stagedEntry.redistributable !== 'boolean'
+    ) {
+      throw new BaselineError(`Added skill is missing verified metadata: ${skillPath}`);
+    }
+
+    const category = stagedEntry.category ?? 'mapped';
+    const isMapped = category === 'mapped';
+
+    if (
+      isMapped &&
+      (
+        !stagedEntry.repository ||
+        !stagedEntry.reference ||
+        !stagedEntry.source ||
+        !stagedEntry.commit ||
+        !stagedEntry.contentHash
+      )
+    ) {
+      throw new BaselineError(`Added mapped skill is missing provenance: ${skillPath}`);
+    }
+
+    skills.push({
+      path: skillPath,
+      name: stagedEntry.name,
+      category,
+      version: ADDED_SKILL_VERSION,
+      baseline: isMapped ? 'verified' : null,
+      license: stagedEntry.license,
+      redistributable: stagedEntry.redistributable,
+      snapshotHash: stagedEntry.snapshotHash,
+      ...(isMapped ? { contentHash: stagedEntry.contentHash } : {}),
+      upstream: isMapped
+        ? {
+            repository: stagedEntry.repository,
+            reference: stagedEntry.reference,
+            source: stagedEntry.source,
+            commit: stagedEntry.commit,
+          }
+        : null,
+    });
+  }
+
+  skills.sort((left, right) =>
+    left.path === right.path ? 0 : left.path < right.path ? -1 : 1,
+  );
+
   const counts = { total: skills.length, mapped: 0, orphan: 0, local: 0 };
   for (const skill of skills) {
     counts[skill.category] += 1;
@@ -1537,6 +1641,7 @@ async function buildUpdateCandidate({
   candidateRoot,
   lock,
   staged,
+  addedPaths = [],
   changedPaths,
   removedPaths = [],
   release,
@@ -1550,9 +1655,10 @@ async function buildUpdateCandidate({
   );
 
   const changedSet = new Set(changedPaths);
+  const addedSet = new Set(addedPaths);
 
   for (const [skillPath, stagedEntry] of staged) {
-    if (!changedSet.has(skillPath)) continue;
+    if (!changedSet.has(skillPath) && !addedSet.has(skillPath)) continue;
     const dest = path.join(candidateRoot, ...skillPath.split('/'));
     await rm(dest, { recursive: true, force: true });
     await cp(stagedEntry.stageDir, dest, { recursive: true });
@@ -1570,6 +1676,7 @@ async function buildUpdateCandidate({
   const nextLock = buildUpdateLock({
     lock,
     staged,
+    addedPaths,
     changedPaths,
     removedPaths,
     release,
@@ -1600,6 +1707,37 @@ async function buildUpdateCandidate({
 
     const next = { ...content, entries: [...content.entries, entry] };
     await writeFile(path.join(candidateRoot, 'catalog', 'history', fileName), serialize(next));
+  }
+
+  for (const skillPath of addedPaths) {
+    const stagedEntry = staged.get(skillPath);
+    const { fileName, content } = await readOptionalHistoryDoc(
+      repoRoot,
+      skillPath,
+      stagedEntry.name,
+    );
+    const isMapped = stagedEntry.category === 'mapped';
+    const entry = {
+      release,
+      kind: isMapped ? 'mapping-added' : `${stagedEntry.category}-added`,
+      version: ADDED_SKILL_VERSION,
+      ...(content.entries.length === 0 ? { firstSeen: generatedAt } : {}),
+      upstreamCommit: isMapped ? stagedEntry.commit : null,
+      diffUrl: null,
+      ...(isMapped
+        ? { contentHash: stagedEntry.contentHash }
+        : { snapshotHash: stagedEntry.snapshotHash }),
+    };
+    const next = {
+      ...content,
+      name: stagedEntry.name,
+      category: stagedEntry.category,
+      entries: [...content.entries, entry],
+    };
+    await writeFile(
+      path.join(candidateRoot, 'catalog', 'history', fileName),
+      serialize(next),
+    );
   }
 
   for (const skillPath of removedPaths) {
@@ -1635,16 +1773,16 @@ async function buildUpdateCandidate({
  * comparing pre-stamp content hashes AND by diffing the manifest mapping set
  * against the mapped paths recorded in the lockfile:
  *
- *  - A mapping present in the manifest but absent from the lock fails closed:
- *    adopting it requires lock metadata (license, redistributability, history
- *    bootstrap) that only the bootstrap/baseline flow can derive.
+ *  - A mapping present in the manifest but absent from the lock is adopted from
+ *    the verified staged copy at version 1.0.0 and receives a mapping-added
+ *    history entry.
  *  - A mapped lock path no longer declared by the manifest is a removal. It runs
  *    through the shared deletion guardrails and, when allowed, is dropped from
  *    the lock, deleted from the candidate tree, and recorded in the history
  *    ledger. Removals classify as `major` via {@link classifyDiff}.
  *
- * If nothing changed and nothing was removed, it returns a no-op result with
- * zero filesystem mutations. The apply is atomic: all-or-nothing swap with full
+ * If nothing was added, changed, or removed, it returns a no-op result with zero
+ * filesystem mutations. The apply is atomic: all-or-nothing swap with full
  * rollback on post-apply validation failure. Never creates commits or tags.
  */
 export async function applyUpdate({
@@ -1751,21 +1889,50 @@ export async function applyUpdate({
     const lockMappedSet = new Set(lockMappedPaths);
     const manifestPathSet = new Set(manifest.mappings.map((mapping) => mapping.path));
 
-    const addedPaths = [...manifestPathSet].filter((p) => !lockMappedSet.has(p)).sort();
+    const addedMappedPaths = [...manifestPathSet]
+      .filter((p) => !lockMappedSet.has(p))
+      .sort();
+    const lockPathSet = new Set(lock.skills.map((skill) => skill.path));
+    const addedOrphanPaths = manifest.orphans
+      .map((orphan) => orphan.path)
+      .filter((skillPath) => !lockPathSet.has(skillPath))
+      .sort();
+    const addedLocalPaths = manifest.localSkillPaths
+      .filter((skillPath) => !lockPathSet.has(skillPath))
+      .sort();
+    const addedPaths = [
+      ...addedMappedPaths,
+      ...addedOrphanPaths,
+      ...addedLocalPaths,
+    ].sort();
     const removedPaths = lockMappedPaths.filter((p) => !manifestPathSet.has(p)).sort();
     const removedSet = new Set(removedPaths);
 
-    // Fail closed on adoption: a lock entry needs license, redistributability
-    // and a bootstrapped history ledger, none of which the daily engine can
-    // derive from a staged directory alone.
-    if (addedPaths.length > 0) {
-      throw new BaselineError(
-        `Refusing update: ${addedPaths.length} manifest mapping(s) are absent from the lockfile: ` +
-          `${addedPaths.join(', ')}. The daily update engine cannot adopt new mappings because lock ` +
-          `metadata (license, redistributable, history bootstrap) is only derived by the baseline ` +
-          `flow. Adopt them with \`node scripts/catalog.mjs --bootstrap\` followed by ` +
-          `\`node scripts/sync.mjs --baseline\`, then re-run the update.`,
-      );
+    for (const [category, paths] of [
+      ['orphan', addedOrphanPaths],
+      ['local', addedLocalPaths],
+    ]) {
+      for (const skillPath of paths) {
+        const skillDir = path.join(absoluteRepoRoot, ...skillPath.split('/'));
+        const frontmatter = parseSkillFrontmatter(
+          await readFile(path.join(skillDir, 'SKILL.md'), 'utf8'),
+          `${skillPath}/SKILL.md`,
+        );
+        const { license, redistributable } = await resolveLicense(
+          absoluteRepoRoot,
+          skillPath,
+          frontmatter,
+        );
+
+        staged.set(skillPath, {
+          category,
+          stageDir: skillDir,
+          name: frontmatter.name,
+          snapshotHash: await hashDirectory(skillDir),
+          license,
+          redistributable,
+        });
+      }
     }
 
     // Removals run through the shared deletion guardrails, grouped by the
@@ -1808,8 +1975,9 @@ export async function applyUpdate({
     }
 
     // No-op: nothing changed, return immediately with no filesystem mutation.
-    if (changedPaths.length === 0 && removedPaths.length === 0) {
+    if (addedPaths.length === 0 && changedPaths.length === 0 && removedPaths.length === 0) {
       return {
+        added: [],
         changed: [],
         removed: [],
         release: null,
@@ -1829,13 +1997,14 @@ export async function applyUpdate({
     const commitMessage = commitMessageForDiffClass(diffClass);
     const generatedAt = now();
 
-    // Re-stamp changed skills with the correct bumped version so the on-disk
-    // `x-version` matches the lock's `version` and `snapshotHash` reflects
-    // the actual vendored bytes.
-    for (const skillPath of changedPaths) {
+    // Re-stamp adopted and changed skills with their final per-skill version so
+    // `x-version` and `snapshotHash` reflect the actual vendored bytes.
+    for (const skillPath of [...addedMappedPaths, ...changedPaths]) {
       const stagedEntry = staged.get(skillPath);
       const lockSkill = lock.skills.find((s) => s.path === skillPath);
-      const nextSkillVersion = bumpPatch(lockSkill.version);
+      const nextSkillVersion = lockSkill
+        ? bumpPatch(lockSkill.version)
+        : ADDED_SKILL_VERSION;
       const mapping = manifest.mappings.find((m) => m.path === skillPath);
       const upstreamDef = manifest.upstreams[mapping.upstream];
       const override = manifest.overrides.find((entry) => entry.path === skillPath);
@@ -1862,6 +2031,7 @@ export async function applyUpdate({
       candidateRoot,
       lock,
       staged,
+      addedPaths,
       changedPaths,
       removedPaths,
       release: releasePlan.nextVersion,
@@ -1920,6 +2090,7 @@ export async function applyUpdate({
     transaction = null;
 
     return {
+      added: addedPaths,
       changed: changedPaths.sort(),
       removed: removedPaths,
       release: releasePlan.nextVersion,
