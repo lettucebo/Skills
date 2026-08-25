@@ -25,6 +25,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -67,6 +70,18 @@ jobs:
           echo "release=$RELEASE" >> "$GITHUB_OUTPUT"
           echo "published=$PUBLISHED" >> "$GITHUB_OUTPUT"
           echo "Release $TAG published=$PUBLISHED"
+
+      # configure-pages@v5 documents that enablement=true requires a
+      # non-GITHUB_TOKEN credential. This workflow intentionally fails closed
+      # when Pages has not been enabled by a repository administrator.
+      - name: Verify GitHub Pages is enabled
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh api --method GET "repos/${GITHUB_REPOSITORY}/pages" >/dev/null; then
+            echo "::error::GitHub Pages is not enabled. actions/configure-pages@v5 documents that GITHUB_TOKEN cannot enable Pages; enable Pages manually in Settings > Pages, then rerun this workflow."
+            exit 1
+          fi
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

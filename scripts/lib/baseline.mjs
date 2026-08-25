@@ -10,13 +10,16 @@
  * The engines never create git commits or tags — that is the workflow's job.
  */
 
-import { execFile } from 'node:child_process';
+import { execFile, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
+import { randomUUID } from 'node:crypto';
+import { createInterface } from 'node:readline';
 import {
   cp,
   lstat,
   mkdir,
   mkdtemp,
+  open,
   readFile,
   readdir,
   rename,
@@ -24,6 +27,7 @@ import {
   stat,
   writeFile,
 } from 'node:fs/promises';
+import { hostname } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -67,6 +71,8 @@ const defaultRepoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)
 export const BASELINE_RELEASE = '1.1.0';
 export const BASELINE_VERSION = '1.1.0';
 export const BASELINE_HISTORY_KIND = 'baseline-verified';
+export const APPLY_LOCK_FILE = '.skills-sync-apply.lock';
+export const TRANSACTION_JOURNAL_FILE = '.skills-sync-transaction.json';
 
 /**
  * Files and directories the swap replaces atomically. Order is irrelevant to
@@ -125,6 +131,14 @@ export function buildVerifiedLock({ lock, staged, release = BASELINE_RELEASE, ge
     if (!stagedEntry) {
       throw new BaselineError(`Mapped skill was not staged for baseline: ${skill.path}`);
     }
+    if (
+      !stagedEntry.repository ||
+      !stagedEntry.reference ||
+      !stagedEntry.source ||
+      !stagedEntry.commit
+    ) {
+      throw new BaselineError(`Mapped skill is missing upstream tuple: ${skill.path}`);
+    }
 
     return {
       path: skill.path,
@@ -136,7 +150,12 @@ export function buildVerifiedLock({ lock, staged, release = BASELINE_RELEASE, ge
       redistributable: skill.redistributable,
       snapshotHash: stagedEntry.snapshotHash,
       contentHash: stagedEntry.contentHash,
-      upstream: { ...skill.upstream, commit: stagedEntry.commit },
+      upstream: {
+        repository: stagedEntry.repository,
+        reference: stagedEntry.reference,
+        source: stagedEntry.source,
+        commit: stagedEntry.commit,
+      },
     };
   });
 
@@ -201,6 +220,513 @@ async function lstatOrNull(targetPath) {
       return null;
     }
     throw error;
+  }
+}
+
+async function resolveGitDirectories(repoRoot) {
+  const dotGit = path.join(repoRoot, '.git');
+  const dotGitInfo = await lstatOrNull(dotGit);
+  let gitDir;
+
+  if (dotGitInfo?.isDirectory()) {
+    gitDir = dotGit;
+  } else if (dotGitInfo?.isFile()) {
+    const pointer = await readFile(dotGit, 'utf8');
+    const match = /^gitdir:\s*(.+)\s*$/m.exec(pointer);
+    if (!match) {
+      throw new BaselineError(`Refusing to apply: invalid git directory pointer at ${dotGit}.`);
+    }
+    gitDir = path.resolve(repoRoot, match[1]);
+  } else {
+    throw new BaselineError(`Refusing to apply: ${repoRoot} is not a Git working tree.`);
+  }
+
+  const commonDirPointer = path.join(gitDir, 'commondir');
+  let commonGitDir = gitDir;
+  try {
+    const commonDir = (await readFile(commonDirPointer, 'utf8')).trim();
+    if (commonDir) {
+      commonGitDir = path.resolve(gitDir, commonDir);
+    }
+  } catch (error) {
+    if (error?.code !== 'ENOENT') {
+      throw error;
+    }
+  }
+
+  return { gitDir, commonGitDir };
+}
+
+export async function createApplyWorkRoot(repoRoot, kind) {
+  const prefix = kind === 'baseline'
+    ? '.baseline-work-'
+    : kind === 'update'
+      ? '.update-work-'
+      : null;
+
+  if (!prefix) {
+    throw new BaselineError(`Unknown apply work root kind: ${kind}`);
+  }
+
+  return mkdtemp(path.join(repoRoot, prefix));
+}
+
+async function syncDirectory(directoryPath) {
+  // Windows does not allow opening directories as file handles for fsync.
+  if (process.platform === 'win32') {
+    return;
+  }
+
+  const handle = await open(directoryPath, 'r');
+  try {
+    await handle.sync();
+  } finally {
+    await handle.close();
+  }
+}
+
+const windowsMoveFileWriteThroughScript = `
+$ErrorActionPreference = 'Stop'
+Add-Type -TypeDefinition @'
+using System;
+using System.Runtime.InteropServices;
+
+namespace SkillsSync {
+  public static class NativeMethods {
+    [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+    public static extern bool MoveFileEx(string source, string destination, int flags);
+  }
+}
+'@
+
+$flags = 0x1 -bor 0x8
+if (-not [SkillsSync.NativeMethods]::MoveFileEx(
+  $env:SKILLS_SYNC_RENAME_SOURCE,
+  $env:SKILLS_SYNC_RENAME_DESTINATION,
+  $flags
+)) {
+  $errorCode = [Runtime.InteropServices.Marshal]::GetLastWin32Error()
+  throw [ComponentModel.Win32Exception]::new($errorCode)
+}
+`;
+
+const windowsMoveFileWriteThroughServiceScript = `
+$ErrorActionPreference = 'Stop'
+Add-Type -TypeDefinition @'
+using System;
+using System.Runtime.InteropServices;
+
+namespace SkillsSync {
+  public static class NativeMethods {
+    [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+    public static extern bool MoveFileEx(string source, string destination, int flags);
+  }
+}
+'@
+
+$flags = 0x1 -bor 0x8
+while (($line = [Console]::In.ReadLine()) -ne $null) {
+  $request = $line.Split("\`t", 3)
+  $id = $request[0]
+  try {
+    $source = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($request[1]))
+    $destination = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($request[2]))
+    if (-not [SkillsSync.NativeMethods]::MoveFileEx($source, $destination, $flags)) {
+      $errorCode = [Runtime.InteropServices.Marshal]::GetLastWin32Error()
+      throw [ComponentModel.Win32Exception]::new($errorCode)
+    }
+    [Console]::Out.WriteLine("$id\`tOK")
+  } catch {
+    $message = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($_.Exception.Message))
+    [Console]::Out.WriteLine("$id\`tERROR\`t$message")
+  }
+}
+`;
+
+class WindowsWriteThroughRenameService {
+  constructor() {
+    this.pending = new Map();
+    this.nextId = 1;
+    this.failure = null;
+    this.stderr = '';
+    this.child = spawn(
+      'powershell.exe',
+      [
+        '-NoProfile',
+        '-NonInteractive',
+        '-ExecutionPolicy',
+        'Bypass',
+        '-Command',
+        windowsMoveFileWriteThroughServiceScript,
+      ],
+      { stdio: ['pipe', 'pipe', 'pipe'], windowsHide: true },
+    );
+
+    createInterface({ input: this.child.stdout }).on('line', (line) => {
+      const [id, status, encodedMessage] = line.split('\t', 3);
+      const pending = this.pending.get(id);
+      if (!pending) return;
+      this.pending.delete(id);
+      if (status === 'OK') {
+        pending.resolve();
+        return;
+      }
+      const message = encodedMessage
+        ? Buffer.from(encodedMessage, 'base64').toString('utf8')
+        : 'unknown Windows MoveFileEx failure';
+      pending.reject(new BaselineError(`Durable journal rename failed: ${message}`));
+    });
+
+    this.child.stderr.setEncoding('utf8');
+    this.child.stderr.on('data', (chunk) => {
+      this.stderr += chunk;
+    });
+    this.child.on('error', (error) => this.fail(error));
+    this.child.on('exit', (code) => {
+      if (code !== 0) {
+        this.fail(
+          new BaselineError(
+            `Durable journal rename service exited with code ${code ?? 'unknown'}: ${this.stderr}`,
+          ),
+        );
+      }
+    });
+  }
+
+  fail(error) {
+    if (this.failure) return;
+    this.failure = error;
+    for (const pending of this.pending.values()) {
+      pending.reject(error);
+    }
+    this.pending.clear();
+  }
+
+  rename(sourcePath, destinationPath) {
+    if (this.failure) {
+      return Promise.reject(this.failure);
+    }
+
+    const id = String(this.nextId);
+    this.nextId += 1;
+    const request = [
+      id,
+      Buffer.from(sourcePath, 'utf8').toString('base64'),
+      Buffer.from(destinationPath, 'utf8').toString('base64'),
+    ].join('\t');
+
+    return new Promise((resolve, reject) => {
+      this.pending.set(id, { resolve, reject });
+      this.child.stdin.write(`${request}\n`, (error) => {
+        if (!error) return;
+        this.pending.delete(id);
+        reject(error);
+      });
+    });
+  }
+
+  close() {
+    this.child.stdin.end();
+  }
+}
+
+function createJournalRenamer() {
+  return process.platform === 'win32' ? new WindowsWriteThroughRenameService() : null;
+}
+
+async function durableRename(sourcePath, destinationPath) {
+  if (process.platform !== 'win32') {
+    await rename(sourcePath, destinationPath);
+    return;
+  }
+
+  try {
+    await execFileAsync(
+      'powershell.exe',
+      [
+        '-NoProfile',
+        '-NonInteractive',
+        '-ExecutionPolicy',
+        'Bypass',
+        '-Command',
+        windowsMoveFileWriteThroughScript,
+      ],
+      {
+        env: {
+          ...process.env,
+          SKILLS_SYNC_RENAME_SOURCE: sourcePath,
+          SKILLS_SYNC_RENAME_DESTINATION: destinationPath,
+        },
+        windowsHide: true,
+      },
+    );
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      throw new BaselineError(
+        'Refusing to apply: durable journal updates on Windows require powershell.exe.',
+      );
+    }
+    throw error;
+  }
+}
+
+async function syncPathTree(targetPath) {
+  const info = await lstat(targetPath);
+  if (info.isDirectory()) {
+    const entries = await readdir(targetPath);
+    for (const entry of entries) {
+      await syncPathTree(path.join(targetPath, entry));
+    }
+    await syncDirectory(targetPath);
+    return;
+  }
+
+  const handle = await open(targetPath, 'r+');
+  try {
+    await handle.sync();
+  } finally {
+    await handle.close();
+  }
+}
+
+async function syncSwapTargets(rootPath) {
+  for (const target of SWAP_TARGETS) {
+    await syncPathTree(path.join(rootPath, ...target.rel.split('/')));
+  }
+}
+
+async function durableTargetRename(sourcePath, destinationPath) {
+  if (process.platform === 'win32') {
+    await durableRename(sourcePath, destinationPath);
+    return;
+  }
+
+  await rename(sourcePath, destinationPath);
+  await syncDirectory(path.dirname(sourcePath));
+  if (path.dirname(sourcePath) !== path.dirname(destinationPath)) {
+    await syncDirectory(path.dirname(destinationPath));
+  }
+}
+
+export async function writeAtomicJson(
+  filePath,
+  value,
+  { syncDirectory: syncDirectoryOp = syncDirectory, renameOp = durableRename } = {},
+) {
+  const temporaryPath = `${filePath}.${process.pid}.${Date.now()}.tmp`;
+  const handle = await open(temporaryPath, 'w', 0o600);
+  try {
+    await handle.writeFile(`${JSON.stringify(value, null, 2)}\n`, 'utf8');
+    await handle.sync();
+  } finally {
+    await handle.close();
+  }
+  await renameOp(temporaryPath, filePath);
+  await syncDirectoryOp(path.dirname(filePath));
+}
+
+async function acquireApplyLock(commonGitDir) {
+  const lockPath = path.join(commonGitDir, APPLY_LOCK_FILE);
+  const owner = {
+    version: 1,
+    token: randomUUID(),
+    pid: process.pid,
+    hostname: hostname(),
+    startedAt: new Date().toISOString(),
+  };
+
+  try {
+    const handle = await open(lockPath, 'wx', 0o600);
+    try {
+      await handle.writeFile(`${JSON.stringify(owner)}\n`, 'utf8');
+      await handle.sync();
+    } finally {
+      await handle.close();
+    }
+  } catch (error) {
+    if (error?.code !== 'EEXIST') {
+      throw error;
+    }
+
+    let existing;
+    try {
+      existing = JSON.parse(await readFile(lockPath, 'utf8'));
+    } catch {
+      throw new BaselineError(
+        `Refusing to apply: ${lockPath} already exists and cannot be safely identified. ` +
+          'Verify no sync is running, then remove the stale lock manually.',
+      );
+    }
+
+    throw new BaselineError(
+      `Refusing to apply: another sync apply holds ${lockPath} ` +
+        `(pid ${existing?.pid ?? 'unknown'} on ${existing?.hostname ?? 'unknown'}). ` +
+        'Automatic stale-lock reclamation is disabled to preserve exclusive ownership; ' +
+        'verify the owner is gone, then remove the stale lock manually.',
+    );
+  }
+
+  return {
+    path: lockPath,
+    async release() {
+      let current;
+      try {
+        current = JSON.parse(await readFile(lockPath, 'utf8'));
+      } catch (error) {
+        if (error?.code === 'ENOENT') {
+          return;
+        }
+        throw error;
+      }
+
+      if (current?.token !== owner.token) {
+        throw new BaselineError(
+          `Refusing to release ${lockPath}: lock ownership changed while applying. ` +
+            'Inspect the active lock before retrying.',
+        );
+      }
+
+      await rm(lockPath);
+    },
+  };
+}
+
+function buildTransaction({
+  repoRoot,
+  candidateRoot,
+  backupRoot,
+  workRoot,
+  journalPath,
+  renameOp,
+  targetRenameOp,
+}) {
+  return {
+    version: 1,
+    status: 'swapping',
+    repoRoot,
+    candidateRoot,
+    backupRoot,
+    workRoot,
+    journalPath,
+    renameOp,
+    targetRenameOp,
+    targets: SWAP_TARGETS.map((target) => ({
+      ...target,
+      live: path.join(repoRoot, ...target.rel.split('/')),
+      backup: path.join(backupRoot, ...target.rel.split('/')),
+      candidate: path.join(candidateRoot, ...target.rel.split('/')),
+      phase: 'live',
+    })),
+  };
+}
+
+async function writeTransaction(transaction) {
+  const { journalPath, renameOp, targetRenameOp, ...content } = transaction;
+  await writeAtomicJson(journalPath, content, { renameOp });
+}
+
+function assertValidTransaction(transaction, journalPath) {
+  if (
+    transaction?.version !== 1 ||
+    !['swapping', 'validated'].includes(transaction.status) ||
+    !Array.isArray(transaction.targets) ||
+    transaction.targets.length !== SWAP_TARGETS.length ||
+    typeof transaction.repoRoot !== 'string' ||
+    typeof transaction.candidateRoot !== 'string' ||
+    typeof transaction.backupRoot !== 'string'
+  ) {
+    throw new BaselineError(
+      `Refusing to recover: transaction journal ${journalPath} is malformed. ` +
+        'Inspect it and restore the repository from the recorded backup before retrying.',
+    );
+  }
+
+  for (const [index, target] of SWAP_TARGETS.entries()) {
+    const recorded = transaction.targets[index];
+    const expectedLive = path.resolve(transaction.repoRoot, ...target.rel.split('/'));
+    const expectedBackup = path.resolve(transaction.backupRoot, ...target.rel.split('/'));
+    const expectedCandidate = path.resolve(transaction.candidateRoot, ...target.rel.split('/'));
+    if (
+      recorded?.rel !== target.rel ||
+      recorded.kind !== target.kind ||
+      path.resolve(recorded.live) !== expectedLive ||
+      path.resolve(recorded.backup) !== expectedBackup ||
+      path.resolve(recorded.candidate) !== expectedCandidate ||
+      !['live', 'moving-to-backup', 'backed-up', 'placing-candidate', 'placed'].includes(
+        recorded.phase,
+      )
+    ) {
+      throw new BaselineError(
+        `Refusing to recover: transaction journal ${journalPath} has invalid target ${target.rel}. ` +
+          'Inspect it and restore the repository from the recorded backup before retrying.',
+      );
+    }
+  }
+}
+
+async function removeTransactionArtifacts(transaction, journalPath) {
+  await rm(transaction.backupRoot, { recursive: true, force: true });
+  await rm(transaction.candidateRoot, { recursive: true, force: true });
+  await rm(journalPath, { force: true });
+}
+
+async function recoverPendingTransaction(journalPath, { renameOp = durableTargetRename } = {}) {
+  let transaction;
+  try {
+    transaction = JSON.parse(await readFile(journalPath, 'utf8'));
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      return false;
+    }
+    throw new BaselineError(
+      `Refusing to recover: transaction journal ${journalPath} cannot be read. ` +
+        'Inspect it and restore the repository from the recorded backup before retrying.',
+    );
+  }
+
+  assertValidTransaction(transaction, journalPath);
+
+  if (transaction.status !== 'validated') {
+    for (const target of [...transaction.targets].reverse()) {
+      const backupInfo = await lstatOrNull(target.backup);
+      const liveInfo = await lstatOrNull(target.live);
+
+      if (!backupInfo) {
+        if (!liveInfo) {
+          throw new BaselineError(
+            `Refusing to recover: neither live nor backup exists for ${target.rel}. ` +
+              `Inspect ${journalPath} before retrying.`,
+          );
+        }
+        continue;
+      }
+
+      if (liveInfo) {
+        await rm(target.live, { recursive: true, force: true });
+      }
+      await mkdir(path.dirname(target.live), { recursive: true });
+      await renameOp(target.backup, target.live);
+    }
+  }
+
+  await removeTransactionArtifacts(transaction, journalPath);
+  return true;
+}
+
+async function completeTransaction(transaction) {
+  await syncSwapTargets(transaction.repoRoot);
+  transaction.status = 'validated';
+  await writeTransaction(transaction);
+  await removeTransactionArtifacts(transaction, transaction.journalPath);
+}
+
+async function assertUnchangedGitState(repoRoot, initialStatus, readGitStatus) {
+  const currentStatus = await readGitStatus(repoRoot);
+  if (currentStatus !== initialStatus) {
+    throw new BaselineError(
+      'Refusing to apply: the git working tree changed while staging. ' +
+        'Commit or stash the new changes before retrying.',
+    );
   }
 }
 
@@ -437,25 +963,60 @@ async function assertUnchanged(repoRoot, candidateRoot, relativePath, label) {
  * Accepts injectable `renameOp` / `removeOp` for fault-injection tests.
  * Exported so tests can exercise the swap logic directly.
  */
-export async function swapInCandidate(repoRoot, candidateRoot, backupRoot, { renameOp = rename, removeOp = rm } = {}) {
+export async function swapInCandidate(
+  repoRoot,
+  candidateRoot,
+  backupRoot,
+  {
+    renameOp = rename,
+    removeOp = rm,
+    transaction,
+    beforeFirstDestructiveMove,
+  } = {},
+) {
   const backedUp = [];
+  const activeRenameOp = transaction?.targetRenameOp ?? renameOp;
 
   try {
-    for (const target of SWAP_TARGETS) {
+    if (transaction) {
+      await syncSwapTargets(candidateRoot);
+    }
+    for (const [index, target] of SWAP_TARGETS.entries()) {
       const original = path.join(repoRoot, ...target.rel.split('/'));
       const backup = path.join(backupRoot, ...target.rel.split('/'));
       const candidate = path.join(candidateRoot, ...target.rel.split('/'));
 
       await mkdir(path.dirname(backup), { recursive: true });
-      await renameOp(original, backup);
+      await syncDirectory(path.dirname(path.dirname(backup)));
+      await syncDirectory(path.dirname(backup));
+      if (transaction) {
+        transaction.targets[index].phase = 'moving-to-backup';
+        await writeTransaction(transaction);
+      }
+      if (index === 0 && beforeFirstDestructiveMove) {
+        await beforeFirstDestructiveMove();
+      }
+      await activeRenameOp(original, backup);
       backedUp.push(target);
+      if (transaction) {
+        transaction.targets[index].phase = 'backed-up';
+        await writeTransaction(transaction);
+      }
 
       await mkdir(path.dirname(original), { recursive: true });
-      await renameOp(candidate, original);
+      if (transaction) {
+        transaction.targets[index].phase = 'placing-candidate';
+        await writeTransaction(transaction);
+      }
+      await activeRenameOp(candidate, original);
+      if (transaction) {
+        transaction.targets[index].phase = 'placed';
+        await writeTransaction(transaction);
+      }
     }
   } catch (error) {
     try {
-      await rollbackSwap(repoRoot, backupRoot, backedUp, { renameOp, removeOp });
+      await rollbackSwap(repoRoot, backupRoot, backedUp, { renameOp: activeRenameOp, removeOp });
     } catch (rollbackError) {
       const wrapped = new BaselineError(
         `Swap failed and rollback also failed. Backup data preserved at ${backupRoot}. ` +
@@ -503,72 +1064,84 @@ export async function applyBaseline({
   }
 
   const absoluteRepoRoot = path.resolve(repoRoot);
-
-  const status = await readGitStatus(absoluteRepoRoot);
-  if (status.trim() !== '') {
-    throw new BaselineError(
-      'Refusing to apply baseline: the git working tree is not clean. Commit or stash changes first.',
-    );
-  }
-
-  const manifest = await loadManifest(
-    path.join(absoluteRepoRoot, 'catalog', 'sources.yml'),
-  );
-
-  // Protected-root guard: identical to the dry-run plan, applied here BEFORE
-  // any clone, stage, or candidate write so plan and apply can never diverge.
-  assertMappingsWritable(manifest);
-
-  const lock = await readLock(absoluteRepoRoot);
-
-  // --- One-time baseline guards (Defect 2) ---
-  // The baseline is a one-time migration from v1.0.0 bootstrap to v1.1.0
-  // verified. Once applied, it must never be re-run.
-  if (lock.release !== '1.0.0') {
-    throw new BaselineError(
-      `Refusing baseline: already established. Lock release is ${lock.release}, ` +
-      `expected 1.0.0. The baseline is a one-time migration.`,
-    );
-  }
-
-  for (const skill of lock.skills) {
-    if (skill.category === 'mapped' && skill.baseline !== 'unverified') {
-      throw new BaselineError(
-        `Refusing baseline: already established. Mapped skill ${skill.path} ` +
-        `has baseline "${skill.baseline}"; expected "unverified".`,
-      );
-    }
-  }
-
-  // Check that no history file contains a baseline-verified entry.
-  const historyDir = path.join(absoluteRepoRoot, 'catalog', 'history');
-  const historyEntries = await readdir(historyDir, { withFileTypes: true });
-  for (const entry of historyEntries) {
-    if (!entry.isFile() || !entry.name.endsWith('.json')) continue;
-    const histDoc = JSON.parse(await readFile(path.join(historyDir, entry.name), 'utf8'));
-    if (Array.isArray(histDoc.entries) && histDoc.entries.some((e) => e.kind === BASELINE_HISTORY_KIND)) {
-      throw new BaselineError(
-        `Refusing baseline: already established. History for ${histDoc.path} ` +
-        `already contains a ${BASELINE_HISTORY_KIND} entry.`,
-      );
-    }
-  }
-
-  // Check that the target tag does not already exist.
-  const targetTag = `v${BASELINE_RELEASE}`;
-  if (await tagExists(targetTag, { runGit: runGit ?? undefined })) {
-    throw new BaselineError(
-      `Refusing baseline: already established. Tag ${targetTag} already exists.`,
-    );
-  }
-
-  const workRoot = await mkdtemp(path.join(absoluteRepoRoot, '.baseline-work-'));
-  const backupRoot = path.join(workRoot, 'backup');
-  const candidateRoot = path.join(workRoot, 'candidate');
-  await mkdir(candidateRoot, { recursive: true });
-
+  const { commonGitDir } = await resolveGitDirectories(absoluteRepoRoot);
+  const journalPath = path.join(commonGitDir, TRANSACTION_JOURNAL_FILE);
+  let applyLock;
+  let workRoot;
+  let transaction;
+  let journalRenamer;
   let preserveWorkRoot = false;
+
   try {
+    applyLock = await acquireApplyLock(commonGitDir);
+    journalRenamer = createJournalRenamer();
+    await recoverPendingTransaction(journalPath, {
+      renameOp: journalRenamer?.rename.bind(journalRenamer),
+    });
+
+    const initialStatus = await readGitStatus(absoluteRepoRoot);
+    if (initialStatus.trim() !== '') {
+      throw new BaselineError(
+        'Refusing to apply baseline: the git working tree is not clean. Commit or stash changes first.',
+      );
+    }
+
+    const manifest = await loadManifest(
+      path.join(absoluteRepoRoot, 'catalog', 'sources.yml'),
+    );
+
+    // Protected-root guard: identical to the dry-run plan, applied here BEFORE
+    // any clone, stage, or candidate write so plan and apply can never diverge.
+    assertMappingsWritable(manifest);
+
+    const lock = await readLock(absoluteRepoRoot);
+
+    // --- One-time baseline guards (Defect 2) ---
+    // The baseline is a one-time migration from v1.0.0 bootstrap to v1.1.0
+    // verified. Once applied, it must never be re-run.
+    if (lock.release !== '1.0.0') {
+      throw new BaselineError(
+        `Refusing baseline: already established. Lock release is ${lock.release}, ` +
+        `expected 1.0.0. The baseline is a one-time migration.`,
+      );
+    }
+
+    for (const skill of lock.skills) {
+      if (skill.category === 'mapped' && skill.baseline !== 'unverified') {
+        throw new BaselineError(
+          `Refusing baseline: already established. Mapped skill ${skill.path} ` +
+          `has baseline "${skill.baseline}"; expected "unverified".`,
+        );
+      }
+    }
+
+    // Check that no history file contains a baseline-verified entry.
+    const historyDir = path.join(absoluteRepoRoot, 'catalog', 'history');
+    const historyEntries = await readdir(historyDir, { withFileTypes: true });
+    for (const entry of historyEntries) {
+      if (!entry.isFile() || !entry.name.endsWith('.json')) continue;
+      const histDoc = JSON.parse(await readFile(path.join(historyDir, entry.name), 'utf8'));
+      if (Array.isArray(histDoc.entries) && histDoc.entries.some((e) => e.kind === BASELINE_HISTORY_KIND)) {
+        throw new BaselineError(
+          `Refusing baseline: already established. History for ${histDoc.path} ` +
+          `already contains a ${BASELINE_HISTORY_KIND} entry.`,
+        );
+      }
+    }
+
+    // Check that the target tag does not already exist.
+    const targetTag = `v${BASELINE_RELEASE}`;
+    if (await tagExists(targetTag, { runGit: runGit ?? undefined })) {
+      throw new BaselineError(
+        `Refusing baseline: already established. Tag ${targetTag} already exists.`,
+      );
+    }
+
+    workRoot = await createApplyWorkRoot(absoluteRepoRoot, 'baseline');
+    const backupRoot = path.join(workRoot, 'backup');
+    const candidateRoot = path.join(workRoot, 'candidate');
+    await mkdir(candidateRoot, { recursive: true });
+
     const { staged, unavailable, sources } = await stageMappedSkills({
       manifest,
       workRoot,
@@ -620,14 +1193,30 @@ export async function applyBaseline({
       }
     }
 
-    const placed = await swapInCandidate(absoluteRepoRoot, candidateRoot, backupRoot);
+    transaction = buildTransaction({
+      repoRoot: absoluteRepoRoot,
+      candidateRoot,
+      backupRoot,
+      workRoot,
+      journalPath,
+      renameOp: journalRenamer?.rename.bind(journalRenamer),
+      targetRenameOp: journalRenamer?.rename.bind(journalRenamer) ?? durableTargetRename,
+    });
+
+    const placed = await swapInCandidate(absoluteRepoRoot, candidateRoot, backupRoot, {
+      transaction,
+      beforeFirstDestructiveMove: () =>
+        assertUnchangedGitState(absoluteRepoRoot, initialStatus, readGitStatus),
+    });
 
     try {
       await validate(absoluteRepoRoot);
       await assertStructuralIntegrity(absoluteRepoRoot, nextLock);
     } catch (error) {
       try {
-        await rollbackSwap(absoluteRepoRoot, backupRoot, placed);
+        await rollbackSwap(absoluteRepoRoot, backupRoot, placed, {
+          renameOp: transaction.targetRenameOp,
+        });
       } catch (rollbackError) {
         const wrapped = new BaselineError(
           `Baseline post-apply validation failed and rollback also failed. ` +
@@ -641,6 +1230,9 @@ export async function applyBaseline({
       throw new BaselineError(`Baseline post-apply validation failed; rolled back. ${error.message}`);
     }
 
+    await completeTransaction(transaction);
+    transaction = null;
+
     return {
       release: BASELINE_RELEASE,
       applied: [...staged.keys()].sort(),
@@ -650,11 +1242,31 @@ export async function applyBaseline({
   } catch (error) {
     if (error.rollbackFailed) {
       preserveWorkRoot = true;
+    } else if (transaction) {
+      try {
+        await recoverPendingTransaction(journalPath, {
+          renameOp: journalRenamer?.rename.bind(journalRenamer),
+        });
+        transaction = null;
+      } catch (recoveryError) {
+        preserveWorkRoot = true;
+        const wrapped = new BaselineError(
+          `Baseline apply failed and transaction recovery also failed. ` +
+          `Journal preserved at ${journalPath}. Original error: ${error.message}. ` +
+          `Recovery error: ${recoveryError.message}`,
+        );
+        wrapped.recoveryFailed = true;
+        throw wrapped;
+      }
     }
     throw error;
   } finally {
-    if (!preserveWorkRoot) {
+    journalRenamer?.close();
+    if (!preserveWorkRoot && workRoot) {
       await rm(workRoot, { recursive: true, force: true });
+    }
+    if (applyLock) {
+      await applyLock.release();
     }
   }
 }
@@ -876,50 +1488,62 @@ export async function applyUpdate({
   validate = validateRepository,
 } = {}) {
   const absoluteRepoRoot = path.resolve(repoRoot);
+  const { commonGitDir } = await resolveGitDirectories(absoluteRepoRoot);
+  const journalPath = path.join(commonGitDir, TRANSACTION_JOURNAL_FILE);
+  let applyLock;
+  let workRoot;
+  let transaction;
+  let journalRenamer;
+  let preserveWorkRoot = false;
 
-  const status = await readGitStatus(absoluteRepoRoot);
-  if (status.trim() !== '') {
-    throw new BaselineError(
-      'Refusing to apply update: the git working tree is not clean. Commit or stash changes first.',
-    );
-  }
+  try {
+    applyLock = await acquireApplyLock(commonGitDir);
+    journalRenamer = createJournalRenamer();
+    await recoverPendingTransaction(journalPath, {
+      renameOp: journalRenamer?.rename.bind(journalRenamer),
+    });
 
-  const manifest = await loadManifest(
-    path.join(absoluteRepoRoot, 'catalog', 'sources.yml'),
-  );
-
-  // Protected-root guard: identical to the dry-run plan, applied here BEFORE
-  // any clone, stage, or candidate write so plan and apply can never diverge.
-  const protectedRoots = assertMappingsWritable(manifest);
-
-  const lock = await readLock(absoluteRepoRoot);
-
-  // The daily update must never run before the verified baseline exists.
-  for (const skill of lock.skills) {
-    if (skill.category === 'mapped' && skill.baseline !== 'verified') {
+    const initialStatus = await readGitStatus(absoluteRepoRoot);
+    if (initialStatus.trim() !== '') {
       throw new BaselineError(
-        `Refusing update: mapped skill ${skill.path} has baseline "${skill.baseline}"; all mapped skills must be verified before running daily updates.`,
+        'Refusing to apply update: the git working tree is not clean. Commit or stash changes first.',
       );
     }
-  }
 
-  // Tag/lock reconciliation guard: the highest tag must match the lock
-  // release and be an ancestor of HEAD.
-  try {
-    await assertTagReconciled(lock.release, { runGit: runGit ?? undefined });
-  } catch (error) {
-    throw new BaselineError(
-      `Refusing update: tag/lock reconciliation failed. ${error.message}`,
+    const manifest = await loadManifest(
+      path.join(absoluteRepoRoot, 'catalog', 'sources.yml'),
     );
-  }
 
-  const workRoot = await mkdtemp(path.join(absoluteRepoRoot, '.update-work-'));
-  const backupRoot = path.join(workRoot, 'backup');
-  const candidateRoot = path.join(workRoot, 'candidate');
-  await mkdir(candidateRoot, { recursive: true });
+    // Protected-root guard: identical to the dry-run plan, applied here BEFORE
+    // any clone, stage, or candidate write so plan and apply can never diverge.
+    const protectedRoots = assertMappingsWritable(manifest);
 
-  let preserveWorkRoot = false;
-  try {
+    const lock = await readLock(absoluteRepoRoot);
+
+    // The daily update must never run before the verified baseline exists.
+    for (const skill of lock.skills) {
+      if (skill.category === 'mapped' && skill.baseline !== 'verified') {
+        throw new BaselineError(
+          `Refusing update: mapped skill ${skill.path} has baseline "${skill.baseline}"; all mapped skills must be verified before running daily updates.`,
+        );
+      }
+    }
+
+    // Tag/lock reconciliation guard: the highest tag must match the lock
+    // release and be an ancestor of HEAD.
+    try {
+      await assertTagReconciled(lock.release, { runGit: runGit ?? undefined });
+    } catch (error) {
+      throw new BaselineError(
+        `Refusing update: tag/lock reconciliation failed. ${error.message}`,
+      );
+    }
+
+    workRoot = await createApplyWorkRoot(absoluteRepoRoot, 'update');
+    const backupRoot = path.join(workRoot, 'backup');
+    const candidateRoot = path.join(workRoot, 'candidate');
+    await mkdir(candidateRoot, { recursive: true });
+
     const { staged, unavailable, sources } = await stageMappedSkills({
       manifest,
       workRoot,
@@ -1082,14 +1706,30 @@ export async function applyUpdate({
       }
     }
 
-    const placed = await swapInCandidate(absoluteRepoRoot, candidateRoot, backupRoot);
+    transaction = buildTransaction({
+      repoRoot: absoluteRepoRoot,
+      candidateRoot,
+      backupRoot,
+      workRoot,
+      journalPath,
+      renameOp: journalRenamer?.rename.bind(journalRenamer),
+      targetRenameOp: journalRenamer?.rename.bind(journalRenamer) ?? durableTargetRename,
+    });
+
+    const placed = await swapInCandidate(absoluteRepoRoot, candidateRoot, backupRoot, {
+      transaction,
+      beforeFirstDestructiveMove: () =>
+        assertUnchangedGitState(absoluteRepoRoot, initialStatus, readGitStatus),
+    });
 
     try {
       await validate(absoluteRepoRoot);
       await assertStructuralIntegrity(absoluteRepoRoot, nextLock);
     } catch (error) {
       try {
-        await rollbackSwap(absoluteRepoRoot, backupRoot, placed);
+        await rollbackSwap(absoluteRepoRoot, backupRoot, placed, {
+          renameOp: transaction.targetRenameOp,
+        });
       } catch (rollbackError) {
         const wrapped = new BaselineError(
           `Update post-apply validation failed and rollback also failed. ` +
@@ -1103,6 +1743,9 @@ export async function applyUpdate({
       throw new BaselineError(`Update post-apply validation failed; rolled back. ${error.message}`);
     }
 
+    await completeTransaction(transaction);
+    transaction = null;
+
     return {
       changed: changedPaths.sort(),
       removed: removedPaths,
@@ -1114,11 +1757,31 @@ export async function applyUpdate({
   } catch (error) {
     if (error.rollbackFailed) {
       preserveWorkRoot = true;
+    } else if (transaction) {
+      try {
+        await recoverPendingTransaction(journalPath, {
+          renameOp: journalRenamer?.rename.bind(journalRenamer),
+        });
+        transaction = null;
+      } catch (recoveryError) {
+        preserveWorkRoot = true;
+        const wrapped = new BaselineError(
+          `Update apply failed and transaction recovery also failed. ` +
+          `Journal preserved at ${journalPath}. Original error: ${error.message}. ` +
+          `Recovery error: ${recoveryError.message}`,
+        );
+        wrapped.recoveryFailed = true;
+        throw wrapped;
+      }
     }
     throw error;
   } finally {
-    if (!preserveWorkRoot) {
+    journalRenamer?.close();
+    if (!preserveWorkRoot && workRoot) {
       await rm(workRoot, { recursive: true, force: true });
+    }
+    if (applyLock) {
+      await applyLock.release();
     }
   }
 }

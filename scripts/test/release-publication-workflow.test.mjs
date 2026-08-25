@@ -64,6 +64,13 @@ function evaluateExpression(expression, context) {
   function parsePrimary() {
     const token = next();
 
+    if (token === 'always' && peek() === '(') {
+      next();
+      const closing = next();
+      assert.equal(closing, ')', `unbalanced always() call in expression: ${body}`);
+      return true;
+    }
+
     if (token === '(') {
       const value = parseOr();
       const closing = next();
@@ -139,14 +146,14 @@ test('expression evaluator sanity: operators, precedence and missing context', (
 
 // ─── B6: dry-run must not run for an explicit dry_run=false ─────────
 
-const dispatch = (dry_run, baseline, vars = {}) => ({
-  github: { event_name: 'workflow_dispatch' },
+const dispatch = (dry_run, baseline, vars = {}, ref = 'refs/heads/main') => ({
+  github: { event_name: 'workflow_dispatch', ref },
   inputs: { dry_run, baseline },
   vars,
 });
 
-const schedule = (vars = {}) => ({
-  github: { event_name: 'schedule' },
+const schedule = (vars = {}, ref = 'refs/heads/main') => ({
+  github: { event_name: 'schedule', ref },
   inputs: null,
   vars,
 });
@@ -187,6 +194,11 @@ test('SY2: baseline job runs only for baseline=true with dry_run=false', async (
   const condition = await jobCondition('baseline-apply');
 
   assert.equal(evaluateExpression(condition, dispatch(false, true)), true);
+  assert.equal(
+    evaluateExpression(condition, dispatch(false, true, {}, 'refs/heads/feature/sync')),
+    false,
+    'a manual baseline must never run from a feature branch',
+  );
   assert.equal(evaluateExpression(condition, dispatch(true, true)), false);
   assert.equal(evaluateExpression(condition, dispatch(false, false)), false);
   assert.equal(evaluateExpression(condition, schedule()), false);
@@ -227,8 +239,24 @@ test('SY4: manual apply dispatch stays available regardless of the cron gate', a
     true,
     'an operator-triggered apply must not require the cron variable',
   );
+  assert.equal(
+    evaluateExpression(condition, dispatch(false, false, {}, 'refs/heads/feature/sync')),
+    false,
+    'a manual release apply must never run from a feature branch',
+  );
   assert.equal(evaluateExpression(condition, dispatch(true, false)), false);
   assert.equal(evaluateExpression(condition, dispatch(false, true)), false);
+});
+
+test('SY4a: a feature branch may run a manual dry-run but no release-producing jobs', async () => {
+  const dryRun = await jobCondition('dry-run');
+  const baseline = await jobCondition('baseline-apply');
+  const update = await jobCondition('update');
+  const featureContext = dispatch(true, false, {}, 'refs/heads/feature/sync');
+
+  assert.equal(evaluateExpression(dryRun, featureContext), true);
+  assert.equal(evaluateExpression(baseline, featureContext), false);
+  assert.equal(evaluateExpression(update, featureContext), false);
 });
 
 test('SY5: the daily schedule trigger is retained', async () => {
@@ -236,6 +264,41 @@ test('SY5: the daily schedule trigger is retained', async () => {
   const cron = wf.on?.schedule;
   assert.ok(Array.isArray(cron) && cron.length > 0, 'the daily cron trigger must be kept');
   assert.match(String(cron[0].cron), /^\S+ \S+ \S+ \S+ \S+$/, 'cron must be a 5-field schedule');
+});
+
+test('SY5a: the scheduled apply requires both main and SKILLS_SYNC_ENABLED', async () => {
+  const condition = await jobCondition('update');
+  assert.equal(
+    evaluateExpression(condition, schedule({ SKILLS_SYNC_ENABLED: 'true' }, 'refs/heads/main')),
+    true,
+  );
+  assert.equal(
+    evaluateExpression(condition, schedule({ SKILLS_SYNC_ENABLED: 'true' }, 'refs/heads/feature/sync')),
+    false,
+  );
+});
+
+test('SY7: sync deploy cannot call the reusable Pages workflow from a feature ref', async () => {
+  const condition = await jobCondition('deploy');
+  const needs = {
+    guard: { result: 'success' },
+    update: { result: 'success' },
+  };
+
+  assert.equal(
+    evaluateExpression(condition, {
+      github: { event_name: 'workflow_dispatch', ref: 'refs/heads/main' },
+      needs,
+    }),
+    true,
+  );
+  assert.equal(
+    evaluateExpression(condition, {
+      github: { event_name: 'workflow_dispatch', ref: 'refs/heads/feature/sync' },
+      needs,
+    }),
+    false,
+  );
 });
 
 test('SY6: enabling the cron is documented for operators', async () => {

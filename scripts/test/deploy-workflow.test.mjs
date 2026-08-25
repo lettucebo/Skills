@@ -89,13 +89,13 @@ test('deploy-site.yml top-level permissions are read-only', async () => {
   assert.equal(perms['id-token'], undefined, 'top-level must not grant id-token write');
 });
 
-test('deploy-site.yml build job does NOT have pages/id-token write', async () => {
+test('deploy-site.yml build job has only the permissions required to read and configure Pages', async () => {
   const wf = await loadWorkflow('deploy-site.yml');
   const buildJob = wf.jobs?.build;
   assert.ok(buildJob, 'build job must exist');
   const perms = buildJob.permissions ?? {};
-  // Build job must not escalate permissions
-  assert.notEqual(perms.pages, 'write', 'build must not have pages: write');
+  assert.equal(perms.contents, 'read', 'build must retain contents: read');
+  assert.equal(perms.pages, 'write', 'configure-pages requires Pages write access');
   assert.notEqual(perms['id-token'], 'write', 'build must not have id-token: write');
 });
 
@@ -106,6 +106,27 @@ test('deploy-site.yml deploy job has pages: write and id-token: write', async ()
   const perms = deployJob.permissions ?? {};
   assert.equal(perms.pages, 'write', 'deploy must have pages: write');
   assert.equal(perms['id-token'], 'write', 'deploy must have id-token: write');
+});
+
+test('deploy-site.yml fails closed with a documented prerequisite when Pages is not enabled', async () => {
+  const wf = await loadWorkflow('deploy-site.yml');
+  const steps = wf.jobs?.build?.steps ?? [];
+  const preflight = steps.find((step) => /Verify GitHub Pages is enabled/.test(String(step.name ?? '')));
+  const configure = steps.find((step) =>
+    String(step.uses ?? '').startsWith('actions/configure-pages@v5'),
+  );
+
+  assert.ok(preflight, 'a Pages 404 must produce a clear operator-facing prerequisite');
+  assert.match(String(preflight.run ?? ''), /gh api.*\/pages/s);
+  assert.match(String(preflight.run ?? ''), /GITHUB_TOKEN.*cannot.*enable/i);
+  assert.match(String(preflight.run ?? ''), /Settings.*Pages|enable Pages manually/i);
+  assert.equal(preflight.env?.GH_TOKEN, '${{ github.token }}');
+  assert.ok(configure, 'the official Pages configuration action must remain present');
+  assert.equal(
+    configure.with?.enablement,
+    false,
+    'configure-pages@v5 documents that enablement=true requires a non-GITHUB_TOKEN credential',
+  );
 });
 
 // ─── deploy-site.yml — PR Build-Only ────────────────────────────────
@@ -408,4 +429,3 @@ test('sync.yml still calls deploy-site.yml exactly once', async () => {
   );
   assert.equal(callers.length, 1, 'exactly one job may call deploy-site.yml (no duplicate deploys)');
 });
-

@@ -134,7 +134,11 @@ jobs:
     name: Establish verified baseline
     needs: guard
     # Only an explicit, non-dry baseline request reaches the apply engine.
-    if: ${{ inputs.baseline && !inputs.dry_run }}
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.ref == 'refs/heads/main' &&
+      inputs.baseline &&
+      !inputs.dry_run
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -192,8 +196,13 @@ jobs:
     # A manual `workflow_dispatch` apply (dry_run=false, baseline=false) is a
     # deliberate operator action and is never gated.
     if: >-
-      (github.event_name == 'schedule' && vars.SKILLS_SYNC_ENABLED == 'true') ||
-      (github.event_name == 'workflow_dispatch' && !inputs.baseline && !inputs.dry_run)
+      (github.event_name == 'schedule' &&
+        github.ref == 'refs/heads/main' &&
+        vars.SKILLS_SYNC_ENABLED == 'true') ||
+      (github.event_name == 'workflow_dispatch' &&
+        github.ref == 'refs/heads/main' &&
+        !inputs.baseline &&
+        !inputs.dry_run)
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -328,7 +337,8 @@ jobs:
     if: >-
       always() &&
       needs.guard.result == 'success' &&
-      needs.update.result == 'success'
+      needs.update.result == 'success' &&
+      github.ref == 'refs/heads/main'
     uses: ./.github/workflows/deploy-site.yml
     with:
       # A reusable workflow inherits the caller's ORIGINAL event SHA, which is

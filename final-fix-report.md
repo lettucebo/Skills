@@ -1,50 +1,105 @@
-# Final Sync Planner Fix Report
+# Final Sync Hardening Report
 
 ## Scope
 
-This follow-up fixes the remaining Important finding against
-`fa0ecb7287a1a1f65e494d29e4d61c941a095d29`: dry-run planning had a
-different staging policy from baseline/update application.
+This report records the five final sync and release-safety fixes against
+`dba1df082f5ae8a232b992b1551a9c38c95d7f4f`, plus the correctness hardening
+identified during the final review.
 
-## Decision and implementation
+## Decisions and implementation
 
-`scripts/lib/hash.mjs` now owns `copyHashableDirectory`. It uses `lstat`
-before deciding whether a path is excluded, rejects every symbolic link, and
-uses the existing `isExcludedDirectoryName` and `isExcludedFileName` helpers.
-This avoids duplicating the ignored-artifact policy.
+### 1. Baseline provenance uses the staged upstream tuple
 
-Both `stageMappedSkills` and `planSync` call this helper. `planSync` also uses
-`lstat` for every mapping source and rejects a mapping-source symlink with its
-absolute source path. Consequently, a symlink named `node_modules` or
-`.vscode` cannot be silently filtered before the fail-closed check. The
-existing policy continues to exclude ignored caches and OS/editor artifacts
-while retaining `.env`, which is explicitly tracked and hashed.
+`buildVerifiedLock()` now requires and records the staged
+`repository`, `reference`, `source`, and `commit` for every mapped skill.
+`transformStaged()` now emits `x-source-ref` alongside the existing source,
+path, commit, and version stamps. This makes a pre-baseline migration with
+identical content auditable from the lock, vendored frontmatter, and history.
+The migration regression test also confirms that a cross-repository history
+entry has `diffUrl: null`.
 
-## TDD evidence
+The update engine deliberately retains the existing per-skill behavior for an
+unrelated upstream commit that leaves a mapped directory byte-identical. Its
+lock commit and stamp describe the commit that actually supplied the current
+vendored bytes; treating every new repository HEAD as a content update would
+incorrectly release all mappings from that upstream. Existing scoped-update
+and convergence tests demonstrate this invariant.
 
-The new planner tests were written before the helper existed. Their initial
-run failed because `copyHashableDirectory` was not exported. After the
-minimal shared-helper implementation, the targeted regression command passed:
+### 2. Candidate swaps have durable, recoverable transaction state
 
-```text
-node --test --test-name-pattern="symbolic|staging policy|false change" scripts/test/sync.test.mjs
-4 pass, 0 fail
-```
+Before each destructive rename, the transaction journal records the ordered
+target and its phase (`moving-to-backup`, `backed-up`, `placing-candidate`, or
+`placed`). Startup acquires the repository lock, recovers an unfinished journal
+before the normal clean-tree gate, and restores the pre-transaction live tree
+from backups. A durable `validated` state is written before cleanup, so a later
+startup only removes safe residual artifacts.
 
-The tests cover a mapping-source symlink, nested `node_modules` and `.vscode`
-symlinks, absent ignored staged artifacts with retained `.env`, and a verified
-mapping that remains unchanged when ignored artifacts are present.
+The journal lives in the common Git directory and is never committed. On POSIX,
+the temporary record is synced, atomically renamed, then its parent directory
+is synced. On Windows, where Node cannot sync a directory handle, the apply
+uses one controlled PowerShell worker per transaction to call
+`MoveFileEx` with `MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH` for
+every journal replacement. This is the documented Windows write-through
+operation, not a retry or a best-effort fallback:
+<https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexa>.
 
-## Final verification
+Candidate and backup roots are checkout-local `.baseline-work-*` and
+`.update-work-*` directories, which are already ignored. Keeping them on the
+checkout filesystem preserves atomic `rename` for linked worktrees whose
+common Git metadata resides on another volume; the lock and journal remain
+repository-wide under common `.git`.
 
-| Check | Result |
-| --- | --- |
-| `npm test` | 289 pass, 0 fail |
-| `npm --prefix site test` | 272 pass, 0 fail |
-| `npm run validate` | 103 skills validated; 3 known upstream broken links |
-| `node scripts/sync.mjs --dry-run --output <temp>` | `dryRun=True`, 6 sources, 0 added, 0 changed, 0 unavailable |
-| Browser E2E | Not rerun: this change does not touch `site/`; the `fa0ecb7` addendum in `files/e2e-verify/final-verification-report.md` records 70 passing Playwright tests |
+Before a transaction is marked `validated`, candidate bytes and checkout
+targets are synced. POSIX target renames sync their affected directories;
+Windows uses the same write-through worker for the target relocations. This
+prevents a durable `validated` journal from authorizing cleanup before the
+swapped live tree is durable.
 
-An independent read-only review found no Critical or Important issues. The
-review and tests confirm the planner and apply paths now share one staging and
-hashing policy without changing the dry-run result format or clone behavior.
+### 3. Applies fail closed on ownership and concurrent edits
+
+The apply lock uses exclusive `wx` creation in the common Git directory and
+carries an owner token. Automatic stale-lock deletion was intentionally removed:
+a read-then-delete recovery can race with another process that has just
+acquired a replacement lock. Operators receive explicit guidance to verify and
+remove a stale lock manually; release also verifies the owner token before
+unlinking.
+
+Baseline and update snapshot `git status --porcelain` before staging and
+recheck it after the durable first-move intent is journaled and immediately
+before the first live-to-backup rename. A change detected there aborts and
+recovers without mutating the live tree. The regression tests inject a mapped
+skill edit at that boundary and prove the edit, lock, journal, lockfile, and
+history are preserved.
+
+### 4. Pages setup is accurate and least-privileged
+
+`actions/configure-pages@v5` documents that `enablement: true` requires a
+credential other than `GITHUB_TOKEN`. The workflow therefore does not make a
+false automatic-enable claim. Its build job grants only `contents: read` and
+`pages: write`, checks `/repos/{owner}/{repo}/pages` with `gh api`, and fails
+with the documented Settings > Pages prerequisite when the endpoint is absent.
+The deploy job retains only `pages: write` and `id-token: write`.
+
+Source: <https://raw.githubusercontent.com/actions/configure-pages/v5/action.yml>.
+
+### 5. Manual release paths are restricted to main
+
+`baseline-apply`, manual `update`, and reusable `deploy` now require
+`github.ref == 'refs/heads/main'`. A feature-branch `workflow_dispatch` can
+still run an explicit dry-run, but cannot baseline, update, or deploy. Scheduled
+updates require both `main` and `SKILLS_SYNC_ENABLED == 'true'`. Direct
+pull-request site runs remain build-only, while a main push can still deploy.
+
+## Review outcome
+
+The final Council/Rubber Duck pass examined phase ordering, journal durability,
+linked-worktree paths, recovery semantics, lock ownership, user-edit timing,
+Pages credentials, and the workflow expression matrix. Independent read-only
+reviews found and drove fixes for journal directory durability, stale-lock
+reclamation, final pre-swap timing, linked-worktree cross-device renames, and
+Windows write-through durability. The proposed commit-only update change was
+rejected with test evidence because it would violate the per-skill provenance
+and scoped-release contract described above.
+
+No transient Windows `EPERM` was observed. No retry was added, so persistent
+filesystem errors remain visible rather than being hidden.

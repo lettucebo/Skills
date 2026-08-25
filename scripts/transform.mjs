@@ -84,6 +84,7 @@ export async function transformStaged({
 
   const stamps = {
     'x-source': upstream.repository,
+    'x-source-ref': upstream.reference,
     'x-source-path': source,
     'x-source-commit': commit,
     'x-version': version,

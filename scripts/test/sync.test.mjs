@@ -294,6 +294,7 @@ test('transformStaged applies rename-frontmatter-name overrides and stamps SKILL
     const data = parse(text.slice(3, text.indexOf('---', 3)));
     assert.equal(data.name, 'claude-mcp-builder');
     assert.equal(data['x-source'], 'anthropics/skills');
+    assert.equal(data['x-source-ref'], 'refs/heads/main');
     assert.equal(data['x-source-path'], 'skills/mcp-builder');
     assert.equal(data['x-source-commit'], 'deadbeef');
     assert.equal(data['x-version'], '1.0.0');

@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { cp, mkdir, mkdtemp, readFile, readdir, rm, symlink, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { cp, mkdir, mkdtemp, readFile, readdir, rename, rm, symlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -923,6 +924,118 @@ test('applyUpdate rolls back completely when post-apply validation fails', async
     );
     assert.equal(await readFile(path.join(repoRoot, 'NOTICE'), 'utf8'), noticeBefore);
     assert.equal(await readFile(path.join(repoRoot, 'README.md'), 'utf8'), readmeBefore);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate recovers an interrupted swap before the initial clean-tree gate', async () => {
+  const workspace = await makeTempDir('update-crash-recovery');
+  try {
+    const { repoRoot } = await buildUpdateFixture(workspace);
+    const candidateRoot = path.join(workspace, 'candidate');
+    const backupRoot = path.join(workspace, 'backup');
+    const skillsPath = path.join(repoRoot, 'skills');
+    const skillsBefore = await hashDirectory(skillsPath);
+    await writeFileEnsured(path.join(candidateRoot, 'skills', 'candidate.txt'), 'candidate\n');
+    await mkdir(path.join(backupRoot), { recursive: true });
+    await rename(skillsPath, path.join(backupRoot, 'skills'));
+
+    const journalPath = path.join(repoRoot, '.git', '.skills-sync-transaction.json');
+    await writeFile(
+      journalPath,
+      `${JSON.stringify({
+        version: 1,
+        status: 'swapping',
+        repoRoot,
+        candidateRoot,
+        backupRoot,
+        workRoot: workspace,
+        targets: [
+          {
+            rel: 'skills',
+            kind: 'dir',
+            live: skillsPath,
+            backup: path.join(backupRoot, 'skills'),
+            candidate: path.join(candidateRoot, 'skills'),
+            phase: 'backed-up',
+          },
+          ...[
+            { rel: 'catalog/history', kind: 'dir' },
+            { rel: 'catalog/skills.lock.json', kind: 'file' },
+            { rel: 'NOTICE', kind: 'file' },
+            { rel: 'README.md', kind: 'file' },
+          ].map((target) => ({
+            ...target,
+            live: path.join(repoRoot, ...target.rel.split('/')),
+            backup: path.join(backupRoot, ...target.rel.split('/')),
+            candidate: path.join(candidateRoot, ...target.rel.split('/')),
+            phase: 'live',
+          })),
+        ],
+      }, null, 2)}\n`,
+    );
+
+    await assert.rejects(
+      applyUpdate({
+        repoRoot,
+        readGitStatus: async () => ' M skills/demo/alpha/SKILL.md\n',
+        runGit: makeRunGit(repoRoot),
+      }),
+      (error) => error instanceof BaselineError && /clean/i.test(error.message),
+    );
+
+    assert.equal(await hashDirectory(skillsPath), skillsBefore);
+    assert.equal(existsSync(journalPath), false);
+    assert.equal(existsSync(backupRoot), false);
+    assert.equal(existsSync(candidateRoot), false);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate preserves a mapped user edit that appears before the destructive swap', async () => {
+  const workspace = await makeTempDir('update-toctou');
+  try {
+    const { upstreamRoot, repoRoot } = await buildUpdateFixture(workspace);
+    await updateUpstreamRepo(upstreamRoot, {
+      'skills/alpha/SKILL.md': skillDoc('alpha', 'Changed while staging test.'),
+    });
+
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const lockBefore = await readFile(lockPath, 'utf8');
+    const historyBefore = await readFile(
+      path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'),
+      'utf8',
+    );
+    const editedSkill = path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md');
+    let statusReads = 0;
+
+    await assert.rejects(
+      applyUpdate({
+        repoRoot,
+        runGit: makeRunGit(repoRoot),
+        readGitStatus: async () => {
+          statusReads += 1;
+          if (statusReads === 2) {
+            await writeFile(editedSkill, `${skillDoc('alpha', 'User edit during staging.')}\n`);
+            return ' M skills/demo/alpha/SKILL.md\n';
+          }
+          return '';
+        },
+      }),
+      (error) => error instanceof BaselineError && /changed while.*staging|clean/i.test(error.message),
+    );
+
+    assert.equal(statusReads, 2, 'the clean state must be checked again before swapping');
+    assert.match(await readFile(editedSkill, 'utf8'), /User edit during staging\./);
+    assert.equal(await readFile(lockPath, 'utf8'), lockBefore);
+    assert.equal(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+      historyBefore,
+    );
+    assert.equal(existsSync(path.join(repoRoot, '.git', '.skills-sync-apply.lock')), false);
+    assert.equal(existsSync(path.join(repoRoot, '.git', '.skills-sync-transaction.json')), false);
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }

@@ -3,10 +3,12 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { cp, mkdir, mkdtemp, readdir, readFile, rename, rm, symlink, writeFile } from 'node:fs/promises';
+import { hostname } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { hashDirectory } from '../lib/hash.mjs';
+import * as baselineModule from '../lib/baseline.mjs';
 import {
   applyBaseline,
   appendBaselineHistoryEntry,
@@ -56,6 +58,72 @@ async function initUpstreamRepo(root, files) {
   const commit = git(root, ['rev-parse', 'HEAD']).trim();
   return { url: pathToFileURL(root).href, commit };
 }
+
+test('writeAtomicJson syncs the journal parent after the atomic rename', async () => {
+  const workspace = await makeTempDir('journal-directory-sync');
+  try {
+    const journalPath = path.join(workspace, '.skills-sync-transaction.json');
+    const syncedDirectories = [];
+    const renameCalls = [];
+
+    assert.equal(
+      typeof baselineModule.writeAtomicJson,
+      'function',
+      'atomic journal writes must expose their directory-sync boundary for verification',
+    );
+    await baselineModule.writeAtomicJson(
+      journalPath,
+      { version: 1, status: 'swapping' },
+      {
+        syncDirectory: async (directoryPath) => {
+          syncedDirectories.push(directoryPath);
+        },
+        renameOp: async (sourcePath, destinationPath) => {
+          renameCalls.push({ sourcePath, destinationPath });
+          await rename(sourcePath, destinationPath);
+        },
+      },
+    );
+
+    assert.deepEqual(syncedDirectories, [workspace]);
+    assert.equal(renameCalls.length, 1);
+    assert.equal(renameCalls[0].destinationPath, journalPath);
+    assert.match(renameCalls[0].sourcePath, /\.skills-sync-transaction\.json\.\d+\.\d+\.tmp$/);
+    assert.deepEqual(
+      JSON.parse(await readFile(journalPath, 'utf8')),
+      { version: 1, status: 'swapping' },
+    );
+
+    const defaultJournalPath = path.join(workspace, '.skills-sync-default-transaction.json');
+    await baselineModule.writeAtomicJson(defaultJournalPath, { version: 1, status: 'validated' });
+    assert.deepEqual(
+      JSON.parse(await readFile(defaultJournalPath, 'utf8')),
+      { version: 1, status: 'validated' },
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('createApplyWorkRoot places swap trees in the checkout filesystem', async () => {
+  const workspace = await makeTempDir('apply-work-root');
+  try {
+    const repoRoot = path.join(workspace, 'checkout');
+    await mkdir(repoRoot, { recursive: true });
+
+    assert.equal(
+      typeof baselineModule.createApplyWorkRoot,
+      'function',
+      'apply work roots must be created independently of Git metadata paths',
+    );
+    const workRoot = await baselineModule.createApplyWorkRoot(repoRoot, 'baseline');
+
+    assert.equal(path.dirname(workRoot), repoRoot);
+    assert.match(path.basename(workRoot), /^\.baseline-work-/);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
 
 // ---------------------------------------------------------------------------
 // buildVerifiedLock (pure)
@@ -116,8 +184,22 @@ function baseLock() {
 
 test('buildVerifiedLock stamps mapped entries as verified and retains orphan upstream:null', () => {
   const staged = new Map([
-    ['skills/demo/alpha', { commit: 'a'.repeat(40), contentHash: 'sha256:up-alpha', snapshotHash: 'sha256:new-alpha' }],
-    ['skills/demo/beta', { commit: 'b'.repeat(40), contentHash: 'sha256:up-beta', snapshotHash: 'sha256:new-beta' }],
+    ['skills/demo/alpha', {
+      commit: 'a'.repeat(40),
+      contentHash: 'sha256:up-alpha',
+      snapshotHash: 'sha256:new-alpha',
+      repository: 'demo/upstream',
+      reference: 'refs/heads/main',
+      source: 'skills/alpha',
+    }],
+    ['skills/demo/beta', {
+      commit: 'b'.repeat(40),
+      contentHash: 'sha256:up-beta',
+      snapshotHash: 'sha256:new-beta',
+      repository: 'demo/upstream',
+      reference: 'refs/heads/main',
+      source: 'skills/beta',
+    }],
   ]);
 
   const lock = buildVerifiedLock({
@@ -145,9 +227,60 @@ test('buildVerifiedLock stamps mapped entries as verified and retains orphan ups
   assert.ok(!('contentHash' in gamma));
 });
 
+test('buildVerifiedLock uses the full staged upstream tuple after a bootstrap migration', () => {
+  const staged = new Map([
+    [
+      'skills/demo/alpha',
+      {
+        commit: 'c'.repeat(40),
+        contentHash: 'sha256:up-alpha',
+        snapshotHash: 'sha256:new-alpha',
+        repository: 'migrated/upstream',
+        reference: 'refs/tags/v2',
+        source: 'new-layout/alpha',
+      },
+    ],
+    [
+      'skills/demo/beta',
+      {
+        commit: 'd'.repeat(40),
+        contentHash: 'sha256:up-beta',
+        snapshotHash: 'sha256:new-beta',
+        repository: 'migrated/upstream',
+        reference: 'refs/tags/v2',
+        source: 'new-layout/beta',
+      },
+    ],
+  ]);
+
+  const lock = buildVerifiedLock({
+    lock: baseLock(),
+    staged,
+    release: '1.1.0',
+    generatedAt: '2026-02-02T00:00:00Z',
+  });
+
+  assert.deepEqual(
+    lock.skills.find((skill) => skill.path === 'skills/demo/alpha').upstream,
+    {
+      repository: 'migrated/upstream',
+      reference: 'refs/tags/v2',
+      source: 'new-layout/alpha',
+      commit: 'c'.repeat(40),
+    },
+  );
+});
+
 test('buildVerifiedLock refuses when a mapped skill is not staged', () => {
   const staged = new Map([
-    ['skills/demo/alpha', { commit: 'a'.repeat(40), contentHash: 'sha256:up-alpha', snapshotHash: 'sha256:new-alpha' }],
+    ['skills/demo/alpha', {
+      commit: 'a'.repeat(40),
+      contentHash: 'sha256:up-alpha',
+      snapshotHash: 'sha256:new-alpha',
+      repository: 'demo/upstream',
+      reference: 'refs/heads/main',
+      source: 'skills/alpha',
+    }],
   ]);
 
   assert.throws(
@@ -158,9 +291,30 @@ test('buildVerifiedLock refuses when a mapped skill is not staged', () => {
 
 test('buildVerifiedLock refuses when staged contains an unmapped path', () => {
   const staged = new Map([
-    ['skills/demo/alpha', { commit: 'a'.repeat(40), contentHash: 'sha256:up-alpha', snapshotHash: 'sha256:new-alpha' }],
-    ['skills/demo/beta', { commit: 'b'.repeat(40), contentHash: 'sha256:up-beta', snapshotHash: 'sha256:new-beta' }],
-    ['skills/demo/ghost', { commit: 'c'.repeat(40), contentHash: 'sha256:x', snapshotHash: 'sha256:y' }],
+    ['skills/demo/alpha', {
+      commit: 'a'.repeat(40),
+      contentHash: 'sha256:up-alpha',
+      snapshotHash: 'sha256:new-alpha',
+      repository: 'demo/upstream',
+      reference: 'refs/heads/main',
+      source: 'skills/alpha',
+    }],
+    ['skills/demo/beta', {
+      commit: 'b'.repeat(40),
+      contentHash: 'sha256:up-beta',
+      snapshotHash: 'sha256:new-beta',
+      repository: 'demo/upstream',
+      reference: 'refs/heads/main',
+      source: 'skills/beta',
+    }],
+    ['skills/demo/ghost', {
+      commit: 'c'.repeat(40),
+      contentHash: 'sha256:x',
+      snapshotHash: 'sha256:y',
+      repository: 'demo/upstream',
+      reference: 'refs/heads/main',
+      source: 'skills/ghost',
+    }],
   ]);
 
   assert.throws(
@@ -383,6 +537,10 @@ async function buildBaselineFixture(workspace, { alphaUpstreamBody, upstreamExtr
     ['# Fixture', '', '<!-- CATALOG:START -->', 'old', '<!-- CATALOG:END -->', ''].join('\n'),
   );
 
+  git(repoRoot, ['init', '-q', '-b', 'main']);
+  git(repoRoot, ['config', 'user.email', 'fixture@example.com']);
+  git(repoRoot, ['config', 'user.name', 'Fixture']);
+
   return { upstream, upstreamRoot: path.join(workspace, 'upstream'), repoRoot };
 }
 
@@ -521,6 +679,81 @@ test('applyBaseline transitions lock and history to verified baseline', async ()
     const readme = await readFile(path.join(repoRoot, 'README.md'), 'utf8');
     assert.match(readme, /<!-- CATALOG:START -->/);
     assert.doesNotMatch(readme, /\nold\n/);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline records migrated repository, reference, source, stamp, and history provenance', async () => {
+  const workspace = await makeTempDir('baseline-tuple-migration');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+    const migrated = await initUpstreamRepo(path.join(workspace, 'migrated-upstream'), {
+      'new-layout/alpha/SKILL.md': skillDoc('alpha', 'Upstream alpha body.'),
+      'new-layout/alpha/references/notes.md': '# alpha notes\n',
+      'new-layout/beta/SKILL.md': skillDoc('beta', 'Upstream beta body.'),
+    });
+    git(path.join(workspace, 'migrated-upstream'), ['tag', '-a', 'v2', '-m', 'fixture']);
+
+    await writeFile(
+      path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'),
+      skillDoc('alpha', 'Upstream alpha body.'),
+    );
+    await writeFile(
+      path.join(repoRoot, 'skills', 'demo', 'alpha', 'references', 'notes.md'),
+      '# alpha notes\n',
+    );
+
+    const oldLock = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+    );
+    assert.equal(
+      await hashDirectory(path.join(workspace, 'migrated-upstream', 'new-layout', 'alpha')),
+      await hashDirectory(path.join(repoRoot, 'skills', 'demo', 'alpha')),
+      'the migration must retain identical upstream and bootstrap content bytes',
+    );
+
+    const sourcesPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const sources = await readFile(sourcesPath, 'utf8');
+    await writeFile(
+      sourcesPath,
+      sources
+        .replace(/repository: ".*"/, `repository: "${migrated.url}"`)
+        .replace('reference: refs/heads/main', 'reference: refs/tags/v2')
+        .replace('source: skills/alpha', 'source: new-layout/alpha')
+        .replace('source: skills/beta', 'source: new-layout/beta'),
+    );
+
+    await applyBaseline({
+      repoRoot,
+      baseline: true,
+      readGitStatus: cleanTree,
+      now: () => '2026-02-02T00:00:00Z',
+    });
+
+    const lock = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+    );
+    const alpha = lock.skills.find((skill) => skill.path === 'skills/demo/alpha');
+    assert.deepEqual(alpha.upstream, {
+      repository: migrated.url,
+      reference: 'refs/tags/v2',
+      source: 'new-layout/alpha',
+      commit: migrated.commit,
+    });
+    assert.notDeepEqual(alpha.upstream, oldLock.skills.find((skill) => skill.path === alpha.path).upstream);
+
+    const stamped = await readFile(path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), 'utf8');
+    assert.match(stamped, new RegExp(`x-source: ${migrated.url}`));
+    assert.match(stamped, /x-source-ref: refs\/tags\/v2/);
+    assert.match(stamped, /x-source-path: new-layout\/alpha/);
+    assert.match(stamped, new RegExp(`x-source-commit: ${migrated.commit}`));
+
+    const history = JSON.parse(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+    );
+    assert.equal(history.entries.at(-1).upstreamCommit, migrated.commit);
+    assert.equal(history.entries.at(-1).diffUrl, null);
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }
@@ -815,6 +1048,9 @@ test('buildVerifiedLock adopts the staged frontmatter name when upstream renamed
         contentHash: 'sha256:up-alpha',
         snapshotHash: 'sha256:new-alpha',
         name: 'alpha-renamed-upstream',
+        repository: 'demo/upstream',
+        reference: 'refs/heads/main',
+        source: 'skills/alpha',
       },
     ],
     [
@@ -823,6 +1059,9 @@ test('buildVerifiedLock adopts the staged frontmatter name when upstream renamed
         commit: 'b'.repeat(40),
         contentHash: 'sha256:up-beta',
         snapshotHash: 'sha256:new-beta',
+        repository: 'demo/upstream',
+        reference: 'refs/heads/main',
+        source: 'skills/beta',
       },
     ],
   ]);
@@ -880,7 +1119,97 @@ async function buildSwapFixture(workspace) {
     }
   }
 
+  git(repoRoot, ['init', '-q', '-b', 'main']);
+  git(repoRoot, ['config', 'user.email', 'fixture@example.com']);
+  git(repoRoot, ['config', 'user.name', 'Fixture']);
+
   return { repoRoot, candidateRoot, backupRoot, originalHashes };
+}
+
+const SWAP_PHASES = [
+  'moving-to-backup',
+  'backed-up',
+  'placing-candidate',
+  'placed',
+];
+
+async function buildInterruptedSwap(workspace, targetIndex, phase) {
+  const fixture = await buildSwapFixture(workspace);
+  const { repoRoot, candidateRoot, backupRoot } = fixture;
+  const targets = SWAP_TARGETS.map((target, index) => ({
+    ...target,
+    live: path.join(repoRoot, ...target.rel.split('/')),
+    backup: path.join(backupRoot, ...target.rel.split('/')),
+    candidate: path.join(candidateRoot, ...target.rel.split('/')),
+    phase: index < targetIndex ? 'placed' : index === targetIndex ? phase : 'live',
+  }));
+
+  for (const target of targets.slice(0, targetIndex)) {
+    await mkdir(path.dirname(target.backup), { recursive: true });
+    await rename(target.live, target.backup);
+    await rename(target.candidate, target.live);
+  }
+
+  const target = targets[targetIndex];
+  if (phase !== 'moving-to-backup') {
+    await mkdir(path.dirname(target.backup), { recursive: true });
+    await rename(target.live, target.backup);
+  }
+  if (phase === 'placed') {
+    await rename(target.candidate, target.live);
+  }
+
+  const journalPath = path.join(repoRoot, '.git', '.skills-sync-transaction.json');
+  await writeFile(
+    journalPath,
+    `${JSON.stringify({
+      version: 1,
+      status: 'swapping',
+      repoRoot,
+      candidateRoot,
+      backupRoot,
+      workRoot: path.dirname(candidateRoot),
+      targets,
+    }, null, 2)}\n`,
+  );
+
+  return { ...fixture, journalPath };
+}
+
+for (const [targetIndex, target] of SWAP_TARGETS.entries()) {
+  for (const phase of SWAP_PHASES) {
+    test(`applyBaseline recovers ${target.rel} interrupted at ${phase}`, async () => {
+      const workspace = await makeTempDir(`baseline-crash-${targetIndex}-${phase}`);
+      try {
+        const { repoRoot, candidateRoot, backupRoot, journalPath, originalHashes } =
+          await buildInterruptedSwap(workspace, targetIndex, phase);
+
+        await assert.rejects(
+          applyBaseline({
+            repoRoot,
+            baseline: true,
+            readGitStatus: async () => ' M skills/demo/alpha/SKILL.md\n',
+          }),
+          (error) => error instanceof BaselineError && /clean/i.test(error.message),
+        );
+
+        for (const swapTarget of SWAP_TARGETS) {
+          const live = path.join(repoRoot, ...swapTarget.rel.split('/'));
+          if (swapTarget.kind === 'dir') {
+            assert.equal(await hashDirectory(live), originalHashes.get(swapTarget.rel));
+          } else {
+            assert.equal(await readFile(live, 'utf8'), originalHashes.get(swapTarget.rel));
+          }
+        }
+
+        assert.equal(existsSync(journalPath), false, 'the recovered journal must be removed');
+        assert.equal(existsSync(backupRoot), false, 'the recovered backup must be removed');
+        assert.equal(existsSync(candidateRoot), false, 'the recovered candidate must be removed');
+      } finally {
+        await rm(workspace, { recursive: true, force: true });
+      }
+    });
+  }
 }
 
 test('swapInCandidate restores all originals when placement fails after first backup', async () => {
@@ -1017,6 +1346,117 @@ test('swapInCandidate preserves backup and surfaces both errors when rollback it
         return true;
       },
     );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline preserves a mapped user edit that appears before the destructive swap', async () => {
+  const workspace = await makeTempDir('baseline-toctou');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+    const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
+    const lockBefore = await readFile(lockPath, 'utf8');
+    const historyBefore = await readFile(
+      path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'),
+      'utf8',
+    );
+    const editedSkill = path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md');
+    let statusReads = 0;
+
+    await assert.rejects(
+      applyBaseline({
+        repoRoot,
+        baseline: true,
+        readGitStatus: async () => {
+          statusReads += 1;
+          if (statusReads === 2) {
+            const transaction = JSON.parse(
+              await readFile(
+                path.join(repoRoot, '.git', '.skills-sync-transaction.json'),
+                'utf8',
+              ),
+            );
+            assert.equal(
+              transaction.targets[0].phase,
+              'moving-to-backup',
+              'the final status check must run after durable swap intent and before the rename',
+            );
+            await writeFile(editedSkill, `${skillDoc('alpha', 'User edit during staging.')}\n`);
+            return ' M skills/demo/alpha/SKILL.md\n';
+          }
+          return '';
+        },
+      }),
+      (error) => error instanceof BaselineError && /changed while.*staging|clean/i.test(error.message),
+    );
+
+    assert.equal(statusReads, 2, 'the clean state must be checked again before swapping');
+    assert.match(await readFile(editedSkill, 'utf8'), /User edit during staging\./);
+    assert.equal(await readFile(lockPath, 'utf8'), lockBefore);
+    assert.equal(
+      await readFile(path.join(repoRoot, 'catalog', 'history', 'skills__demo__alpha.json'), 'utf8'),
+      historyBefore,
+    );
+    assert.equal(existsSync(path.join(repoRoot, '.git', '.skills-sync-apply.lock')), false);
+    assert.equal(existsSync(path.join(repoRoot, '.git', '.skills-sync-transaction.json')), false);
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline fails closed for a definitively stale same-host apply lock', async () => {
+  const workspace = await makeTempDir('baseline-stale-lock');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+    const lockPath = path.join(repoRoot, '.git', '.skills-sync-apply.lock');
+    await writeFile(
+      lockPath,
+      `${JSON.stringify({
+        version: 1,
+        pid: 2147483647,
+        hostname: hostname(),
+        startedAt: '2026-02-02T00:00:00Z',
+      })}\n`,
+    );
+
+    await assert.rejects(
+      applyBaseline({
+        repoRoot,
+        baseline: true,
+        readGitStatus: async () => ' M skills/demo/alpha/SKILL.md\n',
+      }),
+      (error) =>
+        error instanceof BaselineError &&
+        /another sync apply|remove the stale lock manually/i.test(error.message),
+    );
+
+    assert.equal(existsSync(lockPath), true, 'a stale lock must be reclaimed manually');
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyBaseline refuses an active apply lock with recovery guidance', async () => {
+  const workspace = await makeTempDir('baseline-active-lock');
+  try {
+    const { repoRoot } = await buildBaselineFixture(workspace);
+    const lockPath = path.join(repoRoot, '.git', '.skills-sync-apply.lock');
+    await writeFile(
+      lockPath,
+      `${JSON.stringify({
+        version: 1,
+        pid: process.pid,
+        hostname: hostname(),
+        startedAt: '2026-02-02T00:00:00Z',
+      })}\n`,
+    );
+
+    await assert.rejects(
+      applyBaseline({ repoRoot, baseline: true, readGitStatus: cleanTree }),
+      (error) => error instanceof BaselineError && /another sync apply|stale lock/i.test(error.message),
+    );
+    assert.equal(existsSync(lockPath), true, 'an active lock must never be removed');
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }
