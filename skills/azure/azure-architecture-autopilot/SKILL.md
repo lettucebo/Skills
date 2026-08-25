@@ -1,15 +1,21 @@
 ---
 name: azure-architecture-autopilot
 description: >
-  Design Azure infrastructure using natural language, or analyze existing Azure resources
-  to auto-generate architecture diagrams, refine them through conversation, and deploy with Bicep.
+  Design Azure infrastructure using natural language, or analyze existing Azure
+  resources to auto-generate architecture diagrams, refine them through
+  conversation, and deploy with Bicep.
 
-  When to use this skill:
-  - "Create X on Azure", "Set up a RAG architecture" (new design)
-  - "Analyze my current Azure infrastructure", "Draw a diagram for rg-xxx" (existing analysis)
-  - "Foundry is slow", "I want to reduce costs", "Strengthen security" (natural language modification)
-  - Azure resource deployment, Bicep template generation, IaC code generation
-  - Microsoft Foundry, AI Search, OpenAI, Fabric, ADLS Gen2, Databricks, and all Azure services
+  When to use this skill: - "Create X on Azure", "Set up a RAG architecture"
+  (new design) - "Analyze my current Azure infrastructure", "Draw a diagram for
+  rg-xxx" (existing analysis) - "Foundry is slow", "I want to reduce costs",
+  "Strengthen security" (natural language modification) - Azure resource
+  deployment, Bicep template generation, IaC code generation - Microsoft
+  Foundry, AI Search, OpenAI, Fabric, ADLS Gen2, Databricks, and all Azure
+  services
+x-source: github/awesome-copilot
+x-source-path: skills/azure-architecture-autopilot
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Azure Architecture Builder
@@ -168,3 +174,6 @@ All supported — MS Docs are automatically consulted to generate at the same qu
 | `references/azure-dynamic-sources.md` | MS Docs URL registry |
 | `references/azure-common-patterns.md` | PE/security/naming patterns |
 | `references/ai-data.md` | AI/Data service guide |
+| `assets/06-architecture-diagram.png` | Example generated architecture diagram |
+| `assets/07-azure-portal-resources.png` | Example Azure portal resource view |
+| `assets/08-deployment-succeeded.png` | Example successful deployment result |

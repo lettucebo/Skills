@@ -1,6 +1,14 @@
 ---
 name: workers-best-practices
-description: Reviews and authors Cloudflare Workers code against production best practices. Load when writing new Workers, reviewing Worker code, configuring wrangler.jsonc, or checking for common Workers anti-patterns (streaming, floating promises, global state, secrets, bindings, observability). Biases towards retrieval from Cloudflare docs over pre-trained knowledge.
+description: Reviews and authors Cloudflare Workers code against production best
+  practices. Load when writing new Workers, reviewing Worker code, configuring
+  wrangler.jsonc, or checking for common Workers anti-patterns (streaming,
+  floating promises, global state, secrets, bindings, observability). Biases
+  towards retrieval from Cloudflare docs over pre-trained knowledge.
+x-source: cloudflare/skills
+x-source-path: skills/workers-best-practices
+x-source-commit: f96bff754e428838818017f75817f0f9428acd48
+x-version: 1.1.0
 ---
 
 Your knowledge of Cloudflare Workers APIs, types, and configuration may be outdated. **Prefer retrieval over pre-training** for any Workers code task — writing or reviewing.

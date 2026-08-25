@@ -1,6 +1,14 @@
 ---
 name: publish-to-pages
-description: 'Publish presentations and web content to GitHub Pages. Converts PPTX, PDF, HTML, or Google Slides to a live GitHub Pages URL. Handles repo creation, file conversion, Pages enablement, and returns the live URL. Use when the user wants to publish, deploy, or share a presentation or HTML file via GitHub Pages.'
+description: Publish presentations and web content to GitHub Pages. Converts
+  PPTX, PDF, HTML, or Google Slides to a live GitHub Pages URL. Handles repo
+  creation, file conversion, Pages enablement, and returns the live URL. Use
+  when the user wants to publish, deploy, or share a presentation or HTML file
+  via GitHub Pages.
+x-source: github/awesome-copilot
+x-source-path: skills/publish-to-pages
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # publish-to-pages

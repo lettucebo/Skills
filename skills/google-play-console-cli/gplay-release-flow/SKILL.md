@@ -1,6 +1,13 @@
 ---
 name: gplay-release-flow
-description: End-to-end release workflows for Google Play tracks (internal, beta, production) using gplay release, promote, and rollout commands. Use when asked to upload a build, distribute to testers, or release to production.
+description: End-to-end release workflows for Google Play tracks (internal,
+  beta, production) using gplay release, promote, and rollout commands. Use when
+  asked to upload a build, distribute to testers, or release to production.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-release-flow
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Release flow (Internal, Beta, Production)

@@ -1,6 +1,12 @@
 ---
 name: power-bi-report-design-consultation
-description: 'Power BI report visualization design prompt for creating effective, user-friendly, and accessible reports with optimal chart selection and layout design.'
+description: Power BI report visualization design prompt for creating effective,
+  user-friendly, and accessible reports with optimal chart selection and layout
+  design.
+x-source: github/awesome-copilot
+x-source-path: skills/power-bi-report-design-consultation
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Power BI Report Visualization Designer

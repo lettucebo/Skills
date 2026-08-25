@@ -1,9 +1,17 @@
 ---
 name: fabric-lakehouse
-description: 'Use this skill to get context about Fabric Lakehouse and its features for software systems and AI-powered functions. It offers descriptions of Lakehouse data components, organization with schemas and shortcuts, access control, and code examples. This skill supports users in designing, building, and optimizing Lakehouse solutions using best practices.'
+description: Use this skill to get context about Fabric Lakehouse and its
+  features for software systems and AI-powered functions. It offers descriptions
+  of Lakehouse data components, organization with schemas and shortcuts, access
+  control, and code examples. This skill supports users in designing, building,
+  and optimizing Lakehouse solutions using best practices.
 metadata:
   author: tedvilutis
   version: "1.0"
+x-source: github/awesome-copilot
+x-source-path: skills/fabric-lakehouse
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # When to Use This Skill

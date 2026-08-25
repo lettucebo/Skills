@@ -1,6 +1,13 @@
 ---
 name: gplay-testers-orchestration
-description: Manage testers for Google Play testing tracks (internal, closed alpha/beta, custom) using edit sessions. Use when assigning testers, creating closed tracks, or promoting builds between tracks.
+description: Manage testers for Google Play testing tracks (internal, closed
+  alpha/beta, custom) using edit sessions. Use when assigning testers, creating
+  closed tracks, or promoting builds between tracks.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-testers-orchestration
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Testers Orchestration for Google Play

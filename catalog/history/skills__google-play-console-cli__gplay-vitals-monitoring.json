@@ -1,0 +1,16 @@
+{
+  "path": "skills/google-play-console-cli/gplay-vitals-monitoring",
+  "name": "gplay-vitals-monitoring",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "firstSeen": "2026-08-26T00:32:45+08:00",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "contentHash": "sha256:196c32fc5001a72082f060c02a87da97b77fe0a11f53ce316268e2773fee40e1"
+    }
+  ]
+}

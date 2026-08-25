@@ -1,6 +1,13 @@
 ---
 name: gplay-reports-download
-description: Financial and statistics report listing and downloading from Google Play Console via GCS. Use when asked to view, list, or download financial earnings, sales, payouts, or app statistics (installs, ratings, crashes).
+description: Financial and statistics report listing and downloading from Google
+  Play Console via GCS. Use when asked to view, list, or download financial
+  earnings, sales, payouts, or app statistics (installs, ratings, crashes).
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-reports-download
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Google Play Reports Download

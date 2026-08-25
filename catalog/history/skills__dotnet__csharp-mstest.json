@@ -1,0 +1,24 @@
+{
+  "path": "skills/dotnet/csharp-mstest",
+  "name": "csharp-mstest",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:1a98ac8b25caaf4eebb371bda76359fad5f496a687a2fef5ce9dceb8949466ac"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "contentHash": "sha256:8afdc801d29acfda4c9f214f7d0e306080b442b18ceaa10c993fb3a98b7e571d"
+    }
+  ]
+}

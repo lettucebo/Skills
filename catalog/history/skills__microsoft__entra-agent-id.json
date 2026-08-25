@@ -1,0 +1,24 @@
+{
+  "path": "skills/microsoft/entra-agent-id",
+  "name": "entra-agent-id",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:e2f69a7e50c2495f627a23d365f37e63c613315a2c3b5f1430c144d2d9fe82b3"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+      "diffUrl": null,
+      "contentHash": "sha256:caf1db35b66bc7b3893db6ae4db67e45ea74b49a91a10031390e0584936bbc86"
+    }
+  ]
+}

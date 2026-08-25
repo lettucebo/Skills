@@ -1,0 +1,129 @@
+name: Deploy site to GitHub Pages
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_call:
+    inputs:
+      ref:
+        description: >-
+          Commit SHA (or ref) to build. A reusable workflow inherits the
+          caller's original event context, so callers that create a new commit
+          must pass it explicitly; otherwise the pre-sync tree is deployed.
+        required: false
+        type: string
+
+# Least privilege by default; only the deploy job escalates.
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.head_ref || 'deploy' }}
+  cancel-in-progress: ${{ github.head_ref != '' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # `inputs` is empty for push/pull_request, so those builds keep the
+          # current event SHA; workflow_call callers pin a newer commit.
+          ref: ${{ inputs.ref || github.sha }}
+          # Full history + tags are required to decide whether the release tag
+          # named by the lock file already contains this commit.
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install site dependencies
+        run: npm ci
+        working-directory: site
+
+      # Publication is a property of the git history, not of the tree: the site
+      # may only advertise `npx skills add …#v<release>` once `v<release>` is a
+      # real tag that CONTAINS the commit being built. Resolving it here keeps
+      # the site free of any runtime network access.
+      - name: Resolve release publication state
+        id: release
+        run: |
+          RELEASE=$(node -p "JSON.parse(require('fs').readFileSync('catalog/skills.lock.json','utf8')).release")
+          TAG="v$RELEASE"
+          PUBLISHED=false
+          if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null 2>&1 \
+            && git merge-base --is-ancestor "refs/tags/$TAG" HEAD; then
+            PUBLISHED=true
+          fi
+          echo "release=$RELEASE" >> "$GITHUB_OUTPUT"
+          echo "published=$PUBLISHED" >> "$GITHUB_OUTPUT"
+          echo "Release $TAG published=$PUBLISHED"
+
+      # configure-pages@v5 documents that enablement=true requires a
+      # non-GITHUB_TOKEN credential. This workflow intentionally fails closed
+      # when Pages has not been enabled by a repository administrator.
+      - name: Verify GitHub Pages is enabled
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh api --method GET "repos/${GITHUB_REPOSITORY}/pages" >/dev/null; then
+            echo "::error::GitHub Pages is not enabled. actions/configure-pages@v5 documents that GITHUB_TOKEN cannot enable Pages; enable Pages manually in Settings > Pages, then rerun this workflow."
+            exit 1
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: false
+
+      - name: Build site (Astro + Pagefind)
+        run: npm run build
+        working-directory: site
+        env:
+          RELEASE_PUBLISHED: ${{ steps.release.outputs.published }}
+
+      # Ordering matters twice over. The sync workflow deploys through this
+      # workflow after a GITHUB_TOKEN push, which never triggers the normal
+      # validate run, so without this step a synced commit could deploy with no
+      # site test having executed. And the suite contains guards that read
+      # `site/dist` (Pagefind index, rendered pages) and SKIP themselves when it
+      # is absent — on a clean CI checkout those would silently vanish unless
+      # the build has already run. Testing here, before the upload, gates the
+      # artifact on a full non-skipping run.
+      - name: Run site unit tests against the built output
+        run: npm test
+        working-directory: site
+        env:
+          RELEASE_PUBLISHED: ${{ steps.release.outputs.published }}
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

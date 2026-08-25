@@ -1,6 +1,11 @@
 ---
 name: editorconfig
-description: 'Generates a comprehensive and best-practice-oriented .editorconfig file based on project analysis and user preferences.'
+description: Generates a comprehensive and best-practice-oriented .editorconfig
+  file based on project analysis and user preferences.
+x-source: github/awesome-copilot
+x-source-path: skills/editorconfig
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 ## 📜 MISSION

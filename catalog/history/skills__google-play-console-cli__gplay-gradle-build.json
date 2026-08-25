@@ -1,0 +1,16 @@
+{
+  "path": "skills/google-play-console-cli/gplay-gradle-build",
+  "name": "gplay-gradle-build",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "firstSeen": "2026-08-26T00:32:45+08:00",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "contentHash": "sha256:fc7a94a8c3ec67edd36dd6c806c9868bffff3312fa60bf47d58d9eb80ed3b5a8"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "path": "skills/gtm/gtm-positioning-strategy",
+  "name": "gtm-positioning-strategy",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:bc65c6dc6359cdeb5c1d8af429d37c57f2f4bd15b33c1c108fb6edd800dba6c6"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "contentHash": "sha256:515b3222575b1e88e55a20f018c3d9ac3addaaaa093db0ee30a9b68efbbc49ba"
+    }
+  ]
+}

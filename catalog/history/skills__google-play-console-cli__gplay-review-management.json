@@ -1,0 +1,16 @@
+{
+  "path": "skills/google-play-console-cli/gplay-review-management",
+  "name": "gplay-review-management",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "firstSeen": "2026-08-26T00:32:45+08:00",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "contentHash": "sha256:0ff0eceb983e986e925c1a76ac7518f8c2d99730a0f3a15b41b8adea975a9c64"
+    }
+  ]
+}

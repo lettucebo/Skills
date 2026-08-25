@@ -1,6 +1,10 @@
 ---
 name: csharp-nunit
-description: 'Get best practices for NUnit unit testing, including data-driven tests'
+description: Get best practices for NUnit unit testing, including data-driven tests
+x-source: github/awesome-copilot
+x-source-path: skills/csharp-nunit
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # NUnit Best Practices

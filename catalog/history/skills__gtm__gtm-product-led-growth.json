@@ -1,0 +1,24 @@
+{
+  "path": "skills/gtm/gtm-product-led-growth",
+  "name": "gtm-product-led-growth",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:c8cde4c8306ee71fa89cdc4c542a2dd7d5f28a400217518906e5f3227383d897"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "contentHash": "sha256:62fea7baaa5ed9f1020a9bb755adb38e3f0a7a5047432eaa10ea12b0f53b979f"
+    }
+  ]
+}

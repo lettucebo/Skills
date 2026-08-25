@@ -1,6 +1,13 @@
 ---
 name: gplay-metadata-sync
-description: Metadata and localization sync (including Fastlane format) for Google Play Store listings. Use when updating app descriptions, screenshots, or managing multi-locale metadata.
+description: Metadata and localization sync (including Fastlane format) for
+  Google Play Store listings. Use when updating app descriptions, screenshots,
+  or managing multi-locale metadata.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-metadata-sync
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Metadata Sync for Google Play

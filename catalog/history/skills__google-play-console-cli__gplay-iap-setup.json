@@ -1,0 +1,16 @@
+{
+  "path": "skills/google-play-console-cli/gplay-iap-setup",
+  "name": "gplay-iap-setup",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "firstSeen": "2026-08-26T00:32:45+08:00",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "contentHash": "sha256:3a5b419d3d5602d8dd1cbd97f8c24f4ba24d4dd5493a16a06fc7cd1621d1578a"
+    }
+  ]
+}

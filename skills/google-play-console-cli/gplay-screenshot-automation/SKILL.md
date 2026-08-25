@@ -1,6 +1,14 @@
 ---
 name: gplay-screenshot-automation
-description: Manage, validate, and upload Google Play listing screenshots and graphics with the gplay CLI. Use when organizing screenshots by locale and device type and pushing them to a Play listing via gplay images upload, sync import-images, or a release.
+description: Manage, validate, and upload Google Play listing screenshots and
+  graphics with the gplay CLI. Use when organizing screenshots by locale and
+  device type and pushing them to a Play listing via gplay images upload, sync
+  import-images, or a release.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-screenshot-automation
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Google Play Screenshot Management

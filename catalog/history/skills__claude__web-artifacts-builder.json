@@ -1,0 +1,24 @@
+{
+  "path": "skills/claude/web-artifacts-builder",
+  "name": "web-artifacts-builder",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:d2be084d8cd2f7be1c7623e94623c91438b27af9466d98a89429f609d9294da9"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "diffUrl": null,
+      "contentHash": "sha256:0f102ba19f13b4deb19f2248a5014952d2af1521129a5a0e4f3d805f74632b75"
+    }
+  ]
+}

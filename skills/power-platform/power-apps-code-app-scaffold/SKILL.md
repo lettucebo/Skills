@@ -1,6 +1,11 @@
 ---
 name: power-apps-code-app-scaffold
-description: 'Scaffold a complete Power Apps Code App project with PAC CLI setup, SDK integration, and connector configuration'
+description: Scaffold a complete Power Apps Code App project with PAC CLI setup,
+  SDK integration, and connector configuration
+x-source: github/awesome-copilot
+x-source-path: skills/power-apps-code-app-scaffold
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Power Apps Code Apps Project Scaffolding

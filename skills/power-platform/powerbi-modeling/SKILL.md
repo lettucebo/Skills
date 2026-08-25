@@ -1,6 +1,18 @@
 ---
 name: powerbi-modeling
-description: 'Power BI semantic modeling assistant for building optimized data models. Use when working with Power BI semantic models, creating measures, designing star schemas, configuring relationships, implementing RLS, or optimizing model performance. Triggers on queries about DAX calculations, table relationships, dimension/fact table design, naming conventions, model documentation, cardinality, cross-filter direction, calculation groups, and data model best practices. Always connects to the active model first using power-bi-modeling MCP tools to understand the data structure before providing guidance.'
+description: Power BI semantic modeling assistant for building optimized data
+  models. Use when working with Power BI semantic models, creating measures,
+  designing star schemas, configuring relationships, implementing RLS, or
+  optimizing model performance. Triggers on queries about DAX calculations,
+  table relationships, dimension/fact table design, naming conventions, model
+  documentation, cardinality, cross-filter direction, calculation groups, and
+  data model best practices. Always connects to the active model first using
+  power-bi-modeling MCP tools to understand the data structure before providing
+  guidance.
+x-source: github/awesome-copilot
+x-source-path: skills/powerbi-modeling
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Power BI Semantic Modeling

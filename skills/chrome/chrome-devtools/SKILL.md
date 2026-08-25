@@ -1,7 +1,13 @@
 ---
 name: chrome-devtools
-description: 'Expert-level browser automation, debugging, and performance analysis using Chrome DevTools MCP. Use for interacting with web pages, capturing screenshots, analyzing network traffic, and profiling performance.'
+description: Expert-level browser automation, debugging, and performance
+  analysis using Chrome DevTools MCP. Use for interacting with web pages,
+  capturing screenshots, analyzing network traffic, and profiling performance.
 license: MIT
+x-source: github/awesome-copilot
+x-source-path: skills/chrome-devtools
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Chrome DevTools Agent

@@ -1,6 +1,11 @@
 ---
 name: azure-resource-health-diagnose
-description: 'Analyze Azure resource health, diagnose issues from logs and telemetry, and create a remediation plan for identified problems.'
+description: Analyze Azure resource health, diagnose issues from logs and
+  telemetry, and create a remediation plan for identified problems.
+x-source: github/awesome-copilot
+x-source-path: skills/azure-resource-health-diagnose
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Azure Resource Health & Issue Diagnosis

@@ -16,7 +16,8 @@ skills/
 ├── cloudflare/            ← Cloudflare Developer Platform 技能
 ├── dotnet/                ← .NET / C# 開發技能
 ├── github/                ← GitHub 工作流程技能
-├── google-tag-manager/    ← GTM 與 Go-To-Market 策略技能
+├── google-play-console-cli/ ← Google Play 發布與營運技能
+├── gtm/                   ← GTM 與 Go-To-Market 策略技能
 ├── microsoft/             ← Microsoft AI Foundry / Azure SDK 技能
 ├── power-platform/        ← Power BI、Power Apps、Fabric 技能
 ├── tampermonkey/          ← Tampermonkey 使用者腳本技能
@@ -31,180 +32,67 @@ hooks/                     ← Copilot Hook 腳本集合
 
 ## 目前收錄的 Skills
 
-共 **98 個技能**，來自 11 個來源。
+<!-- CATALOG:START -->
+共 **119 個技能**，來自 12 個來源。
+
+> 以下統計由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
+>
+> 全部 116 個 mapped 技能皆已 verified，每個技能的 upstream commit 與 contentHash 均已記錄。
 
 | 來源 | 數量 | 說明 | 文件 |
 |------|:----:|------|------|
 | [azure](skills/azure/) | 9 | Azure 雲端架構、部署、定價、DevOps | — |
 | [chrome](skills/chrome/) | 1 | Chrome DevTools 偵錯與效能分析 | — |
 | [claude](skills/claude/) | 17 | Claude API、文件生成、創意工具（PDF/PPTX/XLSX 等） | — |
-| [cloudflare](skills/cloudflare/) | 9 | Cloudflare Workers、Durable Objects、Agents SDK | [README](skills/cloudflare/README.md) |
+| [cloudflare](skills/cloudflare/) | 13 | Cloudflare Workers、Durable Objects、Agents SDK | [README](skills/cloudflare/README.md) |
 | [dotnet](skills/dotnet/) | 14 | C# 測試（NUnit/xUnit/MSTest/TUnit）、EF Core、NuGet、非同步 | — |
 | [github](skills/github/) | 8 | GitHub Issues、PR、CodeQL、Dependabot、gh CLI | — |
-| [google-tag-manager](skills/google-tag-manager/) | 11 | GTM 技術整合、產品策略、企業銷售、AI GTM | — |
+| [google-play-console-cli](skills/google-play-console-cli/) | 16 | Google Play 發布、審查、測試、定價與營運自動化 | — |
+| [gtm](skills/gtm/) | 11 | GTM 技術整合、產品策略、企業銷售、AI GTM | — |
 | [microsoft](skills/microsoft/) | 12 | Azure SDK、AI Foundry、Copilot SDK、MCP Builder | [README](skills/microsoft/README.md) |
 | [power-platform](skills/power-platform/) | 8 | Power BI（DAX、模型、報表）、Power Apps、Fabric Lakehouse | — |
 | [tampermonkey](skills/tampermonkey/) | 1 | Tampermonkey 使用者腳本開發（API、安全、除錯） | — |
-| [vscode](skills/vscode/) | 8 | 重構、規格撰寫、README 生成、安全審查、Git commit | — |
+| [vscode](skills/vscode/) | 9 | 重構、規格撰寫、README 生成、安全審查、Git commit | — |
+<!-- CATALOG:END -->
 
-### azure（9 個）
-
-| 技能 | 說明 |
-|------|------|
-| `az-cost-optimize` | 分析 IaC 或資源群組以優化 Azure 費用 |
-| `azure-architecture-autopilot` | 自動產生 Azure 架構圖與建議 |
-| `azure-deployment-preflight` | 部署前驗證 Azure 資源配置 |
-| `azure-devops-cli` | Azure DevOps CLI 操作輔助 |
-| `azure-pricing` | 查詢與比較 Azure 服務定價 |
-| `azure-resource-health-diagnose` | 診斷 Azure 資源健康狀態 |
-| `azure-resource-visualizer` | 視覺化 Azure 資源關係 |
-| `azure-role-selector` | 選擇適當的 Azure RBAC 角色 |
-| `azure-static-web-apps` | Azure Static Web Apps 部署與設定 |
-
-### chrome（1 個）
-
-| 技能 | 說明 |
-|------|------|
-| `chrome-devtools` | Chrome DevTools 偵錯、效能分析與網路監控 |
-
-### claude（17 個）
-
-| 技能 | 說明 |
-|------|------|
-| `algorithmic-art` | 生成演算法藝術圖像 |
-| `brand-guidelines` | 品牌指南分析與應用 |
-| `canvas-design` | Canvas 互動設計工具 |
-| `claude-api` | Claude API 整合（Python/TypeScript） |
-| `doc-coauthoring` | 文件協作撰寫 |
-| `docx` | 生成 Word 文件（.docx） |
-| `frontend-design` | 前端 UI 設計輔助 |
-| `internal-comms` | 內部溝通文稿生成 |
-| `mcp-builder` | MCP Server 建構指引 |
-| `pdf` | 生成 PDF 文件 |
-| `pptx` | 生成 PowerPoint 簡報（.pptx） |
-| `skill-creator` | 建立 Claude 技能的指引 |
-| `slack-gif-creator` | 生成 Slack 用 GIF |
-| `theme-factory` | 主題風格生成 |
-| `web-artifacts-builder` | Web 元件生成與原型 |
-| `webapp-testing` | Web 應用程式測試輔助 |
-| `xlsx` | 生成 Excel 試算表（.xlsx） |
-
-### cloudflare（9 個）
-
-| 技能 | 說明 |
-|------|------|
-| `agents-sdk` | Cloudflare Agents SDK 開發 |
-| `building-ai-agent-on-cloudflare` | 在 Cloudflare 上建構 AI Agent |
-| `building-mcp-server-on-cloudflare` | 在 Cloudflare 上建構 MCP Server |
-| `cloudflare` | Cloudflare 全平台參考（Workers、D1、R2 等） |
-| `durable-objects` | Durable Objects 狀態管理 |
-| `sandbox-sdk` | Cloudflare Sandbox SDK |
-| `web-perf` | Web 效能優化（Cloudflare 生態） |
-| `workers-best-practices` | Cloudflare Workers 最佳實踐 |
-| `wrangler` | Wrangler CLI 操作與設定 |
-
-### dotnet（14 個）
-
-| 技能 | 說明 |
-|------|------|
-| `csharp-async` | C# 非同步程式設計模式 |
-| `csharp-docs` | C# XML 文件註解撰寫 |
-| `csharp-mcp-server-generator` | 生成 C# MCP Server 骨架 |
-| `csharp-mstest` | MSTest 單元測試撰寫 |
-| `csharp-nunit` | NUnit 單元測試撰寫 |
-| `csharp-tunit` | TUnit 測試框架使用 |
-| `csharp-xunit` | xUnit 單元測試撰寫 |
-| `dotnet-best-practices` | .NET 開發最佳實踐 |
-| `dotnet-design-pattern-review` | 設計模式審查與建議 |
-| `dotnet-timezone` | .NET 時區處理 |
-| `dotnet-upgrade` | .NET 版本升級輔助 |
-| `editorconfig` | EditorConfig 設定生成 |
-| `ef-core` | Entity Framework Core 操作 |
-| `nuget-manager` | NuGet 套件管理 |
-
-### github（8 個）
-
-| 技能 | 說明 |
-|------|------|
-| `codeql` | CodeQL 安全掃描設定 |
-| `create-github-pull-request-from-specification` | 從規格文件建立 Pull Request |
-| `dependabot` | Dependabot 設定與管理 |
-| `gh-cli` | GitHub CLI（gh）操作輔助 |
-| `git-flow-branch-creator` | Git Flow 分支管理 |
-| `github-issues` | GitHub Issues 管理與操作 |
-| `publish-to-pages` | 發布到 GitHub Pages |
-| `secret-scanning` | GitHub Secret Scanning 設定 |
-
-### google-tag-manager（11 個）
-
-| 技能 | 說明 |
-|------|------|
-| `gtm-0-to-1-launch` | 產品 0 到 1 上市策略 |
-| `gtm-ai-gtm` | AI 產品 Go-To-Market 策略 |
-| `gtm-board-and-investor-communication` | 董事會與投資人溝通 |
-| `gtm-developer-ecosystem` | 開發者生態系建構 |
-| `gtm-enterprise-account-planning` | 企業客戶規劃 |
-| `gtm-enterprise-onboarding` | 企業客戶導入流程 |
-| `gtm-operating-cadence` | 營運節奏與 OKR 管理 |
-| `gtm-partnership-architecture` | 合作夥伴架構設計 |
-| `gtm-positioning-strategy` | 產品定位策略 |
-| `gtm-product-led-growth` | 產品主導成長（PLG） |
-| `gtm-technical-product-pricing` | 技術產品定價策略 |
-
-### microsoft（12 個）
-
-| 技能 | 說明 |
-|------|------|
-| `cloud-solution-architect` | Azure 雲端解決方案架構設計 |
-| `continual-learning` | 持續學習與知識更新 |
-| `copilot-sdk` | GitHub Copilot SDK 整合 |
-| `entra-agent-id` | Microsoft Entra Agent ID 設定 |
-| `frontend-design-review` | 前端設計審查 |
-| `github-issue-creator` | 從程式碼自動建立 GitHub Issue |
-| `mcp-builder` | Microsoft 生態的 MCP Server 建構 |
-| `microsoft-agent-framework` | Microsoft Agent Framework 開發 |
-| `microsoft-code-reference` | Microsoft 官方程式碼範例查詢 |
-| `microsoft-docs` | Microsoft Learn 文件搜尋 |
-| `podcast-generation` | Podcast 內容生成 |
-| `skill-creator` | Azure SDK skill 建立指引 |
-
-### power-platform（8 個）
-
-| 技能 | 說明 |
-|------|------|
-| `fabric-lakehouse` | Microsoft Fabric Lakehouse 設計 |
-| `power-apps-code-app-scaffold` | Power Apps Code App 鷹架生成 |
-| `power-bi-dax-optimization` | Power BI DAX 效能優化 |
-| `power-bi-model-design-review` | Power BI 資料模型設計審查 |
-| `power-bi-performance-troubleshooting` | Power BI 效能問題診斷 |
-| `power-bi-report-design-consultation` | Power BI 報表設計諮詢 |
-| `power-platform-mcp-connector-suite` | Power Platform MCP 連接器套件 |
-| `powerbi-modeling` | Power BI 模型建構最佳實踐 |
-
-### tampermonkey（1 個）
-
-| 技能 | 說明 |
-|------|------|
-| `tampermonkey` | Tampermonkey 使用者腳本開發（API、GM 函式、安全、TypeScript） |
-
-### vscode（8 個）
-
-| 技能 | 說明 |
-|------|------|
-| `create-implementation-plan` | 生成功能實作計畫 |
-| `create-readme` | 自動生成專案 README |
-| `create-specification` | 撰寫功能規格文件 |
-| `generate-custom-instructions-from-codebase` | 從程式碼庫生成 Copilot 自訂指示 |
-| `git-commit` | 生成 Conventional Commit 訊息 |
-| `refactor` | 程式碼重構輔助 |
-| `refactor-plan` | 重構計畫生成 |
-| `security-review` | 程式碼安全審查 |
+> 各來源的完整技能清單、說明與 upstream commit 請見 [`catalog/skills.lock.json`](catalog/skills.lock.json) 或 [Skills Registry 網站](https://lettucebo.github.io/Skills/)。
+> 本 README 不再手動維護逐一技能表格，以免與 lockfile 產生分歧。
 
 ---
 
 ## 如何使用
 
-### 方法一：直接複製
+### 方法一：使用 `npx skills` 安裝（建議）
+
+<!-- INSTALL:START -->
+> 以下安裝指令由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
+
+安裝一律使用 `#<tag>` 釘選版本（不支援 `@version` 或 semver range）。目前 lockfile 的 release 為 **v1.1.0**。
+
+安裝整個 registry：
+
+```bash
+npx skills add lettucebo/Skills#v1.1.0
+```
+
+只安裝單一來源：
+
+```bash
+npx skills add lettucebo/Skills/skills/azure#v1.1.0
+```
+
+只安裝單一技能：
+
+```bash
+npx skills add "lettucebo/Skills#v1.1.0@agents-sdk"
+```
+
+> ⚠️ 上述指令需要 `v1.1.0` tag 已推送到 GitHub；若該 tag 尚未發布，`npx skills` 會找不到對應 ref 而失敗。
+>
+> ⚠️ 整個 registry 的安裝會包含 4 個專有授權（`redistributable: false`）技能，皆位於 `skills/claude`。若需避免，請改用單一來源或單一技能安裝。
+<!-- INSTALL:END -->
+
+### 方法二：直接複製
 
 將需要的 skill 資料夾複製到專案的 `.github/skills/` 目錄：
 
@@ -212,21 +100,21 @@ hooks/                     ← Copilot Hook 腳本集合
 cp -r /path/to/Skills/skills/dotnet/ef-core your-project/.github/skills/
 ```
 
-### 方法二：使用 npx 安裝器（適用 microsoft/skills）
-
-```bash
-npx skills add microsoft/skills
-```
-
-透過互動式精靈選擇需要的技能。
-
 ---
 
-## 新增 Skill 來源
+## 新增或更新 Skill
 
-1. 在 `skills/` 下建立以來源命名的目錄（例如 `skills/my-custom/`）
-2. 每個技能放入獨立子目錄，包含符合格式的 `SKILL.md`
-3. 更新本 README 的收錄清單
+`catalog/sources.yml` 是唯一的宣告來源：每個 `SKILL.md` 都必須恰好被 `mappings`、`orphans`、`local` 其中一類涵蓋，否則驗證會失敗。
+
+1. 將 skill 資料夾加入對應的 `skills/<source>/<skill>/` 路徑，並在 `catalog/sources.yml` 宣告
+   - 有上游來源：加入對應 source 的 `mappings`（需指定 upstream repository 與 `source` 路徑）
+   - 無上游來源、僅保留快照：加入 `orphans`
+   - 本倉庫原創：放在 `skills/lettucebo/`，並加入 `local`
+2. 先提交 skill 與 manifest，並確認目前 lock release 的 tag 已發布且為 `HEAD` 的 ancestor
+3. 執行 `node scripts/sync.mjs --apply`；mapped skill 會從 upstream 重新 staging、驗證 provenance 並建立 `mapping-added` history，local/orphan skill 則會保留本地快照並建立對應的 added history。新 skill 都從 `1.0.0` 開始，並依 minor release 更新 lockfile、`NOTICE` 與本 README 的產生區塊
+4. 執行 `npm test` 與 `node scripts/validate.mjs`，再提交同步器產生的變更
+
+`scripts/catalog.mjs --bootstrap` 與 `node scripts/sync.mjs --baseline` 只供首次建立 registry 使用；verified baseline 建立後不可用來新增 mapping。請勿手動編輯 `<!-- CATALOG:START -->` 與 `<!-- INSTALL:START -->` 區塊。
 
 `SKILL.md` 必要格式：
 
@@ -238,6 +126,24 @@ description: 觸發技能載入的一行說明。
 ```
 
 ---
+
+## 每日自動同步
+
+`.github/workflows/sync.yml` 每日 03:00 UTC 觸發，但**排程套用（apply）預設為關閉**。
+
+同步引擎會以 release tag 與 lockfile 對帳；在 release tag 尚未推送之前，每次排程執行都會失敗並重複開啟追蹤 issue。因此排程 apply 由 repository variable `SKILLS_SYNC_ENABLED` 控制：
+
+```bash
+# 於 release tag（例如 v1.1.0）推送發布後再執行，才會啟用每日排程同步
+gh variable set SKILLS_SYNC_ENABLED --body true
+```
+
+（亦可於 Settings → Secrets and variables → Actions → Variables 新增同名變數。）
+
+變數值必須恰好是字串 `true`；未設定或其他值都會讓排程 job 直接 skip（不算失敗、不會產生噪音）。手動觸發（`workflow_dispatch`）的 dry-run 與 apply 不受此變數影響，隨時可用。
+
+---
+
 
 ## 核心原則
 
@@ -252,4 +158,6 @@ description: 觸發技能載入的一行說明。
 
 ## 授權
 
-各 skill 來源的授權依其原始專案為準。`microsoft/skills` 採用 MIT License。
+- 本 registry 的工具程式（`scripts/`、`hooks/`）與未來的 `skills/lettucebo/` 原創技能採用 MIT License，詳見 [LICENSE](LICENSE)。
+- 各 vendored skill 保留其原始專案的授權；完整來源與授權對應請見 [NOTICE](NOTICE)。
+- `claude/docx`、`claude/pdf`、`claude/pptx`、`claude/xlsx` 為專有授權（Restricted，`redistributable: false`），使用前請先閱讀各技能資料夾內的 `LICENSE.txt`。

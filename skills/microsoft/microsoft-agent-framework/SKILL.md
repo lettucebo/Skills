@@ -1,6 +1,12 @@
 ---
 name: microsoft-agent-framework
-description: 'Create, update, refactor, explain, or review Microsoft Agent Framework solutions using shared guidance plus language-specific references for .NET and Python.'
+description: Create, update, refactor, explain, or review Microsoft Agent
+  Framework solutions using shared guidance plus language-specific references
+  for .NET and Python.
+x-source: github/awesome-copilot
+x-source-path: skills/microsoft-agent-framework
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Microsoft Agent Framework

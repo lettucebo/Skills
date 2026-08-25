@@ -1,0 +1,24 @@
+{
+  "path": "skills/cloudflare/sandbox-stable",
+  "name": "sandbox-sdk",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-24T12:03:24+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:581dc54405f0bf586e353120fbff09d4dfb3c93c12bc5322d39b71644c44d65c"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "f96bff754e428838818017f75817f0f9428acd48",
+      "diffUrl": null,
+      "contentHash": "sha256:051141ce004cf8060023f3bfbcaad33b987e3913fa1303f332acf8baa4e95f80"
+    }
+  ]
+}

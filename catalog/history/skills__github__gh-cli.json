@@ -1,0 +1,24 @@
+{
+  "path": "skills/github/gh-cli",
+  "name": "gh-cli",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:75d775cfffc8531dd5699da4fa0a158bca5c51fbf036fa55022e42f2f7be6bee"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "27f583d0e4df7f0cef3c06840848a32efc55e1b4",
+      "diffUrl": null,
+      "contentHash": "sha256:653c1d667afbae4aca8d72c49cbacd67d37f256577151f76c22bf3ef56871b07"
+    }
+  ]
+}

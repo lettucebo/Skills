@@ -1,6 +1,11 @@
 ---
 name: csharp-docs
-description: 'Ensure that C# types are documented with XML comments and follow best practices for documentation.'
+description: Ensure that C# types are documented with XML comments and follow
+  best practices for documentation.
+x-source: github/awesome-copilot
+x-source-path: skills/csharp-docs
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # C# Documentation Best Practices

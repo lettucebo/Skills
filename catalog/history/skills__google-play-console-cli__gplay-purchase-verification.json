@@ -1,0 +1,16 @@
+{
+  "path": "skills/google-play-console-cli/gplay-purchase-verification",
+  "name": "gplay-purchase-verification",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "firstSeen": "2026-08-26T00:32:45+08:00",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "contentHash": "sha256:58aac8f1c340b4a365caf5e2cfc6be01a2f44588e27c01ad145c601d418812d1"
+    }
+  ]
+}

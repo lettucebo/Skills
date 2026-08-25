@@ -1,0 +1,24 @@
+{
+  "path": "skills/power-platform/power-apps-code-app-scaffold",
+  "name": "power-apps-code-app-scaffold",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:025b47a9a8d8ab1c9100533a64fef4a3e57178d7386c548adda466c1d6939063"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "contentHash": "sha256:3190ac9f94bc21786b043d853a02d08dbbe7239993b83544224da137f2c569f4"
+    }
+  ]
+}

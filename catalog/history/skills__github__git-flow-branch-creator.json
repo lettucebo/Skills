@@ -1,0 +1,24 @@
+{
+  "path": "skills/github/git-flow-branch-creator",
+  "name": "git-flow-branch-creator",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:e7298fce40134f6b7e2d216122bef2d7015939efabe4f1416ee2d150c7066ac9"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "contentHash": "sha256:a64f1e0ee5b447a050a720fd0d32a928e14be27640f17e71d6ba256eeca18567"
+    }
+  ]
+}

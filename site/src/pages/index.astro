@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Search from '../components/Search.astro';
+import InstallCommand from '../components/InstallCommand.astro';
+import {
+  loadCatalog,
+  loadSkillBody,
+  computeCounts,
+  computeStatusPartition,
+  generateRepoInstallCommand,
+  generateSingleSkillInstallCommand,
+  generateSourceInstallCommand,
+  getRestrictedSkills,
+  getRestrictedSources,
+  RELEASE_VERSION,
+  RELEASE_PUBLISHED,
+  sourceContainsRestricted,
+} from '../lib/catalog';
+import path from 'node:path';
+
+const repoRoot = path.resolve(process.cwd(), '..');
+const catalog = await loadCatalog(repoRoot);
+const counts = catalog.counts;
+// Disjoint buckets that mirror the rendered badges and the origin filter, so
+// the summary line adds up to the catalog total instead of double-counting the
+// restricted skills inside `counts.mapped`.
+const partition = computeStatusPartition(catalog.skills);
+const repoCmd = generateRepoInstallCommand();
+const base = import.meta.env.BASE_URL;
+
+// The full-repo install disclosure is derived from the lock file so it stays
+// correct when the restricted inventory changes.
+const restrictedCount = getRestrictedSkills(catalog.skills).length;
+const restrictedPlural = restrictedCount === 1 ? '' : 's';
+const restrictedSourceLabel = getRestrictedSources(catalog.skills)
+  .map((source) => `skills/${source}`)
+  .join(', ');
+
+// Load descriptions for non-restricted, non-tombstone skills
+const skillDescriptions = new Map<string, string>();
+for (const skill of catalog.skills) {
+  if (skill.isTombstone || skill.isRestricted) continue;
+  const body = await loadSkillBody(repoRoot, skill);
+  if (body?.description) {
+    skillDescriptions.set(skill.path, body.description);
+  }
+}
+
+function badgeClass(skill: typeof catalog.skills[0]): string {
+  if (skill.isRestricted) return 'badge badge--restricted';
+  if (skill.isOrphan) return 'badge badge--frozen';
+  if (skill.isLocal) return 'badge badge--local';
+  return 'badge badge--synced';
+}
+---
+<Layout title="Catalog">
+  <section class="hero">
+    <h1>Skills Registry</h1>
+    <div class="hero-meta">
+      <span class="badge badge--version">v{RELEASE_VERSION}</span>
+      {!RELEASE_PUBLISHED && <span class="badge badge--pending">Release pending</span>}
+    </div>
+    <p>
+      <strong>{partition.total}</strong> total &middot;
+      <strong>{partition.synced}</strong> synced &middot;
+      <strong>{partition.frozen}</strong> frozen &middot;
+      {partition.local > 0 && (<><strong>{partition.local}</strong> local &middot; </>)}
+      <strong>{partition.restricted}</strong> restricted
+    </p>
+  </section>
+
+  <section>
+    <h2>Install</h2>
+    <p>
+      Skills use <code>#ref</code> pinning (never <code>@version</code>).
+      Pin to a git tag for reproducible installs.
+    </p>
+    <InstallCommand command={repoCmd} />
+    {restrictedCount > 0 && (
+      <div class="warning-box" role="note">
+        <strong>⚠ Full-repo install includes {restrictedCount} restricted skill{restrictedPlural}</strong>
+        <p>
+          This command installs the entire repository, including {restrictedCount} proprietary, non-redistributable skill{restrictedPlural} under <code>{restrictedSourceLabel}</code>. They are published here for reference only &mdash; you are responsible for reviewing and complying with their upstream licence terms before use.
+        </p>
+        <p>
+          To avoid them, install a single source or a single skill instead of the full repository.
+          The <a href={`${base}status/`}>Status page</a> lists every restricted skill.
+        </p>
+      </div>
+    )}
+  </section>
+
+  <section>
+    <h2>Search</h2>
+    <Search />
+  </section>
+
+  <section>
+    <h2>Sources</h2>
+    <ul class="nav-links" style="margin-bottom:16px;">
+      {catalog.sources.map((source) => (
+        <li><a href={`${base}sources/${source}/`}>{source}</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="full-catalog">
+    <h2>All Skills ({counts.total})</h2>
+    <div class="card-grid">
+      {catalog.skills
+        .filter((s) => !s.isTombstone)
+        .map((skill) => {
+          const desc = skillDescriptions.get(skill.path);
+          return (
+            <article class="card">
+              <a href={`${base}skills/${skill.source}/${skill.slug}/`}>
+                <div class="card-title">{skill.name}</div>
+                <div class="card-meta">
+                  <span>{skill.source}</span>
+                  <span>v{skill.version}</span>
+                  <span class={badgeClass(skill)}>{skill.statusLabel}</span>
+                  {skill.license !== 'Unknown' && <span>{skill.license}</span>}
+                </div>
+                {desc && <div class="card-description">{desc}</div>}
+              </a>
+            </article>
+          );
+        })
+      }
+    </div>
+  </section>
+</Layout>

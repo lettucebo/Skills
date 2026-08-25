@@ -1,0 +1,16 @@
+{
+  "path": "skills/google-play-console-cli/gplay-screenshot-automation",
+  "name": "gplay-screenshot-automation",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "firstSeen": "2026-08-26T00:32:45+08:00",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "contentHash": "sha256:9f93238d7d2013e8b027b27ad2694bce85e0423452d6f518f94f362f5e1401de"
+    }
+  ]
+}

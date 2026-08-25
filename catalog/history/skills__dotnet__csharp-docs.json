@@ -1,0 +1,24 @@
+{
+  "path": "skills/dotnet/csharp-docs",
+  "name": "csharp-docs",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:4f5eaee3f202fcd7244d86d7d3415f474ed13537ce27a58c42a53ee97ed48d09"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "contentHash": "sha256:f23954d8c26c5a79d522a8b3d5122fccd35dd25e1f12a6bdfbccba2fe7ff3629"
+    }
+  ]
+}

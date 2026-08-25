@@ -1,0 +1,16 @@
+{
+  "path": "skills/google-play-console-cli/gplay-cli-usage",
+  "name": "gplay-cli-usage",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "firstSeen": "2026-08-26T00:32:45+08:00",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "contentHash": "sha256:862ce0ce874324c9485a1c1faf8feed4eb46a855126cf3065f31d2392e2d67d8"
+    }
+  ]
+}

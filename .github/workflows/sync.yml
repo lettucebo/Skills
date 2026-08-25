@@ -1,0 +1,366 @@
+name: Sync upstream skills
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Plan only and upload the diff artifact (no repository writes).'
+        type: boolean
+        default: true
+      baseline:
+        description: 'Establish the verified upstream baseline. Requires dry_run = false.'
+        type: boolean
+        default: false
+
+concurrency:
+  group: sync-upstream-skills
+  cancel-in-progress: false
+
+# Least privilege by default; jobs widen only what they need.
+permissions:
+  contents: read
+
+jobs:
+  # Safe-contract gate: baseline is a real apply, so it must never run during a
+  # dry run. baseline=true + dry_run=true is rejected before any work happens.
+  guard:
+    name: Validate inputs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reject baseline during a dry run
+        if: ${{ inputs.baseline && inputs.dry_run }}
+        run: |
+          echo "::error::baseline=true requires dry_run=false. A baseline apply must not run during a dry run."
+          exit 1
+
+  dry-run:
+    name: Dry-run plan
+    needs: guard
+    # Only an explicit dry-run dispatch plans. `dry_run=false` is an apply
+    # request and is handled by `update`; without the positive `inputs.dry_run`
+    # test both jobs would run for the same dispatch.
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && !inputs.baseline }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run repository validator
+        run: node scripts/validate.mjs
+
+      - name: Plan upstream sync (metadata-only diff)
+        run: |
+          mkdir -p sync-report
+          node scripts/sync.mjs --dry-run --output sync-report/changeset.json
+
+      - name: Upload diff artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-changeset
+          path: sync-report/changeset.json
+          if-no-files-found: warn
+
+      - name: Open or update the sync failure issue
+        if: ${{ failure() }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Stable marker keeps this to ONE tracking issue that is reused and
+            // reopened, never a new issue per run. Only trusted values are
+            // interpolated; run metadata is passed via github-script, not shell.
+            const marker = '<!-- sync-dry-run-tracker -->';
+            const title = 'Upstream sync dry-run failing';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              marker,
+              '',
+              'The manual **Sync upstream skills** dry-run failed.',
+              '',
+              `- Run: ${runUrl}`,
+              `- Triggered by: @${context.actor}`,
+              `- Commit: ${context.sha}`,
+              '',
+              'Download the `sync-changeset` artifact (when present) for the metadata diff.',
+              'This issue is updated in place on each failing run; close it once the dry-run is green.',
+            ].join('\n');
+
+            const existing = await github.rest.search.issuesAndPullRequests({
+              q: `repo:${context.repo.owner}/${context.repo.repo} is:issue in:body "${marker}"`,
+            });
+            const tracked = existing.data.items.find((issue) => issue.pull_request === undefined);
+
+            if (tracked) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: tracked.number,
+                state: 'open',
+                body,
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: tracked.number,
+                body: `Dry-run failed again: ${runUrl}`,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
+
+  baseline-apply:
+    name: Establish verified baseline
+    needs: guard
+    # Only an explicit, non-dry baseline request reaches the apply engine.
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.ref == 'refs/heads/main' &&
+      inputs.baseline &&
+      !inputs.dry_run
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      # The baseline must deploy the commit it just pushed, never the original
+      # workflow-dispatch SHA inherited by a reusable workflow.
+      head_sha: ${{ steps.head.outputs.head_sha }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Full history so the commit lands on the manually selected branch.
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Pre-apply validation
+        run: node scripts/validate.mjs
+
+      - name: Apply verified upstream baseline
+        run: node scripts/sync.mjs --baseline
+
+      - name: Post-apply validation
+        run: node scripts/validate.mjs
+
+      - name: Commit baseline
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'chore(sync): establish verified upstream baseline'
+          RELEASE=$(node -p "JSON.parse(require('fs').readFileSync('catalog/skills.lock.json','utf8')).release")
+          TAG="v$RELEASE"
+          git tag -a "$TAG" -m 'chore(sync): establish verified upstream baseline'
+          git push --atomic origin HEAD:${{ github.ref_name }} "refs/tags/$TAG"
+
+      - name: Resolve deployable HEAD sha
+        id: head
+        run: echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  update:
+    name: Apply upstream updates
+    needs: guard
+    # Scheduled runs are gated on the free repository variable
+    # SKILLS_SYNC_ENABLED. The engine refuses to update until the release tag
+    # named by catalog/skills.lock.json exists and is an ancestor of HEAD, so
+    # while v<release> is unpublished every cron tick would fail reconciliation
+    # and reopen the tracking issue. The cron stays armed; the gate decides.
+    #
+    # To enable after publishing the release tag:
+    #   gh variable set SKILLS_SYNC_ENABLED --body true
+    # (Settings → Secrets and variables → Actions → Variables also works.)
+    #
+    # A manual `workflow_dispatch` apply (dry_run=false, baseline=false) is a
+    # deliberate operator action and is never gated.
+    if: >-
+      (github.event_name == 'schedule' &&
+        github.ref == 'refs/heads/main' &&
+        vars.SKILLS_SYNC_ENABLED == 'true') ||
+      (github.event_name == 'workflow_dispatch' &&
+        github.ref == 'refs/heads/main' &&
+        !inputs.baseline &&
+        !inputs.dry_run)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    outputs:
+      # The exact commit the deploy job must build. Resolved AFTER any commit
+      # and push, so an applied sync deploys the new tree instead of the
+      # pre-sync SHA that the reusable workflow would otherwise inherit.
+      head_sha: ${{ steps.head.outputs.head_sha }}
+      # A successful update job can be a no-op. Deploy only when the engine
+      # actually created and published an updated tree.
+      applied: ${{ steps.apply.outputs.applied }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run repository validator
+        run: node scripts/validate.mjs
+
+      - name: Apply upstream updates
+        id: apply
+        run: |
+          mkdir -p sync-report
+          node scripts/sync.mjs --apply --output sync-report/result.json
+
+          # Read the engine result to decide whether to commit.
+          APPLIED=$(node -e "const r=JSON.parse(require('fs').readFileSync('sync-report/result.json','utf8'));process.stdout.write(String(r.applied))")
+          echo "applied=$APPLIED" >> "$GITHUB_OUTPUT"
+
+          if [ "$APPLIED" = "true" ]; then
+            COMMIT_MSG=$(node -e "const r=JSON.parse(require('fs').readFileSync('sync-report/result.json','utf8'));process.stdout.write(r.commitMessage)")
+            echo "commit_message=$COMMIT_MSG" >> "$GITHUB_OUTPUT"
+            NEXT_TAG=$(node -e "const r=JSON.parse(require('fs').readFileSync('sync-report/result.json','utf8'));process.stdout.write(r.nextTag)")
+            echo "next_tag=$NEXT_TAG" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and tag
+        if: steps.apply.outputs.applied == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "${{ steps.apply.outputs.commit_message }}"
+          git tag -a "${{ steps.apply.outputs.next_tag }}" -m "${{ steps.apply.outputs.commit_message }}"
+          git push --atomic origin HEAD:${{ github.ref_name }} "refs/tags/${{ steps.apply.outputs.next_tag }}"
+
+      # Runs for BOTH an applied sync (new commit) and a no-op sync (unchanged
+      # checkout). Steps only run after every previous step succeeded, so this
+      # SHA always names a tree that is already pushed.
+      - name: Resolve deployable HEAD sha
+        id: head
+        run: echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Upload sync report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-update-result
+          path: sync-report/result.json
+          if-no-files-found: warn
+
+      - name: Open or update the update failure issue
+        if: ${{ failure() }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const marker = '<!-- sync-update-tracker -->';
+            const title = 'Daily upstream update failing';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              marker,
+              '',
+              'The daily **Sync upstream skills** update job failed.',
+              '',
+              `- Run: ${runUrl}`,
+              `- Triggered by: @${context.actor}`,
+              `- Commit: ${context.sha}`,
+              '',
+              'Download the `sync-update-result` artifact (when present) for the engine output.',
+              'This issue is updated in place on each failing run; close it once the update is green.',
+            ].join('\n');
+
+            const existing = await github.rest.search.issuesAndPullRequests({
+              q: `repo:${context.repo.owner}/${context.repo.repo} is:issue in:body "${marker}"`,
+            });
+            const tracked = existing.data.items.find((issue) => issue.pull_request === undefined);
+
+            if (tracked) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: tracked.number,
+                state: 'open',
+                body,
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: tracked.number,
+                body: `Update failed again: ${runUrl}`,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
+
+  # Deploy after exactly one successful main apply. GITHUB_TOKEN pushes and tags
+  # cannot be used as an implicit handoff because recursive-run protection
+  # prevents their workflows from running.
+  deploy:
+    name: Deploy site
+    needs: [guard, baseline-apply, update]
+    if: >-
+      always() &&
+      needs.guard.result == 'success' &&
+      github.ref == 'refs/heads/main' &&
+      (
+        (needs.baseline-apply.result == 'success' && needs.update.result != 'success') ||
+        (
+          needs.baseline-apply.result != 'success' &&
+          needs.update.result == 'success' &&
+          needs.update.outputs.applied == 'true'
+        )
+      )
+    uses: ./.github/workflows/deploy-site.yml
+    with:
+      # A reusable workflow inherits the caller's ORIGINAL event SHA. Select
+      # the post-push SHA from the one apply job that actually succeeded.
+      ref: ${{ needs.baseline-apply.result == 'success' && needs.baseline-apply.outputs.head_sha || needs.update.outputs.head_sha }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

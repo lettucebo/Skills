@@ -1,6 +1,12 @@
 ---
 name: az-cost-optimize
-description: 'Analyze Azure resources used in the app (IaC files and/or resources in a target rg) and optimize costs - creating GitHub issues for identified optimizations.'
+description: Analyze Azure resources used in the app (IaC files and/or resources
+  in a target rg) and optimize costs - creating GitHub issues for identified
+  optimizations.
+x-source: github/awesome-copilot
+x-source-path: skills/az-cost-optimize
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # Azure Cost Optimize

@@ -1,0 +1,24 @@
+{
+  "path": "skills/gtm/gtm-ai-gtm",
+  "name": "gtm-ai-gtm",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:231b3c5e565c09d0c567511ebbef7c0a30b511b5c9cd27911aaaefb2fee40266"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "contentHash": "sha256:3fc31fe28c2f3c0a419a6810ce1b516f6989ecbb5bb659841246f1c912908826"
+    }
+  ]
+}

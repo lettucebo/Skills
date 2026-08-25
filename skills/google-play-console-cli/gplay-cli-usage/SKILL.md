@@ -1,6 +1,13 @@
 ---
 name: gplay-cli-usage
-description: Guidance for using the Google Play Console CLI in this repo (flags, output formats, pagination, auth, and discovery). Use when asked to run or design gplay commands or interact with Google Play Console via the CLI.
+description: Guidance for using the Google Play Console CLI in this repo (flags,
+  output formats, pagination, auth, and discovery). Use when asked to run or
+  design gplay commands or interact with Google Play Console via the CLI.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-cli-usage
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Google Play CLI usage

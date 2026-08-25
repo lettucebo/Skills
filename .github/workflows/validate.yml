@@ -1,0 +1,110 @@
+name: Validate skills registry
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run repository validator
+        run: node scripts/validate.mjs
+
+  # The root `npm test` is scoped to scripts/test, so the site unit suite needs
+  # its own job with the site dependencies installed. It runs unconditionally:
+  # the site loader reads catalog/skills.lock.json, so a catalog-only change can
+  # break it just as easily as a site/** change.
+  site-tests:
+    name: Site unit tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install site dependencies
+        run: npm --prefix site ci
+
+      - name: Run site unit tests
+        run: npm --prefix site test
+
+  check-site-changes:
+    runs-on: ubuntu-latest
+    # Job-level permissions REPLACE the workflow-level block, so contents: read
+    # must be restated. dorny/paths-filter reads the PR file list through the
+    # REST API on pull_request events, which needs pull-requests: read — the
+    # workflow-level `contents: read` sets every other scope to none.
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      changed: ${{ steps.filter.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for site/catalog/skills changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            changed:
+              - 'site/**'
+              - 'catalog/**'
+              - 'skills/**'
+
+  e2e:
+    needs: check-site-changes
+    if: needs.check-site-changes.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install site dependencies
+        run: npm --prefix site ci
+
+      - name: Install Playwright Chromium
+        run: npx --prefix site playwright install chromium --with-deps
+
+      - name: Run E2E tests
+        run: npm --prefix site run test:e2e
+        env:
+          CI: true

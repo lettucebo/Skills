@@ -1,6 +1,10 @@
 ---
 name: csharp-async
-description: 'Get best practices for C# async programming'
+description: Get best practices for C# async programming
+x-source: github/awesome-copilot
+x-source-path: skills/csharp-async
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 # C# Async Programming Best Practices

@@ -1,0 +1,16 @@
+{
+  "path": "skills/github/create-github-pull-request-from-specification",
+  "name": "create-github-pull-request-from-specification",
+  "category": "orphan",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:6a610bc40f5f31b9f5d0d8cdd4d5d40839ffc69191d72a2df086e0f952f0f724"
+    }
+  ]
+}

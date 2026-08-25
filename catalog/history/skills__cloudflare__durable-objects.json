@@ -1,0 +1,24 @@
+{
+  "path": "skills/cloudflare/durable-objects",
+  "name": "durable-objects",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:86ca4554842eafcc2b02eb2fab40204f37d13d21f292893b26509a73ccbab3da"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "f96bff754e428838818017f75817f0f9428acd48",
+      "diffUrl": null,
+      "contentHash": "sha256:b4fa625f1c7a01119ea71d1ef7354f8aab2f9035da5c581891795e296b2b7ce9"
+    }
+  ]
+}

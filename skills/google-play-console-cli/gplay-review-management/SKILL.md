@@ -1,6 +1,12 @@
 ---
 name: gplay-review-management
-description: Review monitoring, filtering, and automated responses for Google Play. Use when managing user reviews and feedback.
+description: Review monitoring, filtering, and automated responses for Google
+  Play. Use when managing user reviews and feedback.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-review-management
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # Review Management for Google Play

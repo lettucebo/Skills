@@ -1,0 +1,24 @@
+{
+  "path": "skills/microsoft/microsoft-docs",
+  "name": "microsoft-docs",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:82e52e906b8e99d606fd7cab7ed6704864a0c640ad141db32266092dbf8b697c"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+      "diffUrl": null,
+      "contentHash": "sha256:585b6cde026858cc5b256de67bd8ed8284030ff1aa8fc04bbf554e359570e182"
+    }
+  ]
+}

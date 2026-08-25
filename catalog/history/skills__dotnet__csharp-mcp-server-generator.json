@@ -1,0 +1,16 @@
+{
+  "path": "skills/dotnet/csharp-mcp-server-generator",
+  "name": "csharp-mcp-server-generator",
+  "category": "orphan",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:69cf550963b495a259c2d60ae0b2484b400118cd794edaa575aad8212fba0ade"
+    }
+  ]
+}

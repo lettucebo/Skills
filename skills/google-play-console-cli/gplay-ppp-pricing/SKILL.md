@@ -1,6 +1,13 @@
 ---
 name: gplay-ppp-pricing
-description: Set region-specific pricing for subscriptions and in-app purchases using purchasing power parity (PPP). Use when adjusting prices by country or implementing localized pricing strategies on Google Play.
+description: Set region-specific pricing for subscriptions and in-app purchases
+  using purchasing power parity (PPP). Use when adjusting prices by country or
+  implementing localized pricing strategies on Google Play.
+x-source: tamtom/gplay-cli-skills
+x-source-ref: refs/heads/main
+x-source-path: skills/gplay-ppp-pricing
+x-source-commit: 10301b24639e4f768d009b2edda9315cb2149712
+x-version: 1.1.0
 ---
 
 # PPP Pricing (Per-Region Pricing)

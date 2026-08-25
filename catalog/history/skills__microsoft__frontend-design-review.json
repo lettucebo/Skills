@@ -1,0 +1,24 @@
+{
+  "path": "skills/microsoft/frontend-design-review",
+  "name": "frontend-design-review",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:3e323a24ff2f99be97099a8e55d63d6e7e646c3c9674b32087393a34b649773f"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+      "diffUrl": null,
+      "contentHash": "sha256:ff28c09bb4264604c1b20e3a98511b9b49a0858bc990920fac0ef06a4397e3c6"
+    }
+  ]
+}

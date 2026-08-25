@@ -1,6 +1,13 @@
 ---
 name: azure-static-web-apps
-description: Helps create, configure, and deploy Azure Static Web Apps using the SWA CLI. Use when deploying static sites to Azure, setting up SWA local development, configuring staticwebapp.config.json, adding Azure Functions APIs to SWA, or setting up GitHub Actions CI/CD for Static Web Apps.
+description: Helps create, configure, and deploy Azure Static Web Apps using the
+  SWA CLI. Use when deploying static sites to Azure, setting up SWA local
+  development, configuring staticwebapp.config.json, adding Azure Functions APIs
+  to SWA, or setting up GitHub Actions CI/CD for Static Web Apps.
+x-source: github/awesome-copilot
+x-source-path: skills/azure-static-web-apps
+x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
+x-version: 1.1.0
 ---
 
 ## Overview

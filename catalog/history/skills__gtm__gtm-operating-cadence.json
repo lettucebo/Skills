@@ -1,0 +1,24 @@
+{
+  "path": "skills/gtm/gtm-operating-cadence",
+  "name": "gtm-operating-cadence",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:3ef7eea3f367abf0fb6f275540030eade6714ddb8ea738aade7e6d6dab24b08b"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "contentHash": "sha256:9e16debd762b1281834c7204dfae212c1960f78a1756ef7da433c2aabfdf5de7"
+    }
+  ]
+}

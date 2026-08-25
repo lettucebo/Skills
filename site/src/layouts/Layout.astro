@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Curated AI coding agent skills registry' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  const norm = (p: string) => p.replace(/\/+$/, '') || '/';
+  return norm(currentPath) === norm(href);
+}
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <title>{title} | Skills Registry</title>
+  <script is:inline>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav aria-label="Main navigation">
+      <a href={base} class="site-title">Skills Registry</a>
+      <ul class="nav-links">
+        <li><a href={base} aria-current={isActive(base) ? 'page' : undefined}>Catalog</a></li>
+        <li><a href={`${base}status/`} aria-current={isActive(`${base}status/`) ? 'page' : undefined}>Status</a></li>
+        <li><a href="https://github.com/lettucebo/Skills" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="site-main" role="main" tabindex="-1">
+    <slot />
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>Skills Registry &mdash; Curated AI coding agent skills</p>
+  </footer>
+</body>
+</html>

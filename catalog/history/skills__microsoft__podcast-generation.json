@@ -1,0 +1,24 @@
+{
+  "path": "skills/microsoft/podcast-generation",
+  "name": "podcast-generation",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:6abfea7cc549373455643f72ecb0ca399a0fadf32001ccf27933aefb7e1873cf"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+      "diffUrl": null,
+      "contentHash": "sha256:8c616423da2b6c2fea3cee0209daa80002fa39add568aad0f8763c67d0635773"
+    }
+  ]
+}

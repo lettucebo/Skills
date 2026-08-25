@@ -1,0 +1,24 @@
+{
+  "path": "skills/claude/algorithmic-art",
+  "name": "algorithmic-art",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:4ff96cf4b226122b01e5dcbbd72d4e57068af128251eae068b27ffb9bb9a8700"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "diffUrl": null,
+      "contentHash": "sha256:8c15717769d76330df4387b85402a3754d858b97749ae259d3365ea9ea394f89"
+    }
+  ]
+}

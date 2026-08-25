@@ -1,0 +1,24 @@
+{
+  "path": "skills/vscode/security-review",
+  "name": "security-review",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:7bf6756c98b381fb69d04e3f7b44d680b1f7a60b75861d62197fddc0b2be8891"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "contentHash": "sha256:a74d7421eca101950a509a489ad33646ac2741ad06724a3d9eb581686dae0199"
+    }
+  ]
+}

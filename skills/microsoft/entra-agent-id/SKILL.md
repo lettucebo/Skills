@@ -1,10 +1,24 @@
 ---
 name: entra-agent-id
-description: |
-  Microsoft Entra Agent ID (preview) for creating OAuth2-capable AI agent identities via Microsoft Graph beta API.
-  Covers Agent Identity Blueprints, BlueprintPrincipals, Agent Identities, required permissions, sponsors, and Workload Identity Federation.
-  Includes Microsoft Entra SDK for AgentID (containerized sidecar) for polyglot agent authentication (Docker/Kubernetes), 3P agent integration, autonomous and interactive agent patterns.
-  Triggers: "agent identity", "agent id", "Agent Identity Blueprint", "BlueprintPrincipal", "entra agent", "agent identity provisioning", "Graph agent identity", "entra sidecar", "agent id sidecar", "auth sidecar", "3P agent", "third-party agent identity", "polyglot agent auth".
+description: >
+  Microsoft Entra Agent ID (preview) for creating OAuth2-capable AI agent
+  identities via Microsoft Graph beta API.
+
+  Covers Agent Identity Blueprints, BlueprintPrincipals, Agent Identities,
+  required permissions, sponsors, and Workload Identity Federation.
+
+  Includes Microsoft Entra SDK for AgentID (containerized sidecar) for polyglot
+  agent authentication (Docker/Kubernetes), 3P agent integration, autonomous and
+  interactive agent patterns.
+
+  Triggers: "agent identity", "agent id", "Agent Identity Blueprint",
+  "BlueprintPrincipal", "entra agent", "agent identity provisioning", "Graph
+  agent identity", "entra sidecar", "agent id sidecar", "auth sidecar", "3P
+  agent", "third-party agent identity", "polyglot agent auth".
+x-source: microsoft/skills
+x-source-path: .github/skills/entra-agent-id
+x-source-commit: cde32f9c7332b53de67faa7dadabb6873d02bb0c
+x-version: 1.1.0
 ---
 
 # Microsoft Entra Agent ID

@@ -1,0 +1,134 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import InstallCommand from '../../../components/InstallCommand.astro';
+import {
+  loadCatalog,
+  loadSkillBody,
+  loadSkillHistory,
+  generateSingleSkillInstallCommand,
+  RELEASE_VERSION,
+  RELEASE_PUBLISHED,
+} from '../../../lib/catalog';
+import path from 'node:path';
+
+const repoRoot = path.resolve(process.cwd(), '..');
+const catalog = await loadCatalog(repoRoot);
+const base = import.meta.env.BASE_URL;
+
+export async function getStaticPaths() {
+  const repoRoot = path.resolve(process.cwd(), '..');
+  const catalog = await loadCatalog(repoRoot);
+
+  return catalog.skills
+    .filter((s) => !s.isTombstone)
+    .map((skill) => ({
+      params: { source: skill.source, skill: skill.slug },
+      props: { skill },
+    }));
+}
+
+const { skill } = Astro.props;
+
+const body = await loadSkillBody(repoRoot, skill);
+const history = await loadSkillHistory(repoRoot, skill);
+const installCmd = skill.isRestricted
+  ? null
+  : generateSingleSkillInstallCommand(skill.name);
+
+function statusBadgeClass(): string {
+  if (skill.isRestricted) return 'badge badge--restricted';
+  if (skill.isOrphan) return 'badge badge--frozen';
+  if (skill.isLocal) return 'badge badge--local';
+  return 'badge badge--synced';
+}
+---
+<Layout title={skill.name}>
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href={base}>Catalog</a>
+    <span aria-hidden="true">/</span>
+    <a href={`${base}sources/${skill.source}/`}>{skill.source}</a>
+    <span aria-hidden="true">/</span>
+    <span>{skill.name}</span>
+  </nav>
+
+  <article data-pagefind-body>
+    <div class="detail-header">
+      <h1>{skill.name}</h1>
+      <div class="detail-meta">
+        <span class={statusBadgeClass()} data-pagefind-filter="origin">{skill.statusLabel}</span>
+        <span data-pagefind-meta="version">v{skill.version}</span>
+        <span data-pagefind-filter="license" data-pagefind-meta="license" hidden>{skill.license}</span>
+        {skill.license && skill.license !== 'Unknown' && (
+          <span>License: {skill.license}</span>
+        )}
+        <span data-pagefind-filter="source" data-pagefind-meta="source" hidden>{skill.source}</span>
+        {skill.upstreamRepo && (
+          <span>
+            Source: <a href={`https://github.com/${skill.upstreamRepo}`} rel="noopener noreferrer">{skill.upstreamRepo}</a>
+          </span>
+        )}
+        {skill.upstreamCommit && (
+          <span>
+            Commit: <code>{skill.upstreamCommit.slice(0, 7)}</code>
+          </span>
+        )}
+      </div>
+    </div>
+
+    {body?.description && (
+      <p class="detail-description" style="color:var(--cp-muted-text);margin-bottom:16px;">{body.description}</p>
+    )}
+
+    {skill.isRestricted && (
+      <div class="warning-box" data-pagefind-ignore>
+        <strong>⚠ Restricted Content</strong>
+        <p>
+          This skill is licensed under proprietary terms and cannot be redistributed.
+          No installation command is available. Please refer to the upstream repository
+          for access and licensing details.
+        </p>
+        {skill.upstreamRepo && (
+          <p>
+            Upstream: <a href={`https://github.com/${skill.upstreamRepo}`} rel="noopener noreferrer">{skill.upstreamRepo}</a>
+          </p>
+        )}
+      </div>
+    )}
+
+    {skill.isOrphan && (
+      <div class="info-box">
+        <strong>⚠ Frozen / No Upstream</strong>
+        <p>
+          This skill has no verified upstream source. It is frozen at v{skill.version} and will not receive updates.
+        </p>
+      </div>
+    )}
+
+    {!skill.isRestricted && installCmd && (
+      <div data-pagefind-ignore>
+        <InstallCommand command={installCmd} />
+      </div>
+    )}
+
+    {!skill.isRestricted && body?.renderedBody && (
+      <div class="detail-body">
+        <Fragment set:html={body.renderedBody} />
+      </div>
+    )}
+  </article>
+
+  {history.length > 0 && (
+    <div class="timeline" data-pagefind-ignore>
+      <h2>History</h2>
+      {history.map((entry) => (
+        <div class="timeline-entry">
+          <span class="timeline-version">v{entry.version}</span>
+          <span class="timeline-kind">{entry.kind}</span>
+          {entry.upstreamCommit && (
+            <span><code>{String(entry.upstreamCommit).slice(0, 7)}</code></span>
+          )}
+        </div>
+      ))}
+    </div>
+  )}
+</Layout>

@@ -9,7 +9,7 @@ Top-level structure:
 - `hooks/` — standalone Copilot hook scripts (secrets-scanner, session-logger, tool-guardian, governance-audit, dependency-license-checker, session-auto-commit)
 - `.github/instructions/` — scoped instruction files (`general`, `documentation`, `commit`, `code-review`, `testing`)
 
-Current skill sources under `skills/`: `azure`, `chrome`, `claude`, `cloudflare`, `dotnet`, `github`, `google-tag-manager`, `microsoft`, `power-platform`, `tampermonkey`, `vscode`
+Current skill sources under `skills/`: `azure`, `chrome`, `claude`, `cloudflare`, `dotnet`, `github`, `gtm`, `microsoft`, `power-platform`, `tampermonkey`, `vscode`
 
 ## Build and Test
 

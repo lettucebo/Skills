@@ -1,0 +1,24 @@
+{
+  "path": "skills/microsoft/cloud-solution-architect",
+  "name": "cloud-solution-architect",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "1.0.0",
+      "kind": "bootstrap",
+      "version": "1.0.0",
+      "firstSeen": "2026-08-23T22:44:23+08:00",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "snapshotHash": "sha256:3215a39563cbc577d3bcb26f9351848b448a20f4c164c037d92f3af220a5192e"
+    },
+    {
+      "release": "1.1.0",
+      "kind": "baseline-verified",
+      "version": "1.1.0",
+      "upstreamCommit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+      "diffUrl": null,
+      "contentHash": "sha256:14fc184151de3edfc4269c0ebee1cc0889dd1ac9562cb3916e05d09a91171cbc"
+    }
+  ]
+}

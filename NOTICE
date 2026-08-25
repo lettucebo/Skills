@@ -1,0 +1,56 @@
+# NOTICE
+
+This repository is a curated registry that vendors third-party AI agent skills.
+Each vendored skill retains its original upstream license. This NOTICE is generated
+deterministically from `catalog/skills.lock.json`; do not edit it by hand.
+
+## Provenance by upstream
+
+| Upstream repository | Reference | Skills |
+|---------------------|-----------|:------:|
+| aiskillstore/marketplace | refs/heads/main | 1 |
+| anthropics/skills | refs/heads/main | 17 |
+| cloudflare/skills | refs/heads/main | 13 |
+| github/awesome-copilot | refs/heads/main | 58 |
+| henkisdabro/wookstar-claude-plugins | refs/heads/main | 1 |
+| microsoft/skills | refs/heads/main | 10 |
+| tamtom/gplay-cli-skills | refs/heads/main | 16 |
+
+## License summary
+
+| License | Skills |
+|---------|:------:|
+| Apache-2.0 | 12 |
+| MIT | 16 |
+| Proprietary | 4 |
+| Unknown | 87 |
+
+## Restricted skills
+
+The following skills are marked `redistributable: false`. Their proprietary terms
+are preserved in each skill's own `LICENSE.txt`; this NOTICE does not reproduce the
+full license body. Consult the linked terms before reusing them.
+
+- **skills/claude/docx** — Restricted (Proprietary); see `skills/claude/docx/LICENSE.txt`.
+- **skills/claude/pdf** — Restricted (Proprietary); see `skills/claude/pdf/LICENSE.txt`.
+- **skills/claude/pptx** — Restricted (Proprietary); see `skills/claude/pptx/LICENSE.txt`.
+- **skills/claude/xlsx** — Restricted (Proprietary); see `skills/claude/xlsx/LICENSE.txt`.
+
+## Orphan skills
+
+These skills have no verified upstream source repository and are tracked as orphans:
+
+- skills/dotnet/csharp-mcp-server-generator
+- skills/github/create-github-pull-request-from-specification
+- skills/vscode/code-review
+
+## Local modifications
+
+- Mapped skills record a verified `upstream.commit` and `baseline: "verified"`.
+  The `contentHash` is the upstream pre-stamp content identity; `snapshotHash` describes the
+  vendored bytes after provenance stamping.
+- Any future frontmatter source/version stamps added by this registry are local
+  modifications to the upstream files, not upstream-provided metadata.
+- Bootstrap `firstSeen` timestamps are derived from the current git commit author
+  timestamp because no deterministic per-path upstream history exists yet.
+
