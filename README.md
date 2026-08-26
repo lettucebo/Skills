@@ -4,6 +4,8 @@
 
 本 Repo 的目的是集中管理、分類並存放所有我認為實用的 [Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills)，方便在不同專案中快速引用與複用。
 
+[文件 / Documentation](docs/README.md)
+
 ---
 
 ## 目錄結構
