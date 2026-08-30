@@ -24,8 +24,20 @@ function isActive(href: string): boolean {
   <title>{title} | Skills Registry</title>
   <script is:inline>
     (() => {
-      const param = new URLSearchParams(window.location.search).get("scoutTheme");
-      const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      // Pre-paint theme resolution (runs before first paint to avoid FOUC).
+      // Precedence: scoutTheme URL param > persisted choice > system preference.
+      // "System" is modelled as the ABSENCE of the localStorage key.
+      const STORAGE_KEY = "skills-theme";
+      let stored = null;
+      try {
+        const value = localStorage.getItem(STORAGE_KEY);
+        if (value === "light" || value === "dark") stored = value;
+      } catch (e) { /* localStorage may throw in private modes */ }
+      const rawParam = new URLSearchParams(window.location.search).get("scoutTheme");
+      const param = rawParam === "light" || rawParam === "dark" ? rawParam : null;
+      const theme = param
+        || stored
+        || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
       document.documentElement.setAttribute("data-theme", theme);
     })();
   </script>
@@ -42,7 +54,105 @@ function isActive(href: string): boolean {
         <li><a href={`${base}status/`} aria-current={isActive(`${base}status/`) ? 'page' : undefined}>Status</a></li>
         <li><a href="https://github.com/lettucebo/Skills" rel="noopener noreferrer">GitHub</a></li>
       </ul>
+      <noscript>
+        <style>.theme-toggle { display: none !important; }</style>
+      </noscript>
+      <button
+        id="theme-toggle"
+        type="button"
+        class="theme-toggle"
+        aria-label="Theme: System. Switch to Light."
+      >
+        <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">◐</span>
+        <span class="theme-toggle-label" data-theme-label>System</span>
+      </button>
     </nav>
+    <script>
+      (() => {
+        const STORAGE_KEY = "skills-theme";
+        const root = document.documentElement;
+        const btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+
+        const iconEl = btn.querySelector("[data-theme-icon]");
+        const labelEl = btn.querySelector("[data-theme-label]");
+        const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+        const LABELS = { light: "Light", dark: "Dark", system: "System" };
+        const ICONS = { light: "\u2600", dark: "\u263E", system: "\u25D0" };
+        // Light -> Dark -> System -> Light
+        const NEXT = { light: "dark", dark: "system", system: "light" };
+
+        function readStored() {
+          try {
+            const value = localStorage.getItem(STORAGE_KEY);
+            return value === "light" || value === "dark" ? value : null;
+          } catch (e) {
+            return null;
+          }
+        }
+
+        function readParam() {
+          const raw = new URLSearchParams(window.location.search).get("scoutTheme");
+          return raw === "light" || raw === "dark" ? raw : null;
+        }
+
+        function writeStored(choice) {
+          try {
+            if (choice === "system") localStorage.removeItem(STORAGE_KEY);
+            else localStorage.setItem(STORAGE_KEY, choice);
+          } catch (e) { /* ignore persistence failures */ }
+        }
+
+        function systemTheme() {
+          return media.matches ? "dark" : "light";
+        }
+
+        // Authoritative in-memory choice, resolved with the SAME precedence as the
+        // pre-paint head script: valid scoutTheme override > valid stored choice >
+        // System. It is then advanced on every click regardless of whether
+        // persistence works, so the control keeps cycling even when localStorage
+        // throws. A valid URL override is an explicit light/dark value, so live OS
+        // changes (which only re-apply in System mode) never overwrite it.
+        let activeChoice = readParam() || readStored() || "system";
+
+        function resolvedTheme(choice) {
+          return choice === "system" ? systemTheme() : choice;
+        }
+
+        function applyTheme(choice) {
+          root.setAttribute("data-theme", resolvedTheme(choice));
+        }
+
+        function render() {
+          const next = NEXT[activeChoice];
+          btn.setAttribute("data-theme-choice", activeChoice);
+          btn.setAttribute(
+            "aria-label",
+            "Theme: " + LABELS[activeChoice] + ". Switch to " + LABELS[next] + ".",
+          );
+          if (iconEl) iconEl.textContent = ICONS[activeChoice];
+          if (labelEl) labelEl.textContent = LABELS[activeChoice];
+        }
+
+        // Follow live OS changes only while in System mode.
+        media.addEventListener("change", () => {
+          if (activeChoice === "system") {
+            applyTheme("system");
+            render();
+          }
+        });
+
+        btn.addEventListener("click", () => {
+          activeChoice = NEXT[activeChoice];
+          writeStored(activeChoice);
+          applyTheme(activeChoice);
+          render();
+        });
+
+        render();
+      })();
+    </script>
   </header>
 
   <main id="main-content" class="site-main" role="main" tabindex="-1">
