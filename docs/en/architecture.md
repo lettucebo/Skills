@@ -87,9 +87,12 @@ upstream provenance, and history), but no description, instructions, or
 single-skill install command. Source-level commands are also suppressed when
 that source contains restricted content.
 
-The full-registry command is the deliberate exception: the catalog renders it
-with a warning that selecting the full inventory includes restricted skills.
-The vendored bytes also remain present in tagged repository trees, so this
+The full-registry command is the deliberate exception: the catalog still
+renders it, and it installs restricted skills along with everything else. The
+site no longer places an on-page restricted-content warning beside it, so
+consult `/status/` or the lockfile for the current restricted inventory and
+licensing before running it. The vendored bytes also remain present in tagged
+repository trees, so this
 boundary is website rendering and command suppression, not removal from Git.
 The current restricted set is visible on `/status/` or by searching the
 lockfile for `"redistributable": false`; it is never enumerated here.

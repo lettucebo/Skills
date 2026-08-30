@@ -113,7 +113,8 @@ upstream license is proprietary. A full-registry install includes them; each
 restricted skill's own `LICENSE.txt` governs reuse, and the published
 website deliberately does not render a restricted skill's `SKILL.md` body.
 It suppresses source and single-skill commands for restricted scopes; the
-full-registry command remains visible with an explicit warning.
+full-registry command remains available and installs restricted skills, but
+the site no longer places an on-page restricted-content warning beside it.
 
 The set of restricted skills is not fixed — it changes whenever an upstream
 license changes, so never assume a specific name, path, or count. To see the

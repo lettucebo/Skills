@@ -78,13 +78,6 @@ test('restricted skill pages do not contain SKILL.md body content in built HTML'
       `Restricted page ${relPath} must not contain rendered body content`,
     );
 
-    // Must have the restricted warning
-    assert.match(
-      html,
-      /Restricted Content/,
-      `Restricted page ${relPath} must show restricted warning`,
-    );
-
     // Must NOT contain npx install command
     assert.doesNotMatch(
       html,

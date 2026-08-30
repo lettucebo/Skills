@@ -79,22 +79,6 @@ function statusBadgeClass(): string {
       <p class="detail-description" style="color:var(--cp-muted-text);margin-bottom:16px;">{body.description}</p>
     )}
 
-    {skill.isRestricted && (
-      <div class="warning-box" data-pagefind-ignore>
-        <strong>⚠ Restricted Content</strong>
-        <p>
-          This skill is licensed under proprietary terms and cannot be redistributed.
-          No installation command is available. Please refer to the upstream repository
-          for access and licensing details.
-        </p>
-        {skill.upstreamRepo && (
-          <p>
-            Upstream: <a href={`https://github.com/${skill.upstreamRepo}`} rel="noopener noreferrer">{skill.upstreamRepo}</a>
-          </p>
-        )}
-      </div>
-    )}
-
     {skill.isOrphan && (
       <div class="info-box">
         <strong>⚠ Frozen / No Upstream</strong>

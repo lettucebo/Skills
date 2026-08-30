@@ -2,7 +2,7 @@
  * restricted.spec.ts — Restricted skill page DOM boundary checks.
  *
  * Restricted skills must not render body content, the npx install command,
- * or a copy button. They must show a restricted badge and warning box.
+ * or a copy button. They must show a restricted badge.
  */
 import { test, expect } from '@playwright/test';
 import { BASE } from './_helpers';
@@ -42,13 +42,6 @@ test.describe('Restricted skill pages', () => {
       test('restricted badge is visible', async ({ page }) => {
         const badge = page.locator('.badge--restricted');
         await expect(badge).toBeVisible();
-      });
-
-      test('warning box is visible and mentions restricted', async ({ page }) => {
-        const warning = page.locator('.warning-box');
-        await expect(warning).toBeVisible();
-        const text = await warning.innerText();
-        expect(text.toLowerCase()).toMatch(/restrict/);
       });
     });
   }

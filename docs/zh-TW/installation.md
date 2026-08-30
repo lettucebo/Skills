@@ -105,7 +105,8 @@ npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" --agent github-copilot --copy
 `"redistributable": false`，因為它們的上游授權是專有授權。安裝整個 registry
 會包含它們；其重用條件由各自的 `LICENSE.txt` 規範，而已發布的網站刻意不渲染受
 限制 skill 的 `SKILL.md` 內容。受限制的來源與單一 skill 會抑制安裝指令；完整
-registry 指令仍會顯示，並附上明確警告。
+registry 指令仍可使用，並會安裝受限制 skill，但網站不再於指令旁顯示頁面內
+（on-page）受限制內容警告。
 
 受限制 skill 的清單並非固定不變 — 只要上游授權變更，這份清單就可能改變，因此
 絕不要假設固定的名稱、路徑或數量。若要查看目前實際受限制的 skill，請在 lockfile

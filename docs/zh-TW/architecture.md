@@ -78,9 +78,11 @@ flowchart LR
 版本、狀態、授權、可取得的上游來源證明與 history，但不顯示 description、操作
 說明或單一 skill 安裝指令。只要來源集合含受限制內容，來源層級指令也會被抑制。
 
-完整 registry 指令是刻意保留的例外：catalog 會顯示它，並警告選取完整清單會包含
-受限制 skill。Vendored 位元組也仍存在於有 tag 的 repository tree，因此這項邊界
-是網站渲染與指令抑制，不是從 Git 移除內容。目前清單可在 `/status/` 查看，或在
+完整 registry 指令是刻意保留的例外：catalog 仍會顯示它，而它會連同其他內容一併
+安裝受限制 skill。網站不再於指令旁顯示頁面內（on-page）受限制內容警告，因此執行
+前請透過 `/status/` 或 lockfile 確認目前的受限制清單與授權。Vendored 位元組也仍
+存在於有 tag 的 repository tree，因此這項邊界是網站渲染與指令抑制，不是從 Git
+移除內容。目前清單可在 `/status/` 查看，或在
 lockfile 搜尋 `"redistributable": false`；本文件不會枚舉。
 
 ## 延伸閱讀

@@ -84,9 +84,10 @@ npm --prefix site run test:e2e
 ## 網站上的受限制內容
 
 受限制的 skill（見 [安裝方式](installation.md)）永遠不會渲染其 `SKILL.md`
-內容。受限制的來源與單一 skill 會抑制安裝指令；完整 registry 指令仍會顯示，
-並明確警告其中含有受限制 skill — 見
-[系統架構](architecture.md#受限制內容隔離)。
+內容。受限制的來源與單一 skill 會抑制安裝指令；完整 registry 指令仍可使用，並會
+安裝受限制 skill，但網站不再於指令旁顯示頁面內（on-page）受限制內容警告 — 請透過
+`/status/` 或 lockfile 確認目前的受限制清單與授權（見
+[系統架構](architecture.md#受限制內容隔離)）。
 
 ## 延伸閱讀
 
