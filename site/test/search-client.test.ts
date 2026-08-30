@@ -55,6 +55,15 @@ interface FakeCard {
   data: CardData;
 }
 
+interface FakeGroup {
+  hidden: boolean;
+  open: boolean;
+  source: string;
+  cards: FakeCard[];
+  getAttribute(name: string): string | null;
+  querySelectorAll(selector: string): FakeCard[];
+}
+
 function createControl(id: string): FakeControl {
   return {
     id,
@@ -89,6 +98,32 @@ function createCard(data: CardData): FakeCard {
       }
     },
   };
+}
+
+/**
+ * Groups the synthetic cards by source into native-<details> stand-ins, in the
+ * same collapsed/visible initial state the server renders. The group objects
+ * share the exact card instances the document returns, so a card hidden by
+ * applyVisibility is immediately reflected in its group's match count.
+ */
+function createGroups(cards: FakeCard[]): FakeGroup[] {
+  const bySource = new Map<string, FakeCard[]>();
+  for (const card of cards) {
+    const source = card.data.source;
+    (bySource.get(source) ?? bySource.set(source, []).get(source)!).push(card);
+  }
+  return [...bySource.keys()].sort().map((source) => ({
+    hidden: false,
+    open: false,
+    source,
+    cards: bySource.get(source)!,
+    getAttribute(name: string) {
+      return name === 'data-source' ? this.source : null;
+    },
+    querySelectorAll(selector: string) {
+      return selector === '[data-skill-card]' ? this.cards : [];
+    },
+  }));
 }
 
 const CARDS: CardData[] = [
@@ -138,11 +173,14 @@ function bootSearch(
     documentReadyState?: 'loading' | 'complete';
   } = {},
 ) {
-  const controlIds = ['search-input', 'filter-source', 'filter-license', 'filter-origin', 'search-status', 'catalog-count'];
+  const controlIds = ['search-input', 'filter-source', 'filter-license', 'filter-origin', 'search-status', 'catalog-count', 'expand-all-groups', 'collapse-all-groups', 'catalog-group-controls'];
   const controls: Record<string, FakeControl> = {};
   for (const id of controlIds) controls[id] = createControl(id);
+  // The controls container starts hidden in markup; JS must reveal it.
+  (controls['catalog-group-controls'] as unknown as { hidden: boolean }).hidden = true;
 
   const cards = cardData.map(createCard);
+  const groups = createGroups(cards);
   const consoleErrors: unknown[][] = [];
   const documentHandlers: Record<string, Array<() => unknown>> = {};
 
@@ -155,7 +193,9 @@ function bootSearch(
       return controls[id] ?? null;
     },
     querySelectorAll(selector: string) {
-      return selector === '[data-skill-card]' ? cards : [];
+      if (selector === '[data-skill-card]') return cards;
+      if (selector === '[data-skill-group]') return groups;
+      return [];
     },
   };
   const consoleStub = {
@@ -183,9 +223,38 @@ function bootSearch(
   return {
     controls,
     cards,
+    groups,
     consoleErrors,
     visibleNames() {
       return cards.filter((c) => !c.hidden).map((c) => c.data.name);
+    },
+    /** Snapshot of every group's visibility and open state, in DOM order. */
+    groupState() {
+      return groups.map((g) => ({
+        source: g.source,
+        hidden: g.hidden,
+        open: g.open,
+        visibleCards: g.cards.filter((c) => !c.hidden).length,
+      }));
+    },
+    openSources() {
+      return groups.filter((g) => g.open && !g.hidden).map((g) => g.source);
+    },
+    visibleSources() {
+      return groups.filter((g) => !g.hidden).map((g) => g.source);
+    },
+    controlsHidden() {
+      return (controls['catalog-group-controls'] as unknown as { hidden?: boolean }).hidden === true;
+    },
+    fireExpandAll() {
+      const handlers = controls['expand-all-groups'].handlers.click ?? [];
+      assert.equal(handlers.length, 1, 'expand-all must be wired to one click handler');
+      handlers[0]();
+    },
+    fireCollapseAll() {
+      const handlers = controls['collapse-all-groups'].handlers.click ?? [];
+      assert.equal(handlers.length, 1, 'collapse-all must be wired to one click handler');
+      handlers[0]();
     },
     status() {
       return controls['search-status'].textContent;
@@ -471,4 +540,145 @@ test('C13: initialization waits for the catalog DOM and applies controls changed
     'initialization must apply a filter selected before the catalog finished parsing',
   );
   assert.equal(harness.status(), '2 results found.');
+});
+
+// ─── Source-folder group synchronization ────────────────────────────
+
+test('G1: the initial bootstrap leaves every group visible and collapsed', () => {
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+  const harness = bootSearch(missingBase);
+
+  for (const g of harness.groupState()) {
+    assert.equal(g.hidden, false, `group ${g.source} must start visible`);
+    assert.equal(g.open, false, `group ${g.source} must start collapsed`);
+  }
+  // The catalog is unfiltered, so all cards remain present.
+  assert.equal(harness.visibleNames().length, CARDS.length);
+});
+
+test('G2: JS reveals the Expand all / Collapse all controls', () => {
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+  const harness = bootSearch(missingBase);
+  assert.equal(harness.controlsHidden(), false, 'the controls container must be unhidden by JS');
+});
+
+test('G3: a source filter opens the matching group and hides the empty ones', async () => {
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+  const harness = bootSearch(missingBase);
+
+  harness.controls['filter-source'].value = 'azure';
+  await harness.fireFilterChange();
+
+  assert.deepEqual(harness.openSources(), ['azure'], 'only the azure group must open');
+  assert.deepEqual(harness.visibleSources(), ['azure'], 'groups with no match must be hidden');
+  // Card counting is independent of group open state.
+  assert.deepEqual(harness.visibleNames(), ['az-cost-optimize', 'az-deploy']);
+  assert.equal(harness.status(), '2 results found.');
+});
+
+test('G4: a filter that matches nothing hides every group and keeps the count at zero', async () => {
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+  const harness = bootSearch(missingBase);
+
+  harness.controls['filter-source'].value = 'azure';
+  harness.controls['filter-license'].value = 'BSD-3-Clause';
+  await harness.fireLicenseChange();
+
+  assert.deepEqual(harness.visibleSources(), [], 'no group may stay visible with zero matches');
+  assert.deepEqual(harness.openSources(), []);
+  assert.equal(harness.visibleNames().length, 0);
+  assert.equal(harness.status(), NO_RESULTS);
+  assert.equal(harness.count(), '0');
+});
+
+test('G5: clearing every filter unhides all groups and collapses them, even after Expand all', async () => {
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+  const harness = bootSearch(missingBase);
+
+  harness.controls['filter-source'].value = 'azure';
+  await harness.fireFilterChange();
+  harness.fireExpandAll();
+  assert.deepEqual(harness.openSources(), ['azure'], 'expand-all opens the visible group');
+
+  harness.controls['filter-source'].value = '';
+  await harness.fireFilterChange();
+
+  for (const g of harness.groupState()) {
+    assert.equal(g.hidden, false, `group ${g.source} must be unhidden after clearing`);
+    assert.equal(g.open, false, `group ${g.source} must collapse after clearing, regardless of prior expand-all`);
+  }
+  assert.equal(harness.visibleNames().length, CARDS.length);
+});
+
+test('G6: a Pagefind failure fallback syncs the groups to the cards it leaves visible', async () => {
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+  const harness = bootSearch(missingBase);
+
+  harness.controls['search-input'].value = 'deploy';
+  harness.controls['filter-source'].value = 'azure';
+  await harness.fireFilterChange();
+
+  // Fallback keeps only the azure filter matches, so only that group stays open.
+  assert.deepEqual(harness.visibleNames(), ['az-cost-optimize', 'az-deploy']);
+  assert.deepEqual(harness.openSources(), ['azure']);
+  assert.deepEqual(harness.visibleSources(), ['azure']);
+  assert.match(harness.status(), UNAVAILABLE_RE);
+});
+
+test('G7: Expand all / Collapse all operate only on non-hidden groups and never touch card visibility', async () => {
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+  const harness = bootSearch(missingBase);
+
+  // Hide the non-azure groups via a filter.
+  harness.controls['filter-source'].value = 'azure';
+  await harness.fireFilterChange();
+  const cardsBefore = harness.visibleNames();
+
+  harness.fireExpandAll();
+  for (const g of harness.groupState()) {
+    if (g.hidden) {
+      assert.equal(g.open, false, `hidden group ${g.source} must not be opened by expand-all`);
+    } else {
+      assert.equal(g.open, true, `visible group ${g.source} must open on expand-all`);
+    }
+  }
+  assert.deepEqual(harness.visibleNames(), cardsBefore, 'expand-all must not change which cards are hidden');
+
+  harness.fireCollapseAll();
+  for (const g of harness.groupState()) {
+    assert.equal(g.open, false, `collapse-all must close every non-hidden group (${g.source})`);
+  }
+  assert.deepEqual(harness.visibleNames(), cardsBefore, 'collapse-all must not change which cards are hidden');
+});
+
+test('G8: a text query opens every group holding a matching card', async () => {
+  (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = {
+    results: pagefindResults([
+      '/Skills/skills/azure/az-cost-optimize/',
+      '/Skills/skills/cloudflare/workers-ai/',
+    ]),
+  };
+  const harness = bootSearch(fixturesBase);
+
+  harness.controls['search-input'].value = 'deploy';
+  await harness.fireFilterChange();
+
+  assert.deepEqual(harness.visibleNames(), ['az-cost-optimize', 'workers-ai']);
+  assert.deepEqual(harness.openSources().sort(), ['azure', 'cloudflare']);
+  assert.deepEqual(harness.visibleSources().sort(), ['azure', 'cloudflare']);
+
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+});
+
+test('G9: the DOMContentLoaded initial pass leaves all groups collapsed and visible', () => {
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+  const harness = bootSearch(missingBase, CARDS, { documentReadyState: 'loading' });
+
+  harness.fireDocumentEvent('DOMContentLoaded');
+
+  for (const g of harness.groupState()) {
+    assert.equal(g.hidden, false, `group ${g.source} must be visible after the initial pass`);
+    assert.equal(g.open, false, `group ${g.source} must be collapsed after the initial pass`);
+  }
+  assert.equal(harness.controlsHidden(), false, 'controls must be revealed after DOMContentLoaded');
 });

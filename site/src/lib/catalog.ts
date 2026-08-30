@@ -570,6 +570,12 @@ export async function loadSkillHistory(
 
 // ─── Source-level helpers ────────────────────────────────────────────
 
+export function getBrowsableSources(skills: SkillViewModel[]): string[] {
+  return [...new Set(
+    skills.filter((skill) => !skill.isTombstone).map((skill) => skill.source),
+  )].sort();
+}
+
 export function getSkillsBySource(
   skills: SkillViewModel[],
   source: string,

@@ -54,6 +54,15 @@ export async function waitForRenderedResults(page: Page, timeout = 20_000): Prom
         const announced = countFromStatus(status);
         if (announced === null) return `unsettled status: "${status.trim()}"`;
         const rendered = await page.locator('[data-skill-card]:not([hidden])').count();
+        const inaccessible = await page.locator('[data-skill-card]:not([hidden])').evaluateAll(
+          (cards) => cards.filter((card) => {
+            const group = card.closest('[data-skill-group]');
+            return group !== null && (group.hasAttribute('hidden') || !group.hasAttribute('open'));
+          }).length,
+        );
+        if (inaccessible > 0) {
+          return `${inaccessible} matching cards are inside closed or hidden groups`;
+        }
         return announced === rendered
           ? 'settled'
           : `announced ${announced} but ${rendered} cards visible`;
