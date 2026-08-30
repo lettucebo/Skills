@@ -112,6 +112,9 @@ const origins = [...new Set(
     const filterLicense = document.getElementById('filter-license');
     const filterOrigin = document.getElementById('filter-origin');
     const statusEl = document.getElementById('search-status');
+    const groupControls = document.getElementById('catalog-group-controls');
+    const expandAllBtn = document.getElementById('expand-all-groups');
+    const collapseAllBtn = document.getElementById('collapse-all-groups');
 
     if (!searchInput || !statusEl) return;
 
@@ -143,6 +146,53 @@ const origins = [...new Set(
       // Cards are matched by attribute, not by parent, so future per-source
       // <details> grouping (T6) does not break this lookup.
       return Array.prototype.slice.call(document.querySelectorAll('[data-skill-card]'));
+    }
+
+    // Source folders wrap the cards in native <details>. Group lookup is
+    // attribute-based (not a direct-child relationship) so it survives markup
+    // reshuffles, and it never touches card `hidden` flags — the heading/status
+    // count is the number of matching cards, while folder open state only
+    // controls browsing.
+    function getGroups() {
+      return Array.prototype.slice.call(document.querySelectorAll('[data-skill-group]'));
+    }
+
+    function groupHasVisibleCard(group) {
+      const groupCards = group.querySelectorAll('[data-skill-card]');
+      for (let i = 0; i < groupCards.length; i += 1) {
+        if (!groupCards[i].hidden) return true;
+      }
+      return false;
+    }
+
+    // Keep every folder in step with the applied card visibility. When a query
+    // or filter is active, folders with a match open and folders with none are
+    // hidden; when nothing is active, every folder is revealed and collapsed
+    // again (regardless of any prior manual Expand all).
+    function syncGroups(active) {
+      const groups = getGroups();
+      for (const group of groups) {
+        if (!active) {
+          group.hidden = false;
+          group.open = false;
+          continue;
+        }
+        if (groupHasVisibleCard(group)) {
+          group.hidden = false;
+          group.open = true;
+        } else {
+          group.hidden = true;
+          group.open = false;
+        }
+      }
+    }
+
+    // Expand/Collapse act only on folders the current search left visible, and
+    // never change which cards are hidden.
+    function setOpenOnVisibleGroups(open) {
+      for (const group of getGroups()) {
+        if (!group.hidden) group.open = open;
+      }
     }
 
     function currentFilters() {
@@ -230,6 +280,7 @@ const origins = [...new Set(
       // Nothing active: restore every card, clear the live region.
       if (!query && !hasFilters) {
         for (const card of cards) card.hidden = false;
+        syncGroups(false);
         statusEl.textContent = '';
         updateCount(total);
         markSearchState(gen, 'settled');
@@ -239,6 +290,7 @@ const origins = [...new Set(
       // Filter-only: Pagefind-independent card matching.
       if (!query) {
         const visible = applyVisibility(cards, function (c) { return cardMatchesFilters(c, filters); });
+        syncGroups(true);
         announceCount(visible);
         updateCount(visible);
         markSearchState(gen, 'settled');
@@ -252,6 +304,7 @@ const origins = [...new Set(
       } catch (err) {
         if (gen !== generation) return;
         const visible = applyVisibility(cards, function (c) { return cardMatchesFilters(c, filters); });
+        syncGroups(true);
         announceUnavailable(visible, hasFilters);
         updateCount(visible);
         markSearchState(gen, 'settled');
@@ -270,6 +323,7 @@ const origins = [...new Set(
       } catch (err) {
         if (gen !== generation) return;
         const visible = applyVisibility(cards, function (c) { return cardMatchesFilters(c, filters); });
+        syncGroups(true);
         announceUnavailable(visible, hasFilters);
         updateCount(visible);
         markSearchState(gen, 'settled');
@@ -281,6 +335,7 @@ const origins = [...new Set(
       const visible = applyVisibility(cards, function (c) {
         return urlSet.has(normalizeUrl(c.getAttribute('data-url'))) && cardMatchesFilters(c, filters);
       });
+      syncGroups(true);
       announceCount(visible);
       updateCount(visible);
       markSearchState(gen, 'settled');
@@ -297,6 +352,18 @@ const origins = [...new Set(
     [filterSource, filterLicense, filterOrigin].forEach(function (el) {
       if (el) el.addEventListener('change', function () { return doSearch(); });
     });
+
+    // Expand/Collapse are useful only with JS, so they stay hidden in markup
+    // and are revealed here. They operate on whatever folders the current
+    // search left visible and never change card visibility.
+    if (expandAllBtn) {
+      expandAllBtn.addEventListener('click', function () { setOpenOnVisibleGroups(true); });
+    }
+    if (collapseAllBtn) {
+      collapseAllBtn.addEventListener('click', function () { setOpenOnVisibleGroups(false); });
+    }
+    if (groupControls) groupControls.hidden = false;
+
     doSearch();
     }
 
