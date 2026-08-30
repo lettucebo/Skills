@@ -27,6 +27,12 @@ const KEY_PAGES = [
     h1: 'Registry Status',
   },
   {
+    path: '/install/',
+    label: 'install page',
+    title: 'Install | Skills Registry',
+    h1: 'Install Skills',
+  },
+  {
     path: '/sources/azure/',
     label: 'azure source page',
     title: 'azure skills | Skills Registry',
@@ -68,6 +74,7 @@ const KEY_PAGES = [
 const INTERNAL_LINK_SAMPLE = [
   '/',
   '/status/',
+  '/install/',
   '/sources/azure/',
   '/sources/cloudflare/',
   '/sources/github/',

@@ -507,13 +507,19 @@ test('E7: source page uses InstallCommand component', () => {
   assert.match(source, /<InstallCommand/, 'Source page must render InstallCommand');
 });
 
-test('E8: index page uses InstallCommand component', () => {
+test('E8: install page uses InstallCommand component and index does not', () => {
+  const install = fs.readFileSync(
+    path.join(siteRoot, 'src', 'pages', 'install.astro'),
+    'utf8',
+  );
+  assert.match(install, /import.*InstallCommand/, 'Install page must import InstallCommand');
+  assert.match(install, /<InstallCommand/, 'Install page must render InstallCommand');
+
   const index = fs.readFileSync(
     path.join(siteRoot, 'src', 'pages', 'index.astro'),
     'utf8',
   );
-  assert.match(index, /import.*InstallCommand/, 'Index page must import InstallCommand');
-  assert.match(index, /<InstallCommand/, 'Index page must render InstallCommand');
+  assert.doesNotMatch(index, /<InstallCommand/, 'Index page must not render InstallCommand');
 });
 
 // ─── C7: No-JS controls hidden ──────────────────────────────────────
@@ -666,25 +672,23 @@ test('INT7: built public skill page has card-description with text', {
 
 // ─── H. Full-repo install command ───────────────────────────────────
 
-/** The Install section of the landing page, from its heading to its closing tag. */
+/** The full-registry section of the install page, from its heading to its closing tag. */
 function readInstallSection(): string {
-  const index = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'index.astro'), 'utf8');
-  const start = index.indexOf('<h2>Install</h2>');
-  assert.ok(start !== -1, 'index.astro must have an Install section');
-  const end = index.indexOf('</section>', start);
-  assert.ok(end !== -1, 'the Install section must be closed');
-  return index.slice(start, end);
+  const install = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'install.astro'), 'utf8');
+  const start = install.indexOf('<InstallCommand');
+  assert.ok(start !== -1, 'install.astro must render an InstallCommand');
+  return install;
 }
 
 test('H1: the full-repo install command is kept as a supported path', () => {
   const section = readInstallSection();
-  assert.match(section, /<InstallCommand command=\{repoCmd\}/, 'repo-level command must stay');
+  assert.match(section, /<InstallCommand command=\{repoCmd\}/, 'repo-level command must stay on the install page');
 });
 
-test('INT8: built index page publishes the full-repo install command without a restricted disclosure', {
+test('INT8: built install page publishes the full-repo install command without a restricted disclosure', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'install', 'index.html'), 'utf8');
 
   assert.match(
     html,
@@ -692,8 +696,8 @@ test('INT8: built index page publishes the full-repo install command without a r
     'the full-repo install command must still be published',
   );
   // The restricted licensing disclosure was intentionally removed; guard that it
-  // does not creep back onto the landing page.
-  assert.doesNotMatch(html, /warning-box/, 'the landing page must not render a warning box');
+  // does not creep back onto the install page.
+  assert.doesNotMatch(html, /warning-box/, 'the install page must not render a warning box');
   assert.doesNotMatch(
     html,
     /includes\s+\d+\s+restricted skill/,
@@ -704,6 +708,18 @@ test('INT8: built index page publishes the full-repo install command without a r
     /proprietary, non-redistributable skill/,
     'the removed non-redistributable disclosure must not reappear',
   );
+});
+
+test('INT8b: built landing page no longer publishes the full-repo install command', {
+  skip: !distExists && 'dist/ not found',
+}, () => {
+  const html = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+  assert.doesNotMatch(
+    html,
+    /npx skills add lettucebo\/Skills#v/,
+    'the landing page must delegate install commands to the install page',
+  );
+  assert.match(html, /href="\/Skills\/install\/"/, 'the landing page must link to the install page');
 });
 
 test('INT9: built source page for a restricted source publishes no bulk install command', {

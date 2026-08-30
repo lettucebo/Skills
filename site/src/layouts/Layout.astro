@@ -51,6 +51,7 @@ function isActive(href: string): boolean {
       <a href={base} class="site-title">Skills Registry</a>
       <ul class="nav-links">
         <li><a href={base} aria-current={isActive(base) ? 'page' : undefined}>Catalog</a></li>
+        <li><a href={`${base}install/`} aria-current={isActive(`${base}install/`) ? 'page' : undefined}>Install</a></li>
         <li><a href={`${base}status/`} aria-current={isActive(`${base}status/`) ? 'page' : undefined}>Status</a></li>
         <li><a href="https://github.com/lettucebo/Skills" rel="noopener noreferrer">GitHub</a></li>
       </ul>

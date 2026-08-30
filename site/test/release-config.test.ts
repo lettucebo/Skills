@@ -67,7 +67,7 @@ test('R2: catalog.ts does not hardcode a release version literal', () => {
 test('R3: install commands embed the lock release, so a sync bump propagates automatically', () => {
   const skills: SkillViewModel[] = [];
   assert.ok(
-    generateRepoInstallCommand().endsWith(`#v${lock.release}`),
+    generateRepoInstallCommand().endsWith(`#v${lock.release} --full-depth`),
     `repo install command must pin v${lock.release}; got ${generateRepoInstallCommand()}`,
   );
   assert.ok(
@@ -75,7 +75,8 @@ test('R3: install commands embed the lock release, so a sync bump propagates aut
     'source install command must pin the lock release',
   );
   assert.ok(
-    generateSingleSkillInstallCommand('az-cost-optimize')?.includes(`#v${lock.release}@`),
+    generateSingleSkillInstallCommand('az-cost-optimize')?.includes(`#v${lock.release}@`) &&
+      generateSingleSkillInstallCommand('az-cost-optimize')?.endsWith('" --full-depth'),
     'single-skill install command must pin the lock release',
   );
 });

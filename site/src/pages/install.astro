@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InstallCommand from '../components/InstallCommand.astro';
+import {
+  loadCatalog,
+  generateRepoInstallCommand,
+  generateSourceInstallCommand,
+  generateSingleSkillInstallCommand,
+  RELEASE_VERSION,
+  RELEASE_PUBLISHED,
+} from '../lib/catalog';
+import path from 'node:path';
+
+const repoRoot = path.resolve(process.cwd(), '..');
+const catalog = await loadCatalog(repoRoot);
+const base = import.meta.env.BASE_URL;
+
+const repoCmd = generateRepoInstallCommand();
+
+// Every source that ships no restricted skill exposes a bulk command; a source
+// containing restricted content returns null and is dropped, so no restricted
+// bulk command is ever offered.
+const sourceCommands = catalog.sources
+  .map((source) => ({ source, cmd: generateSourceInstallCommand(catalog.skills, source) }))
+  .filter((entry): entry is { source: string; cmd: string } => entry.cmd !== null);
+
+// Pick a real installable skill to demonstrate the single-skill syntax. Falls
+// back to no example (rather than failing the build) if the catalog somehow
+// contains only restricted or removed skills.
+const exampleSkill = catalog.skills.find((s) => !s.isRestricted && !s.isTombstone) ?? null;
+const singleSkillCmd = exampleSkill
+  ? generateSingleSkillInstallCommand(exampleSkill.name)
+  : null;
+---
+<Layout title="Install">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href={base}>Catalog</a>
+    <span aria-hidden="true">/</span>
+    <span>Install</span>
+  </nav>
+
+  <section>
+    <h1>Install Skills</h1>
+    <p>
+      Every command pins a git tag with <code>#ref</code> syntax (never
+      <code>@version</code>), so an install is reproducible. The commands below
+      pin the current release <strong>v{RELEASE_VERSION}</strong>.
+    </p>
+    {!RELEASE_PUBLISHED && (
+      <p class="install-page-pending">⚠ Available after v{RELEASE_VERSION} is published</p>
+    )}
+  </section>
+
+  <section aria-labelledby="install-full">
+    <h2 id="install-full">Full registry</h2>
+    <p>Install the complete registry from one pinned release.</p>
+    <InstallCommand command={repoCmd} showPendingNote={false} />
+  </section>
+
+  <section aria-labelledby="install-source">
+    <h2 id="install-source">By source</h2>
+    <p>Install every redistributable skill from a single source collection.</p>
+    {sourceCommands.map(({ source, cmd }) => (
+      <div class="install-source">
+        <h3>{source}</h3>
+        <InstallCommand command={cmd} showPendingNote={false} />
+      </div>
+    ))}
+  </section>
+
+  <section aria-labelledby="install-single">
+    <h2 id="install-single">Single skill</h2>
+    {singleSkillCmd && exampleSkill ? (
+      <>
+        <p>
+          Install one skill by name — for example <code>{exampleSkill.name}</code>.
+        </p>
+        <InstallCommand command={singleSkillCmd} showPendingNote={false} />
+      </>
+    ) : (
+      <p>No individually installable skill is available in this release.</p>
+    )}
+  </section>
+</Layout>
+
+<style>
+  .install-page-pending {
+    color: var(--cp-warning-text);
+  }
+</style>

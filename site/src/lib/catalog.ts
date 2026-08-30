@@ -353,7 +353,7 @@ export function deriveRouteParams(skill: SkillViewModel): { source: string; skil
 // ─── Install commands ───────────────────────────────────────────────
 
 export function generateRepoInstallCommand(): string {
-  return `npx skills add ${REPO_OWNER}/${REPO_NAME}#v${RELEASE_VERSION}`;
+  return `npx skills add ${REPO_OWNER}/${REPO_NAME}#v${RELEASE_VERSION} --full-depth`;
 }
 
 export function generateSourceInstallCommand(
@@ -373,7 +373,7 @@ export function generateSingleSkillInstallCommand(
   if (restricted) {
     return null;
   }
-  return `npx skills add "${REPO_OWNER}/${REPO_NAME}#v${RELEASE_VERSION}@${name}"`;
+  return `npx skills add "${REPO_OWNER}/${REPO_NAME}#v${RELEASE_VERSION}@${name}" --full-depth`;
 }
 
 // ─── Markdown rendering ─────────────────────────────────────────────
