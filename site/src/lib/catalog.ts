@@ -149,6 +149,7 @@ export interface SkillViewModel {
 
 export interface CatalogData {
   release: string;
+  generatedAt: string;
   skills: SkillViewModel[];
   sources: string[];
   counts: CatalogCounts;
@@ -515,6 +516,7 @@ export async function loadCatalog(repoRoot: string): Promise<CatalogData> {
 
   return {
     release: lock.release,
+    generatedAt: lock.generatedAt,
     skills,
     sources,
     counts,
