@@ -243,7 +243,7 @@ test('A13: small muted text surfaces use --cp-muted-text everywhere', () => {
   }
 
   const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
-  for (const selector of ['.search-status', '.search-result-meta', '.search-input::placeholder']) {
+  for (const selector of ['.search-status', '.search-input::placeholder']) {
     assert.match(
       readRule(selector, searchCss),
       /color:\s*var\(--cp-muted-text\)/,
@@ -326,17 +326,6 @@ test('A15: hover backdrops use opaque tokens to prevent composite stacking', () 
     'table row hover must use the opaque --cp-hover-surface token',
   );
 
-  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
-  assert.match(
-    readRule('.search-result-link:hover', searchCss),
-    /background:\s*var\(--cp-hover-surface\)/,
-    'the search result hover must use opaque --cp-hover-surface so meta text keeps AA contrast',
-  );
-  assert.match(
-    readRule('.search-result-excerpt :global(mark)', searchCss),
-    /color:\s*var\(--cp-text\)/,
-    'highlighted excerpt text must use full-strength text on the highlight tint',
-  );
   assert.match(
     readRule('.badge--local'),
     /background:\s*var\(--cp-surface-soft\)/,
@@ -425,10 +414,12 @@ test('C4: no-JS dark theme CSS fallback for html:not([data-theme])', () => {
   assert.match(css, /html:not\(\[data-theme\]\)/, 'Must target html:not([data-theme]) for no-JS fallback');
 });
 
-test('C5: search JS hides full catalog when query/filter active', () => {
+test('C5: search JS toggles individual card visibility, not a separate list', () => {
   const search = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
-  // The JS must manipulate catalog visibility
-  assert.match(search, /catalog.*hidden|style\.display|classList/i, 'Search JS must control catalog visibility');
+  // The unified search hides non-matching existing cards instead of building a
+  // second result list or hiding the whole catalog section.
+  assert.match(search, /card\.hidden|\[data-skill-card\]/, 'Search JS must control individual card visibility');
+  assert.doesNotMatch(search, /search-result-list/, 'the separate runtime result list must not exist');
 });
 
 test('C6: search renders all results, not sliced to 20', () => {
@@ -563,7 +554,7 @@ test('F2: loadPagefind must not mutate DOM in catch — stale load errors must n
   const search = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
 
   const loadPfStart = search.indexOf('async function loadPagefind()');
-  const doSearchStart = search.indexOf('async function doSearch()');
+  const doSearchStart = search.indexOf('async function doSearch');
 
   assert.ok(loadPfStart !== -1, 'loadPagefind function must exist');
   assert.ok(doSearchStart !== -1, 'doSearch function must exist');
@@ -590,11 +581,13 @@ test('F2: loadPagefind must not mutate DOM in catch — stale load errors must n
     'loadPagefind must not restore fullCatalog.hidden in its own catch (fires without generation check)',
   );
 
-  // The load-unavailable message must live inside doSearch so it can be generation-guarded.
-  const unavailableIdx = search.indexOf('unavailable', doSearchStart);
+  // doSearch must invoke the unavailable-state renderer inside its
+  // generation-guarded catch path; the message text itself may live in a
+  // side-effect-free formatting helper.
+  const unavailableIdx = search.indexOf('announceUnavailable(', doSearchStart);
   assert.ok(
     unavailableIdx > doSearchStart,
-    'Load-unavailable error message must be handled inside doSearch, not only in loadPagefind',
+    'Load-unavailable UI must be handled inside doSearch, not loadPagefind',
   );
 
   // A generation check must appear in doSearch BEFORE the unavailable message
@@ -926,17 +919,17 @@ test('K5: skill-table tr:hover uses --cp-hover-surface', () => {
   );
 });
 
-test('K6: search-result-link:hover uses --cp-hover-surface', () => {
+test('K6: search-input focus uses the accent outline token', () => {
   const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
   assert.match(
-    readRule('.search-result-link:hover', searchCss),
-    /background:\s*var\(--cp-hover-surface\)/,
+    readRule('.search-input:focus', searchCss),
+    /outline:\s*2px solid var\(--cp-accent\)/,
+    'the search input focus ring must use the accent token',
   );
 });
 
-test('K7: hover has a distinct accent inset indicator', () => {
+test('K7: table row hover has a distinct accent inset indicator', () => {
   const css = readGlobalCss();
-  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
   // Table row hover: indicator lives on td:first-child (border-left-color) because
   // inset box-shadow on <tr> is unreliable in Firefox with border-collapse: collapse.
   const tdFirst = readRule('.skill-table tr:hover td:first-child', css);
@@ -945,26 +938,16 @@ test('K7: hover has a distinct accent inset indicator', () => {
     /border-left-color:\s*var\(--cp-accent\)/,
     'table row hover must set border-left-color: var(--cp-accent) on td:first-child',
   );
-  // Search result hover must also have an accent indicator
-  const searchHover = readRule('.search-result-link:hover', searchCss);
-  assert.match(
-    searchHover,
-    /box-shadow:\s*inset\s+3px\s+0\s+0\s+var\(--cp-accent\)|border-left:\s*3px solid var\(--cp-accent\)/,
-    'search result hover must have an accent inset indicator',
-  );
 });
 
-test('K8: search result meta/excerpt override to --cp-text on hover', () => {
-  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
+test('K8: catalog card hover keeps AA text contrast on the surface', () => {
+  const css = readGlobalCss();
+  // Cards are Astro-rendered and keep their normal --cp-text/--cp-surface colours
+  // on hover (only border/box-shadow change), so no colour override is required.
   assert.match(
-    readRule('.search-result-link:hover .search-result-meta', searchCss),
-    /color:\s*var\(--cp-text\)/,
-    'search meta must override to --cp-text on hover',
-  );
-  assert.match(
-    readRule('.search-result-link:hover .search-result-excerpt', searchCss),
-    /color:\s*var\(--cp-text\)/,
-    'search excerpt must override to --cp-text on hover',
+    readRule('.card:hover', css),
+    /border-color:\s*var\(--cp-accent\)/,
+    'card hover must surface an accent border indicator',
   );
 });
 
@@ -1010,19 +993,19 @@ test('K10: normal text on hover surface meets AA (>=4.5:1)', () => {
   assert.deepEqual(failures, [], `WCAG AA failures on hover surface:\n${failures.join('\n')}`);
 });
 
-test('K11: focus-visible is preserved on search-result-link', () => {
+test('K11: focus-visible is preserved on the search input', () => {
   const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
   assert.match(
-    readRule('.search-result-link:focus-visible', searchCss),
+    readRule('.search-input:focus', searchCss),
     /outline:\s*2px solid var\(--cp-accent\)/,
-    'focus-visible must be preserved',
+    'the search input focus ring must be preserved',
   );
 });
 
-test('K12: reduced-motion applies to search-result-link', () => {
+test('K12: reduced-motion applies to the search input', () => {
   const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
   assert.match(searchCss, /prefers-reduced-motion/, 'must have reduced-motion media query');
-  assert.match(searchCss, /search-result-link/, 'reduced-motion must cover search-result-link');
+  assert.match(searchCss, /search-input/, 'reduced-motion must cover search-input');
 });
 
 test('K13: forced-colors covers hover indicators', () => {
@@ -1126,21 +1109,6 @@ test('K19: skill-table first-column cells reserve 3px left border in rest state 
   );
 });
 
-// ─── K20: search-result-link hover contrast (Defect #3) ───────────────
-
-test('K20: search-result-link:hover sets explicit color to override inherited --cp-link-text', () => {
-  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
-  // --cp-link-text (#0067b8 light / #5aafff dark) on --cp-hover-surface (#e6e1da light)
-  // is 4.44:1 — below WCAG AA 4.5:1. The <a> element inherits link-text color from
-  // the global "a { color: var(--cp-link-text) }" rule. On hover the background becomes
-  // --cp-hover-surface, so the hover rule must explicitly override color to --cp-text.
-  assert.match(
-    readRule('.search-result-link:hover', searchCss),
-    /color:\s*var\(--cp-text\)/,
-    '.search-result-link:hover must set color: var(--cp-text) — inherited --cp-link-text fails WCAG AA on the hover surface',
-  );
-});
-
 // ─── C8: noscript filter-controls specificity (Defect #4) ────────────
 
 test('C8: noscript .filter-controls rule must override Astro-scoped display:flex via !important', () => {
@@ -1169,38 +1137,6 @@ test('E10: global.css mobile breakpoint addresses .install-block code overflow a
     afterMobile,
     /\.install-block\s+code|install-block[\s\S]{0,300}\.install-block\s+code/,
     '@media (max-width: 640px) must include a .install-block code rule to prevent horizontal overflow at 375px',
-  );
-});
-
-// ─── K21: search-result-link hover must use :global() (Defect #3b) ────────────
-
-test('K21: search-result-link hover rule uses :global() to match runtime-created Pagefind nodes', () => {
-  const searchCss = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
-  // Astro scopes every <style> rule to [data-astro-cid-*] by default.
-  // Search result elements (<a class="search-result-link">) are created via innerHTML at
-  // runtime and therefore never receive the Astro scope attribute. A scoped rule like
-  // ".search-result-link:hover[data-astro-cid-xxx]" never matches them.
-  // The hover color/background rules must be wrapped in :global() so they apply to
-  // dynamically-created nodes and the WCAG AA hover contrast requirement is met.
-  assert.match(
-    searchCss,
-    /:global\(\s*\.search-result-link/,
-    'Search.astro must declare a :global(.search-result-link...) rule for runtime-created Pagefind nodes',
-  );
-
-  // Verify the :global(.search-result-link:hover) rule itself contains color: var(--cp-text).
-  // --cp-link-text (#0067b8 light / #5aafff dark) fails WCAG AA (4.44:1) on the hover surface;
-  // the rule must explicitly override to --cp-text for runtime-created Pagefind nodes that
-  // never receive the Astro scope attribute.
-  const globalHoverMatch = searchCss.match(/:global\(\s*\.search-result-link:hover\s*\)\s*\{([^}]*)\}/);
-  assert.ok(
-    globalHoverMatch,
-    ':global(.search-result-link:hover) rule must exist in Search.astro',
-  );
-  assert.match(
-    globalHoverMatch![1],
-    /color:\s*var\(--cp-text\)/,
-    ':global(.search-result-link:hover) rule must contain color: var(--cp-text) to satisfy WCAG AA on the hover surface',
   );
 });
 

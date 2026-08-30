@@ -218,12 +218,17 @@ test('P6a: a11y spec contains no unused nearestOpaqueBg helper', () => {
   );
 });
 
-test('P6b: a11y spec proves hover styling was applied via --cp-hover-surface', () => {
+test('P6b: a11y spec proves hidden cards use the hidden attribute and visible cards keep AA contrast', () => {
   const spec = readSpec('a11y.spec.ts');
   assert.match(
     spec,
-    /--cp-hover-surface/,
-    'hover contrast test must compare the hovered background against the resolved --cp-hover-surface token',
+    /hidden cards use the hidden attribute/,
+    'the unified-search a11y test must prove filtered-out cards set the hidden property, not visual-only CSS',
+  );
+  assert.match(
+    spec,
+    /--cp-surface/,
+    'visible card contrast test must compare the card text against the resolved --cp-surface token',
   );
 });
 

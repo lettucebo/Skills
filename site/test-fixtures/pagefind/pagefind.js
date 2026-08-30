@@ -15,6 +15,10 @@ export async function options(received) {
   const state = stub();
   state.optionsCalls = (state.optionsCalls ?? 0) + 1;
   state.lastOptions = received;
+  if (state.optionsFailures > 0) {
+    state.optionsFailures -= 1;
+    throw new Error('stubbed pagefind options failure');
+  }
 }
 
 export async function search(query, received) {
@@ -24,6 +28,9 @@ export async function search(query, received) {
   state.lastSearchOptions = received;
   if (state.searchThrows) {
     throw new Error('stubbed pagefind search failure');
+  }
+  if (state.searchPromise) {
+    return state.searchPromise;
   }
   return { results: state.results ?? [] };
 }

@@ -71,6 +71,42 @@ test('index.astro imports Search component', () => {
   assert.match(template, /<Search/, 'index must render Search component');
 });
 
+// ─── Unified Catalog Contract ───────────────────────────────────────
+
+test('index.astro renders one canonical [data-skill-card] collection in #skill-grid', () => {
+  const template = fs.readFileSync(
+    path.join(siteRoot, 'src', 'pages', 'index.astro'),
+    'utf8',
+  );
+  assert.match(template, /id="skill-grid"/, 'the canonical grid must expose an explicit #skill-grid id');
+  assert.match(template, /data-skill-card/, 'each card must be a [data-skill-card] element');
+  // Cards must carry stable attributes for filtering and URL matching.
+  for (const attr of ['data-source', 'data-license', 'data-origin', 'data-name', 'data-url']) {
+    assert.match(template, new RegExp(attr), `each card must expose ${attr}`);
+  }
+  assert.match(template, /id="catalog-count"/, 'the heading must expose an updatable #catalog-count');
+});
+
+test('Search.astro renders no separate runtime result list', () => {
+  const template = fs.readFileSync(
+    path.join(siteRoot, 'src', 'components', 'Search.astro'),
+    'utf8',
+  );
+  assert.doesNotMatch(template, /search-result-list/, 'the separate result list must be removed');
+  assert.doesNotMatch(template, /\.innerHTML\s*=/, 'search must not build results via innerHTML');
+  assert.doesNotMatch(template, /sanitizeExcerpt/, 'the dead excerpt sanitizer must be removed');
+});
+
+test('Search.astro keeps a single polite live region on #search-status', () => {
+  const template = fs.readFileSync(
+    path.join(siteRoot, 'src', 'components', 'Search.astro'),
+    'utf8',
+  );
+  const statusTag = template.slice(template.indexOf('id="search-status"') - 40, template.indexOf('id="search-status"') + 120);
+  assert.match(statusTag, /aria-live="polite"/, 'the status paragraph must be the polite live region');
+  assert.doesNotMatch(template, /id="search-results"/, 'the old results container/live region must be gone');
+});
+
 // ─── Base Path Safety ───────────────────────────────────────────────
 
 test('Search component does not hardcode root pagefind path', () => {
@@ -150,14 +186,14 @@ test('Search component has filter selects for source, license, and origin', () =
 
 // ─── Progressive Enhancement ────────────────────────────────────────
 
-test('Search component provides loading and error states', () => {
+test('Search component provides an unavailable/error state and a no-results state', () => {
   const template = fs.readFileSync(
     path.join(siteRoot, 'src', 'components', 'Search.astro'),
     'utf8',
   );
-  // Must have elements/text for loading and error feedback
-  assert.match(template, /loading|Loading/i, 'Must have a loading state');
-  assert.match(template, /error|Error|failed|unavailable/i, 'Must have an error state');
+  // The unified search has no separate loading spinner (it toggles existing
+  // cards), but it must still surface a full-text-search failure state.
+  assert.match(template, /error|Error|failed|unavailable/i, 'Must have an error/unavailable state');
 });
 
 test('Search component provides a no-results state', () => {

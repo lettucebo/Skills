@@ -1,12 +1,20 @@
 ---
 /**
- * Search component — progressive-enhancement search powered by Pagefind.
- * Works under any base path; uses Clawpilot design tokens; shows loading,
- * no-result, and error states without silently failing.
+ * Search component — progressive-enhancement search over the All Skills grid.
  *
- * Filters: source, license, origin.  Deterministic sorted options are
- * generated at build time from the catalog so the UI works even before
- * Pagefind JS loads (the dropdowns also drive client-side card filtering).
+ * There is ONE catalog grid (rendered by index.astro as `#skill-grid` with
+ * `[data-skill-card]` cards). This component owns only the input, the filter
+ * dropdowns, and a single polite live region; searching and filtering hide the
+ * non-matching existing cards instead of building a second list.
+ *
+ *  - Dropdown filters are Pagefind-independent: they match the card `data-*`
+ *    attributes directly, so filtering works under `astro dev` (no index) and
+ *    when Pagefind fails to load.
+ *  - A non-empty text query loads Pagefind and keeps only the cards whose URL
+ *    appears in the result set (intersected with any active dropdown filters).
+ *
+ * Deterministic sorted options are generated at build time from the catalog so
+ * the dropdowns work even before the client script runs.
  */
 import { loadCatalog } from '../lib/catalog';
 import path from 'node:path';
@@ -71,202 +79,232 @@ const origins = [...new Set(
     </label>
   </div>
 
-  <div
-    id="search-results"
-    class="search-results"
-    role="region"
-    aria-label="Search results"
-    hidden
-  >
-    <p
-      id="search-status"
-      class="search-status"
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-    ></p>
-    <ul id="search-result-list" class="search-result-list"></ul>
-  </div>
+  <p
+    id="search-status"
+    class="search-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+    data-search-generation="0"
+    data-search-state="idle"
+  ></p>
 </div>
 
 <script define:vars={{ base }}>
   /**
-   * Pagefind client-side search integration.
-   * Loads pagefind from the site base path (e.g. /Skills/pagefind/pagefind.js).
-   * Gracefully degrades — if Pagefind fails to load, search shows an error
-   * message and the catalog card grid + filters remain browse-able.
+   * Unified search/filter over the existing catalog cards.
+   *
+   * Filtering is Pagefind-independent (data-* attribute matching). A non-empty
+   * text query additionally loads Pagefind and restricts the visible cards to
+   * the result URLs. Pagefind failure is non-fatal: the dropdown filters stay
+   * applied and a precise message is announced. A monotonic generation token
+   * ensures a slow older request can never overwrite newer input/filter state.
    */
   (function () {
-    const PAGEFIND_PATH = base + 'pagefind/pagefind.js';
+     function initializeSearch() {
+     const PAGEFIND_PATH = base + 'pagefind/pagefind.js';
     let pagefind = null;
+    let pagefindLoad = null;
+    let loadAttempt = 0;
 
     const searchInput = document.getElementById('search-input');
     const filterSource = document.getElementById('filter-source');
     const filterLicense = document.getElementById('filter-license');
     const filterOrigin = document.getElementById('filter-origin');
-    const resultsContainer = document.getElementById('search-results');
     const statusEl = document.getElementById('search-status');
-    const resultList = document.getElementById('search-result-list');
-    // NOTE: fullCatalog (#full-catalog) is rendered in index.astro *after* this
-    // <script> tag, so it is not yet in the DOM when the IIFE runs. Look it up
-    // lazily inside doSearch() instead of capturing it here.
 
-    if (!searchInput || !resultsContainer || !statusEl || !resultList) return;
+    if (!searchInput || !statusEl) return;
 
     async function loadPagefind() {
       if (pagefind) return pagefind;
-      statusEl.textContent = 'Loading search index…';
-      resultsContainer.hidden = false;
-      const mod = await import(PAGEFIND_PATH);
-      await mod.options({ baseUrl: base });
-      pagefind = mod;
-      return pagefind;
+      if (!pagefindLoad) {
+        const specifier = loadAttempt === 0
+          ? PAGEFIND_PATH
+          : PAGEFIND_PATH + '?retry=' + loadAttempt;
+        loadAttempt += 1;
+        pagefindLoad = import(specifier)
+          .then(async function (mod) {
+            await mod.options({ baseUrl: base });
+            pagefind = mod;
+            return mod;
+          })
+          .catch(function (error) {
+            pagefindLoad = null;
+            throw error;
+          });
+      }
+      return pagefindLoad;
     }
 
     let debounceTimer = null;
     let generation = 0;
 
-    function buildFilters() {
-      const filters = {};
-      if (filterSource && filterSource.value) filters.source = filterSource.value;
-      if (filterLicense && filterLicense.value) filters.license = filterLicense.value;
-      if (filterOrigin && filterOrigin.value) filters.origin = filterOrigin.value;
-      return filters;
+    function getCards() {
+      // Cards are matched by attribute, not by parent, so future per-source
+      // <details> grouping (T6) does not break this lookup.
+      return Array.prototype.slice.call(document.querySelectorAll('[data-skill-card]'));
     }
 
-    async function doSearch() {
-      const gen = ++generation;
-      const query = searchInput.value.trim();
-      const filters = buildFilters();
-      const hasFilters = Object.keys(filters).length > 0;
-      const fullCatalog = document.getElementById('full-catalog');
+    function currentFilters() {
+      return {
+        source: filterSource && filterSource.value ? filterSource.value : '',
+        license: filterLicense && filterLicense.value ? filterLicense.value : '',
+        origin: filterOrigin && filterOrigin.value ? filterOrigin.value : '',
+      };
+    }
 
+    function cardMatchesFilters(card, filters) {
+      if (filters.source && card.getAttribute('data-source') !== filters.source) return false;
+      if (filters.license && card.getAttribute('data-license') !== filters.license) return false;
+      if (filters.origin && card.getAttribute('data-origin') !== filters.origin) return false;
+      return true;
+    }
+
+    function normalizeUrl(url) {
+      if (!url) return '';
+      let u = String(url).split('#')[0].split('?')[0];
+      const scheme = u.indexOf('://');
+      if (scheme !== -1) {
+        const rest = u.slice(scheme + 3);
+        const slash = rest.indexOf('/');
+        u = slash === -1 ? '/' : rest.slice(slash);
+      }
+      if (u.charAt(u.length - 1) !== '/') u += '/';
+      return u;
+    }
+
+    function pagefindFilters(filters) {
+      const out = {};
+      if (filters.source) out.source = filters.source;
+      if (filters.license) out.license = filters.license;
+      if (filters.origin) out.origin = filters.origin;
+      return out;
+    }
+
+    function applyVisibility(cards, predicate) {
+      let visible = 0;
+      for (const card of cards) {
+        const show = predicate(card);
+        card.hidden = !show;
+        if (show) visible += 1;
+      }
+      return visible;
+    }
+
+    function updateCount(value) {
+      const countEl = document.getElementById('catalog-count');
+      if (countEl) countEl.textContent = String(value);
+    }
+
+    // The live region is written only after visibility is applied, so the
+    // announced count always equals the number of visible cards.
+    function announceCount(visible) {
+      statusEl.textContent = visible === 0
+        ? 'No matching skills found.'
+        : visible + ' result' + (visible !== 1 ? 's' : '') + ' found.';
+    }
+
+    function announceUnavailable(visible, hasFilters) {
+      statusEl.textContent = hasFilters
+        ? 'Full-text search is unavailable. Showing ' + visible + ' filter match' +
+          (visible !== 1 ? 'es' : '') + '.'
+        : 'Full-text search is unavailable. Showing all ' + visible + ' skill' +
+          (visible !== 1 ? 's' : '') + '.';
+    }
+
+    function markSearchState(gen, state) {
+      statusEl.dataset.searchGeneration = String(gen);
+      statusEl.dataset.searchState = state;
+    }
+
+    async function doSearch(requestGeneration) {
+      const gen = requestGeneration === undefined ? ++generation : requestGeneration;
+      if (gen !== generation) return;
+      markSearchState(gen, 'pending');
+      const query = searchInput.value.trim();
+      const filters = currentFilters();
+      const hasFilters = !!(filters.source || filters.license || filters.origin);
+      const cards = getCards();
+      const total = cards.length;
+
+      // Nothing active: restore every card, clear the live region.
       if (!query && !hasFilters) {
-        resultsContainer.hidden = true;
-        resultList.innerHTML = '';
+        for (const card of cards) card.hidden = false;
         statusEl.textContent = '';
-        if (fullCatalog) fullCatalog.hidden = false;
+        updateCount(total);
+        markSearchState(gen, 'settled');
         return;
       }
 
-      if (fullCatalog) fullCatalog.hidden = true;
+      // Filter-only: Pagefind-independent card matching.
+      if (!query) {
+        const visible = applyVisibility(cards, function (c) { return cardMatchesFilters(c, filters); });
+        announceCount(visible);
+        updateCount(visible);
+        markSearchState(gen, 'settled');
+        return;
+      }
 
+      // Text query: load Pagefind, then intersect its result URLs with filters.
       let pf;
       try {
         pf = await loadPagefind();
       } catch (err) {
         if (gen !== generation) return;
-        statusEl.textContent = 'Search is unavailable — index could not be loaded.';
-        resultList.innerHTML = '';
-        if (fullCatalog) fullCatalog.hidden = false;
+        const visible = applyVisibility(cards, function (c) { return cardMatchesFilters(c, filters); });
+        announceUnavailable(visible, hasFilters);
+        updateCount(visible);
+        markSearchState(gen, 'settled');
         console.error('Pagefind load error:', err);
         return;
       }
       if (gen !== generation) return;
-      if (!pf) return;
 
-      statusEl.textContent = 'Searching…';
-      resultsContainer.hidden = false;
-
+      let urlSet;
       try {
-        const search = await pf.search(query || null, { filters });
+        const search = await pf.search(query, { filters: pagefindFilters(filters) });
         if (gen !== generation) return;
-        if (search.results.length === 0) {
-          statusEl.textContent = 'No matching skills found.';
-          resultList.innerHTML = '';
-          return;
-        }
-
-        const data = await Promise.all(
-          search.results.map(r => r.data()),
-        );
+        const data = await Promise.all(search.results.map(function (r) { return r.data(); }));
         if (gen !== generation) return;
-
-        resultList.innerHTML = data.map(function (item) {
-          const meta = item.meta || {};
-          const filters = item.filters || {};
-          const source = (filters.source || [''])[0];
-          const version = meta.version || '';
-          const origin = (filters.origin || [''])[0];
-          const license = (filters.license || [''])[0];
-
-          return '<li class="search-result-item">' +
-            '<a href="' + escapeAttr(item.url) + '" class="search-result-link">' +
-            '<span class="search-result-title">' + escapeHtml(meta.title || item.url) + '</span>' +
-            '<span class="search-result-meta">' +
-              (source ? '<span>' + escapeHtml(source) + '</span>' : '') +
-              (version ? '<span>' + escapeHtml(version) + '</span>' : '') +
-              (origin ? '<span class="badge badge--' + badgeType(origin) + '">' + escapeHtml(origin) + '</span>' : '') +
-              (license && license !== 'Unknown' ? '<span>' + escapeHtml(license) + '</span>' : '') +
-            '</span>' +
-            (item.excerpt ? '<span class="search-result-excerpt">' + sanitizeExcerpt(item.excerpt) + '</span>' : '') +
-            '</a>' +
-            '</li>';
-        }).join('');
-
-        // Announce the count only once the rows exist, so the number a screen
-        // reader hears always matches what is rendered.
-        statusEl.textContent = data.length + ' result' +
-          (data.length !== 1 ? 's' : '') + ' found.';
+        urlSet = new Set(data.map(function (d) { return normalizeUrl(d && d.url); }));
       } catch (err) {
         if (gen !== generation) return;
-        statusEl.textContent = 'Search error — please try again.';
-        resultList.innerHTML = '';
-        if (fullCatalog) fullCatalog.hidden = false;
+        const visible = applyVisibility(cards, function (c) { return cardMatchesFilters(c, filters); });
+        announceUnavailable(visible, hasFilters);
+        updateCount(visible);
+        markSearchState(gen, 'settled');
         console.error('Pagefind search error:', err);
+        return;
       }
-    }
 
-    function badgeType(origin) {
-      switch (origin) {
-        case 'Restricted': return 'restricted';
-        case 'Frozen': return 'frozen';
-        case 'Local': return 'local';
-        default: return 'synced';
-      }
+      if (gen !== generation) return;
+      const visible = applyVisibility(cards, function (c) {
+        return urlSet.has(normalizeUrl(c.getAttribute('data-url'))) && cardMatchesFilters(c, filters);
+      });
+      announceCount(visible);
+      updateCount(visible);
+      markSearchState(gen, 'settled');
     }
-
-    function escapeHtml(str) {
-      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
-    function escapeAttr(str) {
-      return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
-
-    // --- sanitize-excerpt:start ---
-    /**
-     * Pagefind builds an excerpt by slicing the RAW indexed page text and only
-     * wrapping matched words in <mark>; it never escapes that text. Skill
-     * bodies legitimately contain HTML-like code samples (<!DOCTYPE html>,
-     * <script src=…>, <style>), so inserting an excerpt straight into
-     * innerHTML injects live markup.
-     *
-     * Escape the whole excerpt first, then restore ONLY Pagefind's own bare
-     * <mark>/</mark> highlight tags. No other tag and no attribute is ever
-     * re-enabled.
-     */
-    function sanitizeExcerpt(value) {
-      var escaped = String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-
-      return escaped
-        .replace(/&lt;mark&gt;/gi, '<mark>')
-        .replace(/&lt;\/mark&gt;/gi, '</mark>');
-    }
-    // --- sanitize-excerpt:end ---
 
     searchInput.addEventListener('input', function () {
+      const gen = ++generation;
+      markSearchState(gen, 'pending');
       clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(doSearch, 200);
+      debounceTimer = setTimeout(function () { doSearch(gen); }, 200);
     });
 
+    // Filters respond immediately; only text input is debounced.
     [filterSource, filterLicense, filterOrigin].forEach(function (el) {
-      if (el) el.addEventListener('change', doSearch);
+      if (el) el.addEventListener('change', function () { return doSearch(); });
     });
+    doSearch();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeSearch, { once: true });
+    } else {
+      initializeSearch();
+    }
   })();
 </script>
 
@@ -337,99 +375,11 @@ const origins = [...new Set(
     font-size: 0.8125rem;
     color: var(--cp-muted-text);
     margin-bottom: 12px;
-  }
-
-  .search-result-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .search-result-item {
-    border-bottom: 1px solid var(--cp-border);
-  }
-  .search-result-item:last-child {
-    border-bottom: none;
-  }
-
-  .search-result-link {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 12px 8px;
-    text-decoration: none;
-    border-radius: 0.625rem;
-    transition: background 0.15s;
-  }
-  .search-result-link:hover {
-    background: var(--cp-hover-surface);
-    box-shadow: inset 3px 0 0 var(--cp-accent);
-    text-decoration: none;
-    color: var(--cp-text);
-  }
-  .search-result-link:focus-visible {
-    outline: 2px solid var(--cp-accent);
-    outline-offset: 2px;
-  }
-
-  .search-result-title {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--cp-text);
-  }
-
-  .search-result-meta {
-    font-size: 0.75rem;
-    color: var(--cp-muted-text);
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .search-result-excerpt {
-    font-size: 0.8125rem;
-    color: var(--cp-text-soft);
-    line-height: 1.5;
-  }
-  .search-result-excerpt :global(mark) {
-    background: var(--cp-highlight);
-    color: var(--cp-text);
-    border-radius: 2px;
-    padding: 0 2px;
-  }
-
-  .search-result-link:hover .search-result-meta {
-    color: var(--cp-text);
-  }
-  .search-result-link:hover .search-result-excerpt {
-    color: var(--cp-text);
-  }
-
-  /* ── Runtime-created node overrides ────────────────────────────────
-   * Search result elements (<a class="search-result-link">) are built
-   * via innerHTML in the Pagefind callback.  They are never rendered by
-   * Astro's template engine and therefore never receive the component's
-   * [data-astro-cid-*] scope attribute.  Without these :global() rules
-   * the scoped selectors above (which compile to
-   * ".search-result-link:hover[data-astro-cid-*]") never match, leaving
-   * hover color as the inherited --cp-link-text (#0067b8) — which fails
-   * WCAG AA at 4.44:1 on the --cp-hover-surface backdrop.
-   */
-  :global(.search-result-link:hover) {
-    background: var(--cp-hover-surface);
-    box-shadow: inset 3px 0 0 var(--cp-accent);
-    text-decoration: none;
-    color: var(--cp-text);
-  }
-  :global(.search-result-link:hover .search-result-meta),
-  :global(.search-result-link:hover .search-result-excerpt) {
-    color: var(--cp-text);
+    min-height: 1.2em;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .search-input,
-    .search-result-link {
+    .search-input {
       transition: none;
     }
   }
