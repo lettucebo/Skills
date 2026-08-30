@@ -428,3 +428,149 @@ test('sync.yml still calls deploy-site.yml exactly once', async () => {
   );
   assert.equal(callers.length, 1, 'exactly one job may call deploy-site.yml (no duplicate deploys)');
 });
+
+// ─── Build provenance: last-updated indicator ───────────────────────
+//
+// The site advertises when it was built and from which commit. Because a
+// reusable workflow inherits the CALLER's event context, `github.sha` is the
+// PRE-sync commit even after checkout pins a newer `inputs.ref`. The built
+// commit must therefore be resolved from the worktree with `git rev-parse HEAD`
+// AFTER checkout, not read from `github.sha`.
+
+test('deploy-site.yml resolves the built commit via git rev-parse HEAD after checkout', async () => {
+  const wf = await loadWorkflow('deploy-site.yml');
+  const steps = stepsOf(wf.jobs?.build);
+
+  const checkoutIndex = findStepIndex(steps, (s) =>
+    String(s.uses ?? '').startsWith('actions/checkout'),
+  );
+  assert.ok(checkoutIndex >= 0, 'build job must have a checkout step');
+
+  const metaIndex = findStepIndex(steps, (s) => /git rev-parse HEAD/.test(String(s.run ?? '')));
+  assert.ok(metaIndex >= 0, 'build job must resolve the built commit with git rev-parse HEAD');
+  assert.ok(
+    metaIndex > checkoutIndex,
+    'the built commit must be resolved AFTER checkout so it names the checked-out tree',
+  );
+  const buildIndex = findStepIndex(
+    steps,
+    (s) => /npm run build/.test(String(s.run ?? '')) && s['working-directory'] === 'site',
+  );
+  const testIndex = findStepIndex(
+    steps,
+    (s) => /npm test/.test(String(s.run ?? '')) && s['working-directory'] === 'site',
+  );
+  const uploadIndex = findStepIndex(
+    steps,
+    (s) => String(s.uses ?? '').startsWith('actions/upload-pages-artifact'),
+  );
+  assert.ok(
+    metaIndex < buildIndex && metaIndex < testIndex,
+    'build metadata must be resolved before the site build and tests consume it',
+  );
+  assert.ok(
+    buildIndex < testIndex,
+    'the site build must precede site tests so built-output assertions cannot skip',
+  );
+  assert.ok(
+    testIndex < uploadIndex,
+    'site tests must pass before the Pages artifact is uploaded',
+  );
+
+  const metaStep = steps[metaIndex];
+  assert.equal(metaStep.id, 'buildinfo', 'metadata consumers must reference the producing step id');
+  assert.match(
+    String(metaStep.run ?? ''),
+    /GITHUB_OUTPUT/,
+    'the resolved commit must be written to $GITHUB_OUTPUT',
+  );
+  assert.match(
+    String(metaStep.run ?? ''),
+    /time=\$\(date -u \+%Y-%m-%dT%H:%M:%SZ\)/,
+    'the metadata step must emit a UTC RFC3339 build time',
+  );
+});
+
+test('deploy-site.yml exports SITE_BUILD_COMMIT and SITE_BUILD_TIME to the site build step', async () => {
+  const wf = await loadWorkflow('deploy-site.yml');
+  const steps = stepsOf(wf.jobs?.build);
+  const buildStep = steps.find(
+    (s) => /npm run build/.test(String(s.run ?? '')) && s['working-directory'] === 'site',
+  );
+  assert.ok(buildStep, 'build job must run npm run build in site/');
+  const env = buildStep.env ?? {};
+  assert.ok(env.SITE_BUILD_COMMIT, 'build step must export SITE_BUILD_COMMIT');
+  assert.ok(env.SITE_BUILD_TIME, 'build step must export SITE_BUILD_TIME');
+});
+
+test('deploy-site.yml exports the same build provenance to the site test step', async () => {
+  const wf = await loadWorkflow('deploy-site.yml');
+  const steps = stepsOf(wf.jobs?.build);
+  const testStep = steps.find(
+    (s) => /npm test/.test(String(s.run ?? '')) && s['working-directory'] === 'site',
+  );
+  assert.ok(testStep, 'build job must run the site test suite');
+  const env = testStep.env ?? {};
+  assert.ok(env.SITE_BUILD_COMMIT, 'test step must export SITE_BUILD_COMMIT');
+  assert.ok(env.SITE_BUILD_TIME, 'test step must export SITE_BUILD_TIME');
+});
+
+test('deploy-site.yml uses identical SITE_BUILD_* expressions for the build and test steps', async () => {
+  const wf = await loadWorkflow('deploy-site.yml');
+  const steps = stepsOf(wf.jobs?.build);
+  const buildStep = steps.find(
+    (s) => /npm run build/.test(String(s.run ?? '')) && s['working-directory'] === 'site',
+  );
+  const testStep = steps.find(
+    (s) => /npm test/.test(String(s.run ?? '')) && s['working-directory'] === 'site',
+  );
+  assert.ok(buildStep && testStep, 'both the site build and test steps must exist');
+
+  // The build must be tested with the SAME provenance it was stamped with, so
+  // the rendered footer/status the tests assert against match the deployed tree.
+  assert.equal(
+    buildStep.env?.SITE_BUILD_COMMIT,
+    testStep.env?.SITE_BUILD_COMMIT,
+    'SITE_BUILD_COMMIT must be identical between the build and test steps',
+  );
+  assert.equal(
+    buildStep.env?.SITE_BUILD_TIME,
+    testStep.env?.SITE_BUILD_TIME,
+    'SITE_BUILD_TIME must be identical between the build and test steps',
+  );
+  assert.equal(
+    buildStep.env?.SITE_BUILD_COMMIT,
+    '${{ steps.buildinfo.outputs.commit }}',
+    'both consumers must use the checked-out commit output',
+  );
+  assert.equal(
+    buildStep.env?.SITE_BUILD_TIME,
+    '${{ steps.buildinfo.outputs.time }}',
+    'both consumers must use the single UTC timestamp output',
+  );
+});
+
+test('deploy-site.yml does NOT derive the built commit from github.sha', async () => {
+  const wf = await loadWorkflow('deploy-site.yml');
+  const steps = stepsOf(wf.jobs?.build);
+
+  for (const label of ['build', 'test']) {
+    const step = steps.find(
+      (s) =>
+        s['working-directory'] === 'site' &&
+        new RegExp(label === 'build' ? 'npm run build' : 'npm test').test(String(s.run ?? '')),
+    );
+    assert.ok(step, `build job must have a site ${label} step`);
+    const commitEnv = String(step.env?.SITE_BUILD_COMMIT ?? '');
+    assert.doesNotMatch(
+      commitEnv,
+      /github\.sha/,
+      `SITE_BUILD_COMMIT in the ${label} step must not come from the pre-sync github.sha`,
+    );
+    assert.match(
+      commitEnv,
+      /steps\.[A-Za-z0-9_-]+\.outputs\.commit/,
+      `SITE_BUILD_COMMIT in the ${label} step must come from the resolved git rev-parse output`,
+    );
+  }
+});

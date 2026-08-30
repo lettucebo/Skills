@@ -1,5 +1,11 @@
 ---
 import '../styles/global.css';
+import {
+  BUILD_TIME,
+  BUILD_COMMIT_SHORT,
+  BUILD_COMMIT_URL,
+  formatUtc,
+} from '../lib/build-info.ts';
 
 interface Props {
   title: string;
@@ -9,6 +15,7 @@ interface Props {
 const { title, description = 'Curated AI coding agent skills registry' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
+const buildTimeLabel = formatUtc(BUILD_TIME);
 
 function isActive(href: string): boolean {
   const norm = (p: string) => p.replace(/\/+$/, '') || '/';
@@ -162,6 +169,16 @@ function isActive(href: string): boolean {
 
   <footer class="site-footer" role="contentinfo">
     <p>Skills Registry &mdash; Curated AI coding agent skills</p>
+    <p class="build-info">
+      Site built <time datetime={BUILD_TIME}>{buildTimeLabel}</time>{
+        BUILD_COMMIT_SHORT && BUILD_COMMIT_URL && (
+          <Fragment>
+            {' · '}
+            <a href={BUILD_COMMIT_URL} rel="noopener noreferrer"><code>{BUILD_COMMIT_SHORT}</code></a>
+          </Fragment>
+        )
+      }
+    </p>
   </footer>
 </body>
 </html>

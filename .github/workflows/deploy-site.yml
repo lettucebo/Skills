@@ -71,6 +71,17 @@ jobs:
           echo "published=$PUBLISHED" >> "$GITHUB_OUTPUT"
           echo "Release $TAG published=$PUBLISHED"
 
+      # The site advertises the commit it was generated from. A reusable
+      # workflow inherits the CALLER's original event context, so `github.sha`
+      # is the PRE-sync commit even though checkout pinned a newer `inputs.ref`.
+      # Resolve the built commit from the checked-out worktree instead, and
+      # stamp a single build time shared by the build and test steps.
+      - name: Resolve build metadata
+        id: buildinfo
+        run: |
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "time=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+
       # configure-pages@v5 documents that enablement=true requires a
       # non-GITHUB_TOKEN credential. This workflow intentionally fails closed
       # when Pages has not been enabled by a repository administrator.
@@ -93,6 +104,8 @@ jobs:
         working-directory: site
         env:
           RELEASE_PUBLISHED: ${{ steps.release.outputs.published }}
+          SITE_BUILD_COMMIT: ${{ steps.buildinfo.outputs.commit }}
+          SITE_BUILD_TIME: ${{ steps.buildinfo.outputs.time }}
 
       # Ordering matters twice over. The sync workflow deploys through this
       # workflow after a GITHUB_TOKEN push, which never triggers the normal
@@ -107,6 +120,8 @@ jobs:
         working-directory: site
         env:
           RELEASE_PUBLISHED: ${{ steps.release.outputs.published }}
+          SITE_BUILD_COMMIT: ${{ steps.buildinfo.outputs.commit }}
+          SITE_BUILD_TIME: ${{ steps.buildinfo.outputs.time }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
