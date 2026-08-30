@@ -224,7 +224,7 @@ test('restricted skill: body reader is NEVER invoked', async () => {
 
 test('repo install command uses #ref syntax (never @version)', () => {
   const cmd = generateRepoInstallCommand();
-  assert.match(cmd, /^npx skills add lettucebo\/Skills#v1\.1\.0$/);
+  assert.match(cmd, /^npx skills add lettucebo\/Skills#v1\.1\.0 --full-depth$/);
   assert.doesNotMatch(cmd, /@v1\.1\.0/);
 });
 
@@ -233,11 +233,15 @@ test('source install command uses #ref syntax', async () => {
   const cmd = generateSourceInstallCommand(catalog.skills, 'azure');
   assert.match(cmd!, /^npx skills add lettucebo\/Skills\/skills\/azure#v1\.1\.0$/);
   assert.doesNotMatch(cmd!, /@v1\.1\.0/);
+  assert.doesNotMatch(cmd!, /--full-depth/);
 });
 
 test('single skill install command uses #ref@name syntax', () => {
   const cmd = generateSingleSkillInstallCommand('az-cost-optimize');
-  assert.equal(cmd, 'npx skills add "lettucebo/Skills#v1.1.0@az-cost-optimize"');
+  assert.equal(
+    cmd,
+    'npx skills add "lettucebo/Skills#v1.1.0@az-cost-optimize" --full-depth',
+  );
 });
 
 test('restricted skill has no install command', () => {

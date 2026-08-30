@@ -7,9 +7,10 @@ import { RELEASE_VERSION, RELEASE_PUBLISHED } from '../lib/catalog';
 
 interface Props {
   command: string;
+  showPendingNote?: boolean;
 }
 
-const { command } = Astro.props;
+const { command, showPendingNote = true } = Astro.props;
 const uniqueId = `install-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
@@ -22,7 +23,7 @@ const uniqueId = `install-${Math.random().toString(36).slice(2, 8)}`;
     hidden
   >Copy</button>
   <div class="copy-feedback" aria-live="polite" data-copy-feedback={uniqueId}></div>
-  {!RELEASE_PUBLISHED && (
+  {showPendingNote && !RELEASE_PUBLISHED && (
     <p class="pending-note">⚠ Available after v{RELEASE_VERSION} is published</p>
   )}
 </div>

@@ -23,9 +23,8 @@ skill。它提供全文搜尋（透過 Pagefind），讓你不必直接閱讀
 - 它可取得的**上游來源證明** — repository 與解析出的 commit，以及
 - 它的**歷史紀錄** — 記錄的版本、變更種類與上游 commit。
 
-非受限制的詳情頁也會渲染 repository-root 安裝指令。目前網站 template 省略 CLI
-必要的 `--full-depth` 旗標，因此執行複製的單一 skill 指令前必須自行加上。
-Catalog 首頁的完整 registry 指令也有相同限制。來源頁面直接指向
+非受限制的詳情頁也會渲染 repository-root 安裝指令。Repository-root 與單一
+skill 指令都會包含 CLI 必要的 `--full-depth` 旗標。來源頁面直接指向
 `skills/<source>`，不需要 `--full-depth`。
 
 若要查看分類、上游 reference／來源子路徑與可取得的 `diffUrl`，請查閱

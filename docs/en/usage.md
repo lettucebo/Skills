@@ -27,10 +27,9 @@ plus:
 - its **history** — recorded version, change kind, and upstream commit.
 
 Non-restricted detail pages also render a repository-root install command.
-The current site template omits the CLI's required `--full-depth` flag, so
-append that flag before running a copied single-skill command. The catalog
-homepage's full-registry command has the same limitation. Source-page
-commands target `skills/<source>` directly and do not need `--full-depth`.
+Repository-root and single-skill commands include the CLI's required
+`--full-depth` flag. Source-page commands target `skills/<source>` directly
+and do not need `--full-depth`.
 
 For the category, upstream reference/source subpath, and any available
 `diffUrl`, inspect the corresponding entries in `catalog/skills.lock.json`
