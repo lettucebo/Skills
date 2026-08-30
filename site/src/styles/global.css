@@ -449,23 +449,7 @@ a:focus-visible {
   font-weight: 600;
 }
 
-/* ─── Warning boxes ──────────────────────────────────────────────── */
-.warning-box {
-  background: var(--cp-highlight);
-  border: 1px solid var(--cp-danger);
-  border-radius: 0.625rem;
-  padding: 16px;
-  margin: 16px 0;
-  color: var(--cp-text);
-}
-.warning-box strong {
-  color: var(--cp-danger-text);
-}
-.warning-box a {
-  color: var(--cp-danger-text);
-  text-decoration: underline;
-}
-
+/* ─── Info boxes ─────────────────────────────────────────────────── */
 .info-box {
   background: var(--cp-accent-soft);
   border: 1px solid var(--cp-border);
@@ -667,9 +651,6 @@ a:focus-visible {
   }
   .card {
     border: 1px solid ButtonText;
-  }
-  .warning-box {
-    border: 2px solid Highlight;
   }
   .skill-table tr:hover {
     outline: 2px solid Highlight;

@@ -93,9 +93,11 @@ for the full explanation.
 
 Restricted skills (see [Installation](installation.md)) never have their
 `SKILL.md` body rendered. Source and single-skill commands are suppressed for
-restricted scopes; the full-registry command remains visible with an explicit
-warning that it includes restricted skills — see
-[Architecture](architecture.md#restricted-content-isolation).
+restricted scopes; the full-registry command remains available and installs
+restricted skills, but the site no longer places an on-page restricted-content
+warning beside it — consult `/status/` or the lockfile for the current
+restricted inventory and licensing (see
+[Architecture](architecture.md#restricted-content-isolation)).
 
 ## See also
 

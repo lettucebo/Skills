@@ -6,7 +6,6 @@ import {
   getSkillsBySource,
   getUpstreamRepoForSource,
   generateSourceInstallCommand,
-  sourceContainsRestricted,
   RELEASE_VERSION,
   RELEASE_PUBLISHED,
 } from '../../lib/catalog';
@@ -25,13 +24,12 @@ export async function getStaticPaths() {
       source,
       skills: getSkillsBySource(catalog.skills, source),
       upstreamRepo: getUpstreamRepoForSource(catalog.skills, source),
-      hasRestricted: sourceContainsRestricted(catalog.skills, source),
       sourceCmd: generateSourceInstallCommand(catalog.skills, source),
     },
   }));
 }
 
-const { source, skills, upstreamRepo, hasRestricted, sourceCmd } = Astro.props;
+const { source, skills, upstreamRepo, sourceCmd } = Astro.props;
 ---
 <Layout title={`${source} skills`}>
   <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -54,17 +52,6 @@ const { source, skills, upstreamRepo, hasRestricted, sourceCmd } = Astro.props;
 
   {sourceCmd && (
     <InstallCommand command={sourceCmd} />
-  )}
-
-  {hasRestricted && !sourceCmd && (
-    <div class="warning-box">
-      <strong>⚠ No source-level install command</strong>
-      <p>
-        This source contains restricted skills with proprietary licenses that cannot
-        be redistributed. A bulk install command is suppressed to prevent inadvertent
-        installation of restricted content. Install individual skills instead.
-      </p>
-    </div>
   )}
 
   <div class="table-scroll" role="region" aria-label={`Skills in ${source}`} tabindex="0">

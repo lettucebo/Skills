@@ -213,7 +213,6 @@ test('A11: original Clawpilot source tokens are preserved for decorative use', (
   assert.equal(dark['--cp-text-muted'], '#919191');
 
   // Decorative border/background use of the source tokens stays untouched.
-  assert.match(readRule('.warning-box'), /border:\s*1px solid var\(--cp-danger\)/);
   assert.match(readRule('.badge--pending'), /border:\s*1px solid var\(--cp-warning\)/);
 });
 
@@ -222,7 +221,6 @@ test('A12: badge, warning and version text use the accessible text tokens', () =
   assert.match(readRule('.badge--restricted'), /color:\s*var\(--cp-danger-text\)/);
   assert.match(readRule('.badge--version'), /color:\s*var\(--cp-accent-text\)/);
   assert.match(readRule('.badge--frozen'), /color:\s*var\(--cp-muted-text\)/);
-  assert.match(readRule('.warning-box strong'), /color:\s*var\(--cp-danger-text\)/);
 });
 
 test('A13: small muted text surfaces use --cp-muted-text everywhere', () => {
@@ -284,7 +282,7 @@ test('A14: every normal-text surface meets AA (>=4.5:1) in both themes', () => {
     { label: 'body text on surface', fg: '--cp-text', bg: '--cp-surface' },
     { label: 'body text on soft surface', fg: '--cp-text', bg: '--cp-surface-soft' },
     { label: 'info-box body', fg: '--cp-text', bg: '--cp-accent-soft' },
-    { label: 'warning-box body / search mark', fg: '--cp-text', bg: '--cp-highlight' },
+    { label: 'search mark', fg: '--cp-text', bg: '--cp-highlight' },
     { label: 'link', fg: '--cp-link-text', bg: '--cp-bg' },
     { label: 'link on surface', fg: '--cp-link-text', bg: '--cp-surface' },
     { label: 'link on hovered row (badge--local)', fg: '--cp-link-text', bg: '--cp-surface-soft' },
@@ -666,7 +664,7 @@ test('INT7: built public skill page has card-description with text', {
   assert.match(html, /card-description/, 'Index must have card descriptions');
 });
 
-// ─── H. Full-repo install disclosure ────────────────────────────────
+// ─── H. Full-repo install command ───────────────────────────────────
 
 /** The Install section of the landing page, from its heading to its closing tag. */
 function readInstallSection(): string {
@@ -678,83 +676,34 @@ function readInstallSection(): string {
   return index.slice(start, end);
 }
 
-/** Restricted count read straight from the lock file — never hardcoded here. */
-function lockRestrictedCount(): number {
-  const lock = JSON.parse(
-    fs.readFileSync(path.resolve(siteRoot, '..', 'catalog', 'skills.lock.json'), 'utf8'),
-  );
-  return lock.skills.filter((s: { redistributable?: boolean }) => s.redistributable === false).length;
-}
-
 test('H1: the full-repo install command is kept as a supported path', () => {
   const section = readInstallSection();
   assert.match(section, /<InstallCommand command=\{repoCmd\}/, 'repo-level command must stay');
 });
 
-test('H2: a restricted-content warning sits beside the full-repo install command', () => {
-  const section = readInstallSection();
-  const commandIndex = section.indexOf('<InstallCommand command={repoCmd}');
-  const warningIndex = section.indexOf('warning-box');
-
-  assert.ok(warningIndex !== -1, 'the Install section must carry a warning box');
-  assert.ok(
-    warningIndex > commandIndex,
-    'the warning must sit directly beside (immediately after) the full-repo command',
-  );
-  assert.match(section, /non-redistributable/i, 'the warning must name the licensing risk');
-  assert.match(section, /review/i, 'the warning must tell users to review the upstream terms');
-  assert.match(
-    section,
-    /single source|one source|per-source|single skill|one skill/i,
-    'the warning must recommend source or single-skill installs instead',
-  );
-});
-
-test('H3: the warning derives its restricted count from catalog data, never a literal', () => {
-  const section = readInstallSection();
-  const actual = lockRestrictedCount();
-
-  assert.match(
-    section,
-    /restrictedCount|counts\.restricted|getRestrictedSkills/,
-    'the warning must read the count from derived catalog data',
-  );
-
-  if (actual === 0) {
-    // Nothing to disclose: the warning is conditional on there being restricted skills.
-    return;
-  }
-
-  // The section renders no numeric literal of its own — pluralisation lives in the
-  // frontmatter — so any occurrence of the current count would be hardcoded prose.
-  assert.ok(
-    !new RegExp(`\\b${actual}\\b`).test(section),
-    `the Install section must not hardcode the current restricted count (${actual})`,
-  );
-});
-
-test('INT8: built index page shows the derived restricted disclosure beside the repo command', {
+test('INT8: built index page publishes the full-repo install command without a restricted disclosure', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const html = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
-  const count = lockRestrictedCount();
 
   assert.match(
     html,
     /npx skills add lettucebo\/Skills#v1\.1\.0/,
     'the full-repo install command must still be published',
   );
-  assert.match(
+  // The restricted licensing disclosure was intentionally removed; guard that it
+  // does not creep back onto the landing page.
+  assert.doesNotMatch(html, /warning-box/, 'the landing page must not render a warning box');
+  assert.doesNotMatch(
     html,
-    new RegExp(`includes\\s+${count}\\s+restricted skill`),
-    'the built warning must state the derived restricted count',
+    /includes\s+\d+\s+restricted skill/,
+    'the removed restricted disclosure must not reappear',
   );
-  assert.match(
+  assert.doesNotMatch(
     html,
-    new RegExp(`${count}\\s+proprietary, non-redistributable skill`),
-    'the built warning must describe the restricted skills as non-redistributable',
+    /proprietary, non-redistributable skill/,
+    'the removed non-redistributable disclosure must not reappear',
   );
-  assert.match(html, /skills\/claude/, 'the built warning must name the affected source');
 });
 
 test('INT9: built source page for a restricted source publishes no bulk install command', {
@@ -766,7 +715,23 @@ test('INT9: built source page for a restricted source publishes no bulk install 
     /npx skills add lettucebo\/Skills\/skills\/claude/,
     'a source containing restricted skills must not offer a bulk install command',
   );
-  assert.match(html, /No source-level install command/, 'the suppression must be explained');
+  // The InstallCommand component (and its copy affordance) must not render at
+  // all for a restricted source — not merely be missing the exact command.
+  assert.doesNotMatch(
+    html,
+    /install-block/,
+    'a restricted source page must not render an install block',
+  );
+  assert.doesNotMatch(
+    html,
+    /install-copy-btn/,
+    'a restricted source page must not render an install copy button',
+  );
+  assert.doesNotMatch(
+    html,
+    /npx skills add/,
+    'a restricted source page must not expose any npx install command text',
+  );
 });
 
 test('INT10: built source page for a clean source keeps its bulk install command', {
@@ -862,35 +827,12 @@ test('INT12: built status page lists every restricted path from the lock', {
   );
 });
 
-// ─── J. Links inside tinted warning/info boxes ──────────────────────
-
-test('J1: warning-box links use --cp-danger-text with persistent underline', () => {
-  const rule = readRule('.warning-box a');
-  assert.match(rule, /color:\s*var\(--cp-danger-text\)/, '.warning-box a must use --cp-danger-text');
-  assert.match(rule, /text-decoration:\s*underline/, '.warning-box a must have persistent underline');
-});
+// ─── J. Links inside tinted info boxes ──────────────────────────────
 
 test('J2: info-box links use --cp-accent-text with persistent underline', () => {
   const rule = readRule('.info-box a');
   assert.match(rule, /color:\s*var\(--cp-accent-text\)/, '.info-box a must use --cp-accent-text');
   assert.match(rule, /text-decoration:\s*underline/, '.info-box a must have persistent underline');
-});
-
-test('J3: warning-box link text meets AA on highlight over both backdrops', () => {
-  const failures: string[] = [];
-  for (const theme of ['light', 'dark'] as const) {
-    const tokens = readThemeTokens(theme);
-    const fg = tokens['--cp-danger-text'];
-    assert.ok(fg, `missing ${theme} --cp-danger-text`);
-    for (const backdrop of ['--cp-bg', '--cp-surface'] as const) {
-      const bg = resolveBackground(tokens, '--cp-highlight', backdrop);
-      const ratio = contrastRatio(fg, bg);
-      if (ratio < 4.5) {
-        failures.push(`${theme}: --cp-danger-text (${fg}) on --cp-highlight over ${backdrop} (${bg}) = ${ratio.toFixed(2)}:1`);
-      }
-    }
-  }
-  assert.deepEqual(failures, [], `WCAG AA failures:\n${failures.join('\n')}`);
 });
 
 test('J4: info-box link text meets AA on accent-soft over both backdrops', () => {
