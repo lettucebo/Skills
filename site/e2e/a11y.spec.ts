@@ -7,7 +7,8 @@
  *   table-heavy and long-URL pages, local table scrolling, vertical filters
  * - skip-link: receives focus on first Tab press, activates to main content
  * - clipboard feedback: copy button shows "Copied" aria-live message
- * - runtime search-result hover contrast: computed ratio >=4.5:1 on hover surface
+ * - unified search card accessibility: hidden cards use the hidden attribute,
+ *   visible card text keeps AA contrast, focus stays on the input
  */
 import { test, expect } from '@playwright/test';
 import { BASE, resolveColorToken, waitForRenderedResults } from './_helpers';
@@ -308,96 +309,59 @@ test.describe('Copy button — clipboard feedback', () => {
   });
 });
 
-// ── Search-result hover contrast ──────────────────────────────────────
+// ── Unified search — card visibility accessibility ────────────────────
 
-test.describe('Search-result link hover contrast', () => {
-  test('hover styling is applied and yields >= 4.5:1 contrast (WCAG AA)', async ({ page }) => {
+test.describe('Unified search — card accessibility', () => {
+  test('hidden cards use the hidden attribute, not visual-only CSS', async ({ page }) => {
+    await page.goto(BASE);
+
+    await page.locator('#filter-source').selectOption('azure');
+    await waitForRenderedResults(page);
+
+    // A non-azure card must be removed from the accessibility tree via the
+    // `hidden` property, not merely painted out with CSS.
+    const nonAzure = page.locator('[data-skill-card]:not([data-source="azure"])').first();
+    await expect(nonAzure).toHaveCount(1);
+    await expect(nonAzure).toBeHidden();
+    const hiddenProp = await nonAzure.evaluate((el) => (el as HTMLElement).hidden);
+    expect(hiddenProp, 'filtered-out cards must set the hidden property').toBe(true);
+  });
+
+  test('a visible card link keeps >= 4.5:1 text contrast on the card surface', async ({ page }) => {
     await page.goto(BASE);
 
     await page.locator('#search-input').fill('azure');
     await waitForRenderedResults(page);
 
-    const link = page.locator('.search-result-link').first();
-    await expect(link).toBeVisible();
+    const card = page.locator('[data-skill-card]:not([hidden])').first();
+    await expect(card).toBeVisible();
+    const title = card.locator('.card-title').first();
+    await expect(title).toHaveCount(1);
 
-    // Runtime-created Pagefind nodes carry no [data-astro-cid-*] attribute, so
-    // only the :global(.search-result-link:hover) rule can style them. Capture
-    // the un-hovered computed style first: if that rule is ever deleted, the
-    // hovered background stays identical (transparent) and this test fails.
-    const before = await link.evaluate((el) => {
-      const s = window.getComputedStyle(el);
-      return { background: s.backgroundColor, color: s.color };
-    });
-
-    await link.hover();
-
-    const hoverSurface = await resolveColorToken(page, '--cp-hover-surface');
-    const textColor = await resolveColorToken(page, '--cp-text');
-
-    // Web-first: retry until the hover transition has settled on the token value.
-    await expect
-      .poll(
-        async () => link.evaluate((el) => window.getComputedStyle(el).backgroundColor),
-        {
-          message:
-            'hovered .search-result-link background must resolve to var(--cp-hover-surface) — ' +
-            'the :global(.search-result-link:hover) rule must exist and match runtime Pagefind nodes',
-          timeout: 5_000,
-        },
-      )
-      .toBe(hoverSurface);
-
-    const after = await link.evaluate((el) => {
-      const s = window.getComputedStyle(el);
-      return { background: s.backgroundColor, color: s.color };
-    });
-
-    expect(
-      after.background,
-      `hover must change the background (before=${before.background}, after=${after.background})`,
-    ).not.toBe(before.background);
-    expect(
-      after.color,
-      'hovered link text colour must resolve to var(--cp-text)',
-    ).toBe(textColor);
-
-    const fg = parseRgb(after.color);
-    const bg = parseRgb(after.background);
-    expect(fg, `could not parse text color: ${after.color}`).not.toBeNull();
-    expect(bg, `could not parse background: ${after.background}`).not.toBeNull();
+    const surface = await resolveColorToken(page, '--cp-surface');
+    const color = await title.evaluate((el) => window.getComputedStyle(el).color);
+    const fg = parseRgb(color);
+    const bg = parseRgb(surface);
+    expect(fg, `could not parse title color: ${color}`).not.toBeNull();
+    expect(bg, `could not parse --cp-surface: ${surface}`).not.toBeNull();
 
     const ratio = contrastRatio(fg!, bg!);
     expect(
       ratio,
-      `hovered .search-result-link contrast ratio is ${ratio.toFixed(2)}:1; must be >= 4.5:1 for WCAG AA ` +
-        `(fg=${after.color}, bg=${after.background})`,
+      `visible card title contrast is ${ratio.toFixed(2)}:1 (fg=${color}, bg=${surface}); must be >= 4.5:1`,
     ).toBeGreaterThanOrEqual(4.5);
   });
 
-  test('hovered meta and excerpt text also reach AA on the hover surface', async ({ page }) => {
+  test('searching does not steal focus from the search input', async ({ page }) => {
     await page.goto(BASE);
 
-    await page.locator('#search-input').fill('azure');
+    const input = page.locator('#search-input');
+    await input.click();
+    await input.fill('azure');
     await waitForRenderedResults(page);
 
-    const link = page.locator('.search-result-link').first();
-    await link.hover();
-
-    const hoverSurface = await resolveColorToken(page, '--cp-hover-surface');
-    const bg = parseRgb(hoverSurface);
-    expect(bg, `could not parse --cp-hover-surface: ${hoverSurface}`).not.toBeNull();
-
-    for (const selector of ['.search-result-title', '.search-result-meta']) {
-      const child = link.locator(selector).first();
-      await expect(child, `${selector} must exist inside a search result`).toHaveCount(1);
-      const color = await child.evaluate((el) => window.getComputedStyle(el).color);
-      const fg = parseRgb(color);
-      expect(fg, `could not parse ${selector} color: ${color}`).not.toBeNull();
-      const ratio = contrastRatio(fg!, bg!);
-      expect(
-        ratio,
-        `${selector} contrast on hover is ${ratio.toFixed(2)}:1 (fg=${color}, bg=${hoverSurface}); must be >= 4.5:1`,
-      ).toBeGreaterThanOrEqual(4.5);
-    }
+    // Toggling card visibility must not move focus away from the input.
+    const focusedId = await page.evaluate(() => document.activeElement?.id ?? '');
+    expect(focusedId, 'focus must remain on the search input after results settle').toBe('search-input');
   });
 });

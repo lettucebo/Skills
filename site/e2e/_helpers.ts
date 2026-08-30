@@ -3,6 +3,11 @@
  *
  * Not matched by Playwright's default `testMatch` (`**\/*.spec.ts`), so this
  * file is a plain module rather than a test file.
+ *
+ * The site has ONE catalog grid: `#skill-grid` holds `[data-skill-card]`
+ * articles. Searching and filtering toggle each card's `hidden` attribute, so a
+ * "result" is simply a visible card. These helpers read the visible cards and
+ * the single `#search-status` live region.
  */
 import { expect, type Page } from '@playwright/test';
 
@@ -10,15 +15,15 @@ export const BASE = '/Skills/';
 
 export const NO_RESULTS_STATUS = 'No matching skills found.';
 
-/** A single rendered search result row, as the user sees it. */
+/** A single visible catalog card, as the user sees it. */
 export interface ResultRow {
   title: string;
   href: string;
-  /** First `<span>` inside `.search-result-meta` — the skill source. */
+  /** Skill source (from the card `data-source` attribute and the first meta span). */
   source: string;
   /** Origin badge text (Synced / Frozen / Restricted / Local). */
   origin: string;
-  /** All `.search-result-meta` direct child span texts, in DOM order. */
+  /** All `.card-meta` direct child span texts, in DOM order. */
   metaSpans: string[];
 }
 
@@ -31,29 +36,31 @@ export function countFromStatus(status: string): number | null {
 }
 
 /**
- * Waits until the search UI is fully settled AND rendered, then returns the rows.
+ * Waits until the search UI is fully settled AND the visible cards match the
+ * announced count, then returns the visible rows.
  *
- * Search.astro announces the result count only after the rows are inserted, so
- * a settled status now implies a populated list. Polling until the announced
- * count equals the rendered row count still removes any transitional frame
- * without a fixed sleep, and additionally asserts the live region and the DOM
- * agree with each other.
+ * The live region announces the count only after card visibility is applied, so
+ * a settled status implies a settled grid. Polling until the announced count
+ * equals the visible-card count removes any transitional frame without a fixed
+ * sleep, and asserts the live region and the DOM agree with each other.
  */
 export async function waitForRenderedResults(page: Page, timeout = 20_000): Promise<ResultRow[]> {
   await expect
     .poll(
       async () => {
         const status = await page.locator('#search-status').innerText();
+        const state = await page.locator('#search-status').getAttribute('data-search-state');
+        if (state !== 'settled') return `search state: ${state ?? 'unset'}`;
         const announced = countFromStatus(status);
         if (announced === null) return `unsettled status: "${status.trim()}"`;
-        const rendered = await page.locator('.search-result-item').count();
+        const rendered = await page.locator('[data-skill-card]:not([hidden])').count();
         return announced === rendered
           ? 'settled'
-          : `announced ${announced} but rendered ${rendered}`;
+          : `announced ${announced} but ${rendered} cards visible`;
       },
       {
         timeout,
-        message: 'search must settle with the announced result count matching the rendered rows',
+        message: 'search must settle with the announced count matching the visible cards',
       },
     )
     .toBe('settled');
@@ -67,21 +74,23 @@ export async function waitForResultCount(page: Page, expected: number, timeout =
   await expect(page.locator('#search-status')).toHaveText(`${expected} ${suffix} found.`, { timeout });
 }
 
-/** Reads every rendered result row with its full metadata. */
+/** Reads every visible catalog card with its metadata. */
 export async function readResults(page: Page): Promise<ResultRow[]> {
-  return page.$$eval('.search-result-item', (items) =>
-    items.map((li) => {
-      const link = li.querySelector('a.search-result-link');
-      const meta = li.querySelector('.search-result-meta');
+  return page.$$eval('[data-skill-card]:not([hidden])', (cards) =>
+    cards.map((card) => {
+      const link = card.querySelector('a');
+      const meta = card.querySelector('.card-meta');
       const metaSpans = meta
         ? Array.from(meta.querySelectorAll(':scope > span')).map((s) => (s.textContent ?? '').trim())
         : [];
       const badge = meta?.querySelector('.badge');
       return {
-        title: (li.querySelector('.search-result-title')?.textContent ?? '').trim(),
+        title:
+          card.getAttribute('data-name') ??
+          (card.querySelector('.card-title')?.textContent ?? '').trim(),
         href: link?.getAttribute('href') ?? '',
-        source: metaSpans[0] ?? '',
-        origin: (badge?.textContent ?? '').trim(),
+        source: card.getAttribute('data-source') ?? (metaSpans[0] ?? ''),
+        origin: card.getAttribute('data-origin') ?? (badge?.textContent ?? '').trim(),
         metaSpans,
       };
     }),
@@ -96,7 +105,7 @@ export async function searchAndRead(page: Page, query: string): Promise<ResultRo
 }
 
 /**
- * Resolves a CSS custom property (e.g. `--cp-hover-surface`) to the browser's
+ * Resolves a CSS custom property (e.g. `--cp-accent`) to the browser's
  * canonical `rgb(...)` form by round-tripping it through a probe element.
  */
 export async function resolveColorToken(page: Page, token: string): Promise<string> {

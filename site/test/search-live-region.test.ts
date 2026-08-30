@@ -1,18 +1,10 @@
 /**
- * Search live-region sequencing guards.
+ * Search live-region guards.
  *
- * Two defects lived together in Search.astro:
- *
- *  1. `aria-live="polite"` sat on `#search-results`, the container that also
- *     holds `<ul id="search-result-list">`. Every row insertion therefore
- *     queued its own announcement, so a screen reader read the whole result
- *     list instead of the one-line status.
- *  2. The status text ("N results found.") was written BEFORE
- *     `await Promise.all(...data())` and before the rows were inserted, so the
- *     count was announced while the list was still empty or stale.
- *
- * The live region now sits on the status paragraph only, and the count is
- * written after the rows exist.
+ * The unified search keeps exactly one polite live region — the `#search-status`
+ * paragraph — and writes its count only after card visibility has been applied,
+ * so a screen reader never hears a number the DOM does not yet reflect. There is
+ * no separate results container and no runtime-built result list to re-announce.
  */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -35,9 +27,8 @@ function openingTag(html: string, id: string): string {
   return html.slice(start, end + 1);
 }
 
-test('LR1: the live region is the status paragraph, not the results container', () => {
+test('LR1: the status paragraph is the single polite live region', () => {
   const statusTag = openingTag(component, 'search-status');
-  const containerTag = openingTag(component, 'search-results');
 
   assert.match(statusTag, /aria-live="polite"/, 'the status line must be the live region');
   assert.match(
@@ -45,43 +36,37 @@ test('LR1: the live region is the status paragraph, not the results container', 
     /aria-atomic="true"/,
     'the status is a single sentence and must be announced atomically',
   );
-  assert.doesNotMatch(
-    containerTag,
-    /aria-live/,
-    'the results container must not announce every inserted row',
-  );
+  // The old #search-results container/live region must be gone entirely.
+  assert.doesNotMatch(component, /id="search-results"/, 'the results container must no longer exist');
+  assert.doesNotMatch(component, /id="search-result-list"/, 'the runtime result list must no longer exist');
 });
 
-test('LR2: the results count is written only after the rows are rendered', () => {
+test('LR2: the count is announced only after card visibility is applied', () => {
   const script = component.slice(component.indexOf('<script'));
 
-  const rowsIndex = script.indexOf('resultList.innerHTML = data.map');
-  assert.notEqual(rowsIndex, -1, 'row rendering not found');
+  const applyIndex = script.indexOf('applyVisibility');
+  assert.notEqual(applyIndex, -1, 'visibility application not found');
 
-  const countIndex = script.indexOf("' result'");
-  assert.notEqual(countIndex, -1, 'result-count status not found');
+  const announceIndex = script.indexOf('announceCount(visible)');
+  assert.notEqual(announceIndex, -1, 'count announcement not found');
 
   assert.ok(
-    countIndex > rowsIndex,
-    'the count announcement must come after the rows are inserted, ' +
-      'otherwise assistive tech reads a number the DOM does not have yet',
+    announceIndex > applyIndex,
+    'the count must be announced after visibility is computed so the number matches the visible cards',
   );
 });
 
-test('LR3: the empty-result status still short-circuits before rendering rows', () => {
+test('LR3: the empty-match branch announces the no-results status', () => {
   const script = component.slice(component.indexOf('<script'));
-
   assert.match(
     script,
     /No matching skills found\./,
-    'the no-results message must be preserved',
+    'the no-results message must be preserved and driven by the visible count',
   );
-
-  const noResults = script.indexOf('No matching skills found.');
-  const clearsRows = script.indexOf("resultList.innerHTML = ''", noResults);
-  assert.ok(
-    clearsRows > noResults && clearsRows - noResults < 200,
-    'the no-results branch must clear the list next to its status write',
+  assert.match(
+    script,
+    /visible === 0[\s\S]{0,80}No matching skills found\./,
+    'zero visible cards must announce the no-results message',
   );
 });
 
@@ -89,5 +74,5 @@ test('LR4: the built page carries the same live-region wiring', { skip: !fs.exis
   const html = fs.readFileSync(distIndex, 'utf8');
 
   assert.match(openingTag(html, 'search-status'), /aria-live="polite"/);
-  assert.doesNotMatch(openingTag(html, 'search-results'), /aria-live/);
+  assert.doesNotMatch(html, /id="search-result-list"/, 'the built page must not ship a runtime result list');
 });

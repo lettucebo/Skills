@@ -75,15 +75,24 @@ function badgeClass(skill: typeof catalog.skills[0]): string {
   </section>
 
   <section id="full-catalog">
-    <h2>All Skills ({counts.total})</h2>
-    <div class="card-grid">
+    <h2>All Skills (<span id="catalog-count">{counts.total}</span>)</h2>
+    <div id="skill-grid" class="card-grid">
       {catalog.skills
         .filter((s) => !s.isTombstone)
         .map((skill) => {
           const desc = skillDescriptions.get(skill.path);
+          const url = `${base}skills/${skill.source}/${skill.slug}/`;
           return (
-            <article class="card">
-              <a href={`${base}skills/${skill.source}/${skill.slug}/`}>
+            <article
+              class="card"
+              data-skill-card
+              data-source={skill.source}
+              data-license={skill.license}
+              data-origin={skill.statusLabel}
+              data-name={skill.name}
+              data-url={url}
+            >
+              <a href={url}>
                 <div class="card-title">{skill.name}</div>
                 <div class="card-meta">
                   <span>{skill.source}</span>
