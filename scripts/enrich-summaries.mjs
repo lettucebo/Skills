@@ -6,6 +6,7 @@ import {
   rm,
 } from 'node:fs/promises';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import {
@@ -237,7 +238,8 @@ function artifactStatus({
     ) ||
     artifact.locales['zh-cn'].signature !== expectedZhCn.signature ||
     artifact.locales['zh-cn'].converterVersion !== expectedZhCn.converterVersion ||
-    artifact.locales['zh-cn'].generatorVersion !== generatorVersion
+    artifact.locales['zh-cn'].generatorVersion !== generatorVersion ||
+    !isDeepStrictEqual(artifact.locales['zh-cn'].content, expectedZhCn.content)
   ) {
     return 'signature-mismatched';
   }
