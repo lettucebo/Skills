@@ -1,0 +1,72 @@
+{
+  "path": "skills/cloudflare/sandbox-next",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:21e796cab41735e9adb716d10e4041707299f023f03fabd55c869bee9720d0fb",
+    "repository": "cloudflare/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/sandbox-next",
+    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f96bff754e428838818017f75817f0f9428acd48",
+            "date": "2026-08-07T23:14:33+05:30",
+            "subject": "Add stable and @next Sandbox agent skills (#92)",
+            "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
+            "pathAtCommit": "skills/sandbox-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a new `sandbox-next` skill guide covering Cloudflare Sandbox SDK 1.0 preview usage, guardrails, reference links, and pre-ship checks."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f96bff754e428838818017f75817f0f9428acd48",
+            "date": "2026-08-07T23:14:33+05:30",
+            "subject": "Add stable and @next Sandbox agent skills (#92)",
+            "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
+            "pathAtCommit": "skills/sandbox-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了 `sandbox-next` 技能指南，涵蓋 Cloudflare Sandbox SDK 1.0 預覽版的使用方式、使用界線、參考連結與發佈前檢查。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f96bff754e428838818017f75817f0f9428acd48",
+            "date": "2026-08-07T23:14:33+05:30",
+            "subject": "Add stable and @next Sandbox agent skills (#92)",
+            "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
+            "pathAtCommit": "skills/sandbox-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了 `sandbox-next` 技能指南，涵盖 Cloudflare Sandbox SDK 1.0 预览版的使用方式、使用界线、参考链接与发布前检查。"
+          }
+        ]
+      }
+    }
+  }
+}

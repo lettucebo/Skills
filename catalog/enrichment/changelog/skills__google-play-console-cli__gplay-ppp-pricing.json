@@ -1,0 +1,180 @@
+{
+  "path": "skills/google-play-console-cli/gplay-ppp-pricing",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:15478f3953fcc1dc56a7b558b0b848008a4cdea770b25b128f17f73c28bce0e9",
+    "repository": "tamtom/gplay-cli-skills",
+    "reference": "refs/heads/main",
+    "source": "skills/gplay-ppp-pricing",
+    "pinnedCommit": "10301b24639e4f768d009b2edda9315cb2149712"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill updated `gplay baseplans migrate-prices` examples to use the `--base-plan-id` flag instead of `--base-plan`."
+          },
+          {
+            "sha": "8088de12fa01cd42e5076453ed601685a5e93cdc",
+            "date": "2026-02-27T17:27:25+04:00",
+            "subject": "fix: add OTP creation workflow, activation guidance, and product ID permanence warnings",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/8088de12fa01cd42e5076453ed601685a5e93cdc",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill added a separate PPP workflow for creating new one-time products, including activation and verification steps plus warnings about permanent product IDs, DRAFT state, and required `--regions-version`."
+          },
+          {
+            "sha": "d61bc9e4894ebb900de34a269ebba30cab75f4ad",
+            "date": "2026-02-27T17:09:52+04:00",
+            "subject": "fix: add newRegionsConfig, dry-run placement, and batch-update JSON format to PPP skill",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/d61bc9e4894ebb900de34a269ebba30cab75f4ad",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill added guidance to preserve `newRegionsConfig` in one-time product updates, updated batch-update examples to put `regionsVersion` and `updateMask` inside each request, and clarified `--dry-run` usage."
+          },
+          {
+            "sha": "5bccde832cd402ecc278a1a8610d2f36810d122a",
+            "date": "2026-02-27T16:58:26+04:00",
+            "subject": "fix: rewrite PPP pricing skill to address fetch-then-merge, required flags, and API format issues",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/5bccde832cd402ecc278a1a8610d2f36810d122a",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill was expanded with required pricing-update flags, fetch-then-merge and currency-preservation guidance, new one-time product and revised subscription PPP workflows, and a common pitfalls section."
+          },
+          {
+            "sha": "43a9b78c68d040f1f0afb15e0b116ced9d63e616",
+            "date": "2026-02-07T09:55:07+04:00",
+            "subject": "Add gplay-ppp-pricing skill for region-specific purchasing power parity pricing",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/43a9b78c68d040f1f0afb15e0b116ced9d63e616",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill was added with PPP pricing guidance, a regional multiplier table, and workflows for in-app products, subscriptions, subscriber price migration, and batch pricing."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能將 `gplay baseplans migrate-prices` 範例中的旗標由 `--base-plan` 改為 `--base-plan-id`。"
+          },
+          {
+            "sha": "8088de12fa01cd42e5076453ed601685a5e93cdc",
+            "date": "2026-02-27T17:27:25+04:00",
+            "subject": "fix: add OTP creation workflow, activation guidance, and product ID permanence warnings",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/8088de12fa01cd42e5076453ed601685a5e93cdc",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能新增了建立新單次商品 PPP 定價的獨立流程，包含啟用與驗證步驟，以及關於永久商品 ID、DRAFT 狀態與必填 `--regions-version` 的警告。"
+          },
+          {
+            "sha": "d61bc9e4894ebb900de34a269ebba30cab75f4ad",
+            "date": "2026-02-27T17:09:52+04:00",
+            "subject": "fix: add newRegionsConfig, dry-run placement, and batch-update JSON format to PPP skill",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/d61bc9e4894ebb900de34a269ebba30cab75f4ad",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能補充了在單次商品更新中保留 `newRegionsConfig` 的指引，更新了將 `regionsVersion` 與 `updateMask` 放在各個 request 內的批次更新範例，並釐清了 `--dry-run` 的用法。"
+          },
+          {
+            "sha": "5bccde832cd402ecc278a1a8610d2f36810d122a",
+            "date": "2026-02-27T16:58:26+04:00",
+            "subject": "fix: rewrite PPP pricing skill to address fetch-then-merge, required flags, and API format issues",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/5bccde832cd402ecc278a1a8610d2f36810d122a",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能擴充了定價更新必填旗標、先抓取再合併與保留貨幣資訊的指引、新的單次商品與修訂後的訂閱 PPP 流程，以及常見陷阱章節。"
+          },
+          {
+            "sha": "43a9b78c68d040f1f0afb15e0b116ced9d63e616",
+            "date": "2026-02-07T09:55:07+04:00",
+            "subject": "Add gplay-ppp-pricing skill for region-specific purchasing power parity pricing",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/43a9b78c68d040f1f0afb15e0b116ced9d63e616",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能已新增，內容包含 PPP 定價指引、區域倍率表，以及內購商品、訂閱、訂閱者價格遷移與批次定價流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能将 `gplay baseplans migrate-prices` 范例中的旗标由 `--base-plan` 改为 `--base-plan-id`。"
+          },
+          {
+            "sha": "8088de12fa01cd42e5076453ed601685a5e93cdc",
+            "date": "2026-02-27T17:27:25+04:00",
+            "subject": "fix: add OTP creation workflow, activation guidance, and product ID permanence warnings",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/8088de12fa01cd42e5076453ed601685a5e93cdc",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能添加了创建新单次商品 PPP 定价的独立流程，包含激活与验证步骤，以及关于永久商品 ID、DRAFT 状态与必填 `--regions-version` 的警告。"
+          },
+          {
+            "sha": "d61bc9e4894ebb900de34a269ebba30cab75f4ad",
+            "date": "2026-02-27T17:09:52+04:00",
+            "subject": "fix: add newRegionsConfig, dry-run placement, and batch-update JSON format to PPP skill",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/d61bc9e4894ebb900de34a269ebba30cab75f4ad",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能补充了在单次商品更新中保留 `newRegionsConfig` 的指引，更新了将 `regionsVersion` 与 `updateMask` 放在各个 request 内的批量更新范例，并厘清了 `--dry-run` 的用法。"
+          },
+          {
+            "sha": "5bccde832cd402ecc278a1a8610d2f36810d122a",
+            "date": "2026-02-27T16:58:26+04:00",
+            "subject": "fix: rewrite PPP pricing skill to address fetch-then-merge, required flags, and API format issues",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/5bccde832cd402ecc278a1a8610d2f36810d122a",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能扩充了定价更新必填旗标、先抓取再合并与保留货币信息的指引、新的单次商品与修订后的订阅 PPP 流程，以及常见陷阱章节。"
+          },
+          {
+            "sha": "43a9b78c68d040f1f0afb15e0b116ced9d63e616",
+            "date": "2026-02-07T09:55:07+04:00",
+            "subject": "Add gplay-ppp-pricing skill for region-specific purchasing power parity pricing",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/43a9b78c68d040f1f0afb15e0b116ced9d63e616",
+            "pathAtCommit": "skills/gplay-ppp-pricing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能已添加，内容包含 PPP 定价指引、区域倍率表，以及内购商品、订阅、订阅者价格迁移与批量定价流程。"
+          }
+        ]
+      }
+    }
+  }
+}

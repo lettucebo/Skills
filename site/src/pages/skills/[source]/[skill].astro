@@ -2,6 +2,11 @@
 import Layout from '../../../layouts/Layout.astro';
 import InstallCommand from '../../../components/InstallCommand.astro';
 import {
+  formatChangelogDate,
+  loadEnrichmentLocale,
+  type SkillChangelogContent,
+} from '../../../lib/enrichment';
+import {
   loadCatalog,
   loadSkillBody,
   loadSkillHistory,
@@ -31,6 +36,18 @@ const { skill } = Astro.props;
 
 const body = await loadSkillBody(repoRoot, skill);
 const history = await loadSkillHistory(repoRoot, skill);
+const emptyUpstreamChanges: SkillChangelogContent = { commits: [] };
+const upstreamChangesPromise =
+  !skill.isRestricted && !skill.isOrphan && skill.upstreamRepo
+    ? loadEnrichmentLocale<SkillChangelogContent>({
+        repoRoot,
+        kind: 'changelog',
+        skill: skill.lockEntry,
+        locale: 'en',
+        fallback: emptyUpstreamChanges,
+      })
+    : Promise.resolve(emptyUpstreamChanges);
+const upstreamChanges = await upstreamChangesPromise;
 const installCmd = skill.isRestricted
   ? null
   : generateSingleSkillInstallCommand(skill.name);
@@ -100,6 +117,31 @@ function statusBadgeClass(): string {
       </div>
     )}
   </article>
+
+  {upstreamChanges.commits.length > 0 && (
+    <div class="timeline" data-pagefind-ignore>
+      <h2>Upstream changes</h2>
+      {upstreamChanges.commits.map((entry) => (
+        <div class="timeline-entry">
+          <a
+            class="timeline-version"
+            href={entry.url}
+            rel="noopener noreferrer"
+          >
+            <code>{entry.sha.slice(0, 7)}</code>
+          </a>
+          <time datetime={entry.date}>{formatChangelogDate(entry.date)}</time>
+          <span class="timeline-kind">{entry.summary}</span>
+        </div>
+      ))}
+      {upstreamChanges.truncatedAt && (
+        <p class="timeline-note">
+          Earlier history was intentionally truncated at{' '}
+          <code>{upstreamChanges.truncatedAt.sha.slice(0, 7)}</code>.
+        </p>
+      )}
+    </div>
+  )}
 
   {history.length > 0 && (
     <div class="timeline" data-pagefind-ignore>

@@ -50,15 +50,42 @@ npm run validate:enrichment
 ```
 
 **Enrichment strict validator** — publishing-only completeness and freshness
-checks in addition to the default safety rules:
+checks in addition to the default safety rules. Changelog locale signatures
+must also match the pinned prompt, model, converter, and generator version:
 
 ```bash
 npm run validate:enrichment -- --strict
 ```
 
+**Changelog enrichment** — full-history generation for every eligible mapped
+skill. The generator clones each distinct upstream once, stops at each
+lockfile-pinned commit, sends all path-scoped commit patches for one skill in
+one Copilot call, writes `en` and `zh-tw`, derives `zh-cn` with OpenCC, prunes
+forbidden artifacts, and enables the manifest only after the complete set
+passes strict validation:
+
+```bash
+npm run enrich:changelog
+```
+
+Use a path or unique skill name for a targeted cache warm-up or diagnosis.
+Targeted generation never enables the global manifest:
+
+```bash
+npm run enrich:changelog -- --skill skills/github/github-issues
+```
+
+**Changelog check** — performs no clone, Copilot call, or write. It verifies
+the enabled artifact set, full provenance freshness tuple, and locale
+signatures:
+
+```bash
+npm run enrich:changelog -- --check
+```
+
 **Enrichment prune** — deterministic deletion of artifacts for skills that
-became restricted, became tombstones, or left the lock. This command never
-calls an LLM or the network:
+became ineligible for their artifact kind, became tombstones, or left the
+lock. This command never calls an LLM or the network:
 
 ```bash
 npm run enrich:prune
@@ -168,8 +195,8 @@ default (`npm run validate:enrichment`) always blocks forbidden or malformed
 artifacts in directories that exist, including artifacts for skills absent
 from the lock. Disabled kinds require no directory and no complete artifact
 set. Missing and stale eligible artifacts pass. Tier 2 strict adds exact-set
-completeness and freshness for enabled kinds, and is reserved for a publishing
-gate.
+completeness and freshness for enabled kinds, validates current changelog
+locale signatures, and is reserved for a publishing gate.
 
 Eligibility is computed per kind: summaries include every non-tombstone,
 non-restricted skill; changelogs additionally require a non-null `upstream`.

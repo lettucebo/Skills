@@ -1,0 +1,249 @@
+{
+  "path": "skills/dotnet/csharp-xunit",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b9ce758e7c3f3c72d992278de3f9d8728e06d8fbba756a27b1421036b5256c2a",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/csharp-xunit",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/csharp-xunit/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C096",
+              "sourcePath": "prompts/csharp-xunit.prompt.md",
+              "destinationPath": "skills/csharp-xunit/SKILL.md"
+            },
+            "summary": "Added `skills/csharp-xunit/SKILL.md` with front matter and XUnit testing best-practice guidance."
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the front matter key from `mode` to `agent` in `prompts/csharp-xunit.prompt.md`."
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the tool list in `prompts/csharp-xunit.prompt.md` to use `search/codebase` instead of `codebase`."
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the tool list in `prompts/csharp-xunit.prompt.md` to use `edit/editFiles` instead of `editFiles`."
+          },
+          {
+            "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "date": "2025-07-02T18:18:52-07:00",
+            "subject": "Update development instructions and guidelines (#29)",
+            "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Reformatted the front matter in `prompts/csharp-xunit.prompt.md` from double-quoted values to single-quoted values."
+          },
+          {
+            "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
+            "date": "2025-06-26T15:49:51+10:00",
+            "subject": "Improving the tools for prompts",
+            "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the tools list in `prompts/csharp-xunit.prompt.md` from `codebase` and `terminalCommand` to `changes`, `codebase`, `editFiles`, `problems`, and `search`."
+          },
+          {
+            "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
+            "date": "2025-06-19T11:50:55+10:00",
+            "subject": "Initial setup of repo with prompts and instructions",
+            "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added `prompts/csharp-xunit.prompt.md` with front matter and XUnit best-practice guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/csharp-xunit/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C096",
+              "sourcePath": "prompts/csharp-xunit.prompt.md",
+              "destinationPath": "skills/csharp-xunit/SKILL.md"
+            },
+            "summary": "新增 `skills/csharp-xunit/SKILL.md`，包含前置中繼資料與 XUnit 測試最佳實務指引。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 `prompts/csharp-xunit.prompt.md` 的前置中繼資料鍵名由 `mode` 改為 `agent`。"
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 `prompts/csharp-xunit.prompt.md` 的工具清單從 `codebase` 改為使用 `search/codebase`。"
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 `prompts/csharp-xunit.prompt.md` 的工具清單從 `editFiles` 更新為 `edit/editFiles`。"
+          },
+          {
+            "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "date": "2025-07-02T18:18:52-07:00",
+            "subject": "Update development instructions and guidelines (#29)",
+            "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 `prompts/csharp-xunit.prompt.md` 的前置中繼資料由雙引號值格式改為單引號值格式。"
+          },
+          {
+            "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
+            "date": "2025-06-26T15:49:51+10:00",
+            "subject": "Improving the tools for prompts",
+            "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 `prompts/csharp-xunit.prompt.md` 的工具清單從 `codebase` 與 `terminalCommand` 擴充為 `changes`、`codebase`、`editFiles`、`problems` 與 `search`。"
+          },
+          {
+            "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
+            "date": "2025-06-19T11:50:55+10:00",
+            "subject": "Initial setup of repo with prompts and instructions",
+            "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `prompts/csharp-xunit.prompt.md`，包含前置中繼資料與 XUnit 最佳實務指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/csharp-xunit/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C096",
+              "sourcePath": "prompts/csharp-xunit.prompt.md",
+              "destinationPath": "skills/csharp-xunit/SKILL.md"
+            },
+            "summary": "添加 `skills/csharp-xunit/SKILL.md`，包含前置中继数据与 XUnit 测试最佳实务指引。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 `prompts/csharp-xunit.prompt.md` 的前置中继数据键名由 `mode` 改为 `agent`。"
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 `prompts/csharp-xunit.prompt.md` 的工具清单从 `codebase` 改为使用 `search/codebase`。"
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 `prompts/csharp-xunit.prompt.md` 的工具清单从 `editFiles` 更新为 `edit/editFiles`。"
+          },
+          {
+            "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "date": "2025-07-02T18:18:52-07:00",
+            "subject": "Update development instructions and guidelines (#29)",
+            "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 `prompts/csharp-xunit.prompt.md` 的前置中继数据由双引号值格式改为单引号值格式。"
+          },
+          {
+            "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
+            "date": "2025-06-26T15:49:51+10:00",
+            "subject": "Improving the tools for prompts",
+            "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 `prompts/csharp-xunit.prompt.md` 的工具清单从 `codebase` 与 `terminalCommand` 扩充为 `changes`、`codebase`、`editFiles`、`problems` 与 `search`。"
+          },
+          {
+            "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
+            "date": "2025-06-19T11:50:55+10:00",
+            "subject": "Initial setup of repo with prompts and instructions",
+            "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
+            "pathAtCommit": "prompts/csharp-xunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `prompts/csharp-xunit.prompt.md`，包含前置中继数据与 XUnit 最佳实务指引。"
+          }
+        ]
+      }
+    }
+  }
+}

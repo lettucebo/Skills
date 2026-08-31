@@ -1,0 +1,264 @@
+{
+  "path": "skills/claude/skill-creator",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4557d54c524c67984e4bab23fa436e90196292ae8df4d2093f0ce0e6951bfc1c",
+    "repository": "anthropics/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/skill-creator",
+    "pinnedCommit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "b0cbd3df1533b396d281a6886d5132f623393a9c",
+            "date": "2026-03-06T12:06:23-08:00",
+            "subject": "skill-creator: drop ANTHROPIC_API_KEY requirement from description optimizer (#547)",
+            "url": "https://github.com/anthropics/skills/commit/b0cbd3df1533b396d281a6886d5132f623393a9c",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the skill description and description-optimizer text, and added guidance for updating existing skills in the Claude.ai and Cowork sections."
+          },
+          {
+            "sha": "3d59511518591fa82e6cfcf0438d68dd5dad3e76",
+            "date": "2026-02-24T20:28:38-08:00",
+            "subject": "chore: export latest skills (#465)",
+            "url": "https://github.com/anthropics/skills/commit/3d59511518591fa82e6cfcf0438d68dd5dad3e76",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Rewrote `SKILL.md` into a broader guide for creating, evaluating, iterating on, and optimizing skills, including user-communication and packaging guidance."
+          },
+          {
+            "sha": "1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
+            "date": "2026-02-06T16:19:32-05:00",
+            "subject": "Update skill-creator and make scripts executable (#350)",
+            "url": "https://github.com/anthropics/skills/commit/1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `compatibility` as an optional frontmatter field in the anatomy example and clarified the frontmatter description."
+          },
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skill-creator/SKILL.md",
+              "destinationPath": "skills/skill-creator/SKILL.md"
+            },
+            "summary": "Moved `SKILL.md` from `skill-creator/` to `skills/skill-creator/` without changing its contents."
+          },
+          {
+            "sha": "0f77e501e6506235956d953cd2d7a2a4aa9ba133",
+            "date": "2025-11-17T16:34:29-05:00",
+            "subject": "Update example skills and rename 'artifacts-builder' (#112)",
+            "url": "https://github.com/anthropics/skills/commit/0f77e501e6506235956d953cd2d7a2a4aa9ba133",
+            "pathAtCommit": "skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded `SKILL.md` with core design principles, progressive-disclosure patterns, packaging details, and a fuller testing and iteration workflow."
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "skill-creator/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/skill-creator/SKILL.md",
+              "destinationPath": "skill-creator/SKILL.md"
+            },
+            "summary": "Moved `SKILL.md` from `examples/skill-creator/` to `skill-creator/` without changing its contents."
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial `skill-creator` `SKILL.md` with guidance on skill structure, bundled resources, progressive disclosure, and the creation process."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "b0cbd3df1533b396d281a6886d5132f623393a9c",
+            "date": "2026-03-06T12:06:23-08:00",
+            "subject": "skill-creator: drop ANTHROPIC_API_KEY requirement from description optimizer (#547)",
+            "url": "https://github.com/anthropics/skills/commit/b0cbd3df1533b396d281a6886d5132f623393a9c",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了技能描述與描述最佳化器的文字，並在 Claude.ai 與 Cowork 章節加入更新既有技能的指引。"
+          },
+          {
+            "sha": "3d59511518591fa82e6cfcf0438d68dd5dad3e76",
+            "date": "2026-02-24T20:28:38-08:00",
+            "subject": "chore: export latest skills (#465)",
+            "url": "https://github.com/anthropics/skills/commit/3d59511518591fa82e6cfcf0438d68dd5dad3e76",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 `SKILL.md` 改寫為更完整的指南，涵蓋技能的建立、評估、迭代與最佳化，並加入與使用者溝通及封裝的指引。"
+          },
+          {
+            "sha": "1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
+            "date": "2026-02-06T16:19:32-05:00",
+            "subject": "Update skill-creator and make scripts executable (#350)",
+            "url": "https://github.com/anthropics/skills/commit/1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在結構範例中加入可選的 `compatibility` frontmatter 欄位，並釐清 frontmatter 的說明。"
+          },
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skill-creator/SKILL.md",
+              "destinationPath": "skills/skill-creator/SKILL.md"
+            },
+            "summary": "將 `SKILL.md` 從 `skill-creator/` 移到 `skills/skill-creator/`，內容未變更。"
+          },
+          {
+            "sha": "0f77e501e6506235956d953cd2d7a2a4aa9ba133",
+            "date": "2025-11-17T16:34:29-05:00",
+            "subject": "Update example skills and rename 'artifacts-builder' (#112)",
+            "url": "https://github.com/anthropics/skills/commit/0f77e501e6506235956d953cd2d7a2a4aa9ba133",
+            "pathAtCommit": "skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了 `SKILL.md`，加入核心設計原則、漸進式揭露模式、封裝細節，以及更完整的測試與迭代流程。"
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "skill-creator/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/skill-creator/SKILL.md",
+              "destinationPath": "skill-creator/SKILL.md"
+            },
+            "summary": "將 `SKILL.md` 從 `examples/skill-creator/` 移到 `skill-creator/`，內容未變更。"
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了初始的 `skill-creator` `SKILL.md`，說明技能結構、內含資源、漸進式揭露與建立流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "b0cbd3df1533b396d281a6886d5132f623393a9c",
+            "date": "2026-03-06T12:06:23-08:00",
+            "subject": "skill-creator: drop ANTHROPIC_API_KEY requirement from description optimizer (#547)",
+            "url": "https://github.com/anthropics/skills/commit/b0cbd3df1533b396d281a6886d5132f623393a9c",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了技能描述与描述优化器的文字，并在 Claude.ai 与 Cowork 章节加入更新既有技能的指引。"
+          },
+          {
+            "sha": "3d59511518591fa82e6cfcf0438d68dd5dad3e76",
+            "date": "2026-02-24T20:28:38-08:00",
+            "subject": "chore: export latest skills (#465)",
+            "url": "https://github.com/anthropics/skills/commit/3d59511518591fa82e6cfcf0438d68dd5dad3e76",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 `SKILL.md` 改写为更完整的指南，涵盖技能的创建、评估、迭代与优化，并加入与用户沟通及封装的指引。"
+          },
+          {
+            "sha": "1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
+            "date": "2026-02-06T16:19:32-05:00",
+            "subject": "Update skill-creator and make scripts executable (#350)",
+            "url": "https://github.com/anthropics/skills/commit/1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在结构范例中加入可选的 `compatibility` frontmatter 字段，并厘清 frontmatter 的说明。"
+          },
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/skill-creator/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skill-creator/SKILL.md",
+              "destinationPath": "skills/skill-creator/SKILL.md"
+            },
+            "summary": "将 `SKILL.md` 从 `skill-creator/` 移到 `skills/skill-creator/`，内容未变更。"
+          },
+          {
+            "sha": "0f77e501e6506235956d953cd2d7a2a4aa9ba133",
+            "date": "2025-11-17T16:34:29-05:00",
+            "subject": "Update example skills and rename 'artifacts-builder' (#112)",
+            "url": "https://github.com/anthropics/skills/commit/0f77e501e6506235956d953cd2d7a2a4aa9ba133",
+            "pathAtCommit": "skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了 `SKILL.md`，加入内核设计原则、渐进式揭露模式、封装细节，以及更完整的测试与迭代流程。"
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "skill-creator/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/skill-creator/SKILL.md",
+              "destinationPath": "skill-creator/SKILL.md"
+            },
+            "summary": "将 `SKILL.md` 从 `examples/skill-creator/` 移到 `skill-creator/`，内容未变更。"
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了初始的 `skill-creator` `SKILL.md`，说明技能结构、内含资源、渐进式揭露与创建流程。"
+          }
+        ]
+      }
+    }
+  }
+}

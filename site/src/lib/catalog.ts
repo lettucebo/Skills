@@ -124,6 +124,7 @@ export interface SkillHistory {
 }
 
 export interface SkillViewModel {
+  lockEntry: LockSkillEntry;
   name: string;
   path: string;
   source: string;
@@ -196,6 +197,7 @@ export function normalizeSkill(entry: LockSkillEntry): SkillViewModel {
   else statusLabel = 'Synced';
 
   return {
+    lockEntry: entry,
     name: entry.name,
     path: entry.path,
     source,

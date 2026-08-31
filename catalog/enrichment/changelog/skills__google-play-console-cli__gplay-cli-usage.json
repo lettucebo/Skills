@@ -1,0 +1,153 @@
+{
+  "path": "skills/google-play-console-cli/gplay-cli-usage",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:862ce0ce874324c9485a1c1faf8feed4eb46a855126cf3065f31d2392e2d67d8",
+    "repository": "tamtom/gplay-cli-skills",
+    "reference": "refs/heads/main",
+    "source": "skills/gplay-cli-usage",
+    "pinnedCommit": "10301b24639e4f768d009b2edda9315cb2149712"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Corrected several command examples by updating profile, apps, docs, reports, and notify usage to newer CLI forms, and added pagination and bucket-id guidance."
+          },
+          {
+            "sha": "d531a455daad0b089616f982f3e2cc10482d12f6",
+            "date": "2026-02-15T14:04:20+04:00",
+            "subject": "feat: add gplay-reports-download skill and update README",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/d531a455daad0b089616f982f3e2cc10482d12f6",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced the generic reports section with separate financial and statistics report descriptions and list/download command examples."
+          },
+          {
+            "sha": "f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "date": "2026-02-15T13:04:42+04:00",
+            "subject": "feat: add skills for v0.4.2 new commands (vitals, users, migrate)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill with command and environment-variable reference sections plus examples for dry runs, app listing, docs generation, updates, reports, and notifications."
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial gplay-cli-usage skill with guidance on command discovery, flags, output formats, authentication, timeouts, common patterns, and edit sessions."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修正多個指令範例，將 profile、apps、docs、reports 與 notify 的用法更新為較新的 CLI 形式，並補充分頁與 bucket-id 指引。"
+          },
+          {
+            "sha": "d531a455daad0b089616f982f3e2cc10482d12f6",
+            "date": "2026-02-15T14:04:20+04:00",
+            "subject": "feat: add gplay-reports-download skill and update README",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/d531a455daad0b089616f982f3e2cc10482d12f6",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將原本通用的 reports 章節改為分開說明 financial 與 statistics reports，並提供 list/download 指令範例。"
+          },
+          {
+            "sha": "f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "date": "2026-02-15T13:04:42+04:00",
+            "subject": "feat: add skills for v0.4.2 new commands (vitals, users, migrate)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充此技能，新增指令與環境變數參考章節，並加入 dry run、app listing、文件產生、更新、reports 與通知的範例。"
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版 gplay-cli-usage 技能，內容涵蓋指令探索、旗標、輸出格式、驗證、逾時、常見模式與 edit sessions 指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修正多个指令范例，将 profile、apps、docs、reports 与 notify 的用法更新为较新的 CLI 形式，并补充分页与 bucket-id 指引。"
+          },
+          {
+            "sha": "d531a455daad0b089616f982f3e2cc10482d12f6",
+            "date": "2026-02-15T14:04:20+04:00",
+            "subject": "feat: add gplay-reports-download skill and update README",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/d531a455daad0b089616f982f3e2cc10482d12f6",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将原本通用的 reports 章节改为分开说明 financial 与 statistics reports，并提供 list/download 指令范例。"
+          },
+          {
+            "sha": "f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "date": "2026-02-15T13:04:42+04:00",
+            "subject": "feat: add skills for v0.4.2 new commands (vitals, users, migrate)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充此技能，添加指令与环境变量参考章节，并加入 dry run、app listing、文档产生、更新、reports 与通知的范例。"
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版 gplay-cli-usage 技能，内容涵盖指令探索、旗标、输出格式、验证、逾时、常见模式与 edit sessions 指引。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "path": "skills/github/gh-cli",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:653c1d667afbae4aca8d72c49cbacd67d37f256577151f76c22bf3ef56871b07",
+    "repository": "aiskillstore/marketplace",
+    "reference": "refs/heads/main",
+    "source": "skills/github/gh-cli",
+    "pinnedCommit": "27f583d0e4df7f0cef3c06840848a32efc55e1b4"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "13331cbba8cb1939c9d7171b95c67b9757a7c04c",
+            "date": "2026-03-13T09:06:35Z",
+            "subject": "Approve skills: /authentication-setup /system-environment-setup /log-analysis /state-management /web-design-guidelines /gh-cli",
+            "url": "https://github.com/aiskillstore/marketplace/commit/13331cbba8cb1939c9d7171b95c67b9757a7c04c",
+            "pathAtCommit": "skills/github/gh-cli/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "pending/github/gh-cli/SKILL.md",
+              "destinationPath": "skills/github/gh-cli/SKILL.md"
+            },
+            "summary": "Renamed pending/github/gh-cli/SKILL.md to skills/github/gh-cli/SKILL.md without content changes."
+          },
+          {
+            "sha": "a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
+            "date": "2026-03-13T17:06:24+08:00",
+            "subject": "Add pending skill: /github-gh-cli [submission: 5b81ce47-7489-4cd9-a41f-71c2d0457a8f] (#1145)",
+            "url": "https://github.com/aiskillstore/marketplace/commit/a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
+            "pathAtCommit": "pending/github/gh-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added pending/github/gh-cli/SKILL.md with a comprehensive GitHub CLI reference covering authentication, repositories, issues, pull requests, Actions, and related commands."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "13331cbba8cb1939c9d7171b95c67b9757a7c04c",
+            "date": "2026-03-13T09:06:35Z",
+            "subject": "Approve skills: /authentication-setup /system-environment-setup /log-analysis /state-management /web-design-guidelines /gh-cli",
+            "url": "https://github.com/aiskillstore/marketplace/commit/13331cbba8cb1939c9d7171b95c67b9757a7c04c",
+            "pathAtCommit": "skills/github/gh-cli/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "pending/github/gh-cli/SKILL.md",
+              "destinationPath": "skills/github/gh-cli/SKILL.md"
+            },
+            "summary": "將 pending/github/gh-cli/SKILL.md 重新命名為 skills/github/gh-cli/SKILL.md，內容未變更。"
+          },
+          {
+            "sha": "a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
+            "date": "2026-03-13T17:06:24+08:00",
+            "subject": "Add pending skill: /github-gh-cli [submission: 5b81ce47-7489-4cd9-a41f-71c2d0457a8f] (#1145)",
+            "url": "https://github.com/aiskillstore/marketplace/commit/a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
+            "pathAtCommit": "pending/github/gh-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 pending/github/gh-cli/SKILL.md，提供涵蓋驗證、儲存庫、議題、拉取請求、Actions 與相關指令的 GitHub CLI 完整參考。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "13331cbba8cb1939c9d7171b95c67b9757a7c04c",
+            "date": "2026-03-13T09:06:35Z",
+            "subject": "Approve skills: /authentication-setup /system-environment-setup /log-analysis /state-management /web-design-guidelines /gh-cli",
+            "url": "https://github.com/aiskillstore/marketplace/commit/13331cbba8cb1939c9d7171b95c67b9757a7c04c",
+            "pathAtCommit": "skills/github/gh-cli/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "pending/github/gh-cli/SKILL.md",
+              "destinationPath": "skills/github/gh-cli/SKILL.md"
+            },
+            "summary": "将 pending/github/gh-cli/SKILL.md 重命名为 skills/github/gh-cli/SKILL.md，内容未变更。"
+          },
+          {
+            "sha": "a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
+            "date": "2026-03-13T17:06:24+08:00",
+            "subject": "Add pending skill: /github-gh-cli [submission: 5b81ce47-7489-4cd9-a41f-71c2d0457a8f] (#1145)",
+            "url": "https://github.com/aiskillstore/marketplace/commit/a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
+            "pathAtCommit": "pending/github/gh-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 pending/github/gh-cli/SKILL.md，提供涵盖验证、保存库、议题、拉取请求、Actions 与相关指令的 GitHub CLI 完整参考。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -11,48 +11,111 @@ export const ENRICHMENT_ARTIFACT_KINDS = Object.freeze(['summaries', 'changelog'
 export const ENRICHMENT_LOCALES = Object.freeze(['en', 'zh-tw', 'zh-cn']);
 
 const HASH_PATTERN = '^sha256:[0-9a-f]{64}$';
+const COMMIT_SHA_PATTERN = '^[0-9a-f]{40}$';
 const ajv = new Ajv({ allErrors: true, strict: true });
 
 const hashSchema = { type: 'string', pattern: HASH_PATTERN };
-const contentSchema = { type: 'object', additionalProperties: true };
-const llmLocaleSchema = {
+const genericContentSchema = { type: 'object', additionalProperties: true };
+const changelogCommitSchema = {
   type: 'object',
   additionalProperties: false,
   required: [
-    'signature',
-    'producer',
-    'model',
-    'promptHash',
-    'generatorVersion',
-    'content',
+    'sha',
+    'date',
+    'subject',
+    'url',
+    'pathAtCommit',
+    'resolvedVia',
+    'summary',
   ],
   properties: {
-    signature: hashSchema,
-    producer: { const: 'llm' },
-    model: { type: 'string', minLength: 1 },
-    promptHash: hashSchema,
-    generatorVersion: { type: 'integer', minimum: 1 },
-    content: contentSchema,
+    sha: { type: 'string', pattern: COMMIT_SHA_PATTERN },
+    date: { type: 'string', minLength: 1 },
+    subject: { type: 'string' },
+    url: { type: 'string', pattern: '^https://github\\.com/[^/]+/[^/]+/commit/[0-9a-f]{40}$' },
+    pathAtCommit: { type: 'string', minLength: 1 },
+    resolvedVia: {
+      enum: ['direct', 'rename', 'copy-then-delete-migration'],
+    },
+    transition: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['status', 'sourcePath', 'destinationPath'],
+      properties: {
+        status: { type: 'string', pattern: '^[RC][0-9]{1,3}$' },
+        sourcePath: { type: 'string', minLength: 1 },
+        destinationPath: { type: 'string', minLength: 1 },
+      },
+    },
+    summary: { type: 'string', minLength: 1 },
   },
 };
-const openccLocaleSchema = {
+const changelogContentSchema = {
   type: 'object',
   additionalProperties: false,
-  required: [
-    'signature',
-    'producer',
-    'converterVersion',
-    'generatorVersion',
-    'content',
-  ],
+  required: ['commits'],
   properties: {
-    signature: hashSchema,
-    producer: { const: 'opencc' },
-    converterVersion: { type: 'string', minLength: 1 },
-    generatorVersion: { type: 'integer', minimum: 1 },
-    content: contentSchema,
+    commits: {
+      type: 'array',
+      items: changelogCommitSchema,
+    },
+    truncatedAt: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['sha', 'sourcePath', 'reason'],
+      properties: {
+        sha: { type: 'string', pattern: COMMIT_SHA_PATTERN },
+        sourcePath: { type: 'string', minLength: 1 },
+        reason: {
+          enum: ['copy-source-still-live', 'restricted-transition-source'],
+        },
+      },
+    },
   },
 };
+function llmLocaleSchema(contentSchema) {
+  return {
+    type: 'object',
+    additionalProperties: false,
+    required: [
+      'signature',
+      'producer',
+      'model',
+      'promptHash',
+      'generatorVersion',
+      'content',
+    ],
+    properties: {
+      signature: hashSchema,
+      producer: { const: 'llm' },
+      model: { type: 'string', minLength: 1 },
+      promptHash: hashSchema,
+      generatorVersion: { type: 'integer', minimum: 1 },
+      content: contentSchema,
+    },
+  };
+}
+
+function openccLocaleSchema(contentSchema) {
+  return {
+    type: 'object',
+    additionalProperties: false,
+    required: [
+      'signature',
+      'producer',
+      'converterVersion',
+      'generatorVersion',
+      'content',
+    ],
+    properties: {
+      signature: hashSchema,
+      producer: { const: 'opencc' },
+      converterVersion: { type: 'string', minLength: 1 },
+      generatorVersion: { type: 'integer', minimum: 1 },
+      content: contentSchema,
+    },
+  };
+}
 
 function freshnessSchema(kind) {
   if (kind === 'summaries') {
@@ -81,6 +144,9 @@ function freshnessSchema(kind) {
 }
 
 function artifactSchema(kind) {
+  const contentSchema = kind === 'changelog'
+    ? changelogContentSchema
+    : genericContentSchema;
   return {
     $id: `https://lettucebo.github.io/Skills/schemas/enrichment-${kind}-v1.json`,
     type: 'object',
@@ -95,9 +161,9 @@ function artifactSchema(kind) {
         additionalProperties: false,
         required: ENRICHMENT_LOCALES,
         properties: {
-          en: llmLocaleSchema,
-          'zh-tw': llmLocaleSchema,
-          'zh-cn': openccLocaleSchema,
+          en: llmLocaleSchema(contentSchema),
+          'zh-tw': llmLocaleSchema(contentSchema),
+          'zh-cn': openccLocaleSchema(contentSchema),
         },
       },
     },

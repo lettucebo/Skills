@@ -1,0 +1,261 @@
+{
+  "path": "skills/cloudflare/turnstile-spin",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:3fe385121c10dba8d6a4d60c4e5372372641fce1d8bf55fd99907ff93a95a2ed",
+    "repository": "cloudflare/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/turnstile-spin",
+    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "30553f89ae1ef1e3c2917cd09d72dac992bb4e9a",
+            "date": "2026-07-24T13:42:33-05:00",
+            "subject": "turnstile-spin: canonical skill refresh with independent-review hardening (#83)",
+            "url": "https://github.com/cloudflare/skills/commit/30553f89ae1ef1e3c2917cd09d72dac992bb4e9a",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "This patch broadened the skill from form-only protection to more request types and added stricter existing-widget, secret-handling, and siteverify validation guidance."
+          },
+          {
+            "sha": "21d8f0c29d9dbbd0f248cee24a1db4542c12e33a",
+            "date": "2026-07-09T17:30:07-05:00",
+            "subject": "turnstile-spin: drop stale Deployment column reference",
+            "url": "https://github.com/cloudflare/skills/commit/21d8f0c29d9dbbd0f248cee24a1db4542c12e33a",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "This patch removed the stale Dashboard Deployment-column note and streamlined related wording in the Turnstile skill instructions."
+          },
+          {
+            "sha": "91c98d3c9ae8d8629666d24d92469c22a8084ac3",
+            "date": "2026-07-09T11:48:16-05:00",
+            "subject": "turnstile-spin: prefer wrangler turnstile widget create in Step 8",
+            "url": "https://github.com/cloudflare/skills/commit/91c98d3c9ae8d8629666d24d92469c22a8084ac3",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "This patch updated Step 8 to prefer `wrangler turnstile widget create` and fall back to the existing widget-creation script if needed."
+          },
+          {
+            "sha": "91a6a814a766382f63a07f302be8c84c0595b25e",
+            "date": "2026-06-29T10:01:15-05:00",
+            "subject": "turnstile-spin: pivot SKILL to canonical siteverify",
+            "url": "https://github.com/cloudflare/skills/commit/91a6a814a766382f63a07f302be8c84c0595b25e",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "This patch rewrote the skill to use canonical server-side siteverify in the customer's existing backend instead of deploying a managed Worker."
+          },
+          {
+            "sha": "ffcc622bf112eccc49c4b433faa5dd28e9ede2ea",
+            "date": "2026-06-17T17:07:34-05:00",
+            "subject": "turnstile-spin: acknowledge v2 (dashboard 'Set up with Spin') marker (#68)",
+            "url": "https://github.com/cloudflare/skills/commit/ffcc622bf112eccc49c4b433faa5dd28e9ede2ea",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "This patch added recovery guidance for dashboard-created v2 Spin widgets and documented preserving the `turnstile-spin-v2` telemetry marker."
+          },
+          {
+            "sha": "8525237735b0ba2eef520743a956d16c88d07799",
+            "date": "2026-06-17T16:12:48-05:00",
+            "subject": "turnstile-spin: acknowledge v2 (dashboard 'Set up with Spin') marker",
+            "url": "https://github.com/cloudflare/skills/commit/8525237735b0ba2eef520743a956d16c88d07799",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "This patch added recovery guidance for dashboard-created v2 Spin widgets and documented preserving the `turnstile-spin-v2` telemetry marker."
+          },
+          {
+            "sha": "1d0f727f7ae0656c019ccdb094182c47f1ef1d2c",
+            "date": "2026-06-05T12:14:13+01:00",
+            "subject": "fix: remove colon from frontmatter",
+            "url": "https://github.com/cloudflare/skills/commit/1d0f727f7ae0656c019ccdb094182c47f1ef1d2c",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "This patch changed the frontmatter description punctuation from a colon to an em dash."
+          },
+          {
+            "sha": "7548066a64ac5450e1b200ae8cfde8e88538f45b",
+            "date": "2026-06-04T15:07:07-05:00",
+            "subject": "Add Turnstile Spin skill (#58)",
+            "url": "https://github.com/cloudflare/skills/commit/7548066a64ac5450e1b200ae8cfde8e88538f45b",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "This patch added the initial Turnstile Spin skill with widget creation, managed Worker deployment, frontend wiring, validation, recovery, and migration instructions."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "30553f89ae1ef1e3c2917cd09d72dac992bb4e9a",
+            "date": "2026-07-24T13:42:33-05:00",
+            "subject": "turnstile-spin: canonical skill refresh with independent-review hardening (#83)",
+            "url": "https://github.com/cloudflare/skills/commit/30553f89ae1ef1e3c2917cd09d72dac992bb4e9a",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補將技能從僅保護表單擴大到更多請求類型，並加入更嚴格的既有小工具、秘密處理與 siteverify 驗證指引。"
+          },
+          {
+            "sha": "21d8f0c29d9dbbd0f248cee24a1db4542c12e33a",
+            "date": "2026-07-09T17:30:07-05:00",
+            "subject": "turnstile-spin: drop stale Deployment column reference",
+            "url": "https://github.com/cloudflare/skills/commit/21d8f0c29d9dbbd0f248cee24a1db4542c12e33a",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補移除了過時的 Dashboard Deployment 欄位說明，並精簡了 Turnstile 技能中的相關措辭。"
+          },
+          {
+            "sha": "91c98d3c9ae8d8629666d24d92469c22a8084ac3",
+            "date": "2026-07-09T11:48:16-05:00",
+            "subject": "turnstile-spin: prefer wrangler turnstile widget create in Step 8",
+            "url": "https://github.com/cloudflare/skills/commit/91c98d3c9ae8d8629666d24d92469c22a8084ac3",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補更新了第 8 步，改為優先使用 `wrangler turnstile widget create`，必要時再回退到既有的小工具建立腳本。"
+          },
+          {
+            "sha": "91a6a814a766382f63a07f302be8c84c0595b25e",
+            "date": "2026-06-29T10:01:15-05:00",
+            "subject": "turnstile-spin: pivot SKILL to canonical siteverify",
+            "url": "https://github.com/cloudflare/skills/commit/91a6a814a766382f63a07f302be8c84c0595b25e",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補將技能改寫為在客戶現有後端中使用標準的伺服器端 siteverify，而不是部署受管的 Worker。"
+          },
+          {
+            "sha": "ffcc622bf112eccc49c4b433faa5dd28e9ede2ea",
+            "date": "2026-06-17T17:07:34-05:00",
+            "subject": "turnstile-spin: acknowledge v2 (dashboard 'Set up with Spin') marker (#68)",
+            "url": "https://github.com/cloudflare/skills/commit/ffcc622bf112eccc49c4b433faa5dd28e9ede2ea",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補新增了儀表板建立的 v2 Spin 小工具復原指引，並記錄了需保留 `turnstile-spin-v2` 遙測標記。"
+          },
+          {
+            "sha": "8525237735b0ba2eef520743a956d16c88d07799",
+            "date": "2026-06-17T16:12:48-05:00",
+            "subject": "turnstile-spin: acknowledge v2 (dashboard 'Set up with Spin') marker",
+            "url": "https://github.com/cloudflare/skills/commit/8525237735b0ba2eef520743a956d16c88d07799",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補新增了儀表板建立的 v2 Spin 小工具復原指引，並記錄了需保留 `turnstile-spin-v2` 遙測標記。"
+          },
+          {
+            "sha": "1d0f727f7ae0656c019ccdb094182c47f1ef1d2c",
+            "date": "2026-06-05T12:14:13+01:00",
+            "subject": "fix: remove colon from frontmatter",
+            "url": "https://github.com/cloudflare/skills/commit/1d0f727f7ae0656c019ccdb094182c47f1ef1d2c",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補將 frontmatter 描述中的標點從冒號改為破折號。"
+          },
+          {
+            "sha": "7548066a64ac5450e1b200ae8cfde8e88538f45b",
+            "date": "2026-06-04T15:07:07-05:00",
+            "subject": "Add Turnstile Spin skill (#58)",
+            "url": "https://github.com/cloudflare/skills/commit/7548066a64ac5450e1b200ae8cfde8e88538f45b",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補新增了初始的 Turnstile Spin 技能，包含小工具建立、受管 Worker 部署、前端接線、驗證、復原與遷移指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "30553f89ae1ef1e3c2917cd09d72dac992bb4e9a",
+            "date": "2026-07-24T13:42:33-05:00",
+            "subject": "turnstile-spin: canonical skill refresh with independent-review hardening (#83)",
+            "url": "https://github.com/cloudflare/skills/commit/30553f89ae1ef1e3c2917cd09d72dac992bb4e9a",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补将技能从仅保护表单扩大到更多请求类型，并加入更严格的既有小工具、秘密处理与 siteverify 验证指引。"
+          },
+          {
+            "sha": "21d8f0c29d9dbbd0f248cee24a1db4542c12e33a",
+            "date": "2026-07-09T17:30:07-05:00",
+            "subject": "turnstile-spin: drop stale Deployment column reference",
+            "url": "https://github.com/cloudflare/skills/commit/21d8f0c29d9dbbd0f248cee24a1db4542c12e33a",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补移除了过时的 Dashboard Deployment 字段说明，并精简了 Turnstile 技能中的相关措辞。"
+          },
+          {
+            "sha": "91c98d3c9ae8d8629666d24d92469c22a8084ac3",
+            "date": "2026-07-09T11:48:16-05:00",
+            "subject": "turnstile-spin: prefer wrangler turnstile widget create in Step 8",
+            "url": "https://github.com/cloudflare/skills/commit/91c98d3c9ae8d8629666d24d92469c22a8084ac3",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补更新了第 8 步，改为优先使用 `wrangler turnstile widget create`，必要时再回退到既有的小工具创建脚本。"
+          },
+          {
+            "sha": "91a6a814a766382f63a07f302be8c84c0595b25e",
+            "date": "2026-06-29T10:01:15-05:00",
+            "subject": "turnstile-spin: pivot SKILL to canonical siteverify",
+            "url": "https://github.com/cloudflare/skills/commit/91a6a814a766382f63a07f302be8c84c0595b25e",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补将技能改写为在客户现有后端中使用标准的服务器端 siteverify，而不是部署受管的 Worker。"
+          },
+          {
+            "sha": "ffcc622bf112eccc49c4b433faa5dd28e9ede2ea",
+            "date": "2026-06-17T17:07:34-05:00",
+            "subject": "turnstile-spin: acknowledge v2 (dashboard 'Set up with Spin') marker (#68)",
+            "url": "https://github.com/cloudflare/skills/commit/ffcc622bf112eccc49c4b433faa5dd28e9ede2ea",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补添加了仪表板创建的 v2 Spin 小工具复原指引，并记录了需保留 `turnstile-spin-v2` 遥测标记。"
+          },
+          {
+            "sha": "8525237735b0ba2eef520743a956d16c88d07799",
+            "date": "2026-06-17T16:12:48-05:00",
+            "subject": "turnstile-spin: acknowledge v2 (dashboard 'Set up with Spin') marker",
+            "url": "https://github.com/cloudflare/skills/commit/8525237735b0ba2eef520743a956d16c88d07799",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补添加了仪表板创建的 v2 Spin 小工具复原指引，并记录了需保留 `turnstile-spin-v2` 遥测标记。"
+          },
+          {
+            "sha": "1d0f727f7ae0656c019ccdb094182c47f1ef1d2c",
+            "date": "2026-06-05T12:14:13+01:00",
+            "subject": "fix: remove colon from frontmatter",
+            "url": "https://github.com/cloudflare/skills/commit/1d0f727f7ae0656c019ccdb094182c47f1ef1d2c",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补将 frontmatter 描述中的标点从冒号改为破折号。"
+          },
+          {
+            "sha": "7548066a64ac5450e1b200ae8cfde8e88538f45b",
+            "date": "2026-06-04T15:07:07-05:00",
+            "subject": "Add Turnstile Spin skill (#58)",
+            "url": "https://github.com/cloudflare/skills/commit/7548066a64ac5450e1b200ae8cfde8e88538f45b",
+            "pathAtCommit": "skills/turnstile-spin/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补添加了初始的 Turnstile Spin 技能，包含小工具创建、受管 Worker 部署、前端接线、验证、复原与迁移指引。"
+          }
+        ]
+      }
+    }
+  }
+}

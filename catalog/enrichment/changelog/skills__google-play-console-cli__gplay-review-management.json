@@ -1,0 +1,126 @@
+{
+  "path": "skills/google-play-console-cli/gplay-review-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0ff0eceb983e986e925c1a76ac7518f8c2d99730a0f3a15b41b8adea975a9c64",
+    "repository": "tamtom/gplay-cli-skills",
+    "reference": "refs/heads/main",
+    "source": "skills/gplay-review-management",
+    "pinnedCommit": "10301b24639e4f768d009b2edda9315cb2149712"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-review-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added an example for `--translation-language` and removed the reply template, best-practices, and response-template sections from the skill document."
+          },
+          {
+            "sha": "13309f2629366ec22664bb2670736b0f98c7ee26",
+            "date": "2026-02-19T22:43:18+04:00",
+            "subject": "fix: correct --review-id to --review in review management skill",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/13309f2629366ec22664bb2670736b0f98c7ee26",
+            "pathAtCommit": "skills/gplay-review-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced `--review-id` with `--review` in the review retrieval, reply, and automation examples."
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-review-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial gplay review management skill document with commands and examples for listing, filtering, replying to, and monitoring Google Play reviews."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-review-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能文件中新增了 `--translation-language` 的範例，並移除了回覆範本、最佳實務和回應範本章節。"
+          },
+          {
+            "sha": "13309f2629366ec22664bb2670736b0f98c7ee26",
+            "date": "2026-02-19T22:43:18+04:00",
+            "subject": "fix: correct --review-id to --review in review management skill",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/13309f2629366ec22664bb2670736b0f98c7ee26",
+            "pathAtCommit": "skills/gplay-review-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在取得評論、回覆評論與自動化範例中，將 `--review-id` 改為 `--review`。"
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-review-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了初始的 gplay 評論管理技能文件，包含列出、篩選、回覆與監控 Google Play 評論的指令和範例。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-review-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能文档中添加了 `--translation-language` 的范例，并移除了回复范本、最佳实务和回应范本章节。"
+          },
+          {
+            "sha": "13309f2629366ec22664bb2670736b0f98c7ee26",
+            "date": "2026-02-19T22:43:18+04:00",
+            "subject": "fix: correct --review-id to --review in review management skill",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/13309f2629366ec22664bb2670736b0f98c7ee26",
+            "pathAtCommit": "skills/gplay-review-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在取得评论、回复评论与自动化范例中，将 `--review-id` 改为 `--review`。"
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-review-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了初始的 gplay 评论管理技能文档，包含列出、筛选、回复与监控 Google Play 评论的指令和范例。"
+          }
+        ]
+      }
+    }
+  }
+}

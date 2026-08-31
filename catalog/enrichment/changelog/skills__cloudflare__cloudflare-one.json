@@ -1,0 +1,207 @@
+{
+  "path": "skills/cloudflare/cloudflare-one",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:436653a1a9471b91e9ca5c94b3e3dce334f87b4608917be1be8713ecb4294e1a",
+    "repository": "cloudflare/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloudflare-one",
+    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "date": "2026-06-14T14:33:46-05:00",
+            "subject": "docs: expand cloudflare-one skills with field feedback and missing coverage",
+            "url": "https://github.com/cloudflare/skills/commit/e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the Cloudflare One skill with device client, infrastructure access, and logs/DEX guidance while updating several networking and policy terms."
+          },
+          {
+            "sha": "3e79cd0f3ece889898478a4ebd4b069300a730ae",
+            "date": "2026-06-01T09:46:05-04:00",
+            "subject": "Apply suggestion from @irvinebroque",
+            "url": "https://github.com/cloudflare/skills/commit/3e79cd0f3ece889898478a4ebd4b069300a730ae",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed the opening sentence that said not to use the Cloudflare One skill as product documentation."
+          },
+          {
+            "sha": "93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "date": "2026-06-01T09:43:49-04:00",
+            "subject": "docs: inline Cloudflare One source links",
+            "url": "https://github.com/cloudflare/skills/commit/93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked the Cloudflare One skill to inline documentation links in the guidance and rename Magic WAN references to Cloudflare WAN."
+          },
+          {
+            "sha": "cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "date": "2026-06-01T09:40:11-04:00",
+            "subject": "docs: link Cloudflare One source docs",
+            "url": "https://github.com/cloudflare/skills/commit/cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Docs to Retrieve section with Cloudflare source links and introduced a Documented Guardrails heading with explanatory text."
+          },
+          {
+            "sha": "8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "date": "2026-06-01T09:31:55-04:00",
+            "subject": "docs: add Cloudflare One assessment prompts",
+            "url": "https://github.com/cloudflare/skills/commit/8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added assessment and validation prompt sections covering Cloudflare One architecture, access, networking, security, and operations topics."
+          },
+          {
+            "sha": "3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "date": "2026-06-01T09:19:43-04:00",
+            "subject": "refactor: consolidate Cloudflare One skills",
+            "url": "https://github.com/cloudflare/skills/commit/3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a new Cloudflare One skill file with workflow, guardrails, product context, output defaults, and API safety guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "date": "2026-06-14T14:33:46-05:00",
+            "subject": "docs: expand cloudflare-one skills with field feedback and missing coverage",
+            "url": "https://github.com/cloudflare/skills/commit/e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了 Cloudflare One 技能，新增裝置用戶端、基礎設施存取與日誌/DEX 指引，並更新多項網路與政策術語。"
+          },
+          {
+            "sha": "3e79cd0f3ece889898478a4ebd4b069300a730ae",
+            "date": "2026-06-01T09:46:05-04:00",
+            "subject": "Apply suggestion from @irvinebroque",
+            "url": "https://github.com/cloudflare/skills/commit/3e79cd0f3ece889898478a4ebd4b069300a730ae",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了開頭中表示不要將 Cloudflare One 技能當作產品文件使用的句子。"
+          },
+          {
+            "sha": "93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "date": "2026-06-01T09:43:49-04:00",
+            "subject": "docs: inline Cloudflare One source links",
+            "url": "https://github.com/cloudflare/skills/commit/93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整了 Cloudflare One 技能，將文件連結內嵌到指引中，並把 Magic WAN 的提法改為 Cloudflare WAN。"
+          },
+          {
+            "sha": "cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "date": "2026-06-01T09:40:11-04:00",
+            "subject": "docs: link Cloudflare One source docs",
+            "url": "https://github.com/cloudflare/skills/commit/cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了包含 Cloudflare 來源連結的 Docs to Retrieve 區段，並加入帶有說明文字的 Documented Guardrails 標題。"
+          },
+          {
+            "sha": "8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "date": "2026-06-01T09:31:55-04:00",
+            "subject": "docs: add Cloudflare One assessment prompts",
+            "url": "https://github.com/cloudflare/skills/commit/8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了評估與驗證提示區段，涵蓋 Cloudflare One 的架構、存取、網路、安全與營運主題。"
+          },
+          {
+            "sha": "3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "date": "2026-06-01T09:19:43-04:00",
+            "subject": "refactor: consolidate Cloudflare One skills",
+            "url": "https://github.com/cloudflare/skills/commit/3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了 Cloudflare One 技能檔案，包含工作流程、護欄、產品脈絡、輸出預設與 API 安全指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "date": "2026-06-14T14:33:46-05:00",
+            "subject": "docs: expand cloudflare-one skills with field feedback and missing coverage",
+            "url": "https://github.com/cloudflare/skills/commit/e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了 Cloudflare One 技能，添加设备用户端、基础设施访问与日志/DEX 指引，并更新多项网络与政策术语。"
+          },
+          {
+            "sha": "3e79cd0f3ece889898478a4ebd4b069300a730ae",
+            "date": "2026-06-01T09:46:05-04:00",
+            "subject": "Apply suggestion from @irvinebroque",
+            "url": "https://github.com/cloudflare/skills/commit/3e79cd0f3ece889898478a4ebd4b069300a730ae",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了开头中表示不要将 Cloudflare One 技能当作产品文档使用的句子。"
+          },
+          {
+            "sha": "93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "date": "2026-06-01T09:43:49-04:00",
+            "subject": "docs: inline Cloudflare One source links",
+            "url": "https://github.com/cloudflare/skills/commit/93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整了 Cloudflare One 技能，将文档链接内嵌到指引中，并把 Magic WAN 的提法改为 Cloudflare WAN。"
+          },
+          {
+            "sha": "cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "date": "2026-06-01T09:40:11-04:00",
+            "subject": "docs: link Cloudflare One source docs",
+            "url": "https://github.com/cloudflare/skills/commit/cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了包含 Cloudflare 来源链接的 Docs to Retrieve 区段，并加入带有说明文字的 Documented Guardrails 标题。"
+          },
+          {
+            "sha": "8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "date": "2026-06-01T09:31:55-04:00",
+            "subject": "docs: add Cloudflare One assessment prompts",
+            "url": "https://github.com/cloudflare/skills/commit/8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了评估与验证提示区段，涵盖 Cloudflare One 的架构、访问、网络、安全与营运主题。"
+          },
+          {
+            "sha": "3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "date": "2026-06-01T09:19:43-04:00",
+            "subject": "refactor: consolidate Cloudflare One skills",
+            "url": "https://github.com/cloudflare/skills/commit/3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "pathAtCommit": "skills/cloudflare-one/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了 Cloudflare One 技能文件，包含工作流程、护栏、产品脉络、输出预设与 API 安全指引。"
+          }
+        ]
+      }
+    }
+  }
+}

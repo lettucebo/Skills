@@ -3,7 +3,8 @@
 [**繁體中文**](../zh-TW/website.md) | [English](../en/website.md) | [文件首頁](README.md)
 
 目錄網站完全位於 `site/` 之下，並且在建置時期由
-`catalog/skills.lock.json` 與 `catalog/history/*.json` 建置而成 — 它在執行期
+`catalog/skills.lock.json`、`catalog/history/*.json`，以及已啟用且 freshness
+有效的 `catalog/enrichment/changelog/*.json` sidecar 建置而成 — 它在執行期
 永遠不會查詢網路。這個網站在整體資料流中的位置，請見
 [系統架構](architecture.md)。
 
@@ -81,6 +82,20 @@ npm --prefix site run test:e2e
 建置時期環境變數的形式傳入 — 它從來不是你在網站本身設定的選項。完整說明請見
 [環境設定](configuration.md#release_published-不是由操作者設定的)。
 
+## Registry history 與上游變更
+
+符合資格的 mapped skill 詳情頁可以顯示兩條彼此獨立的 timeline：
+
+- **Upstream changes** 列出從最早到 lockfile 所釘選精確 commit 之間，每一個實際
+  影響該 skill `SKILL.md` 的非 merge 上游 commit。每一筆都直接連到該 repository
+  的 commit，並使用 freshness 有效之 changelog sidecar 中的英文摘要。
+- **History** 維持原本來自 `catalog/history/*.json` 的 registry release 帳本，
+  顯示這個 registry 何時採用該 skill 或調整其版本。
+
+兩者刻意不合併：前者描述上游 Git history，後者描述 registry release。若
+changelog enrichment 已停用、缺少、過期或該 skill 不符合資格，網站只會省略
+Upstream changes，既有的 History 仍會正常渲染。
+
 ## 網站上的受限制內容
 
 受限制的 skill（見 [安裝方式](installation.md)）永遠不會渲染其 `SKILL.md`
@@ -88,6 +103,7 @@ npm --prefix site run test:e2e
 安裝受限制 skill，但網站不再於指令旁顯示頁面內（on-page）受限制內容警告 — 請透過
 `/status/` 或 lockfile 確認目前的受限制清單與授權（見
 [系統架構](architecture.md#受限制內容隔離)）。
+Restricted 與 orphan 頁面也永遠不會讀取或渲染上游 changelog sidecar。
 
 ## 延伸閱讀
 

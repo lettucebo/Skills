@@ -1,0 +1,156 @@
+{
+  "path": "skills/claude/algorithmic-art",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8c15717769d76330df4387b85402a3754d858b97749ae259d3365ea9ea394f89",
+    "repository": "anthropics/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/algorithmic-art",
+    "pinnedCommit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/algorithmic-art/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "algorithmic-art/SKILL.md",
+              "destinationPath": "skills/algorithmic-art/SKILL.md"
+            },
+            "summary": "The algorithmic-art SKILL.md file was renamed from algorithmic-art/SKILL.md to skills/algorithmic-art/SKILL.md without content changes."
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "algorithmic-art/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/algorithmic-art/SKILL.md",
+              "destinationPath": "algorithmic-art/SKILL.md"
+            },
+            "summary": "The algorithmic-art SKILL.md file was renamed from examples/algorithmic-art/SKILL.md to algorithmic-art/SKILL.md without content changes."
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/algorithmic-art/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "A new examples/algorithmic-art/SKILL.md file was added with front matter and detailed instructions for creating algorithmic philosophies and p5.js generative art artifacts."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/algorithmic-art/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "algorithmic-art/SKILL.md",
+              "destinationPath": "skills/algorithmic-art/SKILL.md"
+            },
+            "summary": "algorithmic-art 的 SKILL.md 檔案已從 algorithmic-art/SKILL.md 重新命名為 skills/algorithmic-art/SKILL.md，內容沒有變更。"
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "algorithmic-art/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/algorithmic-art/SKILL.md",
+              "destinationPath": "algorithmic-art/SKILL.md"
+            },
+            "summary": "algorithmic-art 的 SKILL.md 檔案已從 examples/algorithmic-art/SKILL.md 重新命名為 algorithmic-art/SKILL.md，內容沒有變更。"
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/algorithmic-art/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了 examples/algorithmic-art/SKILL.md，包含前置中繼資料以及建立演算法藝術理念與 p5.js 生成藝術成品的詳細說明。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/algorithmic-art/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "algorithmic-art/SKILL.md",
+              "destinationPath": "skills/algorithmic-art/SKILL.md"
+            },
+            "summary": "algorithmic-art 的 SKILL.md 文件已从 algorithmic-art/SKILL.md 重命名为 skills/algorithmic-art/SKILL.md，内容没有变更。"
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "algorithmic-art/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/algorithmic-art/SKILL.md",
+              "destinationPath": "algorithmic-art/SKILL.md"
+            },
+            "summary": "algorithmic-art 的 SKILL.md 文件已从 examples/algorithmic-art/SKILL.md 重命名为 algorithmic-art/SKILL.md，内容没有变更。"
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/algorithmic-art/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了 examples/algorithmic-art/SKILL.md，包含前置中继数据以及创建算法艺术理念与 p5.js 生成艺术成品的详细说明。"
+          }
+        ]
+      }
+    }
+  }
+}

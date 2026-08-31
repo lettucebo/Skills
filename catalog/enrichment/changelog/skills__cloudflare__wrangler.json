@@ -1,0 +1,222 @@
+{
+  "path": "skills/cloudflare/wrangler",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:572a54107e930cff92ad894f65e71dc7cd74ac415833b54a7621dcf9f2474a31",
+    "repository": "cloudflare/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/wrangler",
+    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "8c01b03b0a09a01581beed87b656cf634009e735",
+            "date": "2026-04-22T11:05:21-07:00",
+            "subject": "More explicitly instruct agents to install and use Wrangler (#40)",
+            "url": "https://github.com/cloudflare/skills/commit/8c01b03b0a09a01581beed87b656cf634009e735",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the installation section to tell agents to check for Wrangler, install it if missing, and prefer Wrangler over manual API requests."
+          },
+          {
+            "sha": "54ca4fd800e69906355da5010c03499017ddc3b1",
+            "date": "2026-04-14T06:49:15-04:00",
+            "subject": "fix: remove insecure credential handling from wrangler skill (#42)",
+            "url": "https://github.com/cloudflare/skills/commit/54ca4fd800e69906355da5010c03499017ddc3b1",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added security guidance that avoids passing secrets in commands, replacing examples with interactive, file-based, and environment-variable-based Wrangler usage."
+          },
+          {
+            "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
+            "date": "2026-04-01T16:54:14+01:00",
+            "subject": "Fix 18 factual errors: pricing, CPU limits, API names, sandbox docs, CLI syntax (#35)",
+            "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Corrected the skill to use `wrangler check startup` for startup profiling and changed compatibility flag examples from `nodejs_compat_v2` to `nodejs_compat`."
+          },
+          {
+            "sha": "d3113039790f64e052ff80f351190da65e9b7510",
+            "date": "2026-03-03T10:30:51-05:00",
+            "subject": "add uniform retrieval-bias directives to all skills (#30)",
+            "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added instructions to prefer retrieving current Wrangler information from Cloudflare docs and the local config schema instead of relying on baked-in knowledge."
+          },
+          {
+            "sha": "3f725897fca609a753f35028218801e303a81145",
+            "date": "2026-01-28T12:13:50-05:00",
+            "subject": "adopt Claude Code plugin structure (#10)",
+            "url": "https://github.com/cloudflare/skills/commit/3f725897fca609a753f35028218801e303a81145",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "wrangler/SKILL.md",
+              "destinationPath": "skills/wrangler/SKILL.md"
+            },
+            "summary": "Moved the Wrangler skill file from `wrangler/SKILL.md` to `skills/wrangler/SKILL.md` without changing its contents."
+          },
+          {
+            "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "date": "2026-01-15T14:59:30-05:00",
+            "subject": "add skills and update README (#3)",
+            "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "pathAtCommit": "wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Wrangler skill file covering installation, configuration, core commands, resource management, and best practices."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "8c01b03b0a09a01581beed87b656cf634009e735",
+            "date": "2026-04-22T11:05:21-07:00",
+            "subject": "More explicitly instruct agents to install and use Wrangler (#40)",
+            "url": "https://github.com/cloudflare/skills/commit/8c01b03b0a09a01581beed87b656cf634009e735",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新安裝章節，要求代理先檢查是否已安裝 Wrangler、若缺少則安裝，並優先使用 Wrangler 而非手動組裝 API 請求。"
+          },
+          {
+            "sha": "54ca4fd800e69906355da5010c03499017ddc3b1",
+            "date": "2026-04-14T06:49:15-04:00",
+            "subject": "fix: remove insecure credential handling from wrangler skill (#42)",
+            "url": "https://github.com/cloudflare/skills/commit/54ca4fd800e69906355da5010c03499017ddc3b1",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增避免在命令中傳遞密鑰的安全指引，並以互動式、檔案式與環境變數式的 Wrangler 用法取代原有範例。"
+          },
+          {
+            "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
+            "date": "2026-04-01T16:54:14+01:00",
+            "subject": "Fix 18 factual errors: pricing, CPU limits, API names, sandbox docs, CLI syntax (#35)",
+            "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修正此技能，改用 `wrangler check startup` 進行啟動分析，並將相容性旗標範例從 `nodejs_compat_v2` 改為 `nodejs_compat`。"
+          },
+          {
+            "sha": "d3113039790f64e052ff80f351190da65e9b7510",
+            "date": "2026-03-03T10:30:51-05:00",
+            "subject": "add uniform retrieval-bias directives to all skills (#30)",
+            "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指示，要求優先從 Cloudflare 文件與本機設定結構擷取最新的 Wrangler 資訊，而不是依賴內建知識。"
+          },
+          {
+            "sha": "3f725897fca609a753f35028218801e303a81145",
+            "date": "2026-01-28T12:13:50-05:00",
+            "subject": "adopt Claude Code plugin structure (#10)",
+            "url": "https://github.com/cloudflare/skills/commit/3f725897fca609a753f35028218801e303a81145",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "wrangler/SKILL.md",
+              "destinationPath": "skills/wrangler/SKILL.md"
+            },
+            "summary": "將 Wrangler 技能檔案從 `wrangler/SKILL.md` 移到 `skills/wrangler/SKILL.md`，內容沒有變更。"
+          },
+          {
+            "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "date": "2026-01-15T14:59:30-05:00",
+            "subject": "add skills and update README (#3)",
+            "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "pathAtCommit": "wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初始的 Wrangler 技能檔案，涵蓋安裝、設定、核心命令、資源管理與最佳實務。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "8c01b03b0a09a01581beed87b656cf634009e735",
+            "date": "2026-04-22T11:05:21-07:00",
+            "subject": "More explicitly instruct agents to install and use Wrangler (#40)",
+            "url": "https://github.com/cloudflare/skills/commit/8c01b03b0a09a01581beed87b656cf634009e735",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新安装章节，要求代理先检查是否已安装 Wrangler、若缺少则安装，并优先使用 Wrangler 而非手动组装 API 请求。"
+          },
+          {
+            "sha": "54ca4fd800e69906355da5010c03499017ddc3b1",
+            "date": "2026-04-14T06:49:15-04:00",
+            "subject": "fix: remove insecure credential handling from wrangler skill (#42)",
+            "url": "https://github.com/cloudflare/skills/commit/54ca4fd800e69906355da5010c03499017ddc3b1",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加避免在命令中传递密钥的安全指引，并以交互式、文件式与环境变量式的 Wrangler 用法取代原有范例。"
+          },
+          {
+            "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
+            "date": "2026-04-01T16:54:14+01:00",
+            "subject": "Fix 18 factual errors: pricing, CPU limits, API names, sandbox docs, CLI syntax (#35)",
+            "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修正此技能，改用 `wrangler check startup` 进行启动分析，并将兼容性旗标范例从 `nodejs_compat_v2` 改为 `nodejs_compat`。"
+          },
+          {
+            "sha": "d3113039790f64e052ff80f351190da65e9b7510",
+            "date": "2026-03-03T10:30:51-05:00",
+            "subject": "add uniform retrieval-bias directives to all skills (#30)",
+            "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指示，要求优先从 Cloudflare 文档与本机设置结构截取最新的 Wrangler 信息，而不是依赖内置知识。"
+          },
+          {
+            "sha": "3f725897fca609a753f35028218801e303a81145",
+            "date": "2026-01-28T12:13:50-05:00",
+            "subject": "adopt Claude Code plugin structure (#10)",
+            "url": "https://github.com/cloudflare/skills/commit/3f725897fca609a753f35028218801e303a81145",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "wrangler/SKILL.md",
+              "destinationPath": "skills/wrangler/SKILL.md"
+            },
+            "summary": "将 Wrangler 技能文件从 `wrangler/SKILL.md` 移到 `skills/wrangler/SKILL.md`，内容没有变更。"
+          },
+          {
+            "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "date": "2026-01-15T14:59:30-05:00",
+            "subject": "add skills and update README (#3)",
+            "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "pathAtCommit": "wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初始的 Wrangler 技能文件，涵盖安装、设置、内核命令、资源管理与最佳实务。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "path": "skills/cloudflare/sandbox-stable",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:051141ce004cf8060023f3bfbcaad33b987e3913fa1303f332acf8baa4e95f80",
+    "repository": "cloudflare/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/sandbox-stable",
+    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f96bff754e428838818017f75817f0f9428acd48",
+            "date": "2026-08-07T23:14:33+05:30",
+            "subject": "Add stable and @next Sandbox agent skills (#92)",
+            "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
+            "pathAtCommit": "skills/sandbox-stable/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a new `sandbox-stable` skill document that explains when to use the stable Cloudflare Sandbox package and links to relevant stable-package docs."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f96bff754e428838818017f75817f0f9428acd48",
+            "date": "2026-08-07T23:14:33+05:30",
+            "subject": "Add stable and @next Sandbox agent skills (#92)",
+            "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
+            "pathAtCommit": "skills/sandbox-stable/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增一份 `sandbox-stable` 技能文件，說明何時使用穩定版 Cloudflare Sandbox 套件，並連結到相關的穩定版文件。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f96bff754e428838818017f75817f0f9428acd48",
+            "date": "2026-08-07T23:14:33+05:30",
+            "subject": "Add stable and @next Sandbox agent skills (#92)",
+            "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
+            "pathAtCommit": "skills/sandbox-stable/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加一份 `sandbox-stable` 技能文档，说明何时使用稳定版 Cloudflare Sandbox 套件，并链接到相关的稳定版文档。"
+          }
+        ]
+      }
+    }
+  }
+}

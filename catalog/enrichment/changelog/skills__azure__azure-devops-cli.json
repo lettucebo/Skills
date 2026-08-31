@@ -1,0 +1,153 @@
+{
+  "path": "skills/azure/azure-devops-cli",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:347118a6eb6908cb639dd3473823aa2a1004f3d86f225363d60f8fa397180a54",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/azure-devops-cli",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4e8726dd50652c9d469f018113a537e5862d2a11",
+            "date": "2026-06-30T05:17:06+05:30",
+            "subject": "azure-devops-cli: handle long comments on Windows (#2061) (#2140)",
+            "url": "https://github.com/github/awesome-copilot/commit/4e8726dd50652c9d469f018113a537e5862d2a11",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a reference-table entry for a Windows long-comments guide covering command length limits and supported workarounds."
+          },
+          {
+            "sha": "103dd7db553354106951d8e93353edc06fd9a177",
+            "date": "2026-03-11T08:04:36+08:00",
+            "subject": "[azure-devops-cli] Add note for legacy URL replacement in SKILL.md (#958)",
+            "url": "https://github.com/github/awesome-copilot/commit/103dd7db553354106951d8e93353edc06fd9a177",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a note telling users to replace the legacy `https://{org}.visualstudio.com` URL with `https://dev.azure.com/{org}` in the defaults example."
+          },
+          {
+            "sha": "2f71741fb510911f31e65ac507fe5e29a4f10632",
+            "date": "2026-03-02T07:33:08+08:00",
+            "subject": "Merge pull request #841 from fondoger/fondoger/ado-skill-update",
+            "url": "https://github.com/github/awesome-copilot/commit/2f71741fb510911f31e65ac507fe5e29a4f10632",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked `SKILL.md` into a shorter overview that keeps basic setup and authentication steps and replaces the long command catalog with reference-file links."
+          },
+          {
+            "sha": "e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "date": "2026-01-23T00:18:52+07:00",
+            "subject": "Add 8 new skills for development tools and workflows",
+            "url": "https://github.com/github/awesome-copilot/commit/e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the `azure-devops-cli` skill file with Azure DevOps CLI guidance and command examples for projects, repos, pipelines, pull requests, work items, and artifacts."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4e8726dd50652c9d469f018113a537e5862d2a11",
+            "date": "2026-06-30T05:17:06+05:30",
+            "subject": "azure-devops-cli: handle long comments on Windows (#2061) (#2140)",
+            "url": "https://github.com/github/awesome-copilot/commit/4e8726dd50652c9d469f018113a537e5862d2a11",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增參考表格項目，連結說明 Windows 長留言問題的指南，涵蓋命令長度限制與可用的因應方式。"
+          },
+          {
+            "sha": "103dd7db553354106951d8e93353edc06fd9a177",
+            "date": "2026-03-11T08:04:36+08:00",
+            "subject": "[azure-devops-cli] Add note for legacy URL replacement in SKILL.md (#958)",
+            "url": "https://github.com/github/awesome-copilot/commit/103dd7db553354106951d8e93353edc06fd9a177",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增註記，說明在預設值範例中應將舊版的 `https://{org}.visualstudio.com` URL 改為 `https://dev.azure.com/{org}`。"
+          },
+          {
+            "sha": "2f71741fb510911f31e65ac507fe5e29a4f10632",
+            "date": "2026-03-02T07:33:08+08:00",
+            "subject": "Merge pull request #841 from fondoger/fondoger/ado-skill-update",
+            "url": "https://github.com/github/awesome-copilot/commit/2f71741fb510911f31e65ac507fe5e29a4f10632",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 `SKILL.md` 改寫成較精簡的總覽，保留基本安裝與驗證步驟，並以參考檔案連結取代冗長的命令清單。"
+          },
+          {
+            "sha": "e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "date": "2026-01-23T00:18:52+07:00",
+            "subject": "Add 8 new skills for development tools and workflows",
+            "url": "https://github.com/github/awesome-copilot/commit/e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `azure-devops-cli` 技能檔案，提供 Azure DevOps CLI 的說明與專案、存放庫、管線、提取要求、工作項目及成品等命令範例。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4e8726dd50652c9d469f018113a537e5862d2a11",
+            "date": "2026-06-30T05:17:06+05:30",
+            "subject": "azure-devops-cli: handle long comments on Windows (#2061) (#2140)",
+            "url": "https://github.com/github/awesome-copilot/commit/4e8726dd50652c9d469f018113a537e5862d2a11",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加参考表格项目，链接说明 Windows 长留言问题的指南，涵盖命令长度限制与可用的因应方式。"
+          },
+          {
+            "sha": "103dd7db553354106951d8e93353edc06fd9a177",
+            "date": "2026-03-11T08:04:36+08:00",
+            "subject": "[azure-devops-cli] Add note for legacy URL replacement in SKILL.md (#958)",
+            "url": "https://github.com/github/awesome-copilot/commit/103dd7db553354106951d8e93353edc06fd9a177",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加注记，说明在默认值范例中应将旧版的 `https://{org}.visualstudio.com` URL 改为 `https://dev.azure.com/{org}`。"
+          },
+          {
+            "sha": "2f71741fb510911f31e65ac507fe5e29a4f10632",
+            "date": "2026-03-02T07:33:08+08:00",
+            "subject": "Merge pull request #841 from fondoger/fondoger/ado-skill-update",
+            "url": "https://github.com/github/awesome-copilot/commit/2f71741fb510911f31e65ac507fe5e29a4f10632",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 `SKILL.md` 改写成较精简的总览，保留基本安装与验证步骤，并以参考文件链接取代冗长的命令清单。"
+          },
+          {
+            "sha": "e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "date": "2026-01-23T00:18:52+07:00",
+            "subject": "Add 8 new skills for development tools and workflows",
+            "url": "https://github.com/github/awesome-copilot/commit/e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `azure-devops-cli` 技能文件，提供 Azure DevOps CLI 的说明与项目、存放库、管线、提取要求、工作项目及成品等命令范例。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -46,6 +46,7 @@ sync-report/
 .baseline-work-*/
 .baseline-backup-*/
 .update-work-*/
+/.changelog-work-*/
 
 # Astro generated types
 .astro/

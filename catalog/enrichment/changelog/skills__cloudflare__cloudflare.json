@@ -1,0 +1,276 @@
+{
+  "path": "skills/cloudflare/cloudflare",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9a990c360f49535d9b3cc014a5e0f1162875863fd221bcf295567431a6207089",
+    "repository": "cloudflare/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloudflare",
+    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
+            "date": "2026-06-20T07:23:34-07:00",
+            "subject": "docs: refresh Pipelines, R2 Data Catalog, and R2 SQL references",
+            "url": "https://github.com/cloudflare/skills/commit/9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added R2 Data Catalog and R2 SQL entries to the storage and analytics decision trees."
+          },
+          {
+            "sha": "7c449def4e0c63daa27212d853094e4c8e37bbe8",
+            "date": "2026-04-27T21:52:43+05:30",
+            "subject": "Add Flagship (feature flags) skill reference (#47)",
+            "url": "https://github.com/cloudflare/skills/commit/7c449def4e0c63daa27212d853094e4c8e37bbe8",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Flagship feature flags to the description, a feature-flags decision tree, and the product index."
+          },
+          {
+            "sha": "0397d7d88fa6ac7517a88389622eb0799e86ded2",
+            "date": "2026-04-16T08:56:33-04:00",
+            "subject": "fix: fixup cloudflare skill gaps (#43)",
+            "url": "https://github.com/cloudflare/skills/commit/0397d7d88fa6ac7517a88389622eb0799e86ded2",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Artifacts to the storage decision tree and the product index."
+          },
+          {
+            "sha": "d3113039790f64e052ff80f351190da65e9b7510",
+            "date": "2026-03-03T10:30:51-05:00",
+            "subject": "add uniform retrieval-bias directives to all skills (#30)",
+            "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the skill description to prefer Cloudflare docs retrieval over pre-trained knowledge."
+          },
+          {
+            "sha": "00eec280fa5c788000cd32f27a58b39dba15edfc",
+            "date": "2026-02-26T06:30:24-08:00",
+            "subject": "Add GraphQL Analytics API reference skill (#25)",
+            "url": "https://github.com/cloudflare/skills/commit/00eec280fa5c788000cd32f27a58b39dba15edfc",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added an analytics decision tree and a GraphQL Analytics API entry to the product index."
+          },
+          {
+            "sha": "6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
+            "date": "2026-02-24T07:42:02-05:00",
+            "subject": "fix incorrect workflows reference docs (#29)",
+            "url": "https://github.com/cloudflare/skills/commit/6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance to retrieve current Cloudflare docs, types, schemas, and changelogs before citing specifics."
+          },
+          {
+            "sha": "3f725897fca609a753f35028218801e303a81145",
+            "date": "2026-01-28T12:13:50-05:00",
+            "subject": "adopt Claude Code plugin structure (#10)",
+            "url": "https://github.com/cloudflare/skills/commit/3f725897fca609a753f35028218801e303a81145",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloudflare/SKILL.md",
+              "destinationPath": "skills/cloudflare/SKILL.md"
+            },
+            "summary": "Renamed cloudflare/SKILL.md to skills/cloudflare/SKILL.md without content changes."
+          },
+          {
+            "sha": "1bf879fb777798036920b7f7ab93139f2b2af3de",
+            "date": "2026-01-27T19:47:19-05:00",
+            "subject": "add cloudflare platform skill (#8)",
+            "url": "https://github.com/cloudflare/skills/commit/1bf879fb777798036920b7f7ab93139f2b2af3de",
+            "pathAtCommit": "cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Cloudflare platform SKILL.md with decision trees and a product reference index."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
+            "date": "2026-06-20T07:23:34-07:00",
+            "subject": "docs: refresh Pipelines, R2 Data Catalog, and R2 SQL references",
+            "url": "https://github.com/cloudflare/skills/commit/9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在儲存與分析決策樹中新增了 R2 Data Catalog 與 R2 SQL 項目。"
+          },
+          {
+            "sha": "7c449def4e0c63daa27212d853094e4c8e37bbe8",
+            "date": "2026-04-27T21:52:43+05:30",
+            "subject": "Add Flagship (feature flags) skill reference (#47)",
+            "url": "https://github.com/cloudflare/skills/commit/7c449def4e0c63daa27212d853094e4c8e37bbe8",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在描述中加入了 Flagship 功能旗標，並新增功能旗標決策樹與產品索引。"
+          },
+          {
+            "sha": "0397d7d88fa6ac7517a88389622eb0799e86ded2",
+            "date": "2026-04-16T08:56:33-04:00",
+            "subject": "fix: fixup cloudflare skill gaps (#43)",
+            "url": "https://github.com/cloudflare/skills/commit/0397d7d88fa6ac7517a88389622eb0799e86ded2",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在儲存決策樹與產品索引中新增了 Artifacts。"
+          },
+          {
+            "sha": "d3113039790f64e052ff80f351190da65e9b7510",
+            "date": "2026-03-03T10:30:51-05:00",
+            "subject": "add uniform retrieval-bias directives to all skills (#30)",
+            "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能描述，改為優先依賴 Cloudflare 文件檢索而非預訓練知識。"
+          },
+          {
+            "sha": "00eec280fa5c788000cd32f27a58b39dba15edfc",
+            "date": "2026-02-26T06:30:24-08:00",
+            "subject": "Add GraphQL Analytics API reference skill (#25)",
+            "url": "https://github.com/cloudflare/skills/commit/00eec280fa5c788000cd32f27a58b39dba15edfc",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了分析決策樹，並在產品索引中加入 GraphQL Analytics API 項目。"
+          },
+          {
+            "sha": "6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
+            "date": "2026-02-24T07:42:02-05:00",
+            "subject": "fix incorrect workflows reference docs (#29)",
+            "url": "https://github.com/cloudflare/skills/commit/6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引，要求在引用具體內容前先檢索最新的 Cloudflare 文件、型別、結構描述與變更日誌。"
+          },
+          {
+            "sha": "3f725897fca609a753f35028218801e303a81145",
+            "date": "2026-01-28T12:13:50-05:00",
+            "subject": "adopt Claude Code plugin structure (#10)",
+            "url": "https://github.com/cloudflare/skills/commit/3f725897fca609a753f35028218801e303a81145",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloudflare/SKILL.md",
+              "destinationPath": "skills/cloudflare/SKILL.md"
+            },
+            "summary": "將 cloudflare/SKILL.md 重新命名為 skills/cloudflare/SKILL.md，內容未變更。"
+          },
+          {
+            "sha": "1bf879fb777798036920b7f7ab93139f2b2af3de",
+            "date": "2026-01-27T19:47:19-05:00",
+            "subject": "add cloudflare platform skill (#8)",
+            "url": "https://github.com/cloudflare/skills/commit/1bf879fb777798036920b7f7ab93139f2b2af3de",
+            "pathAtCommit": "cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了初始的 Cloudflare 平台 SKILL.md，包含決策樹與產品參考索引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
+            "date": "2026-06-20T07:23:34-07:00",
+            "subject": "docs: refresh Pipelines, R2 Data Catalog, and R2 SQL references",
+            "url": "https://github.com/cloudflare/skills/commit/9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在保存与分析决策树中添加了 R2 Data Catalog 与 R2 SQL 项目。"
+          },
+          {
+            "sha": "7c449def4e0c63daa27212d853094e4c8e37bbe8",
+            "date": "2026-04-27T21:52:43+05:30",
+            "subject": "Add Flagship (feature flags) skill reference (#47)",
+            "url": "https://github.com/cloudflare/skills/commit/7c449def4e0c63daa27212d853094e4c8e37bbe8",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在描述中加入了 Flagship 功能旗标，并添加功能旗标决策树与产品索引。"
+          },
+          {
+            "sha": "0397d7d88fa6ac7517a88389622eb0799e86ded2",
+            "date": "2026-04-16T08:56:33-04:00",
+            "subject": "fix: fixup cloudflare skill gaps (#43)",
+            "url": "https://github.com/cloudflare/skills/commit/0397d7d88fa6ac7517a88389622eb0799e86ded2",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在保存决策树与产品索引中添加了 Artifacts。"
+          },
+          {
+            "sha": "d3113039790f64e052ff80f351190da65e9b7510",
+            "date": "2026-03-03T10:30:51-05:00",
+            "subject": "add uniform retrieval-bias directives to all skills (#30)",
+            "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能描述，改为优先依赖 Cloudflare 文档检索而非预训练知识。"
+          },
+          {
+            "sha": "00eec280fa5c788000cd32f27a58b39dba15edfc",
+            "date": "2026-02-26T06:30:24-08:00",
+            "subject": "Add GraphQL Analytics API reference skill (#25)",
+            "url": "https://github.com/cloudflare/skills/commit/00eec280fa5c788000cd32f27a58b39dba15edfc",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了分析决策树，并在产品索引中加入 GraphQL Analytics API 项目。"
+          },
+          {
+            "sha": "6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
+            "date": "2026-02-24T07:42:02-05:00",
+            "subject": "fix incorrect workflows reference docs (#29)",
+            "url": "https://github.com/cloudflare/skills/commit/6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引，要求在引用具体内容前先检索最新的 Cloudflare 文档、类型、结构描述与变更日志。"
+          },
+          {
+            "sha": "3f725897fca609a753f35028218801e303a81145",
+            "date": "2026-01-28T12:13:50-05:00",
+            "subject": "adopt Claude Code plugin structure (#10)",
+            "url": "https://github.com/cloudflare/skills/commit/3f725897fca609a753f35028218801e303a81145",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloudflare/SKILL.md",
+              "destinationPath": "skills/cloudflare/SKILL.md"
+            },
+            "summary": "将 cloudflare/SKILL.md 重命名为 skills/cloudflare/SKILL.md，内容未变更。"
+          },
+          {
+            "sha": "1bf879fb777798036920b7f7ab93139f2b2af3de",
+            "date": "2026-01-27T19:47:19-05:00",
+            "subject": "add cloudflare platform skill (#8)",
+            "url": "https://github.com/cloudflare/skills/commit/1bf879fb777798036920b7f7ab93139f2b2af3de",
+            "pathAtCommit": "cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了初始的 Cloudflare 平台 SKILL.md，包含决策树与产品参考索引。"
+          }
+        ]
+      }
+    }
+  }
+}

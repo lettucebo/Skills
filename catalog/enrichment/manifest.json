@@ -2,6 +2,6 @@
   "schemaVersion": 1,
   "enabled": {
     "summaries": false,
-    "changelog": false
+    "changelog": true
   }
 }

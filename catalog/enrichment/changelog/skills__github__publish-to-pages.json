@@ -1,0 +1,99 @@
+{
+  "path": "skills/github/publish-to-pages",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:11455bebdeb629c398612982a4577c7b77bbb6dd21cd4ae063e0c818e2dc254c",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/publish-to-pages",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "07e1e665d6ea1acbdbd50975c29122d80d4cc24a",
+            "date": "2026-03-19T19:26:41-04:00",
+            "subject": "fix: handle large presentations with external assets mode (#1090)",
+            "url": "https://github.com/github/awesome-copilot/commit/07e1e665d6ea1acbdbd50975c29122d80d4cc24a",
+            "pathAtCommit": "skills/publish-to-pages/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated `SKILL.md` to document automatic external-assets handling for large PPTX and PDF conversions, related CLI flags, and publishing the `assets/` directory with `index.html`."
+          },
+          {
+            "sha": "4ad31b665f3f0cbd14f2d7c2be282bd078776322",
+            "date": "2026-03-16T21:49:40-04:00",
+            "subject": "Add publish-to-pages agent skill (#1035)",
+            "url": "https://github.com/github/awesome-copilot/commit/4ad31b665f3f0cbd14f2d7c2be282bd078776322",
+            "pathAtCommit": "skills/publish-to-pages/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `SKILL.md` for the new publish-to-pages skill with prerequisites, input detection, conversion, publishing, output, and error-handling guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "07e1e665d6ea1acbdbd50975c29122d80d4cc24a",
+            "date": "2026-03-19T19:26:41-04:00",
+            "subject": "fix: handle large presentations with external assets mode (#1090)",
+            "url": "https://github.com/github/awesome-copilot/commit/07e1e665d6ea1acbdbd50975c29122d80d4cc24a",
+            "pathAtCommit": "skills/publish-to-pages/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 `SKILL.md`，說明大型 PPTX 與 PDF 轉換時會自動使用 external assets 模式、相關命令列旗標，以及發布時會連同 `assets/` 目錄與 `index.html` 一起處理。"
+          },
+          {
+            "sha": "4ad31b665f3f0cbd14f2d7c2be282bd078776322",
+            "date": "2026-03-16T21:49:40-04:00",
+            "subject": "Add publish-to-pages agent skill (#1035)",
+            "url": "https://github.com/github/awesome-copilot/commit/4ad31b665f3f0cbd14f2d7c2be282bd078776322",
+            "pathAtCommit": "skills/publish-to-pages/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 publish-to-pages 技能的 `SKILL.md`，包含先決條件、輸入判斷、轉換、發布、輸出與錯誤處理指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "07e1e665d6ea1acbdbd50975c29122d80d4cc24a",
+            "date": "2026-03-19T19:26:41-04:00",
+            "subject": "fix: handle large presentations with external assets mode (#1090)",
+            "url": "https://github.com/github/awesome-copilot/commit/07e1e665d6ea1acbdbd50975c29122d80d4cc24a",
+            "pathAtCommit": "skills/publish-to-pages/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 `SKILL.md`，说明大型 PPTX 与 PDF 转换时会自动使用 external assets 模式、相关命令行旗标，以及发布时会连同 `assets/` 目录与 `index.html` 一起处理。"
+          },
+          {
+            "sha": "4ad31b665f3f0cbd14f2d7c2be282bd078776322",
+            "date": "2026-03-16T21:49:40-04:00",
+            "subject": "Add publish-to-pages agent skill (#1035)",
+            "url": "https://github.com/github/awesome-copilot/commit/4ad31b665f3f0cbd14f2d7c2be282bd078776322",
+            "pathAtCommit": "skills/publish-to-pages/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 publish-to-pages 技能的 `SKILL.md`，包含先决条件、输入判断、转换、发布、输出与错误处理指引。"
+          }
+        ]
+      }
+    }
+  }
+}
