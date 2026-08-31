@@ -10,7 +10,7 @@ import {
 } from 'node:fs/promises';
 import path from 'node:path';
 import { performance } from 'node:perf_hooks';
-import { promisify } from 'node:util';
+import { isDeepStrictEqual, promisify } from 'node:util';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import {
@@ -139,6 +139,13 @@ function restoreUntranslatedMetadata(converted, source) {
   };
 }
 
+function withoutLocalizedSummaries(content) {
+  return {
+    ...content,
+    commits: content.commits.map(({ summary, ...commit }) => commit),
+  };
+}
+
 export function createChangelogArtifact({
   skill,
   history,
@@ -198,6 +205,40 @@ export function isChangelogArtifactCurrent(
     assertValidEnrichmentArtifact('changelog', artifact);
     if (!isArtifactFresh('changelog', artifact, skill)) return false;
     if (!isNewestFirst(artifact.locales.en.content.commits)) return false;
+    const baseUrl = repositoryWebUrl(skill.upstream.repository);
+    for (const locale of Object.values(artifact.locales)) {
+      if (
+        locale.content.commits.some(
+          (commit) => commit.url !== `${baseUrl}/commit/${commit.sha}`,
+        )
+      ) {
+        return false;
+      }
+    }
+    const enMetadata = withoutLocalizedSummaries(artifact.locales.en.content);
+    const zhTwMetadata = withoutLocalizedSummaries(
+      artifact.locales['zh-tw'].content,
+    );
+    const zhCnMetadata = withoutLocalizedSummaries(
+      artifact.locales['zh-cn'].content,
+    );
+    if (
+      !isDeepStrictEqual(enMetadata, zhTwMetadata) ||
+      !isDeepStrictEqual(zhTwMetadata, zhCnMetadata)
+    ) {
+      return false;
+    }
+    const expectedZhCn = createZhCnLocaleArtifact({
+      content: artifact.locales['zh-tw'].content,
+      promptId: CHANGELOG_PROMPT_ID,
+      promptHash: CHANGELOG_PROMPT_HASH,
+      generatorVersion,
+      cliContract: COPILOT_CLI_CONTRACT,
+    });
+    expectedZhCn.content = restoreUntranslatedMetadata(
+      expectedZhCn.content,
+      artifact.locales['zh-tw'].content,
+    );
     const signatures = expectedLocaleSignatures(generatorVersion);
     return (
       artifact.locales.en.signature === signatures.en &&
@@ -210,7 +251,11 @@ export function isChangelogArtifactCurrent(
       artifact.locales['zh-tw'].generatorVersion === generatorVersion &&
       artifact.locales['zh-cn'].signature === signatures['zh-cn'] &&
       artifact.locales['zh-cn'].converterVersion === OPENCC_CONVERTER_ID &&
-      artifact.locales['zh-cn'].generatorVersion === generatorVersion
+      artifact.locales['zh-cn'].generatorVersion === generatorVersion &&
+      isDeepStrictEqual(
+        artifact.locales['zh-cn'].content,
+        expectedZhCn.content,
+      )
     );
   } catch {
     return false;
@@ -273,26 +318,35 @@ export function parseChangelogArgs(args) {
   return { check, skill };
 }
 
-async function writeAtomicJson(target, value) {
+async function writeAtomicJson(
+  target,
+  value,
+  { writeData = (handle, data) => handle.writeFile(data, 'utf8') } = {},
+) {
   await mkdir(path.dirname(target), { recursive: true });
   const temporary = `${target}.${process.pid}.${Date.now()}.tmp`;
-  const handle = await open(temporary, 'wx', 0o600);
+  let handle;
   try {
-    await handle.writeFile(`${JSON.stringify(value, null, 2)}\n`, 'utf8');
+    handle = await open(temporary, 'wx', 0o600);
+    await writeData(handle, `${JSON.stringify(value, null, 2)}\n`);
     await handle.sync();
-  } finally {
     await handle.close();
-  }
-  try {
+    handle = undefined;
     await rename(temporary, target);
-  } finally {
-    await rm(temporary, { force: true });
+  } catch (error) {
+    await handle?.close().catch(() => {});
+    await rm(temporary, { force: true }).catch(() => {});
+    throw error;
   }
 }
 
-export async function writeChangelogArtifact({ repoRoot, artifact }) {
+export async function writeChangelogArtifact({
+  repoRoot,
+  artifact,
+  writeData,
+}) {
   const target = enrichmentArtifactPath(repoRoot, 'changelog', artifact.path);
-  await writeAtomicJson(target, artifact);
+  await writeAtomicJson(target, artifact, { writeData });
   return target;
 }
 

@@ -326,6 +326,38 @@ test('signature-only mismatch is reported separately from stale content', async 
   }
 });
 
+test('check mode rejects zh-cn summary content that is not derived from zh-tw', async () => {
+  const {
+    buildSummaryArtifact,
+    runSummaryEnrichment,
+    writeArtifactAtomically,
+  } = await import('../enrich-summaries.mjs');
+  const skill = mappedSkill();
+  const root = await createFixture({ skills: [skill] });
+  const artifactPath = path.join(
+    root,
+    'catalog',
+    'enrichment',
+    'summaries',
+    'skills__demo__alpha.json',
+  );
+  const value = buildSummaryArtifact({ skill, summary: response() });
+  value.locales['zh-cn'].content.purpose = 'CORRUPTED';
+  await writeArtifactAtomically(artifactPath, value);
+
+  try {
+    const result = await runSummaryEnrichment({
+      repoRoot: root,
+      check: true,
+    });
+
+    assert.deepEqual(result.signatureMismatched, ['skills/demo/alpha']);
+    assert.equal(result.ok, false);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
 test('artifact path mismatch cannot be accepted as a cache hit', async () => {
   const {
     buildSummaryArtifact,

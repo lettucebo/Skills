@@ -159,6 +159,58 @@ test('author-date ordering drift invalidates a changelog artifact', () => {
   assert.equal(isChangelogArtifactCurrent(value, targetSkill), false);
 });
 
+test('empty changelog history is never cache-current', () => {
+  const targetSkill = skill();
+  const value = createChangelogArtifact({
+    skill: targetSkill,
+    history: history(),
+    summaries: new Map([[
+      SHA_A,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+
+  for (const locale of Object.values(value.locales)) {
+    locale.content.commits = [];
+  }
+
+  assert.equal(isChangelogArtifactCurrent(value, targetSkill), false);
+});
+
+test('changelog commit links must match the pinned upstream repository and SHA', () => {
+  const targetSkill = skill();
+  const value = createChangelogArtifact({
+    skill: targetSkill,
+    history: history(),
+    summaries: new Map([[
+      SHA_A,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+
+  for (const locale of Object.values(value.locales)) {
+    locale.content.commits[0].url =
+      `https://github.com/other/repository/commit/${SHA_B}`;
+  }
+
+  assert.equal(isChangelogArtifactCurrent(value, targetSkill), false);
+});
+
+test('changelog cache rejects zh-cn content that is not derived from zh-tw', () => {
+  const targetSkill = skill();
+  const value = createChangelogArtifact({
+    skill: targetSkill,
+    history: history(),
+    summaries: new Map([[
+      SHA_A,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+  value.locales['zh-cn'].content.commits[0].summary = 'CORRUPTED';
+
+  assert.equal(isChangelogArtifactCurrent(value, targetSkill), false);
+});
+
 test('changelog Copilot calls allow large path-scoped multi-commit payloads to finish', () => {
   assert.equal(CHANGELOG_LLM_TIMEOUT_MS, 300_000);
 });
@@ -233,6 +285,38 @@ test('artifact writes are deterministic, atomic, and end with one newline', asyn
     assert.match(first, /\n$/);
     assert.doesNotMatch(first, /\n\n$/);
     assert.deepEqual(await readdir(path.dirname(target)), [path.basename(target)]);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('failed changelog writes remove their temporary artifact', async () => {
+  await mkdir(runtimeRoot, { recursive: true });
+  const root = await mkdtemp(path.join(runtimeRoot, 'changelog-write-failure-'));
+  const value = createChangelogArtifact({
+    skill: skill(),
+    history: history(),
+    summaries: new Map([[
+      SHA_A,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+
+  try {
+    await assert.rejects(
+      writeChangelogArtifact({
+        repoRoot: root,
+        artifact: value,
+        writeData: async () => {
+          throw new Error('write failed');
+        },
+      }),
+      /write failed/,
+    );
+    const directory = path.dirname(
+      enrichmentArtifactPath(root, 'changelog', value.path),
+    );
+    assert.deepEqual(await readdir(directory), []);
   } finally {
     await rm(root, { recursive: true, force: true });
   }
