@@ -141,7 +141,7 @@ gh variable set SKILLS_SYNC_ENABLED --body true
 ## GitHub Pages 前置條件
 
 部署 workflow 需要由 repository 管理員在 **Settings → Pages** 手動啟用一次
-Pages。`actions/configure-pages@v5` 無法用 workflow 自己的 `GITHUB_TOKEN` 啟用
+Pages。`actions/configure-pages@v6` 無法用 workflow 自己的 `GITHUB_TOKEN` 啟用
 Pages，因此該 workflow 會在建置前透過 GitHub API 驗證 Pages 是否已啟用，若尚未
 啟用則以明確的錯誤訊息失敗。
 

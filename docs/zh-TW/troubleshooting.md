@@ -106,7 +106,7 @@ repository 被改名／刪除）。無法連線的上游永遠不會被靜默當
 ### GitHub Pages 部署失敗，出現「GitHub Pages is not enabled」
 
 **原因：** 部署 workflow 會在建置前透過 GitHub API 驗證 Pages 是否已啟用，因為
-`actions/configure-pages@v5` 無法用 workflow 自己的 token 啟用 Pages。
+`actions/configure-pages@v6` 無法用 workflow 自己的 token 啟用 Pages。
 
 **解法：** 必須由 repository 管理員在 **Settings → Pages** 手動啟用一次，再重新
 執行 workflow。

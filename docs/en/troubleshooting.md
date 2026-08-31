@@ -121,7 +121,7 @@ reachable again.
 ### GitHub Pages deploy fails with "GitHub Pages is not enabled"
 
 **Cause:** the deploy workflow verifies Pages is enabled via the GitHub API
-before building, because `actions/configure-pages@v5` cannot enable Pages
+before building, because `actions/configure-pages@v6` cannot enable Pages
 using the workflow's own token.
 
 **Fix:** a repository administrator must enable Pages once under

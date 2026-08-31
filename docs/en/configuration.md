@@ -154,7 +154,7 @@ issue for no useful reason.
 ## GitHub Pages prerequisite
 
 The deploy workflow needs Pages enabled once by a repository administrator
-under **Settings → Pages**. `actions/configure-pages@v5` cannot enable Pages
+under **Settings → Pages**. `actions/configure-pages@v6` cannot enable Pages
 using the workflow's own `GITHUB_TOKEN`, so the workflow verifies Pages is
 already enabled via the GitHub API before building, and fails with a clear
 error if it is not.

@@ -30,7 +30,7 @@ jobs:
       pages: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # `inputs` is empty for push/pull_request, so those builds keep the
           # current event SHA; workflow_call callers pin a newer commit.
@@ -41,7 +41,7 @@ jobs:
           fetch-tags: true
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -82,7 +82,7 @@ jobs:
           echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           echo "time=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
 
-      # configure-pages@v5 documents that enablement=true requires a
+      # configure-pages@v6 documents that enablement=true requires a
       # non-GITHUB_TOKEN credential. This workflow intentionally fails closed
       # when Pages has not been enabled by a repository administrator.
       - name: Verify GitHub Pages is enabled
@@ -90,12 +90,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if ! gh api --method GET "repos/${GITHUB_REPOSITORY}/pages" >/dev/null; then
-            echo "::error::GitHub Pages is not enabled. actions/configure-pages@v5 documents that GITHUB_TOKEN cannot enable Pages; enable Pages manually in Settings > Pages, then rerun this workflow."
+            echo "::error::GitHub Pages is not enabled. actions/configure-pages@v6 documents that GITHUB_TOKEN cannot enable Pages; enable Pages manually in Settings > Pages, then rerun this workflow."
             exit 1
           fi
 
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
         with:
           enablement: false
 
@@ -124,9 +124,12 @@ jobs:
           SITE_BUILD_TIME: ${{ steps.buildinfo.outputs.time }}
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site/dist
+          # No current site asset uses a dot-prefixed path. Make the v5 default
+          # explicit so adding .well-known/.nojekyll requires a reviewed change.
+          include-hidden-files: false
 
   deploy:
     needs: build
@@ -141,4 +144,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

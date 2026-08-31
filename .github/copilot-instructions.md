@@ -113,6 +113,8 @@ preview.
    Workflow structure is itself tested under `scripts/test/*workflow.test.mjs`;
    preserve least-privilege permissions, path filters, the Pages prerequisite
    check, and build-before-test-before-upload ordering.
+   These workflows target GitHub.com and GitHub Pages; do not assume artifact
+   or Pages action versions are portable to GitHub Enterprise Server.
 
 ## Registry Invariants
 

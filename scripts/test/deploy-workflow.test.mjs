@@ -113,7 +113,7 @@ test('deploy-site.yml fails closed with a documented prerequisite when Pages is 
   const steps = wf.jobs?.build?.steps ?? [];
   const preflight = steps.find((step) => /Verify GitHub Pages is enabled/.test(String(step.name ?? '')));
   const configure = steps.find((step) =>
-    String(step.uses ?? '').startsWith('actions/configure-pages@v5'),
+    String(step.uses ?? '').startsWith('actions/configure-pages@v6'),
   );
 
   assert.ok(preflight, 'a Pages 404 must produce a clear operator-facing prerequisite');
@@ -125,7 +125,7 @@ test('deploy-site.yml fails closed with a documented prerequisite when Pages is 
   assert.equal(
     configure.with?.enablement,
     false,
-    'configure-pages@v5 documents that enablement=true requires a non-GITHUB_TOKEN credential',
+    'configure-pages@v6 documents that enablement=true requires a non-GITHUB_TOKEN credential',
   );
 });
 
@@ -191,6 +191,11 @@ test('deploy-site.yml uploads site/dist as pages artifact', async () => {
   );
   assert.ok(uploadStep, 'must have upload-pages-artifact step');
   assert.equal(uploadStep.with?.path, 'site/dist', 'must upload site/dist directory');
+  assert.equal(
+    uploadStep.with?.['include-hidden-files'],
+    false,
+    'Pages artifact policy must explicitly exclude hidden files until the site needs them',
+  );
 });
 
 test('Astro base remains /Skills (not rewritten by workflow)', async () => {
