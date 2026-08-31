@@ -1,0 +1,44 @@
+{
+  "path": "skills/dotnet/dotnet-upgrade",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6a82883259b8b86e6de8ae9b8053fa5be253c597398e2d730f43c742eeff9e08"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides prompts to assess projects, plan sequencing, update frameworks and dependencies, modernize build pipelines, and validate a .NET upgrade end to end.",
+        "whenToUse": "Use it when moving one or more .NET projects from older frameworks or package setups to a newer target such as .NET 8 and you need structured guidance across analysis, migration, testing, and rollout.",
+        "outputs": "Produces upgrade analyses, checklists, validation steps, pipeline snippets, documentation templates, and recommendations for tooling, dependencies, code changes, and release readiness."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供可用於評估專案、規劃升級順序、更新目標框架與相依套件、現代化建置流程，並完成端對端 .NET 升級驗證的提示內容。",
+        "whenToUse": "當你要將一個或多個 .NET 專案從較舊的框架或套件管理方式遷移到較新的目標版本（例如 .NET 8），且需要涵蓋分析、遷移、測試與部署推進的結構化指引時，可使用此內容。",
+        "outputs": "會產生升級分析、檢查清單、驗證步驟、管線範例、文件範本，以及針對工具、相依性、程式碼調整與發布就緒度的建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供可用于评估项目、规划升级顺序、更新目标框架与相依套件、现代化建置流程，并完成端对端 .NET 升级验证的提示内容。",
+        "whenToUse": "当你要将一个或多个 .NET 项目从较旧的框架或套件管理方式迁移到较新的目标版本（例如 .NET 8），且需要涵盖分析、迁移、测试与部署推进的结构化指引时，可使用此内容。",
+        "outputs": "会产生升级分析、检查清单、验证步骤、管线范例、文档范本，以及针对工具、相依性、代码调整与发布就绪度的建议。"
+      }
+    }
+  }
+}

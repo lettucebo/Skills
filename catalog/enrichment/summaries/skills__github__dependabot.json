@@ -1,0 +1,44 @@
+{
+  "path": "skills/github/dependabot",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:022db8954828a41e72a6036650bdcfb0fe070b732eeb9aa30e5b74cfff58ac44"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides practical guidance for configuring Dependabot and managing version, security, and alert-related dependency update workflows in GitHub.",
+        "whenToUse": "Use it when you need to set up or refine .github/dependabot.yml, organize updates across ecosystems or monorepos, handle Dependabot pull requests, or understand dependency vulnerability scanning options tied to GitHub.",
+        "outputs": "Returns concise configuration and workflow guidance covering supported ecosystems, scheduling, grouping, ignore and allow rules, PR behaviors, and plugin-based pre-commit dependency scanning."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供在 GitHub 中設定 Dependabot，並管理版本更新、安全更新與警示相關相依性流程的實務指引。",
+        "whenToUse": "當你需要建立或調整 .github/dependabot.yml、在多生態系或 monorepo 中整理更新、處理 Dependabot PR，或了解與 GitHub 相關的相依性弱點掃描選項時使用。",
+        "outputs": "會回傳涵蓋支援生態系、排程、分組、忽略與允許規則、PR 行為，以及外掛式提交前相依性掃描的精簡設定與流程說明。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供在 GitHub 中设置 Dependabot，并管理版本更新、安全更新与警示相关相依性流程的实务指引。",
+        "whenToUse": "当你需要创建或调整 .github/dependabot.yml、在多生态系或 monorepo 中整理更新、处理 Dependabot PR，或了解与 GitHub 相关的相依性弱点扫描选项时使用。",
+        "outputs": "会回传涵盖支持生态系、调度、分组、忽略与允许规则、PR 行为，以及插件式提交前相依性扫描的精简设置与流程说明。"
+      }
+    }
+  }
+}

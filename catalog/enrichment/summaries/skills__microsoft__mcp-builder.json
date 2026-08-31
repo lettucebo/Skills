@@ -1,0 +1,44 @@
+{
+  "path": "skills/microsoft/mcp-builder",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:925884c49458e0c6880450415e316183b324b446133332104e22511e2523aff2"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Summarizes how to design and deliver an effective MCP server for connecting language models with external services.",
+        "whenToUse": "Use this when planning or building an MCP server for Azure, internal systems, or third-party APIs across TypeScript, Python, or .NET.",
+        "outputs": "Provides development guidance, implementation priorities, testing expectations, and evaluation instructions for the server."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何設計並交付高品質的 MCP 伺服器，讓語言模型能連接外部服務。",
+        "whenToUse": "當你要規劃或建置用於 Azure、內部系統或第三方 API 的 MCP 伺服器，且採用 TypeScript、Python 或 .NET 時，可使用這份指引。",
+        "outputs": "提供伺服器的開發指引、實作重點、測試要求與評估說明。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何设计并交付高品质的 MCP 服务器，让语言模型能连接外部服务。",
+        "whenToUse": "当你要规划或建置用于 Azure、内部系统或第三方 API 的 MCP 服务器，且采用 TypeScript、Python 或 .NET 时，可使用这份指引。",
+        "outputs": "提供服务器的开发指引、实作重点、测试要求与评估说明。"
+      }
+    }
+  }
+}

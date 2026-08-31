@@ -1,0 +1,44 @@
+{
+  "path": "skills/claude/brand-guidelines",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ddf22e788d6aa33e818ec59be85d4fba5aeda23075518dafc412bb90b7cc63ce"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Applies Anthropic's official colors and typography to make documents or other artifacts match the company's visual identity.",
+        "whenToUse": "Use it when a deliverable needs brand-consistent styling, color choices, or typography aligned with Anthropic design standards.",
+        "outputs": "It produces content styled with the documented color palette, heading and body font choices, and system fallbacks when needed."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "將 Anthropic 的官方色彩與字體套用到文件或其他成品上，使其符合公司的視覺識別。",
+        "whenToUse": "當交付內容需要符合 Anthropic 的設計規範、品牌風格、配色或字體時使用。",
+        "outputs": "它會產出套用指定色盤、標題與內文字體選擇，以及必要時系統後備字體的內容。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "将 Anthropic 的官方色彩与字体套用到文档或其他成品上，使其符合公司的视觉识别。",
+        "whenToUse": "当交付内容需要符合 Anthropic 的设计规范、品牌风格、配色或字体时使用。",
+        "outputs": "它会产出套用指定色盘、标题与内文字体选择，以及必要时系统后备字体的内容。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/github/publish-to-pages",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:11455bebdeb629c398612982a4577c7b77bbb6dd21cd4ae063e0c818e2dc254c"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Publishes a presentation or HTML content to GitHub Pages by converting supported formats and setting up a repository with Pages enabled.",
+        "whenToUse": "Use it when someone wants to turn a PPTX, PDF, HTML file, or Google Slides deck into a shareable GitHub Pages site.",
+        "outputs": "It returns the GitHub repository URL and the live GitHub Pages URL, with a note that the site may take a minute or two to appear."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它會將簡報或 HTML 內容發佈到 GitHub Pages，並處理支援格式的轉換、建立儲存庫與啟用 Pages。",
+        "whenToUse": "當有人想把 PPTX、PDF、HTML 檔或 Google Slides 簡報變成可分享的 GitHub Pages 網站時使用。",
+        "outputs": "它會回傳 GitHub 儲存庫網址與 GitHub Pages 上線網址，並提醒網站可能需要一兩分鐘才會生效。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它会将演示文稿或 HTML 内容发布到 GitHub Pages，并处理支持格式的转换、创建保存库与激活 Pages。",
+        "whenToUse": "当有人想把 PPTX、PDF、HTML 档或 Google Slides 演示文稿变成可分享的 GitHub Pages 网站时使用。",
+        "outputs": "它会回传 GitHub 保存库网址与 GitHub Pages 上线网址，并提醒网站可能需要一两分钟才会生效。"
+      }
+    }
+  }
+}

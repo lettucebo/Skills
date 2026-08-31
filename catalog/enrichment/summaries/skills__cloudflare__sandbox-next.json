@@ -1,0 +1,44 @@
+{
+  "path": "skills/cloudflare/sandbox-next",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:21e796cab41735e9adb716d10e4041707299f023f03fabd55c869bee9720d0fb"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to work with Cloudflare Sandbox apps on the 1.0 preview line, including process execution, terminals, interpreters, lifecycle, files, mounts, tunnels, and error handling.",
+        "whenToUse": "Use it when a project is already on @cloudflare/sandbox@next or another preview tag and you need guidance for building or changing preview-based sandbox apps.",
+        "outputs": "Provides package-line checks, key API constraints, and links to the relevant preview documentation and examples for the task."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何在 Cloudflare Sandbox 1.0 預覽線上開發應用程式，涵蓋程序執行、終端機、直譯器、生命週期、檔案、掛載、通道與錯誤處理。",
+        "whenToUse": "當專案已使用 @cloudflare/sandbox@next 或其他預覽標籤，且你需要建置或修改預覽版沙箱應用程式時使用。",
+        "outputs": "提供套件版本線檢查、重要 API 限制，以及對應任務的預覽文件與範例連結。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何在 Cloudflare Sandbox 1.0 预览在线开发应用程序，涵盖进程运行、终端机、解释器、生命周期、文件、挂载、通道与错误处理。",
+        "whenToUse": "当项目已使用 @cloudflare/sandbox@next 或其他预览标签，且你需要建置或修改预览版沙箱应用程序时使用。",
+        "outputs": "提供套件版本线检查、重要 API 限制，以及对应任务的预览文档与范例链接。"
+      }
+    }
+  }
+}

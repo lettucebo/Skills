@@ -1,0 +1,44 @@
+{
+  "path": "skills/power-platform/power-bi-model-design-review",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d524faea64407dded6011e23136c423df84bfd6bc0b8082cb90f6c7ecd0156ae"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a structured review framework for assessing Power BI data model architecture, relationships, performance, maintainability, and governance.",
+        "whenToUse": "Use it when you need an expert-style evaluation of a Power BI model's design, data quality, scalability, or security before optimization, modernization, or release.",
+        "outputs": "Returns a concise review summary and detailed recommendations covering issues, priorities, and an implementation roadmap."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供結構化的審查框架，用於評估 Power BI 資料模型的架構、關聯、效能、可維護性與治理。",
+        "whenToUse": "當你需要在最佳化、現代化或上線前，對 Power BI 模型的設計、資料品質、擴充性或安全性進行專業評估時使用。",
+        "outputs": "產出精簡的審查摘要與詳細建議，涵蓋問題、優先順序及實作路線圖。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供结构化的审查框架，用于评估 Power BI 数据模型的架构、关联、性能、可维护性与治理。",
+        "whenToUse": "当你需要在优化、现代化或上线前，对 Power BI 模型的设计、数据品质、扩充性或安全性进行专业评估时使用。",
+        "outputs": "产出精简的审查摘要与详细建议，涵盖问题、优先级及实作路线图。"
+      }
+    }
+  }
+}

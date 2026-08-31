@@ -1,0 +1,44 @@
+{
+  "path": "skills/google-play-console-cli/gplay-testers-orchestration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:01b011ad95c66d888504a14b7e2a0446cc17d1dfb89d6712e1ee51b4ff115d65"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps manage Play testing access by reading or changing tester assignments, creating closed tracks, and promoting builds through edit sessions.",
+        "whenToUse": "Use it when you need to assign testers by email or Google Group, set up a closed testing track, or move a release from one track to another.",
+        "outputs": "Provides concise Google Play CLI command flows for getting, updating, or patching testers, changing tracks, promoting builds, and committing the edit so changes take effect."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助你透過編輯工作階段管理 Play 測試存取，包括查看或調整測試人員、建立封閉測試軌道，以及在軌道間推進版本。",
+        "whenToUse": "當你需要用電子郵件或 Google 群組指派測試人員、建立封閉測試軌道，或把版本從一個軌道推進到另一個軌道時使用。",
+        "outputs": "提供精簡的 Google Play CLI 指令流程，用於讀取、更新或合併測試人員設定、調整軌道、推進版本，並提交編輯讓變更生效。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助你透过编辑工作阶段管理 Play 测试访问，包括查看或调整测试人员、创建封闭测试轨道，以及在轨道间推进版本。",
+        "whenToUse": "当你需要用电子邮件或 Google 群组指派测试人员、创建封闭测试轨道，或把版本从一个轨道推进到另一个轨道时使用。",
+        "outputs": "提供精简的 Google Play CLI 指令流程，用于读取、更新或合并测试人员设置、调整轨道、推进版本，并提交编辑让变更生效。"
+      }
+    }
+  }
+}

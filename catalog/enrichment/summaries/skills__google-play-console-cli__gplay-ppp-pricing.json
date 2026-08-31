@@ -1,0 +1,44 @@
+{
+  "path": "skills/google-play-console-cli/gplay-ppp-pricing",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:15478f3953fcc1dc56a7b558b0b848008a4cdea770b25b128f17f73c28bce0e9"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps create and update purchasing-power-adjusted regional prices for Google Play subscriptions and in-app products.",
+        "whenToUse": "Use it when you need country-specific Google Play pricing or must revise regional prices without removing existing regional configurations.",
+        "outputs": "It provides merged pricing JSON and update workflows for legacy in-app products, one-time products, subscriptions, and subscriber price migrations."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助為 Google Play 訂閱與應用程式內商品建立及更新依購買力調整的區域價格。",
+        "whenToUse": "當你需要依國家設定 Google Play 價格，或在不移除既有區域設定的情況下調整區域價格時使用。",
+        "outputs": "它會提供合併後的定價 JSON 與更新流程，涵蓋傳統應用程式內商品、一次性商品、訂閱與訂閱者價格遷移。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助为 Google Play 订阅与应用程序内商品创建及更新依购买力调整的区域价格。",
+        "whenToUse": "当你需要依国家设置 Google Play 价格，或在不移除既有区域设置的情况下调整区域价格时使用。",
+        "outputs": "它会提供合并后的定价 JSON 与更新流程，涵盖传统应用程序内商品、一次性商品、订阅与订阅者价格迁移。"
+      }
+    }
+  }
+}

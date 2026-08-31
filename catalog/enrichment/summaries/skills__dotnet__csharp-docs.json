@@ -1,0 +1,44 @@
+{
+  "path": "skills/dotnet/csharp-docs",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f23954d8c26c5a79d522a8b3d5122fccd35dd25e1f12a6bdfbccba2fe7ff3629"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps you document C# types and members with XML comments that follow established API documentation conventions.",
+        "whenToUse": "Use it when writing or reviewing C# code that needs clear summaries, parameter and return descriptions, property docs, examples, or exception notes.",
+        "outputs": "It provides documentation guidance for XML comment tags, recommended wording patterns, and coverage expectations for APIs."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助你以符合既有 API 文件慣例的 XML 註解來記錄 C# 型別與成員。",
+        "whenToUse": "當你在撰寫或審查需要清楚摘要、參數與傳回值說明、屬性文件、範例或例外資訊的 C# 程式碼時使用。",
+        "outputs": "它提供 XML 註解標籤、建議措辭模式，以及 API 文件涵蓋範圍的指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助你以符合既有 API 文档惯例的 XML 注解来记录 C# 类型与成员。",
+        "whenToUse": "当你在撰写或审查需要清楚摘要、参数与传回值说明、属性文档、范例或例外信息的 C# 代码时使用。",
+        "outputs": "它提供 XML 注解标签、建议措辞模式，以及 API 文档涵盖范围的指引。"
+      }
+    }
+  }
+}

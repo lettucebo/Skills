@@ -1,0 +1,44 @@
+{
+  "path": "skills/google-play-console-cli/gplay-release-flow",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:72518d0ff6ab37ba2fceb59e2a100e268a9969fb6395ee9ed8ee6b5b48f00eff"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a practical CLI guide for releasing Android app builds to Google Play tracks, including promotions and staged rollouts.",
+        "whenToUse": "Use it when you need to upload an AAB or APK, move a release between internal, beta, and production tracks, or manage rollout progress.",
+        "outputs": "It returns example gplay commands, release-note and metadata options, manual edit steps, rollout actions, and pre-release checklists."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供以 CLI 將 Android 應用程式版本發布到 Google Play 各軌道的實務指引，包含升軌與分階段發布。",
+        "whenToUse": "當你需要上傳 AAB 或 APK、在 internal、beta 與 production 軌道間推進版本，或管理發布比例時使用。",
+        "outputs": "它會提供 gplay 指令範例、版本說明與中繼資料選項、手動編輯流程、發布比例操作，以及發布前檢查清單。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供以 CLI 将 Android 应用程序版本发布到 Google Play 各轨道的实务指引，包含升轨与分阶段发布。",
+        "whenToUse": "当你需要上传 AAB 或 APK、在 internal、beta 与 production 轨道间推进版本，或管理发布比例时使用。",
+        "outputs": "它会提供 gplay 指令范例、版本说明与中继数据选项、手动编辑流程、发布比例操作，以及发布前检查清单。"
+      }
+    }
+  }
+}

@@ -14,45 +14,65 @@ const HASH_PATTERN = '^sha256:[0-9a-f]{64}$';
 const ajv = new Ajv({ allErrors: true, strict: true });
 
 const hashSchema = { type: 'string', pattern: HASH_PATTERN };
-const contentSchema = { type: 'object', additionalProperties: true };
-const llmLocaleSchema = {
+const summaryContentSchema = {
   type: 'object',
   additionalProperties: false,
-  required: [
-    'signature',
-    'producer',
-    'model',
-    'promptHash',
-    'generatorVersion',
-    'content',
-  ],
+  required: ['purpose', 'whenToUse', 'outputs'],
   properties: {
-    signature: hashSchema,
-    producer: { const: 'llm' },
-    model: { type: 'string', minLength: 1 },
-    promptHash: hashSchema,
-    generatorVersion: { type: 'integer', minimum: 1 },
-    content: contentSchema,
+    purpose: { type: 'string', minLength: 1 },
+    whenToUse: { type: 'string', minLength: 1 },
+    outputs: { type: 'string', minLength: 1 },
   },
 };
-const openccLocaleSchema = {
-  type: 'object',
-  additionalProperties: false,
-  required: [
-    'signature',
-    'producer',
-    'converterVersion',
-    'generatorVersion',
-    'content',
-  ],
-  properties: {
-    signature: hashSchema,
-    producer: { const: 'opencc' },
-    converterVersion: { type: 'string', minLength: 1 },
-    generatorVersion: { type: 'integer', minimum: 1 },
-    content: contentSchema,
-  },
-};
+const genericContentSchema = { type: 'object', additionalProperties: true };
+
+function contentSchema(kind) {
+  return kind === 'summaries' ? summaryContentSchema : genericContentSchema;
+}
+
+function llmLocaleSchema(kind) {
+  return {
+    type: 'object',
+    additionalProperties: false,
+    required: [
+      'signature',
+      'producer',
+      'model',
+      'promptHash',
+      'generatorVersion',
+      'content',
+    ],
+    properties: {
+      signature: hashSchema,
+      producer: { const: 'llm' },
+      model: { type: 'string', minLength: 1 },
+      promptHash: hashSchema,
+      generatorVersion: { type: 'integer', minimum: 1 },
+      content: contentSchema(kind),
+    },
+  };
+}
+
+function openccLocaleSchema(kind) {
+  return {
+    type: 'object',
+    additionalProperties: false,
+    required: [
+      'signature',
+      'producer',
+      'converterVersion',
+      'generatorVersion',
+      'content',
+    ],
+    properties: {
+      signature: hashSchema,
+      producer: { const: 'opencc' },
+      converterVersion: { type: 'string', minLength: 1 },
+      generatorVersion: { type: 'integer', minimum: 1 },
+      content: contentSchema(kind),
+    },
+  };
+}
 
 function freshnessSchema(kind) {
   if (kind === 'summaries') {
@@ -95,9 +115,9 @@ function artifactSchema(kind) {
         additionalProperties: false,
         required: ENRICHMENT_LOCALES,
         properties: {
-          en: llmLocaleSchema,
-          'zh-tw': llmLocaleSchema,
-          'zh-cn': openccLocaleSchema,
+          en: llmLocaleSchema(kind),
+          'zh-tw': llmLocaleSchema(kind),
+          'zh-cn': openccLocaleSchema(kind),
         },
       },
     },

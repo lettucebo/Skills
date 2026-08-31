@@ -20,7 +20,8 @@ flowchart LR
     M --> I["NOTICE +<br/>README generated blocks"]
     G --> N["scripts/lib/enrichment.mjs<br/>(schema, eligibility, freshness)"]
     H --> N
-    N -. "later generators, when enabled" .-> O["catalog/enrichment/<br/>summaries + changelog"]
+    N --> Q["scripts/enrich-summaries.mjs<br/>(Copilot + OpenCC)"]
+    Q --> O["catalog/enrichment/<br/>summaries + changelog"]
     G --> J["site/src/lib/catalog.ts<br/>(build-time loader)"]
     H --> J
     O --> P["site/src/lib/enrichment.ts<br/>(freshness-gated loader)"]
@@ -55,10 +56,12 @@ flowchart LR
    catalog route and reads a skill's history ledger for that skill's detail
    timeline (see [Website](website.md)).
 8. **`scripts/lib/enrichment.mjs`** defines the shared sidecar schema,
-   eligibility rules, freshness keys, and locale signatures. Later generators
-   may populate `catalog/enrichment/summaries/` and
-   `catalog/enrichment/changelog/` only when the durable
-   `catalog/enrichment/manifest.json` flag for that kind is enabled.
+   eligibility rules, freshness keys, and locale signatures.
+   **`scripts/enrich-summaries.mjs`** makes one Copilot request per eligible
+   skill for English and Traditional Chinese, derives Simplified Chinese with
+   OpenCC, and writes each artifact atomically. The first complete summary set
+   is validated before the generator enables summaries in
+   `catalog/enrichment/manifest.json`.
 9. **`site/src/lib/enrichment.ts`** reads only the requested locale from a
    fresh, schema-valid sidecar. Restricted or tombstoned skills are rejected
    before a sidecar path is touched. A missing artifact, stale artifact, or
@@ -80,10 +83,12 @@ every artifact in an existing kind directory must be schema-valid and
 path-safe, and artifacts cannot refer to skills that are restricted,
 tombstoned, or absent from the lock. An enabled kind must also have its
 directory. Missing and stale artifacts pass. Publishing uses
-`npm run validate:enrichment -- --strict`,
-which additionally requires the artifact set to exactly match the eligible
-skills and every artifact to be fresh. A legitimate upstream swap therefore
-cannot be rolled back merely because optional sidecars have not caught up.
+`npm run validate:enrichment -- --strict` when releasing a complete enrichment
+set; the summary generator applies the same completeness gate before first
+enablement. Strict validation requires the artifact set to exactly match the
+eligible skills and every artifact to be fresh. Routine registry sync and site
+fallback behavior remain decoupled, so a legitimate upstream swap is not
+rolled back merely because optional sidecars have not caught up.
 
 ## Enrichment sidecar contract
 

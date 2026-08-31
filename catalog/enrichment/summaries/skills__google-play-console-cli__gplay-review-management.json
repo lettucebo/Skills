@@ -1,0 +1,44 @@
+{
+  "path": "skills/google-play-console-cli/gplay-review-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0ff0eceb983e986e925c1a76ac7518f8c2d99730a0f3a15b41b8adea975a9c64"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps manage Google Play reviews by listing, filtering, analyzing, and replying to user feedback.",
+        "whenToUse": "Use it when you need to monitor app sentiment, find reviews matching specific conditions, or respond to reviewers efficiently.",
+        "outputs": "Produces review data, targeted review subsets, summary metrics, and reply or monitoring command patterns you can run."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助管理 Google Play 評論，包含列出、篩選、分析，以及回覆使用者意見。",
+        "whenToUse": "當你需要監控應用程式口碑、找出符合特定條件的評論，或更有效率地回覆評論者時使用。",
+        "outputs": "會產生評論資料、目標評論子集、摘要指標，以及可執行的回覆或監控指令範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助管理 Google Play 评论，包含列出、筛选、分析，以及回复用户意见。",
+        "whenToUse": "当你需要监控应用程序口碑、找出符合特定条件的评论，或更有效率地回复评论者时使用。",
+        "outputs": "会产生评论数据、目标评论子集、摘要指针，以及可运行的回复或监控指令范例。"
+      }
+    }
+  }
+}

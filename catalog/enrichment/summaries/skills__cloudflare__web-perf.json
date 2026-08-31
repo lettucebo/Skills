@@ -1,0 +1,44 @@
+{
+  "path": "skills/cloudflare/web-perf",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6ae8cb7d20fddbc4e39b16dc611cc4c271b007d8486d4a5bfec26291729db707"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Analyzes a page's loading and interaction performance with Chrome DevTools MCP, covering Core Web Vitals, supporting metrics, network bottlenecks, layout shifts, caching, accessibility, and codebase-level optimization opportunities.",
+        "whenToUse": "Use it when you need to audit, profile, debug, or improve page speed, load behavior, or Lighthouse-related performance issues.",
+        "outputs": "Returns a concise performance assessment with measured metrics, prioritized issues such as render-blocking resources and dependency chains, and specific recommendations for fixes."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "使用 Chrome DevTools MCP 分析頁面的載入與互動效能，涵蓋 Core Web Vitals、輔助指標、網路瓶頸、版面位移、快取、無障礙與程式碼層級的最佳化機會。",
+        "whenToUse": "當你需要稽核、剖析、除錯或改善頁面速度、載入行為或與 Lighthouse 相關的效能問題時使用。",
+        "outputs": "會產出精簡的效能評估，包含量測指標、如阻塞渲染資源與相依鏈等優先問題，以及具體的修正建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "使用 Chrome DevTools MCP 分析页面的加载与交互性能，涵盖 Core Web Vitals、辅助指针、网络瓶颈、版面位移、缓存、无障碍与代码层级的优化机会。",
+        "whenToUse": "当你需要审核、剖析、调试或改善页面速度、加载行为或与 Lighthouse 相关的性能问题时使用。",
+        "outputs": "会产出精简的性能评估，包含量测指针、如阻塞渲染资源与相依链等优先问题，以及具体的修正建议。"
+      }
+    }
+  }
+}

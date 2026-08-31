@@ -1,0 +1,44 @@
+{
+  "path": "skills/google-play-console-cli/gplay-purchase-verification",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:58aac8f1c340b4a365caf5e2cfc6be01a2f44588e27c01ad145c601d418812d1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to validate Google Play one-time purchases and subscriptions on a backend and handle follow-up actions such as acknowledgment, consumption, and subscription management securely.",
+        "whenToUse": "Use it when your server must confirm purchase tokens with Google Play, interpret purchase or subscription status, and update user access based on verified results.",
+        "outputs": "It provides authentication steps, verification and management commands, example API responses, backend integration samples, RTDN guidance, and related order or voided-purchase workflows."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何在後端驗證 Google Play 的單次購買與訂閱，並安全處理確認、消耗與訂閱管理等後續操作。",
+        "whenToUse": "當你的伺服器需要向 Google Play 確認購買權杖、判讀購買或訂閱狀態，並依驗證結果更新使用者權限時，就適合使用。",
+        "outputs": "它提供驗證所需的驗證設定、查詢與管理指令、API 回應範例、後端整合範例、RTDN 指引，以及訂單與作廢交易的相關流程。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何在后端验证 Google Play 的单次购买与订阅，并安全处理确认、消耗与订阅管理等后续操作。",
+        "whenToUse": "当你的服务器需要向 Google Play 确认购买权杖、判读购买或订阅状态，并依验证结果更新用户权限时，就适合使用。",
+        "outputs": "它提供验证所需的验证设置、查找与管理指令、API 回应范例、后端集成范例、RTDN 指引，以及订单与作废交易的相关流程。"
+      }
+    }
+  }
+}

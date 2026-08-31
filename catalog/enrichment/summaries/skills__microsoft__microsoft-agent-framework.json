@@ -1,0 +1,44 @@
+{
+  "path": "skills/microsoft/microsoft-agent-framework",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:28977297291d6fdf9be3cf43768264cbc102258fc8f87cfe0bb17b3bb037c662"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides guidance for building, changing, explaining, and reviewing Microsoft Agent Framework solutions across .NET and Python, including agent, workflow, and migration work.",
+        "whenToUse": "Use it when your task involves Microsoft Agent Framework applications, agents, workflows, or migrations and you need language-specific guidance for .NET or Python.",
+        "outputs": "Delivers recommendations grounded in current official Microsoft Agent Framework documentation and aligned to the selected language ecosystem, with migration guidance included when relevant."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供以 .NET 和 Python 為主的 Microsoft Agent Framework 解決方案建置、修改、說明與審查指引，涵蓋代理、工作流程與遷移工作。",
+        "whenToUse": "當任務涉及 Microsoft Agent Framework 應用程式、代理、工作流程或遷移，且需要對應 .NET 或 Python 的語言專屬指引時使用。",
+        "outputs": "產出以最新官方 Microsoft Agent Framework 文件為依據、並符合所選語言生態系的建議，且僅在相關時納入遷移指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供以 .NET 和 Python 为主的 Microsoft Agent Framework 解决方案建置、修改、说明与审查指引，涵盖代理、工作流程与迁移工作。",
+        "whenToUse": "当任务涉及 Microsoft Agent Framework 应用程序、代理、工作流程或迁移，且需要对应 .NET 或 Python 的语言专属指引时使用。",
+        "outputs": "产出以最新官方 Microsoft Agent Framework 文档为依据、并符合所选语言生态系的建议，且仅在相关时纳入迁移指引。"
+      }
+    }
+  }
+}

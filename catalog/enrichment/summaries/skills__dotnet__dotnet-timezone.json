@@ -1,0 +1,44 @@
+{
+  "path": "skills/dotnet/dotnet-timezone",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:13d870c3564afa6ca9cd373eeff5ecce74192563fb67aa501cd651f03041088b"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides practical guidance for handling time zones correctly in .NET and C# applications, including conversions, identifiers, and daylight saving behavior.",
+        "whenToUse": "Use it when you need to map locations to time zones, convert between UTC and local time, or design cross-platform and schedule-safe .NET date-time logic.",
+        "outputs": "Returns recommended timezone IDs, implementation advice, and copy-paste-ready C# examples for common timezone scenarios."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供在 .NET 與 C# 應用程式中正確處理時區的實務指引，涵蓋時間轉換、時區識別碼與日光節約時間行為。",
+        "whenToUse": "當你需要將地點對應到時區、在 UTC 與本地時間之間轉換，或設計可跨平台且能安全處理排程的 .NET 日期時間邏輯時使用。",
+        "outputs": "會回傳建議的時區識別碼、實作建議，以及適用於常見時區情境的可直接使用 C# 範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供在 .NET 与 C# 应用程序中正确处理时区的实务指引，涵盖时间转换、时区识别码与日光节约时间行为。",
+        "whenToUse": "当你需要将地点对应到时区、在 UTC 与本地时间之间转换，或设计可跨平台且能安全处理调度的 .NET 日期时间逻辑时使用。",
+        "outputs": "会回传建议的时区识别码、实作建议，以及适用于常见时区情境的可直接使用 C# 范例。"
+      }
+    }
+  }
+}

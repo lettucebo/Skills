@@ -1,0 +1,44 @@
+{
+  "path": "skills/claude/skill-creator",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4557d54c524c67984e4bab23fa436e90196292ae8df4d2093f0ce0e6951bfc1c"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps turn a skill idea or rough draft into a reliable skill through drafting, evaluation, iteration, and trigger tuning.",
+        "whenToUse": "Use it when someone wants to create a skill, improve an existing one, test it with realistic prompts, compare iterations, or sharpen when it gets invoked.",
+        "outputs": "It produces a drafted or revised skill along with test prompts, review and benchmark artifacts, and, when needed, an improved description or packaged skill file."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助把技能構想或初稿透過撰寫、評估、迭代與觸發條件調整，打磨成更可靠的技能。",
+        "whenToUse": "當有人想建立技能、改進既有技能、用真實提示測試、比較不同迭代，或強化技能的觸發時機時，就適合使用。",
+        "outputs": "它會產出起草或修訂後的技能，以及測試提示、檢視與基準評估成果，並在需要時提供優化後的描述或封裝好的技能檔案。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助把技能构想或初稿透过撰写、评估、迭代与触发条件调整，打磨成更可靠的技能。",
+        "whenToUse": "当有人想创建技能、改进既有技能、用真实提示测试、比较不同迭代，或强化技能的触发时机时，就适合使用。",
+        "outputs": "它会产出起草或修订后的技能，以及测试提示、查看与基准评估成果，并在需要时提供优化后的描述或封装好的技能文件。"
+      }
+    }
+  }
+}
