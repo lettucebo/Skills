@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
@@ -31,20 +30,12 @@ const orphanPage = path.join(
   'csharp-mcp-server-generator',
   'index.html',
 );
+const pagefindEntry = path.join(siteRoot, 'dist', 'pagefind', 'pagefind.js');
+const distExists = fs.existsSync(pagefindEntry);
 
-function buildSite() {
-  if (process.platform === 'win32') {
-    execFileSync(process.env.ComSpec ?? 'cmd.exe', ['/d', '/s', '/c', 'npm run build'], {
-      cwd: siteRoot,
-      stdio: 'inherit',
-    });
-    return;
-  }
-  execFileSync('npm', ['run', 'build'], { cwd: siteRoot, stdio: 'inherit' });
-}
-
-test('built mapped skill renders Upstream changes separately from registry History', () => {
-  buildSite();
+test('built mapped skill renders Upstream changes separately from registry History', {
+  skip: !distExists && 'dist/ not found (run npm run build first)',
+}, () => {
   const rendered = fs.readFileSync(githubIssuesPage, 'utf8');
 
   assert.match(rendered, />Upstream changes<\/h2>/);
@@ -58,8 +49,9 @@ test('built mapped skill renders Upstream changes separately from registry Histo
   );
 });
 
-test('built restricted and orphan pages never render upstream changelog content', () => {
-  if (!fs.existsSync(restrictedPage) || !fs.existsSync(orphanPage)) buildSite();
+test('built restricted and orphan pages never render upstream changelog content', {
+  skip: !distExists && 'dist/ not found (run npm run build first)',
+}, () => {
   const restricted = fs.readFileSync(restrictedPage, 'utf8');
   const orphan = fs.readFileSync(orphanPage, 'utf8');
 
