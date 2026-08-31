@@ -58,8 +58,10 @@ flowchart LR
    `catalog/enrichment/summaries/` 與
    `catalog/enrichment/changelog/`。
 9. **`site/src/lib/enrichment.ts`** 只會從新鮮且符合 schema 的 sidecar 讀取指定
-   locale。受限制或 tombstone skill 會在碰觸 sidecar 路徑前被拒絕；過期、缺少或
-   無效的 sidecar 一律回傳呼叫端既有的 fallback。
+   locale。受限制或 tombstone skill 會在碰觸 sidecar 路徑前被拒絕。Artifact
+   缺少、過期或指定 locale 缺少時，會回傳呼叫端既有的 fallback；必要的 manifest
+   與任何實際存在的 artifact 都必須能解析並通過驗證，非預期 I/O 或 schema
+   失敗會停止建置。
 10. 建置完成的網站（包含其 Pagefind 搜尋索引）會部署到 **GitHub Pages**。
 
 `node scripts/validate.mjs` 橫跨每一個階段：它會獨立於任何一次同步執行，走遍

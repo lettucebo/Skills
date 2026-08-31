@@ -61,8 +61,10 @@ flowchart LR
    `catalog/enrichment/manifest.json` flag for that kind is enabled.
 9. **`site/src/lib/enrichment.ts`** reads only the requested locale from a
    fresh, schema-valid sidecar. Restricted or tombstoned skills are rejected
-   before a sidecar path is touched; stale, missing, or invalid sidecars return
-   the caller's existing fallback.
+   before a sidecar path is touched. A missing artifact, stale artifact, or
+   missing requested locale returns the caller's existing fallback. The
+   mandatory manifest and any artifact that exists must parse and validate;
+   unexpected I/O or schema failures stop the build.
 10. The built site (including its Pagefind search index) deploys to **GitHub
    Pages**.
 

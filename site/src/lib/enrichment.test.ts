@@ -83,6 +83,20 @@ async function createFixture(value = artifact()) {
   return root;
 }
 
+function manifestPath(root: string): string {
+  return path.join(root, 'catalog', 'enrichment', 'manifest.json');
+}
+
+function artifactPath(root: string): string {
+  return path.join(
+    root,
+    'catalog',
+    'enrichment',
+    'summaries',
+    'skills__demo__alpha.json',
+  );
+}
+
 test('loader short-circuits restricted and tombstoned skills before touching sidecars', async () => {
   const fallback = { text: 'fallback' };
   const missingRoot = path.join(os.tmpdir(), `missing-enrichment-${Date.now()}`);
@@ -114,6 +128,233 @@ test('loader suppresses stale artifacts and returns the caller fallback', async 
   const fallback = { text: 'fallback' };
 
   try {
+    assert.equal(
+      await loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'en',
+        fallback,
+      }),
+      fallback,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('loader fails when the mandatory manifest is missing', async () => {
+  const root = await createFixture();
+
+  try {
+    await rm(manifestPath(root));
+    await assert.rejects(
+      loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'en',
+        fallback: { text: 'fallback' },
+      }),
+      /ENOENT/,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('loader fails when the mandatory manifest contains invalid JSON', async () => {
+  const root = await createFixture();
+
+  try {
+    await writeFile(manifestPath(root), '{"schemaVersion":');
+    await assert.rejects(
+      loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'en',
+        fallback: { text: 'fallback' },
+      }),
+      /manifest\.json.*invalid JSON/i,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('loader fails when the mandatory manifest violates its schema', async () => {
+  const root = await createFixture();
+
+  try {
+    await writeFile(
+      manifestPath(root),
+      JSON.stringify({
+        schemaVersion: 2,
+        enabled: { summaries: true, changelog: false },
+      }),
+    );
+    await assert.rejects(
+      loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'en',
+        fallback: { text: 'fallback' },
+      }),
+      /manifest\.json failed schema validation/i,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('loader returns fallback when an enabled artifact is missing', async () => {
+  const root = await createFixture();
+  const fallback = { text: 'fallback' };
+
+  try {
+    await rm(artifactPath(root));
+    assert.equal(
+      await loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'en',
+        fallback,
+      }),
+      fallback,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('loader fails when an artifact contains invalid JSON', async () => {
+  const root = await createFixture();
+
+  try {
+    await writeFile(artifactPath(root), '{"path":');
+    await assert.rejects(
+      loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'en',
+        fallback: { text: 'fallback' },
+      }),
+      /skills__demo__alpha\.json.*invalid JSON/i,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('loader fails when an artifact violates its schema', async () => {
+  const root = await createFixture({
+    ...artifact(),
+    schemaVersion: 2,
+  });
+
+  try {
+    await assert.rejects(
+      loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'en',
+        fallback: { text: 'fallback' },
+      }),
+      /summaries artifact failed schema validation/i,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('loader fails when an artifact declares a different skill path', async () => {
+  const root = await createFixture({
+    ...artifact(),
+    path: 'skills/demo/beta',
+  });
+
+  try {
+    await assert.rejects(
+      loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'en',
+        fallback: { text: 'fallback' },
+      }),
+      /declares path "skills\/demo\/beta".*"skills\/demo\/alpha"/i,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('loader does not let a missing-locale fallback hide a different skill path', async () => {
+  const value = {
+    ...artifact(),
+    path: 'skills/demo/beta',
+  };
+  delete (value.locales as Partial<typeof value.locales>)['zh-tw'];
+  const root = await createFixture(value);
+
+  try {
+    await assert.rejects(
+      loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'zh-tw',
+        fallback: { text: 'fallback' },
+      }),
+      /declares path "skills\/demo\/beta".*"skills\/demo\/alpha"/i,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('loader surfaces non-ENOENT artifact read errors', async () => {
+  const root = await createFixture();
+  const target = artifactPath(root);
+
+  try {
+    await rm(target);
+    await mkdir(target);
+    await assert.rejects(
+      loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'en',
+        fallback: { text: 'fallback' },
+      }),
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('loader returns fallback for a disabled kind without reading its artifact', async () => {
+  const root = await createFixture();
+  const target = artifactPath(root);
+  const fallback = { text: 'fallback' };
+
+  try {
+    await writeFile(
+      manifestPath(root),
+      JSON.stringify({
+        schemaVersion: 1,
+        enabled: { summaries: false, changelog: false },
+      }),
+    );
+    await rm(target);
+    await mkdir(target);
+
     assert.equal(
       await loadEnrichmentLocale({
         repoRoot: root,
