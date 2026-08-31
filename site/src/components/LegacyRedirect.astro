@@ -1,5 +1,6 @@
 ---
 import {
+  HTML_LANG,
   LOCALE_DISPLAY_NAMES,
   SUPPORTED_LOCALES,
   localizedPath,
@@ -72,7 +73,11 @@ const canonical = new URL(target, Astro.site);
   </p>
   <nav aria-label={t('en', 'languageNavigation')}>
     {SUPPORTED_LOCALES.map((locale) => (
-      <a href={localizedPath(locale)}>{LOCALE_DISPLAY_NAMES[locale]}</a>
+      <a
+        href={localizedPath(locale)}
+        lang={HTML_LANG[locale]}
+        hreflang={locale}
+      >{LOCALE_DISPLAY_NAMES[locale]}</a>
     ))}
   </nav>
 </body>

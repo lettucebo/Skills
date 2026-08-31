@@ -63,4 +63,7 @@ test('locale metadata and typed messages expose native display names and interpo
   assert.equal(t('en', 'resultsFound', { count: 2 }), '2 results found.');
   assert.equal(t('zh-tw', 'resultsFound', { count: 2 }), '找到 2 個結果。');
   assert.equal(t('zh-cn', 'resultsFound', { count: 2 }), '找到 2 个结果。');
+  assert.equal(t('en', 'commit'), 'Commit');
+  assert.equal(t('zh-tw', 'commit'), '提交');
+  assert.equal(t('zh-cn', 'commit'), '提交');
 });

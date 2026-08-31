@@ -3,9 +3,9 @@ import { expect, test } from '@playwright/test';
 import { SITE_BASE, waitForRenderedResults } from './_helpers';
 
 const locales = [
-  { route: 'en', lang: 'en', catalog: 'Catalog', theme: 'System' },
-  { route: 'zh-tw', lang: 'zh-TW', catalog: '目錄', theme: '系統' },
-  { route: 'zh-cn', lang: 'zh-CN', catalog: '目录', theme: '系统' },
+  { route: 'en', lang: 'en', catalog: 'Catalog', theme: 'System', languageLabel: 'Choose language', commitLabel: 'Commit' },
+  { route: 'zh-tw', lang: 'zh-TW', catalog: '目錄', theme: '系統', languageLabel: '選擇語言', commitLabel: '提交' },
+  { route: 'zh-cn', lang: 'zh-CN', catalog: '目录', theme: '系统', languageLabel: '选择语言', commitLabel: '提交' },
 ] as const;
 
 test.describe('full-route localization', () => {
@@ -19,6 +19,29 @@ test.describe('full-route localization', () => {
         .toHaveAttribute('aria-current', 'page');
     });
   }
+
+  test('language switcher exposes a named group and identifies each link language', async ({ page }) => {
+    for (const locale of locales) {
+      await page.goto(`${SITE_BASE}${locale.route}/`);
+      await expect(page.getByRole('group', { name: locale.languageLabel })).toBeVisible();
+      for (const target of locales) {
+        const link = page.locator(`[data-locale-link="${target.route}"]`);
+        await expect(link).toHaveAttribute('lang', target.lang);
+        await expect(link).toHaveAttribute('hreflang', target.route);
+      }
+    }
+  });
+
+  test('Chinese skill pages translate the Commit label without changing the commit target', async ({ page }) => {
+    const commitUrl =
+      'https://github.com/github/awesome-copilot/commit/4742f265959bf025882314564b364d9d7af6e2d5';
+    for (const locale of locales) {
+      await page.goto(`${SITE_BASE}${locale.route}/skills/azure/az-cost-optimize/`);
+      await expect(page.locator('.detail-meta')).toContainText(`${locale.commitLabel}:`);
+      const commitLink = page.locator(`.detail-meta a[href="${commitUrl}"]`);
+      await expect(commitLink).toHaveText('4742f26');
+    }
+  });
 
   test('language switch preserves the logical route and persists explicit selection', async ({ page }) => {
     await page.goto(`${SITE_BASE}en/skills/github/github-issues/`);

@@ -90,10 +90,16 @@ function isActive(href: string): boolean {
         <li><a href={statusPath} aria-current={isActive(statusPath) ? 'page' : undefined}>{t(locale, 'navStatus')}</a></li>
         <li><a href="https://github.com/lettucebo/Skills" rel="noopener noreferrer">{t(locale, 'navGitHub')}</a></li>
       </ul>
-      <div class="language-switcher" aria-label={t(locale, 'languageNavigation')}>
+      <div
+        class="language-switcher"
+        role="group"
+        aria-label={t(locale, 'languageNavigation')}
+      >
         {localeLinks.map((link) => (
           <a
             href={link.href}
+            lang={HTML_LANG[link.locale]}
+            hreflang={link.locale}
             data-locale-link={link.locale}
             aria-current={link.locale === locale ? 'page' : undefined}
           >{LOCALE_DISPLAY_NAMES[link.locale]}</a>

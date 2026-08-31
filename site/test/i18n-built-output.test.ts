@@ -70,6 +70,19 @@ test('all 134 legacy redirects contain exact English meta, canonical, anchor, an
     assert.ok(html.includes(`href="${to}"`), `${from} anchor target`);
     assert.match(html, /data-pagefind-ignore="all"/, `${from} Pagefind exclusion`);
     assert.doesNotMatch(html, /data-pagefind-body/, `${from} must not be indexed`);
+    for (const { locale, lang, label } of [
+      { locale: 'en', lang: 'en', label: 'English' },
+      { locale: 'zh-tw', lang: 'zh-TW', label: '繁體中文' },
+      { locale: 'zh-cn', lang: 'zh-CN', label: '简体中文' },
+    ]) {
+      assert.match(
+        html,
+        new RegExp(
+          `<a[^>]+lang="${lang}"[^>]+hreflang="${locale}"[^>]*>${label}</a>`,
+        ),
+        `${from} must identify the language of ${locale} link text and target`,
+      );
+    }
   }
 });
 
@@ -109,7 +122,55 @@ test('localized pages expose language, canonical, hreflang, translated navigatio
       assert.ok(html.includes(`href="${target}"`), `switcher must preserve route to ${locale}`);
     }
     assert.ok(html.includes(`>${sample.nav}</a>`));
+    const switcher = html.match(
+      /<(nav|div)\b[^>]*class="language-switcher"[^>]*>/,
+    );
+    assert.ok(switcher, 'language switcher wrapper must exist');
+    assert.match(switcher[0], /aria-label="[^"]+"/);
+    assert.ok(
+      switcher[1] === 'nav' || /role="group"/.test(switcher[0]),
+      'language switcher must be a named nav or group, not a generic div',
+    );
+    for (const { locale, lang, label } of [
+      { locale: 'en', lang: 'en', label: 'English' },
+      { locale: 'zh-tw', lang: 'zh-TW', label: '繁體中文' },
+      { locale: 'zh-cn', lang: 'zh-CN', label: '简体中文' },
+    ]) {
+      assert.match(
+        html,
+        new RegExp(
+          `<a[^>]+lang="${lang}"[^>]+hreflang="${locale}"[^>]*>${label}</a>`,
+        ),
+        `${sample.path} must identify the language of ${locale} link text and target`,
+      );
+    }
     assert.match(html, new RegExp(`href="[^"]*"[^>]+aria-current="page"[^>]*>${sample.locale === 'en' ? 'English' : sample.locale === 'zh-tw' ? '繁體中文' : '简体中文'}</a>`));
+  }
+});
+
+test('localized skill metadata translates the Commit label without changing its SHA or URL', {
+  skip: !distExists && 'dist/ not found',
+}, () => {
+  const labels = {
+    en: 'Commit',
+    'zh-tw': '提交',
+    'zh-cn': '提交',
+  } as const;
+  const sha = '4742f26';
+  const commitUrl =
+    'https://github.com/github/awesome-copilot/commit/4742f265959bf025882314564b364d9d7af6e2d5';
+
+  for (const locale of ['en', 'zh-tw', 'zh-cn'] as const) {
+    const html = fs.readFileSync(
+      htmlPath(`/Skills/${locale}/skills/azure/az-cost-optimize/`),
+      'utf8',
+    );
+    assert.ok(html.includes(`${labels[locale]}:`));
+    assert.ok(html.includes(`<code>${sha}</code>`));
+    assert.ok(html.includes(`href="${commitUrl}"`));
+    if (locale !== 'en') {
+      assert.doesNotMatch(html, />\s*Commit:/);
+    }
   }
 });
 
