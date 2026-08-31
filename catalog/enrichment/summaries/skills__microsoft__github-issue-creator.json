@@ -1,0 +1,44 @@
+{
+  "path": "skills/microsoft/github-issue-creator",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c446cc1fc35619d089b4ab9cf09d45b4b04b49e7e8f4c41b6572401ea9c894f0"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Turns rough bug notes, error logs, voice dictation, or screenshots into a clear, actionable GitHub issue draft.",
+        "whenToUse": "Use it when someone has informal problem details or visual evidence and wants them organized into a structured GitHub issue.",
+        "outputs": "Produces a GitHub-flavored markdown issue file for the repository's /issues/ folder, typically named with a date and short description."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "將零散的錯誤筆記、錯誤記錄、語音口述或截圖整理成清楚且可採取行動的 GitHub issue 草稿。",
+        "whenToUse": "當有人只有非正式的問題描述或視覺證據，並希望把內容整理成結構化的 GitHub issue 時，就適合使用它。",
+        "outputs": "它會產出一份 GitHub Flavored Markdown issue 檔案，放在儲存庫的 /issues/ 資料夾中，通常以日期加簡短描述命名。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "将零散的错误笔记、错误记录、语音口述或截屏整理成清楚且可采取行动的 GitHub issue 草稿。",
+        "whenToUse": "当有人只有非正式的问题描述或视觉证据，并希望把内容整理成结构化的 GitHub issue 时，就适合使用它。",
+        "outputs": "它会产出一份 GitHub Flavored Markdown issue 文件，放在保存库的 /issues/ 文件夹中，通常以日期加简短描述命名。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/power-platform/fabric-lakehouse",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7dc24dcbd6fb7181aabea8577da910a5f0115cbbb7146da846f1e536ae9b4bf2"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides grounded context for Microsoft Fabric Lakehouse, including its storage model, key components, security model, shortcuts, and performance features.",
+        "whenToUse": "Use it when you need to explain, design, or refine a Lakehouse solution, or when you need clear context on how tables, files, schemas, and querying work in Fabric.",
+        "outputs": "Returns a concise summary of Lakehouse concepts and capabilities, including organization, access control, optimization options, and pointers to related code or data-ingestion guidance."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供 Microsoft Fabric Lakehouse 的可靠背景資訊，涵蓋其儲存模型、核心元件、安全性模型、捷徑與效能功能。",
+        "whenToUse": "當你需要說明、設計或優化 Lakehouse 解決方案，或需要清楚了解 Fabric 中資料表、檔案、結構描述與查詢方式時使用。",
+        "outputs": "回傳精簡的 Lakehouse 概念與功能摘要，包含組織方式、存取控制、最佳化選項，以及相關程式碼或資料匯入指引的指向。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供 Microsoft Fabric Lakehouse 的可靠背景信息，涵盖其保存模型、内核组件、安全性模型、捷径与性能功能。",
+        "whenToUse": "当你需要说明、设计或优化 Lakehouse 解决方案，或需要清楚了解 Fabric 中数据表、文件、结构描述与查找方式时使用。",
+        "outputs": "回传精简的 Lakehouse 概念与功能摘要，包含组织方式、访问控制、优化选项，以及相关代码或数据导入指引的指向。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/dotnet/csharp-xunit",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b9ce758e7c3f3c72d992278de3f9d8728e06d8fbba756a27b1421036b5256c2a"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides practical guidance for writing effective unit tests with xUnit in C#, including standard and data-driven approaches.",
+        "whenToUse": "Use this when you need help setting up or organizing xUnit tests in a .NET project, especially around facts, theories, fixtures, and assertions.",
+        "outputs": "It returns concise xUnit testing guidance covering project setup, test structure, data-driven tests, assertions, mocking, and test organization."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供使用 xUnit 在 C# 中撰寫有效單元測試的實用指引，包含一般測試與資料驅動測試方式。",
+        "whenToUse": "當你需要在 .NET 專案中設定或整理 xUnit 測試，特別是處理 Fact、Theory、Fixture 與斷言時，可使用這項內容。",
+        "outputs": "它會提供精簡的 xUnit 測試指引，涵蓋專案設定、測試結構、資料驅動測試、斷言、模擬與測試組織。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供使用 xUnit 在 C# 中撰写有效单元测试的实用指引，包含一般测试与数据驱动测试方式。",
+        "whenToUse": "当你需要在 .NET 项目中设置或整理 xUnit 测试，特别是处理 Fact、Theory、Fixture 与断言时，可使用这项内容。",
+        "outputs": "它会提供精简的 xUnit 测试指引，涵盖项目设置、测试结构、数据驱动测试、断言、模拟与测试组织。"
+      }
+    }
+  }
+}

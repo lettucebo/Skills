@@ -3,6 +3,12 @@ export type EnrichmentLocale = 'en' | 'zh-tw' | 'zh-cn';
 export type EnrichmentProducer = 'llm' | 'opencc';
 export type JsonObject = Record<string, unknown>;
 
+export interface SkillSummaryContent extends JsonObject {
+  purpose: string;
+  whenToUse: string;
+  outputs: string;
+}
+
 export interface EnrichmentManifest {
   schemaVersion: 1;
   enabled: Record<EnrichmentArtifactKind, boolean>;

@@ -1,0 +1,44 @@
+{
+  "path": "skills/azure/azure-resource-visualizer",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c9295d8ce9d75312f258dcfff13d83a3b23529dda7a8abb4119670f0cf8bed48"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Analyzes an Azure resource group and turns resource details and dependencies into a detailed Mermaid architecture diagram.",
+        "whenToUse": "Use it when someone wants a visual map of Azure resources and how the services in a resource group connect.",
+        "outputs": "Produces a markdown architecture document that includes a resource inventory, a Mermaid diagram, and notes on key relationships."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "分析 Azure 資源群組，並將資源細節與相依關係整理成詳細的 Mermaid 架構圖。",
+        "whenToUse": "當使用者想要用視覺方式了解 Azure 資源，或看清資源群組內各服務之間的連結時使用。",
+        "outputs": "產出一份 Markdown 架構文件，其中包含資源清單、Mermaid 圖表，以及關鍵關係說明。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "分析 Azure 资源群组，并将资源细节与相依关系整理成详细的 Mermaid 架构图。",
+        "whenToUse": "当用户想要用视觉方式了解 Azure 资源，或看清资源群组内各服务之间的链接时使用。",
+        "outputs": "产出一份 Markdown 架构文档，其中包含资源清单、Mermaid 图表，以及关键关系说明。"
+      }
+    }
+  }
+}

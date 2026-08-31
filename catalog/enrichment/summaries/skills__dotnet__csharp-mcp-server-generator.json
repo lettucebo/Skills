@@ -1,0 +1,44 @@
+{
+  "path": "skills/dotnet/csharp-mcp-server-generator",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:69cf550963b495a259c2d60ae0b2484b400118cd794edaa575aad8212fba0ade"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Creates a C# MCP server project with host-based setup, stderr logging, annotated tools, validation, and documentation.",
+        "whenToUse": "Use it when you need to start a .NET 8+ MCP server over stdio with dependency injection and automatic tool discovery already wired.",
+        "outputs": "It produces a console app scaffold, server configuration, at least one tool implementation, and guidance for running and testing the server."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "建立一個 C# MCP 伺服器專案，包含以 Host 為基礎的設定、輸出到 stderr 的記錄、加上標註的工具、驗證與文件。",
+        "whenToUse": "當你需要啟動一個透過 stdio 運作、已接好相依性注入與自動工具探索的 .NET 8 以上 MCP 伺服器時，可使用它。",
+        "outputs": "它會產生主控台應用程式骨架、伺服器設定、至少一個工具實作，以及執行與測試伺服器的指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "创建一个 C# MCP 服务器项目，包含以 Host 为基础的设置、输出到 stderr 的记录、加上标注的工具、验证与文档。",
+        "whenToUse": "当你需要启动一个透过 stdio 运作、已接好相依性注入与自动工具探索的 .NET 8 以上 MCP 服务器时，可使用它。",
+        "outputs": "它会产生主控台应用程序骨架、服务器设置、至少一个工具实作，以及运行与测试服务器的指引。"
+      }
+    }
+  }
+}

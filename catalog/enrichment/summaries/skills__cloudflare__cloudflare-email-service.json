@@ -1,0 +1,44 @@
+{
+  "path": "skills/cloudflare/cloudflare-email-service",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2fa7033322f461bda4508aea0a93294241d670d088afef8cbfbfbc1685393532"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Summarizes how to send transactional email and handle inbound routing on Cloudflare across Workers, agents, and external applications.",
+        "whenToUse": "Use it when you need implementation or setup guidance for Cloudflare email sending, email routing, or related deliverability and domain configuration.",
+        "outputs": "It points you to the relevant setup and coding paths for Workers bindings, the REST API, inbound handlers, agent integrations, and deliverability practices."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何在 Cloudflare 上於 Workers、代理程式與外部應用程式之間傳送交易式電子郵件並處理收件路由。",
+        "whenToUse": "當你需要 Cloudflare 郵件傳送、郵件路由，或相關可送達性與網域設定的實作或設定指引時使用。",
+        "outputs": "它會指出 Workers 綁定、REST API、收件處理常式、代理整合與可送達性實務各自對應的設定與開發路徑。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何在 Cloudflare 上于 Workers、代理程序与外部应用程序之间发送交易式电子邮件并处理收件路由。",
+        "whenToUse": "当你需要 Cloudflare 邮件发送、邮件路由，或相关可送达性与网域设置的实作或设置指引时使用。",
+        "outputs": "它会指出 Workers 绑定、REST API、收件处理常式、代理集成与可送达性实务各自对应的设置与开发路径。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/power-platform/power-bi-performance-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:81d54c9fd15c968eaada2b392af9e301a18848af699cc36c227903897cc26d2d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a structured way to diagnose and improve Power BI performance across data models, DAX, reports, and supporting infrastructure.",
+        "whenToUse": "Use it when refreshes, page loads, visual interactions, queries, or capacity behavior are slow and you need a systematic troubleshooting path.",
+        "outputs": "Returns a fact-based summary of likely bottlenecks, recommended optimizations, and relevant monitoring or documentation follow-ups."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供一套有結構的方法，用於診斷並改善 Power BI 在資料模型、DAX、報表與支援基礎架構上的效能。",
+        "whenToUse": "當重新整理、頁面載入、視覺互動、查詢或容量表現變慢，且你需要系統化的疑難排解流程時使用。",
+        "outputs": "會產出基於內容事實的可能瓶頸摘要、建議的最佳化措施，以及相關的監控或文件化後續事項。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供一套有结构的方法，用于诊断并改善 Power BI 在数据模型、DAX、报表与支持基础架构上的性能。",
+        "whenToUse": "当刷新、页面加载、视觉交互、查找或容量表现变慢，且你需要系统化的疑难排解流程时使用。",
+        "outputs": "会产出基于内容事实的可能瓶颈摘要、建议的优化措施，以及相关的监控或文档化后续事项。"
+      }
+    }
+  }
+}

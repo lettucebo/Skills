@@ -1,0 +1,44 @@
+{
+  "path": "skills/github/gh-cli",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:653c1d667afbae4aca8d72c49cbacd67d37f256577151f76c22bf3ef56871b07"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a practical GitHub CLI reference for working with repositories, issues, pull requests, Actions, projects, releases, gists, codespaces, organizations, and related GitHub features from the terminal.",
+        "whenToUse": "Use it when you need the right gh command, flags, or workflow for authenticating or managing GitHub resources from the command line.",
+        "outputs": "Delivers relevant gh subcommands, options, and example invocations for the GitHub task you want to perform."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供實用的 GitHub CLI 參考，協助你在終端機中處理儲存庫、議題、Pull Request、Actions、專案、版本、Gist、Codespaces、組織與相關 GitHub 功能。",
+        "whenToUse": "當你需要從命令列進行驗證或管理 GitHub 資源，並想找到正確的 gh 指令、參數或操作流程時使用。",
+        "outputs": "提供與你要執行的 GitHub 工作相關的 gh 子指令、選項與範例指令。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供实用的 GitHub CLI 参考，协助你在终端机中处理保存库、议题、Pull Request、Actions、项目、版本、Gist、Codespaces、组织与相关 GitHub 功能。",
+        "whenToUse": "当你需要从命令行进行验证或管理 GitHub 资源，并想找到正确的 gh 指令、参数或操作流程时使用。",
+        "outputs": "提供与你要运行的 GitHub 工作相关的 gh 子指令、选项与范例指令。"
+      }
+    }
+  }
+}

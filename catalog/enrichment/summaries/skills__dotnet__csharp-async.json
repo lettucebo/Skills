@@ -1,0 +1,44 @@
+{
+  "path": "skills/dotnet/csharp-async",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:308914873eb82e9d4f2e46036341bb80f445fb859c24eb0a3015d7e09e4e374c"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides practical best practices for writing and reviewing asynchronous C# code.",
+        "whenToUse": "Use it when you need guidance on async method design, error handling, performance, and common pitfalls in C#.",
+        "outputs": "Returns concise recommendations that flag async issues and suggest improvements consistent with established C# patterns."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供撰寫與檢視 C# 非同步程式碼的實務最佳做法。",
+        "whenToUse": "當你需要 C# 中非同步方法設計、錯誤處理、效能與常見陷阱的指引時使用。",
+        "outputs": "會回傳精簡建議，指出非同步問題並提出符合既有 C# 模式的改進方向。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供撰写与查看 C# 异步代码的实务最佳做法。",
+        "whenToUse": "当你需要 C# 中异步方法设计、错误处理、性能与常见陷阱的指引时使用。",
+        "outputs": "会回传精简建议，指出异步问题并提出符合既有 C# 模式的改进方向。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/vscode/create-readme",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ad429604c79ffd64bc6a51db719b5f1a71244404ad76e482a034e3bd1ee194ba"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Creates a clear, well-organized README.md that presents a project in an appealing and informative way.",
+        "whenToUse": "Use it when a project needs a polished top-level README.md built from the project and workspace context.",
+        "outputs": "It produces a README.md file for the project."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "建立清楚且結構良好的 README.md，以吸引人且資訊完整的方式介紹專案。",
+        "whenToUse": "當專案需要根據專案內容與工作區脈絡撰寫完善的頂層 README.md 時使用。",
+        "outputs": "它會為該專案產生一個 README.md 檔案。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "创建清楚且结构良好的 README.md，以吸引人且信息完整的方式介绍项目。",
+        "whenToUse": "当项目需要根据项目内容与工作区脉络撰写完善的顶层 README.md 时使用。",
+        "outputs": "它会为该项目产生一个 README.md 文件。"
+      }
+    }
+  }
+}
