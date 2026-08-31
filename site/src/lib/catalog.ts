@@ -351,6 +351,24 @@ export function deriveRouteParams(skill: SkillViewModel): { source: string; skil
   return { source: skill.source, skill: skill.slug };
 }
 
+export function buildUpstreamTreeUrl(skill: SkillViewModel): string | null {
+  if (!skill.upstreamRepo || !skill.upstreamCommit || !skill.upstreamSource) {
+    return null;
+  }
+
+  const url = `https://github.com/${skill.upstreamRepo}/tree/${skill.upstreamCommit}/${skill.upstreamSource}`;
+  return isSafeUrl(url) ? url : null;
+}
+
+export function buildUpstreamCommitUrl(skill: SkillViewModel): string | null {
+  if (!skill.upstreamRepo || !skill.upstreamCommit || !skill.upstreamSource) {
+    return null;
+  }
+
+  const url = `https://github.com/${skill.upstreamRepo}/commit/${skill.upstreamCommit}`;
+  return isSafeUrl(url) ? url : null;
+}
+
 // ─── Install commands ───────────────────────────────────────────────
 
 export function generateRepoInstallCommand(): string {
