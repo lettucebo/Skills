@@ -20,16 +20,17 @@ skill。它提供全文搜尋（透過 Pagefind），讓你不必直接閱讀
 
 - 它的狀態標籤（`Synced`、`Frozen`、`Local` 或 `Restricted`），
 - 它個別的**版本**與**授權**，
-- 它可取得的**上游來源證明** — repository 與解析出的 commit，以及
+- 它可取得的**上游來源證明** — 釘選在解析後 commit 的完整 repository 來源路徑，
+  並提供來源樹與 commit 的連結，以及
 - 它的**歷史紀錄** — 記錄的版本、變更種類與上游 commit。
 
 非受限制的詳情頁也會渲染 repository-root 安裝指令。Repository-root 與單一
 skill 指令都會包含 CLI 必要的 `--full-depth` 旗標。來源頁面直接指向
 `skills/<source>`，不需要 `--full-depth`。
 
-若要查看分類、上游 reference／來源子路徑與可取得的 `diffUrl`，請查閱
-`catalog/skills.lock.json` 與 `catalog/history/*.json` 中的對應項目；目前的詳情頁
-template 不會渲染這些欄位。
+若要查看分類、上游 reference 與可取得的 `diffUrl`，請查閱
+`catalog/skills.lock.json` 與 `catalog/history/*.json` 中的對應項目；詳情頁會渲染
+上游來源子路徑與解析後的 commit，但不會渲染前述欄位。
 
 受限制的 skill（見 [安裝方式](installation.md) 中關於受限制內容的說明）在網站
 上永遠不會渲染其 `SKILL.md` 內容或 description。頁面仍會顯示名稱、版本、授權、

@@ -8,9 +8,11 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadCatalog } from '../src/lib/catalog.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, '..');
+const repoRoot = path.resolve(siteRoot, '..');
 const distDir = path.join(siteRoot, 'dist');
 
 // Guard: skip integration tests if dist/ doesn't exist
@@ -55,7 +57,8 @@ test('pagefind indexes exactly 119 skill pages with filters and metadata', {
 
 test('restricted skill pages do not contain SKILL.md body content in built HTML', {
   skip: !distExists && 'dist/ not found',
-}, () => {
+}, async () => {
+  const catalog = await loadCatalog(repoRoot);
   const restrictedPaths = [
     'skills/claude/docx/index.html',
     'skills/claude/pdf/index.html',
@@ -70,6 +73,9 @@ test('restricted skill pages do not contain SKILL.md body content in built HTML'
     }
 
     const html = fs.readFileSync(fullPath, 'utf8');
+    const skillPath = relPath.replace(/\/index\.html$/, '');
+    const skill = catalog.skills.find((entry) => entry.path === skillPath);
+    assert.ok(skill, `Expected catalog entry for ${skillPath}`);
 
     // Restricted pages must NOT have a detail-body section
     assert.doesNotMatch(
@@ -84,6 +90,42 @@ test('restricted skill pages do not contain SKILL.md body content in built HTML'
       /npx skills add/,
       `Restricted page ${relPath} must not contain npx install command`,
     );
+
+    assert.ok(
+      html.includes(
+        `href="https://github.com/${skill.upstreamRepo}/tree/${skill.upstreamCommit}/${skill.upstreamSource}"`,
+      ),
+      `Restricted page ${relPath} must link to its pinned upstream source`,
+    );
+    assert.ok(
+      html.includes(
+        `href="https://github.com/${skill.upstreamRepo}/commit/${skill.upstreamCommit}"`,
+      ),
+      `Restricted page ${relPath} must link to its pinned upstream commit`,
+    );
+  }
+});
+
+test('orphan skill pages build without upstream source or commit links', {
+  skip: !distExists && 'dist/ not found',
+}, async () => {
+  const catalog = await loadCatalog(repoRoot);
+  const orphans = catalog.skills.filter((skill) => skill.isOrphan);
+
+  assert.equal(orphans.length, 3);
+  for (const skill of orphans) {
+    const fullPath = path.join(
+      distDir,
+      'skills',
+      skill.source,
+      skill.slug,
+      'index.html',
+    );
+    assert.ok(fs.existsSync(fullPath), `Expected orphan page for ${skill.path}`);
+
+    const html = fs.readFileSync(fullPath, 'utf8');
+    assert.doesNotMatch(html, /Source:/);
+    assert.doesNotMatch(html, /Commit:/);
   }
 });
 
@@ -106,4 +148,21 @@ test('built public skill page contains source and version metadata in HTML', {
   // Must contain source "azure" and version "1.1.0" in metadata
   assert.match(html, /azure/, 'Must contain source name');
   assert.match(html, /1\.1\.0/, 'Must contain version');
+  assert.ok(
+    html.includes(
+      'href="https://github.com/github/awesome-copilot/tree/4742f265959bf025882314564b364d9d7af6e2d5/skills/az-cost-optimize"',
+    ),
+    'Must link the full upstream source path at the synced commit',
+  );
+  assert.match(
+    html,
+    /github\/awesome-copilot\/skills\/az-cost-optimize/,
+    'Must display the full upstream repository and source path',
+  );
+  assert.ok(
+    html.includes(
+      'href="https://github.com/github/awesome-copilot/commit/4742f265959bf025882314564b364d9d7af6e2d5"',
+    ),
+    'Must link the short commit label to the full upstream commit',
+  );
 });
