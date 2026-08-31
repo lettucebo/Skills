@@ -3,7 +3,33 @@ applyTo: "**"
 ---
 # Validation Guidelines
 
-This repository has no runtime, build pipeline, or test suite. Validate changes structurally instead.
+The root Node.js suite covers registry, provenance, release, workflow, and sync behavior. The Astro site has separate unit and Playwright suites because it consumes `catalog/` and `skills/` at build time.
+
+## Test Execution
+
+Use the complete command matrix in `.github/copilot-instructions.md`. The
+important sequencing and scope rules are:
+
+- Root `npm test` runs only `scripts/test/**/*.test.mjs`; it does not replace
+  the site unit suite.
+- Build the site before unit tests when validating assertions against
+  `site/dist` or Pagefind output.
+- `npm --prefix site run test:e2e` always builds fresh output and must not reuse
+  an arbitrary preview server.
+- Prefer the narrowest existing selector while iterating:
+
+```powershell
+# One named root test
+node --test --test-name-pattern="rejects duplicate coverage" scripts/test/manifest.test.mjs
+
+# One site test file
+Push-Location site
+node --test test/catalog.test.ts --import tsx
+Pop-Location
+
+# One browser spec; the npm script builds first
+npm --prefix site run test:e2e -- e2e/search.spec.ts
+```
 
 ## YAML Frontmatter
 
@@ -34,30 +60,10 @@ After any rename, move, or restructure:
 - `SKILL.md` should stay under ~500 lines; overflow belongs in `references/`
 - Fenced code blocks should have a language identifier
 
-## Quick Checks
+## Test Selection
 
-Use these lightweight commands when in doubt:
-
-```bash
-# Find SKILL.md files missing frontmatter
-grep -rL "^---" skills/**/SKILL.md
-
-# Find potential broken relative links (look for paths that don't resolve)
-grep -rn '](references/' skills/ | while read line; do
-  file=$(echo "$line" | cut -d: -f1)
-  dir=$(dirname "$file")
-  link=$(echo "$line" | grep -oP '\]\(references/[^)]+\)' | tr -d ']()')
-  [ -n "$link" ] && [ ! -f "$dir/$link" ] && echo "BROKEN: $file -> $link"
-done
-
-# List skill folders without SKILL.md
-find skills -mindepth 2 -maxdepth 3 -type d | while read d; do
-  [ ! -f "$d/SKILL.md" ] && echo "Missing SKILL.md: $d"
-done
-```
-
-## What NOT to Do
-
-- Do not invent `npm test`, `pnpm build`, `python -m pytest`, or any runtime test commands
-- Do not create test files — this repo has no test infrastructure
-- Do not add CI pipelines for code linting — there is no application code to lint
+- Registry or sync behavior belongs in `scripts/test/*.test.mjs` using Node's built-in test runner.
+- Site data/loading/rendering behavior belongs in `site/test/*.test.ts`.
+- Browser interaction, accessibility, restricted-content boundaries, and built-output health belong in `site/e2e/*.spec.ts`.
+- Changes under `catalog/` or `skills/` can break the site even when `site/` is untouched; run the relevant site tests when changing generated inputs or exact counts.
+- Do not add another test framework or standalone lint tool when the existing Node, Astro, validator, and Playwright gates cover the change.

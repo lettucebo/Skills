@@ -33,11 +33,11 @@ description: One-line trigger description for the skill.
 
 ## Root README
 
-When adding a new source collection under `skills/`, update the root `README.md`:
-
-- Add the source to the directory structure section
-- Add a brief description and link
-- Keep the existing table/list format consistent
+The catalog and install blocks in the root `README.md` are generated; do not
+edit content between their marker comments by hand. When adding a source,
+declare it in `catalog/sources.yml` and add its description/link metadata to
+`SOURCE_META` in `scripts/catalog.mjs`; catalog/sync tooling regenerates the
+README together with lock/history and `NOTICE`.
 
 ## Markdown Conventions
 
