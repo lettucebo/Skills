@@ -134,6 +134,13 @@ signature 會雜湊 locale、schema version、producer、prompt ID、prompt hash
 或 converter version、必要的 generator version，以及釘選的 Copilot CLI contract。
 Generator version 是 generator 邏輯改變但 prompt 未變時，明確使 cache 失效的控制。
 
+`scripts/lib/localization.mjs` 是唯一的確定性中文轉換邊界。它使用 `opencc-js` 的
+台灣慣用詞轉簡體 `twp -> cn` preset，並把
+`opencc-js:twp-to-cn@<version>` 同時記錄在 `zh-cn` locale artifact 與其
+signature 中。任一 enrichment 種類啟用時，即使網站尚未公開多語 route，generator
+也必須產生完整的 `en`、`zh-tw`、`zh-cn` 三個 locale slot。本層不內建自訂詞彙表；
+後續編輯詞彙工作由 [issue #12](https://github.com/lettucebo/Skills/issues/12) 追蹤。
+
 ## 安全邊界
 
 - **受保護的 root。** 不論 manifest 宣告什麼，同步機制永遠不能寫入

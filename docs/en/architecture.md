@@ -144,6 +144,15 @@ producer, prompt ID, prompt hash, model or converter version, mandatory
 generator version, and the pinned Copilot CLI contract. The generator version
 is the explicit cache invalidation control for logic-only changes.
 
+`scripts/lib/localization.mjs` is the single deterministic Chinese conversion
+boundary. It uses `opencc-js` with the Taiwan-phrases-to-Simplified
+`twp -> cn` preset and records `opencc-js:twp-to-cn@<version>` in both the
+`zh-cn` locale artifact and its signature. When either enrichment kind is
+enabled, generators must materialize all three locale slots (`en`, `zh-tw`,
+and `zh-cn`) even though localized site routes are not exposed yet. No custom
+glossary is embedded here; later editorial vocabulary work remains tracked by
+[issue #12](https://github.com/lettucebo/Skills/issues/12).
+
 ## Safety boundaries
 
 - **Protected roots.** `skills/lettucebo` can never be written by sync,
