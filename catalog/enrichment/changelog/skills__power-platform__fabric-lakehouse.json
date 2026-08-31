@@ -1,0 +1,450 @@
+{
+  "path": "skills/power-platform/fabric-lakehouse",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7dc24dcbd6fb7181aabea8577da910a5f0115cbbb7146da846f1e536ae9b4bf2",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/fabric-lakehouse",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "3b907f7748b078ab5d130f45e94cc1df1dbdf2e9",
+            "date": "2026-02-17T11:18:43-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/3b907f7748b078ab5d130f45e94cc1df1dbdf2e9",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the ADLS Gen2 shortcut description to say it links to ADLS Gen2 containers in Azure."
+          },
+          {
+            "sha": "0de738c30c426f85a54cfa51c3d1ebfaddd1c478",
+            "date": "2026-02-17T11:18:28-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/0de738c30c426f85a54cfa51c3d1ebfaddd1c478",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the materialized views description to say they are automatically updated based on a schedule."
+          },
+          {
+            "sha": "41b34b1bb24e952c43208d657ada91c659c759c7",
+            "date": "2026-02-17T10:53:52-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/41b34b1bb24e952c43208d657ada91c659c759c7",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified that materialized views are defined using PySpark or Spark SQL and stored in an associated Notebook."
+          },
+          {
+            "sha": "c8d171875ef6f1ab4d12b6915309c928f4643bb7",
+            "date": "2026-02-17T10:47:58-08:00",
+            "subject": "Refine description of Fabric Lakehouse skill",
+            "url": "https://github.com/github/awesome-copilot/commit/c8d171875ef6f1ab4d12b6915309c928f4643bb7",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill description metadata with more detail about Fabric Lakehouse features, organization, access control, and code examples."
+          },
+          {
+            "sha": "6707f34db2446a8c22983c9f5c71e3f360087f41",
+            "date": "2026-02-17T10:32:43-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/6707f34db2446a8c22983c9f5c71e3f360087f41",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Rephrased the Lakehouse definition to describe storing tabular and non-tabular data with examples in parentheses."
+          },
+          {
+            "sha": "c789c498f819487af2f88cc04f946fe7603dbee2",
+            "date": "2026-02-17T10:32:28-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/c789c498f819487af2f88cc04f946fe7603dbee2",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Corrected the tabular data section to say CSV and Parquet formats are only available for Spark querying."
+          },
+          {
+            "sha": "5217b166261759ef8ea6765adb42a6764f853547",
+            "date": "2026-02-17T10:32:02-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/5217b166261759ef8ea6765adb42a6764f853547",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified the paragraph about internal and external tables and rewrote the shortcut explanation."
+          },
+          {
+            "sha": "e0c7e411fd22c8096d9ee89e95fa697a2791d516",
+            "date": "2026-02-17T10:31:26-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/e0c7e411fd22c8096d9ee89e95fa697a2791d516",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the lineage section opening to say \"The Lakehouse item supports lineage.\""
+          },
+          {
+            "sha": "c61ffdfd8fb265c9d208ff5bdf9e333a00178c35",
+            "date": "2026-02-17T10:31:05-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/c61ffdfd8fb265c9d208ff5bdf9e333a00178c35",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Rewrote the schemas section for grammar and clarity, including the default schema and Schema Shortcut description."
+          },
+          {
+            "sha": "d5d303b23e6198d64d0d2b1a5679619e32508c9f",
+            "date": "2026-02-17T10:30:21-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/d5d303b23e6198d64d0d2b1a5679619e32508c9f",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the table optimization description to add \"the\" before the OPTIMIZE and Vacuum commands."
+          },
+          {
+            "sha": "b1a9d7ca0ac49960779650a9cbd993855e1660b1",
+            "date": "2026-02-17T10:30:08-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/b1a9d7ca0ac49960779650a9cbd993855e1660b1",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the usage list from \"Generate document\" to \"Generate a document.\""
+          },
+          {
+            "sha": "46f49185c10e1ead0f43b9c507d44368b7924dcc",
+            "date": "2026-02-17T10:29:24-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/46f49185c10e1ead0f43b9c507d44368b7924dcc",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the item access security section to use plural \"Users\" instead of singular \"User.\""
+          },
+          {
+            "sha": "cf91a6290023ca1b9002f60013603caf4ef66e0c",
+            "date": "2026-02-16T18:27:31-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/cf91a6290023ca1b9002f60013603caf4ef66e0c",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Inserted a missing space in the V-Order optimization sentence after \"tables.\""
+          },
+          {
+            "sha": "86d4e770e3273519c97736c4aa1d446020bd05f0",
+            "date": "2026-02-16T18:27:10-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/86d4e770e3273519c97736c4aa1d446020bd05f0",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Corrected the misspelling of \"Lakehouse\" in the lineage section."
+          },
+          {
+            "sha": "2dcc97df98a6b4024be953d8144d73fa16d6eba2",
+            "date": "2026-02-16T18:18:48-08:00",
+            "subject": "Fabric Lakehouse Skill",
+            "url": "https://github.com/github/awesome-copilot/commit/2dcc97df98a6b4024be953d8144d73fa16d6eba2",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Fabric Lakehouse skill document with sections on usage, concepts, security, shortcuts, optimization, lineage, and references."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "3b907f7748b078ab5d130f45e94cc1df1dbdf2e9",
+            "date": "2026-02-17T11:18:43-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/3b907f7748b078ab5d130f45e94cc1df1dbdf2e9",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 ADLS Gen2 快捷方式的描述更新為說明它會連結到 Azure 中的 ADLS Gen2 容器。"
+          },
+          {
+            "sha": "0de738c30c426f85a54cfa51c3d1ebfaddd1c478",
+            "date": "2026-02-17T11:18:28-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/0de738c30c426f85a54cfa51c3d1ebfaddd1c478",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了實體化檢視的描述，說明它們會依照排程自動更新。"
+          },
+          {
+            "sha": "41b34b1bb24e952c43208d657ada91c659c759c7",
+            "date": "2026-02-17T10:53:52-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/41b34b1bb24e952c43208d657ada91c659c759c7",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "釐清了實體化檢視是使用 PySpark 或 Spark SQL 定義，並儲存在相關聯的 Notebook 中。"
+          },
+          {
+            "sha": "c8d171875ef6f1ab4d12b6915309c928f4643bb7",
+            "date": "2026-02-17T10:47:58-08:00",
+            "subject": "Refine description of Fabric Lakehouse skill",
+            "url": "https://github.com/github/awesome-copilot/commit/c8d171875ef6f1ab4d12b6915309c928f4643bb7",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了技能描述中繼資料，加入更多關於 Fabric Lakehouse 功能、組織方式、存取控制與程式碼範例的細節。"
+          },
+          {
+            "sha": "6707f34db2446a8c22983c9f5c71e3f360087f41",
+            "date": "2026-02-17T10:32:43-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/6707f34db2446a8c22983c9f5c71e3f360087f41",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "改寫了 Lakehouse 的定義，以括號範例說明其可儲存表格與非表格資料。"
+          },
+          {
+            "sha": "c789c498f819487af2f88cc04f946fe7603dbee2",
+            "date": "2026-02-17T10:32:28-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/c789c498f819487af2f88cc04f946fe7603dbee2",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修正了表格資料章節，說明 CSV 與 Parquet 格式僅可用於 Spark 查詢。"
+          },
+          {
+            "sha": "5217b166261759ef8ea6765adb42a6764f853547",
+            "date": "2026-02-17T10:32:02-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/5217b166261759ef8ea6765adb42a6764f853547",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "釐清了關於內部與外部資料表的段落，並改寫了快捷方式的說明。"
+          },
+          {
+            "sha": "e0c7e411fd22c8096d9ee89e95fa697a2791d516",
+            "date": "2026-02-17T10:31:26-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/e0c7e411fd22c8096d9ee89e95fa697a2791d516",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了資料譜系章節的開頭，改為寫成「The Lakehouse item supports lineage。」"
+          },
+          {
+            "sha": "c61ffdfd8fb265c9d208ff5bdf9e333a00178c35",
+            "date": "2026-02-17T10:31:05-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/c61ffdfd8fb265c9d208ff5bdf9e333a00178c35",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "為了改善文法與清晰度而重寫了結構描述章節，包含預設結構描述與 Schema Shortcut 的說明。"
+          },
+          {
+            "sha": "d5d303b23e6198d64d0d2b1a5679619e32508c9f",
+            "date": "2026-02-17T10:30:21-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/d5d303b23e6198d64d0d2b1a5679619e32508c9f",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了資料表最佳化的描述，在 OPTIMIZE 與 Vacuum 命令前加入了「the」。"
+          },
+          {
+            "sha": "b1a9d7ca0ac49960779650a9cbd993855e1660b1",
+            "date": "2026-02-17T10:30:08-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/b1a9d7ca0ac49960779650a9cbd993855e1660b1",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將使用情境清單中的「Generate document」改為「Generate a document」。"
+          },
+          {
+            "sha": "46f49185c10e1ead0f43b9c507d44368b7924dcc",
+            "date": "2026-02-17T10:29:24-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/46f49185c10e1ead0f43b9c507d44368b7924dcc",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了項目存取安全性章節，將單數的「User」改為複數的「Users」。"
+          },
+          {
+            "sha": "cf91a6290023ca1b9002f60013603caf4ef66e0c",
+            "date": "2026-02-16T18:27:31-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/cf91a6290023ca1b9002f60013603caf4ef66e0c",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 V-Order 最佳化的句子中補上了 \"tables.\" 後方缺少的空格。"
+          },
+          {
+            "sha": "86d4e770e3273519c97736c4aa1d446020bd05f0",
+            "date": "2026-02-16T18:27:10-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/86d4e770e3273519c97736c4aa1d446020bd05f0",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修正了資料譜系章節中「Lakehouse」的拼字錯誤。"
+          },
+          {
+            "sha": "2dcc97df98a6b4024be953d8144d73fa16d6eba2",
+            "date": "2026-02-16T18:18:48-08:00",
+            "subject": "Fabric Lakehouse Skill",
+            "url": "https://github.com/github/awesome-copilot/commit/2dcc97df98a6b4024be953d8144d73fa16d6eba2",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了初始的 Fabric Lakehouse 技能文件，其中包含使用情境、概念、安全性、快捷方式、最佳化、資料譜系與參考資料等章節。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "3b907f7748b078ab5d130f45e94cc1df1dbdf2e9",
+            "date": "2026-02-17T11:18:43-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/3b907f7748b078ab5d130f45e94cc1df1dbdf2e9",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 ADLS Gen2 快捷方式的描述更新为说明它会链接到 Azure 中的 ADLS Gen2 容器。"
+          },
+          {
+            "sha": "0de738c30c426f85a54cfa51c3d1ebfaddd1c478",
+            "date": "2026-02-17T11:18:28-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/0de738c30c426f85a54cfa51c3d1ebfaddd1c478",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了实体化查看的描述，说明它们会依照调度自动更新。"
+          },
+          {
+            "sha": "41b34b1bb24e952c43208d657ada91c659c759c7",
+            "date": "2026-02-17T10:53:52-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/41b34b1bb24e952c43208d657ada91c659c759c7",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "厘清了实体化查看是使用 PySpark 或 Spark SQL 定义，并保存在相关联的 Notebook 中。"
+          },
+          {
+            "sha": "c8d171875ef6f1ab4d12b6915309c928f4643bb7",
+            "date": "2026-02-17T10:47:58-08:00",
+            "subject": "Refine description of Fabric Lakehouse skill",
+            "url": "https://github.com/github/awesome-copilot/commit/c8d171875ef6f1ab4d12b6915309c928f4643bb7",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了技能描述中继数据，加入更多关于 Fabric Lakehouse 功能、组织方式、访问控制与代码范例的细节。"
+          },
+          {
+            "sha": "6707f34db2446a8c22983c9f5c71e3f360087f41",
+            "date": "2026-02-17T10:32:43-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/6707f34db2446a8c22983c9f5c71e3f360087f41",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "改写了 Lakehouse 的定义，以括号范例说明其可保存表格与非表格数据。"
+          },
+          {
+            "sha": "c789c498f819487af2f88cc04f946fe7603dbee2",
+            "date": "2026-02-17T10:32:28-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/c789c498f819487af2f88cc04f946fe7603dbee2",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修正了表格数据章节，说明 CSV 与 Parquet 格式仅可用于 Spark 查找。"
+          },
+          {
+            "sha": "5217b166261759ef8ea6765adb42a6764f853547",
+            "date": "2026-02-17T10:32:02-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/5217b166261759ef8ea6765adb42a6764f853547",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "厘清了关于内部与外部数据表的段落，并改写了快捷方式的说明。"
+          },
+          {
+            "sha": "e0c7e411fd22c8096d9ee89e95fa697a2791d516",
+            "date": "2026-02-17T10:31:26-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/e0c7e411fd22c8096d9ee89e95fa697a2791d516",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了数据谱系章节的开头，改为写成「The Lakehouse item supports lineage。」"
+          },
+          {
+            "sha": "c61ffdfd8fb265c9d208ff5bdf9e333a00178c35",
+            "date": "2026-02-17T10:31:05-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/c61ffdfd8fb265c9d208ff5bdf9e333a00178c35",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "为了改善文法与清晰度而重写了结构描述章节，包含预设结构描述与 Schema Shortcut 的说明。"
+          },
+          {
+            "sha": "d5d303b23e6198d64d0d2b1a5679619e32508c9f",
+            "date": "2026-02-17T10:30:21-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/d5d303b23e6198d64d0d2b1a5679619e32508c9f",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了数据表优化的描述，在 OPTIMIZE 与 Vacuum 命令前加入了「the」。"
+          },
+          {
+            "sha": "b1a9d7ca0ac49960779650a9cbd993855e1660b1",
+            "date": "2026-02-17T10:30:08-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/b1a9d7ca0ac49960779650a9cbd993855e1660b1",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将使用情境清单中的「Generate document」改为「Generate a document」。"
+          },
+          {
+            "sha": "46f49185c10e1ead0f43b9c507d44368b7924dcc",
+            "date": "2026-02-17T10:29:24-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/46f49185c10e1ead0f43b9c507d44368b7924dcc",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了项目访问安全性章节，将单数的「User」改为复数的「Users」。"
+          },
+          {
+            "sha": "cf91a6290023ca1b9002f60013603caf4ef66e0c",
+            "date": "2026-02-16T18:27:31-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/cf91a6290023ca1b9002f60013603caf4ef66e0c",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 V-Order 优化的句子中补上了 \"tables.\" 后方缺少的空格。"
+          },
+          {
+            "sha": "86d4e770e3273519c97736c4aa1d446020bd05f0",
+            "date": "2026-02-16T18:27:10-08:00",
+            "subject": "Update skills/fabric-lakehouse/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/86d4e770e3273519c97736c4aa1d446020bd05f0",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修正了数据谱系章节中「Lakehouse」的拼字错误。"
+          },
+          {
+            "sha": "2dcc97df98a6b4024be953d8144d73fa16d6eba2",
+            "date": "2026-02-16T18:18:48-08:00",
+            "subject": "Fabric Lakehouse Skill",
+            "url": "https://github.com/github/awesome-copilot/commit/2dcc97df98a6b4024be953d8144d73fa16d6eba2",
+            "pathAtCommit": "skills/fabric-lakehouse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了初始的 Fabric Lakehouse 技能文档，其中包含使用情境、概念、安全性、快捷方式、优化、数据谱系与参考资料等章节。"
+          }
+        ]
+      }
+    }
+  }
+}

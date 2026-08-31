@@ -1,0 +1,330 @@
+{
+  "path": "skills/dotnet/csharp-docs",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f23954d8c26c5a79d522a8b3d5122fccd35dd25e1f12a6bdfbccba2fe7ff3629",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/csharp-docs",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/csharp-docs/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C097",
+              "sourcePath": "prompts/csharp-docs.prompt.md",
+              "destinationPath": "skills/csharp-docs/SKILL.md"
+            },
+            "summary": "Added a new `SKILL.md` file with metadata and detailed C# XML documentation guidance."
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the prompt frontmatter field from `mode` to `agent`."
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the prompt tool list to use `search/codebase` instead of `codebase`."
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the prompt tool list to use `edit/editFiles` instead of `editFiles`."
+          },
+          {
+            "sha": "febd4c492500a494c06b848dc6eb6bc3518f83a9",
+            "date": "2025-09-30T19:01:30-07:00",
+            "subject": "Expand C# documentation best practices (#273)",
+            "url": "https://github.com/github/awesome-copilot/commit/febd4c492500a494c06b848dc6eb6bc3518f83a9",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the C# documentation prompt with structured guidance for APIs, methods, constructors, properties, and exceptions."
+          },
+          {
+            "sha": "aec65e3b34bd773d504707fb901164c945d6eebb",
+            "date": "2025-08-20T21:11:06-07:00",
+            "subject": "Triple slash doc updates (#202)",
+            "url": "https://github.com/github/awesome-copilot/commit/aec65e3b34bd773d504707fb901164c945d6eebb",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the prompt to add `<paramref>` guidance, split reference tag usage into specific tags, and clarify `<code>` examples."
+          },
+          {
+            "sha": "f1c532cf573aef764c4721d5ed4347fa20648631",
+            "date": "2025-07-13T23:21:58+01:00",
+            "subject": "Update csharp-docs.prompt.md (#91)",
+            "url": "https://github.com/github/awesome-copilot/commit/f1c532cf573aef764c4721d5ed4347fa20648631",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance to use `<see langword>` for language keywords such as `null`, `true`, and `false`."
+          },
+          {
+            "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "date": "2025-07-02T18:18:52-07:00",
+            "subject": "Update development instructions and guidelines (#29)",
+            "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the prompt frontmatter strings and list values from double quotes to single quotes."
+          },
+          {
+            "sha": "e30b801289139663a651b2865cd53e6be5d9d8ca",
+            "date": "2025-07-02T20:40:53+10:00",
+            "subject": "fixing grammar",
+            "url": "https://github.com/github/awesome-copilot/commit/e30b801289139663a651b2865cd53e6be5d9d8ca",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Fixed the example guidance text by changing `the the member` to `the member`."
+          },
+          {
+            "sha": "9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
+            "date": "2025-07-02T20:39:00+10:00",
+            "subject": "C# member documentatino prompt",
+            "url": "https://github.com/github/awesome-copilot/commit/9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial `csharp-docs` prompt file with C# XML documentation best-practice guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/csharp-docs/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C097",
+              "sourcePath": "prompts/csharp-docs.prompt.md",
+              "destinationPath": "skills/csharp-docs/SKILL.md"
+            },
+            "summary": "新增 `SKILL.md` 檔案，包含中繼資料與詳細的 C# XML 文件撰寫指引。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將提示檔前置中繼資料欄位由 `mode` 更名為 `agent`。"
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "更新提示檔的工具清單，將 `codebase` 改為 `search/codebase`。"
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "更新提示檔的工具清單，將 `editFiles` 改為 `edit/editFiles`。"
+          },
+          {
+            "sha": "febd4c492500a494c06b848dc6eb6bc3518f83a9",
+            "date": "2025-09-30T19:01:30-07:00",
+            "subject": "Expand C# documentation best practices (#273)",
+            "url": "https://github.com/github/awesome-copilot/commit/febd4c492500a494c06b848dc6eb6bc3518f83a9",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "擴充 C# 文件提示內容，加入 API、方法、建構函式、屬性與例外狀況的結構化指引。"
+          },
+          {
+            "sha": "aec65e3b34bd773d504707fb901164c945d6eebb",
+            "date": "2025-08-20T21:11:06-07:00",
+            "subject": "Triple slash doc updates (#202)",
+            "url": "https://github.com/github/awesome-copilot/commit/aec65e3b34bd773d504707fb901164c945d6eebb",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "擴充提示內容，加入 `<paramref>` 指引、將參照標籤用法拆分為具體標籤，並釐清 `<code>` 範例的寫法。"
+          },
+          {
+            "sha": "f1c532cf573aef764c4721d5ed4347fa20648631",
+            "date": "2025-07-13T23:21:58+01:00",
+            "subject": "Update csharp-docs.prompt.md (#91)",
+            "url": "https://github.com/github/awesome-copilot/commit/f1c532cf573aef764c4721d5ed4347fa20648631",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引，說明應以 `<see langword>` 標示 `null`、`true`、`false` 等語言關鍵字。"
+          },
+          {
+            "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "date": "2025-07-02T18:18:52-07:00",
+            "subject": "Update development instructions and guidelines (#29)",
+            "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將提示檔前置中繼資料中的字串與清單值由雙引號改為單引號。"
+          },
+          {
+            "sha": "e30b801289139663a651b2865cd53e6be5d9d8ca",
+            "date": "2025-07-02T20:40:53+10:00",
+            "subject": "fixing grammar",
+            "url": "https://github.com/github/awesome-copilot/commit/e30b801289139663a651b2865cd53e6be5d9d8ca",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "修正範例指引文字，將 `the the member` 改為 `the member`。"
+          },
+          {
+            "sha": "9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
+            "date": "2025-07-02T20:39:00+10:00",
+            "subject": "C# member documentatino prompt",
+            "url": "https://github.com/github/awesome-copilot/commit/9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "新增初始的 `csharp-docs` 提示檔，內容為 C# XML 文件最佳實務指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/csharp-docs/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C097",
+              "sourcePath": "prompts/csharp-docs.prompt.md",
+              "destinationPath": "skills/csharp-docs/SKILL.md"
+            },
+            "summary": "添加 `SKILL.md` 文件，包含中继数据与详细的 C# XML 文档撰写指引。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将提示档前置中继数据字段由 `mode` 更名为 `agent`。"
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "更新提示档的工具清单，将 `codebase` 改为 `search/codebase`。"
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "更新提示档的工具清单，将 `editFiles` 改为 `edit/editFiles`。"
+          },
+          {
+            "sha": "febd4c492500a494c06b848dc6eb6bc3518f83a9",
+            "date": "2025-09-30T19:01:30-07:00",
+            "subject": "Expand C# documentation best practices (#273)",
+            "url": "https://github.com/github/awesome-copilot/commit/febd4c492500a494c06b848dc6eb6bc3518f83a9",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "扩充 C# 文档提示内容，加入 API、方法、构造函数、属性与例外状况的结构化指引。"
+          },
+          {
+            "sha": "aec65e3b34bd773d504707fb901164c945d6eebb",
+            "date": "2025-08-20T21:11:06-07:00",
+            "subject": "Triple slash doc updates (#202)",
+            "url": "https://github.com/github/awesome-copilot/commit/aec65e3b34bd773d504707fb901164c945d6eebb",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "扩充提示内容，加入 `<paramref>` 指引、将参照标签用法拆分为具体标签，并厘清 `<code>` 范例的写法。"
+          },
+          {
+            "sha": "f1c532cf573aef764c4721d5ed4347fa20648631",
+            "date": "2025-07-13T23:21:58+01:00",
+            "subject": "Update csharp-docs.prompt.md (#91)",
+            "url": "https://github.com/github/awesome-copilot/commit/f1c532cf573aef764c4721d5ed4347fa20648631",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引，说明应以 `<see langword>` 标示 `null`、`true`、`false` 等语言关键字。"
+          },
+          {
+            "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "date": "2025-07-02T18:18:52-07:00",
+            "subject": "Update development instructions and guidelines (#29)",
+            "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将提示档前置中继数据中的字符串与清单值由双引号改为单引号。"
+          },
+          {
+            "sha": "e30b801289139663a651b2865cd53e6be5d9d8ca",
+            "date": "2025-07-02T20:40:53+10:00",
+            "subject": "fixing grammar",
+            "url": "https://github.com/github/awesome-copilot/commit/e30b801289139663a651b2865cd53e6be5d9d8ca",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "修正范例指引文字，将 `the the member` 改为 `the member`。"
+          },
+          {
+            "sha": "9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
+            "date": "2025-07-02T20:39:00+10:00",
+            "subject": "C# member documentatino prompt",
+            "url": "https://github.com/github/awesome-copilot/commit/9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
+            "pathAtCommit": "prompts/csharp-docs.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "添加初始的 `csharp-docs` 提示档，内容为 C# XML 文档最佳实务指引。"
+          }
+        ]
+      }
+    }
+  }
+}

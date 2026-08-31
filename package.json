@@ -8,6 +8,7 @@
     "validate": "node scripts/validate.mjs",
     "validate:enrichment": "node scripts/validate-enrichment.mjs",
     "enrich:summaries": "node scripts/enrich-summaries.mjs",
+    "enrich:changelog": "node scripts/enrich-changelog.mjs",
     "enrich:prune": "node scripts/prune-enrichment.mjs",
     "sync": "node scripts/sync.mjs",
     "smoke:npx": "node scripts/smoke-npx.mjs"

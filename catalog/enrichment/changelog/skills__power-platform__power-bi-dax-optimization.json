@@ -1,0 +1,141 @@
+{
+  "path": "skills/power-platform/power-bi-dax-optimization",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8009e106c39ab91a843a9f80f6a569a3c1f6ba6f04a1f90b1d95b2537697eb48",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/power-bi-dax-optimization",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/power-bi-dax-optimization/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C098",
+              "sourcePath": "prompts/power-bi-dax-optimization.prompt.md",
+              "destinationPath": "skills/power-bi-dax-optimization/SKILL.md"
+            },
+            "summary": "Added the power-bi-dax-optimization SKILL.md file with instructions for optimizing Power BI DAX formulas."
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/power-bi-dax-optimization.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the prompt frontmatter field from `mode` to `agent` in the power-bi-dax-optimization prompt file."
+          },
+          {
+            "sha": "38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "date": "2025-10-15T19:05:56-04:00",
+            "subject": "Add Power BI resources (#298)",
+            "url": "https://github.com/github/awesome-copilot/commit/38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "pathAtCommit": "prompts/power-bi-dax-optimization.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added the power-bi-dax-optimization prompt file with DAX optimization instructions and Microsoft Docs tool configuration."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/power-bi-dax-optimization/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C098",
+              "sourcePath": "prompts/power-bi-dax-optimization.prompt.md",
+              "destinationPath": "skills/power-bi-dax-optimization/SKILL.md"
+            },
+            "summary": "新增 power-bi-dax-optimization 的 SKILL.md，內容為最佳化 Power BI DAX 公式的指引。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/power-bi-dax-optimization.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "在 power-bi-dax-optimization 提示檔中，將前置資料欄位名稱由 `mode` 更名為 `agent`。"
+          },
+          {
+            "sha": "38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "date": "2025-10-15T19:05:56-04:00",
+            "subject": "Add Power BI resources (#298)",
+            "url": "https://github.com/github/awesome-copilot/commit/38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "pathAtCommit": "prompts/power-bi-dax-optimization.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "新增 power-bi-dax-optimization 提示檔，包含 DAX 最佳化指引與 Microsoft Docs 工具設定。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/power-bi-dax-optimization/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C098",
+              "sourcePath": "prompts/power-bi-dax-optimization.prompt.md",
+              "destinationPath": "skills/power-bi-dax-optimization/SKILL.md"
+            },
+            "summary": "添加 power-bi-dax-optimization 的 SKILL.md，内容为优化 Power BI DAX 公式的指引。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/power-bi-dax-optimization.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "在 power-bi-dax-optimization 提示档中，将前置数据字段名称由 `mode` 更名为 `agent`。"
+          },
+          {
+            "sha": "38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "date": "2025-10-15T19:05:56-04:00",
+            "subject": "Add Power BI resources (#298)",
+            "url": "https://github.com/github/awesome-copilot/commit/38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "pathAtCommit": "prompts/power-bi-dax-optimization.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "添加 power-bi-dax-optimization 提示档，包含 DAX 优化指引与 Microsoft Docs 工具设置。"
+          }
+        ]
+      }
+    }
+  }
+}

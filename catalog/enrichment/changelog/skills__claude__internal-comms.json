@@ -1,0 +1,156 @@
+{
+  "path": "skills/claude/internal-comms",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9ad903576ebda039209c784708f8a69135aef47ce3532438d0870a00ca30d00d",
+    "repository": "anthropics/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/internal-comms",
+    "pinnedCommit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/internal-comms/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "internal-comms/SKILL.md",
+              "destinationPath": "skills/internal-comms/SKILL.md"
+            },
+            "summary": "The skill's SKILL.md file was moved from `internal-comms/` to `skills/internal-comms/` with no content changes."
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "internal-comms/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/internal-comms/SKILL.md",
+              "destinationPath": "internal-comms/SKILL.md"
+            },
+            "summary": "The skill's SKILL.md file was moved from `examples/internal-comms/` to `internal-comms/` with no content changes."
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/internal-comms/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "A new `examples/internal-comms/SKILL.md` file was added with metadata, usage guidance for internal communications, example guideline files, and keywords."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/internal-comms/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "internal-comms/SKILL.md",
+              "destinationPath": "skills/internal-comms/SKILL.md"
+            },
+            "summary": "此技能的 SKILL.md 檔案從 `internal-comms/` 移至 `skills/internal-comms/`，內容沒有變更。"
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "internal-comms/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/internal-comms/SKILL.md",
+              "destinationPath": "internal-comms/SKILL.md"
+            },
+            "summary": "此技能的 SKILL.md 檔案從 `examples/internal-comms/` 移至 `internal-comms/`，內容沒有變更。"
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/internal-comms/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了 `examples/internal-comms/SKILL.md` 檔案，包含中繼資料、內部溝通的使用指引、範例指引檔案與關鍵字。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/internal-comms/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "internal-comms/SKILL.md",
+              "destinationPath": "skills/internal-comms/SKILL.md"
+            },
+            "summary": "此技能的 SKILL.md 文件从 `internal-comms/` 移至 `skills/internal-comms/`，内容没有变更。"
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "internal-comms/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/internal-comms/SKILL.md",
+              "destinationPath": "internal-comms/SKILL.md"
+            },
+            "summary": "此技能的 SKILL.md 文件从 `examples/internal-comms/` 移至 `internal-comms/`，内容没有变更。"
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/internal-comms/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了 `examples/internal-comms/SKILL.md` 文件，包含中继数据、内部沟通的使用指引、范例指引文件与关键字。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "path": "skills/gtm/gtm-developer-ecosystem",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7bc2553a997236a9d90e986d2417a2cb78e89e5f03e923f165c0128b6ee78717",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/gtm-developer-ecosystem",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "date": "2026-03-22T20:49:51-04:00",
+            "subject": "docs: add author attribution to GTM skills (#1100)",
+            "url": "https://github.com/github/awesome-copilot/commit/aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "pathAtCommit": "skills/gtm-developer-ecosystem/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added author and source metadata to the gtm-developer-ecosystem skill's SKILL.md front matter."
+          },
+          {
+            "sha": "3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "date": "2026-03-19T19:09:57-04:00",
+            "subject": "feat: add 11 GTM skills for technical product founders and operators (#1066)",
+            "url": "https://github.com/github/awesome-copilot/commit/3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "pathAtCommit": "skills/gtm-developer-ecosystem/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the new gtm-developer-ecosystem SKILL.md with the skill definition and guidance for building developer ecosystems."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "date": "2026-03-22T20:49:51-04:00",
+            "subject": "docs: add author attribution to GTM skills (#1100)",
+            "url": "https://github.com/github/awesome-copilot/commit/aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "pathAtCommit": "skills/gtm-developer-ecosystem/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 gtm-developer-ecosystem 技能的 SKILL.md 前言區塊中新增了作者與來源的中繼資料。"
+          },
+          {
+            "sha": "3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "date": "2026-03-19T19:09:57-04:00",
+            "subject": "feat: add 11 GTM skills for technical product founders and operators (#1066)",
+            "url": "https://github.com/github/awesome-copilot/commit/3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "pathAtCommit": "skills/gtm-developer-ecosystem/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了 gtm-developer-ecosystem 的 SKILL.md，包含技能定義與建立開發者生態系的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "date": "2026-03-22T20:49:51-04:00",
+            "subject": "docs: add author attribution to GTM skills (#1100)",
+            "url": "https://github.com/github/awesome-copilot/commit/aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "pathAtCommit": "skills/gtm-developer-ecosystem/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 gtm-developer-ecosystem 技能的 SKILL.md 前言区块中添加了作者与来源的中继数据。"
+          },
+          {
+            "sha": "3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "date": "2026-03-19T19:09:57-04:00",
+            "subject": "feat: add 11 GTM skills for technical product founders and operators (#1066)",
+            "url": "https://github.com/github/awesome-copilot/commit/3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "pathAtCommit": "skills/gtm-developer-ecosystem/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了 gtm-developer-ecosystem 的 SKILL.md，包含技能定义与创建开发者生态系的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

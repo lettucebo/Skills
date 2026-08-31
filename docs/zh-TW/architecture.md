@@ -21,7 +21,11 @@ flowchart LR
     G --> N["scripts/lib/enrichment.mjs<br/>（schema、資格、freshness）"]
     H --> N
     N --> Q["scripts/enrich-summaries.mjs<br/>（Copilot + OpenCC）"]
+    G --> R["scripts/enrich-changelog.mjs<br/>（full clone、釘選 history）"]
+    N --> R
     Q --> O["catalog/enrichment/<br/>summaries + changelog"]
+    R --> S["Copilot CLI<br/>（每個 skill 一次雙語呼叫）"]
+    S --> O
     G --> J["site/src/lib/catalog.ts<br/>（建置時期載入器）"]
     H --> J
     O --> P["site/src/lib/enrichment.ts<br/>（freshness gate 載入器）"]
@@ -50,20 +54,30 @@ flowchart LR
    `README.md` 中的
    `<!-- CATALOG:START -->`／`<!-- INSTALL:START -->` 區塊 — 絕不手動編輯
    （見 [技能管理](skill-management.md#為什麼產生的輸出不能被獨立編輯)）。
-7. 在建置時期，**`site/src/lib/catalog.ts`** 會為所有 catalog route 讀取
-   lockfile，並在個別 skill 詳情頁讀取該 skill 的 history timeline（見
-   [網站](website.md)）。
-8. **`scripts/lib/enrichment.mjs`** 定義共用 sidecar schema、資格規則、
+7. **`scripts/lib/enrichment.mjs`** 定義共用 sidecar schema、資格規則、
    freshness key 與 locale signature。**`scripts/enrich-summaries.mjs`** 會為
    每個符合資格的 skill 呼叫一次 Copilot，以產生英文與繁體中文，再以 OpenCC
    衍生簡體中文，並以 atomic write 寫入每個 artifact。第一組完整摘要會先通過
    驗證，generator 才會在 `catalog/enrichment/manifest.json` 啟用 summary。
-9. **`site/src/lib/enrichment.ts`** 只會從新鮮且符合 schema 的 sidecar 讀取指定
-   locale。受限制或 tombstone skill 會在碰觸 sidecar 路徑前被拒絕。Artifact
+8. **`scripts/enrich-changelog.mjs`** 會先從 lock 過濾符合資格的 skill，才接觸
+   個別 skill 資料；完整 cache hit 的上游群組會直接跳過，其餘每個不同上游只做
+   一次 full clone。它以 NUL-delimited、排除 merge、支援 rename inference 的 Git
+   history，走到各 `SKILL.md` 的精確釘選 commit。只有在來源檔後續確實刪除、可
+   證明為 migration 時才跨越 copy history；否則 artifact 會記錄 truncation。
+   每個 commit patch 在每個 skill 一次的雙語 Copilot 呼叫前，都只允許 tracked
+   path 或明確 transition pair。
+9. 在建置時期，**`site/src/lib/catalog.ts`** 會為所有 catalog route 讀取
+   lockfile，並在個別 skill 詳情頁讀取該 skill 的 registry release History
+   timeline（見 [網站](website.md)）。
+10. **`site/src/lib/enrichment.ts`** 只會從新鮮且符合 schema 的 sidecar 讀取指定
+   locale。受限制或 tombstone skill 會在碰觸 sidecar 路徑前被拒絕；orphan skill
+   也會在 changelog 讀取前被拒絕。Artifact
    缺少、過期或指定 locale 缺少時，會回傳呼叫端既有的 fallback；必要的 manifest
    與任何實際存在的 artifact 都必須能解析並通過驗證，非預期 I/O 或 schema
    失敗會停止建置。
-10. 建置完成的網站（包含其 Pagefind 搜尋索引）會部署到 **GitHub Pages**。
+11. Skill 詳情頁會把 changelog 資料渲染成獨立的 Upstream changes timeline，
+    絕不與 registry release 混合。
+12. 建置完成的網站（包含其 Pagefind 搜尋索引）會部署到 **GitHub Pages**。
 
 `node scripts/validate.mjs` 橫跨每一個階段：它會獨立於任何一次同步執行，走遍
 整個 `skills/` 樹，檢查 frontmatter、manifest 涵蓋範圍與相對連結，而
@@ -75,11 +89,11 @@ Enrichment 驗證刻意位於這項交易之外。預設的
 artifact 都必須符合 schema 且路徑安全，也不得指向 restricted、tombstone 或已
 離開 lock 的 skill。已啟用種類還必須存在目錄；缺少與過期 artifact 都會通過。
 發布時使用
-`npm run validate:enrichment -- --strict` 檢查要發布的完整 enrichment 集合；
-summary generator 在第一次啟用前也會套用相同的完整性 gate。Strict 驗證會額外
-要求 artifact 集合與符合資格的 skill 完全相等，且每個 artifact 都是最新狀態。
-日常 registry sync 與網站 fallback 行為仍彼此解耦，因此合法的上游 swap 不會
-只因為選用 sidecar 尚未追上就被回溯。
+`npm run validate:enrichment -- --strict`，再額外要求 artifact 集合與符合資格的
+skill 完全相等、每個 artifact 都是最新狀態，且 changelog locale signature 符合
+目前的 prompt／model／converter／generator 契約。兩個 generator 都會在第一次
+啟用前套用相同的完整性 gate。日常 registry sync 與網站 fallback 行為仍彼此
+解耦，因此合法的上游 swap 不會只因為選用 sidecar 尚未追上就被回溯。
 
 ## Enrichment sidecar 契約
 
@@ -136,6 +150,11 @@ Summary 的資格是「非 tombstone 且非 restricted」。Changelog 另外要�
 signature 會雜湊 locale、schema version、producer、prompt ID、prompt hash、model
 或 converter version、必要的 generator version，以及釘選的 Copilot CLI contract。
 Generator version 是 generator 邏輯改變但 prompt 未變時，明確使 cache 失效的控制。
+
+Changelog locale content 包含確定性、由新到舊排序的 `commits` 陣列。每一筆記錄
+上游 SHA、author date、刻意不翻譯的 subject、精確 commit URL、`pathAtCommit`、
+解析方式、在地化摘要，以及適用時可稽核的 rename/copy transition。若 copy 來源
+仍然存在，則加入 `truncatedAt`，而不繼承無關的來源 history。
 
 `scripts/lib/localization.mjs` 是唯一的確定性中文轉換邊界。它使用 `opencc-js` 的
 台灣慣用詞轉簡體 `twp -> cn` preset，並把

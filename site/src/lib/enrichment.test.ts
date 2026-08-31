@@ -5,7 +5,10 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import type { LockSkillEntry } from './catalog.ts';
-import { loadEnrichmentLocale } from './enrichment.ts';
+import {
+  formatChangelogDate,
+  loadEnrichmentLocale,
+} from './enrichment.ts';
 
 const HASH_A = `sha256:${'a'.repeat(64)}`;
 const HASH_B = `sha256:${'b'.repeat(64)}`;
@@ -75,6 +78,62 @@ function artifact(contentHash = HASH_A) {
   };
 }
 
+function changelogArtifact() {
+  const targetSkill = skill();
+  const commit = targetSkill.upstream!.commit;
+  const content = {
+    commits: [{
+      sha: commit,
+      date: '2026-08-30T00:00:00Z',
+      subject: 'Add alpha',
+      url: `https://github.com/${targetSkill.upstream!.repository}/commit/${commit}`,
+      pathAtCommit: 'skills/alpha/SKILL.md',
+      resolvedVia: 'direct',
+      summary: 'Adds alpha.',
+    }],
+  };
+  return {
+    path: targetSkill.path,
+    schemaVersion: 1,
+    freshnessKey: {
+      contentHash: HASH_A,
+      repository: targetSkill.upstream!.repository,
+      reference: targetSkill.upstream!.reference,
+      source: targetSkill.upstream!.source,
+      pinnedCommit: commit,
+    },
+    locales: {
+      en: {
+        signature: SIGNATURE,
+        producer: 'llm',
+        model: 'gpt-5.4',
+        promptHash: HASH_B,
+        generatorVersion: 1,
+        content,
+      },
+      'zh-tw': {
+        signature: SIGNATURE,
+        producer: 'llm',
+        model: 'gpt-5.4',
+        promptHash: HASH_B,
+        generatorVersion: 1,
+        content: {
+          commits: [{ ...content.commits[0], summary: '新增 alpha。' }],
+        },
+      },
+      'zh-cn': {
+        signature: SIGNATURE,
+        producer: 'opencc',
+        converterVersion: 'opencc-js:twp-to-cn@1.4.2',
+        generatorVersion: 1,
+        content: {
+          commits: [{ ...content.commits[0], summary: '添加 alpha。' }],
+        },
+      },
+    },
+  };
+}
+
 async function createFixture(value = artifact()) {
   await mkdir(runtimeRoot, { recursive: true });
   const root = await mkdtemp(path.join(runtimeRoot, 'site-enrichment-'));
@@ -132,6 +191,119 @@ test('loader short-circuits restricted and tombstoned skills before touching sid
     }),
     fallback,
   );
+});
+
+test('changelog loader short-circuits orphan skills before touching sidecars', async () => {
+  const fallback = { commits: [] };
+  const missingRoot = path.join(runtimeRoot, `missing-enrichment-${Date.now()}`);
+
+  assert.equal(
+    await loadEnrichmentLocale({
+      repoRoot: missingRoot,
+      kind: 'changelog',
+      skill: skill({ category: 'orphan', upstream: null }),
+      locale: 'en',
+      fallback,
+    }),
+    fallback,
+  );
+});
+
+test('changelog loader returns fresh English upstream commits', async () => {
+  const root = await createFixture(changelogArtifact());
+  const manifest = {
+    schemaVersion: 1,
+    enabled: { summaries: false, changelog: true },
+  };
+  const summaryPath = artifactPath(root);
+  const changelogPath = path.join(
+    root,
+    'catalog',
+    'enrichment',
+    'changelog',
+    'skills__demo__alpha.json',
+  );
+
+  try {
+    await writeFile(manifestPath(root), JSON.stringify(manifest));
+    await mkdir(path.dirname(changelogPath), { recursive: true });
+    await writeFile(changelogPath, JSON.stringify(changelogArtifact()));
+    await rm(summaryPath);
+
+    const result = await loadEnrichmentLocale({
+      repoRoot: root,
+      kind: 'changelog',
+      skill: skill(),
+      locale: 'en',
+      fallback: { commits: [] },
+    });
+
+    assert.equal(result.commits.length, 1);
+    assert.equal(result.commits[0].summary, 'Adds alpha.');
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('stale or disabled changelog falls back without affecting registry history callers', async () => {
+  const value = changelogArtifact();
+  value.freshnessKey.pinnedCommit = 'ffffffffffffffffffffffffffffffffffffffff';
+  const root = await createFixture(value);
+  const changelogPath = path.join(
+    root,
+    'catalog',
+    'enrichment',
+    'changelog',
+    'skills__demo__alpha.json',
+  );
+  const fallback = { commits: [] };
+
+  try {
+    await mkdir(path.dirname(changelogPath), { recursive: true });
+    await writeFile(changelogPath, JSON.stringify(value));
+    await writeFile(
+      manifestPath(root),
+      JSON.stringify({
+        schemaVersion: 1,
+        enabled: { summaries: false, changelog: true },
+      }),
+    );
+    assert.equal(
+      await loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'changelog',
+        skill: skill(),
+        locale: 'en',
+        fallback,
+      }),
+      fallback,
+    );
+
+    await writeFile(
+      manifestPath(root),
+      JSON.stringify({
+        schemaVersion: 1,
+        enabled: { summaries: false, changelog: false },
+      }),
+    );
+    assert.equal(
+      await loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'changelog',
+        skill: skill(),
+        locale: 'en',
+        fallback,
+      }),
+      fallback,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('changelog date labels use UTC so visible order matches newest-first sorting', () => {
+  assert.equal(formatChangelogDate('2026-01-02T01:00:00+13:00'), '2026-01-01');
+  assert.equal(formatChangelogDate('2026-01-01T20:00:00-07:00'), '2026-01-02');
 });
 
 test('loader suppresses stale artifacts and returns the caller fallback', async () => {

@@ -1,0 +1,207 @@
+{
+  "path": "skills/cloudflare/cloudflare-one-migrations",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:a1e47294c3f6b972e87c55e888aa03db40e15e6817c7b5ca19b4aabeea14081c",
+    "repository": "cloudflare/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloudflare-one-migrations",
+    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "date": "2026-06-14T14:33:46-05:00",
+            "subject": "docs: expand cloudflare-one skills with field feedback and missing coverage",
+            "url": "https://github.com/cloudflare/skills/commit/e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the Cloudflare One migration guidance with more detailed ZPA tunnel, bypass, hostname-limit, egress, and Gateway private-app rule instructions, and adjusted two mapping heuristics."
+          },
+          {
+            "sha": "93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "date": "2026-06-01T09:43:49-04:00",
+            "subject": "docs: inline Cloudflare One source links",
+            "url": "https://github.com/cloudflare/skills/commit/93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced the standalone docs list by inlining Cloudflare documentation links into the workflow, heuristics, readiness, and trap guidance."
+          },
+          {
+            "sha": "cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "date": "2026-06-01T09:40:11-04:00",
+            "subject": "docs: link Cloudflare One source docs",
+            "url": "https://github.com/cloudflare/skills/commit/cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Docs to Retrieve section listing Cloudflare One migration, Access, Gateway, Tunnel, DLP, egress, and WAN reference links."
+          },
+          {
+            "sha": "8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "date": "2026-06-01T09:31:55-04:00",
+            "subject": "docs: add Cloudflare One assessment prompts",
+            "url": "https://github.com/cloudflare/skills/commit/8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Migration Assessment Prompts section and a completion check to produce a per-rule migration accounting table."
+          },
+          {
+            "sha": "8726ac1270bd18224069c8afd6368e1b29906122",
+            "date": "2026-06-01T09:26:43-04:00",
+            "subject": "Apply suggestions from code review",
+            "url": "https://github.com/cloudflare/skills/commit/8726ac1270bd18224069c8afd6368e1b29906122",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Shortened the skill description and simplified the introduction to focus on retrieving current documentation and schemas."
+          },
+          {
+            "sha": "3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "date": "2026-06-01T09:19:43-04:00",
+            "subject": "refactor: consolidate Cloudflare One skills",
+            "url": "https://github.com/cloudflare/skills/commit/3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the new cloudflare-one-migrations skill with workflow, export requests, mapping heuristics, source-specific traps, validation gates, and an assessment template."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "date": "2026-06-14T14:33:46-05:00",
+            "subject": "docs: expand cloudflare-one skills with field feedback and missing coverage",
+            "url": "https://github.com/cloudflare/skills/commit/e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了 Cloudflare One 遷移指引，加入更詳細的 ZPA 通道、繞過、主機名稱上限、出口決策與 Gateway 私有應用程式規則說明，並調整了兩條對應啟發式。"
+          },
+          {
+            "sha": "93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "date": "2026-06-01T09:43:49-04:00",
+            "subject": "docs: inline Cloudflare One source links",
+            "url": "https://github.com/cloudflare/skills/commit/93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以將 Cloudflare 文件連結直接嵌入工作流程、對應啟發式、準備度與陷阱說明的方式，取代了獨立的文件清單。"
+          },
+          {
+            "sha": "cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "date": "2026-06-01T09:40:11-04:00",
+            "subject": "docs: link Cloudflare One source docs",
+            "url": "https://github.com/cloudflare/skills/commit/cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了「Docs to Retrieve」章節，列出 Cloudflare One 遷移、Access、Gateway、Tunnel、DLP、出口與 WAN 的參考連結。"
+          },
+          {
+            "sha": "8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "date": "2026-06-01T09:31:55-04:00",
+            "subject": "docs: add Cloudflare One assessment prompts",
+            "url": "https://github.com/cloudflare/skills/commit/8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了「Migration Assessment Prompts」章節，並加入完成前需產出逐條規則遷移對帳表的檢查項。"
+          },
+          {
+            "sha": "8726ac1270bd18224069c8afd6368e1b29906122",
+            "date": "2026-06-01T09:26:43-04:00",
+            "subject": "Apply suggestions from code review",
+            "url": "https://github.com/cloudflare/skills/commit/8726ac1270bd18224069c8afd6368e1b29906122",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "縮短了技能描述，並簡化前言，使其聚焦於取得最新文件與結構描述。"
+          },
+          {
+            "sha": "3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "date": "2026-06-01T09:19:43-04:00",
+            "subject": "refactor: consolidate Cloudflare One skills",
+            "url": "https://github.com/cloudflare/skills/commit/3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了 cloudflare-one-migrations 技能，包含工作流程、匯出需求、對應啟發式、來源特定陷阱、驗證關卡與評估範本。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "date": "2026-06-14T14:33:46-05:00",
+            "subject": "docs: expand cloudflare-one skills with field feedback and missing coverage",
+            "url": "https://github.com/cloudflare/skills/commit/e638d8c1be5f66f5e056c82b2e21ffa25db95e86",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了 Cloudflare One 迁移指引，加入更详细的 ZPA 通道、绕过、主机名称上限、出口决策与 Gateway 私有应用程序规则说明，并调整了两条对应启发式。"
+          },
+          {
+            "sha": "93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "date": "2026-06-01T09:43:49-04:00",
+            "subject": "docs: inline Cloudflare One source links",
+            "url": "https://github.com/cloudflare/skills/commit/93e37d5fb94256d037839a3a46f4edf9eef64cb9",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以将 Cloudflare 文档链接直接嵌入工作流程、对应启发式、准备度与陷阱说明的方式，取代了独立的文档清单。"
+          },
+          {
+            "sha": "cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "date": "2026-06-01T09:40:11-04:00",
+            "subject": "docs: link Cloudflare One source docs",
+            "url": "https://github.com/cloudflare/skills/commit/cbce9de3684598b16d4e64f43b298c78ae7dfa95",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了「Docs to Retrieve」章节，列出 Cloudflare One 迁移、Access、Gateway、Tunnel、DLP、出口与 WAN 的参考链接。"
+          },
+          {
+            "sha": "8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "date": "2026-06-01T09:31:55-04:00",
+            "subject": "docs: add Cloudflare One assessment prompts",
+            "url": "https://github.com/cloudflare/skills/commit/8a0e1a979c0f5ff7150ee46f8f0916eda8d0d02a",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了「Migration Assessment Prompts」章节，并加入完成前需产出逐条规则迁移对帐表的检查项。"
+          },
+          {
+            "sha": "8726ac1270bd18224069c8afd6368e1b29906122",
+            "date": "2026-06-01T09:26:43-04:00",
+            "subject": "Apply suggestions from code review",
+            "url": "https://github.com/cloudflare/skills/commit/8726ac1270bd18224069c8afd6368e1b29906122",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "缩短了技能描述，并简化前言，使其聚焦于取得最新文档与结构描述。"
+          },
+          {
+            "sha": "3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "date": "2026-06-01T09:19:43-04:00",
+            "subject": "refactor: consolidate Cloudflare One skills",
+            "url": "https://github.com/cloudflare/skills/commit/3ec8616c15028f2ffad911164fa4d75529c259a2",
+            "pathAtCommit": "skills/cloudflare-one-migrations/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了 cloudflare-one-migrations 技能，包含工作流程、导出需求、对应启发式、来源特定陷阱、验证关卡与评估范本。"
+          }
+        ]
+      }
+    }
+  }
+}

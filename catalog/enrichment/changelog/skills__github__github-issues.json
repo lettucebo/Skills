@@ -1,0 +1,180 @@
+{
+  "path": "skills/github/github-issues",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b18be7e1e115fc09713b398fe197feea43d02b5afd9ceafcc3db070c5bc07020",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/github-issues",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "b41720e2866fb2c2fb70f16c6b6dae93627a6ae5",
+            "date": "2026-08-09T21:38:53-04:00",
+            "subject": "Add milestones capability (#2591)",
+            "url": "https://github.com/github/awesome-copilot/commit/b41720e2866fb2c2fb70f16c6b6dae93627a6ae5",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Milestones capability entry to `SKILL.md`'s extended capabilities table, linking to milestone guidance and milestone issue management."
+          },
+          {
+            "sha": "cf4e33e1fd8d585af2206995504f3069d6242f7f",
+            "date": "2026-03-09T23:44:35Z",
+            "subject": "fix: improve github-issues skill trigger phrases and fix GraphQL dependency examples (#946)",
+            "url": "https://github.com/github/awesome-copilot/commit/cf4e33e1fd8d585af2206995504f3069d6242f7f",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the `SKILL.md` description to mention linking issues, adding dependencies, and blocked-by/blocking trigger phrases."
+          },
+          {
+            "sha": "fca5de1f6a77a63078bc9988d7e03bacccb242b2",
+            "date": "2026-03-06T10:20:36Z",
+            "subject": "Improve github-issues skill: fix MCP tools, add search reference, fix sub-issues docs (#888)",
+            "url": "https://github.com/github/awesome-copilot/commit/fca5de1f6a77a63078bc9988d7e03bacccb242b2",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked `SKILL.md` to separate MCP read tools from `gh api` write workflows, update the examples, and add advanced search and image references."
+          },
+          {
+            "sha": "164b6eb2683491f7541fc92979ffaa00c6ffd50c",
+            "date": "2026-03-05T11:10:11Z",
+            "subject": "Add sub-issues, issue types, projects, and issue fields guidance to github-issues skill (#884)",
+            "url": "https://github.com/github/awesome-copilot/commit/164b6eb2683491f7541fc92979ffaa00c6ffd50c",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded `SKILL.md` with issue types, issue fields, projects, and extended capability guidance, and updated examples to prefer issue types over labels."
+          },
+          {
+            "sha": "ed161c3a876ba93e1416b29e2f834904955192e8",
+            "date": "2026-01-08T15:10:24+01:00",
+            "subject": "Add GitHub Issues skill and issue templates for better management",
+            "url": "https://github.com/github/awesome-copilot/commit/ed161c3a876ba93e1416b29e2f834904955192e8",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created `skills/github-issues/SKILL.md` with GitHub issue management instructions covering MCP tools, workflows, examples, common labels, and tips."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "b41720e2866fb2c2fb70f16c6b6dae93627a6ae5",
+            "date": "2026-08-09T21:38:53-04:00",
+            "subject": "Add milestones capability (#2591)",
+            "url": "https://github.com/github/awesome-copilot/commit/b41720e2866fb2c2fb70f16c6b6dae93627a6ae5",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 `SKILL.md` 的延伸功能表中新增了里程碑項目，連結到里程碑說明並說明里程碑議題管理。"
+          },
+          {
+            "sha": "cf4e33e1fd8d585af2206995504f3069d6242f7f",
+            "date": "2026-03-09T23:44:35Z",
+            "subject": "fix: improve github-issues skill trigger phrases and fix GraphQL dependency examples (#946)",
+            "url": "https://github.com/github/awesome-copilot/commit/cf4e33e1fd8d585af2206995504f3069d6242f7f",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了 `SKILL.md` 的描述，加入連結議題、添加相依關係，以及 blocked-by／blocking 觸發語句。"
+          },
+          {
+            "sha": "fca5de1f6a77a63078bc9988d7e03bacccb242b2",
+            "date": "2026-03-06T10:20:36Z",
+            "subject": "Improve github-issues skill: fix MCP tools, add search reference, fix sub-issues docs (#888)",
+            "url": "https://github.com/github/awesome-copilot/commit/fca5de1f6a77a63078bc9988d7e03bacccb242b2",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整了 `SKILL.md`，將 MCP 讀取工具與 `gh api` 寫入流程分開、更新範例，並加入進階搜尋與圖片參考。"
+          },
+          {
+            "sha": "164b6eb2683491f7541fc92979ffaa00c6ffd50c",
+            "date": "2026-03-05T11:10:11Z",
+            "subject": "Add sub-issues, issue types, projects, and issue fields guidance to github-issues skill (#884)",
+            "url": "https://github.com/github/awesome-copilot/commit/164b6eb2683491f7541fc92979ffaa00c6ffd50c",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了 `SKILL.md`，加入議題類型、議題欄位、專案與延伸功能指引，並更新範例以優先使用議題類型而非標籤。"
+          },
+          {
+            "sha": "ed161c3a876ba93e1416b29e2f834904955192e8",
+            "date": "2026-01-08T15:10:24+01:00",
+            "subject": "Add GitHub Issues skill and issue templates for better management",
+            "url": "https://github.com/github/awesome-copilot/commit/ed161c3a876ba93e1416b29e2f834904955192e8",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立了 `skills/github-issues/SKILL.md`，提供涵蓋 MCP 工具、流程、範例、常用標籤與提示的 GitHub 議題管理說明。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "b41720e2866fb2c2fb70f16c6b6dae93627a6ae5",
+            "date": "2026-08-09T21:38:53-04:00",
+            "subject": "Add milestones capability (#2591)",
+            "url": "https://github.com/github/awesome-copilot/commit/b41720e2866fb2c2fb70f16c6b6dae93627a6ae5",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 `SKILL.md` 的延伸功能表中添加了里程碑项目，链接到里程碑说明并说明里程碑议题管理。"
+          },
+          {
+            "sha": "cf4e33e1fd8d585af2206995504f3069d6242f7f",
+            "date": "2026-03-09T23:44:35Z",
+            "subject": "fix: improve github-issues skill trigger phrases and fix GraphQL dependency examples (#946)",
+            "url": "https://github.com/github/awesome-copilot/commit/cf4e33e1fd8d585af2206995504f3069d6242f7f",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了 `SKILL.md` 的描述，加入链接议题、添加相依关系，以及 blocked-by／blocking 触发语句。"
+          },
+          {
+            "sha": "fca5de1f6a77a63078bc9988d7e03bacccb242b2",
+            "date": "2026-03-06T10:20:36Z",
+            "subject": "Improve github-issues skill: fix MCP tools, add search reference, fix sub-issues docs (#888)",
+            "url": "https://github.com/github/awesome-copilot/commit/fca5de1f6a77a63078bc9988d7e03bacccb242b2",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整了 `SKILL.md`，将 MCP 读取工具与 `gh api` 写入流程分开、更新范例，并加入高级搜索与图片参考。"
+          },
+          {
+            "sha": "164b6eb2683491f7541fc92979ffaa00c6ffd50c",
+            "date": "2026-03-05T11:10:11Z",
+            "subject": "Add sub-issues, issue types, projects, and issue fields guidance to github-issues skill (#884)",
+            "url": "https://github.com/github/awesome-copilot/commit/164b6eb2683491f7541fc92979ffaa00c6ffd50c",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了 `SKILL.md`，加入议题类型、议题字段、项目与延伸功能指引，并更新范例以优先使用议题类型而非标签。"
+          },
+          {
+            "sha": "ed161c3a876ba93e1416b29e2f834904955192e8",
+            "date": "2026-01-08T15:10:24+01:00",
+            "subject": "Add GitHub Issues skill and issue templates for better management",
+            "url": "https://github.com/github/awesome-copilot/commit/ed161c3a876ba93e1416b29e2f834904955192e8",
+            "pathAtCommit": "skills/github-issues/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建了 `skills/github-issues/SKILL.md`，提供涵盖 MCP 工具、流程、范例、常用标签与提示的 GitHub 议题管理说明。"
+          }
+        ]
+      }
+    }
+  }
+}

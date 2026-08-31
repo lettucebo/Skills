@@ -1,0 +1,156 @@
+{
+  "path": "skills/claude/brand-guidelines",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ddf22e788d6aa33e818ec59be85d4fba5aeda23075518dafc412bb90b7cc63ce",
+    "repository": "anthropics/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/brand-guidelines",
+    "pinnedCommit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/brand-guidelines/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "brand-guidelines/SKILL.md",
+              "destinationPath": "skills/brand-guidelines/SKILL.md"
+            },
+            "summary": "The skill file was renamed from `brand-guidelines/SKILL.md` to `skills/brand-guidelines/SKILL.md`."
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "brand-guidelines/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/brand-guidelines/SKILL.md",
+              "destinationPath": "brand-guidelines/SKILL.md"
+            },
+            "summary": "The skill file was renamed from `examples/brand-guidelines/SKILL.md` to `brand-guidelines/SKILL.md`."
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/brand-guidelines/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "A new `examples/brand-guidelines/SKILL.md` file was added with Anthropic brand styling guidance, including colors, typography, features, and technical details."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/brand-guidelines/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "brand-guidelines/SKILL.md",
+              "destinationPath": "skills/brand-guidelines/SKILL.md"
+            },
+            "summary": "此技能檔案已從 `brand-guidelines/SKILL.md` 重新命名為 `skills/brand-guidelines/SKILL.md`。"
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "brand-guidelines/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/brand-guidelines/SKILL.md",
+              "destinationPath": "brand-guidelines/SKILL.md"
+            },
+            "summary": "此技能檔案已從 `examples/brand-guidelines/SKILL.md` 重新命名為 `brand-guidelines/SKILL.md`。"
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/brand-guidelines/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "已新增 `examples/brand-guidelines/SKILL.md` 檔案，內容包含 Anthropic 品牌樣式指引，包括色彩、字體、功能與技術細節。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/brand-guidelines/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "brand-guidelines/SKILL.md",
+              "destinationPath": "skills/brand-guidelines/SKILL.md"
+            },
+            "summary": "此技能文件已从 `brand-guidelines/SKILL.md` 重命名为 `skills/brand-guidelines/SKILL.md`。"
+          },
+          {
+            "sha": "83291af582d21f5418854fa628a76686203c2f7a",
+            "date": "2025-10-16T10:02:06-04:00",
+            "subject": "Reorganize the example skills (#1)",
+            "url": "https://github.com/anthropics/skills/commit/83291af582d21f5418854fa628a76686203c2f7a",
+            "pathAtCommit": "brand-guidelines/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "examples/brand-guidelines/SKILL.md",
+              "destinationPath": "brand-guidelines/SKILL.md"
+            },
+            "summary": "此技能文件已从 `examples/brand-guidelines/SKILL.md` 重命名为 `brand-guidelines/SKILL.md`。"
+          },
+          {
+            "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
+            "date": "2025-10-15T17:07:32-04:00",
+            "subject": "init repo",
+            "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
+            "pathAtCommit": "examples/brand-guidelines/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "已添加 `examples/brand-guidelines/SKILL.md` 文件，内容包含 Anthropic 品牌样式指引，包括色彩、字体、功能与技术细节。"
+          }
+        ]
+      }
+    }
+  }
+}

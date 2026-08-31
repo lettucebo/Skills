@@ -1,0 +1,195 @@
+{
+  "path": "skills/dotnet/editorconfig",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6a984956d5cbeda94b8967ed64eeb19269b224fe3d89c7ebd5cf09b3f0767e74",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/editorconfig",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/editorconfig/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C098",
+              "sourcePath": "prompts/editorconfig.prompt.md",
+              "destinationPath": "skills/editorconfig/SKILL.md"
+            },
+            "summary": "Added `skills/editorconfig/SKILL.md` with the editorconfig skill definition and prompt content."
+          },
+          {
+            "sha": "9afab17e01358f26f967be3dcb6090048cbf4a30",
+            "date": "2026-02-03T14:11:03+11:00",
+            "subject": "Cleaning up the name of a lot of agents",
+            "url": "https://github.com/github/awesome-copilot/commit/9afab17e01358f26f967be3dcb6090048cbf4a30",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the prompt frontmatter key in `prompts/editorconfig.prompt.md` from `title` to `name`."
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the `mode` frontmatter field to `agent` in `prompts/editorconfig.prompt.md`."
+          },
+          {
+            "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "date": "2025-08-14T12:09:33+10:00",
+            "subject": "Add missing `mode` field to all prompt files with 'agent' as default (#180)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added `mode: 'agent'` to the frontmatter in `prompts/editorconfig.prompt.md`."
+          },
+          {
+            "sha": "3dc4d0dc3d0da4a1d43136f92e64cefba0240534",
+            "date": "2025-08-12T06:18:38+07:00",
+            "subject": "docs(prompt): add EditorConfig Expert prompt for .editorconfig  (#170)",
+            "url": "https://github.com/github/awesome-copilot/commit/3dc4d0dc3d0da4a1d43136f92e64cefba0240534",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added `prompts/editorconfig.prompt.md` with the EditorConfig Expert prompt content."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/editorconfig/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C098",
+              "sourcePath": "prompts/editorconfig.prompt.md",
+              "destinationPath": "skills/editorconfig/SKILL.md"
+            },
+            "summary": "新增 `skills/editorconfig/SKILL.md`，加入 editorconfig 技能定義與提示內容。"
+          },
+          {
+            "sha": "9afab17e01358f26f967be3dcb6090048cbf4a30",
+            "date": "2026-02-03T14:11:03+11:00",
+            "subject": "Cleaning up the name of a lot of agents",
+            "url": "https://github.com/github/awesome-copilot/commit/9afab17e01358f26f967be3dcb6090048cbf4a30",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 `prompts/editorconfig.prompt.md` 的提示前言鍵由 `title` 改為 `name`。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 `prompts/editorconfig.prompt.md` 前言中的 `mode` 欄位改名為 `agent`。"
+          },
+          {
+            "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "date": "2025-08-14T12:09:33+10:00",
+            "subject": "Add missing `mode` field to all prompt files with 'agent' as default (#180)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "在 `prompts/editorconfig.prompt.md` 的前言中新增 `mode: 'agent'`。"
+          },
+          {
+            "sha": "3dc4d0dc3d0da4a1d43136f92e64cefba0240534",
+            "date": "2025-08-12T06:18:38+07:00",
+            "subject": "docs(prompt): add EditorConfig Expert prompt for .editorconfig  (#170)",
+            "url": "https://github.com/github/awesome-copilot/commit/3dc4d0dc3d0da4a1d43136f92e64cefba0240534",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `prompts/editorconfig.prompt.md`，加入 EditorConfig Expert 的提示內容。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/editorconfig/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C098",
+              "sourcePath": "prompts/editorconfig.prompt.md",
+              "destinationPath": "skills/editorconfig/SKILL.md"
+            },
+            "summary": "添加 `skills/editorconfig/SKILL.md`，加入 editorconfig 技能定义与提示内容。"
+          },
+          {
+            "sha": "9afab17e01358f26f967be3dcb6090048cbf4a30",
+            "date": "2026-02-03T14:11:03+11:00",
+            "subject": "Cleaning up the name of a lot of agents",
+            "url": "https://github.com/github/awesome-copilot/commit/9afab17e01358f26f967be3dcb6090048cbf4a30",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 `prompts/editorconfig.prompt.md` 的提示前言键由 `title` 改为 `name`。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 `prompts/editorconfig.prompt.md` 前言中的 `mode` 字段改名为 `agent`。"
+          },
+          {
+            "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "date": "2025-08-14T12:09:33+10:00",
+            "subject": "Add missing `mode` field to all prompt files with 'agent' as default (#180)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "在 `prompts/editorconfig.prompt.md` 的前言中添加 `mode: 'agent'`。"
+          },
+          {
+            "sha": "3dc4d0dc3d0da4a1d43136f92e64cefba0240534",
+            "date": "2025-08-12T06:18:38+07:00",
+            "subject": "docs(prompt): add EditorConfig Expert prompt for .editorconfig  (#170)",
+            "url": "https://github.com/github/awesome-copilot/commit/3dc4d0dc3d0da4a1d43136f92e64cefba0240534",
+            "pathAtCommit": "prompts/editorconfig.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `prompts/editorconfig.prompt.md`，加入 EditorConfig Expert 的提示内容。"
+          }
+        ]
+      }
+    }
+  }
+}

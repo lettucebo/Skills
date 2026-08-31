@@ -25,6 +25,37 @@ export interface ChangelogFreshnessKey extends SummaryFreshnessKey {
   pinnedCommit: string;
 }
 
+export type ChangelogResolution =
+  | 'direct'
+  | 'rename'
+  | 'copy-then-delete-migration';
+
+export interface ChangelogTransition {
+  status: string;
+  sourcePath: string;
+  destinationPath: string;
+}
+
+export interface SkillChangelogCommit {
+  sha: string;
+  date: string;
+  subject: string;
+  url: string;
+  pathAtCommit: string;
+  resolvedVia: ChangelogResolution;
+  transition?: ChangelogTransition;
+  summary: string;
+}
+
+export interface SkillChangelogContent extends JsonObject {
+  commits: SkillChangelogCommit[];
+  truncatedAt?: {
+    sha: string;
+    sourcePath: string;
+    reason: 'copy-source-still-live' | 'restricted-transition-source';
+  };
+}
+
 export interface LlmLocaleArtifact<TContent extends JsonObject = JsonObject> {
   signature: string;
   producer: 'llm';

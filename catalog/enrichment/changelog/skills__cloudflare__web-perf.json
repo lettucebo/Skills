@@ -1,0 +1,168 @@
+{
+  "path": "skills/cloudflare/web-perf",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6ae8cb7d20fddbc4e39b16dc611cc4c271b007d8486d4a5bfec26291729db707",
+    "repository": "cloudflare/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/web-perf",
+    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
+            "date": "2026-04-01T16:54:14+01:00",
+            "subject": "Fix 18 factual errors: pricing, CPU limits, API names, sandbox docs, CLI syntax (#35)",
+            "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description was updated to list LCP, INP, and CLS as Core Web Vitals and FCP, TBT, and Speed Index as supplementary metrics."
+          },
+          {
+            "sha": "d3113039790f64e052ff80f351190da65e9b7510",
+            "date": "2026-03-03T10:30:51-05:00",
+            "subject": "add uniform retrieval-bias directives to all skills (#30)",
+            "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description and introduction were updated to add retrieval-bias guidance and links to current web performance documentation sources."
+          },
+          {
+            "sha": "3f725897fca609a753f35028218801e303a81145",
+            "date": "2026-01-28T12:13:50-05:00",
+            "subject": "adopt Claude Code plugin structure (#10)",
+            "url": "https://github.com/cloudflare/skills/commit/3f725897fca609a753f35028218801e303a81145",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "web-perf/SKILL.md",
+              "destinationPath": "skills/web-perf/SKILL.md"
+            },
+            "summary": "The skill file was moved from web-perf/SKILL.md to skills/web-perf/SKILL.md."
+          },
+          {
+            "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "date": "2026-01-15T14:59:30-05:00",
+            "subject": "add skills and update README (#3)",
+            "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "pathAtCommit": "web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "A new web-perf skill file was added with Chrome DevTools MCP auditing guidance, workflow, and output instructions."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
+            "date": "2026-04-01T16:54:14+01:00",
+            "subject": "Fix 18 factual errors: pricing, CPU limits, API names, sandbox docs, CLI syntax (#35)",
+            "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能描述已更新，將 LCP、INP 和 CLS 列為 Core Web Vitals，並將 FCP、TBT 和 Speed Index 列為補充指標。"
+          },
+          {
+            "sha": "d3113039790f64e052ff80f351190da65e9b7510",
+            "date": "2026-03-03T10:30:51-05:00",
+            "subject": "add uniform retrieval-bias directives to all skills (#30)",
+            "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的描述與簡介已更新，加入偏向查閱資料的指引，以及目前網站效能文件來源的連結。"
+          },
+          {
+            "sha": "3f725897fca609a753f35028218801e303a81145",
+            "date": "2026-01-28T12:13:50-05:00",
+            "subject": "adopt Claude Code plugin structure (#10)",
+            "url": "https://github.com/cloudflare/skills/commit/3f725897fca609a753f35028218801e303a81145",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "web-perf/SKILL.md",
+              "destinationPath": "skills/web-perf/SKILL.md"
+            },
+            "summary": "此技能檔案已從 web-perf/SKILL.md 移動到 skills/web-perf/SKILL.md。"
+          },
+          {
+            "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "date": "2026-01-15T14:59:30-05:00",
+            "subject": "add skills and update README (#3)",
+            "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "pathAtCommit": "web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "已新增 web-perf 技能檔案，包含 Chrome DevTools MCP 的稽核指引、流程與輸出說明。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
+            "date": "2026-04-01T16:54:14+01:00",
+            "subject": "Fix 18 factual errors: pricing, CPU limits, API names, sandbox docs, CLI syntax (#35)",
+            "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能描述已更新，将 LCP、INP 和 CLS 列为 Core Web Vitals，并将 FCP、TBT 和 Speed Index 列为补充指针。"
+          },
+          {
+            "sha": "d3113039790f64e052ff80f351190da65e9b7510",
+            "date": "2026-03-03T10:30:51-05:00",
+            "subject": "add uniform retrieval-bias directives to all skills (#30)",
+            "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的描述与简介已更新，加入偏向查阅数据的指引，以及目前网站性能文档来源的链接。"
+          },
+          {
+            "sha": "3f725897fca609a753f35028218801e303a81145",
+            "date": "2026-01-28T12:13:50-05:00",
+            "subject": "adopt Claude Code plugin structure (#10)",
+            "url": "https://github.com/cloudflare/skills/commit/3f725897fca609a753f35028218801e303a81145",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "web-perf/SKILL.md",
+              "destinationPath": "skills/web-perf/SKILL.md"
+            },
+            "summary": "此技能文件已从 web-perf/SKILL.md 移动到 skills/web-perf/SKILL.md。"
+          },
+          {
+            "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "date": "2026-01-15T14:59:30-05:00",
+            "subject": "add skills and update README (#3)",
+            "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
+            "pathAtCommit": "web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "已添加 web-perf 技能文件，包含 Chrome DevTools MCP 的审核指引、流程与输出说明。"
+          }
+        ]
+      }
+    }
+  }
+}

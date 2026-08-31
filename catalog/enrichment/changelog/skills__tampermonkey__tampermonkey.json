@@ -1,0 +1,264 @@
+{
+  "path": "skills/tampermonkey/tampermonkey",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:cde80ad6dfe90690947dfb326574137bdea632dc49c3aa38c64ff2f7416e2290",
+    "repository": "henkisdabro/wookstar-claude-plugins",
+    "reference": "refs/heads/main",
+    "source": "plugins/tampermonkey/skills/tampermonkey",
+    "pinnedCommit": "5091eccfb7cf09275f20fda850c190dff83be100"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "2ea69e89f4d8c40132e0f8eaf0920be22009729d",
+            "date": "2026-04-28T13:34:47+08:00",
+            "subject": "fix(tampermonkey): trim description to 1022 chars (max 1024)",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/2ea69e89f4d8c40132e0f8eaf0920be22009729d",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The SKILL.md frontmatter description was shortened by changing \"batch storage operations\" to \"batch storage.\""
+          },
+          {
+            "sha": "5e7796cdf2ae21a125b506c7170a92ee37f917dc",
+            "date": "2026-04-28T13:33:46+08:00",
+            "subject": "feat(tampermonkey): v2.0.0 - fix YAML frontmatter, add TypeScript support and v5.x API updates",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/5e7796cdf2ae21a125b506c7170a92ee37f917dc",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The Tampermonkey skill was expanded with updated frontmatter, async and TypeScript guidance, new v5.x API references, and related documentation additions."
+          },
+          {
+            "sha": "1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
+            "date": "2026-02-15T17:11:54+08:00",
+            "subject": "improve frontmatter",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The frontmatter changed `allowed-tools` from a YAML list to a single comma-separated line."
+          },
+          {
+            "sha": "dc8580a25626e43be3c823933d5aa416e1ffd8f5",
+            "date": "2026-02-13T10:11:24+08:00",
+            "subject": "optimise skill size, reduce overall pack size by 43%, update message skill, improve frontmatter, fix metadata misalignments #2",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/dc8580a25626e43be3c823933d5aa416e1ffd8f5",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill was condensed by flattening the description, shortening examples and sections, and replacing full pattern code blocks with brief references."
+          },
+          {
+            "sha": "a648c18667eaf49dd8211571157d51e465df0a52",
+            "date": "2026-01-31T19:16:06+08:00",
+            "subject": "feat!: split bundled plugins into standalone plugins (v6.0.0)",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/a648c18667eaf49dd8211571157d51e465df0a52",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/productivity/skills/tampermonkey/SKILL.md",
+              "destinationPath": "plugins/tampermonkey/skills/tampermonkey/SKILL.md"
+            },
+            "summary": "The skill file was renamed from `plugins/productivity/skills/tampermonkey/SKILL.md` to `plugins/tampermonkey/skills/tampermonkey/SKILL.md` with no content changes."
+          },
+          {
+            "sha": "800f8c9e4f98dbae69d5e63835167fa2f4ea8cab",
+            "date": "2026-01-14T17:10:53+08:00",
+            "subject": "refactor(v5.0): consolidate all plugins into plugins/ directory",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/800f8c9e4f98dbae69d5e63835167fa2f4ea8cab",
+            "pathAtCommit": "plugins/productivity/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "productivity/skills/tampermonkey/SKILL.md",
+              "destinationPath": "plugins/productivity/skills/tampermonkey/SKILL.md"
+            },
+            "summary": "The skill file was renamed from `productivity/skills/tampermonkey/SKILL.md` to `plugins/productivity/skills/tampermonkey/SKILL.md` with no content changes."
+          },
+          {
+            "sha": "b5cc1abed6f0f73410cacc1e66b6f364323eb609",
+            "date": "2026-01-13T16:12:48+08:00",
+            "subject": "feat(productivity): add tampermonkey userscript skill",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/b5cc1abed6f0f73410cacc1e66b6f364323eb609",
+            "pathAtCommit": "productivity/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The Tampermonkey skill was added as a new `SKILL.md` file with userscript guidance, templates, references, and checklists."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "2ea69e89f4d8c40132e0f8eaf0920be22009729d",
+            "date": "2026-04-28T13:34:47+08:00",
+            "subject": "fix(tampermonkey): trim description to 1022 chars (max 1024)",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/2ea69e89f4d8c40132e0f8eaf0920be22009729d",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "SKILL.md 的 frontmatter 描述將「batch storage operations」縮短為「batch storage」。"
+          },
+          {
+            "sha": "5e7796cdf2ae21a125b506c7170a92ee37f917dc",
+            "date": "2026-04-28T13:33:46+08:00",
+            "subject": "feat(tampermonkey): v2.0.0 - fix YAML frontmatter, add TypeScript support and v5.x API updates",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/5e7796cdf2ae21a125b506c7170a92ee37f917dc",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Tampermonkey 技能擴充了更新後的 frontmatter、非同步與 TypeScript 指南、新的 v5.x API 參考，以及相關文件內容。"
+          },
+          {
+            "sha": "1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
+            "date": "2026-02-15T17:11:54+08:00",
+            "subject": "improve frontmatter",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "frontmatter 將 `allowed-tools` 從 YAML 清單改成單行的逗號分隔格式。"
+          },
+          {
+            "sha": "dc8580a25626e43be3c823933d5aa416e1ffd8f5",
+            "date": "2026-02-13T10:11:24+08:00",
+            "subject": "optimise skill size, reduce overall pack size by 43%, update message skill, improve frontmatter, fix metadata misalignments #2",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/dc8580a25626e43be3c823933d5aa416e1ffd8f5",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能透過將描述改為單行、縮短範例與章節，並以簡短參考取代完整模式程式碼區塊來精簡內容。"
+          },
+          {
+            "sha": "a648c18667eaf49dd8211571157d51e465df0a52",
+            "date": "2026-01-31T19:16:06+08:00",
+            "subject": "feat!: split bundled plugins into standalone plugins (v6.0.0)",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/a648c18667eaf49dd8211571157d51e465df0a52",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/productivity/skills/tampermonkey/SKILL.md",
+              "destinationPath": "plugins/tampermonkey/skills/tampermonkey/SKILL.md"
+            },
+            "summary": "此技能檔案從 `plugins/productivity/skills/tampermonkey/SKILL.md` 重新命名為 `plugins/tampermonkey/skills/tampermonkey/SKILL.md`，內容沒有變更。"
+          },
+          {
+            "sha": "800f8c9e4f98dbae69d5e63835167fa2f4ea8cab",
+            "date": "2026-01-14T17:10:53+08:00",
+            "subject": "refactor(v5.0): consolidate all plugins into plugins/ directory",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/800f8c9e4f98dbae69d5e63835167fa2f4ea8cab",
+            "pathAtCommit": "plugins/productivity/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "productivity/skills/tampermonkey/SKILL.md",
+              "destinationPath": "plugins/productivity/skills/tampermonkey/SKILL.md"
+            },
+            "summary": "此技能檔案從 `productivity/skills/tampermonkey/SKILL.md` 重新命名為 `plugins/productivity/skills/tampermonkey/SKILL.md`，內容沒有變更。"
+          },
+          {
+            "sha": "b5cc1abed6f0f73410cacc1e66b6f364323eb609",
+            "date": "2026-01-13T16:12:48+08:00",
+            "subject": "feat(productivity): add tampermonkey userscript skill",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/b5cc1abed6f0f73410cacc1e66b6f364323eb609",
+            "pathAtCommit": "productivity/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Tampermonkey 技能新增為一個 `SKILL.md` 檔案，包含 userscript 指南、範本、參考資料與檢查清單。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "2ea69e89f4d8c40132e0f8eaf0920be22009729d",
+            "date": "2026-04-28T13:34:47+08:00",
+            "subject": "fix(tampermonkey): trim description to 1022 chars (max 1024)",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/2ea69e89f4d8c40132e0f8eaf0920be22009729d",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "SKILL.md 的 frontmatter 描述将「batch storage operations」缩短为「batch storage」。"
+          },
+          {
+            "sha": "5e7796cdf2ae21a125b506c7170a92ee37f917dc",
+            "date": "2026-04-28T13:33:46+08:00",
+            "subject": "feat(tampermonkey): v2.0.0 - fix YAML frontmatter, add TypeScript support and v5.x API updates",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/5e7796cdf2ae21a125b506c7170a92ee37f917dc",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Tampermonkey 技能扩充了更新后的 frontmatter、异步与 TypeScript 指南、新的 v5.x API 参考，以及相关文档内容。"
+          },
+          {
+            "sha": "1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
+            "date": "2026-02-15T17:11:54+08:00",
+            "subject": "improve frontmatter",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "frontmatter 将 `allowed-tools` 从 YAML 清单改成单行的逗号分隔格式。"
+          },
+          {
+            "sha": "dc8580a25626e43be3c823933d5aa416e1ffd8f5",
+            "date": "2026-02-13T10:11:24+08:00",
+            "subject": "optimise skill size, reduce overall pack size by 43%, update message skill, improve frontmatter, fix metadata misalignments #2",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/dc8580a25626e43be3c823933d5aa416e1ffd8f5",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能透过将描述改为单行、缩短范例与章节，并以简短参考取代完整模式代码区块来精简内容。"
+          },
+          {
+            "sha": "a648c18667eaf49dd8211571157d51e465df0a52",
+            "date": "2026-01-31T19:16:06+08:00",
+            "subject": "feat!: split bundled plugins into standalone plugins (v6.0.0)",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/a648c18667eaf49dd8211571157d51e465df0a52",
+            "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/productivity/skills/tampermonkey/SKILL.md",
+              "destinationPath": "plugins/tampermonkey/skills/tampermonkey/SKILL.md"
+            },
+            "summary": "此技能文件从 `plugins/productivity/skills/tampermonkey/SKILL.md` 重命名为 `plugins/tampermonkey/skills/tampermonkey/SKILL.md`，内容没有变更。"
+          },
+          {
+            "sha": "800f8c9e4f98dbae69d5e63835167fa2f4ea8cab",
+            "date": "2026-01-14T17:10:53+08:00",
+            "subject": "refactor(v5.0): consolidate all plugins into plugins/ directory",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/800f8c9e4f98dbae69d5e63835167fa2f4ea8cab",
+            "pathAtCommit": "plugins/productivity/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "productivity/skills/tampermonkey/SKILL.md",
+              "destinationPath": "plugins/productivity/skills/tampermonkey/SKILL.md"
+            },
+            "summary": "此技能文件从 `productivity/skills/tampermonkey/SKILL.md` 重命名为 `plugins/productivity/skills/tampermonkey/SKILL.md`，内容没有变更。"
+          },
+          {
+            "sha": "b5cc1abed6f0f73410cacc1e66b6f364323eb609",
+            "date": "2026-01-13T16:12:48+08:00",
+            "subject": "feat(productivity): add tampermonkey userscript skill",
+            "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/b5cc1abed6f0f73410cacc1e66b6f364323eb609",
+            "pathAtCommit": "productivity/skills/tampermonkey/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Tampermonkey 技能添加为一个 `SKILL.md` 文件，包含 userscript 指南、范本、参考资料与检查清单。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,882 @@
+{
+  "path": "skills/microsoft/skill-creator",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:28c430c7698be58937d82395f874346bb7858df1b45458841c6a403d0b5e3b95",
+    "repository": "microsoft/skills",
+    "reference": "refs/heads/main",
+    "source": ".github/skills/skill-creator",
+    "pinnedCommit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4a2873faffc1b101a33a0b59c24713d4ed78142f",
+            "date": "2026-07-28T14:46:15-07:00",
+            "subject": "Add Vally skill-effectiveness experiments and Python test scenarios (#383)",
+            "url": "https://github.com/microsoft/skills/commit/4a2873faffc1b101a33a0b59c24713d4ed78142f",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Rust best-practice item explaining how to future-proof `#[non_exhaustive]` SDK models and enums."
+          },
+          {
+            "sha": "752edb9b01dd42aa731e22b3da891cc733d7bebe",
+            "date": "2026-07-16T15:09:23-07:00",
+            "subject": "skill-creator: lifecycle guidance and Azure SDK patterns reference (#379)",
+            "url": "https://github.com/microsoft/skills/commit/752edb9b01dd42aa731e22b3da891cc733d7bebe",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded Azure SDK guidance with token budgets, reference extraction rules, core workflow discipline, anti-patterns, validation steps, and updated auth and reference guidance."
+          },
+          {
+            "sha": "178d9730909101c93949a2ea364058345a6fae9e",
+            "date": "2026-06-19T16:26:22-07:00",
+            "subject": "Updated custom grader and skill evaluations",
+            "url": "https://github.com/microsoft/skills/commit/178d9730909101c93949a2ea364058345a6fae9e",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Go authentication and naming examples, Go-specific SDK patterns, and Go guidance in skill creation and regeneration instructions."
+          },
+          {
+            "sha": "21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
+            "date": "2026-06-17T16:25:23-07:00",
+            "subject": "Added vally fixtures; fixed copilot issues",
+            "url": "https://github.com/microsoft/skills/commit/21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adjusted markdown formatting and wording in API-key guidance, examples, anti-pattern tables, and checklist text."
+          },
+          {
+            "sha": "c62ba68be03005ce17c0c00ee75bb7b8836d2352",
+            "date": "2026-06-11T14:18:03-07:00",
+            "subject": "Checkpoint updated skills and vally integration",
+            "url": "https://github.com/microsoft/skills/commit/c62ba68be03005ce17c0c00ee75bb7b8836d2352",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded Rust guidance with `cargo add` and `azure_core` dependency rules and added a workflow for regenerating existing skills from latest SDK sources."
+          },
+          {
+            "sha": "75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
+            "date": "2026-05-22T15:38:35-07:00",
+            "subject": "Updated skills again",
+            "url": "https://github.com/microsoft/skills/commit/75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified separate defaults for domain versus SDK skills, revised structure and auth wording, added a crates.io version-check rule for Rust, and updated the checklist text."
+          },
+          {
+            "sha": "df52e9a69b78c2759553efafe2f937fc53c1cbd1",
+            "date": "2026-05-18T08:32:08-07:00",
+            "subject": "to address feedback",
+            "url": "https://github.com/microsoft/skills/commit/df52e9a69b78c2759553efafe2f937fc53c1cbd1",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added local-development and production sub-bullets under the Python `DefaultAzureCredential` callout."
+          },
+          {
+            "sha": "2104bf35d6f8117b323ba78906bf1259076195e8",
+            "date": "2026-05-08T11:48:40-07:00",
+            "subject": "Restore AzureKeyCredential as 'Legacy: API Key' subsection in 8 skills",
+            "url": "https://github.com/microsoft/skills/commit/2104bf35d6f8117b323ba78906bf1259076195e8",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the Python auth guidance to retain legacy API-key examples and related environment variables in a labeled fallback subsection."
+          },
+          {
+            "sha": "a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
+            "date": "2026-05-04T15:30:23-07:00",
+            "subject": "get main",
+            "url": "https://github.com/microsoft/skills/commit/a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Rust authentication and client examples and broadened required best-practice guidance to include non-Python languages and Rust-specific rules."
+          },
+          {
+            "sha": "d94f007962067bb6bfecb9c9ac523d71880f946c",
+            "date": "2026-05-04T13:36:36-07:00",
+            "subject": "update best practice",
+            "url": "https://github.com/microsoft/skills/commit/d94f007962067bb6bfecb9c9ac523d71880f946c",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the authentication section to Authentication and Lifecycle and added a required Python callout, context-manager examples, and stricter auth-pattern checks."
+          },
+          {
+            "sha": "e7ee58fc1fa669841e06f8d27359e0533d148394",
+            "date": "2026-04-29T00:41:43-07:00",
+            "subject": "Update Java skills auth and env vars with requireEnvVars pattern",
+            "url": "https://github.com/microsoft/skills/commit/e7ee58fc1fa669841e06f8d27359e0533d148394",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the C# and Java auth examples to show production env-var gating and optional managed identity alternatives."
+          },
+          {
+            "sha": "b0bfdccb5492229367f9f7327944773fa016b595",
+            "date": "2026-04-24T16:49:51-07:00",
+            "subject": "Updated Rust skills based on Xiang's solution",
+            "url": "https://github.com/microsoft/skills/commit/b0bfdccb5492229367f9f7327944773fa016b595",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Rust language patterns and user-facing best practices, including credential, upload, and RBAC guidance."
+          },
+          {
+            "sha": "ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
+            "date": "2026-04-24T16:03:47-07:00",
+            "subject": "update",
+            "url": "https://github.com/microsoft/skills/commit/ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Scoped the sync and async best-practice requirements and related checklist items to Python skills only."
+          },
+          {
+            "sha": "5b6627534c57cab4f3af955435abe302ab3630f3",
+            "date": "2026-04-24T14:59:01-07:00",
+            "subject": "address feedback",
+            "url": "https://github.com/microsoft/skills/commit/5b6627534c57cab4f3af955435abe302ab3630f3",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a third best-practice rule telling users to use `DefaultAzureCredential` locally and specific token credentials in Azure."
+          },
+          {
+            "sha": "8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
+            "date": "2026-04-24T13:40:03-07:00",
+            "subject": "add python best practice and update python skills accordingly",
+            "url": "https://github.com/microsoft/skills/commit/8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Python sync and async consistency and context-manager best-practice requirements, enforcement notes, and related anti-pattern and checklist entries."
+          },
+          {
+            "sha": "dd908924bf8e636a667e4316f39cabfeffe689f4",
+            "date": "2026-04-23T16:09:35-07:00",
+            "subject": "Regenerate skills",
+            "url": "https://github.com/microsoft/skills/commit/dd908924bf8e636a667e4316f39cabfeffe689f4",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Rust-specific authentication guidance and a Rust client example to the skill."
+          },
+          {
+            "sha": "f1d18227b6b5b09e99f2fb15a4beb06336cab092",
+            "date": "2026-04-23T12:47:24-07:00",
+            "subject": "Add inline comments to env vars in all Python skills",
+            "url": "https://github.com/microsoft/skills/commit/f1d18227b6b5b09e99f2fb15a4beb06336cab092",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified that environment variable sections should include inline comments explaining when each variable is required."
+          },
+          {
+            "sha": "ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
+            "date": "2026-04-21T18:58:32-07:00",
+            "subject": "Update Python skills auth: require_envvar, ManagedIdentityCredential, env var, credential link",
+            "url": "https://github.com/microsoft/skills/commit/ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated Python auth examples to use `require_envvar=True`, mention `ManagedIdentityCredential`, and link to credential class docs."
+          },
+          {
+            "sha": "338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
+            "date": "2026-04-21T17:02:09-07:00",
+            "subject": "Add AZURE_TOKEN_CREDENTIALS env var and credential classes link to all TS skills",
+            "url": "https://github.com/microsoft/skills/commit/338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated TypeScript auth guidance to use `AZURE_TOKEN_CREDENTIALS` and credential docs, and reformatted related tables and examples."
+          },
+          {
+            "sha": "bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
+            "date": "2026-04-20T18:02:34-07:00",
+            "subject": "refactor: concise auth comments in skill-creator and all TS skills",
+            "url": "https://github.com/microsoft/skills/commit/bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Shortened the TypeScript auth comments to a more concise local-development versus production explanation."
+          },
+          {
+            "sha": "916419c985d968ec53ad5f27044020b415c74f83",
+            "date": "2026-04-20T16:13:00-07:00",
+            "subject": "update authentication guidance for TS",
+            "url": "https://github.com/microsoft/skills/commit/916419c985d968ec53ad5f27044020b415c74f83",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the TypeScript auth guidance from always using `DefaultAzureCredential` to using specific production credentials or constrained `DefaultAzureCredential`."
+          },
+          {
+            "sha": "e1b7de5b02a471ca66688b9c40de454760c69860",
+            "date": "2026-04-20T16:03:56-07:00",
+            "subject": "Add SDK deprecation and rebranding pattern to skill-creator",
+            "url": "https://github.com/microsoft/skills/commit/e1b7de5b02a471ca66688b9c40de454760c69860",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a section describing how skills should handle deprecated or rebranded Azure SDKs."
+          },
+          {
+            "sha": "e1f9cce11758d305e6c77683fe34ccc394586291",
+            "date": "2026-04-20T09:58:14-07:00",
+            "subject": "Moved acceptance-criteria out of skills directory into tests directly; Fixed Rust skills to reflect current code (#268)",
+            "url": "https://github.com/microsoft/skills/commit/e1f9cce11758d305e6c77683fe34ccc394586291",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved acceptance-criteria guidance into `tests/scenarios`, refreshed formatting, and updated documentation and checklist text."
+          },
+          {
+            "sha": "37e04218d562d661056e8f68a5e63424adfbd7e5",
+            "date": "2026-02-08T19:13:30-08:00",
+            "subject": "docs: update README, docs site, and skill-creator",
+            "url": "https://github.com/microsoft/skills/commit/37e04218d562d661056e8f68a5e63424adfbd7e5",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced manual `docs/index.html` edits with regenerating docs-site data and build outputs in the post-creation documentation steps."
+          },
+          {
+            "sha": "ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
+            "date": "2026-02-02T08:17:50-08:00",
+            "subject": "Add hosted-agents-v2-py skill for container-based Azure AI agents",
+            "url": "https://github.com/microsoft/skills/commit/ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the README and docs update instructions with specific count, placement, and skill-entry details."
+          },
+          {
+            "sha": "db15b411166276cbbe41daaa818aeac0d31fff27",
+            "date": "2026-01-31T15:42:56-08:00",
+            "subject": "Update Playwright testing skill, skill-creator, and documentation",
+            "url": "https://github.com/microsoft/skills/commit/db15b411166276cbbe41daaa818aeac0d31fff27",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked the skill creation process to require SDK context, add categorization and testing steps, and expand checklist and anti-pattern guidance."
+          },
+          {
+            "sha": "2fc259b4c37f44afc3c95f14cd7e2113a108df71",
+            "date": "2026-01-28T21:55:38-08:00",
+            "subject": "refactor: migrate to flat skills structure with language suffixes",
+            "url": "https://github.com/microsoft/skills/commit/2fc259b4c37f44afc3c95f14cd7e2113a108df71",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated example YAML frontmatter snippets so their `name` fields use `skill-creator`."
+          },
+          {
+            "sha": "a2003b6b95ead129e53dd5377a2229682ff75b1b",
+            "date": "2026-01-28T10:33:12-08:00",
+            "subject": "docs(skills): standardize all skills to skill-creator guidelines",
+            "url": "https://github.com/microsoft/skills/commit/a2003b6b95ead129e53dd5377a2229682ff75b1b",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed the `license` field from the skill's YAML frontmatter."
+          },
+          {
+            "sha": "8f9af88f4feff407c86278e0aa627f72c8f08ddd",
+            "date": "2026-01-28T10:07:26-08:00",
+            "subject": "fix(skill-creator): fix YAML frontmatter description format",
+            "url": "https://github.com/microsoft/skills/commit/8f9af88f4feff407c86278e0aa627f72c8f08ddd",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the YAML frontmatter description from a multiline block to a single-line string."
+          },
+          {
+            "sha": "7b7ff68a658d95da75d9e319bce8140d302323f0",
+            "date": "2026-01-28T10:05:58-08:00",
+            "subject": "feat(skill-creator): revamp for Azure SDK skill creation",
+            "url": "https://github.com/microsoft/skills/commit/7b7ff68a658d95da75d9e319bce8140d302323f0",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Rewrote the skill to focus on Azure SDK skill creation with new structure, auth patterns, examples, and process guidance."
+          },
+          {
+            "sha": "14224cca15ade1e67fb926e8345bd66ad70ee014",
+            "date": "2026-01-16T12:01:15-08:00",
+            "subject": "feat: Add skill creator scripts and templates for initializing and packaging skills",
+            "url": "https://github.com/microsoft/skills/commit/14224cca15ade1e67fb926e8345bd66ad70ee014",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial `skill-creator` skill file with guidance on creating, structuring, and packaging skills."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4a2873faffc1b101a33a0b59c24713d4ed78142f",
+            "date": "2026-07-28T14:46:15-07:00",
+            "subject": "Add Vally skill-effectiveness experiments and Python test scenarios (#383)",
+            "url": "https://github.com/microsoft/skills/commit/4a2873faffc1b101a33a0b59c24713d4ed78142f",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增一條 Rust 最佳實務，說明如何讓 `#[non_exhaustive]` SDK 模型與列舉具備前瞻相容性。"
+          },
+          {
+            "sha": "752edb9b01dd42aa731e22b3da891cc733d7bebe",
+            "date": "2026-07-16T15:09:23-07:00",
+            "subject": "skill-creator: lifecycle guidance and Azure SDK patterns reference (#379)",
+            "url": "https://github.com/microsoft/skills/commit/752edb9b01dd42aa731e22b3da891cc733d7bebe",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了 Azure SDK 指南，加入 token 預算、參考內容抽離規則、核心工作流程準則、反模式、驗證步驟，以及更新後的驗證與參考指引。"
+          },
+          {
+            "sha": "178d9730909101c93949a2ea364058345a6fae9e",
+            "date": "2026-06-19T16:26:22-07:00",
+            "subject": "Updated custom grader and skill evaluations",
+            "url": "https://github.com/microsoft/skills/commit/178d9730909101c93949a2ea364058345a6fae9e",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Go 的驗證與命名範例、Go 專屬 SDK 模式，以及技能建立與重新產生說明中的 Go 指引。"
+          },
+          {
+            "sha": "21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
+            "date": "2026-06-17T16:25:23-07:00",
+            "subject": "Added vally fixtures; fixed copilot issues",
+            "url": "https://github.com/microsoft/skills/commit/21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "調整了 API 金鑰指引、範例、反模式表格與檢查清單文字的 Markdown 格式與措辭。"
+          },
+          {
+            "sha": "c62ba68be03005ce17c0c00ee75bb7b8836d2352",
+            "date": "2026-06-11T14:18:03-07:00",
+            "subject": "Checkpoint updated skills and vally integration",
+            "url": "https://github.com/microsoft/skills/commit/c62ba68be03005ce17c0c00ee75bb7b8836d2352",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了 Rust 指引，加入 `cargo add` 與 `azure_core` 相依規則，並新增從最新 SDK 來源重新產生既有技能的流程。"
+          },
+          {
+            "sha": "75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
+            "date": "2026-05-22T15:38:35-07:00",
+            "subject": "Updated skills again",
+            "url": "https://github.com/microsoft/skills/commit/75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "釐清了領域技能與 SDK 技能的不同預設做法，修訂了結構與驗證說明，為 Rust 新增 crates.io 版本檢查規則，並更新檢查清單文字。"
+          },
+          {
+            "sha": "df52e9a69b78c2759553efafe2f937fc53c1cbd1",
+            "date": "2026-05-18T08:32:08-07:00",
+            "subject": "to address feedback",
+            "url": "https://github.com/microsoft/skills/commit/df52e9a69b78c2759553efafe2f937fc53c1cbd1",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 Python `DefaultAzureCredential` 提示區塊下新增了本機開發與正式環境的子項說明。"
+          },
+          {
+            "sha": "2104bf35d6f8117b323ba78906bf1259076195e8",
+            "date": "2026-05-08T11:48:40-07:00",
+            "subject": "Restore AzureKeyCredential as 'Legacy: API Key' subsection in 8 skills",
+            "url": "https://github.com/microsoft/skills/commit/2104bf35d6f8117b323ba78906bf1259076195e8",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了 Python 驗證指引，在具名的替代小節中保留舊版 API 金鑰範例與相關環境變數。"
+          },
+          {
+            "sha": "a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
+            "date": "2026-05-04T15:30:23-07:00",
+            "subject": "get main",
+            "url": "https://github.com/microsoft/skills/commit/a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Rust 的驗證與用戶端範例，並將必備最佳實務指引擴大到涵蓋非 Python 語言與 Rust 專屬規則。"
+          },
+          {
+            "sha": "d94f007962067bb6bfecb9c9ac523d71880f946c",
+            "date": "2026-05-04T13:36:36-07:00",
+            "subject": "update best practice",
+            "url": "https://github.com/microsoft/skills/commit/d94f007962067bb6bfecb9c9ac523d71880f946c",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將驗證章節改名為 Authentication and Lifecycle，並新增必備的 Python 提示區塊、內容管理器範例，以及更嚴格的驗證模式檢查。"
+          },
+          {
+            "sha": "e7ee58fc1fa669841e06f8d27359e0533d148394",
+            "date": "2026-04-29T00:41:43-07:00",
+            "subject": "Update Java skills auth and env vars with requireEnvVars pattern",
+            "url": "https://github.com/microsoft/skills/commit/e7ee58fc1fa669841e06f8d27359e0533d148394",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了 C# 與 Java 的驗證範例，示範正式環境的環境變數限制方式與可選的受控識別替代方案。"
+          },
+          {
+            "sha": "b0bfdccb5492229367f9f7327944773fa016b595",
+            "date": "2026-04-24T16:49:51-07:00",
+            "subject": "Updated Rust skills based on Xiang's solution",
+            "url": "https://github.com/microsoft/skills/commit/b0bfdccb5492229367f9f7327944773fa016b595",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Rust 語言模式與面向使用者的最佳實務，包含認證、上傳與 RBAC 指引。"
+          },
+          {
+            "sha": "ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
+            "date": "2026-04-24T16:03:47-07:00",
+            "subject": "update",
+            "url": "https://github.com/microsoft/skills/commit/ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將同步與非同步最佳實務要求及其相關檢查清單項目限定為僅適用於 Python 技能。"
+          },
+          {
+            "sha": "5b6627534c57cab4f3af955435abe302ab3630f3",
+            "date": "2026-04-24T14:59:01-07:00",
+            "subject": "address feedback",
+            "url": "https://github.com/microsoft/skills/commit/5b6627534c57cab4f3af955435abe302ab3630f3",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增第三條最佳實務規則，要求使用者在本機使用 `DefaultAzureCredential`，並在 Azure 中使用特定的權杖憑證。"
+          },
+          {
+            "sha": "8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
+            "date": "2026-04-24T13:40:03-07:00",
+            "subject": "add python best practice and update python skills accordingly",
+            "url": "https://github.com/microsoft/skills/commit/8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Python 同步與非同步一致性及內容管理器的最佳實務要求、落實說明，以及相關反模式與檢查清單項目。"
+          },
+          {
+            "sha": "dd908924bf8e636a667e4316f39cabfeffe689f4",
+            "date": "2026-04-23T16:09:35-07:00",
+            "subject": "Regenerate skills",
+            "url": "https://github.com/microsoft/skills/commit/dd908924bf8e636a667e4316f39cabfeffe689f4",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能中新增 Rust 專屬的驗證指引與 Rust 用戶端範例。"
+          },
+          {
+            "sha": "f1d18227b6b5b09e99f2fb15a4beb06336cab092",
+            "date": "2026-04-23T12:47:24-07:00",
+            "subject": "Add inline comments to env vars in all Python skills",
+            "url": "https://github.com/microsoft/skills/commit/f1d18227b6b5b09e99f2fb15a4beb06336cab092",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "釐清環境變數章節應加入行內註解，說明各變數何時為必填。"
+          },
+          {
+            "sha": "ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
+            "date": "2026-04-21T18:58:32-07:00",
+            "subject": "Update Python skills auth: require_envvar, ManagedIdentityCredential, env var, credential link",
+            "url": "https://github.com/microsoft/skills/commit/ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了 Python 驗證範例，改用 `require_envvar=True`、提到 `ManagedIdentityCredential`，並連結到憑證類別文件。"
+          },
+          {
+            "sha": "338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
+            "date": "2026-04-21T17:02:09-07:00",
+            "subject": "Add AZURE_TOKEN_CREDENTIALS env var and credential classes link to all TS skills",
+            "url": "https://github.com/microsoft/skills/commit/338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 TypeScript 驗證指引以使用 `AZURE_TOKEN_CREDENTIALS` 與憑證文件，並重新格式化相關表格與範例。"
+          },
+          {
+            "sha": "bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
+            "date": "2026-04-20T18:02:34-07:00",
+            "subject": "refactor: concise auth comments in skill-creator and all TS skills",
+            "url": "https://github.com/microsoft/skills/commit/bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 TypeScript 的驗證註解縮短為更精簡的本機開發與正式環境說明。"
+          },
+          {
+            "sha": "916419c985d968ec53ad5f27044020b415c74f83",
+            "date": "2026-04-20T16:13:00-07:00",
+            "subject": "update authentication guidance for TS",
+            "url": "https://github.com/microsoft/skills/commit/916419c985d968ec53ad5f27044020b415c74f83",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 TypeScript 驗證指引從一律使用 `DefaultAzureCredential` 改為在正式環境使用特定憑證或受限制的 `DefaultAzureCredential`。"
+          },
+          {
+            "sha": "e1b7de5b02a471ca66688b9c40de454760c69860",
+            "date": "2026-04-20T16:03:56-07:00",
+            "subject": "Add SDK deprecation and rebranding pattern to skill-creator",
+            "url": "https://github.com/microsoft/skills/commit/e1b7de5b02a471ca66688b9c40de454760c69860",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增一節，說明技能應如何處理已棄用或重新命名的 Azure SDK。"
+          },
+          {
+            "sha": "e1f9cce11758d305e6c77683fe34ccc394586291",
+            "date": "2026-04-20T09:58:14-07:00",
+            "subject": "Moved acceptance-criteria out of skills directory into tests directly; Fixed Rust skills to reflect current code (#268)",
+            "url": "https://github.com/microsoft/skills/commit/e1f9cce11758d305e6c77683fe34ccc394586291",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將驗收條件指引移到 `tests/scenarios`，更新了格式，並修訂文件與檢查清單文字。"
+          },
+          {
+            "sha": "37e04218d562d661056e8f68a5e63424adfbd7e5",
+            "date": "2026-02-08T19:13:30-08:00",
+            "subject": "docs: update README, docs site, and skill-creator",
+            "url": "https://github.com/microsoft/skills/commit/37e04218d562d661056e8f68a5e63424adfbd7e5",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在建立後的文件步驟中，以重新產生 docs-site 資料與建置輸出取代手動編輯 `docs/index.html`。"
+          },
+          {
+            "sha": "ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
+            "date": "2026-02-02T08:17:50-08:00",
+            "subject": "Add hosted-agents-v2-py skill for container-based Azure AI agents",
+            "url": "https://github.com/microsoft/skills/commit/ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了 README 與文件更新指示，加入具體的數量、放置位置與技能條目細節。"
+          },
+          {
+            "sha": "db15b411166276cbbe41daaa818aeac0d31fff27",
+            "date": "2026-01-31T15:42:56-08:00",
+            "subject": "Update Playwright testing skill, skill-creator, and documentation",
+            "url": "https://github.com/microsoft/skills/commit/db15b411166276cbbe41daaa818aeac0d31fff27",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整了技能建立流程，要求提供 SDK 背景資訊、加入分類與測試步驟，並擴充檢查清單與反模式指引。"
+          },
+          {
+            "sha": "2fc259b4c37f44afc3c95f14cd7e2113a108df71",
+            "date": "2026-01-28T21:55:38-08:00",
+            "subject": "refactor: migrate to flat skills structure with language suffixes",
+            "url": "https://github.com/microsoft/skills/commit/2fc259b4c37f44afc3c95f14cd7e2113a108df71",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新範例 YAML frontmatter 片段，讓其中的 `name` 欄位使用 `skill-creator`。"
+          },
+          {
+            "sha": "a2003b6b95ead129e53dd5377a2229682ff75b1b",
+            "date": "2026-01-28T10:33:12-08:00",
+            "subject": "docs(skills): standardize all skills to skill-creator guidelines",
+            "url": "https://github.com/microsoft/skills/commit/a2003b6b95ead129e53dd5377a2229682ff75b1b",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "從此技能的 YAML frontmatter 中移除了 `license` 欄位。"
+          },
+          {
+            "sha": "8f9af88f4feff407c86278e0aa627f72c8f08ddd",
+            "date": "2026-01-28T10:07:26-08:00",
+            "subject": "fix(skill-creator): fix YAML frontmatter description format",
+            "url": "https://github.com/microsoft/skills/commit/8f9af88f4feff407c86278e0aa627f72c8f08ddd",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 YAML frontmatter 的描述從多行區塊改為單行字串。"
+          },
+          {
+            "sha": "7b7ff68a658d95da75d9e319bce8140d302323f0",
+            "date": "2026-01-28T10:05:58-08:00",
+            "subject": "feat(skill-creator): revamp for Azure SDK skill creation",
+            "url": "https://github.com/microsoft/skills/commit/7b7ff68a658d95da75d9e319bce8140d302323f0",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重寫了此技能，使其聚焦於 Azure SDK 技能建立，並加入新的結構、驗證模式、範例與流程指引。"
+          },
+          {
+            "sha": "14224cca15ade1e67fb926e8345bd66ad70ee014",
+            "date": "2026-01-16T12:01:15-08:00",
+            "subject": "feat: Add skill creator scripts and templates for initializing and packaging skills",
+            "url": "https://github.com/microsoft/skills/commit/14224cca15ade1e67fb926e8345bd66ad70ee014",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了初始的 `skill-creator` 技能檔案，提供建立、結構化與封裝技能的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4a2873faffc1b101a33a0b59c24713d4ed78142f",
+            "date": "2026-07-28T14:46:15-07:00",
+            "subject": "Add Vally skill-effectiveness experiments and Python test scenarios (#383)",
+            "url": "https://github.com/microsoft/skills/commit/4a2873faffc1b101a33a0b59c24713d4ed78142f",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加一条 Rust 最佳实务，说明如何让 `#[non_exhaustive]` SDK 模型与枚举具备前瞻兼容性。"
+          },
+          {
+            "sha": "752edb9b01dd42aa731e22b3da891cc733d7bebe",
+            "date": "2026-07-16T15:09:23-07:00",
+            "subject": "skill-creator: lifecycle guidance and Azure SDK patterns reference (#379)",
+            "url": "https://github.com/microsoft/skills/commit/752edb9b01dd42aa731e22b3da891cc733d7bebe",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了 Azure SDK 指南，加入 token 预算、参考内容抽离规则、内核工作流程准则、反模式、验证步骤，以及更新后的验证与参考指引。"
+          },
+          {
+            "sha": "178d9730909101c93949a2ea364058345a6fae9e",
+            "date": "2026-06-19T16:26:22-07:00",
+            "subject": "Updated custom grader and skill evaluations",
+            "url": "https://github.com/microsoft/skills/commit/178d9730909101c93949a2ea364058345a6fae9e",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Go 的验证与命名范例、Go 专属 SDK 模式，以及技能创建与重新产生说明中的 Go 指引。"
+          },
+          {
+            "sha": "21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
+            "date": "2026-06-17T16:25:23-07:00",
+            "subject": "Added vally fixtures; fixed copilot issues",
+            "url": "https://github.com/microsoft/skills/commit/21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "调整了 API 密钥指引、范例、反模式表格与检查清单文字的 Markdown 格式与措辞。"
+          },
+          {
+            "sha": "c62ba68be03005ce17c0c00ee75bb7b8836d2352",
+            "date": "2026-06-11T14:18:03-07:00",
+            "subject": "Checkpoint updated skills and vally integration",
+            "url": "https://github.com/microsoft/skills/commit/c62ba68be03005ce17c0c00ee75bb7b8836d2352",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了 Rust 指引，加入 `cargo add` 与 `azure_core` 相依规则，并添加从最新 SDK 来源重新产生既有技能的流程。"
+          },
+          {
+            "sha": "75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
+            "date": "2026-05-22T15:38:35-07:00",
+            "subject": "Updated skills again",
+            "url": "https://github.com/microsoft/skills/commit/75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "厘清了领域技能与 SDK 技能的不同预设做法，修订了结构与验证说明，为 Rust 添加 crates.io 版本检查规则，并更新检查清单文字。"
+          },
+          {
+            "sha": "df52e9a69b78c2759553efafe2f937fc53c1cbd1",
+            "date": "2026-05-18T08:32:08-07:00",
+            "subject": "to address feedback",
+            "url": "https://github.com/microsoft/skills/commit/df52e9a69b78c2759553efafe2f937fc53c1cbd1",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 Python `DefaultAzureCredential` 提示区块下添加了本机开发与正式环境的子项说明。"
+          },
+          {
+            "sha": "2104bf35d6f8117b323ba78906bf1259076195e8",
+            "date": "2026-05-08T11:48:40-07:00",
+            "subject": "Restore AzureKeyCredential as 'Legacy: API Key' subsection in 8 skills",
+            "url": "https://github.com/microsoft/skills/commit/2104bf35d6f8117b323ba78906bf1259076195e8",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了 Python 验证指引，在具名的替代小节中保留旧版 API 密钥范例与相关环境变量。"
+          },
+          {
+            "sha": "a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
+            "date": "2026-05-04T15:30:23-07:00",
+            "subject": "get main",
+            "url": "https://github.com/microsoft/skills/commit/a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Rust 的验证与用户端范例，并将必备最佳实务指引扩大到涵盖非 Python 语言与 Rust 专属规则。"
+          },
+          {
+            "sha": "d94f007962067bb6bfecb9c9ac523d71880f946c",
+            "date": "2026-05-04T13:36:36-07:00",
+            "subject": "update best practice",
+            "url": "https://github.com/microsoft/skills/commit/d94f007962067bb6bfecb9c9ac523d71880f946c",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将验证章节改名为 Authentication and Lifecycle，并添加必备的 Python 提示区块、内容管理器范例，以及更严格的验证模式检查。"
+          },
+          {
+            "sha": "e7ee58fc1fa669841e06f8d27359e0533d148394",
+            "date": "2026-04-29T00:41:43-07:00",
+            "subject": "Update Java skills auth and env vars with requireEnvVars pattern",
+            "url": "https://github.com/microsoft/skills/commit/e7ee58fc1fa669841e06f8d27359e0533d148394",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了 C# 与 Java 的验证范例，示范正式环境的环境变量限制方式与可选的受控识别替代方案。"
+          },
+          {
+            "sha": "b0bfdccb5492229367f9f7327944773fa016b595",
+            "date": "2026-04-24T16:49:51-07:00",
+            "subject": "Updated Rust skills based on Xiang's solution",
+            "url": "https://github.com/microsoft/skills/commit/b0bfdccb5492229367f9f7327944773fa016b595",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Rust 语言模式与面向用户的最佳实务，包含认证、上传与 RBAC 指引。"
+          },
+          {
+            "sha": "ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
+            "date": "2026-04-24T16:03:47-07:00",
+            "subject": "update",
+            "url": "https://github.com/microsoft/skills/commit/ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将同步与异步最佳实务要求及其相关检查清单项目限定为仅适用于 Python 技能。"
+          },
+          {
+            "sha": "5b6627534c57cab4f3af955435abe302ab3630f3",
+            "date": "2026-04-24T14:59:01-07:00",
+            "subject": "address feedback",
+            "url": "https://github.com/microsoft/skills/commit/5b6627534c57cab4f3af955435abe302ab3630f3",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加第三条最佳实务规则，要求用户在本机使用 `DefaultAzureCredential`，并在 Azure 中使用特定的权杖凭证。"
+          },
+          {
+            "sha": "8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
+            "date": "2026-04-24T13:40:03-07:00",
+            "subject": "add python best practice and update python skills accordingly",
+            "url": "https://github.com/microsoft/skills/commit/8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Python 同步与异步一致性及内容管理器的最佳实务要求、落实说明，以及相关反模式与检查清单项目。"
+          },
+          {
+            "sha": "dd908924bf8e636a667e4316f39cabfeffe689f4",
+            "date": "2026-04-23T16:09:35-07:00",
+            "subject": "Regenerate skills",
+            "url": "https://github.com/microsoft/skills/commit/dd908924bf8e636a667e4316f39cabfeffe689f4",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能中添加 Rust 专属的验证指引与 Rust 用户端范例。"
+          },
+          {
+            "sha": "f1d18227b6b5b09e99f2fb15a4beb06336cab092",
+            "date": "2026-04-23T12:47:24-07:00",
+            "subject": "Add inline comments to env vars in all Python skills",
+            "url": "https://github.com/microsoft/skills/commit/f1d18227b6b5b09e99f2fb15a4beb06336cab092",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "厘清环境变量章节应加入行内注解，说明各变量何时为必填。"
+          },
+          {
+            "sha": "ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
+            "date": "2026-04-21T18:58:32-07:00",
+            "subject": "Update Python skills auth: require_envvar, ManagedIdentityCredential, env var, credential link",
+            "url": "https://github.com/microsoft/skills/commit/ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了 Python 验证范例，改用 `require_envvar=True`、提到 `ManagedIdentityCredential`，并链接到凭证类别文档。"
+          },
+          {
+            "sha": "338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
+            "date": "2026-04-21T17:02:09-07:00",
+            "subject": "Add AZURE_TOKEN_CREDENTIALS env var and credential classes link to all TS skills",
+            "url": "https://github.com/microsoft/skills/commit/338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 TypeScript 验证指引以使用 `AZURE_TOKEN_CREDENTIALS` 与凭证文档，并重新格式化相关表格与范例。"
+          },
+          {
+            "sha": "bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
+            "date": "2026-04-20T18:02:34-07:00",
+            "subject": "refactor: concise auth comments in skill-creator and all TS skills",
+            "url": "https://github.com/microsoft/skills/commit/bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 TypeScript 的验证注解缩短为更精简的本机开发与正式环境说明。"
+          },
+          {
+            "sha": "916419c985d968ec53ad5f27044020b415c74f83",
+            "date": "2026-04-20T16:13:00-07:00",
+            "subject": "update authentication guidance for TS",
+            "url": "https://github.com/microsoft/skills/commit/916419c985d968ec53ad5f27044020b415c74f83",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 TypeScript 验证指引从一律使用 `DefaultAzureCredential` 改为在正式环境使用特定凭证或受限制的 `DefaultAzureCredential`。"
+          },
+          {
+            "sha": "e1b7de5b02a471ca66688b9c40de454760c69860",
+            "date": "2026-04-20T16:03:56-07:00",
+            "subject": "Add SDK deprecation and rebranding pattern to skill-creator",
+            "url": "https://github.com/microsoft/skills/commit/e1b7de5b02a471ca66688b9c40de454760c69860",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加一节，说明技能应如何处理已弃用或重命名的 Azure SDK。"
+          },
+          {
+            "sha": "e1f9cce11758d305e6c77683fe34ccc394586291",
+            "date": "2026-04-20T09:58:14-07:00",
+            "subject": "Moved acceptance-criteria out of skills directory into tests directly; Fixed Rust skills to reflect current code (#268)",
+            "url": "https://github.com/microsoft/skills/commit/e1f9cce11758d305e6c77683fe34ccc394586291",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将验收条件指引移到 `tests/scenarios`，更新了格式，并修订文档与检查清单文字。"
+          },
+          {
+            "sha": "37e04218d562d661056e8f68a5e63424adfbd7e5",
+            "date": "2026-02-08T19:13:30-08:00",
+            "subject": "docs: update README, docs site, and skill-creator",
+            "url": "https://github.com/microsoft/skills/commit/37e04218d562d661056e8f68a5e63424adfbd7e5",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在创建后的文档步骤中，以重新产生 docs-site 数据与建置输出取代手动编辑 `docs/index.html`。"
+          },
+          {
+            "sha": "ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
+            "date": "2026-02-02T08:17:50-08:00",
+            "subject": "Add hosted-agents-v2-py skill for container-based Azure AI agents",
+            "url": "https://github.com/microsoft/skills/commit/ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了 README 与文档更新指示，加入具体的数量、放置位置与技能条目细节。"
+          },
+          {
+            "sha": "db15b411166276cbbe41daaa818aeac0d31fff27",
+            "date": "2026-01-31T15:42:56-08:00",
+            "subject": "Update Playwright testing skill, skill-creator, and documentation",
+            "url": "https://github.com/microsoft/skills/commit/db15b411166276cbbe41daaa818aeac0d31fff27",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整了技能创建流程，要求提供 SDK 背景信息、加入分类与测试步骤，并扩充检查清单与反模式指引。"
+          },
+          {
+            "sha": "2fc259b4c37f44afc3c95f14cd7e2113a108df71",
+            "date": "2026-01-28T21:55:38-08:00",
+            "subject": "refactor: migrate to flat skills structure with language suffixes",
+            "url": "https://github.com/microsoft/skills/commit/2fc259b4c37f44afc3c95f14cd7e2113a108df71",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新范例 YAML frontmatter 片段，让其中的 `name` 字段使用 `skill-creator`。"
+          },
+          {
+            "sha": "a2003b6b95ead129e53dd5377a2229682ff75b1b",
+            "date": "2026-01-28T10:33:12-08:00",
+            "subject": "docs(skills): standardize all skills to skill-creator guidelines",
+            "url": "https://github.com/microsoft/skills/commit/a2003b6b95ead129e53dd5377a2229682ff75b1b",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "从此技能的 YAML frontmatter 中移除了 `license` 字段。"
+          },
+          {
+            "sha": "8f9af88f4feff407c86278e0aa627f72c8f08ddd",
+            "date": "2026-01-28T10:07:26-08:00",
+            "subject": "fix(skill-creator): fix YAML frontmatter description format",
+            "url": "https://github.com/microsoft/skills/commit/8f9af88f4feff407c86278e0aa627f72c8f08ddd",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 YAML frontmatter 的描述从多行区块改为单行字符串。"
+          },
+          {
+            "sha": "7b7ff68a658d95da75d9e319bce8140d302323f0",
+            "date": "2026-01-28T10:05:58-08:00",
+            "subject": "feat(skill-creator): revamp for Azure SDK skill creation",
+            "url": "https://github.com/microsoft/skills/commit/7b7ff68a658d95da75d9e319bce8140d302323f0",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重写了此技能，使其聚焦于 Azure SDK 技能创建，并加入新的结构、验证模式、范例与流程指引。"
+          },
+          {
+            "sha": "14224cca15ade1e67fb926e8345bd66ad70ee014",
+            "date": "2026-01-16T12:01:15-08:00",
+            "subject": "feat: Add skill creator scripts and templates for initializing and packaging skills",
+            "url": "https://github.com/microsoft/skills/commit/14224cca15ade1e67fb926e8345bd66ad70ee014",
+            "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了初始的 `skill-creator` 技能文件，提供创建、结构化与封装技能的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

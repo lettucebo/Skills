@@ -1,0 +1,99 @@
+{
+  "path": "skills/google-play-console-cli/gplay-purchase-verification",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:58aac8f1c340b4a365caf5e2cfc6be01a2f44588e27c01ad145c601d418812d1",
+    "repository": "tamtom/gplay-cli-skills",
+    "reference": "refs/heads/main",
+    "source": "skills/gplay-purchase-verification",
+    "pinnedCommit": "10301b24639e4f768d009b2edda9315cb2149712"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill docs now recommend the subscriptions v2 API, add RTDN setup and decode command examples, and note that order refunds require `--confirm`."
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill was added with Google Play purchase verification instructions, backend examples, subscription event handling, and order and refund workflows."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能文件現在建議使用 subscriptions v2 API、加入 RTDN 設定與解碼指令範例，並註明訂單退款需要 `--confirm`。"
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能新增了 Google Play 購買驗證說明、後端範例、訂閱事件處理，以及訂單與退款流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能文档现在建议使用 subscriptions v2 API、加入 RTDN 设置与解码指令范例，并注明订单退款需要 `--confirm`。"
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能添加了 Google Play 购买验证说明、后端范例、订阅事件处理，以及订单与退款流程。"
+          }
+        ]
+      }
+    }
+  }
+}

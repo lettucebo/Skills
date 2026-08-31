@@ -1,0 +1,72 @@
+{
+  "path": "skills/cloudflare/sandbox-migrate-to-next",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b9c7eda2d4d6bd8e9dd4aa6dc4921bc6e3d9450e91f34412cf4273a7b043bc06",
+    "repository": "cloudflare/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/sandbox-migrate-to-next",
+    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f96bff754e428838818017f75817f0f9428acd48",
+            "date": "2026-08-07T23:14:33+05:30",
+            "subject": "Add stable and @next Sandbox agent skills (#92)",
+            "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
+            "pathAtCommit": "skills/sandbox-migrate-to-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a new skill document for migrating Cloudflare Sandbox apps from stable @cloudflare/sandbox to the @next 1.0 preview."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f96bff754e428838818017f75817f0f9428acd48",
+            "date": "2026-08-07T23:14:33+05:30",
+            "subject": "Add stable and @next Sandbox agent skills (#92)",
+            "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
+            "pathAtCommit": "skills/sandbox-migrate-to-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增一份技能文件，說明如何將 Cloudflare Sandbox 應用從穩定版 @cloudflare/sandbox 遷移到 @next 1.0 預覽版。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f96bff754e428838818017f75817f0f9428acd48",
+            "date": "2026-08-07T23:14:33+05:30",
+            "subject": "Add stable and @next Sandbox agent skills (#92)",
+            "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
+            "pathAtCommit": "skills/sandbox-migrate-to-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加一份技能文档，说明如何将 Cloudflare Sandbox 应用从稳定版 @cloudflare/sandbox 迁移到 @next 1.0 预览版。"
+          }
+        ]
+      }
+    }
+  }
+}

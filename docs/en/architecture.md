@@ -21,7 +21,11 @@ flowchart LR
     G --> N["scripts/lib/enrichment.mjs<br/>(schema, eligibility, freshness)"]
     H --> N
     N --> Q["scripts/enrich-summaries.mjs<br/>(Copilot + OpenCC)"]
+    G --> R["scripts/enrich-changelog.mjs<br/>(full clones, pinned traversal)"]
+    N --> R
     Q --> O["catalog/enrichment/<br/>summaries + changelog"]
+    R --> S["Copilot CLI<br/>(one bilingual call per skill)"]
+    S --> O
     G --> J["site/src/lib/catalog.ts<br/>(build-time loader)"]
     H --> J
     O --> P["site/src/lib/enrichment.ts<br/>(freshness-gated loader)"]
@@ -52,23 +56,34 @@ flowchart LR
    `<!-- CATALOG:START -->`/`<!-- INSTALL:START -->` blocks in the root
    `README.md` — never edited by hand (see
    [Skill management](skill-management.md#why-generated-outputs-cannot-be-edited-independently)).
-7. At build time, **`site/src/lib/catalog.ts`** reads the lock file for every
-   catalog route and reads a skill's history ledger for that skill's detail
-   timeline (see [Website](website.md)).
-8. **`scripts/lib/enrichment.mjs`** defines the shared sidecar schema,
+7. **`scripts/lib/enrichment.mjs`** defines the shared sidecar schema,
    eligibility rules, freshness keys, and locale signatures.
    **`scripts/enrich-summaries.mjs`** makes one Copilot request per eligible
    skill for English and Traditional Chinese, derives Simplified Chinese with
    OpenCC, and writes each artifact atomically. The first complete summary set
    is validated before the generator enables summaries in
    `catalog/enrichment/manifest.json`.
-9. **`site/src/lib/enrichment.ts`** reads only the requested locale from a
+8. **`scripts/enrich-changelog.mjs`** filters eligible skills from the lock
+   before any per-skill data access, skips fully cached upstream groups, and
+   full-clones each remaining distinct upstream once. It traverses each
+   `SKILL.md` through the exact pinned commit with NUL-delimited, no-merge,
+   rename-aware Git history. Copy history is crossed only when a later source
+   deletion proves a migration; otherwise the artifact records truncation.
+   Every commit patch is restricted to the tracked path (or explicit
+   transition pair) before one bilingual Copilot request is made per skill.
+9. At build time, **`site/src/lib/catalog.ts`** reads the lock file for every
+   catalog route and reads a skill's registry-release history ledger for its
+   History timeline (see [Website](website.md)).
+10. **`site/src/lib/enrichment.ts`** reads only the requested locale from a
    fresh, schema-valid sidecar. Restricted or tombstoned skills are rejected
-   before a sidecar path is touched. A missing artifact, stale artifact, or
+   before a sidecar path is touched; orphan skills are also rejected for
+   changelogs. A missing artifact, stale artifact, or
    missing requested locale returns the caller's existing fallback. The
    mandatory manifest and any artifact that exists must parse and validate;
    unexpected I/O or schema failures stop the build.
-10. The built site (including its Pagefind search index) deploys to **GitHub
+11. Skill pages render changelog data as a separate Upstream changes timeline;
+    upstream commits are never conflated with registry releases.
+12. The built site (including its Pagefind search index) deploys to **GitHub
    Pages**.
 
 `node scripts/validate.mjs` cuts across every stage: it walks the whole
@@ -83,11 +98,12 @@ every artifact in an existing kind directory must be schema-valid and
 path-safe, and artifacts cannot refer to skills that are restricted,
 tombstoned, or absent from the lock. An enabled kind must also have its
 directory. Missing and stale artifacts pass. Publishing uses
-`npm run validate:enrichment -- --strict` when releasing a complete enrichment
-set; the summary generator applies the same completeness gate before first
-enablement. Strict validation requires the artifact set to exactly match the
-eligible skills and every artifact to be fresh. Routine registry sync and site
-fallback behavior remain decoupled, so a legitimate upstream swap is not
+`npm run validate:enrichment -- --strict`,
+which additionally requires the artifact set to exactly match the eligible
+skills, every artifact to be fresh, and changelog locale signatures to match
+the current prompt/model/converter/generator contract. Both generators apply
+the same completeness gate before first enablement. Routine registry sync and
+site fallback behavior remain decoupled, so a legitimate upstream swap is not
 rolled back merely because optional sidecars have not caught up.
 
 ## Enrichment sidecar contract
@@ -148,6 +164,12 @@ receive changelogs. Each locale signature hashes the locale, schema version,
 producer, prompt ID, prompt hash, model or converter version, mandatory
 generator version, and the pinned Copilot CLI contract. The generator version
 is the explicit cache invalidation control for logic-only changes.
+
+Changelog locale content contains a deterministic newest-first `commits`
+array. Each entry records the upstream SHA, author date, untranslated subject,
+exact commit URL, `pathAtCommit`, resolution method, localized summary, and an
+auditable rename/copy transition when applicable. A still-live copy source
+adds `truncatedAt` instead of inheriting unrelated source history.
 
 `scripts/lib/localization.mjs` is the single deterministic Chinese conversion
 boundary. It uses `opencc-js` with the Taiwan-phrases-to-Simplified

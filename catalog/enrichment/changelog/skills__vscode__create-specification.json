@@ -1,0 +1,330 @@
+{
+  "path": "skills/vscode/create-specification",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9fb8dd4198a8e83ebdb538a1042c54b77061cffb1f065fe306ba3aa644d27e3a",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/create-specification",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "421418928715158da3610571cb9e9cbb18d4747d",
+            "date": "2026-08-06T22:01:43-04:00",
+            "subject": "fix: repair broken skill references, fence nesting, and invisible unicode (#2568)",
+            "url": "https://github.com/github/awesome-copilot/commit/421418928715158da3610571cb9e9cbb18d4747d",
+            "pathAtCommit": "skills/create-specification/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the specification path reference to use inline code `/spec/` instead of a Markdown link."
+          },
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/create-specification/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C094",
+              "sourcePath": "prompts/create-specification.prompt.md",
+              "destinationPath": "skills/create-specification/SKILL.md"
+            },
+            "summary": "Added `SKILL.md` with instructions and a Markdown template for creating AI-ready specification files."
+          },
+          {
+            "sha": "531b5118864d33e848863e415cb326ab532f8c77",
+            "date": "2026-01-12T14:07:00-05:00",
+            "subject": "fetch -> web/fetch everywhere",
+            "url": "https://github.com/github/awesome-copilot/commit/531b5118864d33e848863e415cb326ab532f8c77",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced `fetch` with `web/fetch` in the prompt tool list."
+          },
+          {
+            "sha": "5afc90e633da52f255abe1fa45da5d2797c8f896",
+            "date": "2026-01-12T14:03:48-05:00",
+            "subject": "Revert \"fetch -> web/fetch for everything\"",
+            "url": "https://github.com/github/awesome-copilot/commit/5afc90e633da52f255abe1fa45da5d2797c8f896",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced `web/fetch` with `fetch` in the prompt tool list."
+          },
+          {
+            "sha": "ca790b171619f827da54e647dab9a2c4a8a5a1bb",
+            "date": "2026-01-12T14:00:22-05:00",
+            "subject": "fetch -> web/fetch for everything",
+            "url": "https://github.com/github/awesome-copilot/commit/ca790b171619f827da54e647dab9a2c4a8a5a1bb",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced `fetch` with `web/fetch` in the prompt tool list."
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the front matter field from `mode` to `agent`."
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Updated several prompt tool names to their namespaced forms in the front matter tool list."
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the `editFiles` tool entry to `edit/editFiles` in the tool list."
+          },
+          {
+            "sha": "5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
+            "date": "2025-10-07T20:37:46-04:00",
+            "subject": "Fix code block formatting in specification prompt (#285)",
+            "url": "https://github.com/github/awesome-copilot/commit/5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Indented the example code block under the Examples & Edge Cases section."
+          },
+          {
+            "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
+            "date": "2025-07-07T18:17:09+12:00",
+            "subject": "Add 18 new prompts files (#56)",
+            "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added the create-specification prompt file with instructions and a specification template."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "421418928715158da3610571cb9e9cbb18d4747d",
+            "date": "2026-08-06T22:01:43-04:00",
+            "subject": "fix: repair broken skill references, fence nesting, and invisible unicode (#2568)",
+            "url": "https://github.com/github/awesome-copilot/commit/421418928715158da3610571cb9e9cbb18d4747d",
+            "pathAtCommit": "skills/create-specification/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將規格儲存路徑的參照改為使用行內程式碼 `/spec/`，而非 Markdown 連結。"
+          },
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/create-specification/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C094",
+              "sourcePath": "prompts/create-specification.prompt.md",
+              "destinationPath": "skills/create-specification/SKILL.md"
+            },
+            "summary": "新增 `SKILL.md`，提供建立適合 AI 使用之規格文件的說明與 Markdown 範本。"
+          },
+          {
+            "sha": "531b5118864d33e848863e415cb326ab532f8c77",
+            "date": "2026-01-12T14:07:00-05:00",
+            "subject": "fetch -> web/fetch everywhere",
+            "url": "https://github.com/github/awesome-copilot/commit/531b5118864d33e848863e415cb326ab532f8c77",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將提示工具清單中的 `fetch` 改為 `web/fetch`。"
+          },
+          {
+            "sha": "5afc90e633da52f255abe1fa45da5d2797c8f896",
+            "date": "2026-01-12T14:03:48-05:00",
+            "subject": "Revert \"fetch -> web/fetch for everything\"",
+            "url": "https://github.com/github/awesome-copilot/commit/5afc90e633da52f255abe1fa45da5d2797c8f896",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將提示工具清單中的 `web/fetch` 改回 `fetch`。"
+          },
+          {
+            "sha": "ca790b171619f827da54e647dab9a2c4a8a5a1bb",
+            "date": "2026-01-12T14:00:22-05:00",
+            "subject": "fetch -> web/fetch for everything",
+            "url": "https://github.com/github/awesome-copilot/commit/ca790b171619f827da54e647dab9a2c4a8a5a1bb",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將提示工具清單中的 `fetch` 改為 `web/fetch`。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 front matter 欄位從 `mode` 更名為 `agent`。"
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 front matter 工具清單中的多個提示工具名稱更新為命名空間形式。"
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將工具清單中的 `editFiles` 項目更名為 `edit/editFiles`。"
+          },
+          {
+            "sha": "5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
+            "date": "2025-10-07T20:37:46-04:00",
+            "subject": "Fix code block formatting in specification prompt (#285)",
+            "url": "https://github.com/github/awesome-copilot/commit/5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將「Examples & Edge Cases」段落下的範例程式碼區塊改為縮排格式。"
+          },
+          {
+            "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
+            "date": "2025-07-07T18:17:09+12:00",
+            "subject": "Add 18 new prompts files (#56)",
+            "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "新增 create-specification 提示檔，內含說明與規格文件範本。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "421418928715158da3610571cb9e9cbb18d4747d",
+            "date": "2026-08-06T22:01:43-04:00",
+            "subject": "fix: repair broken skill references, fence nesting, and invisible unicode (#2568)",
+            "url": "https://github.com/github/awesome-copilot/commit/421418928715158da3610571cb9e9cbb18d4747d",
+            "pathAtCommit": "skills/create-specification/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将规格保存路径的参照改为使用行内代码 `/spec/`，而非 Markdown 链接。"
+          },
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/create-specification/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C094",
+              "sourcePath": "prompts/create-specification.prompt.md",
+              "destinationPath": "skills/create-specification/SKILL.md"
+            },
+            "summary": "添加 `SKILL.md`，提供创建适合 AI 使用之规格文档的说明与 Markdown 范本。"
+          },
+          {
+            "sha": "531b5118864d33e848863e415cb326ab532f8c77",
+            "date": "2026-01-12T14:07:00-05:00",
+            "subject": "fetch -> web/fetch everywhere",
+            "url": "https://github.com/github/awesome-copilot/commit/531b5118864d33e848863e415cb326ab532f8c77",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将提示工具清单中的 `fetch` 改为 `web/fetch`。"
+          },
+          {
+            "sha": "5afc90e633da52f255abe1fa45da5d2797c8f896",
+            "date": "2026-01-12T14:03:48-05:00",
+            "subject": "Revert \"fetch -> web/fetch for everything\"",
+            "url": "https://github.com/github/awesome-copilot/commit/5afc90e633da52f255abe1fa45da5d2797c8f896",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将提示工具清单中的 `web/fetch` 改回 `fetch`。"
+          },
+          {
+            "sha": "ca790b171619f827da54e647dab9a2c4a8a5a1bb",
+            "date": "2026-01-12T14:00:22-05:00",
+            "subject": "fetch -> web/fetch for everything",
+            "url": "https://github.com/github/awesome-copilot/commit/ca790b171619f827da54e647dab9a2c4a8a5a1bb",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将提示工具清单中的 `fetch` 改为 `web/fetch`。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 front matter 字段从 `mode` 更名为 `agent`。"
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 front matter 工具清单中的多个提示工具名称更新为命名空间形式。"
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将工具清单中的 `editFiles` 项目更名为 `edit/editFiles`。"
+          },
+          {
+            "sha": "5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
+            "date": "2025-10-07T20:37:46-04:00",
+            "subject": "Fix code block formatting in specification prompt (#285)",
+            "url": "https://github.com/github/awesome-copilot/commit/5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将「Examples & Edge Cases」段落下的范例代码区块改为缩进格式。"
+          },
+          {
+            "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
+            "date": "2025-07-07T18:17:09+12:00",
+            "subject": "Add 18 new prompts files (#56)",
+            "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
+            "pathAtCommit": "prompts/create-specification.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "添加 create-specification 提示档，内含说明与规格文档范本。"
+          }
+        ]
+      }
+    }
+  }
+}

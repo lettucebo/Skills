@@ -1,0 +1,141 @@
+{
+  "path": "skills/azure/azure-resource-health-diagnose",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:15d76d9c53429aa7503a385fea2d487f8eba20ff232dd8e26392278b4c36d206",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/azure-resource-health-diagnose",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/azure-resource-health-diagnose/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C099",
+              "sourcePath": "prompts/azure-resource-health-diagnose.prompt.md",
+              "destinationPath": "skills/azure-resource-health-diagnose/SKILL.md"
+            },
+            "summary": "Added `skills/azure-resource-health-diagnose/SKILL.md`, introducing the Azure Resource Health & Issue Diagnosis skill workflow with prerequisites, diagnostic steps, remediation planning, and reporting guidance."
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the frontmatter field from `mode` to `agent` in `prompts/azure-resource-health-diagnose.prompt.md`."
+          },
+          {
+            "sha": "ec7b16c56832ed084b1cbb60af08b34948a5e00e",
+            "date": "2025-07-08T05:03:21+03:00",
+            "subject": "Add Azure Resource Health & Issue Diagnosis prompt (#60)",
+            "url": "https://github.com/github/awesome-copilot/commit/ec7b16c56832ed084b1cbb60af08b34948a5e00e",
+            "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added `prompts/azure-resource-health-diagnose.prompt.md`, defining the Azure Resource Health & Issue Diagnosis prompt workflow for assessing resource health, analyzing logs and telemetry, and planning remediation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/azure-resource-health-diagnose/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C099",
+              "sourcePath": "prompts/azure-resource-health-diagnose.prompt.md",
+              "destinationPath": "skills/azure-resource-health-diagnose/SKILL.md"
+            },
+            "summary": "新增 `skills/azure-resource-health-diagnose/SKILL.md`，加入 Azure Resource Health & Issue Diagnosis 技能工作流程，包含先決條件、診斷步驟、補救規劃與報告指引。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 `prompts/azure-resource-health-diagnose.prompt.md` 的 frontmatter 欄位由 `mode` 更名為 `agent`。"
+          },
+          {
+            "sha": "ec7b16c56832ed084b1cbb60af08b34948a5e00e",
+            "date": "2025-07-08T05:03:21+03:00",
+            "subject": "Add Azure Resource Health & Issue Diagnosis prompt (#60)",
+            "url": "https://github.com/github/awesome-copilot/commit/ec7b16c56832ed084b1cbb60af08b34948a5e00e",
+            "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `prompts/azure-resource-health-diagnose.prompt.md`，定義 Azure Resource Health & Issue Diagnosis 提示工作流程，用於評估資源健康狀態、分析記錄與遙測，並規劃補救措施。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/azure-resource-health-diagnose/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C099",
+              "sourcePath": "prompts/azure-resource-health-diagnose.prompt.md",
+              "destinationPath": "skills/azure-resource-health-diagnose/SKILL.md"
+            },
+            "summary": "添加 `skills/azure-resource-health-diagnose/SKILL.md`，加入 Azure Resource Health & Issue Diagnosis 技能工作流程，包含先决条件、诊断步骤、补救规划与报告指引。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 `prompts/azure-resource-health-diagnose.prompt.md` 的 frontmatter 字段由 `mode` 更名为 `agent`。"
+          },
+          {
+            "sha": "ec7b16c56832ed084b1cbb60af08b34948a5e00e",
+            "date": "2025-07-08T05:03:21+03:00",
+            "subject": "Add Azure Resource Health & Issue Diagnosis prompt (#60)",
+            "url": "https://github.com/github/awesome-copilot/commit/ec7b16c56832ed084b1cbb60af08b34948a5e00e",
+            "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `prompts/azure-resource-health-diagnose.prompt.md`，定义 Azure Resource Health & Issue Diagnosis 提示工作流程，用于评估资源健康状态、分析记录与遥测，并规划补救措施。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "path": "skills/vscode/refactor",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c47685f03d849aabf01b34038caa7599f4a57ed42861a81c4e3ec9746708a98d",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/refactor",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "bb146c059f3c9818cbaa79fe366d013fe487bede",
+            "date": "2026-02-02T00:00:31-06:00",
+            "subject": "fix: Correct spelling errors found by Codespell",
+            "url": "https://github.com/github/awesome-copilot/commit/bb146c059f3c9818cbaa79fe366d013fe487bede",
+            "pathAtCommit": "skills/refactor/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Corrected the heading \"EVEN BETER\" to \"EVEN BETTER\" in skills/refactor/SKILL.md."
+          },
+          {
+            "sha": "e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "date": "2026-01-23T00:18:52+07:00",
+            "subject": "Add 8 new skills for development tools and workflows",
+            "url": "https://github.com/github/awesome-copilot/commit/e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "pathAtCommit": "skills/refactor/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added skills/refactor/SKILL.md with refactoring guidance, examples, patterns, steps, and a checklist."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "bb146c059f3c9818cbaa79fe366d013fe487bede",
+            "date": "2026-02-02T00:00:31-06:00",
+            "subject": "fix: Correct spelling errors found by Codespell",
+            "url": "https://github.com/github/awesome-copilot/commit/bb146c059f3c9818cbaa79fe366d013fe487bede",
+            "pathAtCommit": "skills/refactor/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 skills/refactor/SKILL.md 中的標題「EVEN BETER」更正為「EVEN BETTER」。"
+          },
+          {
+            "sha": "e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "date": "2026-01-23T00:18:52+07:00",
+            "subject": "Add 8 new skills for development tools and workflows",
+            "url": "https://github.com/github/awesome-copilot/commit/e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "pathAtCommit": "skills/refactor/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 skills/refactor/SKILL.md，加入重構指引、範例、模式、步驟與檢查清單。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "bb146c059f3c9818cbaa79fe366d013fe487bede",
+            "date": "2026-02-02T00:00:31-06:00",
+            "subject": "fix: Correct spelling errors found by Codespell",
+            "url": "https://github.com/github/awesome-copilot/commit/bb146c059f3c9818cbaa79fe366d013fe487bede",
+            "pathAtCommit": "skills/refactor/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 skills/refactor/SKILL.md 中的标题「EVEN BETER」更正为「EVEN BETTER」。"
+          },
+          {
+            "sha": "e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "date": "2026-01-23T00:18:52+07:00",
+            "subject": "Add 8 new skills for development tools and workflows",
+            "url": "https://github.com/github/awesome-copilot/commit/e24be77e6f203409cf99ab7d5a67e1540cb386d3",
+            "pathAtCommit": "skills/refactor/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 skills/refactor/SKILL.md，加入重构指引、范例、模式、步骤与检查清单。"
+          }
+        ]
+      }
+    }
+  }
+}

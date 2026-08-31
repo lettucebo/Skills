@@ -17,6 +17,7 @@ import type {
   LlmLocaleArtifact,
   OpenccLocaleArtifact,
   SkillSummaryContent,
+  SkillChangelogContent,
 } from '../../../scripts/lib/enrichment.mjs';
 import type { LockSkillEntry } from './catalog.ts';
 
@@ -29,7 +30,12 @@ export type {
   LlmLocaleArtifact,
   OpenccLocaleArtifact,
   SkillSummaryContent,
+  SkillChangelogContent,
 };
+
+export function formatChangelogDate(value: string): string {
+  return new Date(value).toISOString().slice(0, 10);
+}
 
 export interface EnrichmentLoadRequest<TContent extends JsonObject> {
   repoRoot: string;
@@ -121,7 +127,11 @@ export async function loadEnrichmentLocale<TContent extends JsonObject>({
   locale,
   fallback,
 }: EnrichmentLoadRequest<TContent>): Promise<TContent> {
-  if (skill.redistributable === false || skill.category === 'removed') {
+  if (
+    skill.redistributable === false ||
+    skill.category === 'removed' ||
+    (kind === 'changelog' && skill.upstream === null)
+  ) {
     return fallback;
   }
 

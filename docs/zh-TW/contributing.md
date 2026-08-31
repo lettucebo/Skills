@@ -49,14 +49,39 @@ npm run validate:enrichment
 ```
 
 **Enrichment 嚴格驗證器** — 在預設安全規則之外，加入只供發布使用的完整性與
-freshness 檢查：
+freshness 檢查。Changelog locale signature 也必須符合釘選的 prompt、model、
+converter 與 generator version：
 
 ```bash
 npm run validate:enrichment -- --strict
 ```
 
-**Enrichment 修剪** — 確定性刪除其 skill 已變成 restricted、變成 tombstone，或
-已離開 lock 的 artifact。這個指令絕不呼叫 LLM 或網路：
+**Changelog enrichment** — 為每個符合資格的 mapped skill 產生完整 history。
+Generator 會對每個不同上游只 clone 一次、在各 skill 的 lockfile 釘選 commit
+停止、以單次 Copilot 呼叫送出該 skill 所有 path-scoped commit patch、寫入 `en`
+與 `zh-tw`、用 OpenCC 推導 `zh-cn`，並在完整集合通過 strict validation 後才修剪
+禁止 artifact 並啟用 manifest：
+
+```bash
+npm run enrich:changelog
+```
+
+可用路徑或唯一 skill 名稱執行針對性 cache warm-up 或診斷。針對性產生不會啟用
+全域 manifest：
+
+```bash
+npm run enrich:changelog -- --skill skills/github/github-issues
+```
+
+**Changelog 檢查** — 不執行 clone、Copilot 呼叫或寫入；只驗證已啟用 artifact
+集合、完整來源證明 freshness tuple 與 locale signature：
+
+```bash
+npm run enrich:changelog -- --check
+```
+
+**Enrichment 修剪** — 確定性刪除其 skill 對該 artifact 種類已不符合資格、變成
+tombstone，或已離開 lock 的 artifact。這個指令絕不呼叫 LLM 或網路：
 
 ```bash
 npm run enrich:prune
@@ -156,9 +181,9 @@ Tier 1 是原本位於 atomic baseline/update 交易中的 `validateRepository`�
 預設模式（`npm run validate:enrichment`）永遠會擋下現有目錄中的禁止或格式錯誤
 artifact，包括 skill 已離開 lock 的 artifact；但停用種類不要求目錄存在，也不
 要求完整 artifact 集合。符合資格的 artifact 缺少或過期仍會通過。Tier 2 strict
-只對已啟用種類再加入 artifact exact-set 完整性與 freshness。第一次啟用，以及
-發布完整 enrichment artifact 更新時都要執行；日常 registry sync 仍可依賴網站
-對過期／缺少 artifact 的 fallback。
+只對已啟用種類再加入 artifact exact-set 完整性與 freshness、驗證目前 changelog
+locale signature，並保留給第一次啟用與發布完整 enrichment artifact 更新時使用。
+日常 registry sync 仍可依賴網站對過期／缺少 artifact 的 fallback。
 
 資格會依種類分別計算：summary 包含所有非 tombstone、非 restricted skill；
 changelog 另外要求 `upstream` 非 null。Mapped skill 的 freshness 使用轉換前
