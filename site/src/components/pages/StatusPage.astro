@@ -1,0 +1,209 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {
+  loadCatalog,
+  computeBaselineVerification,
+  getRestrictedSkills,
+  RELEASE_VERSION,
+  RELEASE_PUBLISHED,
+} from '../../lib/catalog';
+import {
+  BUILD_TIME,
+  BUILD_COMMIT_SHORT,
+  BUILD_COMMIT_URL,
+  formatUtc,
+} from '../../lib/build-info';
+import { localizedPath, t, type Locale } from '../../i18n';
+import path from 'node:path';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const repoRoot = path.resolve(process.cwd(), '..');
+const catalog = await loadCatalog(repoRoot);
+const counts = catalog.counts;
+
+const buildTimeLabel = formatUtc(BUILD_TIME);
+const registrySyncedLabel = formatUtc(catalog.generatedAt);
+
+const baseline = computeBaselineVerification(catalog.skills);
+const baselineDetail = baseline.mapped === 0
+  ? t(locale, 'noMappedSkills')
+  : baseline.allVerified
+    ? t(locale, 'allMappedVerified')
+    : t(
+        locale,
+        baseline.unverified === 1 ? 'unverifiedMappedOne' : 'unverifiedMappedOther',
+        { count: baseline.unverified },
+      );
+const restrictedSkills = getRestrictedSkills(catalog.skills)
+  .slice()
+  .sort((a, b) => a.path.localeCompare(b.path));
+
+// Collect upstream repositories and their commits
+const upstreamRepos = new Map<string, Set<string>>();
+for (const skill of catalog.skills) {
+  if (skill.upstreamRepo && skill.upstreamCommit) {
+    if (!upstreamRepos.has(skill.upstreamRepo)) {
+      upstreamRepos.set(skill.upstreamRepo, new Set());
+    }
+    upstreamRepos.get(skill.upstreamRepo)!.add(skill.upstreamCommit);
+  }
+}
+
+const orphanSkills = catalog.skills.filter((s) => s.isOrphan);
+---
+<Layout title={t(locale, 'statusPageTitle')} locale={locale}>
+  <h1 style="margin-bottom:24px;">{t(locale, 'statusPageHeading')}</h1>
+
+  <div class="status-section">
+    <h2>{t(locale, 'release')}</h2>
+    <p>
+      {t(locale, 'releaseVersion')}: <strong>v{RELEASE_VERSION}</strong>
+      {!RELEASE_PUBLISHED && <span class="badge badge--pending" style="margin-left:8px;">{t(locale, 'releasePending')}</span>}
+    </p>
+    <p style="color:var(--cp-muted-text);font-size:0.875rem;margin-top:8px;">
+      {RELEASE_PUBLISHED
+        ? t(locale, 'releasePublished', { version: RELEASE_VERSION })
+        : t(locale, 'releaseUnpublished', { version: RELEASE_VERSION })
+      }
+    </p>
+  </div>
+
+  <div class="status-section">
+    <h2>{t(locale, 'buildInformation')}</h2>
+    <p>
+      {t(locale, 'siteBuiltLabel')}: <strong><time datetime={BUILD_TIME}>{buildTimeLabel}</time></strong>{
+        BUILD_COMMIT_SHORT && BUILD_COMMIT_URL && (
+          <Fragment>
+            {` ${t(locale, 'fromCommit')} `}
+            <a href={BUILD_COMMIT_URL} rel="noopener noreferrer"><code>{BUILD_COMMIT_SHORT}</code></a>
+          </Fragment>
+        )
+      }
+    </p>
+    <p style="color:var(--cp-muted-text);font-size:0.875rem;margin-top:8px;">
+      {t(locale, 'registrySynced')}: <time datetime={catalog.generatedAt}>{registrySyncedLabel}</time>.
+      {' '}{t(locale, 'registrySyncedDetail')}
+    </p>
+  </div>
+
+  <div class="status-section">
+    <h2>{t(locale, 'counts')}</h2>
+    <div class="status-grid">
+      <div class="status-stat">
+        <div class="stat-value">{counts.total}</div>
+        <div class="stat-label">{t(locale, 'totalSkills')}</div>
+      </div>
+      <div class="status-stat">
+        <div class="stat-value">{counts.mapped}</div>
+        <div class="stat-label">{t(locale, 'mapped')}</div>
+      </div>
+      <div class="status-stat">
+        <div class="stat-value">{counts.orphan}</div>
+        <div class="stat-label">{t(locale, 'frozenOrphans')}</div>
+      </div>
+      <div class="status-stat">
+        <div class="stat-value">{counts.local}</div>
+        <div class="stat-label">{t(locale, 'statusLocal')}</div>
+      </div>
+      <div class="status-stat">
+        <div class="stat-value">{counts.restricted}</div>
+        <div class="stat-label">{t(locale, 'statusRestricted')}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="status-section">
+    <h2>{t(locale, 'baselineVerification')}</h2>
+    <p>
+      <strong>{baseline.verified}/{baseline.mapped}</strong> {t(locale, 'verifiedBaselines')}
+    </p>
+    <p style="color:var(--cp-muted-text);font-size:0.875rem;margin-top:8px;">
+      {baselineDetail}
+    </p>
+  </div>
+
+  <div class="status-section">
+    <h2>{t(locale, 'upstreamRepositories')}</h2>
+    <div class="table-scroll" role="region" aria-label={t(locale, 'upstreamRepositories')} tabindex="0">
+      <table class="skill-table">
+        <thead>
+          <tr>
+            <th>{t(locale, 'repository')}</th>
+            <th>{t(locale, 'resolvedCommits')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[...upstreamRepos.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([repo, commits]) => (
+            <tr>
+              <td>
+                <a href={`https://github.com/${repo}`} rel="noopener noreferrer">{repo}</a>
+              </td>
+              <td>
+                {[...commits].map((c) => (
+                  <code style="margin-right:8px;">{c.slice(0, 7)}</code>
+                ))}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="status-section">
+    <h2>{t(locale, 'frozenOrphans')} ({orphanSkills.length})</h2>
+    {orphanSkills.length > 0 ? (
+      <div class="table-scroll" role="region" aria-label={t(locale, 'frozenOrphanSkills')} tabindex="0">
+        <table class="skill-table">
+          <thead>
+            <tr>
+              <th>{t(locale, 'skill')}</th>
+              <th>{t(locale, 'source')}</th>
+              <th>{t(locale, 'version')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orphanSkills.map((skill) => (
+              <tr>
+                <td>
+                  <a href={localizedPath(locale, `skills/${skill.source}/${skill.slug}`)}>{skill.name}</a>
+                </td>
+                <td>{skill.source}</td>
+                <td>v{skill.version}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ) : (
+      <p>{t(locale, 'noOrphanSkills')}</p>
+    )}
+  </div>
+
+  <div class="status-section">
+    <h2>{t(locale, 'restrictedSkills')} ({restrictedSkills.length})</h2>
+    <p style="color:var(--cp-muted-text);font-size:0.875rem;margin-bottom:8px;">
+      {t(locale, 'restrictedDetail')}
+    </p>
+    <ul>
+      {restrictedSkills.map((skill) => (
+        <li style="font-size:0.875rem;margin-bottom:4px;">
+          <code>{skill.path}</code>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="status-section">
+    <h2>{t(locale, 'knownLimitations')}</h2>
+    <ul style="padding-left:20px;">
+      <li style="margin-bottom:8px;">
+        <strong>unadopted</strong> {t(locale, 'unadoptedLimitation')}
+      </li>
+    </ul>
+  </div>
+</Layout>

@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 
 import {
   assertValidEnrichmentArtifact,
@@ -19,6 +20,7 @@ import type {
   SkillSummaryContent,
   SkillChangelogContent,
 } from '../../../scripts/lib/enrichment.mjs';
+import { repositoryWebUrl } from '../../../scripts/lib/git-source.mjs';
 import type { LockSkillEntry } from './catalog.ts';
 
 export type {
@@ -43,6 +45,9 @@ export interface EnrichmentLoadRequest<TContent extends JsonObject> {
   skill: LockSkillEntry;
   locale: EnrichmentLocale;
   fallback: TContent;
+  fallbackFromArtifact?: (
+    artifact: EnrichmentArtifact<TContent>,
+  ) => TContent;
 }
 
 function parseJson(text: string, filePath: string): unknown {
@@ -90,6 +95,158 @@ function isOnlyMissingLocaleError(
   return error.params.missingProperty === locale;
 }
 
+function isRecoverableGeneratedContentError(
+  error: unknown,
+  kind: EnrichmentArtifactKind,
+  locale: EnrichmentLocale,
+): boolean {
+  if (typeof error !== 'object' || error === null) {
+    return false;
+  }
+  const instancePath =
+    'instancePath' in error && typeof error.instancePath === 'string'
+      ? error.instancePath
+      : '';
+  const keyword =
+    'keyword' in error && typeof error.keyword === 'string'
+      ? error.keyword
+      : '';
+  const params =
+    'params' in error && typeof error.params === 'object' && error.params !== null
+      ? error.params
+      : {};
+  const contentPath = `/locales/${locale}/content`;
+  const isValueError = keyword === 'type' || keyword === 'minLength';
+
+  if (kind === 'summaries') {
+    const fields = ['purpose', 'whenToUse', 'outputs'];
+    if (
+      isValueError &&
+      fields.some((field) => instancePath === `${contentPath}/${field}`)
+    ) {
+      return true;
+    }
+    return (
+      keyword === 'required' &&
+      instancePath === contentPath &&
+      'missingProperty' in params &&
+      fields.includes(String(params.missingProperty))
+    );
+  }
+
+  if (
+    isValueError &&
+    new RegExp(`^${contentPath}/commits/\\d+/summary$`).test(instancePath)
+  ) {
+    return true;
+  }
+  return (
+    keyword === 'required' &&
+    new RegExp(`^${contentPath}/commits/\\d+$`).test(instancePath) &&
+    'missingProperty' in params &&
+    params.missingProperty === 'summary'
+  );
+}
+
+function hasOnlyRecoverableGeneratedContentErrors(
+  errors: readonly unknown[],
+  kind: EnrichmentArtifactKind,
+  locale: EnrichmentLocale,
+): boolean {
+  return (
+    errors.length > 0 &&
+    errors.every((error) =>
+      isRecoverableGeneratedContentError(error, kind, locale)
+    )
+  );
+}
+
+function otherwiseValidWithoutRequestedLocale(
+  value: object,
+  kind: EnrichmentArtifactKind,
+  locale: EnrichmentLocale,
+): boolean {
+  const locales =
+    'locales' in value && typeof value.locales === 'object' && value.locales !== null
+      ? { ...value.locales }
+      : {};
+  delete (locales as Record<string, unknown>)[locale];
+  const validation = validateEnrichmentArtifact(kind, { ...value, locales });
+  return isOnlyMissingLocaleError(validation.errors, locale);
+}
+
+function withoutChangelogSummaries(content: SkillChangelogContent): unknown {
+  return {
+    commits: content.commits.map(({ summary: _summary, ...metadata }) => metadata),
+    ...(content.truncatedAt ? { truncatedAt: content.truncatedAt } : {}),
+  };
+}
+
+function hasSafeChangelogFallbackMetadata(
+  artifact: EnrichmentArtifact<SkillChangelogContent>,
+  skill: LockSkillEntry,
+): boolean {
+  if (!skill.upstream || !artifact.locales.en?.content) {
+    return false;
+  }
+
+  let expectedPrefix: string;
+  try {
+    expectedPrefix = `${repositoryWebUrl(skill.upstream.repository)}/commit/`;
+  } catch {
+    return false;
+  }
+  const localeArtifacts = Object.values(artifact.locales).filter(Boolean);
+  const englishMetadata = withoutChangelogSummaries(
+    artifact.locales.en.content,
+  );
+
+  for (const localeArtifact of localeArtifacts) {
+    const content = localeArtifact.content;
+    if (!isDeepStrictEqual(withoutChangelogSummaries(content), englishMetadata)) {
+      return false;
+    }
+
+    let previousTimestamp = Number.POSITIVE_INFINITY;
+    for (const commit of content.commits) {
+      if (commit.url !== `${expectedPrefix}${commit.sha}`) {
+        return false;
+      }
+      const timestamp = Date.parse(commit.date);
+      if (!Number.isFinite(timestamp) || timestamp > previousTimestamp) {
+        return false;
+      }
+      previousTimestamp = timestamp;
+    }
+  }
+
+  return true;
+}
+
+function artifactFallback<TContent extends JsonObject>(
+  kind: EnrichmentArtifactKind,
+  artifact: EnrichmentArtifact<TContent>,
+  skill: LockSkillEntry,
+  fallback: TContent,
+  fallbackFromArtifact:
+    | ((value: EnrichmentArtifact<TContent>) => TContent)
+    | undefined,
+): TContent {
+  if (!fallbackFromArtifact) {
+    return fallback;
+  }
+  if (
+    kind === 'changelog' &&
+    !hasSafeChangelogFallbackMetadata(
+      artifact as EnrichmentArtifact<SkillChangelogContent>,
+      skill,
+    )
+  ) {
+    throw new Error(`Unsafe changelog fallback metadata for ${skill.path}.`);
+  }
+  return fallbackFromArtifact(artifact);
+}
+
 async function readOptionalArtifact(filePath: string): Promise<string | null> {
   try {
     return await readFile(filePath, 'utf8');
@@ -126,6 +283,7 @@ export async function loadEnrichmentLocale<TContent extends JsonObject>({
   skill,
   locale,
   fallback,
+  fallbackFromArtifact,
 }: EnrichmentLoadRequest<TContent>): Promise<TContent> {
   if (
     skill.redistributable === false ||
@@ -152,17 +310,44 @@ export async function loadEnrichmentLocale<TContent extends JsonObject>({
   const value = parseJson(artifactText, artifactPath);
   assertArtifactPath(value, skill.path, artifactPath);
   const validation = validateEnrichmentArtifact(kind, value);
+  const artifact = value as EnrichmentArtifact<TContent>;
   if (!validation.valid) {
     if (isOnlyMissingLocaleError(validation.errors, locale)) {
-      return fallback;
+      if (!isArtifactFresh(kind, artifact, skill)) {
+        return fallback;
+      }
+      return artifactFallback(
+        kind,
+        artifact,
+        skill,
+        fallback,
+        fallbackFromArtifact,
+      );
+    }
+    if (
+      typeof value === 'object' &&
+      value !== null &&
+      hasOnlyRecoverableGeneratedContentErrors(validation.errors, kind, locale) &&
+      otherwiseValidWithoutRequestedLocale(value, kind, locale)
+    ) {
+      if (!isArtifactFresh(kind, artifact, skill)) {
+        return fallback;
+      }
+      return artifactFallback(
+        kind,
+        artifact,
+        skill,
+        fallback,
+        fallbackFromArtifact,
+      );
     }
     assertValidEnrichmentArtifact(kind, value);
   }
 
-  const artifact = value as EnrichmentArtifact<TContent>;
   if (!isArtifactFresh(kind, artifact, skill)) {
     return fallback;
   }
 
-  return artifact.locales[locale]?.content ?? fallback;
+  return artifact.locales[locale]?.content ??
+    artifactFallback(kind, artifact, skill, fallback, fallbackFromArtifact);
 }

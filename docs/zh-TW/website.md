@@ -20,9 +20,16 @@ npm --prefix site ci
 npm --prefix site run dev
 ```
 
-啟動 Astro 開發伺服器。由於 `astro.config.mjs` 設定了 `base: '/Skills'` 與
-`trailingSlash: 'always'`，每個路由都會在 `/Skills/` 前綴之下並帶有結尾斜線
-提供服務（例如 `/Skills/status/`），與已發布的 GitHub Pages URL 結構一致。
+啟動 Astro 開發伺服器。Astro 對 `en`、`zh-tw` 與 `zh-cn` 使用 prefix-all
+i18n 路由，同時保留 `base: '/Skills'` 與 `trailingSlash: 'always'`。因此每個
+在地化路由都包含網站 base、locale 與結尾斜線（例如 `/Skills/en/status/` 或
+`/Skills/zh-tw/skills/github/github-issues/`）。
+
+語言切換器使用原生連結，並保留目前的首頁、安裝、狀態、來源或 skill 邏輯路徑。
+明確選取的語言只會供舊版 `/Skills/` 入口使用，絕不覆蓋直接請求的在地化 URL。
+每個舊版無語言前綴路由都保留為靜態 redirect，並提供英文 meta refresh、
+canonical 與 anchor fallback；只有根 redirect 可在 JavaScript 執行時改用已儲存
+或瀏覽器語言。
 
 ## 建置與 Pagefind
 
@@ -31,8 +38,10 @@ npm --prefix site run build
 ```
 
 執行 `astro build`，接著 `postbuild` 步驟會自動執行
-`pagefind --site dist`，為目錄搜尋介面產生全文搜尋索引。輸出結果會放在
-`site/dist/`。
+`pagefind --site dist`，為目錄搜尋介面產生全文搜尋索引。Pagefind 會讀取各頁的
+`<html lang>`，分別產生英文、繁體中文與簡體中文索引。只有在地化 skill 頁以
+`data-pagefind-body` 選擇加入索引；舊版 redirect、目錄與狀態頁不會被索引。輸出
+結果會放在 `site/dist/`。
 
 ## 結構化 skill 摘要
 
@@ -42,9 +51,10 @@ npm --prefix site run build
 觸發描述。
 
 只有在 enrichment 已啟用，而且摘要成品與目前 lock 項目保持最新時，網站才會
-採用該摘要。若成品停用、遺失或過期，詳細頁面會省略摘要，目錄卡片則退回
-使用既有的 frontmatter 描述。受限制的 skill 會在讀取 enrichment 檔案或
-`SKILL.md` 內容之前就被排除。
+採用該摘要。每個在地化路由只請求對應的 enrichment locale。若該 locale 停用、
+遺失、過期或無效，詳細頁面會省略摘要，目錄卡片則退回使用未翻譯的既有
+frontmatter 描述；中文頁絕不退回英文生成內容。受限制的 skill 會在讀取
+enrichment 檔案或 `SKILL.md` 內容之前就被排除。
 
 ## 預覽
 
@@ -53,7 +63,8 @@ npm --prefix site run preview
 ```
 
 以相同的 `/Skills/` base path，提供已經建置好的 `site/dist/`（請先執行
-`build`），用來做貼近正式環境的本機檢查。
+`build`），用來做貼近正式環境的本機檢查。請開啟 `/Skills/en/` 等在地化路由，
+不要依賴舊版 redirect。
 
 ## 單元測試
 
@@ -100,12 +111,13 @@ npm --prefix site run test:e2e
 
 - **Upstream changes** 列出從最早到 lockfile 所釘選精確 commit 之間，每一個實際
   影響該 skill `SKILL.md` 的非 merge 上游 commit。每一筆都直接連到該 repository
-  的 commit，並使用 freshness 有效之 changelog sidecar 中的英文摘要。
+  的 commit、保留原始上游 subject，並使用目前路由對應 locale 的生成摘要。
 - **History** 維持原本來自 `catalog/history/*.json` 的 registry release 帳本，
   顯示這個 registry 何時採用該 skill 或調整其版本。
 
-兩者刻意不合併：前者描述上游 Git history，後者描述 registry release。若
-changelog enrichment 已停用、缺少、過期或該 skill 不符合資格，網站只會省略
+兩者刻意不合併：前者描述上游 Git history，後者描述 registry release。中文生成
+摘要缺少或無效時絕不退回英文；若仍有安全的 commit metadata，頁面只顯示原始
+subject 與 metadata，不顯示生成摘要。不符合資格或無可用 changelog 資料時則省略
 Upstream changes，既有的 History 仍會正常渲染。
 
 ## 網站上的受限制內容
@@ -113,7 +125,7 @@ Upstream changes，既有的 History 仍會正常渲染。
 受限制的 skill（見 [安裝方式](installation.md)）永遠不會渲染其 `SKILL.md`
 內容。受限制的來源與單一 skill 會抑制安裝指令；完整 registry 指令仍可使用，並會
 安裝受限制 skill，但網站不再於指令旁顯示頁面內（on-page）受限制內容警告 — 請透過
-`/status/` 或 lockfile 確認目前的受限制清單與授權（見
+`/Skills/zh-tw/status/`（或其他 locale）或 lockfile 確認目前的受限制清單與授權（見
 [系統架構](architecture.md#受限制內容隔離)）。
 Restricted 與 orphan 頁面也永遠不會讀取或渲染上游 changelog sidecar。
 

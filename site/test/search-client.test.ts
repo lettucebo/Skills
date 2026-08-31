@@ -27,7 +27,14 @@ const searchAstroPath = path.join(siteRoot, 'src', 'components', 'Search.astro')
 const fixturesBase = pathToFileURL(path.join(siteRoot, 'test-fixtures') + path.sep).href;
 const missingBase = pathToFileURL(path.join(siteRoot, 'test-fixtures', 'does-not-exist') + path.sep).href;
 
-const SCRIPT_RE = /<script define:vars=\{\{ base \}\}>([\s\S]*?)<\/script>/;
+const SCRIPT_RE = /<script define:vars=\{\{ base, clientMessages \}\}>([\s\S]*?)<\/script>/;
+const CLIENT_MESSAGES = {
+  noMatching: 'No matching skills found.',
+  resultFound: '{count} result found.',
+  resultsFound: '{count} results found.',
+  unavailableFilter: 'Full-text search is unavailable. Showing {count} filter match{suffix}.',
+  unavailableAll: 'Full-text search is unavailable. Showing all {count} skill{suffix}.',
+};
 
 const UNAVAILABLE_RE = /full-text search is unavailable/i;
 const NO_RESULTS = 'No matching skills found.';
@@ -207,6 +214,7 @@ function bootSearch(
   const factory = new Function(
     'document',
     'base',
+    'clientMessages',
     'console',
     'setTimeout',
     'clearTimeout',
@@ -215,6 +223,7 @@ function bootSearch(
   factory(
     documentStub,
     base,
+    CLIENT_MESSAGES,
     consoleStub,
     timers.setTimeout ?? setTimeout,
     timers.clearTimeout ?? clearTimeout,

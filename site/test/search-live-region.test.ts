@@ -16,7 +16,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, '..');
 const componentPath = path.join(siteRoot, 'src', 'components', 'Search.astro');
 const component = fs.readFileSync(componentPath, 'utf8');
-const distIndex = path.join(siteRoot, 'dist', 'index.html');
+const distIndex = path.join(siteRoot, 'dist', 'en', 'index.html');
 
 /** Extracts the opening tag of an element by id. */
 function openingTag(html: string, id: string): string {
@@ -60,12 +60,12 @@ test('LR3: the empty-match branch announces the no-results status', () => {
   const script = component.slice(component.indexOf('<script'));
   assert.match(
     script,
-    /No matching skills found\./,
-    'the no-results message must be preserved and driven by the visible count',
+    /clientMessages\.noMatching/,
+    'the localized no-results message must be driven by the visible count',
   );
   assert.match(
     script,
-    /visible === 0[\s\S]{0,80}No matching skills found\./,
+    /visible === 0[\s\S]{0,120}clientMessages\.noMatching/,
     'zero visible cards must announce the no-results message',
   );
 });

@@ -121,6 +121,27 @@ npm run build
 npx playwright test search.spec.ts
 ```
 
+## Site translation conventions
+
+All site-owned user-visible text belongs in the typed dictionaries under
+`site/src/i18n/`; do not add locale ternaries or duplicate translated literals
+inside page components or client scripts. Add every key to `en`, `zh-tw`, and
+`zh-cn` together. Keep skill names, source names, raw `SKILL.md` descriptions
+and bodies, install commands, URLs, technical proper nouns, and original
+upstream commit subjects unchanged.
+
+Use `localizedPath()` and the route-preserving locale helper for internal
+links so `/Skills/`, the locale prefix, and trailing slash remain consistent.
+Localized dynamic routes must expand all supported locales and call
+`assertLocale()` so unsupported values fail closed. Legacy route files remain
+small redirect wrappers and must preserve the exact English logical target.
+
+When changing i18n behavior, run the focused locale/path and route tests, then
+build before running the complete site unit suite so route counts and Pagefind
+language indexes are checked against real output. Unit tests must consume the
+prebuilt `dist/`; the AST regression under `site/src/lib/` rejects any unit
+test that launches `npm run build`.
+
 ## Skill-affecting changes: run the smoke check
 
 Whenever you add a skill, rename a skill, or change how it is meant to be

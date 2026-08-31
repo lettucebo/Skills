@@ -245,6 +245,229 @@ test('changelog loader returns fresh English upstream commits', async () => {
   }
 });
 
+test('missing Chinese changelog locale keeps original commit metadata without English summary fallback', async () => {
+  const value = changelogArtifact();
+  delete (value.locales as Record<string, unknown>)['zh-tw'];
+  const root = await createFixture(value);
+  const changelogPath = path.join(
+    root,
+    'catalog',
+    'enrichment',
+    'changelog',
+    'skills__demo__alpha.json',
+  );
+
+  try {
+    await writeFile(
+      manifestPath(root),
+      JSON.stringify({
+        schemaVersion: 1,
+        enabled: { summaries: false, changelog: true },
+      }),
+    );
+    await mkdir(path.dirname(changelogPath), { recursive: true });
+    await writeFile(changelogPath, JSON.stringify(value));
+    await rm(artifactPath(root));
+
+    const result = await loadEnrichmentLocale({
+      repoRoot: root,
+      kind: 'changelog',
+      skill: skill(),
+      locale: 'zh-tw',
+      fallback: { commits: [] },
+      fallbackFromArtifact: (artifact) => ({
+        commits: artifact.locales.en.content.commits.map((commit) => {
+          const { summary: _summary, ...metadata } = commit;
+          return metadata;
+        }),
+      }),
+    });
+
+    assert.deepEqual(result, {
+      commits: [{
+        sha: skill().upstream!.commit,
+        date: '2026-08-30T00:00:00Z',
+        subject: 'Add alpha',
+        url: `https://github.com/owner/repository/commit/${skill().upstream!.commit}`,
+        pathAtCommit: 'skills/alpha/SKILL.md',
+        resolvedVia: 'direct',
+      }],
+    });
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('invalid requested Chinese summary content falls back without aborting the build', async () => {
+  const value = artifact();
+  value.locales['zh-tw'].content.purpose = '';
+  const root = await createFixture(value);
+  const fallback = summary('Raw frontmatter fallback');
+
+  try {
+    assert.equal(
+      await loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'summaries',
+        skill: skill(),
+        locale: 'zh-tw',
+        fallback,
+      }),
+      fallback,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('invalid changelog commit metadata stays fail-closed instead of becoming a translation fallback', async () => {
+  const value = changelogArtifact();
+  value.locales['zh-tw'].content.commits[0].url = 'javascript:alert(1)';
+  const root = await createFixture(value);
+  const changelogPath = path.join(
+    root,
+    'catalog',
+    'enrichment',
+    'changelog',
+    'skills__demo__alpha.json',
+  );
+
+  try {
+    await writeFile(
+      manifestPath(root),
+      JSON.stringify({
+        schemaVersion: 1,
+        enabled: { summaries: false, changelog: true },
+      }),
+    );
+    await mkdir(path.dirname(changelogPath), { recursive: true });
+    await writeFile(changelogPath, JSON.stringify(value));
+    await rm(artifactPath(root));
+
+    await assert.rejects(
+      loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'changelog',
+        skill: skill(),
+        locale: 'zh-tw',
+        fallback: { commits: [] },
+        fallbackFromArtifact: (artifact) => ({
+          commits: artifact.locales.en.content.commits.map((entry) => ({
+            ...entry,
+            summary: '',
+          })),
+        }),
+      }),
+      /must match pattern|schema/i,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('schema-valid changelog URLs outside the locked upstream stay fail-closed', async () => {
+  const value = changelogArtifact();
+  const commit = value.locales.en.content.commits[0].sha;
+  value.locales.en.content.commits[0].url =
+    `https://github.com/attacker/repository/commit/${commit}`;
+  value.locales['zh-tw'].content.commits[0].summary = '';
+  const root = await createFixture(value);
+  const changelogPath = path.join(
+    root,
+    'catalog',
+    'enrichment',
+    'changelog',
+    'skills__demo__alpha.json',
+  );
+
+  try {
+    await writeFile(
+      manifestPath(root),
+      JSON.stringify({
+        schemaVersion: 1,
+        enabled: { summaries: false, changelog: true },
+      }),
+    );
+    await mkdir(path.dirname(changelogPath), { recursive: true });
+    await writeFile(changelogPath, JSON.stringify(value));
+    await rm(artifactPath(root));
+
+    await assert.rejects(
+      loadEnrichmentLocale({
+        repoRoot: root,
+        kind: 'changelog',
+        skill: skill(),
+        locale: 'zh-tw',
+        fallback: { commits: [] },
+        fallbackFromArtifact: (artifact) => ({
+          commits: artifact.locales.en.content.commits.map((entry) => ({
+            ...entry,
+            summary: '',
+          })),
+        }),
+      }),
+      /unsafe changelog fallback metadata/i,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('metadata fallback accepts canonical commit URLs for dot-git upstream declarations', async () => {
+  const value = changelogArtifact();
+  value.freshnessKey.repository = 'owner/repository.git';
+  delete (value.locales as Record<string, unknown>)['zh-tw'];
+  const root = await createFixture(value);
+  const targetSkill = skill({
+    upstream: {
+      ...skill().upstream!,
+      repository: 'owner/repository.git',
+    },
+  });
+  const changelogPath = path.join(
+    root,
+    'catalog',
+    'enrichment',
+    'changelog',
+    'skills__demo__alpha.json',
+  );
+
+  try {
+    await writeFile(
+      manifestPath(root),
+      JSON.stringify({
+        schemaVersion: 1,
+        enabled: { summaries: false, changelog: true },
+      }),
+    );
+    await mkdir(path.dirname(changelogPath), { recursive: true });
+    await writeFile(changelogPath, JSON.stringify(value));
+    await rm(artifactPath(root));
+
+    const result = await loadEnrichmentLocale({
+      repoRoot: root,
+      kind: 'changelog',
+      skill: targetSkill,
+      locale: 'zh-tw',
+      fallback: { commits: [] },
+      fallbackFromArtifact: (artifact) => ({
+        commits: artifact.locales.en.content.commits.map((entry) => ({
+          ...entry,
+          summary: '',
+        })),
+      }),
+    });
+
+    assert.equal(result.commits.length, 1);
+    assert.equal(
+      result.commits[0].url,
+      `https://github.com/owner/repository/commit/${targetSkill.upstream!.commit}`,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
 test('stale or disabled changelog falls back without affecting registry history callers', async () => {
   const value = changelogArtifact();
   value.freshnessKey.pinnedCommit = 'ffffffffffffffffffffffffffffffffffffffff';

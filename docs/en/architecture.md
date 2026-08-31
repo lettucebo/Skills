@@ -29,9 +29,12 @@ flowchart LR
     G --> J["site/src/lib/catalog.ts<br/>(build-time loader)"]
     H --> J
     O --> P["site/src/lib/enrichment.ts<br/>(freshness-gated loader)"]
+    T["site/src/i18n/<br/>(typed locales, dictionaries, paths)"] --> K
     P --> K
-    J --> K["Astro static site<br/>+ Pagefind search index"]
-    K --> L["GitHub Pages deployment"]
+    J --> K["Shared Astro page components<br/>+ explicit locale routes"]
+    K --> U["Localized static pages<br/>+ legacy redirect pages"]
+    U --> V["Pagefind per-language indexes"]
+    V --> L["GitHub Pages deployment"]
 ```
 
 1. **`catalog/sources.yml`** declares every upstream, mapping, orphan, local
@@ -78,13 +81,24 @@ flowchart LR
    fresh, schema-valid sidecar. Restricted or tombstoned skills are rejected
    before a sidecar path is touched; orphan skills are also rejected for
    changelogs. A missing artifact, stale artifact, or
-   missing requested locale returns the caller's existing fallback. The
-   mandatory manifest and any artifact that exists must parse and validate;
-   unexpected I/O or schema failures stop the build.
+   missing requested summary locale returns the caller's existing fallback.
+   Changelog rendering may retain validated commit metadata and the original
+   untranslated subject while omitting a missing or invalid localized
+   generated summary; it never substitutes the English generated summary.
+   The mandatory manifest and any artifact that exists must parse; unexpected
+   I/O or unrelated schema failures stop the build.
 11. Skill pages render changelog data as a separate Upstream changes timeline;
     upstream commits are never conflated with registry releases.
-12. The built site (including its Pagefind search index) deploys to **GitHub
-   Pages**.
+12. **`site/src/i18n/`** centralizes the supported locale type, dictionaries,
+    parser/assertion, HTML language mapping, and base-aware path helpers.
+    Shared page components render the five logical page kinds, while explicit
+    `[locale]` routes expand them for `en`, `zh-tw`, and `zh-cn`.
+13. The current catalog produces 402 localized pages plus 134 unprefixed
+    static redirect pages. Redirects preserve the old logical target, use
+    English as the canonical/meta/no-JS fallback, and are excluded from
+    Pagefind. Only the 119 skill pages per locale opt into Pagefind, producing
+    357 indexed pages across three language indexes.
+14. The built site deploys to **GitHub Pages**.
 
 `node scripts/validate.mjs` cuts across every stage: it walks the whole
 `skills/` tree independently of any one sync run, checking frontmatter,
@@ -176,7 +190,7 @@ boundary. It uses `opencc-js` with the Taiwan-phrases-to-Simplified
 `twp -> cn` preset and records `opencc-js:twp-to-cn@<version>` in both the
 `zh-cn` locale artifact and its signature. When either enrichment kind is
 enabled, generators must materialize all three locale slots (`en`, `zh-tw`,
-and `zh-cn`) even though localized site routes are not exposed yet. No custom
+and `zh-cn`), matching the site's three public locale routes. No custom
 glossary is embedded here; later editorial vocabulary work remains tracked by
 [issue #12](https://github.com/lettucebo/Skills/issues/12).
 
@@ -216,11 +230,11 @@ that source contains restricted content.
 The full-registry command is the deliberate exception: the catalog still
 renders it, and it installs restricted skills along with everything else. The
 site no longer places an on-page restricted-content warning beside it, so
-consult `/status/` or the lockfile for the current restricted inventory and
+consult `/Skills/en/status/` (or another locale) or the lockfile for the current restricted inventory and
 licensing before running it. The vendored bytes also remain present in tagged
 repository trees, so this
 boundary is website rendering and command suppression, not removal from Git.
-The current restricted set is visible on `/status/` or by searching the
+The current restricted set is visible on `/Skills/en/status/` (or another locale) or by searching the
 lockfile for `"redistributable": false`; it is never enumerated here.
 
 ## See also

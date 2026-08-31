@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import InstallCommand from '../InstallCommand.astro';
+import {
+  loadCatalog,
+  getSkillsBySource,
+  getUpstreamRepoForSource,
+  generateSourceInstallCommand,
+  RELEASE_VERSION,
+  RELEASE_PUBLISHED,
+} from '../../lib/catalog';
+import {
+  localizedPath,
+  statusMessageKey,
+  t,
+  type Locale,
+} from '../../i18n';
+import path from 'node:path';
+
+interface Props {
+  locale: Locale;
+  source: string;
+}
+
+const repoRoot = path.resolve(process.cwd(), '..');
+const { locale, source } = Astro.props;
+const catalog = await loadCatalog(repoRoot);
+const skills = getSkillsBySource(catalog.skills, source);
+const upstreamRepo = getUpstreamRepoForSource(catalog.skills, source);
+const sourceCmd = generateSourceInstallCommand(catalog.skills, source);
+---
+<Layout title={t(locale, 'sourcePageTitle', { source })} locale={locale}>
+  <nav class="breadcrumbs" aria-label={t(locale, 'breadcrumb')}>
+    <a href={localizedPath(locale)}>{t(locale, 'navCatalog')}</a>
+    <span aria-hidden="true">/</span>
+    <span>{source}</span>
+  </nav>
+
+  <div class="source-header">
+    <h1>{source}</h1>
+    <p class="source-meta">
+      {t(locale, skills.length === 1 ? 'sourceSkillsOne' : 'sourceSkillsOther', { count: skills.length })}
+      {upstreamRepo && (
+        <span>
+          &middot; {t(locale, 'upstream')}: <a href={`https://github.com/${upstreamRepo}`} rel="noopener noreferrer">{upstreamRepo}</a>
+        </span>
+      )}
+    </p>
+  </div>
+
+  {sourceCmd && (
+    <InstallCommand command={sourceCmd} locale={locale} />
+  )}
+
+  <div class="table-scroll" role="region" aria-label={t(locale, 'skillsInSource', { source })} tabindex="0">
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th>{t(locale, 'skill')}</th>
+          <th>{t(locale, 'version')}</th>
+          <th>{t(locale, 'status')}</th>
+          <th>{t(locale, 'license')}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {skills.map((skill) => (
+          <tr>
+            <td>
+              <a href={localizedPath(locale, `skills/${skill.source}/${skill.slug}`)}>{skill.name}</a>
+            </td>
+            <td>v{skill.version}</td>
+            <td>
+              <span class={`badge badge--${skill.isRestricted ? 'restricted' : skill.isOrphan ? 'frozen' : skill.isLocal ? 'local' : 'synced'}`}>
+                {t(locale, statusMessageKey(skill.statusLabel))}
+              </span>
+            </td>
+            <td>{skill.license}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Layout>

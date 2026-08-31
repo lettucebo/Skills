@@ -36,7 +36,7 @@ test('Search.astro component exists', () => {
 
 test('skill detail page template includes data-pagefind-body', () => {
   const template = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   assert.match(template, /data-pagefind-body/, 'detail page must mark searchable body');
@@ -44,7 +44,7 @@ test('skill detail page template includes data-pagefind-body', () => {
 
 test('skill detail page template includes pagefind filter attributes', () => {
   const template = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   assert.match(template, /data-pagefind-filter="source"/, 'must have source filter');
@@ -54,7 +54,7 @@ test('skill detail page template includes pagefind filter attributes', () => {
 
 test('skill detail page template includes pagefind version meta', () => {
   const template = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   assert.match(template, /data-pagefind-meta/, 'must have pagefind meta for version');
@@ -64,7 +64,7 @@ test('skill detail page template includes pagefind version meta', () => {
 
 test('index.astro imports Search component', () => {
   const template = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'index.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'),
     'utf8',
   );
   assert.match(template, /import.*Search/, 'index must import Search component');
@@ -75,7 +75,7 @@ test('index.astro imports Search component', () => {
 
 test('index.astro renders one canonical [data-skill-card] collection in #skill-grid', () => {
   const template = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'index.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'),
     'utf8',
   );
   assert.match(template, /id="skill-grid"/, 'the canonical grid must expose an explicit #skill-grid id');
@@ -135,7 +135,7 @@ test('Search component references base URL for pagefind loading', () => {
 
 test('restricted skill pages never render SKILL.md body content', () => {
   const template = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   // The template must gate body rendering on !skill.isRestricted
@@ -149,11 +149,11 @@ test('restricted skill pages never render SKILL.md body content', () => {
 test('non-searchable pages are excluded from pagefind index', () => {
   // index.astro, source pages, and status page should not be indexed
   const indexPage = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'index.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'),
     'utf8',
   );
   const sourcePage = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'sources', '[source].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SourcePage.astro'),
     'utf8',
   );
   // These should have data-pagefind-ignore or NOT have data-pagefind-body
@@ -224,7 +224,7 @@ test('Search result rendering does not prepend extra v to version meta (prevents
 
 test('skill detail page license visibility is conditional on not-Unknown', () => {
   const template = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   // Must guard visible license on license !== 'Unknown'
@@ -237,19 +237,19 @@ test('skill detail page license visibility is conditional on not-Unknown', () =>
 
 test('skill detail page visible license display includes "License:" label', () => {
   const template = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   assert.match(
     template,
-    /License:/,
-    'Visible license must include "License:" label',
+    /t\(locale,\s*'license'\)/,
+    'Visible license must use the localized license label',
   );
 });
 
 test('skill detail page raw license element for Pagefind has hidden attribute', () => {
   const template = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   // The pagefind filter/meta element carrying the raw license value must be hidden
@@ -291,7 +291,7 @@ test('C9: search IIFE must not capture #full-catalog at init time (lazy lookup r
 
 test('skill detail page does not have unexposed data-pagefind-filter="version"', () => {
   const template = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   assert.doesNotMatch(

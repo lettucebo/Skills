@@ -15,9 +15,16 @@ every skill, grouped by source. It provides full-text search (via Pagefind)
 so you can find a skill by name or description without reading
 `catalog/skills.lock.json` directly.
 
+Choose English, Traditional Chinese, or Simplified Chinese from the language
+switcher. Every public page has a prefixed route under `/Skills/en/`,
+`/Skills/zh-tw/`, or `/Skills/zh-cn/`; changing language preserves the current
+logical page. Former unprefixed links remain redirects to their English
+equivalents.
+
 ### Skill pages
 
-Each skill has its own page at `/skills/<source>/<skill>/`. It renders the
+Each skill has its own localized page at
+`/Skills/<locale>/skills/<source>/<skill>/`. It renders the
 skill's own `SKILL.md` description and body (for non-restricted skills only),
 plus:
 
@@ -47,13 +54,14 @@ history.
 ### Source pages
 
 Each source collection (for example `skills/azure`) has a page at
-`/sources/<source>/` listing every skill in that collection and, unless the
+`/Skills/<locale>/sources/<source>/` listing every skill in that collection and, unless the
 collection contains a restricted skill, the exact `npx skills add` command to
 install that collection alone.
 
 ### Status page
 
-The `/status/` page reports the live, build-time state of the registry:
+The localized status page (for example `/Skills/en/status/`) reports the live,
+build-time state of the registry:
 
 - the lock `release` version and whether it has actually been published as a
   `v<release>` tag (see step 1 of [Installation](installation.md)),

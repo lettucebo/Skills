@@ -74,6 +74,19 @@ export function resolveRepositoryUrl(repository) {
   return `https://github.com/${trimmed.replace(/\.git$/, '')}.git`;
 }
 
+export function repositoryWebUrl(repository) {
+  const cloneUrl = resolveRepositoryUrl(repository);
+  const match = cloneUrl.match(
+    /^https:\/\/github\.com\/([^/]+\/[^/]+?)(?:\.git)?$/i,
+  );
+  if (!match) {
+    throw new Error(
+      `Changelog commit links require a GitHub repository: ${repository}.`,
+    );
+  }
+  return `https://github.com/${match[1]}`;
+}
+
 async function defaultRunGit(args) {
   const { stdout } = await execFileAsync('git', args, {
     maxBuffer: 64 * 1024 * 1024,

@@ -1,85 +1,14 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import InstallCommand from '../../components/InstallCommand.astro';
-import {
-  loadCatalog,
-  getSkillsBySource,
-  getUpstreamRepoForSource,
-  generateSourceInstallCommand,
-  RELEASE_VERSION,
-  RELEASE_PUBLISHED,
-} from '../../lib/catalog';
+import LegacyRedirect from '../../components/LegacyRedirect.astro';
+import { localizedPath } from '../../i18n';
+import { loadCatalog } from '../../lib/catalog';
 import path from 'node:path';
 
-const repoRoot = path.resolve(process.cwd(), '..');
-const base = import.meta.env.BASE_URL;
-
 export async function getStaticPaths() {
-  const repoRoot = path.resolve(process.cwd(), '..');
-  const catalog = await loadCatalog(repoRoot);
-
-  return catalog.sources.map((source) => ({
-    params: { source },
-    props: {
-      source,
-      skills: getSkillsBySource(catalog.skills, source),
-      upstreamRepo: getUpstreamRepoForSource(catalog.skills, source),
-      sourceCmd: generateSourceInstallCommand(catalog.skills, source),
-    },
-  }));
+  const catalog = await loadCatalog(path.resolve(process.cwd(), '..'));
+  return catalog.sources.map((source) => ({ params: { source } }));
 }
 
-const { source, skills, upstreamRepo, sourceCmd } = Astro.props;
+const source = String(Astro.params.source);
 ---
-<Layout title={`${source} skills`}>
-  <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <a href={base}>Catalog</a>
-    <span aria-hidden="true">/</span>
-    <span>{source}</span>
-  </nav>
-
-  <div class="source-header">
-    <h1>{source}</h1>
-    <p class="source-meta">
-      {skills.length} skill{skills.length !== 1 ? 's' : ''}
-      {upstreamRepo && (
-        <span>
-          &middot; Upstream: <a href={`https://github.com/${upstreamRepo}`} rel="noopener noreferrer">{upstreamRepo}</a>
-        </span>
-      )}
-    </p>
-  </div>
-
-  {sourceCmd && (
-    <InstallCommand command={sourceCmd} />
-  )}
-
-  <div class="table-scroll" role="region" aria-label={`Skills in ${source}`} tabindex="0">
-    <table class="skill-table">
-      <thead>
-        <tr>
-          <th>Skill</th>
-          <th>Version</th>
-          <th>Status</th>
-          <th>License</th>
-        </tr>
-      </thead>
-      <tbody>
-        {skills.map((skill) => (
-          <tr>
-            <td>
-              <a href={`${base}skills/${skill.source}/${skill.slug}/`}>{skill.name}</a>
-            </td>
-            <td>v{skill.version}</td>
-            <td>
-              <span class={`badge badge--${skill.isRestricted ? 'restricted' : skill.isOrphan ? 'frozen' : skill.isLocal ? 'local' : 'synced'}`}>
-                {skill.statusLabel}
-              </span>
-            </td>
-            <td>{skill.license}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</Layout>
+<LegacyRedirect target={localizedPath('en', `sources/${source}`)} />

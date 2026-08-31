@@ -26,7 +26,7 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, '..');
 const repoRoot = findRepoRoot(siteRoot);
-const distIndex = path.join(siteRoot, 'dist', 'index.html');
+const distIndex = path.join(siteRoot, 'dist', 'en', 'index.html');
 
 function countOccurrences(haystack: string, needle: string): number {
   return haystack.split(needle).length - 1;
@@ -73,8 +73,8 @@ test('SP2: the partition is derived independently from the lock file', async () 
 });
 
 test('SP3: the homepage renders the partition, not the overlapping mapped count', () => {
-  const source = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'index.astro'), 'utf8');
-  const statusLine = source.slice(source.indexOf('total &middot;') - 400, source.indexOf('</section>'));
+  const source = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'), 'utf8');
+  const statusLine = source.slice(source.indexOf('<section class="hero">'), source.indexOf('</section>'));
 
   assert.doesNotMatch(
     statusLine,
@@ -87,7 +87,7 @@ test('SP3: the homepage renders the partition, not the overlapping mapped count'
 });
 
 test('SP4: the status page keeps its mapped-entry semantics', () => {
-  const source = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'status.astro'), 'utf8');
+  const source = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'StatusPage.astro'), 'utf8');
 
   assert.match(
     source,

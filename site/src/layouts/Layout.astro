@@ -6,16 +6,40 @@ import {
   BUILD_COMMIT_URL,
   formatUtc,
 } from '../lib/build-info.ts';
+import {
+  HTML_LANG,
+  LOCALE_DISPLAY_NAMES,
+  SUPPORTED_LOCALES,
+  localizedPath,
+  routeForLocale,
+  t,
+  type Locale,
+} from '../i18n';
 
 interface Props {
   title: string;
   description?: string;
+  locale: Locale;
 }
 
-const { title, description = 'Curated AI coding agent skills registry' } = Astro.props;
+const { title, locale, description = t(locale, 'siteDescription') } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 const buildTimeLabel = formatUtc(BUILD_TIME);
+const canonical = new URL(currentPath, Astro.site);
+const localeLinks = SUPPORTED_LOCALES.map((targetLocale) => ({
+  locale: targetLocale,
+  href: routeForLocale(targetLocale, currentPath),
+  canonical: new URL(routeForLocale(targetLocale, currentPath), Astro.site),
+}));
+const homePath = localizedPath(locale);
+const installPath = localizedPath(locale, 'install');
+const statusPath = localizedPath(locale, 'status');
+const themeLabels = {
+  light: t(locale, 'themeLight'),
+  dark: t(locale, 'themeDark'),
+  system: t(locale, 'themeSystem'),
+};
 
 function isActive(href: string): boolean {
   const norm = (p: string) => p.replace(/\/+$/, '') || '/';
@@ -23,12 +47,16 @@ function isActive(href: string): boolean {
 }
 ---
 <!doctype html>
-<html lang="en">
+<html lang={HTML_LANG[locale]}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content={description} />
-  <title>{title} | Skills Registry</title>
+  <title>{title} | {t(locale, 'titleSuffix')}</title>
+  <link rel="canonical" href={canonical} />
+  {localeLinks.map((link) => (
+    <link rel="alternate" hreflang={link.locale} href={link.canonical} />
+  ))}
   <script is:inline>
     (() => {
       // Pre-paint theme resolution (runs before first paint to avoid FOUC).
@@ -51,17 +79,26 @@ function isActive(href: string): boolean {
   <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">{t(locale, 'skipToMain')}</a>
 
   <header class="site-header" role="banner">
-    <nav aria-label="Main navigation">
-      <a href={base} class="site-title">Skills Registry</a>
+    <nav aria-label={t(locale, 'mainNavigation')}>
+      <a href={homePath} class="site-title">{t(locale, 'catalogHeading')}</a>
       <ul class="nav-links">
-        <li><a href={base} aria-current={isActive(base) ? 'page' : undefined}>Catalog</a></li>
-        <li><a href={`${base}install/`} aria-current={isActive(`${base}install/`) ? 'page' : undefined}>Install</a></li>
-        <li><a href={`${base}status/`} aria-current={isActive(`${base}status/`) ? 'page' : undefined}>Status</a></li>
-        <li><a href="https://github.com/lettucebo/Skills" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href={homePath} aria-current={isActive(homePath) ? 'page' : undefined}>{t(locale, 'navCatalog')}</a></li>
+        <li><a href={installPath} aria-current={isActive(installPath) ? 'page' : undefined}>{t(locale, 'navInstall')}</a></li>
+        <li><a href={statusPath} aria-current={isActive(statusPath) ? 'page' : undefined}>{t(locale, 'navStatus')}</a></li>
+        <li><a href="https://github.com/lettucebo/Skills" rel="noopener noreferrer">{t(locale, 'navGitHub')}</a></li>
       </ul>
+      <div class="language-switcher" aria-label={t(locale, 'languageNavigation')}>
+        {localeLinks.map((link) => (
+          <a
+            href={link.href}
+            data-locale-link={link.locale}
+            aria-current={link.locale === locale ? 'page' : undefined}
+          >{LOCALE_DISPLAY_NAMES[link.locale]}</a>
+        ))}
+      </div>
       <noscript>
         <style>.theme-toggle { display: none !important; }</style>
       </noscript>
@@ -69,13 +106,16 @@ function isActive(href: string): boolean {
         id="theme-toggle"
         type="button"
         class="theme-toggle"
-        aria-label="Theme: System. Switch to Light."
+        aria-label={t(locale, 'themeLabel', {
+          current: themeLabels.system,
+          next: themeLabels.light,
+        })}
       >
         <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">◐</span>
-        <span class="theme-toggle-label" data-theme-label>System</span>
+        <span class="theme-toggle-label" data-theme-label>{themeLabels.system}</span>
       </button>
     </nav>
-    <script>
+    <script define:vars={{ themeLabels, themeLabelTemplate: t(locale, 'themeLabel') }}>
       (() => {
         const STORAGE_KEY = "skills-theme";
         const root = document.documentElement;
@@ -86,7 +126,7 @@ function isActive(href: string): boolean {
         const labelEl = btn.querySelector("[data-theme-label]");
         const media = window.matchMedia("(prefers-color-scheme: dark)");
 
-        const LABELS = { light: "Light", dark: "Dark", system: "System" };
+        const LABELS = themeLabels;
         const ICONS = { light: "\u2600", dark: "\u263E", system: "\u25D0" };
         // Light -> Dark -> System -> Light
         const NEXT = { light: "dark", dark: "system", system: "light" };
@@ -137,7 +177,9 @@ function isActive(href: string): boolean {
           btn.setAttribute("data-theme-choice", activeChoice);
           btn.setAttribute(
             "aria-label",
-            "Theme: " + LABELS[activeChoice] + ". Switch to " + LABELS[next] + ".",
+            themeLabelTemplate
+              .replace("{current}", LABELS[activeChoice])
+              .replace("{next}", LABELS[next]),
           );
           if (iconEl) iconEl.textContent = ICONS[activeChoice];
           if (labelEl) labelEl.textContent = LABELS[activeChoice];
@@ -161,6 +203,16 @@ function isActive(href: string): boolean {
         render();
       })();
     </script>
+    <script>
+      document.querySelectorAll('[data-locale-link]').forEach((link) => {
+        link.addEventListener('click', () => {
+          const selected = link.getAttribute('data-locale-link');
+          try {
+            if (selected) localStorage.setItem('skillsLocale', selected);
+          } catch {}
+        });
+      });
+    </script>
   </header>
 
   <main id="main-content" class="site-main" role="main" tabindex="-1">
@@ -168,9 +220,9 @@ function isActive(href: string): boolean {
   </main>
 
   <footer class="site-footer" role="contentinfo">
-    <p>Skills Registry &mdash; Curated AI coding agent skills</p>
+    <p>{t(locale, 'catalogHeading')} &mdash; {t(locale, 'footerTagline')}</p>
     <p class="build-info">
-      Site built <time datetime={BUILD_TIME}>{buildTimeLabel}</time>{
+      {t(locale, 'siteBuilt')} <time datetime={BUILD_TIME}>{buildTimeLabel}</time>{
         BUILD_COMMIT_SHORT && BUILD_COMMIT_URL && (
           <Fragment>
             {' · '}

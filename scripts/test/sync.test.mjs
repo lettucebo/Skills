@@ -19,6 +19,7 @@ import {
   isShaReference,
   resolveCloneRef,
   resolveRepositoryUrl,
+  repositoryWebUrl,
   GitReferenceError,
 } from '../lib/git-source.mjs';
 import {
@@ -119,6 +120,29 @@ test('resolveRepositoryUrl keeps URLs and expands owner/repo shorthand', () => {
   assert.equal(
     resolveRepositoryUrl('github/awesome-copilot'),
     'https://github.com/github/awesome-copilot.git',
+  );
+});
+
+test('repositoryWebUrl canonicalizes accepted GitHub repository forms', () => {
+  assert.equal(
+    repositoryWebUrl('github/awesome-copilot'),
+    'https://github.com/github/awesome-copilot',
+  );
+  assert.equal(
+    repositoryWebUrl('github/awesome-copilot.git'),
+    'https://github.com/github/awesome-copilot',
+  );
+  assert.equal(
+    repositoryWebUrl('https://github.com/github/awesome-copilot.git'),
+    'https://github.com/github/awesome-copilot',
+  );
+  assert.equal(
+    repositoryWebUrl('https://github.com/github/awesome-copilot.git.git'),
+    'https://github.com/github/awesome-copilot.git',
+  );
+  assert.throws(
+    () => repositoryWebUrl('file:///C:/tmp/repo'),
+    /require a GitHub repository/,
   );
 });
 

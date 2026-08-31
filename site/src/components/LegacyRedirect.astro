@@ -1,0 +1,79 @@
+---
+import {
+  LOCALE_DISPLAY_NAMES,
+  SUPPORTED_LOCALES,
+  localizedPath,
+  t,
+} from '../i18n';
+
+interface Props {
+  target: string;
+  detectLocale?: boolean;
+}
+
+const { target, detectLocale = false } = Astro.props;
+const canonical = new URL(target, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{t('en', 'redirecting')} | {t('en', 'titleSuffix')}</title>
+  <link rel="canonical" href={canonical} />
+  {detectLocale && (
+    <script
+      is:inline
+      define:vars={{
+        supportedLocales: SUPPORTED_LOCALES,
+        englishTarget: target,
+        localeTargets: Object.fromEntries(
+          SUPPORTED_LOCALES.map((locale) => [locale, localizedPath(locale)]),
+        ),
+      }}
+    >
+      (() => {
+        let selected = null;
+        try {
+          const saved = localStorage.getItem('skillsLocale');
+          if (supportedLocales.includes(saved)) selected = saved;
+        } catch {}
+        if (!selected) {
+          const languages = navigator.languages?.length
+            ? navigator.languages
+            : [navigator.language];
+          for (const language of languages) {
+            const normalized = String(language || '').toLowerCase();
+            if (normalized.startsWith('zh-hant') || /zh-(tw|hk|mo)/.test(normalized)) {
+              selected = 'zh-tw';
+              break;
+            }
+            if (normalized.startsWith('zh')) {
+              selected = 'zh-cn';
+              break;
+            }
+            if (normalized.startsWith('en')) {
+              selected = 'en';
+              break;
+            }
+          }
+        }
+        const destination = localeTargets[selected] || englishTarget;
+        if (destination !== englishTarget) location.replace(destination);
+      })();
+    </script>
+  )}
+  <meta http-equiv="refresh" content={`0;url=${target}`} />
+</head>
+<body data-pagefind-ignore="all">
+  <p>
+    {t('en', 'redirecting')}{' '}
+    <a href={target}>{t('en', 'redirectFallback')}</a>.
+  </p>
+  <nav aria-label={t('en', 'languageNavigation')}>
+    {SUPPORTED_LOCALES.map((locale) => (
+      <a href={localizedPath(locale)}>{LOCALE_DISPLAY_NAMES[locale]}</a>
+    ))}
+  </nav>
+</body>
+</html>

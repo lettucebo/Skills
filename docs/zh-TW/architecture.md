@@ -29,9 +29,12 @@ flowchart LR
     G --> J["site/src/lib/catalog.ts<br/>（建置時期載入器）"]
     H --> J
     O --> P["site/src/lib/enrichment.ts<br/>（freshness gate 載入器）"]
+    T["site/src/i18n/<br/>（型別化 locale、字典、路徑）"] --> K
     P --> K
-    J --> K["Astro 靜態網站<br/>+ Pagefind 搜尋索引"]
-    K --> L["GitHub Pages 部署"]
+    J --> K["共用 Astro 頁面元件<br/>+ 明確 locale 路由"]
+    K --> U["在地化靜態頁面<br/>+ 舊版 redirect 頁面"]
+    U --> V["Pagefind 各語言索引"]
+    V --> L["GitHub Pages 部署"]
 ```
 
 1. **`catalog/sources.yml`** 宣告每個上游、mapping、orphan、local root、
@@ -72,12 +75,21 @@ flowchart LR
 10. **`site/src/lib/enrichment.ts`** 只會從新鮮且符合 schema 的 sidecar 讀取指定
    locale。受限制或 tombstone skill 會在碰觸 sidecar 路徑前被拒絕；orphan skill
    也會在 changelog 讀取前被拒絕。Artifact
-   缺少、過期或指定 locale 缺少時，會回傳呼叫端既有的 fallback；必要的 manifest
-   與任何實際存在的 artifact 都必須能解析並通過驗證，非預期 I/O 或 schema
-   失敗會停止建置。
+   缺少、過期或指定 summary locale 缺少時，會回傳呼叫端既有的 fallback。
+   Changelog 可在驗證安全後保留 commit metadata 與刻意不翻譯的原始 subject，
+   同時省略缺少或無效的在地化生成摘要；絕不以英文生成摘要替代。必要的 manifest
+   與任何實際存在的 artifact 都必須能解析，非預期 I/O 或無關的 schema 失敗會
+   停止建置。
 11. Skill 詳情頁會把 changelog 資料渲染成獨立的 Upstream changes timeline，
     絕不與 registry release 混合。
-12. 建置完成的網站（包含其 Pagefind 搜尋索引）會部署到 **GitHub Pages**。
+12. **`site/src/i18n/`** 集中管理支援的 locale 型別、字典、parser/assertion、
+    HTML 語言對應與理解 base path 的路徑 helper。共用頁面元件渲染五種邏輯頁面，
+    明確的 `[locale]` 路由則為 `en`、`zh-tw` 與 `zh-cn` 展開它們。
+13. 目前 catalog 產生 402 個在地化頁面與 134 個無語言前綴的靜態 redirect
+    頁面。Redirect 保留舊版邏輯目標，以英文作為 canonical、meta 與 no-JS
+    fallback，並排除於 Pagefind 之外。每個 locale 只有 119 個 skill 頁加入
+    Pagefind，因此三個語言索引合計 357 個已索引頁面。
+14. 建置完成的網站會部署到 **GitHub Pages**。
 
 `node scripts/validate.mjs` 橫跨每一個階段：它會獨立於任何一次同步執行，走遍
 整個 `skills/` 樹，檢查 frontmatter、manifest 涵蓋範圍與相對連結，而
@@ -160,7 +172,8 @@ Changelog locale content 包含確定性、由新到舊排序的 `commits` 陣�
 台灣慣用詞轉簡體 `twp -> cn` preset，並把
 `opencc-js:twp-to-cn@<version>` 同時記錄在 `zh-cn` locale artifact 與其
 signature 中。任一 enrichment 種類啟用時，即使網站尚未公開多語 route，generator
-也必須產生完整的 `en`、`zh-tw`、`zh-cn` 三個 locale slot。本層不內建自訂詞彙表；
+也必須產生完整的 `en`、`zh-tw`、`zh-cn` 三個 locale slot，與網站三個公開
+locale 路由一致。本層不內建自訂詞彙表；
 後續編輯詞彙工作由 [issue #12](https://github.com/lettucebo/Skills/issues/12) 追蹤。
 
 ## 安全邊界
@@ -192,9 +205,9 @@ signature 中。任一 enrichment 種類啟用時，即使網站尚未公開多�
 
 完整 registry 指令是刻意保留的例外：catalog 仍會顯示它，而它會連同其他內容一併
 安裝受限制 skill。網站不再於指令旁顯示頁面內（on-page）受限制內容警告，因此執行
-前請透過 `/status/` 或 lockfile 確認目前的受限制清單與授權。Vendored 位元組也仍
+前請透過 `/Skills/zh-tw/status/`（或其他 locale）或 lockfile 確認目前的受限制清單與授權。Vendored 位元組也仍
 存在於有 tag 的 repository tree，因此這項邊界是網站渲染與指令抑制，不是從 Git
-移除內容。目前清單可在 `/status/` 查看，或在
+移除內容。目前清單可在 `/Skills/zh-tw/status/`（或其他 locale）查看，或在
 lockfile 搜尋 `"redistributable": false`；本文件不會枚舉。
 
 ## 延伸閱讀

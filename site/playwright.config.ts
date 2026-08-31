@@ -17,7 +17,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 const PORT = Number(process.env.E2E_PORT) || 4331;
 const isCI = !!process.env.CI;
-const BASE_URL = `http://127.0.0.1:${PORT}/Skills/`;
+const BASE_URL = `http://127.0.0.1:${PORT}/Skills/en/`;
 
 export default defineConfig({
   testDir: './e2e',

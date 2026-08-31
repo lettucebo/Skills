@@ -180,8 +180,8 @@ test('R10: no site test pins RELEASE_PUBLISHED to a literal boolean', () => {
 
 test('R9: site pages and components consume the derived release constants', () => {
   const consumers = [
-    path.join(siteRoot, 'src', 'pages', 'index.astro'),
-    path.join(siteRoot, 'src', 'pages', 'status.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'StatusPage.astro'),
     path.join(siteRoot, 'src', 'components', 'InstallCommand.astro'),
   ];
 

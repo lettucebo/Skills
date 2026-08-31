@@ -26,7 +26,9 @@ const inlineScriptMatch = head.match(/<script is:inline>([\s\S]*?)<\/script>/);
 const inlineScript = inlineScriptMatch ? inlineScriptMatch[1] : '';
 
 // The interactive control lives in a processed (non is:inline) <script> block.
-const controlScriptMatch = source.match(/<script>([\s\S]*?)<\/script>/);
+const controlScriptMatch = source.match(
+  /<script define:vars=\{\{ themeLabels,[\s\S]*?\}\}>([\s\S]*?)<\/script>/,
+);
 const controlScript = controlScriptMatch ? controlScriptMatch[1] : '';
 
 // ─── Pre-paint / no-FOUC ─────────────────────────────────────────────
@@ -156,7 +158,7 @@ test('the header renders a theme toggle button with an accessible name', () => {
   );
   assert.match(
     source,
-    /id="theme-toggle"[\s\S]*?aria-label="[^"]+"/,
+    /id="theme-toggle"[\s\S]*?aria-label=\{t\(locale,\s*'themeLabel'/,
     'the toggle button must have an aria-label reflecting the current state',
   );
   // Visible, non-colour-only indicator (text label + decorative icon).

@@ -1,0 +1,19 @@
+---
+import Page from '../../../components/pages/SourcePage.astro';
+import { SUPPORTED_LOCALES, assertLocale } from '../../../i18n';
+import { loadCatalog } from '../../../lib/catalog';
+import path from 'node:path';
+
+export async function getStaticPaths() {
+  const catalog = await loadCatalog(path.resolve(process.cwd(), '..'));
+  return SUPPORTED_LOCALES.flatMap((locale) =>
+    catalog.sources.map((source) => ({
+      params: { locale, source },
+    })),
+  );
+}
+
+const locale = assertLocale(Astro.params.locale);
+const source = String(Astro.params.source);
+---
+<Page locale={locale} source={source} />

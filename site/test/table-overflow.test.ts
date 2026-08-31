@@ -124,8 +124,8 @@ test('TO7: long unbroken tokens wrap at the mobile breakpoint', () => {
 
 test('TO8: .skill-table markup is wrapped on the source and status pages', () => {
   const pages = [
-    path.join(siteRoot, 'src', 'pages', 'sources', '[source].astro'),
-    path.join(siteRoot, 'src', 'pages', 'status.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SourcePage.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'StatusPage.astro'),
   ];
 
   for (const file of pages) {
@@ -174,7 +174,7 @@ test('TO9: card text can break mid-token so the grid track never exceeds the vie
  */
 test('TO10: the skill detail lead paragraph can break long tokens at mobile', () => {
   const detailPage = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   assert.match(

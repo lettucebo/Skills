@@ -1,0 +1,22 @@
+---
+import Page from '../../../../components/pages/SkillPage.astro';
+import { SUPPORTED_LOCALES, assertLocale } from '../../../../i18n';
+import { loadCatalog } from '../../../../lib/catalog';
+import path from 'node:path';
+
+export async function getStaticPaths() {
+  const catalog = await loadCatalog(path.resolve(process.cwd(), '..'));
+  return SUPPORTED_LOCALES.flatMap((locale) =>
+    catalog.skills
+      .filter((skill) => !skill.isTombstone)
+      .map((skill) => ({
+        params: { locale, source: skill.source, skill: skill.slug },
+        props: { skill },
+      })),
+  );
+}
+
+const locale = assertLocale(Astro.params.locale);
+const { skill } = Astro.props;
+---
+<Page locale={locale} skill={skill} />
