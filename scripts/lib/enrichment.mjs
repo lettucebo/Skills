@@ -57,6 +57,7 @@ const changelogContentSchema = {
   properties: {
     commits: {
       type: 'array',
+      minItems: 1,
       items: changelogCommitSchema,
     },
     truncatedAt: {

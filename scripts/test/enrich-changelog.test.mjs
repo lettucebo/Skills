@@ -159,6 +159,74 @@ test('author-date ordering drift invalidates a changelog artifact', () => {
   assert.equal(isChangelogArtifactCurrent(value, targetSkill), false);
 });
 
+test('empty changelog history is never cache-current', () => {
+  const targetSkill = skill();
+  const value = createChangelogArtifact({
+    skill: targetSkill,
+    history: history(),
+    summaries: new Map([[
+      SHA_A,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+
+  for (const locale of Object.values(value.locales)) {
+    locale.content.commits = [];
+  }
+
+  assert.equal(isChangelogArtifactCurrent(value, targetSkill), false);
+});
+
+test('changelog commit links must match the pinned upstream repository and SHA', () => {
+  const targetSkill = skill();
+  const value = createChangelogArtifact({
+    skill: targetSkill,
+    history: history(),
+    summaries: new Map([[
+      SHA_A,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+
+  for (const locale of Object.values(value.locales)) {
+    locale.content.commits[0].url =
+      `https://github.com/other/repository/commit/${SHA_B}`;
+  }
+
+  assert.equal(isChangelogArtifactCurrent(value, targetSkill), false);
+});
+
+test('changelog cache rejects locale metadata drift', () => {
+  const targetSkill = skill();
+  const value = createChangelogArtifact({
+    skill: targetSkill,
+    history: history(),
+    summaries: new Map([[
+      SHA_A,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+  value.locales['zh-tw'].content.commits[0].pathAtCommit =
+    'skills/other/SKILL.md';
+
+  assert.equal(isChangelogArtifactCurrent(value, targetSkill), false);
+});
+
+test('changelog cache rejects zh-cn content that is not derived from zh-tw', () => {
+  const targetSkill = skill();
+  const value = createChangelogArtifact({
+    skill: targetSkill,
+    history: history(),
+    summaries: new Map([[
+      SHA_A,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+  value.locales['zh-cn'].content.commits[0].summary = 'CORRUPTED';
+
+  assert.equal(isChangelogArtifactCurrent(value, targetSkill), false);
+});
+
 test('changelog Copilot calls allow large path-scoped multi-commit payloads to finish', () => {
   assert.equal(CHANGELOG_LLM_TIMEOUT_MS, 300_000);
 });
@@ -233,6 +301,38 @@ test('artifact writes are deterministic, atomic, and end with one newline', asyn
     assert.match(first, /\n$/);
     assert.doesNotMatch(first, /\n\n$/);
     assert.deepEqual(await readdir(path.dirname(target)), [path.basename(target)]);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('failed changelog writes remove their temporary artifact', async () => {
+  await mkdir(runtimeRoot, { recursive: true });
+  const root = await mkdtemp(path.join(runtimeRoot, 'changelog-write-failure-'));
+  const value = createChangelogArtifact({
+    skill: skill(),
+    history: history(),
+    summaries: new Map([[
+      SHA_A,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+
+  try {
+    await assert.rejects(
+      writeChangelogArtifact({
+        repoRoot: root,
+        artifact: value,
+        writeData: async () => {
+          throw new Error('write failed');
+        },
+      }),
+      /write failed/,
+    );
+    const directory = path.dirname(
+      enrichmentArtifactPath(root, 'changelog', value.path),
+    );
+    assert.deepEqual(await readdir(directory), []);
   } finally {
     await rm(root, { recursive: true, force: true });
   }
@@ -422,6 +522,7 @@ test('generation cleans clone work on failure and never enables a partial artifa
       source: 'skills/beta',
     },
   });
+
   const root = await createGeneratorFixture([alpha, beta]);
   const workRoot = path.join(root, '.changelog-work-failure');
 
@@ -453,6 +554,46 @@ test('generation cleans clone work on failure and never enables a partial artifa
       await readFile(path.join(root, 'catalog', 'enrichment', 'manifest.json'), 'utf8'),
     );
     assert.equal(manifest.enabled.changelog, false);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('generation blocks every path beneath a restricted upstream skill directory', async () => {
+  const publicSkill = skill();
+  const restrictedSkill = skill({
+    path: 'skills/demo/docx',
+    name: 'docx',
+    redistributable: false,
+    contentHash: `sha256:${'e'.repeat(64)}`,
+    upstream: {
+      ...skill().upstream,
+      source: 'skills/docx',
+    },
+  });
+  const root = await createGeneratorFixture([publicSkill, restrictedSkill]);
+  let observedBlockedPaths;
+
+  try {
+    await generateChangelogs({
+      repoRoot: root,
+      runner: {},
+      workRoot: path.join(root, '.changelog-work-restricted-prefix'),
+      cloneRepository: async (input) => {
+        await mkdir(input.destination, { recursive: true });
+        return { dir: input.destination, ref: 'main' };
+      },
+      collectHistory: async ({ skill: targetSkill, blockedSourcePaths }) => {
+        observedBlockedPaths = [...blockedSourcePaths];
+        return historyFor(targetSkill);
+      },
+      summarizeHistory: async ({ skill: targetSkill }) => new Map([[
+        targetSkill.upstream.commit,
+        { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+      ]]),
+    });
+
+    assert.deepEqual(observedBlockedPaths, ['skills/docx/']);
   } finally {
     await rm(root, { recursive: true, force: true });
   }

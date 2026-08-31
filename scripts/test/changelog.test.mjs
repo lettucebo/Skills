@@ -330,7 +330,7 @@ test('restricted transition sources truncate before liveness or source patch rea
     '2026-08-29T00:00:00Z',
     'Copy restricted source',
     'C099',
-    'skills/docx/SKILL.md',
+    'skills/docx/references/ooxml.md',
     'skills/public/SKILL.md',
     '',
     GIT_LOG_SENTINEL,
@@ -338,7 +338,7 @@ test('restricted transition sources truncate before liveness or source patch rea
     '2026-08-28T00:00:00Z',
     'Restricted source history',
     'M',
-    'skills/docx/SKILL.md',
+    'skills/docx/references/ooxml.md',
     '',
   ].join('\0');
   const gitCalls = [];
@@ -346,7 +346,7 @@ test('restricted transition sources truncate before liveness or source patch rea
     repoDir: 'ignored',
     pinnedCommit: SHA_A,
     sourcePath: 'skills/public/SKILL.md',
-    blockedSourcePaths: new Set(['skills/docx/SKILL.md']),
+    blockedSourcePaths: new Set(['skills/docx/']),
     runGit: async (args) => {
       gitCalls.push(args);
       return raw;
@@ -357,7 +357,7 @@ test('restricted transition sources truncate before liveness or source patch rea
   assert.equal(result.commits.length, 1);
   assert.deepEqual(result.truncatedAt, {
     sha: SHA_B,
-    sourcePath: 'skills/docx/SKILL.md',
+    sourcePath: 'skills/docx/references/ooxml.md',
     reason: 'restricted-transition-source',
   });
 
@@ -369,7 +369,7 @@ test('restricted transition sources truncate before liveness or source patch rea
     },
     history: result,
     repoDir: 'ignored',
-    restrictedSourcePaths: new Set(['skills/docx/SKILL.md']),
+    restrictedSourcePaths: new Set(['skills/docx/']),
     runner: {
       run: async (request) => {
         const serialized = JSON.stringify(request.payload);
@@ -388,7 +388,75 @@ test('restricted transition sources truncate before liveness or source patch rea
       return 'public destination patch';
     },
   });
-  assert.equal(patchCalls[0].transition, undefined);
+  assert.deepEqual(patchCalls, []);
+});
+
+test('restricted transition source bytes never reach the runner payload', async () => {
+  await mkdir(runtimeRoot, { recursive: true });
+  const root = await mkdtemp(path.join(runtimeRoot, 'changelog-restricted-transition-'));
+
+  try {
+    await git(root, ['init']);
+    await git(root, ['config', 'user.name', 'Test Author']);
+    await git(root, ['config', 'user.email', 'test@example.com']);
+    await mkdir(path.join(root, 'skills', 'docx', 'references'), { recursive: true });
+    await writeFile(
+      path.join(root, 'skills', 'docx', 'references', 'ooxml.md'),
+      'restricted-secret-marker\n',
+      'utf8',
+    );
+    await git(root, ['add', '--', 'skills/docx/references/ooxml.md']);
+    await git(root, ['commit', '-m', 'Add restricted reference']);
+    await mkdir(path.join(root, 'skills', 'public'), { recursive: true });
+    await writeFile(
+      path.join(root, 'skills', 'public', 'SKILL.md'),
+      'restricted-secret-marker\n',
+      'utf8',
+    );
+    await git(root, ['add', '--', 'skills/public/SKILL.md']);
+    await git(root, ['commit', '-m', 'Copy restricted reference']);
+    const pinnedCommit = await git(root, ['rev-parse', 'HEAD']);
+    const history = await collectSkillHistory({
+      repoDir: root,
+      pinnedCommit,
+      sourcePath: 'skills/public/SKILL.md',
+      blockedSourcePaths: new Set(['skills/docx/']),
+    });
+
+    assert.deepEqual(history.truncatedAt, {
+      sha: pinnedCommit,
+      sourcePath: 'skills/docx/references/ooxml.md',
+      reason: 'restricted-transition-source',
+    });
+
+    await summarizeSkillHistory({
+      skill: {
+        path: 'skills/demo/public',
+        upstream: { repository: 'owner/repository', commit: pinnedCommit },
+      },
+      history,
+      repoDir: root,
+      restrictedSourcePaths: new Set(['skills/docx/']),
+      runner: {
+        async run(request) {
+          const serialized = JSON.stringify(request.payload);
+          assert.doesNotMatch(
+            serialized,
+            /skills\/docx|restricted-secret-marker/,
+          );
+          return {
+            commits: [{
+              sha: pinnedCommit,
+              en: 'Adds the public skill.',
+              'zh-tw': '新增公開 skill。',
+            }],
+          };
+        },
+      },
+    });
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
 });
 
 test('collected history is deterministically newest-first by author date', async () => {

@@ -123,6 +123,10 @@ function directChangeForPath(changes, currentPath) {
   );
 }
 
+function isBlockedSourcePath(sourcePath, blockedSourcePaths) {
+  return [...blockedSourcePaths].some((prefix) => sourcePath.startsWith(prefix));
+}
+
 export async function resolveHistoryProvenance({
   commits,
   sourcePath,
@@ -157,7 +161,7 @@ export async function resolveHistoryProvenance({
       destinationPath,
     };
 
-    if (blockedSourcePaths.has(sourcePathAtTransition)) {
+    if (isBlockedSourcePath(sourcePathAtTransition, blockedSourcePaths)) {
       resolved.push({
         ...commit,
         pathAtCommit: destinationPath,
@@ -448,8 +452,15 @@ export async function summarizeSkillHistory({
 
   const commits = [];
   for (const commit of history.commits) {
+    const patchIsRestricted =
+      history.truncatedAt?.reason === 'restricted-transition-source' &&
+      history.truncatedAt.sha === commit.sha;
     const safeTransition =
-      commit.transition && !restrictedSourcePaths.has(commit.transition.sourcePath)
+      commit.transition &&
+      !isBlockedSourcePath(
+        commit.transition.sourcePath,
+        restrictedSourcePaths,
+      )
         ? commit.transition
         : undefined;
     commits.push({
@@ -459,12 +470,14 @@ export async function summarizeSkillHistory({
       pathAtCommit: commit.pathAtCommit,
       resolvedVia: commit.resolvedVia,
       ...(safeTransition ? { transition: safeTransition } : {}),
-      patch: await extractPatch({
-        repoDir,
-        sha: commit.sha,
-        pathAtCommit: commit.pathAtCommit,
-        transition: safeTransition,
-      }),
+      patch: patchIsRestricted
+        ? '[patch omitted: restricted transition source]'
+        : await extractPatch({
+            repoDir,
+            sha: commit.sha,
+            pathAtCommit: commit.pathAtCommit,
+            transition: safeTransition,
+          }),
     });
   }
 

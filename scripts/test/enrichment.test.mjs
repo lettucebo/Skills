@@ -384,6 +384,35 @@ test('strict validation rejects changelog locale signature drift', async () => {
   }
 });
 
+test('changelog content schema rejects an empty commit history', () => {
+  const targetSkill = mappedSkill();
+  const value = createChangelogArtifact({
+    skill: targetSkill,
+    history: {
+      commits: [{
+        sha: targetSkill.upstream.commit,
+        date: '2026-01-01T00:00:00Z',
+        subject: 'Add alpha',
+        changes: [{
+          status: 'A',
+          paths: [`${targetSkill.upstream.source}/SKILL.md`],
+        }],
+        pathAtCommit: `${targetSkill.upstream.source}/SKILL.md`,
+        resolvedVia: 'direct',
+      }],
+    },
+    summaries: new Map([[
+      targetSkill.upstream.commit,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+  for (const locale of Object.values(value.locales)) {
+    locale.content.commits = [];
+  }
+
+  assert.equal(validateEnrichmentArtifact('changelog', value).valid, false);
+});
+
 test('locale signature changes when generatorVersion changes alone', () => {
   const base = {
     locale: 'en',
