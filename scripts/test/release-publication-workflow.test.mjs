@@ -365,6 +365,7 @@ test('SY8: exactly one successful main apply invokes deploy with its post-push h
       },
     },
   });
+
   const cases = [
     ['main baseline success', mainContext('success', 'skipped'), true],
     ['main update success', mainContext('skipped', 'success', 'true'), true],
@@ -395,6 +396,29 @@ test('SY8: exactly one successful main apply invokes deploy with its post-push h
   for (const [label, context, expected] of cases) {
     assert.equal(evaluateExpression(condition, context), expected, label);
   }
+});
+
+test('SY9: update prunes forbidden enrichment artifacts after apply and before commit', async () => {
+  const wf = await loadWorkflow('sync.yml');
+  const steps = stepsOf(wf.jobs?.update);
+  const applyIndex = steps.findIndex((step) =>
+    /node scripts\/sync\.mjs --apply/.test(String(step.run ?? '')),
+  );
+  const pruneIndex = steps.findIndex((step) =>
+    /npm run enrich:prune/.test(String(step.run ?? '')),
+  );
+  const commitIndex = steps.findIndex((step) =>
+    /git commit/.test(String(step.run ?? '')),
+  );
+
+  assert.ok(applyIndex >= 0, 'update must retain the sync --apply step');
+  assert.ok(pruneIndex > applyIndex, 'prune must run after sync --apply');
+  assert.ok(commitIndex > pruneIndex, 'prune must run before the commit step');
+  assert.equal(
+    String(steps[pruneIndex].if ?? ''),
+    "steps.apply.outputs.applied == 'true'",
+    'prune should only mutate an update that the apply engine will commit',
+  );
 });
 
 test('SY6: enabling the cron is documented for operators', async () => {

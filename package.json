@@ -6,10 +6,13 @@
     "test": "node --test \"scripts/test/**/*.test.mjs\"",
     "catalog": "node scripts/catalog.mjs --bootstrap",
     "validate": "node scripts/validate.mjs",
+    "validate:enrichment": "node scripts/validate-enrichment.mjs",
+    "enrich:prune": "node scripts/prune-enrichment.mjs",
     "sync": "node scripts/sync.mjs",
     "smoke:npx": "node scripts/smoke-npx.mjs"
   },
   "dependencies": {
+    "ajv": "^8.20.0",
     "yaml": "^2.8.1"
   }
 }

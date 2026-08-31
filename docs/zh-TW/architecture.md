@@ -18,8 +18,13 @@ flowchart LR
     E --> H["catalog/history/*.json"]
     G --> M["scripts/catalog.mjs<br/>（確定性渲染）"]
     M --> I["NOTICE +<br/>README 產生區塊"]
+    G --> N["scripts/lib/enrichment.mjs<br/>（schema、資格、freshness）"]
+    H --> N
+    N -. "後續 generator，且已啟用時" .-> O["catalog/enrichment/<br/>summaries + changelog"]
     G --> J["site/src/lib/catalog.ts<br/>（建置時期載入器）"]
     H --> J
+    O --> P["site/src/lib/enrichment.ts<br/>（freshness gate 載入器）"]
+    P --> K
     J --> K["Astro 靜態網站<br/>+ Pagefind 搜尋索引"]
     K --> L["GitHub Pages 部署"]
 ```
@@ -47,12 +52,85 @@ flowchart LR
 7. 在建置時期，**`site/src/lib/catalog.ts`** 會為所有 catalog route 讀取
    lockfile，並在個別 skill 詳情頁讀取該 skill 的 history timeline（見
    [網站](website.md)）。
-8. 建置完成的網站（包含其 Pagefind 搜尋索引）會部署到 **GitHub Pages**。
+8. **`scripts/lib/enrichment.mjs`** 定義共用 sidecar schema、資格規則、
+   freshness key 與 locale signature。後續 generator 只有在
+   `catalog/enrichment/manifest.json` 中對應種類的持久化旗標已啟用時，才能填入
+   `catalog/enrichment/summaries/` 與
+   `catalog/enrichment/changelog/`。
+9. **`site/src/lib/enrichment.ts`** 只會從新鮮且符合 schema 的 sidecar 讀取指定
+   locale。受限制或 tombstone skill 會在碰觸 sidecar 路徑前被拒絕；過期、缺少或
+   無效的 sidecar 一律回傳呼叫端既有的 fallback。
+10. 建置完成的網站（包含其 Pagefind 搜尋索引）會部署到 **GitHub Pages**。
 
 `node scripts/validate.mjs` 橫跨每一個階段：它會獨立於任何一次同步執行，走遍
 整個 `skills/` 樹，檢查 frontmatter、manifest 涵蓋範圍與相對連結，而
 兩個 apply 引擎都會在 candidate swap 後執行它，失敗時回溯。Workflow 另外執行
 一次套用前驗證（baseline 也有明確的套用後驗證）。
+
+Enrichment 驗證刻意位於這項交易之外。預設的
+`npm run validate:enrichment` 永遠強制 sidecar 安全性：現有種類目錄中的每個
+artifact 都必須符合 schema 且路徑安全，也不得指向 restricted、tombstone 或已
+離開 lock 的 skill。已啟用種類還必須存在目錄；缺少與過期 artifact 都會通過。
+發布時使用
+`npm run validate:enrichment -- --strict`，再額外要求 artifact 集合與符合資格的
+skill 完全相等，且每個 artifact 都是最新狀態。因此合法的上游 swap 不會只因為
+選用 sidecar 尚未追上就被回溯。
+
+## Enrichment sidecar 契約
+
+兩種 artifact 都沿用 history 檔名慣例。例如
+`skills/azure/az-cost-optimize` 在對應種類目錄中會成為
+`skills__azure__az-cost-optimize.json`。共用結構凍結在 schema version 1：
+
+```json
+{
+  "path": "skills/azure/az-cost-optimize",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:...",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/az-cost-optimize",
+    "pinnedCommit": "..."
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:...",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:...",
+      "generatorVersion": 1,
+      "content": {}
+    },
+    "zh-tw": {
+      "signature": "sha256:...",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:...",
+      "generatorVersion": 1,
+      "content": {}
+    },
+    "zh-cn": {
+      "signature": "sha256:...",
+      "producer": "opencc",
+      "converterVersion": "1.0.6",
+      "generatorVersion": 1,
+      "content": {}
+    }
+  }
+}
+```
+
+Summary freshness 只含 `contentHash`。Changelog freshness 則包含上方完整的來源證明
+tuple，因此即使內容位元組未改變，只要釘選 commit 更新，就會讓 changelog 失效。
+Mapped skill 使用轉換前的 `contentHash`；orphan 與 local 的 summary artifact 則把
+`snapshotHash` 放在 `contentHash` 欄位中。
+
+Summary 的資格是「非 tombstone 且非 restricted」。Changelog 另外要求
+`upstream != null`，因此 frozen orphan 不可能誤產生 changelog。每個 locale
+signature 會雜湊 locale、schema version、producer、prompt ID、prompt hash、model
+或 converter version、必要的 generator version，以及釘選的 Copilot CLI contract。
+Generator version 是 generator 邏輯改變但 prompt 未變時，明確使 cache 失效的控制。
 
 ## 安全邊界
 
@@ -70,6 +148,9 @@ flowchart LR
   途中的當機則會在安全清除 stale lock 後，於下一次 apply 依 journal 解決，或
   留下一份清楚回報、可供人工復原的備份（見
   [同步與發布](sync-and-releases.md#交易安全性日誌回溯與當機復原)）。
+- **禁止 sidecar 修剪。** 上游更新 apply 完成後、commit 之前，
+  `npm run enrich:prune` 會移除其 skill 已變成 restricted、變成 tombstone，或已
+  離開 lock 的 artifact。它只會刪除檔案，不依賴 LLM、網路或 API key。
 
 ## 受限制內容隔離
 

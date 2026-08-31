@@ -108,7 +108,7 @@ test('validate.yml check-site-changes uses dorny/paths-filter with site/catalog/
 
 // ─── Existing validate behaviour preserved ───────────────────────────
 
-test('validate.yml validate job still installs, tests, and runs the validator', async () => {
+test('validate.yml validate job installs, tests, and runs both validator tiers in default mode', async () => {
   const wf = await loadValidateWorkflow();
   const job = wf.jobs?.validate;
   assert.ok(job, 'validate job must exist');
@@ -118,6 +118,10 @@ test('validate.yml validate job still installs, tests, and runs the validator', 
   assert.ok(
     runs.some((r) => /node scripts\/validate\.mjs/.test(r)),
     'validate must run node scripts/validate.mjs',
+  );
+  assert.ok(
+    runs.some((r) => /npm run validate:enrichment(?!\s+--\s+--strict)/.test(r)),
+    'validate must run the default safety-only enrichment validator',
   );
 });
 

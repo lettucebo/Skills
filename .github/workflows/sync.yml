@@ -263,6 +263,10 @@ jobs:
             echo "next_tag=$NEXT_TAG" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Prune forbidden enrichment artifacts
+        if: steps.apply.outputs.applied == 'true'
+        run: npm run enrich:prune
+
       - name: Commit and tag
         if: steps.apply.outputs.applied == 'true'
         run: |

@@ -42,6 +42,28 @@ npm test
 node scripts/validate.mjs
 ```
 
+**Enrichment safety validator** — always-on schema, path, restricted-content,
+and enabled-directory checks. Missing and stale artifacts deliberately pass:
+
+```bash
+npm run validate:enrichment
+```
+
+**Enrichment strict validator** — publishing-only completeness and freshness
+checks in addition to the default safety rules:
+
+```bash
+npm run validate:enrichment -- --strict
+```
+
+**Enrichment prune** — deterministic deletion of artifacts for skills that
+became restricted, became tombstones, or left the lock. This command never
+calls an LLM or the network:
+
+```bash
+npm run enrich:prune
+```
+
 **Site build-before-unit sequence** — required because a few site unit tests
 assert against the built `site/dist/` output and otherwise skip themselves:
 
@@ -132,6 +154,27 @@ when you touch `site/` itself.
 - Before writing new SDK- or platform-specific guidance into a skill, verify
   it against current official documentation rather than relying on training
   data that may already be stale.
+
+## Enrichment validator tiers
+
+`catalog/enrichment/manifest.json` is the durable enablement state. Directory
+existence is never treated as enablement, so deleting a generated directory
+cannot silently turn validation off.
+
+Tier 1 is the existing `validateRepository` call inside the atomic
+baseline/update transaction. It remains completely unaware of enrichment so a
+stale optional sidecar cannot roll back a legitimate registry sync. Tier 2
+default (`npm run validate:enrichment`) always blocks forbidden or malformed
+artifacts in directories that exist, including artifacts for skills absent
+from the lock. Disabled kinds require no directory and no complete artifact
+set. Missing and stale eligible artifacts pass. Tier 2 strict adds exact-set
+completeness and freshness for enabled kinds, and is reserved for a publishing
+gate.
+
+Eligibility is computed per kind: summaries include every non-tombstone,
+non-restricted skill; changelogs additionally require a non-null `upstream`.
+Mapped skills use their pre-transform `contentHash` for freshness. Orphan and
+local summaries use `snapshotHash`.
 
 ## Commit messages
 

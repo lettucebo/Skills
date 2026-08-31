@@ -41,6 +41,27 @@ npm test
 node scripts/validate.mjs
 ```
 
+**Enrichment 安全驗證器** — 永遠執行 schema、路徑、受限制內容與已啟用目錄檢查。
+缺少與過期 artifact 會刻意通過：
+
+```bash
+npm run validate:enrichment
+```
+
+**Enrichment 嚴格驗證器** — 在預設安全規則之外，加入只供發布使用的完整性與
+freshness 檢查：
+
+```bash
+npm run validate:enrichment -- --strict
+```
+
+**Enrichment 修剪** — 確定性刪除其 skill 已變成 restricted、變成 tombstone，或
+已離開 lock 的 artifact。這個指令絕不呼叫 LLM 或網路：
+
+```bash
+npm run enrich:prune
+```
+
 **先建置後單元測試的順序** — 之所以必要，是因為有少數網站單元測試會對照已建置
 的 `site/dist/` 輸出進行斷言，否則會自動跳過：
 
@@ -124,6 +145,23 @@ npm run smoke:npx -- --ref HEAD
   [技能管理](skill-management.md#上游失效連結例外)）。
 - 在為某個 skill 撰寫新的 SDK 或平台相關指引之前，請先對照現行官方文件驗證，
   而不是依賴可能已經過時的訓練資料。
+
+## Enrichment 驗證層級
+
+`catalog/enrichment/manifest.json` 是持久化的啟用狀態。目錄是否存在絕不會被視為
+啟用狀態，因此刪除產生目錄不能靜默關閉驗證。
+
+Tier 1 是原本位於 atomic baseline/update 交易中的 `validateRepository`。它必須
+完全不知道 enrichment，避免選用 sidecar 過期時回溯合法的 registry sync。Tier 2
+預設模式（`npm run validate:enrichment`）永遠會擋下現有目錄中的禁止或格式錯誤
+artifact，包括 skill 已離開 lock 的 artifact；但停用種類不要求目錄存在，也不
+要求完整 artifact 集合。符合資格的 artifact 缺少或過期仍會通過。Tier 2 strict
+只對已啟用種類再加入 artifact exact-set 完整性與 freshness，並保留給發布 gate
+使用。
+
+資格會依種類分別計算：summary 包含所有非 tombstone、非 restricted skill；
+changelog 另外要求 `upstream` 非 null。Mapped skill 的 freshness 使用轉換前
+`contentHash`；orphan 與 local summary 使用 `snapshotHash`。
 
 ## Commit 訊息
 
