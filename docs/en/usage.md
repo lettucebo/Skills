@@ -49,7 +49,8 @@ Restricted skills (see the restricted-content note in
 [Installation](installation.md)) never have their `SKILL.md` body or
 description rendered on the site. Their pages still show catalog metadata
 such as name, version, license, status, available upstream provenance, and
-history.
+history. The current active inventory has no such pages: the four proprietary
+claude mirrors are tombstones, and their old URLs return 404.
 
 ### Source pages
 
@@ -79,8 +80,8 @@ Prefer the narrowest scope that meets your need:
   only when that skill is not itself restricted.
 - **Single source** — when you want a whole collection (for example all
   `skills/dotnet` skills) that does not contain a restricted skill.
-- **Full registry** — only when you specifically need broad coverage and
-  accept installing every skill currently marked restricted alongside it.
+- **Full registry** — installs all 115 active skills in 2.0.0. Continue
+  checking the status page for future restricted inventory.
 
 ## Pinning versions
 

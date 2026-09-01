@@ -53,6 +53,10 @@ manifest 項目。
 若收編後才發現分類遺漏，必須以含測試、經過審查的 engine／data migration 修正；
 事後只加入路徑並不夠。
 
+四個已移除的 claude 文件格式路徑仍永久保留在 `RESTRICTED_SKILL_PATHS` 作為
+denylist。Lock release 2.0.0 之後，validator 要求它們不存在於磁碟與 active
+mapping，只允許 inactive lock tombstone。
+
 ### `orphans`
 
 宣告一個沒有追蹤上游的凍結快照：

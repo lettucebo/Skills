@@ -207,9 +207,6 @@ mappings:
   - path: skills/claude/doc-coauthoring
     upstream: anthropics
     source: skills/doc-coauthoring
-  - path: skills/claude/docx
-    upstream: anthropics
-    source: skills/docx
   - path: skills/claude/frontend-design
     upstream: anthropics
     source: skills/frontend-design
@@ -219,12 +216,6 @@ mappings:
   - path: skills/claude/mcp-builder
     upstream: anthropics
     source: skills/mcp-builder
-  - path: skills/claude/pdf
-    upstream: anthropics
-    source: skills/pdf
-  - path: skills/claude/pptx
-    upstream: anthropics
-    source: skills/pptx
   - path: skills/claude/skill-creator
     upstream: anthropics
     source: skills/skill-creator
@@ -240,9 +231,6 @@ mappings:
   - path: skills/claude/webapp-testing
     upstream: anthropics
     source: skills/webapp-testing
-  - path: skills/claude/xlsx
-    upstream: anthropics
-    source: skills/xlsx
   # cloudflare
   - path: skills/cloudflare/agents-sdk
     upstream: cloudflare

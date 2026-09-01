@@ -35,17 +35,17 @@ hooks/                     ← Copilot Hook 腳本集合
 ## 目前收錄的 Skills
 
 <!-- CATALOG:START -->
-共 **119 個技能**，來自 12 個來源。
+共 **115 個技能**，來自 12 個來源。
 
 > 以下統計由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
 >
-> 全部 116 個 mapped 技能皆已 verified，每個技能的 upstream commit 與 contentHash 均已記錄。
+> 全部 112 個 mapped 技能皆已 verified，每個技能的 upstream commit 與 contentHash 均已記錄。
 
 | 來源 | 數量 | 說明 | 文件 |
 |------|:----:|------|------|
 | [azure](skills/azure/) | 9 | Azure 雲端架構、部署、定價、DevOps | — |
 | [chrome](skills/chrome/) | 1 | Chrome DevTools 偵錯與效能分析 | — |
-| [claude](skills/claude/) | 17 | Claude API、文件生成、創意工具（PDF/PPTX/XLSX 等） | — |
+| [claude](skills/claude/) | 13 | Claude API、協作寫作、前端與創意工具 | — |
 | [cloudflare](skills/cloudflare/) | 13 | Cloudflare Workers、Durable Objects、Agents SDK | [README](skills/cloudflare/README.md) |
 | [dotnet](skills/dotnet/) | 14 | C# 測試（NUnit/xUnit/MSTest/TUnit）、EF Core、NuGet、非同步 | — |
 | [github](skills/github/) | 8 | GitHub Issues、PR、CodeQL、Dependabot、gh CLI | — |
@@ -69,29 +69,27 @@ hooks/                     ← Copilot Hook 腳本集合
 <!-- INSTALL:START -->
 > 以下安裝指令由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
 
-安裝一律使用 `#<tag>` 釘選版本（不支援 `@version` 或 semver range）。目前 lockfile 的 release 為 **v1.1.0**。
+安裝一律使用 `#<tag>` 釘選版本（不支援 `@version` 或 semver range）。目前 lockfile 的 release 為 **v2.0.0**。
 
 安裝整個 registry：
 
 ```bash
-npx skills add lettucebo/Skills#v1.1.0
+npx skills add lettucebo/Skills#v2.0.0
 ```
 
 只安裝單一來源：
 
 ```bash
-npx skills add lettucebo/Skills/skills/azure#v1.1.0
+npx skills add lettucebo/Skills/skills/azure#v2.0.0
 ```
 
 只安裝單一技能：
 
 ```bash
-npx skills add "lettucebo/Skills#v1.1.0@agents-sdk"
+npx skills add "lettucebo/Skills#v2.0.0@agents-sdk"
 ```
 
-> ⚠️ 上述指令需要 `v1.1.0` tag 已推送到 GitHub；若該 tag 尚未發布，`npx skills` 會找不到對應 ref 而失敗。
->
-> ⚠️ 整個 registry 的安裝會包含 4 個專有授權（`redistributable: false`）技能，皆位於 `skills/claude`。若需避免，請改用單一來源或單一技能安裝。
+> ⚠️ 上述指令需要 `v2.0.0` tag 已推送到 GitHub；若該 tag 尚未發布，`npx skills` 會找不到對應 ref 而失敗。
 <!-- INSTALL:END -->
 
 ### 方法二：直接複製
@@ -136,7 +134,7 @@ description: 觸發技能載入的一行說明。
 同步引擎會以 release tag 與 lockfile 對帳；在 release tag 尚未推送之前，每次排程執行都會失敗並重複開啟追蹤 issue。因此排程 apply 由 repository variable `SKILLS_SYNC_ENABLED` 控制：
 
 ```bash
-# 於 release tag（例如 v1.1.0）推送發布後再執行，才會啟用每日排程同步
+# 於 release tag（例如 v2.0.0）推送發布後再執行，才會啟用每日排程同步
 gh variable set SKILLS_SYNC_ENABLED --body true
 ```
 
@@ -162,4 +160,4 @@ gh variable set SKILLS_SYNC_ENABLED --body true
 
 - 本 registry 的工具程式（`scripts/`、`hooks/`）與未來的 `skills/lettucebo/` 原創技能採用 MIT License，詳見 [LICENSE](LICENSE)。
 - 各 vendored skill 保留其原始專案的授權；完整來源與授權對應請見 [NOTICE](NOTICE)。
-- `claude/docx`、`claude/pdf`、`claude/pptx`、`claude/xlsx` 為專有授權（Restricted，`redistributable: false`），使用前請先閱讀各技能資料夾內的 `LICENSE.txt`。
+- `claude/docx`、`claude/pdf`、`claude/pptx`、`claude/xlsx` 的專有鏡像已在 `2.0.0` 前移除；lock/history 保留 tombstone 稽核軌跡，而 `RESTRICTED_SKILL_PATHS` 永久保留為拒絕清單。

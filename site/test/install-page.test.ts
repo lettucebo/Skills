@@ -138,16 +138,15 @@ test('built install page publishes an unrestricted source command', {
   assert.ok(html.includes(cmd!), `install page must publish the clean source command "${cmd}"`);
 });
 
-test('built install page omits restricted bulk commands and warning boxes', {
+test('built install page includes claude after restricted mirrors become tombstones', {
   skip: !distExists && 'dist/ not found',
 }, async () => {
   const html = read(path.join(distDir, 'en', 'install', 'index.html'));
   const catalog = await loadCatalog(repoRoot);
-  const restrictedSource = catalog.skills.find((s) => s.isRestricted)?.source;
-  assert.ok(restrictedSource, 'fixture expects at least one restricted source');
+  assert.equal(catalog.counts.restricted, 0);
   assert.ok(
-    !html.includes(`npx skills add lettucebo/Skills/skills/${restrictedSource}`),
-    'a source with restricted skills must not offer a bulk install command',
+    html.includes('npx skills add lettucebo/Skills/skills/claude#v2.0.0'),
+    'claude must offer a bulk install command after restricted mirrors are removed',
   );
   assert.doesNotMatch(html, /warning-box/, 'install page must not render a warning box');
 });

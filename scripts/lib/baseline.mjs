@@ -98,6 +98,9 @@ export const SWAP_TARGETS = [
   { rel: 'NOTICE', kind: 'file' },
   { rel: 'README.md', kind: 'file' },
 ];
+const LEGACY_SWAP_TARGETS = SWAP_TARGETS.filter(
+  (target) => target.rel !== 'catalog/sources.yml',
+);
 
 export class BaselineError extends Error {
   constructor(message) {
@@ -137,6 +140,31 @@ export function assertDeproprietizePreconditions({ lock, manifest }) {
         `Refusing deproprietize migration: ${skillPath} license is ${skill.license}; expected Proprietary.`,
       );
     }
+    if (skill.version !== BASELINE_VERSION) {
+      throw new BaselineError(
+        `Refusing deproprietize migration: ${skillPath} version is ${skill.version}; expected ${BASELINE_VERSION}.`,
+      );
+    }
+    if (skill.baseline !== 'verified') {
+      throw new BaselineError(
+        `Refusing deproprietize migration: ${skillPath} baseline is ${skill.baseline}; expected verified.`,
+      );
+    }
+    if (typeof skill.contentHash !== 'string' || !skill.contentHash.startsWith('sha256:')) {
+      throw new BaselineError(
+        `Refusing deproprietize migration: ${skillPath} contentHash is missing or invalid.`,
+      );
+    }
+    if (typeof skill.snapshotHash !== 'string' || !skill.snapshotHash.startsWith('sha256:')) {
+      throw new BaselineError(
+        `Refusing deproprietize migration: ${skillPath} snapshotHash is missing or invalid.`,
+      );
+    }
+    if (!/^[0-9a-f]{40}$/i.test(skill.upstream?.commit ?? '')) {
+      throw new BaselineError(
+        `Refusing deproprietize migration: ${skillPath} upstream commit is missing or invalid.`,
+      );
+    }
     if (
       skill.upstream?.repository !== 'anthropics/skills' ||
       skill.upstream?.reference !== manifest.upstreams.anthropics?.reference ||
@@ -156,6 +184,29 @@ export function assertDeproprietizePreconditions({ lock, manifest }) {
       throw new BaselineError(
         `Refusing deproprietize migration: expected exact anthropics mapping for ${skillPath}.`,
       );
+    }
+  }
+}
+
+async function assertDeproprietizeHistory(repoRoot, lock) {
+  for (const skillPath of DEPROPRIETIZE_PATHS) {
+    const lockSkill = lock.skills.find((skill) => skill.path === skillPath);
+    const { content } = await readHistoryDoc(repoRoot, skillPath);
+    const last = content.entries.at(-1);
+
+    for (const [field, actual, expected] of [
+      ['kind', last?.kind, BASELINE_HISTORY_KIND],
+      ['release', last?.release, BASELINE_RELEASE],
+      ['version', last?.version, BASELINE_VERSION],
+      ['upstreamCommit', last?.upstreamCommit, lockSkill.upstream.commit],
+      ['contentHash', last?.contentHash, lockSkill.contentHash],
+    ]) {
+      if (actual !== expected) {
+        throw new BaselineError(
+          `Refusing deproprietize migration: history for ${skillPath} has ${field} ` +
+            `${JSON.stringify(actual)}; expected ${JSON.stringify(expected)}.`,
+        );
+      }
     }
   }
 }
@@ -753,7 +804,6 @@ function assertValidTransaction(transaction, journalPath) {
     ![1, 2].includes(transaction?.version) ||
     !['swapping', 'validated'].includes(transaction.status) ||
     !Array.isArray(transaction.targets) ||
-    transaction.targets.length !== SWAP_TARGETS.length ||
     typeof transaction.repoRoot !== 'string' ||
     typeof transaction.candidateRoot !== 'string' ||
     typeof transaction.backupRoot !== 'string'
@@ -764,7 +814,23 @@ function assertValidTransaction(transaction, journalPath) {
     );
   }
 
-  for (const [index, target] of SWAP_TARGETS.entries()) {
+  const recordedShape = transaction.targets.map((target) => target?.rel).join('\0');
+  const currentShape = SWAP_TARGETS.map((target) => target.rel).join('\0');
+  const legacyShape = LEGACY_SWAP_TARGETS.map((target) => target.rel).join('\0');
+  const targetDefinitions = recordedShape === currentShape
+    ? SWAP_TARGETS
+    : recordedShape === legacyShape
+      ? LEGACY_SWAP_TARGETS
+      : null;
+
+  if (!targetDefinitions) {
+    throw new BaselineError(
+      `Refusing to recover: transaction journal ${journalPath} has an unknown target set. ` +
+        'Inspect it and restore the repository from the recorded backup before retrying.',
+    );
+  }
+
+  for (const [index, target] of targetDefinitions.entries()) {
     const recorded = transaction.targets[index];
     const expectedLive = path.resolve(transaction.repoRoot, ...target.rel.split('/'));
     const expectedBackup = path.resolve(transaction.backupRoot, ...target.rel.split('/'));
@@ -1664,6 +1730,7 @@ export function buildUpdateLock({
   const stagedMap = staged instanceof Map ? staged : new Map(Object.entries(staged));
 
   const skills = lock.skills
+    .filter((skill) => !(addedSet.has(skill.path) && skill.category === 'removed'))
     .map((skill) => {
       if (removedSet.has(skill.path)) {
         return {
@@ -1840,7 +1907,7 @@ async function buildUpdateCandidate({
 
   for (const skillPath of changedPaths) {
     const stagedEntry = staged.get(skillPath);
-    const lockSkill = lock.skills.find((s) => s.path === skillPath);
+    const lockSkill = lock.skills.find((skill) => skill.path === skillPath);
     const { fileName, content } = await readHistoryDoc(repoRoot, skillPath);
     const previousCommit = lockSkill?.upstream?.commit ?? null;
     const repository = stagedEntry.repository;
@@ -1891,7 +1958,9 @@ async function buildUpdateCandidate({
   }
 
   for (const skillPath of removedPaths) {
-    const lockSkill = lock.skills.find((s) => s.path === skillPath);
+    const lockSkill = lock.skills.find(
+      (skill) => skill.path === skillPath && skill.category !== 'removed',
+    );
     const { fileName, content } = await readHistoryDoc(repoRoot, skillPath);
 
     const entry = {
@@ -2029,6 +2098,7 @@ export async function applyDeproprietize({
     const protectedRoots = assertMappingsWritable(manifest);
     const lock = await readLock(absoluteRepoRoot);
     assertDeproprietizePreconditions({ lock, manifest });
+    await assertDeproprietizeHistory(absoluteRepoRoot, lock);
 
     for (const skillPath of DEPROPRIETIZE_PATHS) {
       assertWritableSkillPath(skillPath, protectedRoots);
@@ -2313,7 +2383,11 @@ export async function applyUpdate({
     const addedMappedPaths = [...manifestPathSet]
       .filter((p) => !lockMappedSet.has(p))
       .sort();
-    const lockPathSet = new Set(lock.skills.map((skill) => skill.path));
+    const lockPathSet = new Set(
+      lock.skills
+        .filter((skill) => skill.category !== 'removed')
+        .map((skill) => skill.path),
+    );
     const addedOrphanPaths = manifest.orphans
       .map((orphan) => orphan.path)
       .filter((skillPath) => !lockPathSet.has(skillPath))
@@ -2422,7 +2496,9 @@ export async function applyUpdate({
     // `x-version` and `snapshotHash` reflect the actual vendored bytes.
     for (const skillPath of [...addedMappedPaths, ...changedPaths]) {
       const stagedEntry = staged.get(skillPath);
-      const lockSkill = lock.skills.find((s) => s.path === skillPath);
+      const lockSkill = lock.skills.find(
+        (skill) => skill.path === skillPath && skill.category !== 'removed',
+      );
       const nextSkillVersion = lockSkill
         ? bumpPatch(lockSkill.version)
         : ADDED_SKILL_VERSION;

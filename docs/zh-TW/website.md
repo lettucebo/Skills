@@ -43,6 +43,10 @@ npm --prefix site run build
 `data-pagefind-body` 選擇加入索引；舊版 redirect、目錄與狀態頁不會被索引。輸出
 結果會放在 `site/dist/`。
 
+2.0.0 catalog 會建置 390 個在地化 route 與 130 個 legacy redirect（合計 520
+個 HTML 檔）。每個 locale 的 115 個 active skill 頁會產生 345 個 Pagefind
+document／fragment。四個已移除的專有 skill route 與 legacy redirect 刻意不產生。
+
 ## 結構化 skill 摘要
 
 符合資格的 skill 具有面向一般使用者的摘要成品，分為**用途**、**使用時機**與
@@ -122,12 +126,13 @@ Upstream changes，既有的 History 仍會正常渲染。
 
 ## 網站上的受限制內容
 
-受限制的 skill（見 [安裝方式](installation.md)）永遠不會渲染其 `SKILL.md`
-內容。受限制的來源與單一 skill 會抑制安裝指令；完整 registry 指令仍可使用，並會
-安裝受限制 skill，但網站不再於指令旁顯示頁面內（on-page）受限制內容警告 — 請透過
-`/Skills/zh-tw/status/`（或其他 locale）或 lockfile 確認目前的受限制清單與授權（見
-[系統架構](architecture.md#受限制內容隔離)）。
-Restricted 與 orphan 頁面也永遠不會讀取或渲染上游 changelog sidecar。
+目前 active inventory 有零個受限制 skill，因為四個專有鏡像已在發布前移除；其
+舊 skill URL 與 legacy redirect 都不會產生。
+
+Restricted 邊界仍以 fixture 測試：active restricted skill 永遠不會讀取
+`SKILL.md` 或 enrichment sidecar，且來源／單一 skill 指令會被抑制。Orphan 頁面
+也永遠不會讀取或渲染上游 changelog sidecar。詳見
+[系統架構](architecture.md#受限制內容隔離)。
 
 ## 延伸閱讀
 

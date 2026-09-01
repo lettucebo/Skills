@@ -438,6 +438,49 @@ test('buildUpdateLock bumps only changed skills and leaves others untouched', ()
   assert.equal(gamma.upstream, null);
 });
 
+test('buildUpdateLock reactivates a tombstoned path when the mapping is added again', () => {
+  const previous = verifiedLock();
+  previous.skills[0] = {
+    ...previous.skills[0],
+    category: 'removed',
+    removedIn: '2.0.0',
+    removalReason: 'Removed for fixture.',
+  };
+  previous.counts = { total: 2, mapped: 1, orphan: 1, local: 0 };
+  const staged = new Map([[
+    'skills/demo/alpha',
+    {
+      category: 'mapped',
+      commit: 'c'.repeat(40),
+      contentHash: 'sha256:reactivated-alpha',
+      snapshotHash: 'sha256:reactivated-snap-alpha',
+      name: 'alpha',
+      repository: 'demo/upstream',
+      reference: 'refs/heads/main',
+      source: 'skills/alpha',
+      license: 'Unknown',
+      redistributable: true,
+    },
+  ]]);
+
+  const lock = buildUpdateLock({
+    lock: previous,
+    staged,
+    addedPaths: ['skills/demo/alpha'],
+    changedPaths: [],
+    release: '2.1.0',
+    generatedAt: '2026-09-02T00:00:00Z',
+  });
+
+  const alpha = lock.skills.find((skill) => skill.path === 'skills/demo/alpha');
+  assert.equal(alpha.category, 'mapped');
+  assert.equal(alpha.version, '1.0.0');
+  assert.equal(alpha.removedIn, undefined);
+  assert.equal(alpha.removalReason, undefined);
+  assert.equal(alpha.contentHash, 'sha256:reactivated-alpha');
+  assert.deepEqual(lock.counts, { total: 3, mapped: 2, orphan: 1, local: 0 });
+});
+
 // ---------------------------------------------------------------------------
 // applyUpdate (fixture integration)
 // ---------------------------------------------------------------------------
@@ -2060,6 +2103,70 @@ test('applyUpdate applies an allowed removal as a major release', async () => {
         'utf8',
       ),
     );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('applyUpdate reactivates a tombstoned mapping with matching 1.0.0 lock and x-version', async () => {
+  const workspace = await makeTempDir('update-reactivate-tombstone');
+  try {
+    const { upstream, repoRoot } = await buildUpdateFixture(workspace, {
+      extraSkills: 10,
+    });
+    const skillPath = 'skills/demo/extra01';
+
+    await removeFixtureMappings(repoRoot, upstream.url, [skillPath]);
+    const removal = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-03-03T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+    git(repoRoot, ['add', '-A']);
+    git(repoRoot, ['commit', '-q', '-m', 'remove mapping']);
+    git(repoRoot, ['tag', '-a', removal.nextTag, '-m', removal.commitMessage]);
+
+    const manifestPath = path.join(repoRoot, 'catalog', 'sources.yml');
+    const manifest = await readFile(manifestPath, 'utf8');
+    await writeFile(
+      manifestPath,
+      manifest.replace(
+        'orphans:',
+        [
+          `  - path: ${skillPath}`,
+          '    upstream: demo',
+          '    source: skills/extra01',
+          'orphans:',
+        ].join('\n'),
+      ),
+    );
+    await writeFileEnsured(
+      path.join(repoRoot, ...skillPath.split('/'), 'SKILL.md'),
+      skillDoc('extra01', 'Placeholder committed before reactivation.'),
+    );
+    git(repoRoot, ['add', '-A']);
+    git(repoRoot, ['commit', '-q', '-m', 'redeclare mapping']);
+
+    const result = await applyUpdate({
+      repoRoot,
+      readGitStatus: cleanTree,
+      now: () => '2026-04-04T00:00:00Z',
+      runGit: makeRunGit(repoRoot),
+    });
+    assert.equal(result.release, '2.1.0');
+    assert.deepEqual(result.added, [skillPath]);
+
+    const lock = JSON.parse(await readLockFile(repoRoot));
+    const reactivated = lock.skills.find((skill) => skill.path === skillPath);
+    assert.equal(reactivated.category, 'mapped');
+    assert.equal(reactivated.version, '1.0.0');
+    const skillText = await readFile(
+      path.join(repoRoot, ...skillPath.split('/'), 'SKILL.md'),
+      'utf8',
+    );
+    assert.match(skillText, /^x-version: 1\.0\.0$/m);
+    assert.equal(await hashDirectory(path.join(repoRoot, ...skillPath.split('/'))), reactivated.snapshotHash);
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }

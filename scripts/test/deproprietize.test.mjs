@@ -301,6 +301,51 @@ test('deproprietize preconditions require the exact unpublished 1.1.0 restricted
         ),
       }),
     ],
+    [
+      'version',
+      migrationLock({
+        skills: REMOVED_PATHS.map((skillPath, index) =>
+          index === 0 ? { ...restrictedSkill(skillPath), version: '0.9.0' } : restrictedSkill(skillPath),
+        ),
+      }),
+    ],
+    [
+      'baseline',
+      migrationLock({
+        skills: REMOVED_PATHS.map((skillPath, index) =>
+          index === 0 ? { ...restrictedSkill(skillPath), baseline: 'unverified' } : restrictedSkill(skillPath),
+        ),
+      }),
+    ],
+    [
+      'contentHash',
+      migrationLock({
+        skills: REMOVED_PATHS.map((skillPath, index) =>
+          index === 0 ? { ...restrictedSkill(skillPath), contentHash: null } : restrictedSkill(skillPath),
+        ),
+      }),
+    ],
+    [
+      'snapshotHash',
+      migrationLock({
+        skills: REMOVED_PATHS.map((skillPath, index) =>
+          index === 0 ? { ...restrictedSkill(skillPath), snapshotHash: null } : restrictedSkill(skillPath),
+        ),
+      }),
+    ],
+    [
+      'commit',
+      migrationLock({
+        skills: REMOVED_PATHS.map((skillPath, index) =>
+          index === 0
+            ? {
+                ...restrictedSkill(skillPath),
+                upstream: { ...restrictedSkill(skillPath).upstream, commit: null },
+              }
+            : restrictedSkill(skillPath),
+        ),
+      }),
+    ],
   ]) {
     assert.throws(
       () =>
@@ -320,6 +365,33 @@ test('deproprietize preconditions require the exact unpublished 1.1.0 restricted
       }),
     /mapping.*skills\/claude\/docx/i,
   );
+});
+
+test('applyDeproprietize rejects history that does not match the verified lock provenance', async () => {
+  const { workspace, repoRoot } = await buildMigrationFixture('deproprietize-history-guard');
+  const historyPath = path.join(
+    repoRoot,
+    'catalog',
+    'history',
+    'skills__claude__docx.json',
+  );
+
+  try {
+    const history = JSON.parse(await readFile(historyPath, 'utf8'));
+    history.entries.at(-1).contentHash = 'sha256:mismatch';
+    await writeFile(historyPath, `${JSON.stringify(history, null, 2)}\n`);
+
+    await assert.rejects(
+      baselineModule.applyDeproprietize({
+        repoRoot,
+        deproprietize: true,
+        readGitStatus: async () => '',
+      }),
+      /history.*skills\/claude\/docx.*contentHash/i,
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
 });
 
 test('buildDeproprietizedLock preserves four tombstones while counting only active skills', () => {

@@ -40,8 +40,9 @@ flowchart LR
 1. **`catalog/sources.yml`** declares every upstream, mapping, orphan, local
    root, override, and link exception (see [Configuration](configuration.md)).
 2. **`scripts/sync.mjs`** reads the manifest and either plans or delegates a
-   real apply/baseline to **`scripts/lib/baseline.mjs`**, which owns the apply
-   lock, journal, candidate/backup swap, and recovery (see
+   real apply/baseline/deproprietize operation to
+   **`scripts/lib/baseline.mjs`**, which owns the apply lock, journal,
+   candidate/backup swap, and recovery (see
    [Sync and releases](sync-and-releases.md)).
 3. Declared upstreams are **shallow-cloned** at their pinned branch/tag —
    never at a bare commit SHA — and mapped sources are staged into a
@@ -93,18 +94,20 @@ flowchart LR
     parser/assertion, HTML language mapping, and base-aware path helpers.
     Shared page components render the five logical page kinds, while explicit
     `[locale]` routes expand them for `en`, `zh-tw`, and `zh-cn`.
-13. The current catalog produces 402 localized pages plus 134 unprefixed
+13. The current catalog produces 390 localized pages plus 130 unprefixed
     static redirect pages. Redirects preserve the old logical target, use
     English as the canonical/meta/no-JS fallback, and are excluded from
-    Pagefind. Only the 119 skill pages per locale opt into Pagefind, producing
-    357 indexed pages across three language indexes.
+    Pagefind. Only the 115 skill pages per locale opt into Pagefind, producing
+    345 indexed pages across three language indexes. Together these routes
+    produce exactly 520 HTML pages.
 14. The built site deploys to **GitHub Pages**.
 
 `node scripts/validate.mjs` cuts across every stage: it walks the whole
 `skills/` tree independently of any one sync run, checking frontmatter,
-manifest coverage, and relative links. Both apply engines run it after the
-candidate swap and roll back on failure. The workflow also runs a separate
-pre-apply validation (and an explicit post-apply validation for baseline).
+manifest coverage, relative links, and the post-2.0 permanent restricted
+denylist. All three apply engines use it in the transaction; deproprietize
+also validates the complete candidate before the first swap. The workflow
+also runs a separate pre-apply validation.
 
 Enrichment validation is deliberately outside that transaction. The default
 `npm run validate:enrichment` command always enforces sidecar safety:
@@ -220,22 +223,19 @@ glossary is embedded here; later editorial vocabulary work remains tracked by
 
 ## Restricted content isolation
 
-Every skill marked `"redistributable": false` is isolated in the **website
-data layer**: `loadSkillBody` refuses to read its `SKILL.md` body. Its detail
-page still shows catalog metadata (name, version, status, license, available
-upstream provenance, and history), but no description, instructions, or
-single-skill install command. Source-level commands are also suppressed when
-that source contains restricted content.
+The four proprietary anthropics mirrors were removed before the first release
+tag. Their lock entries are `removed` tombstones and their ledgers retain a
+`mapping-removed` entry, but their mappings, directories, routes, redirects,
+and enrichment artifacts are absent. The active catalog therefore has zero
+restricted skills.
 
-The full-registry command is the deliberate exception: the catalog still
-renders it, and it installs restricted skills along with everything else. The
-site no longer places an on-page restricted-content warning beside it, so
-consult `/Skills/en/status/` (or another locale) or the lockfile for the current restricted inventory and
-licensing before running it. The vendored bytes also remain present in tagged
-repository trees, so this
-boundary is website rendering and command suppression, not removal from Git.
-The current restricted set is visible on `/Skills/en/status/` (or another locale) or by searching the
-lockfile for `"redistributable": false`; it is never enumerated here.
+`RESTRICTED_SKILL_PATHS` permanently keeps those four paths as a denylist.
+For release 2.0.0 and later, validation rejects a denylisted path on disk, in
+an active mapping, or in an active lock entry. The license resolver's
+restricted branch and all site fail-closed paths remain in place for fixtures
+and any future active restricted inventory: `loadSkillBody` still refuses to
+read restricted content, and restricted source/single-skill commands remain
+suppressed.
 
 ## See also
 

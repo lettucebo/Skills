@@ -9,7 +9,7 @@ deterministically from `catalog/skills.lock.json`; do not edit it by hand.
 | Upstream repository | Reference | Skills |
 |---------------------|-----------|:------:|
 | aiskillstore/marketplace | refs/heads/main | 1 |
-| anthropics/skills | refs/heads/main | 17 |
+| anthropics/skills | refs/heads/main | 13 |
 | cloudflare/skills | refs/heads/main | 13 |
 | github/awesome-copilot | refs/heads/main | 58 |
 | henkisdabro/wookstar-claude-plugins | refs/heads/main | 1 |
@@ -22,7 +22,6 @@ deterministically from `catalog/skills.lock.json`; do not edit it by hand.
 |---------|:------:|
 | Apache-2.0 | 12 |
 | MIT | 16 |
-| Proprietary | 4 |
 | Unknown | 87 |
 
 ## Restricted skills
@@ -31,10 +30,7 @@ The following skills are marked `redistributable: false`. Their proprietary term
 are preserved in each skill's own `LICENSE.txt`; this NOTICE does not reproduce the
 full license body. Consult the linked terms before reusing them.
 
-- **skills/claude/docx** — Restricted (Proprietary); see `skills/claude/docx/LICENSE.txt`.
-- **skills/claude/pdf** — Restricted (Proprietary); see `skills/claude/pdf/LICENSE.txt`.
-- **skills/claude/pptx** — Restricted (Proprietary); see `skills/claude/pptx/LICENSE.txt`.
-- **skills/claude/xlsx** — Restricted (Proprietary); see `skills/claude/xlsx/LICENSE.txt`.
+_None._
 
 ## Orphan skills
 

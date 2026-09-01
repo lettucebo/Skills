@@ -1,9 +1,9 @@
 {
-  "release": "1.1.0",
-  "generatedAt": "2026-08-25T16:32:45.000Z",
+  "release": "2.0.0",
+  "generatedAt": "2026-09-01T17:20:20.832Z",
   "counts": {
-    "total": 119,
-    "mapped": 116,
+    "total": 115,
+    "mapped": 112,
     "orphan": 3,
     "local": 0
   },
@@ -266,7 +266,7 @@
     {
       "path": "skills/claude/docx",
       "name": "docx",
-      "category": "mapped",
+      "category": "removed",
       "version": "1.1.0",
       "baseline": "verified",
       "license": "Proprietary",
@@ -278,7 +278,9 @@
         "reference": "refs/heads/main",
         "source": "skills/docx",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
-      }
+      },
+      "removedIn": "2.0.0",
+      "removalReason": "Removed proprietary material to prevent proprietary redistribution."
     },
     {
       "path": "skills/claude/frontend-design",
@@ -334,7 +336,7 @@
     {
       "path": "skills/claude/pdf",
       "name": "pdf",
-      "category": "mapped",
+      "category": "removed",
       "version": "1.1.0",
       "baseline": "verified",
       "license": "Proprietary",
@@ -346,12 +348,14 @@
         "reference": "refs/heads/main",
         "source": "skills/pdf",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
-      }
+      },
+      "removedIn": "2.0.0",
+      "removalReason": "Removed proprietary material to prevent proprietary redistribution."
     },
     {
       "path": "skills/claude/pptx",
       "name": "pptx",
-      "category": "mapped",
+      "category": "removed",
       "version": "1.1.0",
       "baseline": "verified",
       "license": "Proprietary",
@@ -363,7 +367,9 @@
         "reference": "refs/heads/main",
         "source": "skills/pptx",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
-      }
+      },
+      "removedIn": "2.0.0",
+      "removalReason": "Removed proprietary material to prevent proprietary redistribution."
     },
     {
       "path": "skills/claude/skill-creator",
@@ -453,7 +459,7 @@
     {
       "path": "skills/claude/xlsx",
       "name": "xlsx",
-      "category": "mapped",
+      "category": "removed",
       "version": "1.1.0",
       "baseline": "verified",
       "license": "Proprietary",
@@ -465,7 +471,9 @@
         "reference": "refs/heads/main",
         "source": "skills/xlsx",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
-      }
+      },
+      "removedIn": "2.0.0",
+      "removalReason": "Removed proprietary material to prevent proprietary redistribution."
     },
     {
       "path": "skills/cloudflare/agents-sdk",

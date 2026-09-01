@@ -2,7 +2,7 @@
  * Mobile table overflow guards (375px).
  *
  * Browser evidence from the final UI/UX review found horizontal document
- * overflow on 36 of 116 built pages. The two causes were:
+ * overflow on many built pages. The two causes were:
  *
  *  1. Markdown tables rendered by `renderMarkdownBody` and the `.skill-table`
  *     markup on the source/status pages are laid out at their min-content

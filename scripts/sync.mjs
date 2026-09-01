@@ -251,10 +251,12 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
         upstream,
         source: mapping.source,
         commit: clone.commit,
-        version: lockEntry?.version ?? '1.0.0',
+        version: lockEntry?.category === 'removed'
+          ? '1.0.0'
+          : lockEntry?.version ?? '1.0.0',
       });
 
-      if (!lockEntry) {
+      if (!lockEntry || lockEntry.category === 'removed') {
         added.push({
           path: mapping.path,
           category: 'mapped',
@@ -310,7 +312,10 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
   }
 
   for (const orphan of manifest.orphans) {
-    if (lockByPath.has(orphan.path)) {
+    if (
+      lockByPath.has(orphan.path) &&
+      lockByPath.get(orphan.path).category !== 'removed'
+    ) {
       continue;
     }
 
@@ -325,7 +330,10 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
   }
 
   for (const skillPath of manifest.localSkillPaths) {
-    if (lockByPath.has(skillPath)) {
+    if (
+      lockByPath.has(skillPath) &&
+      lockByPath.get(skillPath).category !== 'removed'
+    ) {
       continue;
     }
 

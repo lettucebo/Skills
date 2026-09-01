@@ -144,13 +144,14 @@ test.describe('full-route localization', () => {
     }
   });
 
-  test('restricted content boundaries hold in every locale', async ({ page }) => {
+  test('removed proprietary routes return 404 in every locale', async ({ page }) => {
     for (const locale of locales) {
-      await page.goto(`${SITE_BASE}${locale.route}/skills/claude/docx/`);
-      await expect(page.locator('.detail-body')).toHaveCount(0);
-      await expect(page.locator('.skill-summary')).toHaveCount(0);
-      await expect(page.locator('.timeline-summary')).toHaveCount(0);
-      await expect(page.locator('.install-block')).toHaveCount(0);
+      for (const skill of ['docx', 'pdf', 'pptx', 'xlsx']) {
+        const response = await page.goto(
+          `${SITE_BASE}${locale.route}/skills/claude/${skill}/`,
+        );
+        expect(response?.status()).toBe(404);
+      }
     }
   });
 

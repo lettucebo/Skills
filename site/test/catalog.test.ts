@@ -35,10 +35,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '..');
 
 /**
- * Test-only expectation of today's restricted inventory. Production code must
- * derive this from the lock file, so this list lives here and nowhere else.
+ * Test-only copy of the permanent denylist paths. Production site code must
+ * continue deriving live restricted inventory from the lock file.
  */
-const EXPECTED_RESTRICTED_PATHS = [
+const DENYLIST_FIXTURE_PATHS = [
   'skills/claude/docx',
   'skills/claude/pdf',
   'skills/claude/pptx',
@@ -235,10 +235,12 @@ test('all three current orphan skills have no upstream links', async () => {
   }
 });
 
-test('all four restricted skills retain pinned public upstream links without exposing their bodies', async () => {
+test('all four proprietary tombstones retain pinned audit links without exposing bodies', async () => {
   const root = path.resolve(repoRoot, '..');
   const catalog = await loadCatalog(root);
-  const restricted = getRestrictedSkills(catalog.skills);
+  const restricted = catalog.skills.filter(
+    (skill) => skill.isTombstone && skill.isRestricted,
+  );
 
   assert.equal(restricted.length, 4);
   for (const skill of restricted) {
@@ -333,15 +335,15 @@ test('restricted skill: body reader is NEVER invoked', async () => {
 
 test('repo install command uses #ref syntax (never @version)', () => {
   const cmd = generateRepoInstallCommand();
-  assert.match(cmd, /^npx skills add lettucebo\/Skills#v1\.1\.0 --full-depth$/);
-  assert.doesNotMatch(cmd, /@v1\.1\.0/);
+  assert.match(cmd, /^npx skills add lettucebo\/Skills#v2\.0\.0 --full-depth$/);
+  assert.doesNotMatch(cmd, /@v2\.0\.0/);
 });
 
 test('source install command uses #ref syntax', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const cmd = generateSourceInstallCommand(catalog.skills, 'azure');
-  assert.match(cmd!, /^npx skills add lettucebo\/Skills\/skills\/azure#v1\.1\.0$/);
-  assert.doesNotMatch(cmd!, /@v1\.1\.0/);
+  assert.match(cmd!, /^npx skills add lettucebo\/Skills\/skills\/azure#v2\.0\.0$/);
+  assert.doesNotMatch(cmd!, /@v2\.0\.0/);
   assert.doesNotMatch(cmd!, /--full-depth/);
 });
 
@@ -349,7 +351,7 @@ test('single skill install command uses #ref@name syntax', () => {
   const cmd = generateSingleSkillInstallCommand('az-cost-optimize');
   assert.equal(
     cmd,
-    'npx skills add "lettucebo/Skills#v1.1.0@az-cost-optimize" --full-depth',
+    'npx skills add "lettucebo/Skills#v2.0.0@az-cost-optimize" --full-depth',
   );
 });
 
@@ -358,10 +360,10 @@ test('restricted skill has no install command', () => {
   assert.equal(cmd, null);
 });
 
-test('source containing restricted skills has no source command', async () => {
+test('claude source is installable after its restricted skills become tombstones', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
-  assert.equal(sourceContainsRestricted(catalog.skills, 'claude'), true);
-  assert.equal(generateSourceInstallCommand(catalog.skills, 'claude'), null);
+  assert.equal(sourceContainsRestricted(catalog.skills, 'claude'), false);
+  assert.notEqual(generateSourceInstallCommand(catalog.skills, 'claude'), null);
 });
 
 test('source without restricted skills has a source command', async () => {
@@ -372,9 +374,9 @@ test('source without restricted skills has a source command', async () => {
 
 // ─── Route Parameter Derivation ─────────────────────────────────────
 
-test('route params derived from all 119 skills are unique', async () => {
+test('route params derived from all 115 active skills are unique', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
-  const params = catalog.skills.map((s) => deriveRouteParams(s));
+  const params = catalog.skills.filter((skill) => !skill.isTombstone).map((s) => deriveRouteParams(s));
   const keys = params.map((p) => `${p.source}/${p.skill}`);
   const uniqueKeys = new Set(keys);
   assert.equal(keys.length, uniqueKeys.size, `Duplicate route params found: ${keys.filter((k, i) => keys.indexOf(k) !== i).join(', ')}`);
@@ -382,15 +384,19 @@ test('route params derived from all 119 skills are unique', async () => {
 
 // ─── Count Verification ─────────────────────────────────────────────
 
-test('current lock yields counts: 119 total, 116 mapped, 3 orphan, 0 local, 4 restricted', async () => {
+test('current lock yields counts: 115 total, 112 mapped, 3 orphan, 0 local, 0 restricted', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const counts = computeCounts(catalog.skills);
 
-  assert.equal(counts.total, 119);
-  assert.equal(counts.mapped, 116);
+  assert.equal(counts.total, 115);
+  assert.equal(counts.mapped, 112);
   assert.equal(counts.orphan, 3);
   assert.equal(counts.local, 0);
-  assert.equal(counts.restricted, 4);
+  assert.equal(counts.restricted, 0);
+  assert.equal(
+    catalog.skills.filter((skill) => skill.source === 'claude' && !skill.isTombstone).length,
+    13,
+  );
 });
 
 // ─── Markdown Renderer Safety ───────────────────────────────────────
@@ -439,15 +445,15 @@ test('deriveSourceFromPath extracts source correctly', () => {
 
 // ─── Restricted inventory derives from the lock file ────────────────
 
-test('restricted skills derive from the lock, matching today\'s four proprietary skills', async () => {
+test('live restricted inventory is empty after the four proprietary skills become tombstones', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
 
-  assert.deepEqual(getRestrictedPaths(catalog.skills), EXPECTED_RESTRICTED_PATHS);
-  assert.deepEqual(getRestrictedSources(catalog.skills), ['claude']);
-  assert.equal(getRestrictedSkills(catalog.skills).length, EXPECTED_RESTRICTED_PATHS.length);
-  for (const skill of getRestrictedSkills(catalog.skills)) {
-    assert.equal(skill.isRestricted, true);
-    assert.equal(skill.statusLabel, 'Restricted');
+  assert.deepEqual(getRestrictedPaths(catalog.skills), []);
+  assert.deepEqual(getRestrictedSources(catalog.skills), []);
+  assert.equal(getRestrictedSkills(catalog.skills).length, 0);
+  for (const restrictedPath of DENYLIST_FIXTURE_PATHS) {
+    const tombstone = catalog.skills.find((skill) => skill.path === restrictedPath);
+    assert.equal(tombstone?.isTombstone, true);
   }
 });
 
@@ -506,7 +512,7 @@ test('production catalog code carries no hardcoded restricted path list', () => 
   );
 
   assert.doesNotMatch(source, /RESTRICTED_PATHS/, 'the hardcoded restricted set must be gone');
-  for (const restrictedPath of EXPECTED_RESTRICTED_PATHS) {
+  for (const restrictedPath of DENYLIST_FIXTURE_PATHS) {
     assert.ok(
       !source.includes(restrictedPath),
       `catalog.ts must not hardcode ${restrictedPath}`,
@@ -524,7 +530,7 @@ test('no page hardcodes the restricted inventory', () => {
   for (const pagePath of pages) {
     const source = fs.readFileSync(pagePath, 'utf8');
     assert.doesNotMatch(source, /RESTRICTED_PATHS/, `${path.basename(pagePath)} must not use RESTRICTED_PATHS`);
-    for (const restrictedPath of EXPECTED_RESTRICTED_PATHS) {
+    for (const restrictedPath of DENYLIST_FIXTURE_PATHS) {
       assert.ok(
         !source.includes(restrictedPath),
         `${path.basename(pagePath)} must not hardcode ${restrictedPath}`,
@@ -534,7 +540,9 @@ test('no page hardcodes the restricted inventory', () => {
 });
 
 test('loadSkillBody never reads a restricted SKILL.md even when the file exists on disk', async () => {
-  const root = path.resolve(repoRoot, '..');
+  const runtimeRoot = path.join(repoRoot, 'test', '.runtime');
+  fs.mkdirSync(runtimeRoot, { recursive: true });
+  const root = fs.mkdtempSync(path.join(runtimeRoot, 'restricted-body-'));
   const restricted = normalizeSkill(makeEntry({
     path: 'skills/claude/docx',
     name: 'docx',
@@ -542,11 +550,15 @@ test('loadSkillBody never reads a restricted SKILL.md even when the file exists 
     redistributable: false,
   }));
 
-  assert.ok(
-    fs.existsSync(path.join(root, restricted.path, 'SKILL.md')),
-    'fixture precondition: the restricted SKILL.md exists on disk',
-  );
-  assert.equal(await loadSkillBody(root, restricted), null);
+  try {
+    const skillFile = path.join(root, restricted.path, 'SKILL.md');
+    fs.mkdirSync(path.dirname(skillFile), { recursive: true });
+    fs.writeFileSync(skillFile, 'RESTRICTED FIXTURE BODY MUST NOT BE READ');
+    assert.ok(fs.existsSync(skillFile), 'fixture precondition: restricted file exists');
+    assert.equal(await loadSkillBody(root, restricted), null);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
 });
 
 // ─── Baseline verification ──────────────────────────────────────────
@@ -610,13 +622,13 @@ test('computeBaselineVerification counts restricted mapped skills too', () => {
   });
 });
 
-test('current lock has 116 of 116 mapped skills verified', async () => {
+test('current lock has 112 of 112 active mapped skills verified', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const verification = computeBaselineVerification(catalog.skills);
 
   assert.equal(verification.mapped, catalog.counts.mapped);
-  assert.equal(verification.mapped, 116);
-  assert.equal(verification.verified, 116);
+  assert.equal(verification.mapped, 112);
+  assert.equal(verification.verified, 112);
   assert.equal(verification.unverified, 0);
   assert.equal(verification.allVerified, true);
 });

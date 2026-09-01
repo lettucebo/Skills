@@ -1,52 +1,19 @@
 /**
- * restricted.spec.ts — Restricted skill page DOM boundary checks.
- *
- * Restricted skills must not render body content, the npx install command,
- * or a copy button. They must show a restricted badge.
+ * The unpublished proprietary mirrors have no static routes or redirects.
+ * Restricted rendering itself remains covered by unit fixtures.
  */
 import { test, expect } from '@playwright/test';
 import { BASE } from './_helpers';
 
-const RESTRICTED_SKILLS = [
-  { source: 'claude', slug: 'docx' },
-  { source: 'claude', slug: 'pdf' },
-  { source: 'claude', slug: 'pptx' },
-  { source: 'claude', slug: 'xlsx' },
-];
+const REMOVED_SKILLS = ['docx', 'pdf', 'pptx', 'xlsx'];
 
-test.describe('Restricted skill pages', () => {
-  for (const { source, slug } of RESTRICTED_SKILLS) {
-    test.describe(`${source}/${slug}`, () => {
-      test.beforeEach(async ({ page }) => {
-        await page.goto(`${BASE}skills/${source}/${slug}/`);
-        await page.waitForLoadState('networkidle');
-      });
-
-      test('has no .detail-body (body content must not render)', async ({ page }) => {
-        const body = page.locator('.detail-body');
-        await expect(body).toHaveCount(0);
-      });
-
-      test('has no structured summary', async ({ page }) => {
-        await expect(page.locator('.skill-summary')).toHaveCount(0);
-      });
-
-      test('does not show npx install string in visible text', async ({ page }) => {
-        const bodyText = await page.evaluate(() => document.body.innerText);
-        expect(bodyText, 'restricted page must not show npx install string').not.toContain('npx skills add');
-      });
-
-      test('no copy button is rendered at all', async ({ page }) => {
-        // Restricted skills get no install command, so InstallCommand (and its
-        // copy button) must never be rendered — not merely hidden.
-        await expect(page.locator('.install-copy-btn')).toHaveCount(0);
-        await expect(page.locator('.install-block')).toHaveCount(0);
-      });
-
-      test('restricted badge is visible', async ({ page }) => {
-        const badge = page.locator('.badge--restricted');
-        await expect(badge).toBeVisible();
-      });
+test.describe('Removed proprietary skill routes', () => {
+  for (const slug of REMOVED_SKILLS) {
+    test(`claude/${slug} returns 404`, async ({ page }) => {
+      const response = await page.goto(`${BASE}skills/claude/${slug}/`);
+      expect(response?.status()).toBe(404);
+      await expect(page.locator('.detail-body')).toHaveCount(0);
+      await expect(page.locator('.install-copy-btn')).toHaveCount(0);
     });
   }
 });

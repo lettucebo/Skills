@@ -46,6 +46,11 @@ Traditional Chinese, and Simplified Chinese indexes. Only localized skill
 pages opt in with `data-pagefind-body`; legacy redirects and catalog/status
 pages are excluded. The output lands in `site/dist/`.
 
+The 2.0.0 catalog builds 390 localized routes and 130 legacy redirects (520
+HTML files total). Its 115 active skill pages per locale produce 345 Pagefind
+documents/fragments. The four removed proprietary skill routes and legacy
+redirects are intentionally absent.
+
 ## Structured skill summaries
 
 Eligible skills have a human-oriented summary artifact with separate
@@ -139,15 +144,15 @@ the existing History section continues to render.
 
 ## Restricted content on the site
 
-Restricted skills (see [Installation](installation.md)) never have their
-`SKILL.md` body rendered. Source and single-skill commands are suppressed for
-restricted scopes; the full-registry command remains available and installs
-restricted skills, but the site no longer places an on-page restricted-content
-warning beside it — consult `/Skills/en/status/` (or another locale) or the lockfile for the current
-restricted inventory and licensing (see
-[Architecture](architecture.md#restricted-content-isolation)).
-Restricted and orphan pages also never read or render upstream changelog
-sidecars.
+The current active inventory has zero restricted skills because the four
+proprietary mirrors were removed before publication. Their old skill URLs and
+legacy redirects are not generated.
+
+The restricted boundary remains tested with fixtures: an active restricted
+skill never has its `SKILL.md` or enrichment sidecars read, and its source and
+single-skill commands are suppressed. Orphan pages also never read or render
+upstream changelog sidecars. See
+[Architecture](architecture.md#restricted-content-isolation).
 
 ## See also
 

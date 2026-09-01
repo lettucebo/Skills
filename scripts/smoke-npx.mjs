@@ -149,7 +149,11 @@ async function loadCatalogLock(repoRoot) {
 }
 
 function getExpectedNames(entries) {
-  return Array.from(new Set(entries.map((entry) => entry.name))).sort(compareStrings);
+  return Array.from(new Set(
+    entries
+      .filter((entry) => entry.category !== 'removed')
+      .map((entry) => entry.name),
+  )).sort(compareStrings);
 }
 
 function normalizeRepository(repository) {

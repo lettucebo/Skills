@@ -58,6 +58,11 @@ license and redistribution fields, so correcting a missed classification
 after adoption requires a reviewed engine/data migration with tests; adding
 the path later is not enough.
 
+The four removed claude document-format paths remain in
+`RESTRICTED_SKILL_PATHS` as a permanent denylist. For lock releases 2.0.0 and
+later, validation requires them to be absent from disk and active mappings and
+permits only their inactive lock tombstones.
+
 ### `orphans`
 
 Declares a frozen snapshot with no tracked upstream:

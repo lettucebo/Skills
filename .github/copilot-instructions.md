@@ -24,6 +24,11 @@ installable skill content.
 
 Use Node.js 22, matching the GitHub Actions workflows.
 
+`node scripts/sync.mjs --deproprietize` was the one-time, no-prior-tag
+migration from unpublished `1.1.0` to publishable `2.0.0`. It atomically
+removed the four proprietary anthropics mappings and directories, retained
+tombstone/history audit state, and cannot be repeated.
+
 ```powershell
 npm ci
 npm --prefix site ci
@@ -150,7 +155,9 @@ preview.
   `scripts/catalog.mjs`; this policy is not inferred from `LICENSE.txt`,
   frontmatter, or `catalog/sources.yml`. Verify the generated lock entry records
   `license: "Proprietary"` and `redistributable: false`.
-- Commit the adoption declaration/content before running `sync --apply`. Apply
+- Commit the adoption declaration/content before running `sync --apply`. The
+  completed `--deproprietize` migration was the sole exception: it changed the
+  manifest and materialized state inside one journaled transaction. Apply
   requires a clean tree, a verified mapped baseline, reachable mapped sources,
   and fetched tags whose highest semantic `v*` tag exactly matches
   `lock.release` and is an ancestor of `HEAD`.
@@ -171,7 +178,8 @@ preview.
   together through the catalog/sync transaction.
 - The release recorded in the lockfile and Git tag `v<release>` are distinct
   facts. Install commands always use `#vX.Y.Z` (never `@version`, a range, or a
-  commit SHA).
+  commit SHA). `v2.0.0` is the first publishable tag; `v1.1.0` must never be
+  published.
 - Scheduled apply remains disabled unless repository variable
   `SKILLS_SYNC_ENABLED` is exactly `true`. Enable it only after publishing the
   lockfile release tag; manual workflow dry-runs remain available.

@@ -31,6 +31,21 @@ never replaces it with upstream content. At adoption, the transaction copies
 the committed tree through the candidate swap and records its hash without
 modifying the skill's content.
 
+### Removed mappings and the proprietary denylist
+
+A removed mapping remains in the lock as a `removed` tombstone and receives a
+`mapping-removed` history entry. It no longer contributes to active counts,
+install plans, source inventories, or site routes, and its vendored directory
+must be absent.
+
+Release `2.0.0` used the completed one-time `--deproprietize` migration to
+remove `skills/claude/{docx,pdf,pptx,xlsx}` before any tag was published.
+Those paths remain permanently listed in `RESTRICTED_SKILL_PATHS`. For 2.0.0
+and later, validation rejects them on disk, in active mappings, or in active
+lock entries. This migration was the deliberate exception to the normal rule
+that declaration/content changes are committed before `--apply`: it changed
+the manifest and materialized state inside the same journaled transaction.
+
 ## Preconditions for onboarding any new skill
 
 Regardless of category, adding a new skill through the sync engine

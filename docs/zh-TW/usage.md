@@ -39,7 +39,9 @@ skill 指令都會包含 CLI 必要的 `--full-depth` 旗標。來源頁面直�
 
 受限制的 skill（見 [安裝方式](installation.md) 中關於受限制內容的說明）在網站
 上永遠不會渲染其 `SKILL.md` 內容或 description。頁面仍會顯示名稱、版本、授權、
-狀態、可取得的上游來源證明與歷史紀錄等 catalog metadata。
+狀態、可取得的上游來源證明與歷史紀錄等 catalog metadata。目前 active
+inventory 沒有這類頁面：四個專有 claude 鏡像已成為 tombstone，其舊 URL 回傳
+404。
 
 ### 來源頁面
 
@@ -68,8 +70,8 @@ skill 指令都會包含 CLI 必要的 `--full-depth` 旗標。來源頁面直�
   受限制內容風險。
 - **單一來源** — 當你想要一整個集合（例如所有 `skills/dotnet` skill）且該集合
   不含受限制 skill 時。
-- **整個 registry** — 只有在你確實需要廣泛涵蓋範圍，且能接受一併安裝目前所有
-  被標示為受限制的 skill 時才選擇。
+- **整個 registry** — 2.0.0 會安裝全部 115 個 active skill。未來仍應查看狀態
+  頁面確認受限制 inventory。
 
 ## 釘選版本
 
