@@ -42,7 +42,7 @@ node scripts/sync.mjs --refresh-licenses --output sync-report/license-refresh.js
 ```
 
 **驗證器** — 針對整個 `skills/` 樹的結構檢查（frontmatter、manifest 涵蓋範圍、
-相對連結）：
+相對連結），以及 lock 授權證據與根授權原文包完整性：
 
 ```bash
 node scripts/validate.mjs

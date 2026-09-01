@@ -1,0 +1,64 @@
+---
+import {
+  formatChangelogDate,
+  type LatestIncludedChange,
+} from '../lib/enrichment';
+import {
+  t,
+  type Locale,
+  type MessageKey,
+} from '../i18n';
+
+interface Props {
+  locale: Locale;
+  value: LatestIncludedChange;
+  showLabel?: boolean;
+  descriptionId?: string;
+  class?: string;
+}
+
+const {
+  locale,
+  value,
+  showLabel = true,
+  descriptionId,
+  class: className,
+} = Astro.props;
+
+const unavailableReasonKeys: Record<
+  Exclude<LatestIncludedChange['reason'], 'available'>,
+  MessageKey
+> = {
+  'no-upstream': 'noVerifiedUpstreamHistory',
+  'missing-or-stale': 'upstreamChangeMetadataUnavailable',
+};
+const unavailableReason =
+  value.reason === 'available'
+    ? null
+    : t(locale, unavailableReasonKeys[value.reason]);
+---
+<span
+  class:list={['latest-included-change', className]}
+  data-latest-included-change={value.reason}
+  data-pagefind-ignore
+>
+  {showLabel && (
+    <span class="latest-included-change-label">
+      {t(locale, 'latestIncludedChange')}:{' '}
+    </span>
+  )}
+  {value.date ? (
+    <time
+      datetime={value.date}
+      title={t(locale, 'latestIncludedChangeClarification')}
+      aria-describedby={descriptionId}
+    >
+      {formatChangelogDate(value.date)}
+    </time>
+  ) : (
+    <span class="latest-included-change-unavailable" title={unavailableReason ?? undefined}>
+      <span aria-hidden="true">—</span>
+      <span class="visually-hidden">{unavailableReason}</span>
+    </span>
+  )}
+</span>

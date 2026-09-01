@@ -236,6 +236,35 @@ function formatSchemaErrors(errors) {
     .join('; ');
 }
 
+function isValidGitAuthorDate(value) {
+  const match =
+    /^(\d{4})-(\d{2})-(\d{2})T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/
+      .exec(value);
+  if (!match || !Number.isFinite(Date.parse(value))) {
+    return false;
+  }
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const leapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const daysInMonth = [
+    31,
+    leapYear ? 29 : 28,
+    31,
+    30,
+    31,
+    30,
+    31,
+    31,
+    30,
+    31,
+    30,
+    31,
+  ];
+  return month >= 1 && month <= 12 && day >= 1 && day <= daysInMonth[month - 1];
+}
+
 export function assertSafeEnrichmentSkillPath(skillPath) {
   if (typeof skillPath !== 'string' || skillPath === '') {
     throw new Error('Unsafe enrichment skill path: expected a non-empty string.');
@@ -394,10 +423,40 @@ export function createLocaleSignature({
 export function validateEnrichmentArtifact(kind, value) {
   assertArtifactKind(kind);
   const validate = artifactValidators.get(kind);
-  const valid = validate(value);
+  const schemaValid = validate(value);
+  const errors = schemaValid ? [] : [...(validate.errors ?? [])];
+  if (
+    kind === 'changelog' &&
+    value &&
+    typeof value === 'object' &&
+    value.locales &&
+    typeof value.locales === 'object'
+  ) {
+    for (const [locale, localeArtifact] of Object.entries(value.locales)) {
+      const commits = localeArtifact?.content?.commits;
+      if (!Array.isArray(commits)) {
+        continue;
+      }
+      for (const [index, commit] of commits.entries()) {
+        if (
+          commit &&
+          typeof commit === 'object' &&
+          typeof commit.date === 'string' &&
+          !isValidGitAuthorDate(commit.date)
+        ) {
+          errors.push({
+              instancePath: `/locales/${locale}/content/commits/${index}/date`,
+              keyword: 'format',
+              params: { format: 'git-author-date' },
+              message: 'must be a valid ISO 8601 Git author date',
+          });
+        }
+      }
+    }
+  }
   return {
-    valid,
-    errors: valid ? [] : [...(validate.errors ?? [])],
+    valid: schemaValid && errors.length === 0,
+    errors,
   };
 }
 

@@ -89,15 +89,20 @@ flowchart LR
 11. **`site/src/lib/enrichment.ts`** reads only the requested locale from a
    fresh, schema-valid sidecar. Restricted or tombstoned skills are rejected
    before a sidecar path is touched; orphan skills are also rejected for
-   changelogs. A missing artifact, stale artifact, or
+   changelogs. Its centralized changelog view model derives the latest
+   included author date from `commits[0].date` only after the complete
+   provenance freshness check. A missing artifact, stale artifact, or
    missing requested summary locale returns the caller's existing fallback.
    Changelog rendering may retain validated commit metadata and the original
    untranslated subject while omitting a missing or invalid localized
    generated summary; it never substitutes the English generated summary.
    The mandatory manifest and any artifact that exists must parse; unexpected
    I/O or unrelated schema failures stop the build.
-12. Skill pages render changelog data as a separate Upstream changes timeline;
-    upstream commits are never conflated with registry releases.
+12. Detail metadata, catalog cards, and source tables render that pinned
+    latest-included date. Skill pages place the changelog timeline in a
+    closed, Pagefind-excluded native disclosure above the raw body, while the
+    registry History ledger remains separate at the page foot; upstream
+    commits are never conflated with registry releases.
 13. **`site/src/i18n/`** centralizes the supported locale type, dictionaries,
     parser/assertion, HTML language mapping, and base-aware path helpers.
     Shared page components render the five logical page kinds, while explicit
@@ -113,7 +118,9 @@ flowchart LR
 `node scripts/validate.mjs` cuts across every stage: it walks the whole
 `skills/` tree independently of any one sync run, checking frontmatter,
 manifest coverage, relative links, and the post-2.0 permanent restricted
-denylist. All three apply engines use it in the transaction; deproprietize
+denylist, while also validating lock license evidence and the bundled root
+license files. All four transactional modes (`--apply`, `--baseline`,
+`--deproprietize`, and `--refresh-licenses`) use it; deproprietize
 also validates the complete candidate before the first swap. The workflow
 also runs a separate pre-apply validation.
 
@@ -191,10 +198,16 @@ generator version, and the pinned Copilot CLI contract. The generator version
 is the explicit cache invalidation control for logic-only changes.
 
 Changelog locale content contains a deterministic newest-first `commits`
-array. Each entry records the upstream SHA, author date, untranslated subject,
+array sorted by Git `%aI` author date. Each entry records the upstream SHA,
+author date, untranslated subject,
 exact commit URL, `pathAtCommit`, resolution method, localized summary, and an
 auditable rename/copy transition when applicable. A still-live copy source
 adds `truncatedAt` instead of inheriting unrelated source history.
+
+The website labels `commits[0].date` as **Latest included change**, because it
+describes the newest author date present at the pinned registry revision.
+Rebase or cherry-pick operations can retain an older author date, so this
+field is deliberately not presented as a live upstream “last updated” time.
 
 `scripts/lib/localization.mjs` is the single deterministic Chinese conversion
 boundary. It uses `opencc-js` with the Taiwan-phrases-to-Simplified

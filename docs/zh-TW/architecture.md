@@ -81,13 +81,17 @@ flowchart LR
    timeline（見 [網站](website.md)）。
 11. **`site/src/lib/enrichment.ts`** 只會從新鮮且符合 schema 的 sidecar 讀取指定
    locale。受限制或 tombstone skill 會在碰觸 sidecar 路徑前被拒絕；orphan skill
-   也會在 changelog 讀取前被拒絕。Artifact
+   也會在 changelog 讀取前被拒絕。集中式 changelog view model 只有在完整來源
+   證明 freshness 檢查通過後，才會從 `commits[0].date` 衍生最新收錄的 author
+   date。Artifact
    缺少、過期或指定 summary locale 缺少時，會回傳呼叫端既有的 fallback。
    Changelog 可在驗證安全後保留 commit metadata 與刻意不翻譯的原始 subject，
    同時省略缺少或無效的在地化生成摘要；絕不以英文生成摘要替代。必要的 manifest
    與任何實際存在的 artifact 都必須能解析，非預期 I/O 或無關的 schema 失敗會
    停止建置。
-12. Skill 詳情頁會把 changelog 資料渲染成獨立的 Upstream changes timeline，
+12. 詳情 metadata、目錄卡片與來源表格會渲染這個釘選的最新收錄日期。Skill
+    詳情頁把 changelog timeline 放在原始內容上方、預設收合且排除於 Pagefind 的
+    原生 disclosure 中；registry History 帳本則維持頁尾獨立區塊，上游 commit
     絕不與 registry release 混合。
 13. **`site/src/i18n/`** 集中管理支援的 locale 型別、字典、parser/assertion、
     HTML 語言對應與理解 base path 的路徑 helper。共用頁面元件渲染五種邏輯頁面，
@@ -101,7 +105,9 @@ flowchart LR
 
 `node scripts/validate.mjs` 橫跨每一個階段：它會獨立於任何一次同步執行，走遍
 整個 `skills/` 樹，檢查 frontmatter、manifest 涵蓋範圍、相對連結與 2.0 之後的
-永久 restricted denylist。三個 apply 引擎都會在交易中使用它；
+永久 restricted denylist，並驗證 lock 授權證據與根授權原文包。四個交易模式
+（`--apply`、`--baseline`、
+`--deproprietize`、`--refresh-licenses`）都會使用它；
 deproprietize 還會在第一次 swap 前驗證完整 candidate。Workflow 另外執行一次
 套用前驗證。
 
@@ -172,10 +178,15 @@ signature 會雜湊 locale、schema version、producer、prompt ID、prompt hash
 或 converter version、必要的 generator version，以及釘選的 Copilot CLI contract。
 Generator version 是 generator 邏輯改變但 prompt 未變時，明確使 cache 失效的控制。
 
-Changelog locale content 包含確定性、由新到舊排序的 `commits` 陣列。每一筆記錄
-上游 SHA、author date、刻意不翻譯的 subject、精確 commit URL、`pathAtCommit`、
+Changelog locale content 包含確定性、依 Git `%aI` author date 由新到舊排序的
+`commits` 陣列。每一筆記錄上游 SHA、author date、刻意不翻譯的 subject、精確
+commit URL、`pathAtCommit`、
 解析方式、在地化摘要，以及適用時可稽核的 rename/copy transition。若 copy 來源
 仍然存在，則加入 `truncatedAt`，而不繼承無關的來源 history。
+
+網站把 `commits[0].date` 標示為**收錄的最新變更**，因為它描述的是 registry
+釘選版本內所包含的最新 author date。Rebase 或 cherry-pick 可能保留較舊的 author
+date，因此此欄位刻意不呈現成即時上游「最後更新」時間。
 
 `scripts/lib/localization.mjs` 是唯一的確定性中文轉換邊界。它使用 `opencc-js` 的
 台灣慣用詞轉簡體 `twp -> cn` preset，並把

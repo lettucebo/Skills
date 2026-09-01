@@ -80,6 +80,42 @@ test.describe('No-JS fallback', () => {
     expect(count, 'no-JS: catalog must contain skill links').toBeGreaterThan(0);
   });
 
+  test.describe('Upstream changes disclosure', () => {
+    test('is closed by default and opens from the keyboard with a visible focus ring', async ({ page }) => {
+      await page.goto(`${BASE}skills/github/github-issues/`);
+
+      const details = page.locator('details.upstream-changes');
+      const summary = details.locator('summary');
+      await expect(details).toHaveCount(1);
+      await expect(details).not.toHaveAttribute('open', '');
+
+      await summary.focus();
+      await expect(summary).toBeFocused();
+      await page.keyboard.press('Enter');
+      await expect(details).toHaveAttribute('open', '');
+
+      const outlineStyle = await summary.evaluate(
+        (element) => window.getComputedStyle(element).outlineStyle,
+      );
+      expect(outlineStyle).not.toBe('none');
+    });
+  });
+
+  test.describe('Upstream changes disclosure in forced colors', () => {
+    test.use({ forcedColors: 'active' });
+
+    test('keeps a visible summary focus indicator', async ({ page }) => {
+      await page.goto(`${BASE}skills/github/github-issues/`);
+      const summary = page.locator('details.upstream-changes > summary');
+      await summary.focus();
+      await expect(summary).toBeFocused();
+      const outlineStyle = await summary.evaluate(
+        (element) => window.getComputedStyle(element).outlineStyle,
+      );
+      expect(outlineStyle).not.toBe('none');
+    });
+  });
+
   test('search box and filter controls are hidden without JavaScript', async ({ page }) => {
     await page.goto(BASE);
     await page.waitForLoadState('load');
@@ -130,6 +166,7 @@ test.describe('375px viewport — no overflow, vertical filters', () => {
             widestRight = rect.right;
             widest = `${el.tagName.toLowerCase()}.${(el.className || '').toString().split(' ')[0]} right=${Math.round(rect.right)}`;
           }
+
         }
         return {
           scrollWidth: document.documentElement.scrollWidth,
@@ -143,6 +180,25 @@ test.describe('375px viewport — no overflow, vertical filters', () => {
         `${page_.name}: scrollWidth (${scrollWidth}) must not exceed clientWidth (${clientWidth}) at 375px` +
           (widest ? `; widest offender: ${widest}` : ''),
       ).toBeLessThanOrEqual(clientWidth + 1); // +1 for sub-pixel rounding tolerance
+    });
+  }
+
+  for (const path of [
+    'skills/tampermonkey/tampermonkey/',
+    'skills/dotnet/csharp-mstest/',
+  ]) {
+    test(`opened upstream disclosure does not overflow — ${path}`, async ({ page }) => {
+      await page.goto(`${BASE}${path}`);
+      const details = page.locator('details.upstream-changes');
+      await expect(details).toHaveCount(1);
+      await details.locator('summary').click();
+      await expect(details).toHaveAttribute('open', '');
+
+      const widths = await page.evaluate(() => ({
+        scrollWidth: document.documentElement.scrollWidth,
+        clientWidth: document.documentElement.clientWidth,
+      }));
+      expect(widths.scrollWidth).toBeLessThanOrEqual(widths.clientWidth + 1);
     });
   }
 

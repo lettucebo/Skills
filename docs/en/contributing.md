@@ -43,7 +43,8 @@ node scripts/sync.mjs --refresh-licenses --output sync-report/license-refresh.js
 ```
 
 **Validator** — structural checks across the whole `skills/` tree
-(frontmatter, manifest coverage, relative links):
+(frontmatter, manifest coverage, relative links) plus lock license evidence
+and bundled root-license integrity:
 
 ```bash
 node scripts/validate.mjs

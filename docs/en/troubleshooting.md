@@ -52,7 +52,7 @@ repository-root full or single-skill command.
 ### A full-registry install pulled in skills I didn't expect
 
 **Cause:** a full-registry install selects every active skill in the pinned
-release. Release 2.0.0 contains 115 active skills and no restricted skills.
+release. Release 2.0.1 contains 115 active skills and no restricted skills.
 
 **Fix:** install one source or one skill when broad coverage is not intended.
 Also check `catalog/skills.lock.json` or the website status page because future

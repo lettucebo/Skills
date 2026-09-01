@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Search from '../Search.astro';
+import LatestIncludedChange from '../LatestIncludedChange.astro';
 import {
   loadCatalog,
   loadSkillBody,
@@ -11,6 +12,8 @@ import {
 } from '../../lib/catalog';
 import {
   loadEnrichmentLocale,
+  loadSkillChangelog,
+  type LatestIncludedChange as LatestIncludedChangeValue,
   type SkillSummaryContent,
 } from '../../lib/enrichment';
 import {
@@ -43,22 +46,33 @@ const noSummary: SkillSummaryContent = {
 
 // Load human summaries with the agent-trigger description as a safe fallback.
 const skillDescriptions = new Map<string, string>();
-for (const skill of catalog.skills) {
-  if (skill.isTombstone || skill.isRestricted) continue;
-  const body = await loadSkillBody(repoRoot, skill);
-  const loadedSummary = await loadEnrichmentLocale<SkillSummaryContent>({
-    repoRoot,
-    kind: 'summaries',
-    skill: skill.lockEntry,
-    locale,
-    fallback: noSummary,
-  });
+const latestIncludedChanges = new Map<string, LatestIncludedChangeValue>();
+await Promise.all(catalog.skills.map(async (skill) => {
+  if (skill.isTombstone || skill.isRestricted) return;
+  const [body, loadedSummary, changelog] = await Promise.all([
+    loadSkillBody(repoRoot, skill),
+    loadEnrichmentLocale<SkillSummaryContent>({
+      repoRoot,
+      kind: 'summaries',
+      skill: skill.lockEntry,
+      locale,
+      fallback: noSummary,
+    }),
+    loadSkillChangelog({
+      repoRoot,
+      skill: skill.lockEntry,
+      locale,
+    }),
+  ]);
   const summary = loadedSummary === noSummary ? null : loadedSummary;
   const description = summary?.purpose ?? body?.description;
   if (description) {
     skillDescriptions.set(skill.path, description);
   }
-}
+  if (changelog) {
+    latestIncludedChanges.set(skill.path, changelog.latestIncludedChange);
+  }
+}));
 
 function badgeClass(skill: typeof catalog.skills[0]): string {
   if (skill.isRestricted) return 'badge badge--restricted';
@@ -105,6 +119,9 @@ function badgeClass(skill: typeof catalog.skills[0]): string {
   </section>
 
   <section id="full-catalog">
+    <span id="latest-included-change-description" class="visually-hidden" data-pagefind-ignore>
+      {t(locale, 'latestIncludedChangeClarification')}
+    </span>
     <div class="catalog-header">
       <h2>{t(locale, 'allSkills')} (<span id="catalog-count">{counts.total}</span>)</h2>
       <div class="catalog-group-controls" id="catalog-group-controls" hidden>
@@ -126,6 +143,7 @@ function badgeClass(skill: typeof catalog.skills[0]): string {
             <div class="card-grid skill-group-grid">
               {groupSkills.map((skill) => {
                 const desc = skillDescriptions.get(skill.path);
+                const latestIncludedChange = latestIncludedChanges.get(skill.path);
                 const url = localizedPath(locale, `skills/${skill.source}/${skill.slug}`);
                 return (
                   <article
@@ -145,6 +163,14 @@ function badgeClass(skill: typeof catalog.skills[0]): string {
                         <span class={badgeClass(skill)}>{t(locale, statusMessageKey(skill.statusLabel))}</span>
                         {skill.license !== 'Unknown' && <span>{skill.license}</span>}
                       </div>
+                      {!skill.isRestricted && latestIncludedChange && (
+                        <LatestIncludedChange
+                          locale={locale}
+                          value={latestIncludedChange}
+                          descriptionId="latest-included-change-description"
+                          class="card-latest-change"
+                        />
+                      )}
                       {desc && <div class="card-description">{desc}</div>}
                     </a>
                   </article>

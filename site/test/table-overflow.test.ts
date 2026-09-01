@@ -191,3 +191,29 @@ test('TO10: the skill detail lead paragraph can break long tokens at mobile', ()
     '.detail-description must be in the mobile overflow-wrap group',
   );
 });
+
+test('TO11: source tables keep their overflow wrapper after adding latest included change', () => {
+  const sourcePage = fs.readFileSync(
+    path.join(siteRoot, 'src', 'components', 'pages', 'SourcePage.astro'),
+    'utf8',
+  );
+
+  assert.match(sourcePage, /<th>\{t\(locale, 'latestIncludedChange'\)\}<\/th>/);
+  assert.match(
+    sourcePage,
+    /<div class="table-scroll"[^>]*>[\s\S]*<table class="skill-table">/,
+  );
+});
+
+test('TO12: upstream timeline entries wrap on mobile when the disclosure is opened', () => {
+  const mobile = css.match(/@media \(max-width: 640px\) \{[\s\S]*?\n\}/);
+  assert.ok(mobile);
+  assert.match(
+    mobile[0],
+    /\.upstream-changes \.timeline-entry[\s\S]*flex-wrap:\s*wrap/,
+  );
+  assert.match(
+    mobile[0],
+    /\.upstream-changes \.timeline-(?:subject|summary)[\s\S]*overflow-wrap:\s*anywhere/,
+  );
+});

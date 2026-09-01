@@ -15,8 +15,13 @@ every skill, grouped by source. It provides full-text search (via Pagefind)
 so you can find a skill by name or description without reading
 `catalog/skills.lock.json` directly.
 
-Choose English, Traditional Chinese, or Simplified Chinese from the language
-switcher. Every public page has a prefixed route under `/Skills/en/`,
+Each active catalog card shows **Latest included change** when verified
+changelog metadata is current. This is the newest upstream author date
+included at the registry's pinned revision, not a live “last updated” query.
+
+Open the compact language menu beside the theme control to choose English,
+Traditional Chinese, or Simplified Chinese. The native menu and links work
+without JavaScript. Every public page has a prefixed route under `/Skills/en/`,
 `/Skills/zh-tw/`, or `/Skills/zh-cn/`; changing language preserves the current
 logical page. Former unprefixed links remain redirects to their English
 equivalents.
@@ -32,6 +37,10 @@ plus:
 - its per-skill **version** and **license**,
 - its available **upstream provenance** — the full repository source path
   pinned at the resolved commit, with links to both the source tree and commit,
+  and its **Latest included change** author date when current changelog
+  metadata is available,
+- a collapsed **Upstream changes** disclosure above the install command and
+  raw body, showing the included commit count/date and the localized timeline,
   and
 - its **history** — recorded version, change kind, and upstream commit.
 
@@ -57,7 +66,8 @@ claude mirrors are tombstones, and their old URLs return 404.
 Each source collection (for example `skills/azure`) has a page at
 `/Skills/<locale>/sources/<source>/` listing every skill in that collection and, unless the
 collection contains a restricted skill, the exact `npx skills add` command to
-install that collection alone.
+install that collection alone. The table includes a **Latest included change**
+column and keeps the existing name sort order.
 
 ### Status page
 
@@ -80,7 +90,7 @@ Prefer the narrowest scope that meets your need:
   only when that skill is not itself restricted.
 - **Single source** — when you want a whole collection (for example all
   `skills/dotnet` skills) that does not contain a restricted skill.
-- **Full registry** — installs all 115 active skills in 2.0.0. Continue
+- **Full registry** — installs all 115 active skills in 2.0.1. Continue
   checking the status page for future restricted inventory.
 
 ## Pinning versions

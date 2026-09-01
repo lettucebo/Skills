@@ -26,12 +26,15 @@ Starts the Astro dev server. Astro uses prefix-all i18n routing for `en`,
 base, locale, and trailing slash (for example `/Skills/en/status/` or
 `/Skills/zh-tw/skills/github/github-issues/`).
 
-The language switcher uses native links and preserves the current logical
-home, install, status, source, or skill route. An explicit selection is saved
-for the legacy `/Skills/` entry point only; it never overrides a directly
-requested localized URL. Every former unprefixed route remains as a static
-redirect with an English meta-refresh/canonical/anchor fallback, while the
-root redirect may choose the saved or browser locale when JavaScript runs.
+The compact language menu sits beside the theme control and uses native
+`<details>`, `<summary>`, and links, so it opens and navigates without
+JavaScript. It preserves the current logical home, install, status, source, or
+skill route. An explicit selection is saved for the legacy `/Skills/` entry
+point only; it never overrides a directly requested localized URL. Every
+former unprefixed route remains as a static redirect with an English
+meta-refresh/canonical/anchor fallback and the same compact language
+affordance, while the root redirect may choose the saved or browser locale
+when JavaScript runs.
 
 ## Build and Pagefind
 
@@ -46,7 +49,7 @@ Traditional Chinese, and Simplified Chinese indexes. Only localized skill
 pages opt in with `data-pagefind-body`; legacy redirects and catalog/status
 pages are excluded. The output lands in `site/dist/`.
 
-The 2.0.0 catalog builds 390 localized routes and 130 legacy redirects (520
+The 2.0.1 catalog builds 390 localized routes and 130 legacy redirects (520
 HTML files total). Its 115 active skill pages per locale produce 345 Pagefind
 documents/fragments. The four removed proprietary skill routes and legacy
 redirects are intentionally absent.
@@ -57,7 +60,8 @@ Eligible skills have a human-oriented summary artifact with separate
 **Purpose**, **When to use**, and **Outputs** fields. Detail pages render all
 three fields, and Pagefind indexes them as part of the existing skill page.
 Catalog cards use the summary purpose instead of the agent-trigger
-frontmatter description.
+frontmatter description. Every active non-restricted card also shows the
+skill's **Latest included change** date from the current changelog artifact.
 
 Summary artifacts are accepted only when enrichment is enabled and the
 artifact is fresh for the current lock entry. Each localized route requests
@@ -127,13 +131,17 @@ for the full explanation.
 
 Eligible mapped skill pages can show two separate timelines:
 
-- **Upstream changes** lists every non-merge upstream commit that affected the
-  skill's `SKILL.md` through the exact commit pinned in the lockfile. Each
-  entry links directly to that repository commit, preserves the original
-  upstream subject, and uses the current route's localized generated summary.
+- **Upstream changes** is a native disclosure above the install command and
+  raw `SKILL.md` body. It is closed by default, and its summary shows the
+  commit count and latest included date. Expanding it lists every non-merge
+  upstream commit that affected the skill's `SKILL.md` through the exact
+  commit pinned in the lockfile. Each entry links directly to that repository
+  commit, preserves the original upstream subject, and uses the current
+  route's localized generated summary. The complete disclosure is excluded
+  from Pagefind.
 - **History** remains the registry-release ledger from
   `catalog/history/*.json`, showing when this registry adopted or versioned
-  the skill.
+  the skill. It remains a separate section at the page foot.
 
 The two timelines are intentionally not combined: one describes upstream Git
 history and the other describes registry releases. A missing or invalid
@@ -141,6 +149,16 @@ Chinese generated summary never falls back to English; when safe commit
 metadata remains available, the original subject and metadata render without
 a generated summary. Ineligible or unavailable changelog data is omitted while
 the existing History section continues to render.
+
+The detail metadata, every catalog card, and each source table show **Latest
+included change** from `commits[0].date` only when the changelog sidecar passes
+the complete provenance freshness check. This is the newest upstream **author
+date included at the registry's pinned revision**, not a live upstream query
+or a committer-date “last updated” value; rebases and cherry-picks can preserve
+an older author date. Frozen skills with no verified upstream and mapped
+skills with missing or stale metadata both show an em dash, with distinct
+screen-reader explanations. No registry generation, source commit, build, or
+current date is substituted.
 
 ## Restricted content on the site
 

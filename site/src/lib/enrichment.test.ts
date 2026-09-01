@@ -8,6 +8,7 @@ import type { LockSkillEntry } from './catalog.ts';
 import {
   formatChangelogDate,
   loadEnrichmentLocale,
+  loadSkillChangelog,
 } from './enrichment.ts';
 
 const HASH_A = `sha256:${'a'.repeat(64)}`;
@@ -246,7 +247,7 @@ test('changelog loader returns fresh English upstream commits', async () => {
   }
 });
 
-test('missing Chinese changelog locale keeps original commit metadata without English summary fallback', async () => {
+test('skill changelog view keeps original metadata without English summary fallback for missing Chinese locale', async () => {
   const value = changelogArtifact();
   delete (value.locales as Record<string, unknown>)['zh-tw'];
   const root = await createFixture(value);
@@ -270,30 +271,68 @@ test('missing Chinese changelog locale keeps original commit metadata without En
     await writeFile(changelogPath, JSON.stringify(value));
     await rm(artifactPath(root));
 
-    const result = await loadEnrichmentLocale({
+    const result = await loadSkillChangelog({
       repoRoot: root,
-      kind: 'changelog',
       skill: skill(),
       locale: 'zh-tw',
-      fallback: { commits: [] },
-      fallbackFromArtifact: (artifact) => ({
-        commits: artifact.locales.en.content.commits.map((commit) => {
-          const { summary: _summary, ...metadata } = commit;
-          return metadata;
-        }),
-      }),
     });
 
     assert.deepEqual(result, {
-      commits: [{
-        sha: skill().upstream!.commit,
+      content: {
+        commits: [{
+          sha: skill().upstream!.commit,
+          date: '2026-08-30T00:00:00Z',
+          subject: 'Add alpha',
+          url: `https://github.com/owner/repository/commit/${skill().upstream!.commit}`,
+          pathAtCommit: 'skills/alpha/SKILL.md',
+          resolvedVia: 'direct',
+          summary: '',
+        }],
+      },
+      latestIncludedChange: {
         date: '2026-08-30T00:00:00Z',
-        subject: 'Add alpha',
-        url: `https://github.com/owner/repository/commit/${skill().upstream!.commit}`,
-        pathAtCommit: 'skills/alpha/SKILL.md',
-        resolvedVia: 'direct',
-      }],
+        reason: 'available',
+      },
     });
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('missing Chinese locale cannot hide a malformed upstream author date', async () => {
+  const value = changelogArtifact();
+  delete (value.locales as Record<string, unknown>)['zh-tw'];
+  value.locales.en.content.commits[0].date = '2026-02-30T00:00:00Z';
+  value.locales['zh-cn'].content.commits[0].date = '2026-02-30T00:00:00Z';
+  const root = await createFixture(value);
+  const changelogPath = path.join(
+    root,
+    'catalog',
+    'enrichment',
+    'changelog',
+    'skills__demo__alpha.json',
+  );
+
+  try {
+    await writeFile(
+      manifestPath(root),
+      JSON.stringify({
+        schemaVersion: 1,
+        enabled: { summaries: false, changelog: true },
+      }),
+    );
+    await mkdir(path.dirname(changelogPath), { recursive: true });
+    await writeFile(changelogPath, JSON.stringify(value));
+    await rm(artifactPath(root));
+
+    await assert.rejects(
+      loadSkillChangelog({
+        repoRoot: root,
+        skill: skill(),
+        locale: 'zh-tw',
+      }),
+      /valid ISO 8601 Git author date|schema validation/i,
+    );
   } finally {
     await rm(root, { recursive: true, force: true });
   }
@@ -528,6 +567,132 @@ test('stale or disabled changelog falls back without affecting registry history 
 test('changelog date labels use UTC so visible order matches newest-first sorting', () => {
   assert.equal(formatChangelogDate('2026-01-02T01:00:00+13:00'), '2026-01-01');
   assert.equal(formatChangelogDate('2026-01-01T20:00:00-07:00'), '2026-01-02');
+});
+
+test('fresh changelog exposes commits[0] as the latest included upstream author date', async () => {
+  const value = changelogArtifact();
+  for (const locale of Object.values(value.locales)) {
+    locale.content.commits[0].date = '2026-01-02T01:00:00+13:00';
+  }
+  const root = await createFixture(value);
+  const changelogPath = path.join(
+    root,
+    'catalog',
+    'enrichment',
+    'changelog',
+    'skills__demo__alpha.json',
+  );
+
+  try {
+    await writeFile(
+      manifestPath(root),
+      JSON.stringify({
+        schemaVersion: 1,
+        enabled: { summaries: false, changelog: true },
+      }),
+    );
+    await mkdir(path.dirname(changelogPath), { recursive: true });
+    await writeFile(changelogPath, JSON.stringify(value));
+    await rm(artifactPath(root));
+
+    const result = await loadSkillChangelog({
+      repoRoot: root,
+      skill: skill(),
+      locale: 'en',
+    });
+
+    assert.deepEqual(result?.latestIncludedChange, {
+      date: '2026-01-02T01:00:00+13:00',
+      reason: 'available',
+    });
+    assert.equal(
+      formatChangelogDate(result!.latestIncludedChange.date!),
+      '2026-01-01',
+    );
+    assert.equal(result?.content.commits[0].subject, 'Add alpha');
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('any stale changelog provenance field reports temporarily unavailable metadata', async (t) => {
+  const staleValues = {
+    contentHash: HASH_B,
+    repository: 'other/repository',
+    reference: 'refs/heads/other',
+    source: 'skills/other',
+    pinnedCommit: 'ffffffffffffffffffffffffffffffffffffffff',
+  };
+
+  for (const [field, staleValue] of Object.entries(staleValues)) {
+    await t.test(field, async () => {
+      const value = changelogArtifact();
+      Object.assign(value.freshnessKey, { [field]: staleValue });
+      const root = await createFixture(value);
+      const changelogPath = path.join(
+        root,
+        'catalog',
+        'enrichment',
+        'changelog',
+        'skills__demo__alpha.json',
+      );
+
+      try {
+        await writeFile(
+          manifestPath(root),
+          JSON.stringify({
+            schemaVersion: 1,
+            enabled: { summaries: false, changelog: true },
+          }),
+        );
+        await mkdir(path.dirname(changelogPath), { recursive: true });
+        await writeFile(changelogPath, JSON.stringify(value));
+        await rm(artifactPath(root));
+
+        const result = await loadSkillChangelog({
+          repoRoot: root,
+          skill: skill(),
+          locale: 'en',
+        });
+
+        assert.deepEqual(result, {
+          content: { commits: [] },
+          latestIncludedChange: {
+            date: null,
+            reason: 'missing-or-stale',
+          },
+        });
+      } finally {
+        await rm(root, { recursive: true, force: true });
+      }
+    });
+  }
+});
+
+test('orphan changelog metadata reports no verified upstream without filesystem access', async () => {
+  const result = await loadSkillChangelog({
+    repoRoot: path.join(runtimeRoot, `missing-enrichment-${Date.now()}`),
+    skill: skill({ category: 'orphan', upstream: null }),
+    locale: 'en',
+  });
+
+  assert.deepEqual(result, {
+    content: { commits: [] },
+    latestIncludedChange: {
+      date: null,
+      reason: 'no-upstream',
+    },
+  });
+});
+
+test('restricted changelog metadata short-circuits without filesystem access or render data', async () => {
+  const result = await loadSkillChangelog({
+    repoRoot: path.join(runtimeRoot, `missing-enrichment-${Date.now()}`),
+    skill: skill({ redistributable: false }),
+    locale: 'en',
+  });
+
+  assert.equal(result, null);
 });
 
 test('loader suppresses stale artifacts and returns the caller fallback', async () => {

@@ -46,7 +46,7 @@ skill。
 
 ### 整個 registry 安裝進來了我不預期的 skill
 
-**原因：** 完整 registry 安裝會選取釘選 release 的每個 active skill。2.0.0
+**原因：** 完整 registry 安裝會選取釘選 release 的每個 active skill。2.0.1
 包含 115 個 active skill，沒有受限制 skill。
 
 **解法：** 不需要廣泛涵蓋時改裝單一來源或單一 skill。仍請查看

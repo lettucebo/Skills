@@ -14,7 +14,7 @@ repository instead, see [Skill management](skill-management.md).
 ## Step 1: Confirm a release is actually published
 
 The lockfile at [`catalog/skills.lock.json`](../../catalog/skills.lock.json)
-always names a `release` version — currently `2.0.0`. That field describes
+always names a `release` version — currently `2.0.1`. That field describes
 what the checked-in tree currently *is*, not whether anyone can install it yet.
 
 Installation always uses a pinned `#<tag>` reference (never `@version` or a
@@ -110,7 +110,7 @@ before relying on it in unattended external automation.
 
 ## Restricted content
 
-The active 2.0.0 inventory has no restricted skills. The former proprietary
+The active 2.0.1 inventory has no restricted skills. The former proprietary
 `skills/claude/{docx,pdf,pptx,xlsx}` mirrors were removed before the first
 release tag; their old localized and unprefixed URLs intentionally return 404.
 Their lock tombstones and history entries remain for audit, but a full-registry

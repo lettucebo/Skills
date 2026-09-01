@@ -66,4 +66,19 @@ test('locale metadata and typed messages expose native display names and interpo
   assert.equal(t('en', 'commit'), 'Commit');
   assert.equal(t('zh-tw', 'commit'), '提交');
   assert.equal(t('zh-cn', 'commit'), '提交');
+  assert.equal(t('en', 'latestIncludedChange'), 'Latest included change');
+  assert.equal(t('zh-tw', 'latestIncludedChange'), '收錄的最新變更');
+  assert.equal(t('zh-cn', 'latestIncludedChange'), '收录的最新变更');
+  assert.equal(
+    t('en', 'upstreamChangesSummary', { count: 5, date: '2026-02-19' }),
+    'Upstream changes (5, latest included 2026-02-19)',
+  );
+  assert.equal(
+    t('zh-tw', 'upstreamChangesSummary', { count: 5, date: '2026-02-19' }),
+    '上游變更（5 筆，最新收錄 2026-02-19）',
+  );
+  assert.equal(
+    t('zh-cn', 'upstreamChangesSummary', { count: 5, date: '2026-02-19' }),
+    '上游变更（5 条，最新收录 2026-02-19）',
+  );
 });
