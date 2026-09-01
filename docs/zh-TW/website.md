@@ -25,11 +25,12 @@ i18n 路由，同時保留 `base: '/Skills'` 與 `trailingSlash: 'always'`。因
 在地化路由都包含網站 base、locale 與結尾斜線（例如 `/Skills/en/status/` 或
 `/Skills/zh-tw/skills/github/github-issues/`）。
 
-語言切換器使用原生連結，並保留目前的首頁、安裝、狀態、來源或 skill 邏輯路徑。
-明確選取的語言只會供舊版 `/Skills/` 入口使用，絕不覆蓋直接請求的在地化 URL。
-每個舊版無語言前綴路由都保留為靜態 redirect，並提供英文 meta refresh、
-canonical 與 anchor fallback；只有根 redirect 可在 JavaScript 執行時改用已儲存
-或瀏覽器語言。
+精簡的語言選單位於主題控制項旁，使用原生 `<details>`、`<summary>` 與連結，
+因此不需 JavaScript 就能展開及導覽。它會保留目前的首頁、安裝、狀態、來源或
+skill 邏輯路徑。明確選取的語言只會供舊版 `/Skills/` 入口使用，絕不覆蓋直接
+請求的在地化 URL。每個舊版無語言前綴路由都保留為靜態 redirect，並提供英文
+meta refresh、canonical、anchor fallback 與相同的精簡語言切換介面；只有根
+redirect 可在 JavaScript 執行時改用已儲存或瀏覽器語言。
 
 ## 建置與 Pagefind
 

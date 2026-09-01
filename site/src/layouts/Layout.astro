@@ -90,36 +90,46 @@ function isActive(href: string): boolean {
         <li><a href={statusPath} aria-current={isActive(statusPath) ? 'page' : undefined}>{t(locale, 'navStatus')}</a></li>
         <li><a href="https://github.com/lettucebo/Skills" rel="noopener noreferrer">{t(locale, 'navGitHub')}</a></li>
       </ul>
-      <div
-        class="language-switcher"
-        role="group"
-        aria-label={t(locale, 'languageNavigation')}
-      >
-        {localeLinks.map((link) => (
-          <a
-            href={link.href}
-            lang={HTML_LANG[link.locale]}
-            hreflang={link.locale}
-            data-locale-link={link.locale}
-            aria-current={link.locale === locale ? 'page' : undefined}
-          >{LOCALE_DISPLAY_NAMES[link.locale]}</a>
-        ))}
+      <div class="header-controls">
+        <details
+          class="language-menu"
+          role="group"
+          aria-label={t(locale, 'languageNavigation')}
+        >
+          <summary class="language-menu-summary">
+            <span>{LOCALE_DISPLAY_NAMES[locale]}</span>
+            <span class="language-menu-chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <ul class="language-menu-list">
+            {localeLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  lang={HTML_LANG[link.locale]}
+                  hreflang={link.locale}
+                  data-locale-link={link.locale}
+                  aria-current={link.locale === locale ? 'page' : undefined}
+                >{LOCALE_DISPLAY_NAMES[link.locale]}</a>
+              </li>
+            ))}
+          </ul>
+        </details>
+        <button
+          id="theme-toggle"
+          type="button"
+          class="theme-toggle"
+          aria-label={t(locale, 'themeLabel', {
+            current: themeLabels.system,
+            next: themeLabels.light,
+          })}
+        >
+          <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">◐</span>
+          <span class="theme-toggle-label" data-theme-label>{themeLabels.system}</span>
+        </button>
+        <noscript>
+          <style>.theme-toggle { display: none !important; }</style>
+        </noscript>
       </div>
-      <noscript>
-        <style>.theme-toggle { display: none !important; }</style>
-      </noscript>
-      <button
-        id="theme-toggle"
-        type="button"
-        class="theme-toggle"
-        aria-label={t(locale, 'themeLabel', {
-          current: themeLabels.system,
-          next: themeLabels.light,
-        })}
-      >
-        <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">◐</span>
-        <span class="theme-toggle-label" data-theme-label>{themeLabels.system}</span>
-      </button>
     </nav>
     <script define:vars={{ themeLabels, themeLabelTemplate: t(locale, 'themeLabel') }}>
       (() => {
