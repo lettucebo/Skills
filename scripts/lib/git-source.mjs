@@ -121,6 +121,8 @@ export async function cloneUpstream({
       ref,
       '--config',
       'core.autocrlf=false',
+      '--config',
+      'core.longpaths=true',
       '--',
       url,
       destination,

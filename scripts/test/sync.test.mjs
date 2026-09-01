@@ -169,6 +169,7 @@ test('cloneUpstream performs a shallow branch clone and reports the commit', asy
     assert.match(clonedSkill, /name: alpha/);
     const depth = git(destination, ['rev-list', '--count', 'HEAD']).trim();
     assert.equal(depth, '1');
+    assert.equal(git(destination, ['config', '--get', 'core.longpaths']).trim(), 'true');
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }
