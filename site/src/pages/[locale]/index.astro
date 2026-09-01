@@ -1,0 +1,11 @@
+---
+import Page from '../../components/pages/HomePage.astro';
+import { SUPPORTED_LOCALES, assertLocale } from '../../i18n';
+
+export function getStaticPaths() {
+  return SUPPORTED_LOCALES.map((locale) => ({ params: { locale } }));
+}
+
+const locale = assertLocale(Astro.params.locale);
+---
+<Page locale={locale} />

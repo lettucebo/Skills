@@ -29,7 +29,7 @@ test('pagefind index files exist in dist/', { skip: !distExists && 'dist/ not fo
 
 // ─── Programmatic Search: Known Public Skill ────────────────────────
 
-test('pagefind indexes exactly 119 skill pages with filters and metadata', {
+test('pagefind indexes exactly 357 localized skill pages with filters and metadata', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   // Verify the built pagefind index has the correct page count
@@ -39,13 +39,15 @@ test('pagefind indexes exactly 119 skill pages with filters and metadata', {
   const entry = JSON.parse(fs.readFileSync(entryPath, 'utf8'));
   assert.equal(
     entry.languages.en.page_count, 119,
-    'Pagefind must index exactly 119 skill pages (only data-pagefind-body pages)',
+    'Pagefind must index exactly 119 English skill pages',
   );
+  assert.equal(entry.languages['zh-tw'].page_count, 119);
+  assert.equal(entry.languages['zh-cn'].page_count, 119);
 
   // Verify fragment files exist (one per indexed page)
   const fragmentDir = path.join(distDir, 'pagefind', 'fragment');
   const fragments = fs.readdirSync(fragmentDir).filter(f => f.endsWith('.pf_fragment'));
-  assert.equal(fragments.length, 119, 'Must have 119 fragment files');
+  assert.equal(fragments.length, 357, 'Must have 357 fragment files');
 
   // Verify filter index files exist
   const filterDir = path.join(distDir, 'pagefind', 'filter');
@@ -60,10 +62,10 @@ test('restricted skill pages do not contain SKILL.md body content in built HTML'
 }, async () => {
   const catalog = await loadCatalog(repoRoot);
   const restrictedPaths = [
-    'skills/claude/docx/index.html',
-    'skills/claude/pdf/index.html',
-    'skills/claude/pptx/index.html',
-    'skills/claude/xlsx/index.html',
+    'en/skills/claude/docx/index.html',
+    'en/skills/claude/pdf/index.html',
+    'en/skills/claude/pptx/index.html',
+    'en/skills/claude/xlsx/index.html',
   ];
 
   for (const relPath of restrictedPaths) {
@@ -73,7 +75,7 @@ test('restricted skill pages do not contain SKILL.md body content in built HTML'
     }
 
     const html = fs.readFileSync(fullPath, 'utf8');
-    const skillPath = relPath.replace(/\/index\.html$/, '');
+    const skillPath = relPath.replace(/^en\//, '').replace(/\/index\.html$/, '');
     const skill = catalog.skills.find((entry) => entry.path === skillPath);
     assert.ok(skill, `Expected catalog entry for ${skillPath}`);
 
@@ -116,6 +118,7 @@ test('orphan skill pages build without upstream source or commit links', {
   for (const skill of orphans) {
     const fullPath = path.join(
       distDir,
+      'en',
       'skills',
       skill.source,
       skill.slug,
@@ -134,7 +137,7 @@ test('orphan skill pages build without upstream source or commit links', {
 test('built public skill page contains source and version metadata in HTML', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const publicPath = path.join(distDir, 'skills', 'azure', 'az-cost-optimize', 'index.html');
+  const publicPath = path.join(distDir, 'en', 'skills', 'azure', 'az-cost-optimize', 'index.html');
   assert.ok(fs.existsSync(publicPath), 'Public skill page must exist');
 
   const html = fs.readFileSync(publicPath, 'utf8');

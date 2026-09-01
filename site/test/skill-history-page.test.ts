@@ -9,10 +9,9 @@ const pagePath = path.join(
   __dirname,
   '..',
   'src',
+  'components',
   'pages',
-  'skills',
-  '[source]',
-  '[skill].astro',
+  'SkillPage.astro',
 );
 const enrichmentPath = path.join(
   __dirname,
@@ -27,9 +26,9 @@ test('skill detail keeps registry History separate from fresh Upstream changes',
 
   assert.match(source, /loadEnrichmentLocale/);
   assert.match(source, /kind:\s*'changelog'/);
-  assert.match(source, /locale:\s*'en'/);
-  assert.match(source, /<h2>History<\/h2>/);
-  assert.match(source, /<h2>Upstream changes<\/h2>/);
+  assert.match(source, /locale,/);
+  assert.match(source, /'history'/);
+  assert.match(source, /'upstreamChanges'/);
   assert.match(source, /upstreamChanges\.commits\.length\s*>\s*0/);
 });
 

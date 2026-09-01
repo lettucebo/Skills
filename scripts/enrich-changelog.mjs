@@ -28,7 +28,11 @@ import {
   isArtifactFresh,
   isEligibleForEnrichment,
 } from './lib/enrichment.mjs';
-import { resolveCloneRef, resolveRepositoryUrl } from './lib/git-source.mjs';
+import {
+  repositoryWebUrl,
+  resolveCloneRef,
+  resolveRepositoryUrl,
+} from './lib/git-source.mjs';
 import { hashText } from './lib/hash.mjs';
 import { COPILOT_CLI_CONTRACT, createCopilotRunner } from './lib/llm.mjs';
 import {
@@ -92,15 +96,6 @@ function isNewestFirst(commits) {
     previous = current;
   }
   return true;
-}
-
-function repositoryWebUrl(repository) {
-  const cloneUrl = resolveRepositoryUrl(repository);
-  const match = cloneUrl.match(/^https:\/\/github\.com\/([^/]+\/[^/]+?)(?:\.git)?$/i);
-  if (!match) {
-    throw new Error(`Changelog commit links require a GitHub repository: ${repository}.`);
-  }
-  return `https://github.com/${match[1].replace(/\.git$/i, '')}`;
 }
 
 function localizedContent({ skill, history, summaries, locale }) {

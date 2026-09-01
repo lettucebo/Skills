@@ -70,9 +70,9 @@ test('P3b: playwright.config.ts defines a webServer block', () => {
   assert.match(config, /127\.0\.0\.1/, 'webServer must bind to 127.0.0.1 explicitly');
 });
 
-test('P3c: playwright.config.ts sets baseURL to /Skills/ path', () => {
+test('P3c: playwright.config.ts sets baseURL to the prefixed English route', () => {
   const config = fs.readFileSync(path.join(siteRoot, 'playwright.config.ts'), 'utf8');
-  assert.match(config, /\/Skills\//, 'baseURL must include the /Skills/ base path');
+  assert.match(config, /\/Skills\/en\//, 'baseURL must include the /Skills/en/ locale path');
 });
 
 test('P3d: playwright.config.ts uses Chrome channel locally and Chromium in CI', () => {
@@ -278,11 +278,11 @@ test('P6f: search click-through asserts a skill detail destination path', () => 
   assert.match(
     spec,
     /SKILL_DETAIL_PATH_RE/,
-    'click-through test must match the destination against a /Skills/skills/<source>/<skill>/ pattern',
+    'click-through test must match the destination against a localized skill path',
   );
   assert.match(
     spec,
-    /not\.toBe\('\/Skills\/'\)/,
+    /not\.toBe\('\/Skills\/en\/'\)/,
     'click-through test must explicitly assert the homepage does not satisfy it',
   );
 });

@@ -26,12 +26,12 @@ tag is real:
   or [tags](https://github.com/lettucebo/Skills/tags) page for a `v<release>`
   entry, **or**
 - Open the published website's
-  [status page](https://lettucebo.github.io/Skills/status/), which reports
+  [English status page](https://lettucebo.github.io/Skills/en/status/), which reports
   whether the current lock release has been tagged and is installable.
 
 If the matching tag does not exist yet, `npx skills add` fails because it
 cannot resolve the ref — this is expected, not a bug. Use the most recent tag
-that does exist. If Releases, tags, and `/status/` show that no tag has been
+that does exist. If Releases, tags, and `/Skills/en/status/` show that no tag has been
 published, consumer installation is not available yet; wait for a release.
 
 ## Step 2: Choose what to install
@@ -39,6 +39,10 @@ published, consumer installation is not available yet; wait for a release.
 Every command below uses `$TAG` for the confirmed, published tag. The
 assignment is intentionally a non-resolving placeholder: replace it before
 running any command.
+
+The published [localized install page](https://lettucebo.github.io/Skills/en/install/)
+shows the same commands and lets you switch to Traditional or Simplified
+Chinese without changing command text.
 
 ```bash
 TAG=REPLACE_WITH_PUBLISHED_TAG
@@ -119,12 +123,12 @@ the site no longer places an on-page restricted-content warning beside it.
 The set of restricted skills is not fixed — it changes whenever an upstream
 license changes, so never assume a specific name, path, or count. To see the
 current set, search the lockfile for every entry with
-`"redistributable": false`, or open the published website's `/status/` page,
+`"redistributable": false`, or open the published website's `/Skills/en/status/` page,
 which lists every currently restricted skill under "Restricted Skills".
 
 If you want to avoid restricted content, install a source whose current
 inventory contains no restricted skill, or select a non-restricted single
-skill. Check the lockfile or `/status/` first; a narrow scope is not safe when
+skill. Check the lockfile or `/Skills/en/status/` first; a narrow scope is not safe when
 that scope is itself restricted.
 
 ## Direct-copy fallback

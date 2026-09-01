@@ -257,10 +257,10 @@ test('A13: small muted text surfaces use --cp-muted-text everywhere', () => {
     path.join(siteRoot, 'src', 'components', 'Search.astro'),
     path.join(siteRoot, 'src', 'components', 'InstallCommand.astro'),
     path.join(siteRoot, 'src', 'layouts', 'Layout.astro'),
-    path.join(siteRoot, 'src', 'pages', 'index.astro'),
-    path.join(siteRoot, 'src', 'pages', 'status.astro'),
-    path.join(siteRoot, 'src', 'pages', 'sources', '[source].astro'),
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'StatusPage.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SourcePage.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
   ];
   for (const file of shippedFiles) {
     const content = fs.readFileSync(file, 'utf8');
@@ -336,7 +336,7 @@ test('A15: hover backdrops use opaque tokens to prevent composite stacking', () 
 // ─── B. Accurate UI Content and Navigation ──────────────────────────
 
 test('B1: status page does not contain stale Pagefind/search limitation', () => {
-  const status = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'status.astro'), 'utf8');
+  const status = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'StatusPage.astro'), 'utf8');
   assert.doesNotMatch(status, /Search\/filter functionality is planned/, 'Stale search limitation must be removed');
   assert.doesNotMatch(status, /Pagefind integration/, 'Stale Pagefind claim must be removed');
 });
@@ -360,11 +360,11 @@ test('B4: nav links have aria-current="page" for active page', () => {
 
 test('B5: breadcrumb separators have aria-hidden="true"', () => {
   const skillPage = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   const sourcePage = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'sources', '[source].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SourcePage.astro'),
     'utf8',
   );
   assert.match(skillPage, /aria-hidden="true"/, 'Skill page breadcrumb separators need aria-hidden');
@@ -372,7 +372,7 @@ test('B5: breadcrumb separators have aria-hidden="true"', () => {
 });
 
 test('B6: landing page stats include restricted count explicitly', () => {
-  const index = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'index.astro'), 'utf8');
+  const index = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'), 'utf8');
   // The restricted count is now sourced from computeStatusPartition() so the
   // headline stats form a true partition (see status-partition.test.ts); it is
   // still rendered explicitly.
@@ -405,7 +405,7 @@ test('C2: filter selects do not have redundant aria-label', () => {
 test('C3: noscript message exists in Search component', () => {
   const search = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
   assert.match(search, /<noscript/, 'Must have noscript element');
-  assert.match(search, /JavaScript/i, 'noscript must mention JavaScript');
+  assert.match(search, /'searchRequiresJs'/, 'noscript must use the localized JavaScript requirement message');
 });
 
 test('C4: no-JS dark theme CSS fallback for html:not([data-theme])', () => {
@@ -430,20 +430,20 @@ test('C6: search renders all results, not sliced to 20', () => {
 // ─── D. Catalog Cards ──────────────────────────────────────────────
 
 test('D1: card link is a block link filling card area', () => {
-  const index = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'index.astro'), 'utf8');
+  const index = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'), 'utf8');
   // The card should have a block link containing title, meta, and description
   const css = fs.readFileSync(path.join(siteRoot, 'src', 'styles', 'global.css'), 'utf8');
   assert.match(css, /\.card\s+a|\.card-link/, 'Must have card link styling for block hit area');
 });
 
 test('D2: card renders description for non-restricted skills', () => {
-  const index = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'index.astro'), 'utf8');
+  const index = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'), 'utf8');
   assert.match(index, /card-description|description/i, 'Card must show description');
   assert.match(index, /loadSkillBody/, 'Must use loadSkillBody for descriptions');
 });
 
 test('D3: restricted skills have no body description on cards', () => {
-  const index = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'index.astro'), 'utf8');
+  const index = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'), 'utf8');
   // Must guard description loading with isRestricted check
   assert.match(index, /isRestricted|restricted/i, 'Must check restricted status for card descriptions');
 });
@@ -482,7 +482,7 @@ test('E5: InstallCommand uses navigator.clipboard with error handling', () => {
 
 test('E6: skill detail page uses InstallCommand component', () => {
   const detail = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
   assert.match(detail, /import.*InstallCommand/, 'Skill detail page must import InstallCommand');
@@ -491,7 +491,7 @@ test('E6: skill detail page uses InstallCommand component', () => {
 
 test('E7: source page uses InstallCommand component', () => {
   const source = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'sources', '[source].astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'SourcePage.astro'),
     'utf8',
   );
   assert.match(source, /import.*InstallCommand/, 'Source page must import InstallCommand');
@@ -500,14 +500,14 @@ test('E7: source page uses InstallCommand component', () => {
 
 test('E8: install page uses InstallCommand component and index does not', () => {
   const install = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'install.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'InstallPage.astro'),
     'utf8',
   );
   assert.match(install, /import.*InstallCommand/, 'Install page must import InstallCommand');
   assert.match(install, /<InstallCommand/, 'Install page must render InstallCommand');
 
   const index = fs.readFileSync(
-    path.join(siteRoot, 'src', 'pages', 'index.astro'),
+    path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'),
     'utf8',
   );
   assert.doesNotMatch(index, /<InstallCommand/, 'Index page must not render InstallCommand');
@@ -605,7 +605,7 @@ test('INT1: built public skill page has copy button', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const html = fs.readFileSync(
-    path.join(distDir, 'skills', 'azure', 'az-cost-optimize', 'index.html'),
+    path.join(distDir, 'en', 'skills', 'azure', 'az-cost-optimize', 'index.html'),
     'utf8',
   );
   assert.match(html, /copy|Copy/i, 'Built page must have copy button');
@@ -615,7 +615,7 @@ test('INT2: built restricted page has no copy button', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const html = fs.readFileSync(
-    path.join(distDir, 'skills', 'claude', 'docx', 'index.html'),
+    path.join(distDir, 'en', 'skills', 'claude', 'docx', 'index.html'),
     'utf8',
   );
   assert.doesNotMatch(html, /navigator\.clipboard/, 'Restricted page must not have clipboard code');
@@ -624,21 +624,21 @@ test('INT2: built restricted page has no copy button', {
 test('INT3: built status page has no stale search limitation', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'status', 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'en', 'status', 'index.html'), 'utf8');
   assert.doesNotMatch(html, /Search\/filter functionality is planned/, 'Status must not have stale limitation');
 });
 
 test('INT4: built index page has favicon link', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'en', 'index.html'), 'utf8');
   assert.match(html, /favicon\.svg/, 'Index must reference favicon');
 });
 
 test('INT5: built index page has noscript element', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'en', 'index.html'), 'utf8');
   assert.match(html, /<noscript/, 'Index must have noscript element');
 });
 
@@ -646,7 +646,7 @@ test('INT6: built skill page breadcrumb separators have aria-hidden', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const html = fs.readFileSync(
-    path.join(distDir, 'skills', 'azure', 'az-cost-optimize', 'index.html'),
+    path.join(distDir, 'en', 'skills', 'azure', 'az-cost-optimize', 'index.html'),
     'utf8',
   );
   // All <span>/</span> in breadcrumbs should have aria-hidden
@@ -659,7 +659,7 @@ test('INT6: built skill page breadcrumb separators have aria-hidden', {
 test('INT7: built public skill page has card-description with text', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'en', 'index.html'), 'utf8');
   assert.match(html, /card-description/, 'Index must have card descriptions');
 });
 
@@ -667,7 +667,7 @@ test('INT7: built public skill page has card-description with text', {
 
 /** The full-registry section of the install page, from its heading to its closing tag. */
 function readInstallSection(): string {
-  const install = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'install.astro'), 'utf8');
+  const install = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'InstallPage.astro'), 'utf8');
   const start = install.indexOf('<InstallCommand');
   assert.ok(start !== -1, 'install.astro must render an InstallCommand');
   return install;
@@ -681,7 +681,7 @@ test('H1: the full-repo install command is kept as a supported path', () => {
 test('INT8: built install page publishes the full-repo install command without a restricted disclosure', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'install', 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'en', 'install', 'index.html'), 'utf8');
 
   assert.match(
     html,
@@ -706,19 +706,19 @@ test('INT8: built install page publishes the full-repo install command without a
 test('INT8b: built landing page no longer publishes the full-repo install command', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'en', 'index.html'), 'utf8');
   assert.doesNotMatch(
     html,
     /npx skills add lettucebo\/Skills#v/,
     'the landing page must delegate install commands to the install page',
   );
-  assert.match(html, /href="\/Skills\/install\/"/, 'the landing page must link to the install page');
+  assert.match(html, /href="\/Skills\/en\/install\/"/, 'the landing page must link to the localized install page');
 });
 
 test('INT9: built source page for a restricted source publishes no bulk install command', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'sources', 'claude', 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'en', 'sources', 'claude', 'index.html'), 'utf8');
   assert.doesNotMatch(
     html,
     /npx skills add lettucebo\/Skills\/skills\/claude/,
@@ -746,7 +746,7 @@ test('INT9: built source page for a restricted source publishes no bulk install 
 test('INT10: built source page for a clean source keeps its bulk install command', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'sources', 'azure', 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'en', 'sources', 'azure', 'index.html'), 'utf8');
   assert.match(
     html,
     /npx skills add lettucebo\/Skills\/skills\/azure#v1\.1\.0/,
@@ -757,7 +757,7 @@ test('INT10: built source page for a clean source keeps its bulk install command
 // ─── I. Real baseline verification reporting ────────────────────────
 
 test('I1: status page computes verified baselines instead of restating the mapped count', () => {
-  const status = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'status.astro'), 'utf8');
+  const status = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'StatusPage.astro'), 'utf8');
 
   assert.doesNotMatch(
     status,
@@ -772,7 +772,7 @@ test('I1: status page computes verified baselines instead of restating the mappe
 });
 
 test('I2: status page renders the summary sentence from the computed verification', () => {
-  const status = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'status.astro'), 'utf8');
+  const status = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'StatusPage.astro'), 'utf8');
 
   assert.doesNotMatch(
     status,
@@ -781,13 +781,13 @@ test('I2: status page renders the summary sentence from the computed verificatio
   );
   assert.match(
     status,
-    /baselineSummary|formatBaselineVerification/,
+    /baselineDetail/,
     'the detail sentence must come from the computed verification',
   );
 });
 
 test('I3: status page lists restricted skills derived from the lock', () => {
-  const status = fs.readFileSync(path.join(siteRoot, 'src', 'pages', 'status.astro'), 'utf8');
+  const status = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'pages', 'StatusPage.astro'), 'utf8');
 
   assert.doesNotMatch(status, /RESTRICTED_PATHS/, 'the hardcoded restricted set must be gone');
   assert.match(
@@ -800,7 +800,7 @@ test('I3: status page lists restricted skills derived from the lock', () => {
 test('INT11: built status page reports the real verified/mapped ratio', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'status', 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'en', 'status', 'index.html'), 'utf8');
   const lock = JSON.parse(
     fs.readFileSync(path.resolve(siteRoot, '..', 'catalog', 'skills.lock.json'), 'utf8'),
   );
@@ -817,7 +817,7 @@ test('INT11: built status page reports the real verified/mapped ratio', {
 test('INT12: built status page lists every restricted path from the lock', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(path.join(distDir, 'status', 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(distDir, 'en', 'status', 'index.html'), 'utf8');
   const lock = JSON.parse(
     fs.readFileSync(path.resolve(siteRoot, '..', 'catalog', 'skills.lock.json'), 'utf8'),
   );

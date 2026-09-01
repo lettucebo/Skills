@@ -116,6 +116,24 @@ npm run build
 npx playwright test search.spec.ts
 ```
 
+## 網站翻譯慣例
+
+所有由網站擁有、使用者可見的文字都必須放在 `site/src/i18n/` 下的型別化字典；
+不要在頁面元件或 client script 中加入 locale ternary 或重複的翻譯 literal。
+每個 key 必須同時加入 `en`、`zh-tw` 與 `zh-cn`。Skill 名稱、來源名稱、原始
+`SKILL.md` description 與 body、安裝指令、URL、技術專有名詞，以及原始上游
+commit subject 保持不變。
+
+內部連結使用 `localizedPath()` 與保留路由的 locale helper，確保 `/Skills/`、
+locale 前綴與結尾斜線一致。在地化動態路由必須展開所有支援 locale，並呼叫
+`assertLocale()`，讓不支援的值 fail closed。舊版路由檔案維持為小型 redirect
+wrapper，並保留精確的英文邏輯目標。
+
+變更 i18n 行為時，先執行針對性的 locale/path 與 route 測試，再建置網站並執行
+完整網站單元測試，讓路由數量與 Pagefind 語言索引針對真實輸出驗證。單元測試只能
+使用預先建置的 `dist/`；`site/src/lib/` 下的 AST regression 會拒絕任何自行啟動
+`npm run build` 的單元測試。
+
 ## 影響 skill 的變更：執行 smoke 檢查
 
 每當你新增 skill、改名 skill，或改變它預期的安裝方式時，請先執行

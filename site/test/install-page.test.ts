@@ -25,8 +25,8 @@ const repoRoot = path.resolve(siteRoot, '..');
 const distDir = path.join(siteRoot, 'dist');
 const distExists = fs.existsSync(distDir);
 
-const installPagePath = path.join(siteRoot, 'src', 'pages', 'install.astro');
-const indexPagePath = path.join(siteRoot, 'src', 'pages', 'index.astro');
+const installPagePath = path.join(siteRoot, 'src', 'components', 'pages', 'InstallPage.astro');
+const indexPagePath = path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro');
 const layoutPath = path.join(siteRoot, 'src', 'layouts', 'Layout.astro');
 
 function read(p: string): string {
@@ -36,7 +36,7 @@ function read(p: string): string {
 // ─── Source wiring ──────────────────────────────────────────────────
 
 test('install.astro exists', () => {
-  assert.ok(fs.existsSync(installPagePath), 'src/pages/install.astro must exist');
+  assert.ok(fs.existsSync(installPagePath), 'shared InstallPage.astro must exist');
 });
 
 test('install.astro uses Layout and InstallCommand', () => {
@@ -64,7 +64,7 @@ test('install.astro handles a catalog with no installable single-skill example',
   );
   assert.match(
     src,
-    /No individually installable skill is available/,
+    /'noInstallableSkill'/,
     'the page must render a clean fallback instead of failing',
   );
 });
@@ -93,7 +93,7 @@ test('index.astro no longer imports or renders InstallCommand', () => {
 
 test('index.astro links to the install page', () => {
   const src = read(indexPagePath);
-  assert.match(src, /\$\{base\}install\/`|\/install\//, 'homepage must link to the install page');
+  assert.match(src, /localizedPath\(locale,\s*'install'\)/, 'homepage must link to the localized install page');
 });
 
 // ─── Navigation ─────────────────────────────────────────────────────
@@ -102,12 +102,12 @@ test('Layout nav exposes an Install link with aria-current support', () => {
   const src = read(layoutPath);
   assert.match(
     src,
-    /href=\{`\$\{base\}install\/`\}/,
-    'nav must contain an Install link using the BASE_URL and trailing slash',
+    /href=\{installPath\}/,
+    'nav must contain the localized Install link',
   );
   assert.match(
     src,
-    /isActive\(`\$\{base\}install\/`\)/,
+    /isActive\(installPath\)/,
     'the Install link must set aria-current when active',
   );
 });
@@ -117,7 +117,7 @@ test('Layout nav exposes an Install link with aria-current support', () => {
 test('built install page publishes the full-repo install command', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = read(path.join(distDir, 'install', 'index.html'));
+  const html = read(path.join(distDir, 'en', 'install', 'index.html'));
   assert.match(
     html,
     /npx skills add lettucebo\/Skills#v\d+\.\d+\.\d+ --full-depth/,
@@ -128,7 +128,7 @@ test('built install page publishes the full-repo install command', {
 test('built install page publishes an unrestricted source command', {
   skip: !distExists && 'dist/ not found',
 }, async () => {
-  const html = read(path.join(distDir, 'install', 'index.html'));
+  const html = read(path.join(distDir, 'en', 'install', 'index.html'));
   const catalog = await loadCatalog(repoRoot);
   const cleanSource = catalog.sources.find(
     (s) => generateSourceInstallCommand(catalog.skills, s) !== null,
@@ -141,7 +141,7 @@ test('built install page publishes an unrestricted source command', {
 test('built install page omits restricted bulk commands and warning boxes', {
   skip: !distExists && 'dist/ not found',
 }, async () => {
-  const html = read(path.join(distDir, 'install', 'index.html'));
+  const html = read(path.join(distDir, 'en', 'install', 'index.html'));
   const catalog = await loadCatalog(repoRoot);
   const restrictedSource = catalog.skills.find((s) => s.isRestricted)?.source;
   assert.ok(restrictedSource, 'fixture expects at least one restricted source');
@@ -155,7 +155,7 @@ test('built install page omits restricted bulk commands and warning boxes', {
 test('built install page publishes a single-skill command', {
   skip: !distExists && 'dist/ not found',
 }, async () => {
-  const html = read(path.join(distDir, 'install', 'index.html'));
+  const html = read(path.join(distDir, 'en', 'install', 'index.html'));
   const catalog = await loadCatalog(repoRoot);
   const installable = catalog.skills.find(
     (s) => !s.isRestricted && !s.isTombstone,
@@ -172,7 +172,7 @@ test('built install page publishes a single-skill command', {
 test('all rendered source commands omit repository-root full-depth discovery', {
   skip: !distExists && 'dist/ not found',
 }, async () => {
-  const html = read(path.join(distDir, 'install', 'index.html'));
+  const html = read(path.join(distDir, 'en', 'install', 'index.html'));
   const catalog = await loadCatalog(repoRoot);
   for (const source of catalog.sources) {
     const command = generateSourceInstallCommand(catalog.skills, source);
@@ -189,7 +189,7 @@ test('all rendered source commands omit repository-root full-depth discovery', {
 test('pending publication notice appears only once on the install page', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = read(path.join(distDir, 'install', 'index.html'));
+  const html = read(path.join(distDir, 'en', 'install', 'index.html'));
   const notices = html.match(/Available after v[^<]+ is published/g) ?? [];
   assert.ok(notices.length <= 1, `install page must not repeat the pending notice; found ${notices.length}`);
 });
@@ -197,8 +197,8 @@ test('pending publication notice appears only once on the install page', {
 test('built homepage links to /install/ without an install command block', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = read(path.join(distDir, 'index.html'));
-  assert.match(html, /href="\/Skills\/install\/"/, 'homepage must link to the install page');
+  const html = read(path.join(distDir, 'en', 'index.html'));
+  assert.match(html, /href="\/Skills\/en\/install\/"/, 'homepage must link to the localized install page');
   assert.doesNotMatch(
     html,
     /npx skills add lettucebo\/Skills#v/,

@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Search from '../Search.astro';
+import {
+  loadCatalog,
+  loadSkillBody,
+  computeStatusPartition,
+  getBrowsableSources,
+  RELEASE_VERSION,
+  RELEASE_PUBLISHED,
+} from '../../lib/catalog';
+import {
+  loadEnrichmentLocale,
+  type SkillSummaryContent,
+} from '../../lib/enrichment';
+import {
+  localizedPath,
+  statusMessageKey,
+  t,
+  type Locale,
+} from '../../i18n';
+import path from 'node:path';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const repoRoot = path.resolve(process.cwd(), '..');
+const catalog = await loadCatalog(repoRoot);
+const counts = catalog.counts;
+// Disjoint buckets that mirror the rendered badges and the origin filter, so
+// the summary line adds up to the catalog total instead of double-counting the
+// restricted skills inside `counts.mapped`.
+const partition = computeStatusPartition(catalog.skills);
+const browsableSources = getBrowsableSources(catalog.skills);
+
+const noSummary: SkillSummaryContent = {
+  purpose: '',
+  whenToUse: '',
+  outputs: '',
+};
+
+// Load human summaries with the agent-trigger description as a safe fallback.
+const skillDescriptions = new Map<string, string>();
+for (const skill of catalog.skills) {
+  if (skill.isTombstone || skill.isRestricted) continue;
+  const body = await loadSkillBody(repoRoot, skill);
+  const loadedSummary = await loadEnrichmentLocale<SkillSummaryContent>({
+    repoRoot,
+    kind: 'summaries',
+    skill: skill.lockEntry,
+    locale,
+    fallback: noSummary,
+  });
+  const summary = loadedSummary === noSummary ? null : loadedSummary;
+  const description = summary?.purpose ?? body?.description;
+  if (description) {
+    skillDescriptions.set(skill.path, description);
+  }
+}
+
+function badgeClass(skill: typeof catalog.skills[0]): string {
+  if (skill.isRestricted) return 'badge badge--restricted';
+  if (skill.isOrphan) return 'badge badge--frozen';
+  if (skill.isLocal) return 'badge badge--local';
+  return 'badge badge--synced';
+}
+---
+<Layout title={t(locale, 'catalogTitle')} locale={locale}>
+  <section class="hero">
+    <h1>{t(locale, 'catalogHeading')}</h1>
+    <div class="hero-meta">
+      <span class="badge badge--version">v{RELEASE_VERSION}</span>
+      {!RELEASE_PUBLISHED && <span class="badge badge--pending">{t(locale, 'releasePending')}</span>}
+    </div>
+    <p>
+      <strong>{partition.total}</strong> {t(locale, 'total')} &middot;
+      <strong>{partition.synced}</strong> {t(locale, 'synced')} &middot;
+      <strong>{partition.frozen}</strong> {t(locale, 'frozen')} &middot;
+      {partition.local > 0 && (<><strong>{partition.local}</strong> {t(locale, 'local')} &middot; </>)}
+      <strong>{partition.restricted}</strong> {t(locale, 'restricted')}
+    </p>
+  </section>
+
+  <section>
+    <h2>{t(locale, 'installHeading')}</h2>
+    <p>
+      {t(locale, 'installCta')} <a href={localizedPath(locale, 'install')}>{t(locale, 'installationOptions')}</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>{t(locale, 'searchHeading')}</h2>
+    <Search locale={locale} />
+  </section>
+
+  <section>
+    <h2>{t(locale, 'sourcesHeading')}</h2>
+    <ul class="nav-links" style="margin-bottom:16px;">
+      {browsableSources.map((source) => (
+        <li><a href={localizedPath(locale, `sources/${source}`)}>{source}</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="full-catalog">
+    <div class="catalog-header">
+      <h2>{t(locale, 'allSkills')} (<span id="catalog-count">{counts.total}</span>)</h2>
+      <div class="catalog-group-controls" id="catalog-group-controls" hidden>
+        <button type="button" id="expand-all-groups" class="group-control-btn">{t(locale, 'expandAll')}</button>
+        <button type="button" id="collapse-all-groups" class="group-control-btn">{t(locale, 'collapseAll')}</button>
+      </div>
+    </div>
+    <div id="skill-grid" class="catalog-groups">
+      {browsableSources.map((source) => {
+        const groupSkills = catalog.skills.filter(
+          (s) => !s.isTombstone && s.source === source,
+        );
+        return (
+          <details class="skill-group" data-skill-group data-source={source}>
+            <summary class="skill-group-summary">
+              <span class="skill-group-name">{source}</span>
+              <span class="skill-group-count" data-skill-group-count>{groupSkills.length}</span>
+            </summary>
+            <div class="card-grid skill-group-grid">
+              {groupSkills.map((skill) => {
+                const desc = skillDescriptions.get(skill.path);
+                const url = localizedPath(locale, `skills/${skill.source}/${skill.slug}`);
+                return (
+                  <article
+                    class="card"
+                    data-skill-card
+                    data-source={skill.source}
+                    data-license={skill.license}
+                    data-origin={skill.statusLabel}
+                    data-name={skill.name}
+                    data-url={url}
+                  >
+                    <a href={url}>
+                      <div class="card-title">{skill.name}</div>
+                      <div class="card-meta">
+                        <span>{skill.source}</span>
+                        <span>v{skill.version}</span>
+                        <span class={badgeClass(skill)}>{t(locale, statusMessageKey(skill.statusLabel))}</span>
+                        {skill.license !== 'Unknown' && <span>{skill.license}</span>}
+                      </div>
+                      {desc && <div class="card-description">{desc}</div>}
+                    </a>
+                  </article>
+                );
+              })}
+            </div>
+          </details>
+        );
+      })}
+    </div>
+  </section>
+</Layout>

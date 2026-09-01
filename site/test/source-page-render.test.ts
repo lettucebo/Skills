@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, '..');
-const sourcePage = path.join(siteRoot, 'dist', 'sources', 'azure', 'index.html');
+const sourcePage = path.join(siteRoot, 'dist', 'en', 'sources', 'azure', 'index.html');
 const pagefindEntry = path.join(siteRoot, 'dist', 'pagefind', 'pagefind.js');
 const distExists = fs.existsSync(pagefindEntry);
 

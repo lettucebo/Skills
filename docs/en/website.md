@@ -20,10 +20,18 @@ npm --prefix site ci
 npm --prefix site run dev
 ```
 
-Starts the Astro dev server. Because `astro.config.mjs` sets `base: '/Skills'`
-and `trailingSlash: 'always'`, every route is served under the `/Skills/`
-prefix with a trailing slash (for example `/Skills/status/`), matching the
-published GitHub Pages URL structure.
+Starts the Astro dev server. Astro uses prefix-all i18n routing for `en`,
+`zh-tw`, and `zh-cn`, while retaining `base: '/Skills'` and
+`trailingSlash: 'always'`. Every localized route therefore includes the site
+base, locale, and trailing slash (for example `/Skills/en/status/` or
+`/Skills/zh-tw/skills/github/github-issues/`).
+
+The language switcher uses native links and preserves the current logical
+home, install, status, source, or skill route. An explicit selection is saved
+for the legacy `/Skills/` entry point only; it never overrides a directly
+requested localized URL. Every former unprefixed route remains as a static
+redirect with an English meta-refresh/canonical/anchor fallback, while the
+root redirect may choose the saved or browser locale when JavaScript runs.
 
 ## Build and Pagefind
 
@@ -33,7 +41,10 @@ npm --prefix site run build
 
 Runs `astro build`, then a `postbuild` step runs `pagefind --site dist`
 automatically to generate the full-text search index used by the catalog
-search UI. The output lands in `site/dist/`.
+search UI. Pagefind reads each page's `<html lang>` and emits separate English,
+Traditional Chinese, and Simplified Chinese indexes. Only localized skill
+pages opt in with `data-pagefind-body`; legacy redirects and catalog/status
+pages are excluded. The output lands in `site/dist/`.
 
 ## Structured skill summaries
 
@@ -44,10 +55,12 @@ Catalog cards use the summary purpose instead of the agent-trigger
 frontmatter description.
 
 Summary artifacts are accepted only when enrichment is enabled and the
-artifact is fresh for the current lock entry. If an artifact is disabled,
-missing, or stale, the detail summary is omitted and its catalog card
-falls back to the existing frontmatter description. Restricted skills are
-excluded before enrichment files or `SKILL.md` content are read.
+artifact is fresh for the current lock entry. Each localized route requests
+its matching enrichment locale. If that locale is disabled, missing, stale,
+or invalid, the detail summary is omitted and its catalog card falls back to
+the unchanged frontmatter description; generated English text is never used
+as a Chinese fallback. Restricted skills are excluded before enrichment files
+or `SKILL.md` content are read.
 
 ## Preview
 
@@ -56,7 +69,8 @@ npm --prefix site run preview
 ```
 
 Serves the already-built `site/dist/` (run `build` first) at the same
-`/Skills/` base path, for a production-accurate local check.
+`/Skills/` base path, for a production-accurate local check. Open a localized
+route such as `/Skills/en/` rather than relying on the legacy redirect.
 
 ## Unit tests
 
@@ -110,16 +124,18 @@ Eligible mapped skill pages can show two separate timelines:
 
 - **Upstream changes** lists every non-merge upstream commit that affected the
   skill's `SKILL.md` through the exact commit pinned in the lockfile. Each
-  entry links directly to that repository commit and uses the English summary
-  from the fresh changelog sidecar.
+  entry links directly to that repository commit, preserves the original
+  upstream subject, and uses the current route's localized generated summary.
 - **History** remains the registry-release ledger from
   `catalog/history/*.json`, showing when this registry adopted or versioned
   the skill.
 
 The two timelines are intentionally not combined: one describes upstream Git
-history and the other describes registry releases. If changelog enrichment is
-disabled, missing, stale, or ineligible, the Upstream changes section is
-omitted while the existing History section continues to render.
+history and the other describes registry releases. A missing or invalid
+Chinese generated summary never falls back to English; when safe commit
+metadata remains available, the original subject and metadata render without
+a generated summary. Ineligible or unavailable changelog data is omitted while
+the existing History section continues to render.
 
 ## Restricted content on the site
 
@@ -127,7 +143,7 @@ Restricted skills (see [Installation](installation.md)) never have their
 `SKILL.md` body rendered. Source and single-skill commands are suppressed for
 restricted scopes; the full-registry command remains available and installs
 restricted skills, but the site no longer places an on-page restricted-content
-warning beside it — consult `/status/` or the lockfile for the current
+warning beside it — consult `/Skills/en/status/` (or another locale) or the lockfile for the current
 restricted inventory and licensing (see
 [Architecture](architecture.md#restricted-content-isolation)).
 Restricted and orphan pages also never read or render upstream changelog

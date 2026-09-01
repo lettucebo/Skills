@@ -9,6 +9,7 @@ const siteRoot = path.resolve(__dirname, '..');
 const githubIssuesPage = path.join(
   siteRoot,
   'dist',
+  'en',
   'skills',
   'github',
   'github-issues',
@@ -17,6 +18,7 @@ const githubIssuesPage = path.join(
 const restrictedPage = path.join(
   siteRoot,
   'dist',
+  'en',
   'skills',
   'claude',
   'docx',
@@ -25,6 +27,7 @@ const restrictedPage = path.join(
 const orphanPage = path.join(
   siteRoot,
   'dist',
+  'en',
   'skills',
   'dotnet',
   'csharp-mcp-server-generator',

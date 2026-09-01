@@ -197,16 +197,16 @@ test('restricted summary loading short-circuits before any enrichment filesystem
 test('pages use structured summaries in the canonical detail and card DOM', async () => {
   const [detail, index] = await Promise.all([
     readFile(
-      path.join(siteRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+      path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
       'utf8',
     ),
-    readFile(path.join(siteRoot, 'src', 'pages', 'index.astro'), 'utf8'),
+    readFile(path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro'), 'utf8'),
   ]);
 
   assert.match(detail, /class="skill-summary"/);
-  assert.match(detail, />Purpose</);
-  assert.match(detail, />When to use</);
-  assert.match(detail, />Outputs</);
+  assert.match(detail, /'purpose'/);
+  assert.match(detail, /'whenToUse'/);
+  assert.match(detail, /'outputs'/);
   assert.match(detail, /loadEnrichmentLocale<SkillSummaryContent/);
   assert.match(index, /loadEnrichmentLocale<SkillSummaryContent/);
   assert.match(index, /summary\?\.purpose\s*\?\?\s*body\?\.description/);
@@ -235,10 +235,10 @@ test('built detail and canonical card render the fresh generated summary', {
   };
   const [detail, index] = await Promise.all([
     readFile(
-      path.join(siteRoot, 'dist', 'skills', 'vscode', 'code-review', 'index.html'),
+      path.join(siteRoot, 'dist', 'en', 'skills', 'vscode', 'code-review', 'index.html'),
       'utf8',
     ),
-    readFile(path.join(siteRoot, 'dist', 'index.html'), 'utf8'),
+    readFile(path.join(siteRoot, 'dist', 'en', 'index.html'), 'utf8'),
   ]);
   const { purpose, whenToUse, outputs } = artifactValue.locales.en.content;
 

@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import InstallCommand from '../InstallCommand.astro';
+import {
+  loadCatalog,
+  generateRepoInstallCommand,
+  generateSourceInstallCommand,
+  generateSingleSkillInstallCommand,
+  RELEASE_VERSION,
+  RELEASE_PUBLISHED,
+} from '../../lib/catalog';
+import { localizedPath, t, type Locale } from '../../i18n';
+import path from 'node:path';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const repoRoot = path.resolve(process.cwd(), '..');
+const catalog = await loadCatalog(repoRoot);
+
+const repoCmd = generateRepoInstallCommand();
+
+// Every source that ships no restricted skill exposes a bulk command; a source
+// containing restricted content returns null and is dropped, so no restricted
+// bulk command is ever offered.
+const sourceCommands = catalog.sources
+  .map((source) => ({ source, cmd: generateSourceInstallCommand(catalog.skills, source) }))
+  .filter((entry): entry is { source: string; cmd: string } => entry.cmd !== null);
+
+// Pick a real installable skill to demonstrate the single-skill syntax. Falls
+// back to no example (rather than failing the build) if the catalog somehow
+// contains only restricted or removed skills.
+const exampleSkill = catalog.skills.find((s) => !s.isRestricted && !s.isTombstone) ?? null;
+const singleSkillCmd = exampleSkill
+  ? generateSingleSkillInstallCommand(exampleSkill.name)
+  : null;
+---
+<Layout title={t(locale, 'installPageTitle')} locale={locale}>
+  <nav class="breadcrumbs" aria-label={t(locale, 'breadcrumb')}>
+    <a href={localizedPath(locale)}>{t(locale, 'navCatalog')}</a>
+    <span aria-hidden="true">/</span>
+    <span>{t(locale, 'navInstall')}</span>
+  </nav>
+
+  <section>
+    <h1>{t(locale, 'installPageHeading')}</h1>
+    <p>
+      {t(locale, 'installIntroBefore')} <code>#ref</code> {t(locale, 'installIntroAfter')}
+      <code>@version</code>{t(locale, 'installIntroEnd')} <strong>v{RELEASE_VERSION}</strong>.
+    </p>
+    {!RELEASE_PUBLISHED && (
+      <p class="install-page-pending">{t(locale, 'availableAfterPublication', { version: RELEASE_VERSION })}</p>
+    )}
+  </section>
+
+  <section aria-labelledby="install-full">
+    <h2 id="install-full">{t(locale, 'fullRegistry')}</h2>
+    <p>{t(locale, 'fullRegistryDetail')}</p>
+    <InstallCommand command={repoCmd} locale={locale} showPendingNote={false} />
+  </section>
+
+  <section aria-labelledby="install-source">
+    <h2 id="install-source">{t(locale, 'bySource')}</h2>
+    <p>{t(locale, 'bySourceDetail')}</p>
+    {sourceCommands.map(({ source, cmd }) => (
+      <div class="install-source">
+        <h3>{source}</h3>
+        <InstallCommand command={cmd} locale={locale} showPendingNote={false} />
+      </div>
+    ))}
+  </section>
+
+  <section aria-labelledby="install-single">
+    <h2 id="install-single">{t(locale, 'singleSkill')}</h2>
+    {singleSkillCmd && exampleSkill ? (
+      <>
+        <p>
+          {t(locale, 'singleSkillDetail')} <code>{exampleSkill.name}</code>.
+        </p>
+        <InstallCommand command={singleSkillCmd} locale={locale} showPendingNote={false} />
+      </>
+    ) : (
+      <p>{t(locale, 'noInstallableSkill')}</p>
+    )}
+  </section>
+</Layout>
+
+<style>
+  .install-page-pending {
+    color: var(--cp-warning-text);
+  }
+</style>

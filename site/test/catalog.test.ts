@@ -273,16 +273,16 @@ test('all ten microsoft dot-path sources produce safe pinned tree links', async 
 
 test('skill detail routes continue to exclude tombstones', () => {
   const source = fs.readFileSync(
-    path.join(repoRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(repoRoot, 'src', 'pages', '[locale]', 'skills', '[source]', '[skill].astro'),
     'utf8',
   );
 
-  assert.match(source, /\.filter\(\(s\) => !s\.isTombstone\)/);
+  assert.match(source, /\.filter\(\(skill\) => !skill\.isTombstone\)/);
 });
 
 test('skill detail page uses upstream URL helpers while preserving fallback rendering', () => {
   const source = fs.readFileSync(
-    path.join(repoRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    path.join(repoRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
     'utf8',
   );
 
@@ -516,9 +516,9 @@ test('production catalog code carries no hardcoded restricted path list', () => 
 
 test('no page hardcodes the restricted inventory', () => {
   const pages = [
-    path.join(repoRoot, 'src', 'pages', 'status.astro'),
-    path.join(repoRoot, 'src', 'pages', 'index.astro'),
-    path.join(repoRoot, 'src', 'pages', 'sources', '[source].astro'),
+    path.join(repoRoot, 'src', 'components', 'pages', 'StatusPage.astro'),
+    path.join(repoRoot, 'src', 'components', 'pages', 'HomePage.astro'),
+    path.join(repoRoot, 'src', 'components', 'pages', 'SourcePage.astro'),
   ];
 
   for (const pagePath of pages) {

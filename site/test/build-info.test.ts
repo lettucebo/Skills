@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const layoutPath = path.resolve(__dirname, '../src/layouts/Layout.astro');
-const statusPath = path.resolve(__dirname, '../src/pages/status.astro');
+const statusPath = path.resolve(__dirname, '../src/components/pages/StatusPage.astro');
 const layoutSource = fs.readFileSync(layoutPath, 'utf-8');
 const statusSource = fs.readFileSync(statusPath, 'utf-8');
 
@@ -68,8 +68,8 @@ test('Layout.astro contains no hardcoded literal date string', () => {
 // ─── Rendering: status page ─────────────────────────────────────────
 
 test('status.astro distinguishes registry sync time from site build time', () => {
-  assert.match(statusSource, /Site built/, 'status page must label the site build time');
-  assert.match(statusSource, /Registry synced/, 'status page must label the registry sync time');
+  assert.match(statusSource, /'siteBuiltLabel'/, 'status page must localize the site build label');
+  assert.match(statusSource, /'registrySynced'/, 'status page must localize the registry sync label');
   assert.match(
     statusSource,
     /datetime=\{BUILD_TIME\}/,
@@ -309,7 +309,7 @@ function assertCommitAnchor(scope: string, label: string): void {
 test('built footer renders a semantic <time> and a matching commit link', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = readDist('index.html');
+  const html = readDist('en/index.html');
   assert.ok(html, 'built homepage must exist');
   const footer = html.slice(html.indexOf('<footer'));
   const timeMatch = footer.match(/<time datetime="([^"]+Z)"[^>]*>([^<]*UTC)<\/time>/);
@@ -322,7 +322,7 @@ test('built footer renders a semantic <time> and a matching commit link', {
 test('built status page distinguishes Site built from Registry synced', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = readDist('status/index.html');
+  const html = readDist('en/status/index.html');
   assert.ok(html, 'built status page must exist');
   const mainStart = html.indexOf('<main');
   const footerStart = html.indexOf('<footer');

@@ -6,7 +6,7 @@
  * (`<title>` + `<h1>`) — not just any page under the /Skills/ base path.
  */
 import { test, expect } from '@playwright/test';
-import { BASE } from './_helpers';
+import { BASE, SITE_BASE } from './_helpers';
 
 /**
  * Key pages plus the exact title/heading each one must render.
@@ -133,7 +133,7 @@ test.describe('Site health — request-based', () => {
   });
 
   test('pagefind JS asset is served', async ({ request }) => {
-    const response = await request.get(`${BASE}pagefind/pagefind.js`);
+    const response = await request.get(`${SITE_BASE}pagefind/pagefind.js`);
     expect(response.status(), 'pagefind.js must be served').toBe(200);
   });
 
@@ -155,5 +155,10 @@ test.describe('Site health — request-based', () => {
   test('unknown top-level path returns 404', async ({ request }) => {
     const response = await request.get(url('/definitely-not-a-page/'));
     expect(response.status(), 'a non-existent page must 404').toBe(404);
+  });
+
+  test('unsupported locale prefix returns 404', async ({ request }) => {
+    const response = await request.get(`${SITE_BASE}fr/`);
+    expect(response.status(), 'unsupported locales must fail closed').toBe(404);
   });
 });

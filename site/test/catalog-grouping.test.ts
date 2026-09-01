@@ -34,8 +34,8 @@ function getBrowsableSources(skills: SkillViewModel[]): string[] {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, '..');
 const repoRoot = path.resolve(siteRoot, '..');
-const indexAstroPath = path.join(siteRoot, 'src', 'pages', 'index.astro');
-const distIndexPath = path.join(siteRoot, 'dist', 'index.html');
+const indexAstroPath = path.join(siteRoot, 'src', 'components', 'pages', 'HomePage.astro');
+const distIndexPath = path.join(siteRoot, 'dist', 'en', 'index.html');
 const distExists = fs.existsSync(distIndexPath);
 
 /** Matches the bare `data-skill-group` marker, never `data-skill-group-count`. */
@@ -150,7 +150,7 @@ test('built homepage renders each non-tombstone card exactly once', {
   const expectedCards = catalog.skills.filter((s) => !s.isTombstone).length;
   const expectedUrls = catalog.skills
     .filter((skill) => !skill.isTombstone)
-    .map((skill) => `/Skills/skills/${skill.source}/${skill.slug}/`)
+    .map((skill) => `/Skills/en/skills/${skill.source}/${skill.slug}/`)
     .sort();
   const renderedUrls = [...renderedMarkup(html).matchAll(
     /data-skill-card(?=[^>]*data-url="([^"]+)")[^>]*>/g,
@@ -193,7 +193,7 @@ test('every built group carries its source name and a derived count that sums to
     assert.equal(count, expected.get(source), `group ${source} count must equal its catalog card count`);
     const expectedUrls = catalog.skills
       .filter((skill) => !skill.isTombstone && skill.source === source)
-      .map((skill) => `/Skills/skills/${skill.source}/${skill.slug}/`)
+      .map((skill) => `/Skills/en/skills/${skill.source}/${skill.slug}/`)
       .sort();
     const renderedUrls = [...chunk.matchAll(
       /data-skill-card(?=[^>]*data-url="([^"]+)")[^>]*>/g,

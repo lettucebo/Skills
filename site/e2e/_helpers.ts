@@ -11,9 +11,15 @@
  */
 import { expect, type Page } from '@playwright/test';
 
-export const BASE = '/Skills/';
+export const SITE_BASE = '/Skills/';
+export const BASE = `${SITE_BASE}en/`;
 
 export const NO_RESULTS_STATUS = 'No matching skills found.';
+const LOCALIZED_NO_RESULTS = new Set([
+  NO_RESULTS_STATUS,
+  '找不到符合的技能。',
+  '找不到匹配的技能。',
+]);
 
 /** A single visible catalog card, as the user sees it. */
 export interface ResultRow {
@@ -30,9 +36,11 @@ export interface ResultRow {
 /** Parses "N results found." / "No matching skills found." into a count. */
 export function countFromStatus(status: string): number | null {
   const trimmed = status.trim();
-  if (trimmed === NO_RESULTS_STATUS) return 0;
+  if (LOCALIZED_NO_RESULTS.has(trimmed)) return 0;
   const m = trimmed.match(/^(\d+) results? found\.$/);
-  return m ? Number(m[1]) : null;
+  if (m) return Number(m[1]);
+  const zh = trimmed.match(/^找到 (\d+) [個个][結结]果。$/);
+  return zh ? Number(zh[1]) : null;
 }
 
 /**

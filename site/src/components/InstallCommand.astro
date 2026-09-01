@@ -4,13 +4,15 @@
  * Progressive enhancement: copy button starts hidden, revealed by JS.
  */
 import { RELEASE_VERSION, RELEASE_PUBLISHED } from '../lib/catalog';
+import { t, type Locale } from '../i18n';
 
 interface Props {
   command: string;
+  locale: Locale;
   showPendingNote?: boolean;
 }
 
-const { command, showPendingNote = true } = Astro.props;
+const { command, locale, showPendingNote = true } = Astro.props;
 const uniqueId = `install-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
@@ -18,13 +20,15 @@ const uniqueId = `install-${Math.random().toString(36).slice(2, 8)}`;
   <code id={`${uniqueId}-cmd`}>{command}</code>
   <button
     class="install-copy-btn"
-    aria-label="Copy install command"
+    aria-label={t(locale, 'copyInstallCommand')}
     data-copy-target={`${uniqueId}-cmd`}
+    data-copy-success={t(locale, 'copied')}
+    data-copy-failure={t(locale, 'copyFailed')}
     hidden
-  >Copy</button>
+  >{t(locale, 'copy')}</button>
   <div class="copy-feedback" aria-live="polite" data-copy-feedback={uniqueId}></div>
   {showPendingNote && !RELEASE_PUBLISHED && (
-    <p class="pending-note">⚠ Available after v{RELEASE_VERSION} is published</p>
+    <p class="pending-note">{t(locale, 'availableAfterPublication', { version: RELEASE_VERSION })}</p>
   )}
 </div>
 
@@ -41,10 +45,10 @@ const uniqueId = `install-${Math.random().toString(36).slice(2, 8)}`;
       clearTimeout(timer);
       try {
         await navigator.clipboard.writeText(codeEl.textContent || '');
-        if (feedbackEl) feedbackEl.textContent = 'Copied!';
+        if (feedbackEl) feedbackEl.textContent = btn.dataset.copySuccess || '';
         timer = setTimeout(() => { if (feedbackEl) feedbackEl.textContent = ''; }, 2000);
       } catch {
-        if (feedbackEl) feedbackEl.textContent = 'Copy failed — please copy manually.';
+        if (feedbackEl) feedbackEl.textContent = btn.dataset.copyFailure || '';
         timer = setTimeout(() => { if (feedbackEl) feedbackEl.textContent = ''; }, 3000);
       }
     });
