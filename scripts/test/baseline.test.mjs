@@ -1203,6 +1203,7 @@ async function buildSwapFixture(workspace) {
   // Create the original files in the repo root.
   await writeFileEnsured(path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), skillDoc('alpha'));
   await writeFileEnsured(path.join(repoRoot, 'catalog', 'history', 'alpha.json'), '{"path":"alpha"}');
+  await writeFileEnsured(path.join(repoRoot, 'catalog', 'sources.yml'), 'mappings: []\n');
   await writeFileEnsured(path.join(repoRoot, 'catalog', 'skills.lock.json'), '{"release":"1.0.0"}');
   await writeFileEnsured(path.join(repoRoot, 'NOTICE'), '# NOTICE\noriginal\n');
   await writeFileEnsured(path.join(repoRoot, 'README.md'), '# README\noriginal\n');
@@ -1210,6 +1211,7 @@ async function buildSwapFixture(workspace) {
   // Create the candidate files (different content).
   await writeFileEnsured(path.join(candidateRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), skillDoc('alpha-candidate'));
   await writeFileEnsured(path.join(candidateRoot, 'catalog', 'history', 'alpha.json'), '{"path":"alpha-candidate"}');
+  await writeFileEnsured(path.join(candidateRoot, 'catalog', 'sources.yml'), 'mappings:\n  - candidate\n');
   await writeFileEnsured(path.join(candidateRoot, 'catalog', 'skills.lock.json'), '{"release":"1.1.0"}');
   await writeFileEnsured(path.join(candidateRoot, 'NOTICE'), '# NOTICE\ncandidate\n');
   await writeFileEnsured(path.join(candidateRoot, 'README.md'), '# README\ncandidate\n');

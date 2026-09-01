@@ -1069,6 +1069,7 @@ test('applyUpdate recovers an interrupted swap before the initial clean-tree gat
           },
           ...[
             { rel: 'catalog/history', kind: 'dir' },
+            { rel: 'catalog/sources.yml', kind: 'file' },
             { rel: 'catalog/skills.lock.json', kind: 'file' },
             { rel: 'NOTICE', kind: 'file' },
             { rel: 'README.md', kind: 'file' },
@@ -2032,14 +2033,12 @@ test('applyUpdate applies an allowed removal as a major release', async () => {
 
     const lock = JSON.parse(await readLockFile(repoRoot));
     assert.equal(lock.release, '2.0.0');
-    assert.equal(
-      lock.skills.some((skill) => skill.path === 'skills/demo/extra01'),
-      false,
-      'the removed mapping must not survive as a phantom lock entry',
-    );
+    const tombstone = lock.skills.find((skill) => skill.path === 'skills/demo/extra01');
+    assert.equal(tombstone.category, 'removed');
+    assert.equal(tombstone.removedIn, '2.0.0');
     assert.equal(lock.counts.mapped, 11);
     assert.equal(lock.counts.total, 13);
-    assert.equal(lock.skills.length, 13);
+    assert.equal(lock.skills.length, 14);
 
     const history = JSON.parse(
       await readFile(

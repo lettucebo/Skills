@@ -76,6 +76,15 @@ export const BASELINE_HISTORY_KIND = 'baseline-verified';
 export const ADDED_SKILL_VERSION = '1.0.0';
 export const APPLY_LOCK_FILE = '.skills-sync-apply.lock';
 export const TRANSACTION_JOURNAL_FILE = '.skills-sync-transaction.json';
+export const DEPROPRIETIZE_RELEASE = '2.0.0';
+export const DEPROPRIETIZE_COMMIT_MESSAGE =
+  'feat(skills)!: remove proprietary skill mirrors';
+export const DEPROPRIETIZE_PATHS = Object.freeze([
+  'skills/claude/docx',
+  'skills/claude/pdf',
+  'skills/claude/pptx',
+  'skills/claude/xlsx',
+]);
 
 /**
  * Files and directories the swap replaces atomically. Order is irrelevant to
@@ -84,6 +93,7 @@ export const TRANSACTION_JOURNAL_FILE = '.skills-sync-transaction.json';
 export const SWAP_TARGETS = [
   { rel: 'skills', kind: 'dir' },
   { rel: 'catalog/history', kind: 'dir' },
+  { rel: 'catalog/sources.yml', kind: 'file' },
   { rel: 'catalog/skills.lock.json', kind: 'file' },
   { rel: 'NOTICE', kind: 'file' },
   { rel: 'README.md', kind: 'file' },
@@ -94,6 +104,111 @@ export class BaselineError extends Error {
     super(message);
     this.name = 'BaselineError';
   }
+}
+
+export function assertDeproprietizePreconditions({ lock, manifest }) {
+  if (lock.release !== BASELINE_RELEASE) {
+    throw new BaselineError(
+      `Refusing deproprietize migration: lock release is ${lock.release}; expected ${BASELINE_RELEASE}.`,
+    );
+  }
+
+  for (const skillPath of DEPROPRIETIZE_PATHS) {
+    const matchingSkills = lock.skills.filter((skill) => skill.path === skillPath);
+    if (matchingSkills.length !== 1) {
+      throw new BaselineError(
+        `Refusing deproprietize migration: expected exactly one active lock entry for ${skillPath}.`,
+      );
+    }
+
+    const [skill] = matchingSkills;
+    if (skill.category !== 'mapped') {
+      throw new BaselineError(
+        `Refusing deproprietize migration: ${skillPath} category is ${skill.category}; expected mapped.`,
+      );
+    }
+    if (skill.redistributable !== false) {
+      throw new BaselineError(
+        `Refusing deproprietize migration: ${skillPath} redistributable must be false.`,
+      );
+    }
+    if (skill.license !== 'Proprietary') {
+      throw new BaselineError(
+        `Refusing deproprietize migration: ${skillPath} license is ${skill.license}; expected Proprietary.`,
+      );
+    }
+    if (
+      skill.upstream?.repository !== 'anthropics/skills' ||
+      skill.upstream?.reference !== manifest.upstreams.anthropics?.reference ||
+      skill.upstream?.source !== `skills/${path.posix.basename(skillPath)}`
+    ) {
+      throw new BaselineError(
+        `Refusing deproprietize migration: ${skillPath} has an unexpected upstream tuple.`,
+      );
+    }
+
+    const mappings = manifest.mappings.filter((mapping) => mapping.path === skillPath);
+    if (
+      mappings.length !== 1 ||
+      mappings[0].upstream !== 'anthropics' ||
+      mappings[0].source !== `skills/${path.posix.basename(skillPath)}`
+    ) {
+      throw new BaselineError(
+        `Refusing deproprietize migration: expected exact anthropics mapping for ${skillPath}.`,
+      );
+    }
+  }
+}
+
+export function buildDeproprietizedLock({ lock, generatedAt }) {
+  const removedSet = new Set(DEPROPRIETIZE_PATHS);
+  const skills = lock.skills
+    .map((skill) =>
+      removedSet.has(skill.path)
+        ? {
+            ...skill,
+            category: 'removed',
+            removedIn: DEPROPRIETIZE_RELEASE,
+            removalReason:
+              'Removed proprietary material to prevent proprietary redistribution.',
+          }
+        : skill,
+    )
+    .sort((left, right) => (left.path < right.path ? -1 : left.path > right.path ? 1 : 0));
+
+  const activeSkills = skills.filter((skill) => skill.category !== 'removed');
+  const counts = { total: activeSkills.length, mapped: 0, orphan: 0, local: 0 };
+  for (const skill of activeSkills) {
+    counts[skill.category] += 1;
+  }
+
+  return {
+    release: DEPROPRIETIZE_RELEASE,
+    generatedAt,
+    counts,
+    skills,
+  };
+}
+
+export function removeDeproprietizedMappings(manifestText) {
+  let next = manifestText;
+
+  for (const skillPath of DEPROPRIETIZE_PATHS) {
+    const skillName = path.posix.basename(skillPath);
+    const block =
+      `  - path: ${skillPath}\n` +
+      '    upstream: anthropics\n' +
+      `    source: skills/${skillName}\n`;
+
+    if (!next.includes(block)) {
+      throw new BaselineError(
+        `Refusing deproprietize migration: manifest text does not contain the exact mapping block for ${skillPath}.`,
+      );
+    }
+    next = next.replace(block, '');
+  }
+
+  return next;
 }
 
 /**
@@ -265,6 +380,8 @@ export async function createApplyWorkRoot(repoRoot, kind) {
     ? '.baseline-work-'
     : kind === 'update'
       ? '.update-work-'
+      : kind === 'deproprietize'
+        ? '.deproprietize-work-'
       : null;
 
   if (!prefix) {
@@ -1002,9 +1119,10 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
  * smoke, run without any network access.
  */
 export async function assertStructuralIntegrity(repoRoot, lock) {
-  if (lock.counts.total !== lock.skills.length) {
+  const activeSkills = lock.skills.filter((skill) => skill.category !== 'removed');
+  if (lock.counts.total !== activeSkills.length) {
     throw new BaselineError(
-      `Structural smoke failed: lock counts.total ${lock.counts.total} != ${lock.skills.length} skills.`,
+      `Structural smoke failed: lock counts.total ${lock.counts.total} != ${activeSkills.length} active skills.`,
     );
   }
 
@@ -1012,6 +1130,20 @@ export async function assertStructuralIntegrity(repoRoot, lock) {
   const names = new Set();
 
   for (const skill of lock.skills) {
+    if (skill.category === 'removed') {
+      const removedSkillFile = path.join(repoRoot, ...skill.path.split('/'), 'SKILL.md');
+      try {
+        await readFile(removedSkillFile, 'utf8');
+        throw new BaselineError(
+          `Structural smoke failed: tombstoned skill still exists at ${skill.path}.`,
+        );
+      } catch (error) {
+        if (error instanceof BaselineError) throw error;
+        if (error?.code !== 'ENOENT') throw error;
+      }
+      continue;
+    }
+
     tallies[skill.category] += 1;
 
     if (names.has(skill.name)) {
@@ -1066,6 +1198,10 @@ async function buildCandidate({ repoRoot, candidateRoot, manifest, lock, staged,
     path.join(repoRoot, 'catalog', 'history'),
     path.join(candidateRoot, 'catalog', 'history'),
     { recursive: true },
+  );
+  await cp(
+    path.join(repoRoot, 'catalog', 'sources.yml'),
+    path.join(candidateRoot, 'catalog', 'sources.yml'),
   );
 
   for (const [skillPath, stagedEntry] of staged) {
@@ -1503,14 +1639,14 @@ async function readOptionalHistoryDoc(repoRoot, skillPath, name) {
 
 /**
  * Rebuilds the lockfile with added and changed skills updated and removed
- * mappings dropped.
+ * mappings retained as inactive tombstones.
  *
  * Added entries start at version 1.0.0 with verified staged provenance and
  * conservatively derived license metadata. Changed entries get a bumped patch
  * version, updated hashes, commit, and adopted staged name. Entries listed in
- * `removedPaths` are dropped entirely so an undeclared mapping can never survive
- * as a phantom lock entry. Unchanged mapped entries, orphan entries, and local
- * entries pass through untouched. `counts` is always recomputed.
+ * `removedPaths` become `removed` entries so their audit identity remains in the
+ * lock without being installable. Unchanged mapped entries, orphan entries, and
+ * local entries pass through untouched. `counts` includes active entries only.
  */
 export function buildUpdateLock({
   lock,
@@ -1527,8 +1663,16 @@ export function buildUpdateLock({
   const stagedMap = staged instanceof Map ? staged : new Map(Object.entries(staged));
 
   const skills = lock.skills
-    .filter((skill) => !removedSet.has(skill.path))
     .map((skill) => {
+      if (removedSet.has(skill.path)) {
+        return {
+          ...skill,
+          category: 'removed',
+          removedIn: release,
+          removalReason: 'Mapping removed from the registry manifest.',
+        };
+      }
+
       if (skill.category !== 'mapped') return skill;
 
       if (!changedSet.has(skill.path)) return skill;
@@ -1623,8 +1767,9 @@ export function buildUpdateLock({
     left.path === right.path ? 0 : left.path < right.path ? -1 : 1,
   );
 
-  const counts = { total: skills.length, mapped: 0, orphan: 0, local: 0 };
-  for (const skill of skills) {
+  const activeSkills = skills.filter((skill) => skill.category !== 'removed');
+  const counts = { total: activeSkills.length, mapped: 0, orphan: 0, local: 0 };
+  for (const skill of activeSkills) {
     counts[skill.category] += 1;
   }
 
@@ -1652,6 +1797,10 @@ async function buildUpdateCandidate({
     path.join(repoRoot, 'catalog', 'history'),
     path.join(candidateRoot, 'catalog', 'history'),
     { recursive: true },
+  );
+  await cp(
+    path.join(repoRoot, 'catalog', 'sources.yml'),
+    path.join(candidateRoot, 'catalog', 'sources.yml'),
   );
 
   const changedSet = new Set(changedPaths);
@@ -1763,6 +1912,277 @@ async function buildUpdateCandidate({
   await writeFile(path.join(candidateRoot, 'README.md'), renderReadme(readmeText, nextLock));
 
   return nextLock;
+}
+
+async function buildDeproprietizeCandidate({
+  repoRoot,
+  candidateRoot,
+  lock,
+  generatedAt,
+}) {
+  await cp(path.join(repoRoot, 'skills'), path.join(candidateRoot, 'skills'), {
+    recursive: true,
+  });
+  await cp(
+    path.join(repoRoot, 'catalog', 'history'),
+    path.join(candidateRoot, 'catalog', 'history'),
+    { recursive: true },
+  );
+
+  const manifestText = await readFile(
+    path.join(repoRoot, 'catalog', 'sources.yml'),
+    'utf8',
+  );
+  await writeFile(
+    path.join(candidateRoot, 'catalog', 'sources.yml'),
+    removeDeproprietizedMappings(manifestText),
+  );
+
+  for (const skillPath of DEPROPRIETIZE_PATHS) {
+    await rm(path.join(candidateRoot, ...skillPath.split('/')), {
+      recursive: true,
+      force: true,
+    });
+  }
+
+  const nextLock = buildDeproprietizedLock({ lock, generatedAt });
+  await writeFile(
+    path.join(candidateRoot, 'catalog', 'skills.lock.json'),
+    serialize(nextLock),
+  );
+
+  for (const skillPath of DEPROPRIETIZE_PATHS) {
+    const lockSkill = lock.skills.find((skill) => skill.path === skillPath);
+    const { fileName, content } = await readHistoryDoc(repoRoot, skillPath);
+    const entry = {
+      release: DEPROPRIETIZE_RELEASE,
+      kind: 'mapping-removed',
+      version: lockSkill.version,
+      upstreamCommit: lockSkill.upstream?.commit ?? null,
+      diffUrl: null,
+      contentHash: lockSkill.contentHash ?? null,
+      reason: 'Removed proprietary material to prevent proprietary redistribution.',
+    };
+    await writeFile(
+      path.join(candidateRoot, 'catalog', 'history', fileName),
+      serialize({ ...content, entries: [...content.entries, entry] }),
+    );
+  }
+
+  await writeFile(path.join(candidateRoot, 'NOTICE'), renderNotice(nextLock));
+  const readmeText = await readFile(path.join(repoRoot, 'README.md'), 'utf8');
+  await writeFile(
+    path.join(candidateRoot, 'README.md'),
+    renderReadme(readmeText, nextLock),
+  );
+
+  return nextLock;
+}
+
+/**
+ * Removes the four unpublished proprietary mirrors through the shared atomic
+ * transaction. This one-time migration intentionally does not reconcile tags:
+ * v1.1.0 was never published, and v2.0.0 is the first publishable release.
+ */
+export async function applyDeproprietize({
+  repoRoot = defaultRepoRoot,
+  deproprietize = false,
+  readGitStatus = defaultReadGitStatus,
+  now = () => new Date().toISOString(),
+  validate = validateRepository,
+  afterCleanCheck,
+  afterBackupMove,
+} = {}) {
+  if (deproprietize !== true) {
+    throw new BaselineError(
+      'Refusing to apply: deproprietize mode must be explicitly enabled.',
+    );
+  }
+
+  const absoluteRepoRoot = path.resolve(repoRoot);
+  const { commonGitDir } = await resolveGitDirectories(absoluteRepoRoot);
+  const journalPath = path.join(commonGitDir, TRANSACTION_JOURNAL_FILE);
+  let applyLock;
+  let workRoot;
+  let transaction;
+  let journalRenamer;
+  let preserveWorkRoot = false;
+
+  try {
+    applyLock = await acquireApplyLock(commonGitDir);
+    journalRenamer = createJournalRenamer();
+    await recoverPendingTransaction(journalPath, {
+      renameOp: journalRenamer?.rename.bind(journalRenamer),
+    });
+
+    const initialStatus = await readGitStatus(absoluteRepoRoot);
+    if (initialStatus.trim() !== '') {
+      throw new BaselineError(
+        'Refusing to apply deproprietize migration: the git working tree is not clean. Commit or stash changes first.',
+      );
+    }
+
+    const manifest = await loadManifest(
+      path.join(absoluteRepoRoot, 'catalog', 'sources.yml'),
+    );
+    const protectedRoots = assertMappingsWritable(manifest);
+    const lock = await readLock(absoluteRepoRoot);
+    assertDeproprietizePreconditions({ lock, manifest });
+
+    for (const skillPath of DEPROPRIETIZE_PATHS) {
+      assertWritableSkillPath(skillPath, protectedRoots);
+      try {
+        await readFile(
+          path.join(absoluteRepoRoot, ...skillPath.split('/'), 'SKILL.md'),
+          'utf8',
+        );
+      } catch {
+        throw new BaselineError(
+          `Refusing deproprietize migration: live skill directory is missing for ${skillPath}.`,
+        );
+      }
+    }
+
+    const removedSet = new Set(DEPROPRIETIZE_PATHS);
+    const nextManifest = {
+      ...manifest,
+      mappings: manifest.mappings.filter(
+        (mapping) => !removedSet.has(mapping.path),
+      ),
+    };
+    const guardrail = evaluateDeletionGuards(
+      buildDeletionGroups({ manifest: nextManifest, lock }),
+    );
+    if (guardrail.blocked) {
+      throw new BaselineError(
+        'Refusing deproprietize migration: deletion guardrail blocked the four declared removals.',
+      );
+    }
+
+    const anthropicsGuard = guardrail.groups.find(
+      (group) => group.upstream === 'anthropics',
+    );
+    if (
+      !anthropicsGuard ||
+      anthropicsGuard.declared !== 17 ||
+      anthropicsGuard.removed !== 4
+    ) {
+      throw new BaselineError(
+        `Refusing deproprietize migration: expected anthropics deletion guard inventory 4/17, got ` +
+          `${anthropicsGuard?.removed ?? 'missing'}/${anthropicsGuard?.declared ?? 'missing'}.`,
+      );
+    }
+
+    workRoot = await createApplyWorkRoot(absoluteRepoRoot, 'deproprietize');
+    const backupRoot = path.join(workRoot, 'backup');
+    const candidateRoot = path.join(workRoot, 'candidate');
+    await mkdir(candidateRoot, { recursive: true });
+
+    const nextLock = await buildDeproprietizeCandidate({
+      repoRoot: absoluteRepoRoot,
+      candidateRoot,
+      lock,
+      generatedAt: now(),
+    });
+
+    await validate(candidateRoot);
+    await assertStructuralIntegrity(candidateRoot, nextLock);
+
+    const expectedSnapshots = await snapshotSwapTargets(absoluteRepoRoot);
+    transaction = buildTransaction({
+      repoRoot: absoluteRepoRoot,
+      candidateRoot,
+      backupRoot,
+      workRoot,
+      journalPath,
+      renameOp: journalRenamer?.rename.bind(journalRenamer),
+      targetRenameOp:
+        journalRenamer?.rename.bind(journalRenamer) ?? durableTargetRename,
+      expectedSnapshots,
+    });
+
+    const placed = await swapInCandidate(
+      absoluteRepoRoot,
+      candidateRoot,
+      backupRoot,
+      {
+        transaction,
+        beforeFirstDestructiveMove: () =>
+          assertUnchangedGitState(
+            absoluteRepoRoot,
+            initialStatus,
+            readGitStatus,
+          ),
+        afterCleanCheck,
+        afterBackupMove,
+      },
+    );
+
+    try {
+      await validate(absoluteRepoRoot);
+      await assertStructuralIntegrity(absoluteRepoRoot, nextLock);
+    } catch (error) {
+      try {
+        await rollbackSwap(absoluteRepoRoot, backupRoot, placed, {
+          renameOp: transaction.targetRenameOp,
+        });
+      } catch (rollbackError) {
+        const wrapped = new BaselineError(
+          `Deproprietize post-apply validation failed and rollback also failed. ` +
+            `Backup data preserved at ${backupRoot}. Validation error: ${error.message}. ` +
+            `Rollback error: ${rollbackError.message}`,
+        );
+        wrapped.backupPath = backupRoot;
+        wrapped.rollbackFailed = true;
+        throw wrapped;
+      }
+      throw new BaselineError(
+        `Deproprietize post-apply validation failed; rolled back. ${error.message}`,
+      );
+    }
+
+    await completeTransaction(transaction);
+    transaction = null;
+
+    return {
+      removed: [...DEPROPRIETIZE_PATHS],
+      release: DEPROPRIETIZE_RELEASE,
+      nextTag: `v${DEPROPRIETIZE_RELEASE}`,
+      commitMessage: DEPROPRIETIZE_COMMIT_MESSAGE,
+      counts: nextLock.counts,
+      guardrail: anthropicsGuard,
+      applied: true,
+    };
+  } catch (error) {
+    if (error.rollbackFailed) {
+      preserveWorkRoot = true;
+    } else if (transaction) {
+      try {
+        await recoverPendingTransaction(journalPath, {
+          renameOp: journalRenamer?.rename.bind(journalRenamer),
+        });
+        transaction = null;
+      } catch (recoveryError) {
+        preserveWorkRoot = true;
+        const wrapped = new BaselineError(
+          `Deproprietize migration failed and transaction recovery also failed. ` +
+            `Journal preserved at ${journalPath}. Original error: ${error.message}. ` +
+            `Recovery error: ${recoveryError.message}`,
+        );
+        wrapped.recoveryFailed = true;
+        throw wrapped;
+      }
+    }
+    throw error;
+  } finally {
+    journalRenamer?.close();
+    if (!preserveWorkRoot && workRoot) {
+      await rm(workRoot, { recursive: true, force: true });
+    }
+    if (applyLock) {
+      await applyLock.release();
+    }
+  }
 }
 
 /**

@@ -472,6 +472,7 @@ async function writeNotice(repoRoot, lock) {
 }
 
 export function renderNotice(lock) {
+  const activeSkills = lock.skills.filter((skill) => skill.category !== 'removed');
   const lines = [];
   lines.push('# NOTICE');
   lines.push('');
@@ -493,7 +494,7 @@ export function renderNotice(lock) {
 
   const upstreamGroups = new Map();
 
-  for (const skill of lock.skills) {
+  for (const skill of activeSkills) {
     if (!skill.upstream) {
       continue;
     }
@@ -515,7 +516,7 @@ export function renderNotice(lock) {
 
   const licenseCounts = new Map();
 
-  for (const skill of lock.skills) {
+  for (const skill of activeSkills) {
     licenseCounts.set(skill.license, (licenseCounts.get(skill.license) ?? 0) + 1);
   }
 
@@ -524,7 +525,7 @@ export function renderNotice(lock) {
   }
   lines.push('');
 
-  const restrictedSkills = lock.skills
+  const restrictedSkills = activeSkills
     .filter((skill) => !skill.redistributable)
     .sort(byPath);
 
@@ -555,7 +556,7 @@ export function renderNotice(lock) {
   );
   lines.push('');
 
-  const orphanSkills = lock.skills.filter((skill) => skill.category === 'orphan').sort(byPath);
+  const orphanSkills = activeSkills.filter((skill) => skill.category === 'orphan').sort(byPath);
 
   if (orphanSkills.length === 0) {
     lines.push('_None._');
@@ -650,8 +651,9 @@ function renderReadmeInstallSection(readmeText, lock) {
 
 function renderReadmeInstall(lock) {
   const tag = `v${lock.release}`;
-  const redistributable = lock.skills.filter((skill) => skill.redistributable !== false);
-  const restricted = lock.skills.filter((skill) => skill.redistributable === false);
+  const activeSkills = lock.skills.filter((skill) => skill.category !== 'removed');
+  const redistributable = activeSkills.filter((skill) => skill.redistributable !== false);
+  const restricted = activeSkills.filter((skill) => skill.redistributable === false);
   const exampleSource =
     redistributable.map((skill) => skill.path.split('/')[1]).sort(compareStrings)[0] ?? 'azure';
   const exampleSkill =
@@ -704,8 +706,9 @@ function renderReadmeInstall(lock) {
 
 function renderReadmeCatalog(lock) {
   const folders = new Map();
+  const activeSkills = lock.skills.filter((skill) => skill.category !== 'removed');
 
-  for (const skill of lock.skills) {
+  for (const skill of activeSkills) {
     const folder = skill.path.split('/')[1];
     folders.set(folder, (folders.get(folder) ?? 0) + 1);
   }
@@ -719,7 +722,7 @@ function renderReadmeCatalog(lock) {
   lines.push('>');
 
   // Render actual baseline status from lock entries.
-  const mappedSkills = lock.skills.filter((s) => s.category === 'mapped');
+  const mappedSkills = activeSkills.filter((s) => s.category === 'mapped');
   const verifiedCount = mappedSkills.filter((s) => s.baseline === 'verified').length;
   const unverifiedCount = mappedSkills.filter((s) => s.baseline === 'unverified').length;
 
