@@ -4,7 +4,7 @@ import { mkdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { validateRepository } from '../validate.mjs';
+import { collectLicenseEvidenceErrors, validateRepository } from '../validate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const runtimeRoot = path.join(__dirname, '.runtime');
@@ -56,6 +56,82 @@ async function expectValidationFailure(fixtureRoot, pattern) {
     },
   );
 }
+
+test('license evidence validator enforces domain and cross-field invariants', () => {
+  const base = {
+    path: 'skills/demo/alpha',
+    category: 'mapped',
+    license: 'MIT',
+    redistributable: true,
+    upstream: {
+      repository: 'example/repo',
+      reference: 'refs/heads/main',
+      source: 'skills/alpha',
+      commit: 'a'.repeat(40),
+    },
+  };
+
+  assert.deepEqual(
+    collectLicenseEvidenceErrors({
+      ...base,
+      licenseEvidence: {
+        source: 'upstream-root:LICENSE',
+        repository: 'example/repo',
+        reference: 'refs/heads/main',
+        commit: 'a'.repeat(40),
+        path: 'LICENSE',
+        hash: `sha256:${'b'.repeat(64)}`,
+      },
+    }),
+    [],
+  );
+
+  assert.match(
+    collectLicenseEvidenceErrors({
+      ...base,
+      licenseEvidence: { source: 'guessed-from-repository-name' },
+    }).join('\n'),
+    /invalid license evidence source/,
+  );
+  assert.match(
+    collectLicenseEvidenceErrors({
+      ...base,
+      license: 'Unknown',
+      licenseEvidence: { source: 'frontmatter' },
+    }).join('\n'),
+    /Unknown license must use unresolved evidence/,
+  );
+  assert.match(
+    collectLicenseEvidenceErrors({
+      ...base,
+      licenseEvidence: { source: 'unresolved' },
+    }).join('\n'),
+    /unresolved evidence requires license Unknown/,
+  );
+  assert.match(
+    collectLicenseEvidenceErrors({
+      ...base,
+      redistributable: false,
+      license: 'MIT',
+      licenseEvidence: { source: 'restricted-policy' },
+    }).join('\n'),
+    /redistributable false requires Proprietary/,
+  );
+  assert.match(
+    collectLicenseEvidenceErrors({
+      ...base,
+      licenseEvidence: {
+        source: 'upstream-root:LICENSE',
+        repository: 'example/repo',
+        reference: 'refs/heads/main',
+        commit: 'c'.repeat(40),
+        path: 'LICENSE',
+        hash: `sha256:${'b'.repeat(64)}`,
+      },
+    }).join('\n'),
+    /evidence commit must equal pinned upstream commit/,
+  );
+});
 
 test('validateRepository rejects skills whose frontmatter name is blank', async () => {
   await withFixture('missing-name', async (fixtureRoot) => {

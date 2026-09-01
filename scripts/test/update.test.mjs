@@ -308,6 +308,10 @@ async function buildUpdateFixture(workspace, { alphaBody, betaBody, extraSkills 
 
   await writeFileEnsured(path.join(repoRoot, 'NOTICE'), '# NOTICE\n\nplaceholder\n');
   await writeFileEnsured(
+    path.join(repoRoot, 'catalog', 'licenses', 'index.json'),
+    '{"release":"1.1.0","licenses":[]}\n',
+  );
+  await writeFileEnsured(
     path.join(repoRoot, 'README.md'),
     ['# Fixture', '', '<!-- CATALOG:START -->', 'old', '<!-- CATALOG:END -->', ''].join('\n'),
   );
@@ -399,6 +403,16 @@ test('buildUpdateLock bumps only changed skills and leaves others untouched', ()
         repository: 'migrated/upstream',
         reference: 'refs/tags/v2',
         source: 'new-layout/alpha',
+        license: 'MIT',
+        redistributable: true,
+        licenseEvidence: {
+          source: 'upstream-root:LICENSE',
+          repository: 'migrated/upstream',
+          reference: 'refs/tags/v2',
+          commit: 'c'.repeat(40),
+          path: 'LICENSE',
+          hash: `sha256:${'e'.repeat(64)}`,
+        },
       },
     ],
     ['skills/demo/beta', { commit: 'd'.repeat(40), contentHash: 'sha256:new-beta', snapshotHash: 'sha256:new-snap-beta' }],
@@ -424,6 +438,8 @@ test('buildUpdateLock bumps only changed skills and leaves others untouched', ()
     source: 'new-layout/alpha',
     commit: 'c'.repeat(40),
   });
+  assert.equal(alpha.license, 'MIT');
+  assert.deepEqual(alpha.licenseEvidence, staged.get('skills/demo/alpha').licenseEvidence);
 
   // Unchanged mapped skill stays exactly as before.
   const beta = lock.skills.find((s) => s.path === 'skills/demo/beta');
@@ -1892,6 +1908,7 @@ test('applyUpdate adopts a new original skill from a declared local root', async
       baseline: null,
       license: 'Unknown',
       redistributable: true,
+      licenseEvidence: { source: 'unresolved' },
       snapshotHash,
       upstream: null,
     });
@@ -2126,6 +2143,22 @@ test('applyUpdate reactivates a tombstoned mapping with matching 1.0.0 lock and 
     git(repoRoot, ['add', '-A']);
     git(repoRoot, ['commit', '-q', '-m', 'remove mapping']);
     git(repoRoot, ['tag', '-a', removal.nextTag, '-m', removal.commitMessage]);
+
+    const migratedLock = JSON.parse(await readLockFile(repoRoot));
+    migratedLock.licenseEvidenceVersion = 1;
+    for (const skill of migratedLock.skills) {
+      skill.licenseEvidence = { source: 'unresolved' };
+    }
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'skills.lock.json'),
+      `${JSON.stringify(migratedLock, null, 2)}\n`,
+    );
+    await writeFileEnsured(
+      path.join(repoRoot, 'catalog', 'licenses', 'index.json'),
+      `${JSON.stringify({ release: '2.0.0', licenses: [] }, null, 2)}\n`,
+    );
+    git(repoRoot, ['add', '-A']);
+    git(repoRoot, ['commit', '-q', '-m', 'record license evidence']);
 
     const manifestPath = path.join(repoRoot, 'catalog', 'sources.yml');
     const manifest = await readFile(manifestPath, 'utf8');
@@ -2362,6 +2395,10 @@ async function buildTwoReferenceFixture(workspace, { perGroup = 12 } = {}) {
   }
 
   await writeFileEnsured(path.join(repoRoot, 'NOTICE'), '# NOTICE\n\nplaceholder\n');
+  await writeFileEnsured(
+    path.join(repoRoot, 'catalog', 'licenses', 'index.json'),
+    '{"release":"1.1.0","licenses":[]}\n',
+  );
   await writeFileEnsured(
     path.join(repoRoot, 'README.md'),
     ['# Fixture', '', '<!-- CATALOG:START -->', 'old', '<!-- CATALOG:END -->', ''].join('\n'),

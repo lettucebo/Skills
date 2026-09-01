@@ -80,6 +80,20 @@ export interface LockUpstream {
   commit: string;
 }
 
+export interface LicenseEvidence {
+  source:
+    | 'restricted-policy'
+    | 'skill-license-file'
+    | 'frontmatter'
+    | `upstream-root:${string}`
+    | 'unresolved';
+  repository?: string;
+  reference?: string;
+  commit?: string;
+  path?: string;
+  hash?: string;
+}
+
 export interface LockSkillEntry {
   path: string;
   name: string;
@@ -88,6 +102,7 @@ export interface LockSkillEntry {
   baseline: string | null;
   license: string;
   redistributable: boolean;
+  licenseEvidence: LicenseEvidence;
   snapshotHash: string;
   contentHash?: string;
   upstream: LockUpstream | null;
@@ -96,6 +111,7 @@ export interface LockSkillEntry {
 export interface LockFile {
   release: string;
   generatedAt: string;
+  licenseEvidenceVersion?: number;
   counts: {
     total: number;
     mapped: number;

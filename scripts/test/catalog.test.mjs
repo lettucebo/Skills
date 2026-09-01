@@ -8,7 +8,12 @@ import { fileURLToPath } from 'node:url';
 import { loadManifest } from '../lib/manifest.mjs';
 import { hashDirectory } from '../lib/hash.mjs';
 import { historyFileName } from '../lib/history.mjs';
-import { buildCatalog, renderReadme } from '../catalog.mjs';
+import {
+  buildCatalog,
+  detectLicenseText,
+  renderReadme,
+  resolveLicense,
+} from '../catalog.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const runtimeRoot = path.join(__dirname, '.runtime');
@@ -249,6 +254,9 @@ test('buildCatalog resolves MIT license from local LICENSE.txt', async () => {
     const alpha = findSkill(lock, 'skills/azure/alpha');
     assert.equal(alpha.license, 'MIT');
     assert.equal(alpha.redistributable, true);
+    assert.equal(alpha.licenseEvidence.source, 'skill-license-file');
+    assert.equal(alpha.licenseEvidence.path, 'skills/azure/alpha/LICENSE.txt');
+    assert.match(alpha.licenseEvidence.hash, /^sha256:[0-9a-f]{64}$/);
   });
 });
 
@@ -264,6 +272,163 @@ test('buildCatalog marks restricted skills as non-redistributable and proprietar
     const docx = findSkill(lock, 'skills/claude/docx');
     assert.equal(docx.license, 'Proprietary');
     assert.equal(docx.redistributable, false);
+    assert.deepEqual(docx.licenseEvidence, { source: 'restricted-policy' });
+  });
+});
+
+test('resolveLicense checks every supported skill-local license filename variant', async () => {
+  await withFixture('license-candidates', async (fixtureRoot) => {
+    const candidates = [
+      'LICENSE.txt',
+      'LICENSE',
+      'LICENSE.md',
+      'LICENCE.txt',
+      'LICENCE',
+      'LICENCE.md',
+      'COPYING',
+    ];
+
+    for (const [index, candidate] of candidates.entries()) {
+      const skillPath = `skills/demo/skill-${index}`;
+      await createSkill(fixtureRoot, skillPath, `skill-${index}`, {
+        [candidate]: 'MIT License\n\nCopyright (c) Fixture\n',
+      });
+
+      const result = await resolveLicense(fixtureRoot, skillPath, {
+        license: 'Apache-2.0',
+      });
+
+      assert.equal(result.license, 'MIT', candidate);
+      assert.equal(result.licenseEvidence.source, 'skill-license-file', candidate);
+      assert.equal(result.licenseEvidence.path, `${skillPath}/${candidate}`, candidate);
+    }
+  });
+});
+
+test('resolveLicense uses restricted, skill file, frontmatter, root, then unresolved priority', async () => {
+  await withFixture('license-priority', async (fixtureRoot) => {
+    const upstream = {
+      repository: 'example/upstream',
+      reference: 'refs/heads/main',
+      commit: 'a'.repeat(40),
+    };
+    const rootLicense = {
+      license: 'Apache-2.0',
+      filename: 'LICENSE',
+      path: 'LICENSE',
+      hash: `sha256:${'b'.repeat(64)}`,
+      ...upstream,
+    };
+
+    await createSkill(fixtureRoot, 'skills/demo/local-wins', 'local-wins', {
+      LICENSE: 'MIT License\n\nCopyright (c) Fixture\n',
+    });
+    const local = await resolveLicense(
+      fixtureRoot,
+      'skills/demo/local-wins',
+      { license: 'Apache-2.0' },
+      { upstream, rootLicense },
+    );
+    assert.equal(local.license, 'MIT');
+    assert.equal(local.licenseEvidence.source, 'skill-license-file');
+    assert.equal(local.licenseEvidence.commit, upstream.commit);
+
+    await createSkill(fixtureRoot, 'skills/demo/frontmatter-wins', 'frontmatter-wins');
+    const frontmatter = await resolveLicense(
+      fixtureRoot,
+      'skills/demo/frontmatter-wins',
+      { license: 'MIT' },
+      { upstream, rootLicense },
+    );
+    assert.equal(frontmatter.license, 'MIT');
+    assert.equal(frontmatter.licenseEvidence.source, 'frontmatter');
+    assert.equal(frontmatter.licenseEvidence.commit, upstream.commit);
+
+    await createSkill(fixtureRoot, 'skills/demo/root-wins', 'root-wins');
+    const root = await resolveLicense(
+      fixtureRoot,
+      'skills/demo/root-wins',
+      {},
+      { upstream, rootLicense },
+    );
+    assert.equal(root.license, 'Apache-2.0');
+    assert.deepEqual(root.licenseEvidence, {
+      source: 'upstream-root:LICENSE',
+      repository: upstream.repository,
+      reference: upstream.reference,
+      commit: upstream.commit,
+      path: 'LICENSE',
+      hash: rootLicense.hash,
+    });
+
+    const unresolved = await resolveLicense(
+      fixtureRoot,
+      'skills/demo/root-wins',
+      {},
+    );
+    assert.equal(unresolved.license, 'Unknown');
+    assert.deepEqual(unresolved.licenseEvidence, { source: 'unresolved' });
+  });
+});
+
+test('detectLicenseText recognizes exact MIT and Apache texts and fails closed otherwise', () => {
+  assert.equal(
+    detectLicenseText('MIT License\n\nPermission is hereby granted, free of charge'),
+    'MIT',
+  );
+  assert.equal(
+    detectLicenseText('Apache License\nVersion 2.0, January 2004\nhttp://www.apache.org/licenses/'),
+    'Apache-2.0',
+  );
+  assert.equal(detectLicenseText('MIT-like terms from a README'), null);
+  assert.equal(detectLicenseText('Apache-compatible package metadata'), null);
+});
+
+test('resolveLicense applies restricted policy to the registry path while reading an upstream source path', async () => {
+  await withFixture('restricted-policy-path', async (fixtureRoot) => {
+    await createSkill(fixtureRoot, 'skills/docx', 'docx', {
+      LICENSE: 'MIT License\n',
+    });
+    const result = await resolveLicense(
+      fixtureRoot,
+      'skills/docx',
+      { license: 'MIT' },
+      { policyPath: 'skills/claude/docx' },
+    );
+    assert.deepEqual(result, {
+      license: 'Proprietary',
+      redistributable: false,
+      licenseEvidence: { source: 'restricted-policy' },
+    });
+  });
+});
+
+test('an unrecognized explicit skill license stays Unknown instead of falling through', async () => {
+  await withFixture('unrecognized-explicit-license', async (fixtureRoot) => {
+    await createSkill(fixtureRoot, 'skills/demo/custom', 'custom', {
+      LICENSE: 'Custom terms that are not recognized.\n',
+    });
+    const result = await resolveLicense(
+      fixtureRoot,
+      'skills/demo/custom',
+      { license: 'MIT' },
+      {
+        rootLicense: {
+          license: 'Apache-2.0',
+          filename: 'LICENSE',
+          path: 'LICENSE',
+          hash: `sha256:${'a'.repeat(64)}`,
+          repository: 'example/repo',
+          reference: 'refs/heads/main',
+          commit: 'b'.repeat(40),
+        },
+      },
+    );
+    assert.equal(result.license, 'Unknown');
+    assert.equal(result.licenseEvidence.source, 'unresolved');
+    assert.equal(result.licenseEvidence.scope, 'skill-license-file');
+    assert.equal(result.licenseEvidence.path, 'skills/demo/custom/LICENSE');
+    assert.match(result.licenseEvidence.hash, /^sha256:[0-9a-f]{64}$/);
   });
 });
 

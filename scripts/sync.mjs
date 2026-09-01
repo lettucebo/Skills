@@ -26,7 +26,12 @@ import {
   SyncProtectionError,
 } from './lib/guardrails.mjs';
 import { transformStaged } from './transform.mjs';
-import { applyBaseline, applyDeproprietize, applyUpdate } from './lib/baseline.mjs';
+import {
+  applyBaseline,
+  applyDeproprietize,
+  applyLicenseRefresh,
+  applyUpdate,
+} from './lib/baseline.mjs';
 
 const { posix } = path;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -536,6 +541,8 @@ export function parseArgs(argv) {
       options.apply = true;
     } else if (arg === '--deproprietize') {
       options.deproprietize = true;
+    } else if (arg === '--refresh-licenses') {
+      options.refreshLicenses = true;
     } else if (arg === '--output') {
       const value = argv[index + 1];
       if (!value || value.startsWith('--')) {
@@ -549,6 +556,8 @@ export function parseArgs(argv) {
         throw new Error('--output requires a value.');
       }
       options.output = value;
+    } else {
+      throw new Error(`Unknown argument: ${arg}`);
     }
   }
 
@@ -556,6 +565,19 @@ export function parseArgs(argv) {
 }
 
 export function validateModeOptions(options) {
+  if (options.refreshLicenses) {
+    for (const [enabled, flag] of [
+      [options.apply, '--apply'],
+      [options.baseline, '--baseline'],
+      [options.dryRun, '--dry-run'],
+      [options.deproprietize, '--deproprietize'],
+    ]) {
+      if (enabled) {
+        throw new Error(`--refresh-licenses cannot be combined with ${flag}: use one mode at a time.`);
+      }
+    }
+  }
+
   if (options.deproprietize) {
     for (const [enabled, flag] of [
       [options.apply, '--apply'],
@@ -617,6 +639,12 @@ async function main() {
 
     if (options.deproprietize) {
       const result = await applyDeproprietize({ deproprietize: true });
+      await writeApplyResult(result, { output: options.output });
+      return;
+    }
+
+    if (options.refreshLicenses) {
+      const result = await applyLicenseRefresh();
       await writeApplyResult(result, { output: options.output });
       return;
     }

@@ -16,8 +16,10 @@ flowchart LR
     F --> E["scripts/transform.mjs<br/>（來源證明蓋章、改名）"]
     E --> G["catalog/skills.lock.json"]
     E --> H["catalog/history/*.json"]
+    C --> W["釘選授權證據<br/>+ catalog/licenses/"]
+    W --> G
     G --> M["scripts/catalog.mjs<br/>（確定性渲染）"]
-    M --> I["NOTICE +<br/>README 產生區塊"]
+    M --> I["NOTICE + 授權原文包 +<br/>README 產生區塊"]
     G --> N["scripts/lib/enrichment.mjs<br/>（schema、資格、freshness）"]
     H --> N
     N --> Q["scripts/enrich-summaries.mjs<br/>（Copilot + OpenCC）"]
@@ -40,7 +42,7 @@ flowchart LR
 1. **`catalog/sources.yml`** 宣告每個上游、mapping、orphan、local root、
    override 與連結例外（見 [環境設定](configuration.md)）。
 2. **`scripts/sync.mjs`** 讀取 manifest，並依模式進行規劃，或把真正的
-   apply／baseline／deproprietize 委派給 **`scripts/lib/baseline.mjs`**；後者
+   apply／baseline／deproprietize／license-refresh 委派給 **`scripts/lib/baseline.mjs`**；後者
    負責 apply lock、journal、candidate／backup swap 與復原（見
    [同步與發布](sync-and-releases.md)）。
 3. 宣告的上游會在其釘選的 branch／tag 上進行 **shallow clone** — 絕不使用純
@@ -52,27 +54,32 @@ flowchart LR
    上游內容，而不是本機蓋章之後的內容。
 5. 結果會寫入 **`catalog/skills.lock.json`**（每個 skill 的目前狀態）與
    **`catalog/history/*.json`**（每個 skill 一份帳本，記錄它曾經發生過的每一
-   次版本調整）。
-6. **`scripts/catalog.mjs`** 會依 lockfile 確定性地渲染 **`NOTICE`**，以及根目錄
+   次版本調整與授權 metadata refresh）。每個 lock 項目都有結構化
+   `licenseEvidence`。
+6. 明確的 `--refresh-licenses` 會抓取足以證明各 lock 釘選 commit 可由宣告 ref
+   追溯的 history，checkout 該精確 commit，依 restricted policy、skill-local
+   檔案、frontmatter、上游根目錄檔案、unresolved 的順序解析。實際採用的根授權
+   原文會逐位元組存入 **`catalog/licenses/`**，並附確定性證據 metadata。
+7. **`scripts/catalog.mjs`** 會依 lockfile 確定性地渲染 **`NOTICE`**，以及根目錄
    `README.md` 中的
    `<!-- CATALOG:START -->`／`<!-- INSTALL:START -->` 區塊 — 絕不手動編輯
    （見 [技能管理](skill-management.md#為什麼產生的輸出不能被獨立編輯)）。
-7. **`scripts/lib/enrichment.mjs`** 定義共用 sidecar schema、資格規則、
+8. **`scripts/lib/enrichment.mjs`** 定義共用 sidecar schema、資格規則、
    freshness key 與 locale signature。**`scripts/enrich-summaries.mjs`** 會為
    每個符合資格的 skill 呼叫一次 Copilot，以產生英文與繁體中文，再以 OpenCC
    衍生簡體中文，並以 atomic write 寫入每個 artifact。第一組完整摘要會先通過
    驗證，generator 才會在 `catalog/enrichment/manifest.json` 啟用 summary。
-8. **`scripts/enrich-changelog.mjs`** 會先從 lock 過濾符合資格的 skill，才接觸
+9. **`scripts/enrich-changelog.mjs`** 會先從 lock 過濾符合資格的 skill，才接觸
    個別 skill 資料；完整 cache hit 的上游群組會直接跳過，其餘每個不同上游只做
    一次 full clone。它以 NUL-delimited、排除 merge、支援 rename inference 的 Git
    history，走到各 `SKILL.md` 的精確釘選 commit。只有在來源檔後續確實刪除、可
    證明為 migration 時才跨越 copy history；否則 artifact 會記錄 truncation。
    每個 commit patch 在每個 skill 一次的雙語 Copilot 呼叫前，都只允許 tracked
    path 或明確 transition pair。
-9. 在建置時期，**`site/src/lib/catalog.ts`** 會為所有 catalog route 讀取
+10. 在建置時期，**`site/src/lib/catalog.ts`** 會為所有 catalog route 讀取
    lockfile，並在個別 skill 詳情頁讀取該 skill 的 registry release History
    timeline（見 [網站](website.md)）。
-10. **`site/src/lib/enrichment.ts`** 只會從新鮮且符合 schema 的 sidecar 讀取指定
+11. **`site/src/lib/enrichment.ts`** 只會從新鮮且符合 schema 的 sidecar 讀取指定
    locale。受限制或 tombstone skill 會在碰觸 sidecar 路徑前被拒絕；orphan skill
    也會在 changelog 讀取前被拒絕。Artifact
    缺少、過期或指定 summary locale 缺少時，會回傳呼叫端既有的 fallback。
@@ -80,17 +87,17 @@ flowchart LR
    同時省略缺少或無效的在地化生成摘要；絕不以英文生成摘要替代。必要的 manifest
    與任何實際存在的 artifact 都必須能解析，非預期 I/O 或無關的 schema 失敗會
    停止建置。
-11. Skill 詳情頁會把 changelog 資料渲染成獨立的 Upstream changes timeline，
+12. Skill 詳情頁會把 changelog 資料渲染成獨立的 Upstream changes timeline，
     絕不與 registry release 混合。
-12. **`site/src/i18n/`** 集中管理支援的 locale 型別、字典、parser/assertion、
+13. **`site/src/i18n/`** 集中管理支援的 locale 型別、字典、parser/assertion、
     HTML 語言對應與理解 base path 的路徑 helper。共用頁面元件渲染五種邏輯頁面，
     明確的 `[locale]` 路由則為 `en`、`zh-tw` 與 `zh-cn` 展開它們。
-13. 目前 catalog 產生 390 個在地化頁面與 130 個無語言前綴的靜態 redirect
+14. 目前 catalog 產生 390 個在地化頁面與 130 個無語言前綴的靜態 redirect
     頁面。Redirect 保留舊版邏輯目標，以英文作為 canonical、meta 與 no-JS
     fallback，並排除於 Pagefind 之外。每個 locale 只有 115 個 skill 頁加入
     Pagefind，因此三個語言索引合計 345 個已索引頁面；全部路由合計正好產生
     520 個 HTML 頁面。
-14. 建置完成的網站會部署到 **GitHub Pages**。
+15. 建置完成的網站會部署到 **GitHub Pages**。
 
 `node scripts/validate.mjs` 橫跨每一個階段：它會獨立於任何一次同步執行，走遍
 整個 `skills/` 樹，檢查 frontmatter、manifest 涵蓋範圍、相對連結與 2.0 之後的

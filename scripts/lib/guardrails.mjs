@@ -137,6 +137,7 @@ export function classifyDiff(changes = {}) {
   const restructured = countOf(changes.restructured);
   const added = countOf(changes.added);
   const changed = countOf(changes.changed);
+  const metadata = countOf(changes.metadata);
 
   if (removed > 0 || renamed > 0 || restructured > 0) {
     return 'major';
@@ -146,7 +147,7 @@ export function classifyDiff(changes = {}) {
     return 'minor';
   }
 
-  if (changed > 0) {
+  if (changed > 0 || metadata > 0) {
     return 'patch';
   }
 

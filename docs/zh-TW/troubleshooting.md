@@ -68,7 +68,7 @@ restricted inventory。
 
 ### 「the git working tree is not clean」
 
-**原因：** `applyBaseline` 與 `applyUpdate` 都會拒絕在 `git status` 非空時執行，
+**原因：** baseline、update、deproprietize 與 license-refresh 交易都會拒絕在 `git status` 非空時執行，
 確保交易（transaction）永遠不會把未提交的本機變更與同步產生的變更混在一起。
 
 **解法：** 先提交或 stash 你的變更，再重新執行同步指令。
@@ -101,6 +101,16 @@ repository 被改名／刪除）。無法連線的上游永遠不會被靜默當
 
 **解法：** 確認 `catalog/sources.yml` 中該上游的 `repository`／`reference` 是否
 仍然正確，並在上游恢復可連線後重試。
+
+### 授權 refresh 拒絕釘選證據
+
+**原因：** `--refresh-licenses` 無法抓取 lock 釘選 commit、無法證明它是宣告 ref
+的祖先，或偵測到相同釘選來源證明下，已知授權降級為 `Unknown`。它絕不以 branch
+HEAD 代替，也不會把網路失敗當成沒有授權。
+
+**解法：** 驗證 lock 上游 tuple 與宣告 ref、恢復上游存取，並檢查釘選檔案／雜湊。
+若 detector 行為是有意變更，先加入精確 regression tests 並審查合規影響，再重試。
+不要手動編輯 lock 或 `catalog/licenses/`。
 
 ### GitHub Pages 部署失敗，出現「GitHub Pages is not enabled」
 

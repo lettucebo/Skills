@@ -81,8 +81,9 @@ Regardless of category, adding a new skill through the sync engine
    ancestor of `HEAD`.
 6. Run `node scripts/sync.mjs --apply`. The engine re-stages the skill from
    the real upstream, verifies its provenance, stamps `x-source*` frontmatter
-   fields, and records a `mapping-added` history entry starting at version
-   `1.0.0`.
+   fields, resolves license evidence at that staged commit, updates the
+   third-party root-license bundle when needed, and records a `mapping-added`
+   history entry starting at version `1.0.0`.
 7. Complete the validation, commit, merge, and tag handoff in
    [Finishing an adoption](#finishing-an-adoption).
 
@@ -121,8 +122,8 @@ After `--apply` regenerates the lock and derived files:
 1. Run `npm run smoke:npx -- --ref HEAD`, then `npm test` and
    `node scripts/validate.mjs`. The smoke check must run **after** the lockfile
    includes the new skill.
-2. Commit the sync-generated lockfile, history, `NOTICE`, and README blocks,
-   and merge the reviewed change into `main`.
+2. Commit the sync-generated lockfile, history, `catalog/licenses/`, `NOTICE`,
+   and README blocks, and merge the reviewed change into `main`.
 3. Keep scheduled sync disabled until the release is published. On an updated
    `main`, create the annotated `v<release>` tag named by the lockfile at the
    merged release commit and push it. Do not tag the feature branch. Because
@@ -160,7 +161,9 @@ outright, while a larger group permits it only when removal stays at or below
 
 `catalog/skills.lock.json`, `catalog/history/*.json`, the root `README.md`'s
 `<!-- CATALOG:START -->`/`<!-- INSTALL:START -->` blocks, and `NOTICE` are all
-derived deterministically from the manifest plus the current staged content.
+derived deterministically from the manifest plus the current staged content
+and pinned license evidence. `catalog/licenses/` is generated with them and
+contains exact upstream root-license bytes plus its evidence index.
 Hand-editing any of them creates a value that the next sync run will simply
 overwrite, and in the meantime it can misrepresent what is actually
 installable. Treat them as build output, not source.
