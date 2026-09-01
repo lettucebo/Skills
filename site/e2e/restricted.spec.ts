@@ -27,6 +27,10 @@ test.describe('Restricted skill pages', () => {
         await expect(body).toHaveCount(0);
       });
 
+      test('has no structured summary', async ({ page }) => {
+        await expect(page.locator('.skill-summary')).toHaveCount(0);
+      });
+
       test('does not show npx install string in visible text', async ({ page }) => {
         const bodyText = await page.evaluate(() => document.body.innerText);
         expect(bodyText, 'restricted page must not show npx install string').not.toContain('npx skills add');

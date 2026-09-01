@@ -1,0 +1,44 @@
+{
+  "path": "skills/cloudflare/sandbox-stable",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:051141ce004cf8060023f3bfbcaad33b987e3913fa1303f332acf8baa4e95f80"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Summarizes how to work with Cloudflare Sandbox apps that remain on the current stable package and should rely on stable documentation and types instead of preview APIs.",
+        "whenToUse": "Use this for building, updating, or cleaning up stable-line Sandbox apps, including commands, sessions, files, ports, tunnels, terminals, bridge setups, production deployment, and deprecated stable APIs, but not @next or 1.0 migration work.",
+        "outputs": "Provides stable-focused guidance and doc targets for implementation areas such as command execution, persistent sessions, file and storage handling, networking, terminals, lifecycle, security, and deprecation cleanup."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何在目前穩定版套件上處理 Cloudflare Sandbox 應用，並以穩定版文件與型別為準，而不是預覽 API。",
+        "whenToUse": "適用於建置、更新或清理仍停留在穩定線的 Sandbox 應用，包括指令、工作階段、檔案、連接埠、通道、終端機、Bridge、正式部署與已棄用穩定 API，但不適用於 @next 或 1.0 遷移。",
+        "outputs": "提供偏向穩定版的實作指引與文件指向，涵蓋指令執行、持久工作階段、檔案與儲存、網路、終端機、生命週期、安全性與棄用項目清理。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何在目前稳定版套件上处理 Cloudflare Sandbox 应用，并以稳定版文档与类型为准，而不是预览 API。",
+        "whenToUse": "适用于建置、更新或清理仍停留在稳定线的 Sandbox 应用，包括指令、工作阶段、文件、连接端口、通道、终端机、Bridge、正式部署与已弃用稳定 API，但不适用于 @next 或 1.0 迁移。",
+        "outputs": "提供偏向稳定版的实作指引与文档指向，涵盖指令运行、持久工作阶段、文件与保存、网络、终端机、生命周期、安全性与弃用项目清理。"
+      }
+    }
+  }
+}

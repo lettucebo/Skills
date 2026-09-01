@@ -20,7 +20,8 @@ flowchart LR
     M --> I["NOTICE +<br/>README 產生區塊"]
     G --> N["scripts/lib/enrichment.mjs<br/>（schema、資格、freshness）"]
     H --> N
-    N -. "後續 generator，且已啟用時" .-> O["catalog/enrichment/<br/>summaries + changelog"]
+    N --> Q["scripts/enrich-summaries.mjs<br/>（Copilot + OpenCC）"]
+    Q --> O["catalog/enrichment/<br/>summaries + changelog"]
     G --> J["site/src/lib/catalog.ts<br/>（建置時期載入器）"]
     H --> J
     O --> P["site/src/lib/enrichment.ts<br/>（freshness gate 載入器）"]
@@ -53,10 +54,10 @@ flowchart LR
    lockfile，並在個別 skill 詳情頁讀取該 skill 的 history timeline（見
    [網站](website.md)）。
 8. **`scripts/lib/enrichment.mjs`** 定義共用 sidecar schema、資格規則、
-   freshness key 與 locale signature。後續 generator 只有在
-   `catalog/enrichment/manifest.json` 中對應種類的持久化旗標已啟用時，才能填入
-   `catalog/enrichment/summaries/` 與
-   `catalog/enrichment/changelog/`。
+   freshness key 與 locale signature。**`scripts/enrich-summaries.mjs`** 會為
+   每個符合資格的 skill 呼叫一次 Copilot，以產生英文與繁體中文，再以 OpenCC
+   衍生簡體中文，並以 atomic write 寫入每個 artifact。第一組完整摘要會先通過
+   驗證，generator 才會在 `catalog/enrichment/manifest.json` 啟用 summary。
 9. **`site/src/lib/enrichment.ts`** 只會從新鮮且符合 schema 的 sidecar 讀取指定
    locale。受限制或 tombstone skill 會在碰觸 sidecar 路徑前被拒絕。Artifact
    缺少、過期或指定 locale 缺少時，會回傳呼叫端既有的 fallback；必要的 manifest
@@ -74,9 +75,11 @@ Enrichment 驗證刻意位於這項交易之外。預設的
 artifact 都必須符合 schema 且路徑安全，也不得指向 restricted、tombstone 或已
 離開 lock 的 skill。已啟用種類還必須存在目錄；缺少與過期 artifact 都會通過。
 發布時使用
-`npm run validate:enrichment -- --strict`，再額外要求 artifact 集合與符合資格的
-skill 完全相等，且每個 artifact 都是最新狀態。因此合法的上游 swap 不會只因為
-選用 sidecar 尚未追上就被回溯。
+`npm run validate:enrichment -- --strict` 檢查要發布的完整 enrichment 集合；
+summary generator 在第一次啟用前也會套用相同的完整性 gate。Strict 驗證會額外
+要求 artifact 集合與符合資格的 skill 完全相等，且每個 artifact 都是最新狀態。
+日常 registry sync 與網站 fallback 行為仍彼此解耦，因此合法的上游 swap 不會
+只因為選用 sidecar 尚未追上就被回溯。
 
 ## Enrichment sidecar 契約
 

@@ -1,0 +1,44 @@
+{
+  "path": "skills/azure/azure-role-selector",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:94ced8d0bfaba6142c770e89ecf422708aa728eca0fa04abcf71e379a50d1fb4"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Identifies the least-privilege Azure role that satisfies a requested permission set and falls back to a custom role when no built-in role fits.",
+        "whenToUse": "Use this when you know what an identity needs to do and need to choose the right Azure role and assignment approach.",
+        "outputs": "Provides the recommended role, CLI commands to assign it, and a Bicep role-assignment snippet guided by best practices."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "根據需求的權限範圍找出符合最小權限原則的 Azure 角色，若沒有合適的內建角色則改用自訂角色。",
+        "whenToUse": "當你已知某個身分需要執行的操作，並且需要選出合適的 Azure 角色與指派方式時使用。",
+        "outputs": "會提供建議角色、用於完成指派的 CLI 命令，以及依最佳實務撰寫的 Bicep 角色指派範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "根据需求的权限范围找出符合最小权限原则的 Azure 角色，若没有合适的内置角色则改用自订角色。",
+        "whenToUse": "当你已知某个身分需要运行的操作，并且需要选出合适的 Azure 角色与指派方式时使用。",
+        "outputs": "会提供建议角色、用于完成指派的 CLI 命令，以及依最佳实务撰写的 Bicep 角色指派范例。"
+      }
+    }
+  }
+}

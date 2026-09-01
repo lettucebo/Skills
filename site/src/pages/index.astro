@@ -10,6 +10,10 @@ import {
   RELEASE_VERSION,
   RELEASE_PUBLISHED,
 } from '../lib/catalog';
+import {
+  loadEnrichmentLocale,
+  type SkillSummaryContent,
+} from '../lib/enrichment';
 import path from 'node:path';
 
 const repoRoot = path.resolve(process.cwd(), '..');
@@ -22,13 +26,28 @@ const partition = computeStatusPartition(catalog.skills);
 const browsableSources = getBrowsableSources(catalog.skills);
 const base = import.meta.env.BASE_URL;
 
-// Load descriptions for non-restricted, non-tombstone skills
+const noSummary: SkillSummaryContent = {
+  purpose: '',
+  whenToUse: '',
+  outputs: '',
+};
+
+// Load human summaries with the agent-trigger description as a safe fallback.
 const skillDescriptions = new Map<string, string>();
 for (const skill of catalog.skills) {
   if (skill.isTombstone || skill.isRestricted) continue;
   const body = await loadSkillBody(repoRoot, skill);
-  if (body?.description) {
-    skillDescriptions.set(skill.path, body.description);
+  const loadedSummary = await loadEnrichmentLocale<SkillSummaryContent>({
+    repoRoot,
+    kind: 'summaries',
+    skill: skill.lockEntry,
+    locale: 'en',
+    fallback: noSummary,
+  });
+  const summary = loadedSummary === noSummary ? null : loadedSummary;
+  const description = summary?.purpose ?? body?.description;
+  if (description) {
+    skillDescriptions.set(skill.path, description);
   }
 }
 

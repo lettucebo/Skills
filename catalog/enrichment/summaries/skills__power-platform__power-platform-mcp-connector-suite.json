@@ -1,0 +1,44 @@
+{
+  "path": "skills/power-platform/power-platform-mcp-connector-suite",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:3b52f674112549b3d5a26a157ce7ee7932539ad9171cb2acbdf862ec20e0cb8d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Creates a Power Platform custom connector with MCP integration for Copilot Studio, including schema generation, validation, and troubleshooting guidance.",
+        "whenToUse": "Use this when you need to build, validate, debug, extend, certify, or harden a Copilot Studio connector that communicates over MCP.",
+        "outputs": "Produces connector artifacts such as apiDefinition.swagger.json, apiProperties.json, script.csx, readme.md, and implementation guidance."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "建立可供 Copilot Studio 使用的 Power Platform 自訂連接器與 MCP 整合，並提供結構描述產生、驗證與疑難排解指引。",
+        "whenToUse": "當你需要建置、驗證、除錯、擴充、準備認證或強化透過 MCP 通訊的 Copilot Studio 連接器時使用。",
+        "outputs": "產出 apiDefinition.swagger.json、apiProperties.json、script.csx、readme.md 等連接器檔案，以及實作指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "创建可供 Copilot Studio 使用的 Power Platform 自订连接器与 MCP 集成，并提供结构描述产生、验证与疑难排解指引。",
+        "whenToUse": "当你需要建置、验证、调试、扩充、准备认证或强化透过 MCP 通信的 Copilot Studio 连接器时使用。",
+        "outputs": "产出 apiDefinition.swagger.json、apiProperties.json、script.csx、readme.md 等连接器文件，以及实作指引。"
+      }
+    }
+  }
+}

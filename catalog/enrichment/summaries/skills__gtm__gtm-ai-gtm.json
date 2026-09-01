@@ -1,0 +1,44 @@
+{
+  "path": "skills/gtm/gtm-ai-gtm",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:3fc31fe28c2f3c0a419a6810ce1b516f6989ecbb5bb659841246f1c912908826"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps teams build go-to-market strategy for AI products, especially enterprise offerings that make decisions or take actions.",
+        "whenToUse": "Use it when you need to position an AI product, handle trust and accountability objections, choose framing such as copilot, agent, or teammate, or price AI with uneven usage.",
+        "outputs": "It provides messaging frameworks, pricing guidance, trust-building and demo tactics, buyer qualification criteria, and decision tools for enterprise AI sales."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "這項技能協助團隊為 AI 產品制定上市策略，特別適用於會自行判斷或執行動作的企業型產品。",
+        "whenToUse": "當你需要為 AI 產品做市場定位、回應信任與責任歸屬疑慮、決定採用 copilot、agent 或 teammate 等說法，或替使用量差異很大的 AI 產品定價時，就適合使用它。",
+        "outputs": "它會提供訊息定位框架、定價建議、建立信任與設計展示的做法、買方資格判斷標準，以及企業 AI 銷售的決策工具。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "这项技能协助团队为 AI 产品制定上市策略，特别适用于会自行判断或运行动作的企业型产品。",
+        "whenToUse": "当你需要为 AI 产品做市场定位、回应信任与责任归属疑虑、决定采用 copilot、agent 或 teammate 等说法，或替使用量差异很大的 AI 产品定价时，就适合使用它。",
+        "outputs": "它会提供消息定位框架、定价建议、创建信任与设计展示的做法、买方资格判断标准，以及企业 AI 销售的决策工具。"
+      }
+    }
+  }
+}

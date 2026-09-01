@@ -1,0 +1,44 @@
+{
+  "path": "skills/dotnet/editorconfig",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6a984956d5cbeda94b8967ed64eeb19269b224fe3d89c7ebd5cf09b3f0767e74"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Creates a thorough .editorconfig tailored to the project's languages, structure, and stated formatting preferences.",
+        "whenToUse": "Use this when you want consistent editor behavior across a codebase and need rules that reflect both discovered file types and explicit style choices.",
+        "outputs": "It returns a complete .editorconfig file along with a clear explanation of each rule."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "根據專案使用的語言、結構與已指定的格式偏好，建立完整且周全的 .editorconfig。",
+        "whenToUse": "當你想在整個程式碼庫中維持一致的編輯器行為，並需要同時反映檔案類型與明確風格要求的規則時使用。",
+        "outputs": "它會提供一份完整的 .editorconfig 檔案，以及對每條規則的清楚說明。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "根据项目使用的语言、结构与已指定的格式偏好，创建完整且周全的 .editorconfig。",
+        "whenToUse": "当你想在整个代码库中维持一致的编辑器行为，并需要同时反映文件类型与明确风格要求的规则时使用。",
+        "outputs": "它会提供一份完整的 .editorconfig 文件，以及对每条规则的清楚说明。"
+      }
+    }
+  }
+}

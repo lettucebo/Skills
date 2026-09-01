@@ -1,0 +1,44 @@
+{
+  "path": "skills/cloudflare/cloudflare-one",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:436653a1a9471b91e9ca5c94b3e3dce334f87b4608917be1be8713ecb4294e1a"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Supports Cloudflare One Zero Trust and SASE work spanning access control, secure web and network policies, device connectivity, and private networking.",
+        "whenToUse": "Use it when designing, configuring, troubleshooting, migrating, or reviewing a Cloudflare One deployment while checking current product details in official docs.",
+        "outputs": "Provides focused guidance or change plans with relevant resource checks and validation or rollback considerations."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "支援 Cloudflare One 的零信任與 SASE 工作，涵蓋存取控制、安全網頁與網路政策、裝置連線及私有網路。",
+        "whenToUse": "當你需要設計、設定、疑難排解、遷移或審查 Cloudflare One 部署，並以官方最新文件確認產品細節時使用。",
+        "outputs": "提供聚焦的指引或變更方案，包含相關資源檢查，以及驗證或回復考量。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "支持 Cloudflare One 的零信任与 SASE 工作，涵盖访问控制、安全网页与网络政策、设备连接及私有网络。",
+        "whenToUse": "当你需要设计、设置、疑难排解、迁移或审查 Cloudflare One 部署，并以官方最新文档确认产品细节时使用。",
+        "outputs": "提供聚焦的指引或变更方案，包含相关资源检查，以及验证或回复考量。"
+      }
+    }
+  }
+}

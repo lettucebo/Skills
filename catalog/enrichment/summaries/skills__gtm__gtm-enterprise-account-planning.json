@@ -1,0 +1,44 @@
+{
+  "path": "skills/gtm/gtm-enterprise-account-planning",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d65928c413e330003004eb2152de49e943b02fc7ffd4869596441d59124a6273"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps teams plan and manage complex enterprise deals by structuring account research, stakeholder strategy, qualification, and execution.",
+        "whenToUse": "Use it for higher-value, multi-stakeholder opportunities with long or complex buying cycles, especially when you need MEDDICC rigor, mutual action planning, or a clear read on deal health.",
+        "outputs": "Produces a practical account-planning package such as an account summary, stakeholder map, validated MEDDICC opportunity plan, mutual action plan, and deal-stage or health guidance."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助團隊以系統化方式規劃與推進複雜的企業交易，涵蓋帳戶研究、利害關係人策略、資格確認與執行。",
+        "whenToUse": "適用於高價值、涉及多位利害關係人且採購流程冗長或複雜的商機，特別是在需要 MEDDICC 紀律、共同執行計畫或明確判斷交易健康度時。",
+        "outputs": "會產出實用的帳戶規劃內容，例如帳戶摘要、利害關係人地圖、經驗證的 MEDDICC 商機計畫、共同執行計畫，以及交易階段或健康度判斷。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助团队以系统化方式规划与推进复杂的企业交易，涵盖帐户研究、利害关系人策略、资格确认与运行。",
+        "whenToUse": "适用于高价值、涉及多位利害关系人且采购流程冗长或复杂的商机，特别是在需要 MEDDICC 纪律、共同运行计划或明确判断交易健康度时。",
+        "outputs": "会产出实用的帐户规划内容，例如帐户摘要、利害关系人地图、经验证的 MEDDICC 商机计划、共同运行计划，以及交易阶段或健康度判断。"
+      }
+    }
+  }
+}

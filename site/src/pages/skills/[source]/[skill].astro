@@ -11,6 +11,10 @@ import {
   RELEASE_VERSION,
   RELEASE_PUBLISHED,
 } from '../../../lib/catalog';
+import {
+  loadEnrichmentLocale,
+  type SkillSummaryContent,
+} from '../../../lib/enrichment';
 import path from 'node:path';
 
 const repoRoot = path.resolve(process.cwd(), '..');
@@ -33,6 +37,19 @@ const { skill } = Astro.props;
 
 const body = await loadSkillBody(repoRoot, skill);
 const history = await loadSkillHistory(repoRoot, skill);
+const noSummary: SkillSummaryContent = {
+  purpose: '',
+  whenToUse: '',
+  outputs: '',
+};
+const loadedSummary = await loadEnrichmentLocale<SkillSummaryContent>({
+  repoRoot,
+  kind: 'summaries',
+  skill: skill.lockEntry,
+  locale: 'en',
+  fallback: noSummary,
+});
+const summary = loadedSummary === noSummary ? null : loadedSummary;
 const installCmd = skill.isRestricted
   ? null
   : generateSingleSkillInstallCommand(skill.name);
@@ -89,6 +106,26 @@ function statusBadgeClass(): string {
 
     {body?.description && (
       <p class="detail-description" style="color:var(--cp-muted-text);margin-bottom:16px;">{body.description}</p>
+    )}
+
+    {summary && (
+      <section class="skill-summary" aria-labelledby="skill-summary-heading">
+        <h2 id="skill-summary-heading">Summary</h2>
+        <dl>
+          <div>
+            <dt>Purpose</dt>
+            <dd>{summary.purpose}</dd>
+          </div>
+          <div>
+            <dt>When to use</dt>
+            <dd>{summary.whenToUse}</dd>
+          </div>
+          <div>
+            <dt>Outputs</dt>
+            <dd>{summary.outputs}</dd>
+          </div>
+        </dl>
+      </section>
     )}
 
     {skill.isOrphan && (
