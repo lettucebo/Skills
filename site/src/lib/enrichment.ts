@@ -16,6 +16,7 @@ import type {
   JsonObject,
   LlmLocaleArtifact,
   OpenccLocaleArtifact,
+  SkillSummaryContent,
   SkillChangelogContent,
 } from '../../../scripts/lib/enrichment.mjs';
 import type { LockSkillEntry } from './catalog.ts';
@@ -28,6 +29,7 @@ export type {
   JsonObject,
   LlmLocaleArtifact,
   OpenccLocaleArtifact,
+  SkillSummaryContent,
   SkillChangelogContent,
 };
 

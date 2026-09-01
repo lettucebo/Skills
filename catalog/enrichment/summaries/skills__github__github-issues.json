@@ -1,0 +1,44 @@
+{
+  "path": "skills/github/github-issues",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b18be7e1e115fc09713b398fe197feea43d02b5afd9ceafcc3db070c5bc07020"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps manage GitHub issues by reading issue data and performing write actions such as creating, updating, commenting, closing, and organizing related metadata.",
+        "whenToUse": "Use it when someone needs to file or revise an issue, adjust labels, assignees, milestones, types, dates, priorities, links, dependencies, or inspect issue and project information.",
+        "outputs": "It produces issue changes or retrieved issue and project details, typically including the resulting issue reference or URL for confirmation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "用來管理 GitHub issue，可讀取 issue 資料，並執行建立、更新、留言、關閉與整理相關中繼資料等操作。",
+        "whenToUse": "當有人需要建立或修改 issue、調整標籤、指派者、里程碑、類型、日期、優先順序、連結或相依關係，或查閱 issue 與專案資訊時使用。",
+        "outputs": "它會產生 issue 的變更結果或查詢到的 issue 與專案詳細資料，通常也會回傳可供確認的 issue 參照或網址。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "用来管理 GitHub issue，可读取 issue 数据，并运行创建、更新、留言、关闭与整理相关中继数据等操作。",
+        "whenToUse": "当有人需要创建或修改 issue、调整标签、指派者、里程碑、类型、日期、优先级、链接或相依关系，或查阅 issue 与项目信息时使用。",
+        "outputs": "它会产生 issue 的变更结果或查找到的 issue 与项目详细数据，通常也会回传可供确认的 issue 参照或网址。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/cloudflare/turnstile-spin",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:3fe385121c10dba8d6a4d60c4e5372372641fce1d8bf55fd99907ff93a95a2ed"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Sets up Cloudflare Turnstile in an existing project by placing the widget on selected user-facing actions and enforcing server-side siteverify in the current backend.",
+        "whenToUse": "Use this when someone wants to add or fix bot protection for a form, button, endpoint, signup, login, download, comment, or similar request flow using Turnstile or CAPTCHA.",
+        "outputs": "Delivers widget configuration, frontend integration changes, backend action-and-hostname verification, and a clear validation outcome for the protected flow."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "在既有專案中導入 Cloudflare Turnstile，於指定的使用者操作介面嵌入元件，並在現有後端強制執行伺服器端 siteverify 驗證。",
+        "whenToUse": "當有人想為表單、按鈕、端點、註冊、登入、下載、留言或其他類似請求流程加入或修復 Turnstile 或 CAPTCHA 的機器人防護時使用。",
+        "outputs": "產出元件設定、前端整合修改、後端的動作與主機名稱驗證，以及受保護流程的明確驗證結果。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "在既有项目中导入 Cloudflare Turnstile，于指定的用户操作界面嵌入组件，并在现有后端强制运行服务器端 siteverify 验证。",
+        "whenToUse": "当有人想为表单、按钮、端点、注册、登录、下载、留言或其他类似请求流程加入或修复 Turnstile 或 CAPTCHA 的机器人防护时使用。",
+        "outputs": "产出组件设置、前端集成修改、后端的动作与主机名称验证，以及受保护流程的明确验证结果。"
+      }
+    }
+  }
+}

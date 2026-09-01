@@ -15,7 +15,16 @@ const COMMIT_SHA_PATTERN = '^[0-9a-f]{40}$';
 const ajv = new Ajv({ allErrors: true, strict: true });
 
 const hashSchema = { type: 'string', pattern: HASH_PATTERN };
-const genericContentSchema = { type: 'object', additionalProperties: true };
+const summaryContentSchema = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['purpose', 'whenToUse', 'outputs'],
+  properties: {
+    purpose: { type: 'string', minLength: 1 },
+    whenToUse: { type: 'string', minLength: 1 },
+    outputs: { type: 'string', minLength: 1 },
+  },
+};
 const changelogCommitSchema = {
   type: 'object',
   additionalProperties: false,
@@ -74,6 +83,11 @@ const changelogContentSchema = {
     },
   },
 };
+
+function contentSchema(kind) {
+  return kind === 'summaries' ? summaryContentSchema : changelogContentSchema;
+}
+
 function llmLocaleSchema(contentSchema) {
   return {
     type: 'object',
@@ -145,9 +159,7 @@ function freshnessSchema(kind) {
 }
 
 function artifactSchema(kind) {
-  const contentSchema = kind === 'changelog'
-    ? changelogContentSchema
-    : genericContentSchema;
+  const localeContentSchema = contentSchema(kind);
   return {
     $id: `https://lettucebo.github.io/Skills/schemas/enrichment-${kind}-v1.json`,
     type: 'object',
@@ -162,9 +174,9 @@ function artifactSchema(kind) {
         additionalProperties: false,
         required: ENRICHMENT_LOCALES,
         properties: {
-          en: llmLocaleSchema(contentSchema),
-          'zh-tw': llmLocaleSchema(contentSchema),
-          'zh-cn': openccLocaleSchema(contentSchema),
+          en: llmLocaleSchema(localeContentSchema),
+          'zh-tw': llmLocaleSchema(localeContentSchema),
+          'zh-cn': openccLocaleSchema(localeContentSchema),
         },
       },
     },

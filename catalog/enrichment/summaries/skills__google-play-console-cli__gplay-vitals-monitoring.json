@@ -1,0 +1,44 @@
+{
+  "path": "skills/google-play-console-cli/gplay-vitals-monitoring",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:196c32fc5001a72082f060c02a87da97b77fe0a11f53ce316268e2773fee40e1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "This skill helps you inspect Android app stability and performance data from the Play Developer Reporting API through gplay vitals commands.",
+        "whenToUse": "Use it when you need to review crash or ANR rates, investigate error trends, analyze startup, rendering, or battery metrics, or decide whether a release is regressing.",
+        "outputs": "It returns JSON by default for crash and ANR rate queries, anomaly findings, performance breakdowns, grouped error issues, and individual error reports."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "這個技能可讓你透過 gplay vitals 指令查看來自 Play Developer Reporting API 的 Android 應用程式穩定性與效能資料。",
+        "whenToUse": "當你需要檢查當機或 ANR 比率、調查錯誤趨勢、分析啟動、渲染或電池指標，或判斷版本是否出現回歸時，就適合使用它。",
+        "outputs": "它預設會回傳 JSON，內容可包含當機與 ANR 比率查詢結果、異常偵測結果、效能分解資料、彙整後的錯誤議題，以及個別錯誤報告。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "这个技能可让你透过 gplay vitals 指令查看来自 Play Developer Reporting API 的 Android 应用程序稳定性与性能数据。",
+        "whenToUse": "当你需要检查当机或 ANR 比率、调查错误趋势、分析启动、渲染或电池指针，或判断版本是否出现回归时，就适合使用它。",
+        "outputs": "它预设会回传 JSON，内容可包含当机与 ANR 比率查找结果、异常侦测结果、性能分解数据、汇整后的错误议题，以及个别错误报告。"
+      }
+    }
+  }
+}

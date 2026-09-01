@@ -499,6 +499,35 @@ a:focus-visible {
   color: var(--cp-muted-text);
 }
 
+.skill-summary {
+  background: var(--cp-surface);
+  border: 1px solid var(--cp-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.skill-summary h2 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+.skill-summary dl {
+  display: grid;
+  gap: 10px;
+}
+.skill-summary dl > div {
+  display: grid;
+  grid-template-columns: minmax(90px, 120px) 1fr;
+  gap: 12px;
+}
+.skill-summary dt {
+  color: var(--cp-muted-text);
+  font-weight: 600;
+}
+.skill-summary dd {
+  color: var(--cp-text);
+  margin: 0;
+}
+
 .detail-body {
   background: var(--cp-surface);
   border: 1px solid var(--cp-border);

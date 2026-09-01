@@ -1,0 +1,44 @@
+{
+  "path": "skills/google-play-console-cli/gplay-user-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9bd8e65f6fa2e4e4b8c1c7f6f029e05f34e1578428f3d635c2c138790fdcfdb6"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps manage Google Play Console team access by covering account-wide users and app-specific permission grants.",
+        "whenToUse": "Use it when you need to add, update, review, or remove developer account members or control access for particular apps.",
+        "outputs": "Outputs include gplay command examples, permission payload shapes, supported permission lists, and common onboarding, offboarding, and audit flows."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助管理 Google Play Console 團隊存取權，涵蓋帳戶層級使用者與單一應用程式層級的權限授與。",
+        "whenToUse": "當你需要新增、更新、檢視或移除開發者帳戶成員，或控管特定應用程式的存取權時使用。",
+        "outputs": "輸出內容包含 gplay 指令範例、權限負載格式、可用權限清單，以及常見的到職、離職與稽核流程。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助管理 Google Play Console 团队访问权，涵盖帐户层级用户与单一应用程序层级的权限授与。",
+        "whenToUse": "当你需要添加、更新、查看或移除开发者帐户成员，或控管特定应用程序的访问权时使用。",
+        "outputs": "输出内容包含 gplay 指令范例、权限负载格式、可用权限清单，以及常见的到职、离职与审核流程。"
+      }
+    }
+  }
+}

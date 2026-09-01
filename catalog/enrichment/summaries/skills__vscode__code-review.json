@@ -1,0 +1,44 @@
+{
+  "path": "skills/vscode/code-review",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:cb45a129752f8cd29eb107a4e4abcdfd51e4045dd92b7a983f3debae825e2c1f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps reviewers evaluate code changes for correctness, security, performance, maintainability, and feedback quality across several major languages and frameworks.",
+        "whenToUse": "Use it when reviewing pull requests, setting team review standards, mentoring through reviews, or examining architecture, security, and code quality concerns.",
+        "outputs": "It produces structured review feedback with prioritized comments, key concerns, strengths, and a clear approve, comment, or request-changes recommendation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助審查者從正確性、安全性、效能、可維護性與回饋品質等面向，評估多種主流程式語言與框架的程式碼變更。",
+        "whenToUse": "適合用於審查拉取請求、建立團隊審查標準、透過審查指導成員，或檢視架構、安全與程式碼品質議題。",
+        "outputs": "它會產出具結構的審查回饋，包含已排序優先級的意見、主要疑慮、做得好的地方，以及明確的核准、留言或要求修改建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助审查者从正确性、安全性、性能、可维护性与回馈品质等面向，评估多种主流编程语言与框架的代码变更。",
+        "whenToUse": "适合用于审查拉取请求、创建团队审查标准、透过审查指导成员，或查看架构、安全与代码品质议题。",
+        "outputs": "它会产出具结构的审查回馈，包含已排序优先级的意见、主要疑虑、做得好的地方，以及明确的核准、留言或要求修改建议。"
+      }
+    }
+  }
+}

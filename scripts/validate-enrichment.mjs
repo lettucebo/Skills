@@ -88,7 +88,17 @@ export async function collectEnrichmentArtifacts({ repoRoot, kind }) {
   return { directory, exists: true, artifacts };
 }
 
-export async function validateEnrichment({ repoRoot = defaultRepoRoot, strict = false } = {}) {
+export async function validateEnrichment({
+  repoRoot = defaultRepoRoot,
+  strict = false,
+  strictKinds = [],
+} = {}) {
+  const unknownStrictKinds = strictKinds.filter(
+    (kind) => !ENRICHMENT_ARTIFACT_KINDS.includes(kind),
+  );
+  if (unknownStrictKinds.length > 0) {
+    throw new Error(`Unknown strict enrichment kinds: ${unknownStrictKinds.join(', ')}.`);
+  }
   const manifestPath = path.join(repoRoot, 'catalog', 'enrichment', 'manifest.json');
   const lockPath = path.join(repoRoot, 'catalog', 'skills.lock.json');
   const manifest = assertValidEnrichmentManifest(
@@ -110,7 +120,10 @@ export async function validateEnrichment({ repoRoot = defaultRepoRoot, strict = 
     const collection = await collectEnrichmentArtifacts({ repoRoot, kind });
     artifactCount += collection.artifacts.length;
 
-    if (manifest.enabled[kind] && !collection.exists) {
+    const requiresCompleteness =
+      strict && (manifest.enabled[kind] || strictKinds.includes(kind));
+
+    if ((manifest.enabled[kind] || requiresCompleteness) && !collection.exists) {
       errors.push(`The enabled ${kind} directory does not exist: ${collection.directory}.`);
       continue;
     }
@@ -136,7 +149,7 @@ export async function validateEnrichment({ repoRoot = defaultRepoRoot, strict = 
       }
     }
 
-    if (!strict || !manifest.enabled[kind]) {
+    if (!requiresCompleteness) {
       continue;
     }
 

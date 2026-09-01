@@ -1,0 +1,44 @@
+{
+  "path": "skills/claude/theme-factory",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:50bc5c8d91691c22c80aa3a77d437243398121a724531737530f4ed30cddf879"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Apply a consistent visual style to artifacts by using curated color palettes and font pairings.",
+        "whenToUse": "Use this when styling slides, documents, reports, HTML pages, or similar artifacts with one of ten preset themes or a custom theme.",
+        "outputs": "A styled artifact, or a custom theme proposal for review, with coordinated colors and fonts applied consistently."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "使用精選的配色與字體搭配，為各類成品套用一致的視覺風格。",
+        "whenToUse": "當你要為投影片、文件、報告、HTML 頁面或類似成品套用十種預設主題之一，或建立自訂主題時使用。",
+        "outputs": "已一致套用協調色彩與字體的成品，或供審閱的自訂主題提案。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "使用精选的配色与字体搭配，为各类成品套用一致的视觉风格。",
+        "whenToUse": "当你要为投视频、文档、报告、HTML 页面或类似成品套用十种预设主题之一，或创建自订主题时使用。",
+        "outputs": "已一致套用协调色彩与字体的成品，或供审阅的自订主题提案。"
+      }
+    }
+  }
+}

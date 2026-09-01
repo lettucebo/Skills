@@ -1,0 +1,44 @@
+{
+  "path": "skills/google-play-console-cli/gplay-cli-usage",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:862ce0ce874324c9485a1c1faf8feed4eb46a855126cf3065f31d2392e2d67d8"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides practical guidance for using the Google Play Console CLI, including command discovery, authentication, flags, output formats, timeouts, and common workflows.",
+        "whenToUse": "Use it when you need to compose or run gplay commands for tasks such as app management, releases, track operations, metadata changes, reports, or edit sessions.",
+        "outputs": "It yields command patterns and reference details for available commands, pagination, environment variables, dry runs, debugging, reporting, and high-level versus manual release flows."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供使用 Google Play Console CLI 的實務指引，涵蓋指令探索、身分驗證、旗標、輸出格式、逾時設定與常見工作流程。",
+        "whenToUse": "當你需要撰寫或執行 gplay 指令來處理應用程式管理、發佈、軌道操作、中繼資料變更、報表或編輯工作階段時可使用。",
+        "outputs": "它會提供可用指令、分頁、環境變數、模擬執行、除錯、報表，以及高階與手動發佈流程的指令範例與參考資訊。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供使用 Google Play Console CLI 的实务指引，涵盖指令探索、身分验证、旗标、输出格式、逾时设置与常见工作流程。",
+        "whenToUse": "当你需要撰写或运行 gplay 指令来处理应用程序管理、发布、轨道操作、中继数据变更、报表或编辑工作阶段时可使用。",
+        "outputs": "它会提供可用指令、分页、环境变量、模拟运行、调试、报表，以及高级与手动发布流程的指令范例与参考信息。"
+      }
+    }
+  }
+}

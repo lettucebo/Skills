@@ -15,6 +15,8 @@ import {
   generateRepoInstallCommand,
   generateSourceInstallCommand,
   generateSingleSkillInstallCommand,
+  buildUpstreamTreeUrl,
+  buildUpstreamCommitUrl,
   deriveRouteParams,
   deriveSourceFromPath,
   renderMarkdownBody,
@@ -181,6 +183,113 @@ test('normalizeSkill: tombstone skill (removed category)', () => {
 
   assert.equal(vm.isTombstone, true);
   assert.equal(vm.statusLabel, 'Removed');
+});
+
+// ─── Upstream URL helpers ──────────────────────────────────────────
+
+test('upstream URL helpers build pinned GitHub tree and commit links', () => {
+  const skill = normalizeSkill(makeEntry({
+    upstream: {
+      repository: 'github/awesome-copilot',
+      reference: 'refs/heads/main',
+      source: 'skills/az-cost-optimize',
+      commit: '4742f265959bf025882314564b364d9d7af6e2d5',
+    },
+  }));
+
+  assert.equal(
+    buildUpstreamTreeUrl(skill),
+    'https://github.com/github/awesome-copilot/tree/4742f265959bf025882314564b364d9d7af6e2d5/skills/az-cost-optimize',
+  );
+  assert.equal(
+    buildUpstreamCommitUrl(skill),
+    'https://github.com/github/awesome-copilot/commit/4742f265959bf025882314564b364d9d7af6e2d5',
+  );
+});
+
+test('upstream URL helpers return null when any required provenance field is missing', () => {
+  const skill = normalizeSkill(makeEntry({
+    upstream: {
+      repository: 'github/awesome-copilot',
+      reference: 'refs/heads/main',
+      source: 'skills/az-cost-optimize',
+      commit: '4742f265959bf025882314564b364d9d7af6e2d5',
+    },
+  }));
+
+  for (const field of ['upstreamRepo', 'upstreamCommit', 'upstreamSource'] as const) {
+    const incomplete = { ...skill, [field]: null };
+    assert.equal(buildUpstreamTreeUrl(incomplete), null);
+    assert.equal(buildUpstreamCommitUrl(incomplete), null);
+  }
+});
+
+test('all three current orphan skills have no upstream links', async () => {
+  const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
+  const orphans = catalog.skills.filter((skill) => skill.isOrphan);
+
+  assert.equal(orphans.length, 3);
+  for (const skill of orphans) {
+    assert.equal(buildUpstreamTreeUrl(skill), null);
+    assert.equal(buildUpstreamCommitUrl(skill), null);
+  }
+});
+
+test('all four restricted skills retain pinned public upstream links without exposing their bodies', async () => {
+  const root = path.resolve(repoRoot, '..');
+  const catalog = await loadCatalog(root);
+  const restricted = getRestrictedSkills(catalog.skills);
+
+  assert.equal(restricted.length, 4);
+  for (const skill of restricted) {
+    assert.equal(
+      buildUpstreamTreeUrl(skill),
+      `https://github.com/${skill.upstreamRepo}/tree/${skill.upstreamCommit}/${skill.upstreamSource}`,
+    );
+    assert.equal(
+      buildUpstreamCommitUrl(skill),
+      `https://github.com/${skill.upstreamRepo}/commit/${skill.upstreamCommit}`,
+    );
+    assert.equal(await loadSkillBody(root, skill), null);
+  }
+});
+
+test('all ten microsoft dot-path sources produce safe pinned tree links', async () => {
+  const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
+  const microsoftDotPaths = catalog.skills.filter(
+    (skill) =>
+      skill.upstreamRepo === 'microsoft/skills'
+      && skill.upstreamSource?.startsWith('.github/skills/'),
+  );
+
+  assert.equal(microsoftDotPaths.length, 10);
+  for (const skill of microsoftDotPaths) {
+    assert.equal(
+      buildUpstreamTreeUrl(skill),
+      `https://github.com/${skill.upstreamRepo}/tree/${skill.upstreamCommit}/${skill.upstreamSource}`,
+    );
+  }
+});
+
+test('skill detail routes continue to exclude tombstones', () => {
+  const source = fs.readFileSync(
+    path.join(repoRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    'utf8',
+  );
+
+  assert.match(source, /\.filter\(\(s\) => !s\.isTombstone\)/);
+});
+
+test('skill detail page uses upstream URL helpers while preserving fallback rendering', () => {
+  const source = fs.readFileSync(
+    path.join(repoRoot, 'src', 'pages', 'skills', '[source]', '[skill].astro'),
+    'utf8',
+  );
+
+  assert.match(source, /buildUpstreamTreeUrl/);
+  assert.match(source, /buildUpstreamCommitUrl/);
+  assert.match(source, /https:\/\/github\.com\/\$\{skill\.upstreamRepo\}/);
+  assert.match(source, /<code>\{skill\.upstreamCommit\.slice\(0, 7\)\}<\/code>/);
 });
 
 // ─── Restricted Body Reader Test ────────────────────────────────────

@@ -40,6 +40,7 @@ output/
 # Logs
 *.log
 scripts/test/.runtime/
+site/test/.runtime/
 
 # Sync tooling (local dry-run artifact + baseline/update apply scratch dirs)
 sync-report/

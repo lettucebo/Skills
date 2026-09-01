@@ -1,0 +1,44 @@
+{
+  "path": "skills/microsoft/entra-agent-id",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:caf1db35b66bc7b3893db6ae4db67e45ea74b49a91a10031390e0584936bbc86"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps create and manage OAuth2-capable Microsoft Entra identities for AI agents through the Microsoft Graph beta API, including blueprints, blueprint principals, agent identities, and related authentication patterns.",
+        "whenToUse": "Use this when you need to provision or operate Entra agent identities in preview, especially for autonomous, interactive, containerized, polyglot, or third-party agents that must authenticate to Microsoft services.",
+        "outputs": "Provides setup guidance, permissions and sponsor requirements, API workflows and examples, and implementation details for federation or sidecar-based agent authentication."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助透過 Microsoft Graph beta API 建立與管理可供 AI 代理程式使用的 Microsoft Entra OAuth2 身分，涵蓋 Blueprint、Blueprint Principal、Agent Identity 與相關驗證模式。",
+        "whenToUse": "當你需要在預覽版中佈建或維運 Entra 代理程式身分，尤其是必須向 Microsoft 服務驗證的自主式、互動式、容器化、多語言或第三方代理程式時，可使用此技能。",
+        "outputs": "提供設定指引、權限與贊助者需求、API 流程與範例，以及聯邦式或 sidecar 型代理程式驗證的實作細節。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助透过 Microsoft Graph beta API 创建与管理可供 AI 代理程序使用的 Microsoft Entra OAuth2 身分，涵盖 Blueprint、Blueprint Principal、Agent Identity 与相关验证模式。",
+        "whenToUse": "当你需要在预览版中布建或维运 Entra 代理程序身分，尤其是必须向 Microsoft 服务验证的自主式、交互式、容器化、多语言或第三方代理程序时，可使用此技能。",
+        "outputs": "提供设置指引、权限与赞助者需求、API 流程与范例，以及联邦式或 sidecar 型代理程序验证的实作细节。"
+      }
+    }
+  }
+}

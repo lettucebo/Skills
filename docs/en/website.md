@@ -35,6 +35,20 @@ Runs `astro build`, then a `postbuild` step runs `pagefind --site dist`
 automatically to generate the full-text search index used by the catalog
 search UI. The output lands in `site/dist/`.
 
+## Structured skill summaries
+
+Eligible skills have a human-oriented summary artifact with separate
+**Purpose**, **When to use**, and **Outputs** fields. Detail pages render all
+three fields, and Pagefind indexes them as part of the existing skill page.
+Catalog cards use the summary purpose instead of the agent-trigger
+frontmatter description.
+
+Summary artifacts are accepted only when enrichment is enabled and the
+artifact is fresh for the current lock entry. If an artifact is disabled,
+missing, or stale, the detail summary is omitted and its catalog card
+falls back to the existing frontmatter description. Restricted skills are
+excluded before enrichment files or `SKILL.md` content are read.
+
 ## Preview
 
 ```bash

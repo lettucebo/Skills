@@ -5,12 +5,15 @@ import {
   formatChangelogDate,
   loadEnrichmentLocale,
   type SkillChangelogContent,
+  type SkillSummaryContent,
 } from '../../../lib/enrichment';
 import {
   loadCatalog,
   loadSkillBody,
   loadSkillHistory,
   generateSingleSkillInstallCommand,
+  buildUpstreamTreeUrl,
+  buildUpstreamCommitUrl,
   RELEASE_VERSION,
   RELEASE_PUBLISHED,
 } from '../../../lib/catalog';
@@ -36,6 +39,19 @@ const { skill } = Astro.props;
 
 const body = await loadSkillBody(repoRoot, skill);
 const history = await loadSkillHistory(repoRoot, skill);
+const noSummary: SkillSummaryContent = {
+  purpose: '',
+  whenToUse: '',
+  outputs: '',
+};
+const loadedSummary = await loadEnrichmentLocale<SkillSummaryContent>({
+  repoRoot,
+  kind: 'summaries',
+  skill: skill.lockEntry,
+  locale: 'en',
+  fallback: noSummary,
+});
+const summary = loadedSummary === noSummary ? null : loadedSummary;
 const emptyUpstreamChanges: SkillChangelogContent = { commits: [] };
 const upstreamChangesPromise =
   !skill.isRestricted && !skill.isOrphan && skill.upstreamRepo
@@ -51,6 +67,8 @@ const upstreamChanges = await upstreamChangesPromise;
 const installCmd = skill.isRestricted
   ? null
   : generateSingleSkillInstallCommand(skill.name);
+const upstreamTreeUrl = buildUpstreamTreeUrl(skill);
+const upstreamCommitUrl = buildUpstreamCommitUrl(skill);
 
 function statusBadgeClass(): string {
   if (skill.isRestricted) return 'badge badge--restricted';
@@ -81,12 +99,20 @@ function statusBadgeClass(): string {
         <span data-pagefind-filter="source" data-pagefind-meta="source" hidden>{skill.source}</span>
         {skill.upstreamRepo && (
           <span>
-            Source: <a href={`https://github.com/${skill.upstreamRepo}`} rel="noopener noreferrer">{skill.upstreamRepo}</a>
+            Source: {upstreamTreeUrl && skill.upstreamSource ? (
+              <a href={upstreamTreeUrl} rel="noopener noreferrer">{skill.upstreamRepo}/{skill.upstreamSource}</a>
+            ) : (
+              <a href={`https://github.com/${skill.upstreamRepo}`} rel="noopener noreferrer">{skill.upstreamRepo}</a>
+            )}
           </span>
         )}
         {skill.upstreamCommit && (
           <span>
-            Commit: <code>{skill.upstreamCommit.slice(0, 7)}</code>
+            Commit: {upstreamCommitUrl ? (
+              <a href={upstreamCommitUrl} rel="noopener noreferrer"><code>{skill.upstreamCommit.slice(0, 7)}</code></a>
+            ) : (
+              <code>{skill.upstreamCommit.slice(0, 7)}</code>
+            )}
           </span>
         )}
       </div>
@@ -94,6 +120,26 @@ function statusBadgeClass(): string {
 
     {body?.description && (
       <p class="detail-description" style="color:var(--cp-muted-text);margin-bottom:16px;">{body.description}</p>
+    )}
+
+    {summary && (
+      <section class="skill-summary" aria-labelledby="skill-summary-heading">
+        <h2 id="skill-summary-heading">Summary</h2>
+        <dl>
+          <div>
+            <dt>Purpose</dt>
+            <dd>{summary.purpose}</dd>
+          </div>
+          <div>
+            <dt>When to use</dt>
+            <dd>{summary.whenToUse}</dd>
+          </div>
+          <div>
+            <dt>Outputs</dt>
+            <dd>{summary.outputs}</dd>
+          </div>
+        </dl>
+      </section>
     )}
 
     {skill.isOrphan && (

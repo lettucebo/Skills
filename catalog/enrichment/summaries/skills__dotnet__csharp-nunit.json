@@ -1,0 +1,44 @@
+{
+  "path": "skills/dotnet/csharp-nunit",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:814b44a296bce8ca61c29e226b96a7a06e445854bf74036b391dd85de5f7abd8"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides practical guidance for structuring NUnit unit tests, choosing assertions, and using parameterized test features effectively.",
+        "whenToUse": "Use this when you are creating or refining C# tests with NUnit and need conventions for setup, isolation, organization, or data-driven coverage.",
+        "outputs": "Delivers concise recommendations for test project setup, test design patterns, assertions, mocking, and parameterized test techniques."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供實用指引，協助你有效安排 NUnit 單元測試結構、選擇斷言方式，並運用參數化測試功能。",
+        "whenToUse": "當你要建立或改進使用 NUnit 的 C# 測試，並需要關於設定、隔離、組織或資料驅動覆蓋的做法時，適合使用。",
+        "outputs": "會提供精簡建議，涵蓋測試專案設定、測試設計模式、斷言、模擬物件，以及參數化測試技巧。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供实用指引，协助你有效安排 NUnit 单元测试结构、选择断言方式，并运用参数化测试功能。",
+        "whenToUse": "当你要创建或改进使用 NUnit 的 C# 测试，并需要关于设置、隔离、组织或数据驱动覆盖的做法时，适合使用。",
+        "outputs": "会提供精简建议，涵盖测试项目设置、测试设计模式、断言、模拟对象，以及参数化测试技巧。"
+      }
+    }
+  }
+}

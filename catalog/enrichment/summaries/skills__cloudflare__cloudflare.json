@@ -1,0 +1,44 @@
+{
+  "path": "skills/cloudflare/cloudflare",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9a990c360f49535d9b3cc014a5e0f1162875863fd221bcf295567431a6207089"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "This skill organizes Cloudflare platform capabilities across compute, storage, AI, networking, security, media, analytics, and infrastructure as code, while steering users to current documentation for exact details.",
+        "whenToUse": "Use it when a task touches Cloudflare and you need help choosing the right product area or reference path before digging into up-to-date docs, types, or config schemas.",
+        "outputs": "It provides a product-selection guide and reference map that directs you to relevant Cloudflare docs, reference folders, and verification sources for current limits, APIs, and configuration."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "這個技能整理 Cloudflare 平台在運算、儲存、AI、網路、安全、媒體、分析與基礎設施即程式碼等能力，並引導使用者到最新文件查核精確細節。",
+        "whenToUse": "當工作涉及 Cloudflare，且你需要先判斷適合的產品領域或參考路徑，再深入查閱最新文件、型別或設定綱要時，就適合使用它。",
+        "outputs": "它會提供產品選擇指引與參考地圖，帶你前往相關的 Cloudflare 文件、參考資料夾與查證來源，以確認最新的限制、API 與設定方式。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "这个技能整理 Cloudflare 平台在运算、保存、AI、网络、安全、媒体、分析与基础设施即代码等能力，并引导用户到最新文档查核精确细节。",
+        "whenToUse": "当工作涉及 Cloudflare，且你需要先判断适合的产品领域或参考路径，再深入查阅最新文档、类型或设置纲要时，就适合使用它。",
+        "outputs": "它会提供产品选择指引与参考地图，带你前往相关的 Cloudflare 文档、参考资料夹与查证来源，以确认最新的限制、API 与设置方式。"
+      }
+    }
+  }
+}

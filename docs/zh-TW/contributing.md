@@ -182,11 +182,26 @@ Tier 1 是原本位於 atomic baseline/update 交易中的 `validateRepository`�
 artifact，包括 skill 已離開 lock 的 artifact；但停用種類不要求目錄存在，也不
 要求完整 artifact 集合。符合資格的 artifact 缺少或過期仍會通過。Tier 2 strict
 只對已啟用種類再加入 artifact exact-set 完整性與 freshness、驗證目前 changelog
-locale signature，並保留給發布 gate 使用。
+locale signature，並保留給第一次啟用與發布完整 enrichment artifact 更新時使用。
+日常 registry sync 仍可依賴網站對過期／缺少 artifact 的 fallback。
 
 資格會依種類分別計算：summary 包含所有非 tombstone、非 restricted skill；
 changelog 另外要求 `upstream` 非 null。Mapped skill 的 freshness 使用轉換前
 `contentHash`；orphan 與 local summary 使用 `snapshotHash`。
+
+使用下列指令產生或更新結構化摘要：
+
+```bash
+npm run enrich:summaries
+npm run enrich:summaries -- --skill skills/vscode/code-review
+npm run enrich:summaries -- --check
+```
+
+Generator 會先從 lock 篩選資格，才讀取 `SKILL.md`；每個缺少或過期的 skill
+只呼叫一次 Copilot，同時產生兩個由模型撰寫的 locale，再確定性地衍生
+`zh-cn`。只有成功執行後才會 prune 禁止的 artifact。`--check` 絕不產生或
+寫入檔案，且所選 artifact 缺少、過期或 signature 不符時會失敗。只有完整摘要
+集合通過 strict 驗證後，manifest 才會啟用。
 
 ## Commit 訊息
 

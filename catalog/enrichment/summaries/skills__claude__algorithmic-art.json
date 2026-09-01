@@ -1,0 +1,44 @@
+{
+  "path": "skills/claude/algorithmic-art",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8c15717769d76330df4387b85402a3754d858b97749ae259d3365ea9ea394f89"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Creates original p5.js generative art that uses seeded randomness and interactive parameter exploration.",
+        "whenToUse": "Use it when someone wants code-based generative art, including algorithmic art, flow fields, or particle systems.",
+        "outputs": "It produces a markdown philosophy file, an HTML interactive viewer, and JavaScript generative art code."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "建立使用可重現種子隨機性與互動式參數探索的原創 p5.js 生成藝術。",
+        "whenToUse": "當有人想要以程式創作生成藝術時使用，例如演算法藝術、流場或粒子系統。",
+        "outputs": "它會產出說明創作理念的 Markdown 檔、互動式 HTML 檢視器，以及 JavaScript 生成藝術程式碼。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "创建使用可重现种子随机性与交互式参数探索的原创 p5.js 生成艺术。",
+        "whenToUse": "当有人想要以程序创作生成艺术时使用，例如算法艺术、流场或粒子系统。",
+        "outputs": "它会产出说明创作理念的 Markdown 档、交互式 HTML 查看器，以及 JavaScript 生成艺术代码。"
+      }
+    }
+  }
+}

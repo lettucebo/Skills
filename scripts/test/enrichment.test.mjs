@@ -79,18 +79,63 @@ function openccLocale(content = {}) {
 }
 
 function artifact(skill, kind = 'summaries', overrides = {}) {
+  const content = kind === 'summaries'
+    ? {
+        purpose: 'Explains the skill purpose.',
+        whenToUse: 'Use it when the skill applies.',
+        outputs: 'Produces the documented result.',
+      }
+    : { text: 'English' };
   return {
     path: skill.path,
     schemaVersion: 1,
     freshnessKey: createArtifactFreshnessKey(kind, skill),
     locales: {
-      en: llmLocale({ text: 'English' }),
-      'zh-tw': llmLocale({ text: '繁體中文' }),
-      'zh-cn': openccLocale({ text: '简体中文' }),
+      en: llmLocale(content),
+      'zh-tw': llmLocale(content),
+      'zh-cn': openccLocale(content),
     },
     ...overrides,
   };
 }
+
+test('summary content schema requires exactly three non-empty string fields', () => {
+  const skill = mappedSkill();
+  const valid = artifact(skill);
+
+  assert.equal(validateEnrichmentArtifact('summaries', valid).valid, true);
+
+  for (const invalidContent of [
+    {
+      purpose: 'Explains the skill purpose.',
+      whenToUse: 'Use it when the skill applies.',
+    },
+    {
+      purpose: 'Explains the skill purpose.',
+      whenToUse: 'Use it when the skill applies.',
+      outputs: 'Produces the documented result.',
+      extra: 'Not allowed.',
+    },
+    {
+      purpose: 'Explains the skill purpose.',
+      whenToUse: 42,
+      outputs: 'Produces the documented result.',
+    },
+    {
+      purpose: '',
+      whenToUse: 'Use it when the skill applies.',
+      outputs: 'Produces the documented result.',
+    },
+  ]) {
+    const candidate = structuredClone(valid);
+    candidate.locales.en.content = invalidContent;
+    assert.equal(
+      validateEnrichmentArtifact('summaries', candidate).valid,
+      false,
+      JSON.stringify(invalidContent),
+    );
+  }
+});
 
 async function createFixture({
   skills = [mappedSkill()],

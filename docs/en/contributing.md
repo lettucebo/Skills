@@ -196,12 +196,30 @@ artifacts in directories that exist, including artifacts for skills absent
 from the lock. Disabled kinds require no directory and no complete artifact
 set. Missing and stale eligible artifacts pass. Tier 2 strict adds exact-set
 completeness and freshness for enabled kinds, validates current changelog
-locale signatures, and is reserved for a publishing gate.
+locale signatures, and is reserved for first enablement and publishing a
+complete enrichment artifact update. Routine registry sync remains able to
+rely on the site's stale/missing fallback.
 
 Eligibility is computed per kind: summaries include every non-tombstone,
 non-restricted skill; changelogs additionally require a non-null `upstream`.
 Mapped skills use their pre-transform `contentHash` for freshness. Orphan and
 local summaries use `snapshotHash`.
+
+Generate or refresh structured summaries with:
+
+```bash
+npm run enrich:summaries
+npm run enrich:summaries -- --skill skills/vscode/code-review
+npm run enrich:summaries -- --check
+```
+
+The generator filters eligibility from the lock before reading `SKILL.md`,
+makes one Copilot request per stale or missing skill for both authored
+locales, derives `zh-cn` deterministically, and prunes forbidden artifacts
+only after a successful run. `--check` never generates or writes files and
+fails when a selected artifact is missing, stale, or signature-mismatched.
+The manifest is enabled only after the complete summary set passes strict
+validation.
 
 ## Commit messages
 

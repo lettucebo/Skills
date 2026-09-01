@@ -1,0 +1,44 @@
+{
+  "path": "skills/cloudflare/wrangler",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:572a54107e930cff92ad894f65e71dc7cd74ac415833b54a7621dcf9f2474a31"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides current guidance for using the Cloudflare Wrangler CLI to configure, develop, deploy, and operate Workers and their attached platform services.",
+        "whenToUse": "Use this when you need accurate Wrangler commands, config patterns, or resource-management steps for Workers, storage, databases, AI, queues, containers, workflows, pipelines, secrets, Pages, logging, or testing.",
+        "outputs": "Delivers up-to-date Wrangler command examples, wrangler.jsonc configuration patterns, and service-specific binding and operational references."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供 Cloudflare Wrangler CLI 的最新操作指引，協助設定、開發、部署與維運 Workers 及其綁定的平台服務。",
+        "whenToUse": "當你需要正確的 Wrangler 指令、設定模式，或用於 Workers、儲存體、資料庫、AI、佇列、容器、工作流程、管線、祕密、Pages、日誌與測試的資源管理步驟時使用。",
+        "outputs": "提供最新的 Wrangler 指令範例、wrangler.jsonc 設定模式，以及各項服務的綁定與操作參考。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供 Cloudflare Wrangler CLI 的最新操作指引，协助设置、开发、部署与维运 Workers 及其绑定的平台服务。",
+        "whenToUse": "当你需要正确的 Wrangler 指令、设置模式，或用于 Workers、保存体、数据库、AI、队列、容器、工作流程、管线、秘密、Pages、日志与测试的资源管理步骤时使用。",
+        "outputs": "提供最新的 Wrangler 指令范例、wrangler.jsonc 设置模式，以及各项服务的绑定与操作参考。"
+      }
+    }
+  }
+}

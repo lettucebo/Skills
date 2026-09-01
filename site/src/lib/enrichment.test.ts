@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
-import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
 
 import type { LockSkillEntry } from './catalog.ts';
 import {
@@ -13,6 +13,16 @@ import {
 const HASH_A = `sha256:${'a'.repeat(64)}`;
 const HASH_B = `sha256:${'b'.repeat(64)}`;
 const SIGNATURE = `sha256:${'c'.repeat(64)}`;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const runtimeRoot = path.resolve(__dirname, '..', '..', 'test', '.runtime');
+
+function summary(purpose: string) {
+  return {
+    purpose,
+    whenToUse: 'Use it when the documented workflow applies.',
+    outputs: 'Produces the documented result.',
+  };
+}
 
 function skill(overrides: Partial<LockSkillEntry> = {}): LockSkillEntry {
   return {
@@ -47,7 +57,7 @@ function artifact(contentHash = HASH_A) {
         model: 'gpt-5.4',
         promptHash: HASH_B,
         generatorVersion: 1,
-        content: { text: 'English' },
+        content: summary('English purpose'),
       },
       'zh-tw': {
         signature: SIGNATURE,
@@ -55,14 +65,14 @@ function artifact(contentHash = HASH_A) {
         model: 'gpt-5.4',
         promptHash: HASH_B,
         generatorVersion: 1,
-        content: { text: '繁體中文' },
+        content: summary('繁體中文用途'),
       },
       'zh-cn': {
         signature: SIGNATURE,
         producer: 'opencc',
         converterVersion: '1.0.6',
         generatorVersion: 1,
-        content: { text: '简体中文' },
+        content: summary('简体中文用途'),
       },
     },
   };
@@ -125,7 +135,8 @@ function changelogArtifact() {
 }
 
 async function createFixture(value = artifact()) {
-  const root = await mkdtemp(path.join(os.tmpdir(), 'site-enrichment-'));
+  await mkdir(runtimeRoot, { recursive: true });
+  const root = await mkdtemp(path.join(runtimeRoot, 'site-enrichment-'));
   const directory = path.join(root, 'catalog', 'enrichment', 'summaries');
   await mkdir(directory, { recursive: true });
   await writeFile(
@@ -158,7 +169,7 @@ function artifactPath(root: string): string {
 
 test('loader short-circuits restricted and tombstoned skills before touching sidecars', async () => {
   const fallback = { text: 'fallback' };
-  const missingRoot = path.join(os.tmpdir(), `missing-enrichment-${Date.now()}`);
+  const missingRoot = path.join(runtimeRoot, `missing-enrichment-${Date.now()}`);
 
   assert.equal(
     await loadEnrichmentLocale({
@@ -184,7 +195,7 @@ test('loader short-circuits restricted and tombstoned skills before touching sid
 
 test('changelog loader short-circuits orphan skills before touching sidecars', async () => {
   const fallback = { commits: [] };
-  const missingRoot = path.join(os.tmpdir(), `missing-enrichment-${Date.now()}`);
+  const missingRoot = path.join(runtimeRoot, `missing-enrichment-${Date.now()}`);
 
   assert.equal(
     await loadEnrichmentLocale({
@@ -577,7 +588,7 @@ test('loader returns fresh content for the exact requested locale', async () => 
         locale: 'zh-tw',
         fallback,
       }),
-      { text: '繁體中文' },
+      summary('繁體中文用途'),
     );
   } finally {
     await rm(root, { recursive: true, force: true });

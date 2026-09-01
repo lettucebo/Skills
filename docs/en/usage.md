@@ -23,7 +23,9 @@ plus:
 
 - its status label (`Synced`, `Frozen`, `Local`, or `Restricted`),
 - its per-skill **version** and **license**,
-- its available **upstream provenance** — repository and resolved commit, and
+- its available **upstream provenance** — the full repository source path
+  pinned at the resolved commit, with links to both the source tree and commit,
+  and
 - its **history** — recorded version, change kind, and upstream commit.
 
 Non-restricted detail pages also render a repository-root install command.
@@ -31,10 +33,10 @@ Repository-root and single-skill commands include the CLI's required
 `--full-depth` flag. Source-page commands target `skills/<source>` directly
 and do not need `--full-depth`.
 
-For the category, upstream reference/source subpath, and any available
-`diffUrl`, inspect the corresponding entries in `catalog/skills.lock.json`
-and `catalog/history/*.json`; the current detail-page template does not render
-those fields.
+For the category, upstream reference, and any available `diffUrl`, inspect the
+corresponding entries in `catalog/skills.lock.json` and
+`catalog/history/*.json`; the detail page renders the upstream source subpath
+and resolved commit but not those fields.
 
 Restricted skills (see the restricted-content note in
 [Installation](installation.md)) never have their `SKILL.md` body or

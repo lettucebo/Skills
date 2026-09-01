@@ -1,0 +1,44 @@
+{
+  "path": "skills/github/create-github-pull-request-from-specification",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6a610bc40f5f31b9f5d0d8cdd4d5d40839ffc69191d72a2df086e0f952f0f724"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Generates and finalizes a pull request for a specification by filling the repository's pull request template with the needed details.",
+        "whenToUse": "Use this when a specification needs to become a single GitHub pull request after checking whether the current branch already has one.",
+        "outputs": "Returns the pull request URL after setting its title, body, review state, and self-assignment."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "此技能會根據規格內容填入儲存庫的拉取請求範本，建立並完成一個拉取請求。",
+        "whenToUse": "當規格需要整理成單一 GitHub 拉取請求，且要先確認目前分支是否已有既存拉取請求時，適合使用此技能。",
+        "outputs": "此技能會在設定標題、內容、審查狀態與指派給建立者後，回傳該拉取請求的網址。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "此技能会根据规格内容填入保存库的拉取请求范本，创建并完成一个拉取请求。",
+        "whenToUse": "当规格需要整理成单一 GitHub 拉取请求，且要先确认目前分支是否已有既存拉取请求时，适合使用此技能。",
+        "outputs": "此技能会在设置标题、内容、审查状态与指派给创建者后，回传该拉取请求的网址。"
+      }
+    }
+  }
+}

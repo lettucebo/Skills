@@ -1,0 +1,44 @@
+{
+  "path": "skills/microsoft/skill-creator",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:28c430c7698be58937d82395f874346bb7858df1b45458841c6a403d0b5e3b95"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a practical framework for authoring and maintaining AI agent skills, especially around Azure SDK and Microsoft Foundry workflows.",
+        "whenToUse": "Use this when you need to create or revise a skill and want guidance on structure, documentation checks, validation, testing, and categorization, particularly for Azure SDK work.",
+        "outputs": "It yields a well-structured skill package centered on SKILL.md, with any needed reference files, test scenarios, and catalog or link updates."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供一套實用框架，用於撰寫與維護 AI 代理技能，特別聚焦 Azure SDK 與 Microsoft Foundry 工作流程。",
+        "whenToUse": "當你要建立或更新技能，並需要關於結構、文件查核、驗證、測試與分類方式的指引時，尤其適用於 Azure SDK 工作。",
+        "outputs": "它會產出以 SKILL.md 為核心的結構化技能套件，並視需要包含參考文件、測試情境與目錄或連結更新。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供一套实用框架，用于撰写与维护 AI 代理技能，特别聚焦 Azure SDK 与 Microsoft Foundry 工作流程。",
+        "whenToUse": "当你要创建或更新技能，并需要关于结构、文档查核、验证、测试与分类方式的指引时，尤其适用于 Azure SDK 工作。",
+        "outputs": "它会产出以 SKILL.md 为内核的结构化技能套件，并视需要包含参考文档、测试情境与目录或链接更新。"
+      }
+    }
+  }
+}

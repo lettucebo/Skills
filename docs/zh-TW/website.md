@@ -34,6 +34,18 @@ npm --prefix site run build
 `pagefind --site dist`，為目錄搜尋介面產生全文搜尋索引。輸出結果會放在
 `site/dist/`。
 
+## 結構化 skill 摘要
+
+符合資格的 skill 具有面向一般使用者的摘要成品，分為**用途**、**使用時機**與
+**輸出結果**三個欄位。詳細頁面會顯示全部三個欄位，Pagefind 也會在既有的 skill
+頁面中索引這些內容。目錄卡片則以摘要的用途取代給 agent 使用的 frontmatter
+觸發描述。
+
+只有在 enrichment 已啟用，而且摘要成品與目前 lock 項目保持最新時，網站才會
+採用該摘要。若成品停用、遺失或過期，詳細頁面會省略摘要，目錄卡片則退回
+使用既有的 frontmatter 描述。受限制的 skill 會在讀取 enrichment 檔案或
+`SKILL.md` 內容之前就被排除。
+
 ## 預覽
 
 ```bash
