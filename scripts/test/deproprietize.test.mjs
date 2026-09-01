@@ -380,6 +380,23 @@ test('removeDeproprietizedMappings removes only the four exact anthropics mappin
   assert.match(next, /orphans: \[\]/);
 });
 
+test('removeDeproprietizedMappings preserves CRLF manifests while removing exact blocks', () => {
+  const text = [
+    'mappings:',
+    ...REMOVED_PATHS.flatMap((skillPath) => [
+      `  - path: ${skillPath}`,
+      '    upstream: anthropics',
+      `    source: skills/${skillPath.split('/').at(-1)}`,
+    ]),
+    'orphans: []',
+    '',
+  ].join('\r\n');
+
+  const next = baselineModule.removeDeproprietizedMappings(text);
+
+  assert.equal(next, 'mappings:\r\norphans: []\r\n');
+});
+
 test('catalog/sources.yml is protected by the shared transaction target set', () => {
   assert.deepEqual(
     baselineModule.SWAP_TARGETS.filter((target) => target.rel === 'catalog/sources.yml'),

@@ -192,13 +192,14 @@ export function buildDeproprietizedLock({ lock, generatedAt }) {
 
 export function removeDeproprietizedMappings(manifestText) {
   let next = manifestText;
+  const newline = manifestText.includes('\r\n') ? '\r\n' : '\n';
 
   for (const skillPath of DEPROPRIETIZE_PATHS) {
     const skillName = path.posix.basename(skillPath);
     const block =
-      `  - path: ${skillPath}\n` +
-      '    upstream: anthropics\n' +
-      `    source: skills/${skillName}\n`;
+      `  - path: ${skillPath}${newline}` +
+      `    upstream: anthropics${newline}` +
+      `    source: skills/${skillName}${newline}`;
 
     if (!next.includes(block)) {
       throw new BaselineError(
