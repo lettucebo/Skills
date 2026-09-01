@@ -6,6 +6,8 @@ import {
   loadSkillBody,
   loadSkillHistory,
   generateSingleSkillInstallCommand,
+  buildUpstreamTreeUrl,
+  buildUpstreamCommitUrl,
   RELEASE_VERSION,
   RELEASE_PUBLISHED,
 } from '../../../lib/catalog';
@@ -34,6 +36,8 @@ const history = await loadSkillHistory(repoRoot, skill);
 const installCmd = skill.isRestricted
   ? null
   : generateSingleSkillInstallCommand(skill.name);
+const upstreamTreeUrl = buildUpstreamTreeUrl(skill);
+const upstreamCommitUrl = buildUpstreamCommitUrl(skill);
 
 function statusBadgeClass(): string {
   if (skill.isRestricted) return 'badge badge--restricted';
@@ -64,12 +68,20 @@ function statusBadgeClass(): string {
         <span data-pagefind-filter="source" data-pagefind-meta="source" hidden>{skill.source}</span>
         {skill.upstreamRepo && (
           <span>
-            Source: <a href={`https://github.com/${skill.upstreamRepo}`} rel="noopener noreferrer">{skill.upstreamRepo}</a>
+            Source: {upstreamTreeUrl && skill.upstreamSource ? (
+              <a href={upstreamTreeUrl} rel="noopener noreferrer">{skill.upstreamRepo}/{skill.upstreamSource}</a>
+            ) : (
+              <a href={`https://github.com/${skill.upstreamRepo}`} rel="noopener noreferrer">{skill.upstreamRepo}</a>
+            )}
           </span>
         )}
         {skill.upstreamCommit && (
           <span>
-            Commit: <code>{skill.upstreamCommit.slice(0, 7)}</code>
+            Commit: {upstreamCommitUrl ? (
+              <a href={upstreamCommitUrl} rel="noopener noreferrer"><code>{skill.upstreamCommit.slice(0, 7)}</code></a>
+            ) : (
+              <code>{skill.upstreamCommit.slice(0, 7)}</code>
+            )}
           </span>
         )}
       </div>
