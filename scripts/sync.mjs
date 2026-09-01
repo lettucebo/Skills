@@ -26,7 +26,7 @@ import {
   SyncProtectionError,
 } from './lib/guardrails.mjs';
 import { transformStaged } from './transform.mjs';
-import { applyBaseline, applyUpdate } from './lib/baseline.mjs';
+import { applyBaseline, applyDeproprietize, applyUpdate } from './lib/baseline.mjs';
 
 const { posix } = path;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -251,10 +251,12 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
         upstream,
         source: mapping.source,
         commit: clone.commit,
-        version: lockEntry?.version ?? '1.0.0',
+        version: lockEntry?.category === 'removed'
+          ? '1.0.0'
+          : lockEntry?.version ?? '1.0.0',
       });
 
-      if (!lockEntry) {
+      if (!lockEntry || lockEntry.category === 'removed') {
         added.push({
           path: mapping.path,
           category: 'mapped',
@@ -310,7 +312,10 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
   }
 
   for (const orphan of manifest.orphans) {
-    if (lockByPath.has(orphan.path)) {
+    if (
+      lockByPath.has(orphan.path) &&
+      lockByPath.get(orphan.path).category !== 'removed'
+    ) {
       continue;
     }
 
@@ -325,7 +330,10 @@ async function planSync({ repoRoot, manifest, lock, workspace, runGit }) {
   }
 
   for (const skillPath of manifest.localSkillPaths) {
-    if (lockByPath.has(skillPath)) {
+    if (
+      lockByPath.has(skillPath) &&
+      lockByPath.get(skillPath).category !== 'removed'
+    ) {
       continue;
     }
 
@@ -509,8 +517,13 @@ export async function runSync(options = {}) {
   }
 }
 
-function parseArgs(argv) {
-  const options = { dryRun: false, baseline: false, apply: false };
+export function parseArgs(argv) {
+  const options = {
+    dryRun: false,
+    baseline: false,
+    apply: false,
+    deproprietize: false,
+  };
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -521,21 +534,64 @@ function parseArgs(argv) {
       options.baseline = true;
     } else if (arg === '--apply') {
       options.apply = true;
+    } else if (arg === '--deproprietize') {
+      options.deproprietize = true;
     } else if (arg === '--output') {
-      options.output = argv[index + 1];
+      const value = argv[index + 1];
+      if (!value || value.startsWith('--')) {
+        throw new Error('--output requires a value.');
+      }
+      options.output = value;
       index += 1;
     } else if (arg.startsWith('--output=')) {
-      options.output = arg.slice('--output='.length);
+      const value = arg.slice('--output='.length);
+      if (!value) {
+        throw new Error('--output requires a value.');
+      }
+      options.output = value;
     }
   }
 
   return options;
 }
 
-async function main() {
-  const options = parseArgs(process.argv.slice(2));
+export function validateModeOptions(options) {
+  if (options.deproprietize) {
+    for (const [enabled, flag] of [
+      [options.apply, '--apply'],
+      [options.baseline, '--baseline'],
+      [options.dryRun, '--dry-run'],
+    ]) {
+      if (enabled) {
+        throw new Error(`--deproprietize cannot be combined with ${flag}: use one mode at a time.`);
+      }
+    }
+  }
+}
 
+export async function writeApplyResult(
+  result,
+  {
+    output,
+    writeStdout = (value) => process.stdout.write(value),
+  } = {},
+) {
+  const json = `${JSON.stringify(result, null, 2)}\n`;
+
+  if (output) {
+    const outputPath = path.resolve(output);
+    await mkdir(path.dirname(outputPath), { recursive: true });
+    await writeFile(outputPath, json);
+  }
+
+  writeStdout(json);
+  return json;
+}
+
+async function main() {
   try {
+    const options = parseArgs(process.argv.slice(2));
+    validateModeOptions(options);
     if (options.apply) {
       if (options.dryRun) {
         throw new Error('--apply cannot be combined with --dry-run: apply performs a real update.');
@@ -545,16 +601,7 @@ async function main() {
       }
 
       const result = await applyUpdate();
-      const json = `${JSON.stringify(result, null, 2)}\n`;
-
-      if (options.output) {
-        const { mkdir: mkdirFs, writeFile: writeFileFs } = await import('node:fs/promises');
-        const outputPath = path.resolve(options.output);
-        await mkdirFs(path.dirname(outputPath), { recursive: true });
-        await writeFileFs(outputPath, json);
-      }
-
-      process.stdout.write(json);
+      await writeApplyResult(result, { output: options.output });
       return;
     }
 
@@ -565,6 +612,12 @@ async function main() {
 
       const result = await applyBaseline({ baseline: true });
       process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+      return;
+    }
+
+    if (options.deproprietize) {
+      const result = await applyDeproprietize({ deproprietize: true });
+      await writeApplyResult(result, { output: options.output });
       return;
     }
 

@@ -52,14 +52,12 @@ test('built mapped skill renders Upstream changes separately from registry Histo
   );
 });
 
-test('built restricted and orphan pages never render upstream changelog content', {
+test('removed proprietary page is absent and orphan page has no upstream changelog', {
   skip: !distExists && 'dist/ not found (run npm run build first)',
 }, () => {
-  const restricted = fs.readFileSync(restrictedPage, 'utf8');
   const orphan = fs.readFileSync(orphanPage, 'utf8');
 
-  assert.doesNotMatch(restricted, />Upstream changes<\/h2>/);
+  assert.equal(fs.existsSync(restrictedPage), false);
   assert.doesNotMatch(orphan, />Upstream changes<\/h2>/);
-  assert.doesNotMatch(restricted, /data-copy-command/);
   assert.match(orphan, />History<\/h2>/);
 });

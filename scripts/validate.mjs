@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { parseSkillFrontmatter } from './lib/frontmatter.mjs';
 import { collectManagedRelativeLinks, createLinkExceptionKey } from './lib/links.mjs';
 import { loadManifest, ManifestValidationError } from './lib/manifest.mjs';
+import { RESTRICTED_SKILL_PATHS } from './catalog.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const defaultRepoRoot = path.resolve(__dirname, '..');
@@ -41,6 +42,54 @@ export async function validateRepository(repoRoot = defaultRepoRoot) {
   const matchedLinkExceptionKeys = new Set();
 
   errors.push(...sourceRootErrors);
+
+  let lock;
+  try {
+    lock = JSON.parse(
+      await readFile(
+        path.join(absoluteRepoRoot, 'catalog', 'skills.lock.json'),
+        'utf8',
+      ),
+    );
+  } catch (error) {
+    if (error?.code !== 'ENOENT') {
+      errors.push(`Unable to read catalog/skills.lock.json: ${error.message}`);
+    }
+  }
+
+  const releaseMajor = Number.parseInt(String(lock?.release ?? '').split('.')[0], 10);
+  if (releaseMajor >= 2) {
+    const skillPathSet = new Set(
+      skillDirectories.map((directory) =>
+        toPosixPath(path.relative(absoluteRepoRoot, directory))),
+    );
+    const mappingPathSet = new Set(
+      (manifest?.mappings ?? []).map((mapping) => mapping.path),
+    );
+    const activeLockPathSet = new Set(
+      (lock?.skills ?? [])
+        .filter((skill) => skill.category !== 'removed')
+        .map((skill) => skill.path),
+    );
+
+    for (const denylistedPath of RESTRICTED_SKILL_PATHS) {
+      if (skillPathSet.has(denylistedPath)) {
+        errors.push(
+          `Denylisted skill ${denylistedPath} must not exist on disk after release 2.0.0.`,
+        );
+      }
+      if (mappingPathSet.has(denylistedPath)) {
+        errors.push(
+          `Denylisted skill ${denylistedPath} must not remain an active mapping after release 2.0.0.`,
+        );
+      }
+      if (activeLockPathSet.has(denylistedPath)) {
+        errors.push(
+          `Denylisted skill ${denylistedPath} must not remain an active lock entry after release 2.0.0.`,
+        );
+      }
+    }
+  }
 
   for (const skillDirectory of skillDirectories) {
     const skillPath = toPosixPath(path.relative(absoluteRepoRoot, skillDirectory));

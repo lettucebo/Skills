@@ -6,7 +6,7 @@
 manifest 欄位請見 [環境設定](configuration.md)；如何新增特定 skill 請見
 [技能管理](skill-management.md)。
 
-## 三種模式
+## 四種模式
 
 ### Dry-run（預設）
 
@@ -60,11 +60,25 @@ baseline 模式與乾淨工作目錄，並拒絕被執行超過一次：lock `re
 完成 staging，baseline availability guard 必須通過。任何失敗都會直接結束，
 不會默默重複或只建立一部分 baseline。
 
-`--apply`、`--baseline` 與 `--dry-run` 彼此互斥；同時組合其中任兩者，會在任何
-工作開始之前就被拒絕。
+### Deproprietize（已完成的一次性遷移）
 
-在 Windows 上，apply 與 baseline 需要 `powershell.exe` 進行持久化 journal
-替換；若找不到，交易開始前就會被拒絕。
+```bash
+node scripts/sync.mjs --deproprietize
+```
+
+這個一次性模式刻意在不要求既有 tag 的情況下，把尚未發布的 `1.1.0` registry
+遷移到可發布的 `2.0.0`。它要求乾淨工作目錄，以及四個精確的 anthropics 專有
+mapping（`docx`、`pdf`、`pptx`、`xlsx`）仍為 active。遷移在同一個 candidate
+中移除宣告與 vendored 目錄、保留 lock tombstone 與逐 skill history、重新產生
+全部衍生檢視，並沿用一般刪除防護（4/17，低於 30% 上限）。它不會呼叫
+`assertTagReconciled`；因此 `v2.0.0` 才是第一個可以發布的 tag，`v1.1.0` 永遠
+不得發布。精確的 `1.1.0` 前置條件也讓此命令無法重複執行。
+
+`--apply`、`--baseline`、`--deproprietize` 與 `--dry-run` 彼此互斥；組合多個
+模式會在任何工作開始之前被拒絕。
+
+在 Windows 上，apply、baseline 與 deproprietize 需要 `powershell.exe` 進行
+持久化 journal 替換；若找不到，交易開始前就會被拒絕。
 
 ## 機器可讀輸出（`--output`）
 
@@ -73,6 +87,7 @@ baseline 模式與乾淨工作目錄，並拒絕被執行超過一次：lock `re
 - **Dry-run**（不論是否加上 `--dry-run`）：把 JSON 寫入指定檔案，**取代**
   stdout。
 - **Apply**：把 JSON**同時**寫入指定檔案**與** stdout。
+- **Deproprietize**：與 apply 相同，把 JSON**同時**寫入指定檔案**與** stdout。
 - **Baseline**：**不支援** `--output`。Baseline 分支永遠只把結果寫到
   stdout，就算傳入 `--output` 也完全不會寫出任何輸出檔案。
 
@@ -95,7 +110,7 @@ Orphan 與 local skill 沒有上游可以雜湊比對；它們的 lockfile
 
 ## 交易安全性：日誌、回溯與當機復原
 
-`--apply` 與 `--baseline` 都透過一個持久化交易來寫入：
+`--apply`、`--baseline` 與 `--deproprietize` 都透過一個持久化交易來寫入：
 
 - Workflow 由 `sync-upstream-skills` concurrency group 序列化
   （`cancel-in-progress: false`），因此第二次 dispatch 會等待，不會取消正在
@@ -107,6 +122,10 @@ Orphan 與 local skill 沒有上游可以雜湊比對；它們的 lockfile
   完整性檢查都必須通過 — 只要其中一項失敗，就會自動從備份回溯這次替換。如果
   回溯本身也失敗，錯誤訊息會回報備份位置，並保留它以供人工復原，而不是刪除
   它。
+
+Manifest `catalog/sources.yml` 與 `skills/`、history、lock、`NOTICE`、README
+同屬共用 swap target。因此 rollback 或當機復原不可能讓宣告與 materialized
+狀態停在遷移的不同側。
 
 Lock 檔名為 `.skills-sync-apply.lock`，journal 檔名為
 `.skills-sync-transaction.json`；兩者都位於

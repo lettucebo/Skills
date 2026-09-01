@@ -51,14 +51,12 @@ repository-root full or single-skill command.
 
 ### A full-registry install pulled in skills I didn't expect
 
-**Cause:** installing the whole registry includes every redistributable skill
-plus every skill currently marked `"redistributable": false` in the lockfile.
-That set is not fixed — check `catalog/skills.lock.json` or the website's
-`/status/` page for the current list of restricted skills.
+**Cause:** a full-registry install selects every active skill in the pinned
+release. Release 2.0.0 contains 115 active skills and no restricted skills.
 
-**Fix:** install a source whose current inventory has no restricted skill, or
-select one non-restricted skill — see
-[Restricted content](installation.md#restricted-content) in Installation.
+**Fix:** install one source or one skill when broad coverage is not intended.
+Also check `catalog/skills.lock.json` or the website status page because future
+releases may again contain active restricted inventory.
 
 ### Stale or missing local installs
 

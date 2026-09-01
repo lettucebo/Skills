@@ -14,7 +14,7 @@ repository instead, see [Skill management](skill-management.md).
 ## Step 1: Confirm a release is actually published
 
 The lockfile at [`catalog/skills.lock.json`](../../catalog/skills.lock.json)
-always names a `release` version — currently `1.1.0`. That field describes
+always names a `release` version — currently `2.0.0`. That field describes
 what the checked-in tree currently *is*, not whether anyone can install it yet.
 
 Installation always uses a pinned `#<tag>` reference (never `@version` or a
@@ -62,8 +62,8 @@ This short form is interactive when choices are needed: choose project or
 global scope, the target agent, copy/symlink mode, and the skills to install.
 The CLI can auto-select a single detected agent, and it skips the
 copy/symlink prompt when all selected agents use one skills directory (copy
-is then used). Selecting all skills (`*`) also selects every restricted skill,
-so read [Restricted content](#restricted-content) first.
+is then used). Selecting all skills (`*`) installs the current 115 active
+skills.
 `--full-depth` is required at repository-root scope; without it, the CLI stops
 at the top-level `.github/skills/` directory instead of discovering the
 registry under `skills/`.
@@ -110,26 +110,16 @@ before relying on it in unattended external automation.
 
 ## Restricted content
 
-Some skills, currently under `skills/claude`, are marked
-`"redistributable": false` in
-[`catalog/skills.lock.json`](../../catalog/skills.lock.json) because their
-upstream license is proprietary. A full-registry install includes them; each
-restricted skill's own `LICENSE.txt` governs reuse, and the published
-website deliberately does not render a restricted skill's `SKILL.md` body.
-It suppresses source and single-skill commands for restricted scopes; the
-full-registry command remains available and installs restricted skills, but
-the site no longer places an on-page restricted-content warning beside it.
+The active 2.0.0 inventory has no restricted skills. The former proprietary
+`skills/claude/{docx,pdf,pptx,xlsx}` mirrors were removed before the first
+release tag; their old localized and unprefixed URLs intentionally return 404.
+Their lock tombstones and history entries remain for audit, but a full-registry
+install contains only the 115 active skills.
 
-The set of restricted skills is not fixed — it changes whenever an upstream
-license changes, so never assume a specific name, path, or count. To see the
-current set, search the lockfile for every entry with
-`"redistributable": false`, or open the published website's `/Skills/en/status/` page,
-which lists every currently restricted skill under "Restricted Skills".
-
-If you want to avoid restricted content, install a source whose current
-inventory contains no restricted skill, or select a non-restricted single
-skill. Check the lockfile or `/Skills/en/status/` first; a narrow scope is not safe when
-that scope is itself restricted.
+Restricted handling remains fail-closed for future inventory. Any active skill
+with `"redistributable": false` is excluded from body rendering and suppresses
+source/single-skill commands. Check the lockfile or `/Skills/en/status/` for
+the current active inventory rather than inferring it from tombstones.
 
 ## Direct-copy fallback
 

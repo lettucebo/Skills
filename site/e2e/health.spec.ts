@@ -51,10 +51,10 @@ const KEY_PAGES = [
     h1: 'az-cost-optimize',
   },
   {
-    path: '/skills/claude/docx/',
-    label: 'restricted docx skill',
-    title: 'docx | Skills Registry',
-    h1: 'docx',
+    path: '/skills/claude/algorithmic-art/',
+    label: 'algorithmic-art skill',
+    title: 'algorithmic-art | Skills Registry',
+    h1: 'algorithmic-art',
   },
   {
     path: '/skills/microsoft/skill-creator/',

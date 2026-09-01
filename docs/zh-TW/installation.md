@@ -14,7 +14,7 @@
 ## 步驟一：確認發布版本是否真的已經發布
 
 [`catalog/skills.lock.json`](../../catalog/skills.lock.json) 的 lockfile 永遠
-會標示一個 `release` 版本 — 目前是 `1.1.0`。這個欄位描述的是目前已提交的樹目前
+會標示一個 `release` 版本 — 目前是 `2.0.0`。這個欄位描述的是目前已提交的樹目前
 「是」什麼版本，而不是任何人現在能不能安裝它。
 
 安裝一律使用釘選的 `#<tag>` 參照（絕不使用 `@version` 或 semver 範圍），而
@@ -58,8 +58,8 @@ npx skills add "lettucebo/Skills#$TAG" --full-depth
 需要選項時，這個短指令會以互動方式詢問 project／global scope、目標 agent、
 copy／symlink 模式，以及要安裝的 skill。CLI 可能自動選取唯一偵測到的 agent；
 若所有所選 agent 共用同一個 skills 目錄，也會跳過 copy／symlink 提示並直接
-copy。選擇全部 skill（`*`）也會選到所有受限制 skill，因此請先閱讀下方
-[受限制內容](#受限制內容)。Repository-root 範圍必須使用 `--full-depth`；否則
+copy。選擇全部 skill（`*`）會安裝目前 115 個 active skill。Repository-root
+範圍必須使用 `--full-depth`；否則
 CLI 會停在頂層 `.github/skills/`，不會找到 `skills/` 底下的 registry。
 
 ### 安裝單一來源集合
@@ -95,7 +95,8 @@ npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" \
 npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" --agent github-copilot --copy -y --skill "*" --full-depth
 ```
 
-若只安裝一個 skill，請把 `*` 換成 `agents-sdk` 之類的 frontmatter 名稱；若只
+若只安裝一個 skill，請把 `*` 換成 `agents-sdk` 之類的 frontmatter 名稱；`*`
+會安裝目前全部 115 個 active skill。若只
 安裝一個來源集合，則把來源換成 `lettucebo/Skills/skills/azure#$TAG`。Smoke
 測試會對本機簽出實際執行這些選項；另外的契約測試則保護已發布的
 `owner/repo#tag`、子路徑與 `#tag@skill` 來源字串。在無人看管的外部自動化依賴
@@ -103,23 +104,15 @@ npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" --agent github-copilot --copy
 
 ## 受限制內容
 
-目前有部分位於 `skills/claude` 的 skill 在
-[`catalog/skills.lock.json`](../../catalog/skills.lock.json) 中被標記為
-`"redistributable": false`，因為它們的上游授權是專有授權。安裝整個 registry
-會包含它們；其重用條件由各自的 `LICENSE.txt` 規範，而已發布的網站刻意不渲染受
-限制 skill 的 `SKILL.md` 內容。受限制的來源與單一 skill 會抑制安裝指令；完整
-registry 指令仍可使用，並會安裝受限制 skill，但網站不再於指令旁顯示頁面內
-（on-page）受限制內容警告。
+2.0.0 的 active inventory 沒有受限制 skill。先前專有的
+`skills/claude/{docx,pdf,pptx,xlsx}` 鏡像已在第一個 release tag 前移除；其舊
+在地化與無語言前綴 URL 刻意回傳 404。Lock tombstone 與 history 稽核仍保留，
+但完整 registry 安裝只包含 115 個 active skill。
 
-受限制 skill 的清單並非固定不變 — 只要上游授權變更，這份清單就可能改變，因此
-絕不要假設固定的名稱、路徑或數量。若要查看目前實際受限制的 skill，請在 lockfile
-中搜尋所有 `"redistributable": false` 的項目，或開啟已發布網站的
-`/Skills/zh-tw/status/`
-頁面，該頁面會在「Restricted Skills」底下列出目前所有受限制的 skill。
-
-如果你想避免受限制內容，請安裝目前清單中不含受限制 skill 的來源，或選擇一個
-非受限制的單一 skill。請先查 lockfile 或 `/Skills/zh-tw/status/`；如果較小的範圍本身就是
-受限制內容，縮小範圍並不會讓它變安全。
+未來 inventory 若再出現受限制項目，處理仍維持 fail-closed：任何 active
+`"redistributable": false` skill 都不會渲染 body，並會抑制來源／單一 skill
+指令。請查看 lockfile 或 `/Skills/zh-tw/status/` 的 active 清單，不要從
+tombstone 推測目前 inventory。
 
 ## 直接複製備援方案
 

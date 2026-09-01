@@ -38,6 +38,14 @@ async function writeManifest(fixtureRoot, content) {
   await writeRepoFile(fixtureRoot, 'catalog/sources.yml', content);
 }
 
+async function writeLock(fixtureRoot, lock) {
+  await writeRepoFile(
+    fixtureRoot,
+    'catalog/skills.lock.json',
+    `${JSON.stringify(lock, null, 2)}\n`,
+  );
+}
+
 async function expectValidationFailure(fixtureRoot, pattern) {
   await assert.rejects(
     validateRepository(fixtureRoot),
@@ -146,6 +154,59 @@ overrides: []
     await expectValidationFailure(
       fixtureRoot,
       /Duplicate skill name "shared-name": skills\/azure\/alpha\/SKILL\.md, skills\/github\/beta\/SKILL\.md/,
+    );
+  });
+});
+
+test('validateRepository rejects a denylisted path that remains active after release 2.0.0', async () => {
+  await withFixture('denylisted-active', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/claude/docx',
+      '---\nname: docx\ndescription: Restricted fixture\n---\n',
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  anthropics:
+    repository: anthropics/skills
+    reference: refs/heads/main
+mappings:
+  - path: skills/claude/docx
+    upstream: anthropics
+    source: skills/docx
+orphans: []
+local: []
+overrides: []
+`,
+    );
+    await writeLock(fixtureRoot, {
+      release: '2.0.0',
+      generatedAt: '2026-09-02T00:00:00Z',
+      counts: { total: 1, mapped: 1, orphan: 0, local: 0 },
+      skills: [{
+        path: 'skills/claude/docx',
+        name: 'docx',
+        category: 'mapped',
+        version: '1.1.0',
+        baseline: 'verified',
+        license: 'Proprietary',
+        redistributable: false,
+        snapshotHash: 'sha256:fixture',
+        contentHash: 'sha256:fixture',
+        upstream: {
+          repository: 'anthropics/skills',
+          reference: 'refs/heads/main',
+          source: 'skills/docx',
+          commit: 'a'.repeat(40),
+        },
+      }],
+    });
+
+    await expectValidationFailure(
+      fixtureRoot,
+      /denylisted.*skills\/claude\/docx.*must not exist on disk.*active lock entry.*active mapping/is,
     );
   });
 });

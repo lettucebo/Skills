@@ -40,8 +40,8 @@ flowchart LR
 1. **`catalog/sources.yml`** 宣告每個上游、mapping、orphan、local root、
    override 與連結例外（見 [環境設定](configuration.md)）。
 2. **`scripts/sync.mjs`** 讀取 manifest，並依模式進行規劃，或把真正的
-   apply／baseline 委派給 **`scripts/lib/baseline.mjs`**；後者負責 apply lock、
-   journal、candidate／backup swap 與復原（見
+   apply／baseline／deproprietize 委派給 **`scripts/lib/baseline.mjs`**；後者
+   負責 apply lock、journal、candidate／backup swap 與復原（見
    [同步與發布](sync-and-releases.md)）。
 3. 宣告的上游會在其釘選的 branch／tag 上進行 **shallow clone** — 絕不使用純
    commit SHA — 而 mapped 來源會在每一條程式路徑上都以相同的排除與符號連結
@@ -85,16 +85,18 @@ flowchart LR
 12. **`site/src/i18n/`** 集中管理支援的 locale 型別、字典、parser/assertion、
     HTML 語言對應與理解 base path 的路徑 helper。共用頁面元件渲染五種邏輯頁面，
     明確的 `[locale]` 路由則為 `en`、`zh-tw` 與 `zh-cn` 展開它們。
-13. 目前 catalog 產生 402 個在地化頁面與 134 個無語言前綴的靜態 redirect
+13. 目前 catalog 產生 390 個在地化頁面與 130 個無語言前綴的靜態 redirect
     頁面。Redirect 保留舊版邏輯目標，以英文作為 canonical、meta 與 no-JS
-    fallback，並排除於 Pagefind 之外。每個 locale 只有 119 個 skill 頁加入
-    Pagefind，因此三個語言索引合計 357 個已索引頁面。
+    fallback，並排除於 Pagefind 之外。每個 locale 只有 115 個 skill 頁加入
+    Pagefind，因此三個語言索引合計 345 個已索引頁面；全部路由合計正好產生
+    520 個 HTML 頁面。
 14. 建置完成的網站會部署到 **GitHub Pages**。
 
 `node scripts/validate.mjs` 橫跨每一個階段：它會獨立於任何一次同步執行，走遍
-整個 `skills/` 樹，檢查 frontmatter、manifest 涵蓋範圍與相對連結，而
-兩個 apply 引擎都會在 candidate swap 後執行它，失敗時回溯。Workflow 另外執行
-一次套用前驗證（baseline 也有明確的套用後驗證）。
+整個 `skills/` 樹，檢查 frontmatter、manifest 涵蓋範圍、相對連結與 2.0 之後的
+永久 restricted denylist。三個 apply 引擎都會在交易中使用它；
+deproprietize 還會在第一次 swap 前驗證完整 candidate。Workflow 另外執行一次
+套用前驗證。
 
 Enrichment 驗證刻意位於這項交易之外。預設的
 `npm run validate:enrichment` 永遠強制 sidecar 安全性：現有種類目錄中的每個
@@ -198,17 +200,16 @@ locale 路由一致。本層不內建自訂詞彙表；
 
 ## 受限制內容隔離
 
-每一個在 lockfile 中被標記為 `"redistributable": false` 的 skill，都會在**網站
-資料層**被隔離：`loadSkillBody` 完全拒絕讀取其 `SKILL.md`。詳情頁仍會顯示名稱、
-版本、狀態、授權、可取得的上游來源證明與 history，但不顯示 description、操作
-說明或單一 skill 安裝指令。只要來源集合含受限制內容，來源層級指令也會被抑制。
+四個 anthropics 專有鏡像已在第一個 release tag 前移除。其 lock 項目是
+`removed` tombstone，history ledger 保留 `mapping-removed`，但 mapping、目錄、
+route、redirect 與 enrichment artifact 都不存在；active catalog 因此有零個
+restricted skill。
 
-完整 registry 指令是刻意保留的例外：catalog 仍會顯示它，而它會連同其他內容一併
-安裝受限制 skill。網站不再於指令旁顯示頁面內（on-page）受限制內容警告，因此執行
-前請透過 `/Skills/zh-tw/status/`（或其他 locale）或 lockfile 確認目前的受限制清單與授權。Vendored 位元組也仍
-存在於有 tag 的 repository tree，因此這項邊界是網站渲染與指令抑制，不是從 Git
-移除內容。目前清單可在 `/Skills/zh-tw/status/`（或其他 locale）查看，或在
-lockfile 搜尋 `"redistributable": false`；本文件不會枚舉。
+`RESTRICTED_SKILL_PATHS` 永久保留這四條路徑作為 denylist。自 2.0.0 起，validator
+會拒絕 denylisted 路徑出現在磁碟、active mapping 或 active lock 項目。授權解析器
+的 restricted 分支與所有網站 fail-closed 路徑仍保留，供 fixture 與未來可能的
+active restricted inventory 使用：`loadSkillBody` 仍拒絕讀取 restricted 內容，
+restricted 來源／單一 skill 指令仍會被抑制。
 
 ## 延伸閱讀
 

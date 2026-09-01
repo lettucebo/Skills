@@ -6,7 +6,7 @@ This page documents `scripts/sync.mjs` and the workflow that drives it end to
 end. For the manifest fields it reads, see [Configuration](configuration.md);
 for how a specific skill is added, see [Skill management](skill-management.md).
 
-## Three modes
+## Four modes
 
 ### Dry-run (the default)
 
@@ -65,12 +65,29 @@ target tag must not exist. Every mapped source must also be reachable and
 staged, and the baseline availability guard must pass. A failure exits rather
 than silently repeating or partially establishing the baseline.
 
-`--apply`, `--baseline`, and `--dry-run` are mutually exclusive; combining any
-two is rejected before any work starts.
+### Deproprietize (completed one-time migration)
 
-On Windows, apply and baseline require `powershell.exe` for durable journal
-replacement; the engine refuses to start the transaction if it is
-unavailable.
+```bash
+node scripts/sync.mjs --deproprietize
+```
+
+This one-time migration intentionally moved the unpublished `1.1.0` registry
+to the publishable `2.0.0` state without requiring a prior tag. It required a
+clean tree and the exact four active proprietary anthropics mappings
+(`docx`, `pdf`, `pptx`, and `xlsx`). The migration removed their declarations
+and vendored directories in one candidate, retained lock tombstones and
+per-skill history entries, regenerated all derived views, and used the normal
+deletion guard (4/17, below the 30% threshold). It never calls
+`assertTagReconciled`; `v2.0.0` is therefore the first tag that may be
+published, and `v1.1.0` must never be published. The exact `1.1.0`
+precondition makes the command non-repeatable.
+
+`--apply`, `--baseline`, `--deproprietize`, and `--dry-run` are mutually
+exclusive; combining modes is rejected before any work starts.
+
+On Windows, apply, baseline, and deproprietize require `powershell.exe` for
+durable journal replacement; the engine refuses to start the transaction if
+it is unavailable.
 
 ## Machine-readable output (`--output`)
 
@@ -79,6 +96,8 @@ unavailable.
 - **Dry-run** (with or without `--dry-run`): writes the JSON to the given file
   **instead of** stdout.
 - **Apply**: writes the JSON to **both** the given file **and** stdout.
+- **Deproprietize**: like apply, writes the JSON to **both** the given file
+  **and** stdout.
 - **Baseline**: `--output` is **not supported**. The baseline branch always
   writes its result to stdout only and returns without writing an output
   file at all, even if `--output` is passed.
@@ -104,7 +123,7 @@ their `upstream` field is `null`.
 
 ## Transaction safety: journal, rollback, crash recovery
 
-`--apply` and `--baseline` write through a durable transaction:
+`--apply`, `--baseline`, and `--deproprietize` write through a durable transaction:
 
 - workflow runs are serialized by the `sync-upstream-skills` concurrency
   group (`cancel-in-progress: false`), so a second dispatch waits rather than
@@ -119,6 +138,11 @@ their `upstream` field is `null`.
   swap is rolled back from its backup automatically. If the rollback itself
   fails, the error reports the backup location and preserves it for manual
   recovery instead of deleting it.
+
+The manifest `catalog/sources.yml` is a shared swap target alongside
+`skills/`, history, the lock, `NOTICE`, and README. A rollback or crash
+recovery therefore cannot leave declarations and materialized state on
+opposite sides of a migration.
 
 The lock is `.skills-sync-apply.lock` and the journal is
 `.skills-sync-transaction.json`; both live in the Git common directory shown

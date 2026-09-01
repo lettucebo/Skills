@@ -29,7 +29,7 @@ test('pagefind index files exist in dist/', { skip: !distExists && 'dist/ not fo
 
 // ─── Programmatic Search: Known Public Skill ────────────────────────
 
-test('pagefind indexes exactly 357 localized skill pages with filters and metadata', {
+test('pagefind indexes exactly 345 localized skill pages with filters and metadata', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   // Verify the built pagefind index has the correct page count
@@ -38,16 +38,16 @@ test('pagefind indexes exactly 357 localized skill pages with filters and metada
 
   const entry = JSON.parse(fs.readFileSync(entryPath, 'utf8'));
   assert.equal(
-    entry.languages.en.page_count, 119,
-    'Pagefind must index exactly 119 English skill pages',
+    entry.languages.en.page_count, 115,
+    'Pagefind must index exactly 115 English skill pages',
   );
-  assert.equal(entry.languages['zh-tw'].page_count, 119);
-  assert.equal(entry.languages['zh-cn'].page_count, 119);
+  assert.equal(entry.languages['zh-tw'].page_count, 115);
+  assert.equal(entry.languages['zh-cn'].page_count, 115);
 
   // Verify fragment files exist (one per indexed page)
   const fragmentDir = path.join(distDir, 'pagefind', 'fragment');
   const fragments = fs.readdirSync(fragmentDir).filter(f => f.endsWith('.pf_fragment'));
-  assert.equal(fragments.length, 357, 'Must have 357 fragment files');
+  assert.equal(fragments.length, 345, 'Must have 345 fragment files');
 
   // Verify filter index files exist
   const filterDir = path.join(distDir, 'pagefind', 'filter');
@@ -55,56 +55,21 @@ test('pagefind indexes exactly 357 localized skill pages with filters and metada
   assert.ok(filterFiles.length >= 3, `Must have at least 3 filter files (source, license, origin), got ${filterFiles.length}`);
 });
 
-// ─── Restricted Page Safety: HTML Content Check ─────────────────────
+// ─── Removed Page Safety: HTML Absence Check ────────────────────────
 
-test('restricted skill pages do not contain SKILL.md body content in built HTML', {
+test('removed proprietary skill pages are absent from built HTML', {
   skip: !distExists && 'dist/ not found',
-}, async () => {
-  const catalog = await loadCatalog(repoRoot);
-  const restrictedPaths = [
+}, () => {
+  const removedPaths = [
     'en/skills/claude/docx/index.html',
     'en/skills/claude/pdf/index.html',
     'en/skills/claude/pptx/index.html',
     'en/skills/claude/xlsx/index.html',
   ];
 
-  for (const relPath of restrictedPaths) {
+  for (const relPath of removedPaths) {
     const fullPath = path.join(distDir, relPath);
-    if (!fs.existsSync(fullPath)) {
-      assert.fail(`Expected restricted page at ${relPath}`);
-    }
-
-    const html = fs.readFileSync(fullPath, 'utf8');
-    const skillPath = relPath.replace(/^en\//, '').replace(/\/index\.html$/, '');
-    const skill = catalog.skills.find((entry) => entry.path === skillPath);
-    assert.ok(skill, `Expected catalog entry for ${skillPath}`);
-
-    // Restricted pages must NOT have a detail-body section
-    assert.doesNotMatch(
-      html,
-      /class="detail-body"/,
-      `Restricted page ${relPath} must not contain rendered body content`,
-    );
-
-    // Must NOT contain npx install command
-    assert.doesNotMatch(
-      html,
-      /npx skills add/,
-      `Restricted page ${relPath} must not contain npx install command`,
-    );
-
-    assert.ok(
-      html.includes(
-        `href="https://github.com/${skill.upstreamRepo}/tree/${skill.upstreamCommit}/${skill.upstreamSource}"`,
-      ),
-      `Restricted page ${relPath} must link to its pinned upstream source`,
-    );
-    assert.ok(
-      html.includes(
-        `href="https://github.com/${skill.upstreamRepo}/commit/${skill.upstreamCommit}"`,
-      ),
-      `Restricted page ${relPath} must link to its pinned upstream commit`,
-    );
+    assert.equal(fs.existsSync(fullPath), false, `Removed page ${relPath} must be absent`);
   }
 });
 

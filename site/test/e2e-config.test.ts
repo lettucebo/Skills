@@ -335,7 +335,7 @@ test('P6k: health spec covers 404 handling', () => {
   assert.match(spec, /toBe\(404\)/, 'health spec must assert real 404 responses for unknown paths');
 });
 
-test('P6l: restricted spec asserts no install/copy affordance is rendered', () => {
+test('P6l: removed proprietary route spec asserts 404 and no copy affordance', () => {
   const spec = readSpec('restricted.spec.ts');
   assert.doesNotMatch(
     spec,
@@ -345,8 +345,9 @@ test('P6l: restricted spec asserts no install/copy affordance is rendered', () =
   assert.match(
     spec,
     /install-copy-btn'\)\)\.toHaveCount\(0\)/,
-    'restricted pages must render no copy button at all',
+    'removed pages must render no copy button at all',
   );
+  assert.match(spec, /response\?\.status\(\)\)\.toBe\(404\)/);
 });
 
 test('P6m: _helpers.ts carries no dead settled-status helper', () => {

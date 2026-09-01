@@ -148,10 +148,10 @@ test('no mapping depends on an unimplemented command-to-skill transform', async 
   }
 });
 
-test('the registry covers 116 mapped skills and 3 frozen orphans', async () => {
+test('the registry covers 112 mapped skills and 3 frozen orphans', async () => {
   const manifest = await loadManifest(manifestPath);
 
-  assert.equal(manifest.mappings.length, 116);
+  assert.equal(manifest.mappings.length, 112);
   assert.equal(manifest.orphans.length, 3);
 });
 

@@ -47,6 +47,7 @@ sync-report/
 .baseline-work-*/
 .baseline-backup-*/
 .update-work-*/
+.deproprietize-work-*/
 /.changelog-work-*/
 
 # Astro generated types

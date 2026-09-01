@@ -46,13 +46,12 @@ skill。
 
 ### 整個 registry 安裝進來了我不預期的 skill
 
-**原因：** 安裝整個 registry 會包含所有可散布的 skill，加上目前在 lockfile 中
-被標記為 `"redistributable": false` 的所有 skill。這份清單並非固定不變 — 請查看
-`catalog/skills.lock.json`，或網站的 `/status/` 頁面，以取得目前實際受限制的
-skill 清單。
+**原因：** 完整 registry 安裝會選取釘選 release 的每個 active skill。2.0.0
+包含 115 個 active skill，沒有受限制 skill。
 
-**解法：** 改安裝目前清單中不含受限制 skill 的來源，或選取一個非受限制的單一
-skill — 詳見安裝方式中的 [受限制內容](installation.md#受限制內容)。
+**解法：** 不需要廣泛涵蓋時改裝單一來源或單一 skill。仍請查看
+`catalog/skills.lock.json` 或網站狀態頁，因為未來 release 可能再次出現 active
+restricted inventory。
 
 ### 過期或遺失的本機安裝
 

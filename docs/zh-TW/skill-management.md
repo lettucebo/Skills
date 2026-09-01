@@ -28,6 +28,19 @@ orphan 的內容；它只會在收編當下被觸碰一次。
 時候都不會用上游內容取代它。收編時，交易會讓已提交的樹通過 candidate swap，
 記錄其雜湊，但不會修改 skill 內容。
 
+### 已移除 mapping 與專有內容 denylist
+
+被移除的 mapping 會在 lock 中保留為 `removed` tombstone，並在 history 新增
+`mapping-removed`。它不再計入 active 數量、安裝計畫、來源清單或網站 route，
+且 vendored 目錄必須不存在。
+
+`2.0.0` 使用已完成的一次性 `--deproprietize` 遷移，在任何 tag 發布前移除
+`skills/claude/{docx,pdf,pptx,xlsx}`。這些路徑永久留在
+`RESTRICTED_SKILL_PATHS`；自 2.0.0 起，validator 會拒絕它們出現在磁碟、active
+mapping 或 active lock 項目。這次遷移是「先提交宣告／內容，再執行 `--apply`」
+一般規則的刻意例外：manifest 與 materialized state 在同一個 journaled
+transaction 中一起變更。
+
 ## 上線任何新 skill 的先決條件
 
 不論分類為何，透過同步引擎（`node scripts/sync.mjs --apply`）新增一個 skill

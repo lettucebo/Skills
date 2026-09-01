@@ -1203,6 +1203,7 @@ async function buildSwapFixture(workspace) {
   // Create the original files in the repo root.
   await writeFileEnsured(path.join(repoRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), skillDoc('alpha'));
   await writeFileEnsured(path.join(repoRoot, 'catalog', 'history', 'alpha.json'), '{"path":"alpha"}');
+  await writeFileEnsured(path.join(repoRoot, 'catalog', 'sources.yml'), 'mappings: []\n');
   await writeFileEnsured(path.join(repoRoot, 'catalog', 'skills.lock.json'), '{"release":"1.0.0"}');
   await writeFileEnsured(path.join(repoRoot, 'NOTICE'), '# NOTICE\noriginal\n');
   await writeFileEnsured(path.join(repoRoot, 'README.md'), '# README\noriginal\n');
@@ -1210,6 +1211,7 @@ async function buildSwapFixture(workspace) {
   // Create the candidate files (different content).
   await writeFileEnsured(path.join(candidateRoot, 'skills', 'demo', 'alpha', 'SKILL.md'), skillDoc('alpha-candidate'));
   await writeFileEnsured(path.join(candidateRoot, 'catalog', 'history', 'alpha.json'), '{"path":"alpha-candidate"}');
+  await writeFileEnsured(path.join(candidateRoot, 'catalog', 'sources.yml'), 'mappings:\n  - candidate\n');
   await writeFileEnsured(path.join(candidateRoot, 'catalog', 'skills.lock.json'), '{"release":"1.1.0"}');
   await writeFileEnsured(path.join(candidateRoot, 'NOTICE'), '# NOTICE\ncandidate\n');
   await writeFileEnsured(path.join(candidateRoot, 'README.md'), '# README\ncandidate\n');
@@ -1317,6 +1319,72 @@ for (const [targetIndex, target] of SWAP_TARGETS.entries()) {
     });
   }
 }
+
+test('applyBaseline recovers a legacy five-target v2 journal after manifest joins SWAP_TARGETS', async () => {
+  const workspace = await makeTempDir('legacy-journal-recovery');
+  try {
+    const { repoRoot, candidateRoot, backupRoot } = await buildSwapFixture(workspace);
+    const legacyTargets = SWAP_TARGETS.filter(
+      (target) => target.rel !== 'catalog/sources.yml',
+    );
+    const recordedTargets = [];
+
+    for (const [index, target] of legacyTargets.entries()) {
+      const live = path.join(repoRoot, ...target.rel.split('/'));
+      const backup = path.join(backupRoot, ...target.rel.split('/'));
+      const candidate = path.join(candidateRoot, ...target.rel.split('/'));
+      const expectedSnapshot = await baselineModule.snapshotSwapTarget(live, target.kind);
+      recordedTargets.push({
+        ...target,
+        live,
+        backup,
+        candidate,
+        expectedSnapshot,
+        phase: index === 0 ? 'backed-up' : 'live',
+      });
+    }
+
+    await mkdir(path.dirname(recordedTargets[0].backup), { recursive: true });
+    await rename(recordedTargets[0].live, recordedTargets[0].backup);
+    const manifestBefore = await readFile(
+      path.join(repoRoot, 'catalog', 'sources.yml'),
+      'utf8',
+    );
+    const journalPath = path.join(repoRoot, '.git', '.skills-sync-transaction.json');
+    await writeFile(
+      journalPath,
+      `${JSON.stringify({
+        version: 2,
+        status: 'swapping',
+        repoRoot,
+        candidateRoot,
+        backupRoot,
+        workRoot: workspace,
+        targets: recordedTargets,
+      }, null, 2)}\n`,
+    );
+
+    await assert.rejects(
+      applyBaseline({
+        repoRoot,
+        baseline: true,
+        readGitStatus: async () => ' M after-recovery\n',
+      }),
+      /working tree is not clean/,
+    );
+
+    assert.equal(existsSync(recordedTargets[0].live), true);
+    assert.equal(existsSync(journalPath), false);
+    assert.equal(existsSync(backupRoot), false);
+    assert.equal(existsSync(candidateRoot), false);
+    assert.equal(
+      await readFile(path.join(repoRoot, 'catalog', 'sources.yml'), 'utf8'),
+      manifestBefore,
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
 
 test('applyBaseline preserves recovery artifacts instead of restoring a partial validated backup', async () => {
   const workspace = await makeTempDir('baseline-validated-partial-backup');

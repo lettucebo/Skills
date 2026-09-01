@@ -19,6 +19,15 @@
       "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
       "diffUrl": null,
       "contentHash": "sha256:6a01b6dc757b8856d7eba5e9985d8550783f946d7afdf86402ba324b93239fc0"
+    },
+    {
+      "release": "2.0.0",
+      "kind": "mapping-removed",
+      "version": "1.1.0",
+      "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "diffUrl": null,
+      "contentHash": "sha256:6a01b6dc757b8856d7eba5e9985d8550783f946d7afdf86402ba324b93239fc0",
+      "reason": "Removed proprietary material to prevent proprietary redistribution."
     }
   ]
 }

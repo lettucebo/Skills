@@ -38,27 +38,27 @@ function escapeHtmlText(value: string): string {
     .replace(/>/g, '&gt;');
 }
 
-test('build emits exactly 536 static pages with approved localized and redirect arithmetic', {
+test('build emits exactly 520 static pages with approved localized and redirect arithmetic', {
   skip: !distExists && 'dist/ not found (run npm run build first)',
 }, async () => {
   const catalog = await loadCatalog(repoRoot);
   const localized = getLocalizedRouteEntries(catalog);
   const redirects = getLegacyRedirectEntries(catalog);
 
-  assert.equal(localized.length, 402);
-  assert.equal(redirects.length, 134);
-  assert.equal(allHtmlFiles(distDir).length, 536);
+  assert.equal(localized.length, 390);
+  assert.equal(redirects.length, 130);
+  assert.equal(allHtmlFiles(distDir).length, 520);
   for (const entry of [...localized.map(({ path }) => path), ...redirects.map(({ from }) => from)]) {
     assert.ok(fs.existsSync(htmlPath(entry)), `missing built page for ${entry}`);
   }
 });
 
-test('all 134 legacy redirects contain exact English meta, canonical, anchor, and Pagefind exclusion', {
+test('all 130 legacy redirects contain exact English meta, canonical, anchor, and Pagefind exclusion', {
   skip: !distExists && 'dist/ not found',
 }, async () => {
   const catalog = await loadCatalog(repoRoot);
   const redirects = getLegacyRedirectEntries(catalog);
-  assert.equal(redirects.length, 134);
+  assert.equal(redirects.length, 130);
 
   for (const { from, to } of redirects) {
     const html = fs.readFileSync(htmlPath(from), 'utf8');
@@ -217,38 +217,40 @@ test('all three structured summary locales render their matching content', {
   }
 });
 
-test('restricted pages in all locales suppress body, summaries, changelog summaries, and install controls', {
+test('removed proprietary pages and their legacy redirects are absent', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  for (const locale of ['en', 'zh-tw', 'zh-cn']) {
-    const html = fs.readFileSync(
-      htmlPath(`/Skills/${locale}/skills/claude/docx/`),
-      'utf8',
+  for (const skill of ['docx', 'pdf', 'pptx', 'xlsx']) {
+    for (const locale of ['en', 'zh-tw', 'zh-cn']) {
+      assert.equal(
+        fs.existsSync(htmlPath(`/Skills/${locale}/skills/claude/${skill}/`)),
+        false,
+      );
+    }
+    assert.equal(
+      fs.existsSync(htmlPath(`/Skills/skills/claude/${skill}/`)),
+      false,
     );
-    assert.doesNotMatch(html, /class="detail-body"/);
-    assert.doesNotMatch(html, /class="skill-summary"/);
-    assert.doesNotMatch(html, /class="timeline-summary"/);
-    assert.doesNotMatch(html, /install-copy-btn|npx skills add/);
   }
 });
 
-test('Pagefind indexes exactly 357 localized skill pages across all three languages', {
+test('Pagefind indexes exactly 345 localized skill pages across all three languages', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const entry = JSON.parse(
     fs.readFileSync(path.join(distDir, 'pagefind', 'pagefind-entry.json'), 'utf8'),
   );
-  assert.equal(entry.languages.en.page_count, 119);
-  assert.equal(entry.languages['zh-tw'].page_count, 119);
-  assert.equal(entry.languages['zh-cn'].page_count, 119);
+  assert.equal(entry.languages.en.page_count, 115);
+  assert.equal(entry.languages['zh-tw'].page_count, 115);
+  assert.equal(entry.languages['zh-cn'].page_count, 115);
   assert.equal(
     Object.values(entry.languages).reduce(
       (sum: number, language: any) => sum + language.page_count,
       0,
     ),
-    357,
+    345,
   );
   const fragments = fs.readdirSync(path.join(distDir, 'pagefind', 'fragment'))
     .filter((name) => name.endsWith('.pf_fragment'));
-  assert.equal(fragments.length, 357);
+  assert.equal(fragments.length, 345);
 });

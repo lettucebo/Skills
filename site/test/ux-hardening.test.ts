@@ -611,14 +611,13 @@ test('INT1: built public skill page has copy button', {
   assert.match(html, /copy|Copy/i, 'Built page must have copy button');
 });
 
-test('INT2: built restricted page has no copy button', {
+test('INT2: removed proprietary page is not built', {
   skip: !distExists && 'dist/ not found',
 }, () => {
-  const html = fs.readFileSync(
-    path.join(distDir, 'en', 'skills', 'claude', 'docx', 'index.html'),
-    'utf8',
+  assert.equal(
+    fs.existsSync(path.join(distDir, 'en', 'skills', 'claude', 'docx', 'index.html')),
+    false,
   );
-  assert.doesNotMatch(html, /navigator\.clipboard/, 'Restricted page must not have clipboard code');
 });
 
 test('INT3: built status page has no stale search limitation', {
@@ -685,7 +684,7 @@ test('INT8: built install page publishes the full-repo install command without a
 
   assert.match(
     html,
-    /npx skills add lettucebo\/Skills#v1\.1\.0/,
+    /npx skills add lettucebo\/Skills#v2\.0\.0/,
     'the full-repo install command must still be published',
   );
   // The restricted licensing disclosure was intentionally removed; guard that it
@@ -715,31 +714,24 @@ test('INT8b: built landing page no longer publishes the full-repo install comman
   assert.match(html, /href="\/Skills\/en\/install\/"/, 'the landing page must link to the localized install page');
 });
 
-test('INT9: built source page for a restricted source publishes no bulk install command', {
+test('INT9: built claude source page publishes a bulk install command after removal', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const html = fs.readFileSync(path.join(distDir, 'en', 'sources', 'claude', 'index.html'), 'utf8');
-  assert.doesNotMatch(
+  assert.match(
     html,
-    /npx skills add lettucebo\/Skills\/skills\/claude/,
-    'a source containing restricted skills must not offer a bulk install command',
+    /npx skills add lettucebo\/Skills\/skills\/claude#v2\.0\.0/,
+    'claude must offer a bulk install command after restricted mirrors are removed',
   );
-  // The InstallCommand component (and its copy affordance) must not render at
-  // all for a restricted source — not merely be missing the exact command.
-  assert.doesNotMatch(
+  assert.match(
     html,
     /install-block/,
-    'a restricted source page must not render an install block',
+    'claude source page must render an install block',
   );
-  assert.doesNotMatch(
+  assert.match(
     html,
     /install-copy-btn/,
-    'a restricted source page must not render an install copy button',
-  );
-  assert.doesNotMatch(
-    html,
-    /npx skills add/,
-    'a restricted source page must not expose any npx install command text',
+    'claude source page must render an install copy button',
   );
 });
 
@@ -749,7 +741,7 @@ test('INT10: built source page for a clean source keeps its bulk install command
   const html = fs.readFileSync(path.join(distDir, 'en', 'sources', 'azure', 'index.html'), 'utf8');
   assert.match(
     html,
-    /npx skills add lettucebo\/Skills\/skills\/azure#v1\.1\.0/,
+    /npx skills add lettucebo\/Skills\/skills\/azure#v2\.0\.0/,
     'sources without restricted skills must keep their bulk install command',
   );
 });
@@ -814,26 +806,12 @@ test('INT11: built status page reports the real verified/mapped ratio', {
   );
 });
 
-test('INT12: built status page lists every restricted path from the lock', {
+test('INT12: built status page omits an empty restricted inventory section', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const html = fs.readFileSync(path.join(distDir, 'en', 'status', 'index.html'), 'utf8');
-  const lock = JSON.parse(
-    fs.readFileSync(path.resolve(siteRoot, '..', 'catalog', 'skills.lock.json'), 'utf8'),
-  );
-  const restricted = lock.skills
-    .filter((s: { redistributable?: boolean }) => s.redistributable === false)
-    .map((s: { path: string }) => s.path);
-
-  assert.ok(restricted.length > 0, 'fixture precondition: the lock has restricted skills');
-  for (const restrictedPath of restricted) {
-    assert.ok(html.includes(restrictedPath), `status page must list ${restrictedPath}`);
-  }
-  assert.match(
-    html,
-    new RegExp(`Restricted Skills \\(${restricted.length}\\)`),
-    'the restricted heading count must match the lock',
-  );
+  assert.doesNotMatch(html, /Restricted Skills \(/);
+  assert.doesNotMatch(html, /skills\/claude\/(?:docx|pdf|pptx|xlsx)/);
 });
 
 // ─── J. Links inside tinted info boxes ──────────────────────────────

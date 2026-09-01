@@ -184,19 +184,21 @@ const orphanSkills = catalog.skills.filter((s) => s.isOrphan);
     )}
   </div>
 
-  <div class="status-section">
-    <h2>{t(locale, 'restrictedSkills')} ({restrictedSkills.length})</h2>
-    <p style="color:var(--cp-muted-text);font-size:0.875rem;margin-bottom:8px;">
-      {t(locale, 'restrictedDetail')}
-    </p>
-    <ul>
-      {restrictedSkills.map((skill) => (
-        <li style="font-size:0.875rem;margin-bottom:4px;">
-          <code>{skill.path}</code>
-        </li>
-      ))}
-    </ul>
-  </div>
+  {restrictedSkills.length > 0 && (
+    <div class="status-section">
+      <h2>{t(locale, 'restrictedSkills')} ({restrictedSkills.length})</h2>
+      <p style="color:var(--cp-muted-text);font-size:0.875rem;margin-bottom:8px;">
+        {t(locale, 'restrictedDetail')}
+      </p>
+      <ul>
+        {restrictedSkills.map((skill) => (
+          <li style="font-size:0.875rem;margin-bottom:4px;">
+            <code>{skill.path}</code>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
 
   <div class="status-section">
     <h2>{t(locale, 'knownLimitations')}</h2>
