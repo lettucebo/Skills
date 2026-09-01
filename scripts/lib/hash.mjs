@@ -140,6 +140,55 @@ export async function hashDirectory(absoluteDirectory) {
   return `sha256:${digest.digest('hex')}`;
 }
 
+/**
+ * Computes the repository's canonical sha256-prefixed hash for text inputs.
+ */
+export function hashText(value) {
+  if (typeof value !== 'string') {
+    throw new TypeError('hashText requires a string value.');
+  }
+
+  return `sha256:${createHash('sha256').update(value, 'utf8').digest('hex')}`;
+}
+
+/**
+ * Hashes a JSON value after sorting object keys recursively.
+ */
+export function hashJson(value) {
+  return hashText(serializeCanonicalJson(value));
+}
+
+function serializeCanonicalJson(value) {
+  if (value === null || typeof value === 'boolean' || typeof value === 'string') {
+    return JSON.stringify(value);
+  }
+  if (typeof value === 'number') {
+    if (!Number.isFinite(value)) {
+      throw new TypeError('hashJson does not accept non-finite numbers.');
+    }
+    return JSON.stringify(value);
+  }
+  if (Array.isArray(value)) {
+    return `[${value.map((entry) => serializeCanonicalJson(entry)).join(',')}]`;
+  }
+  if (typeof value === 'object') {
+    const prototype = Object.getPrototypeOf(value);
+    if (prototype !== Object.prototype && prototype !== null) {
+      throw new TypeError('hashJson accepts only plain JSON objects.');
+    }
+    return `{${Object.keys(value)
+      .sort()
+      .map((key) => {
+        if (value[key] === undefined) {
+          throw new TypeError('hashJson does not accept undefined object values.');
+        }
+        return `${JSON.stringify(key)}:${serializeCanonicalJson(value[key])}`;
+      })
+      .join(',')}}`;
+  }
+  throw new TypeError(`hashJson does not accept values of type ${typeof value}.`);
+}
+
 async function collectFiles(rootDirectory, currentDirectory, files) {
   const entries = await readdir(currentDirectory, { withFileTypes: true });
 

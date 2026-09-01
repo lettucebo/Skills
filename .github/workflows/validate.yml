@@ -30,6 +30,9 @@ jobs:
       - name: Run repository validator
         run: node scripts/validate.mjs
 
+      - name: Run enrichment safety validator
+        run: npm run validate:enrichment
+
   # The root `npm test` is scoped to scripts/test, so the site unit suite needs
   # its own job with the site dependencies installed. It runs unconditionally:
   # the site loader reads catalog/skills.lock.json, so a catalog-only change can

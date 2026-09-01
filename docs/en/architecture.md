@@ -18,8 +18,13 @@ flowchart LR
     E --> H["catalog/history/*.json"]
     G --> M["scripts/catalog.mjs<br/>(deterministic rendering)"]
     M --> I["NOTICE +<br/>README generated blocks"]
+    G --> N["scripts/lib/enrichment.mjs<br/>(schema, eligibility, freshness)"]
+    H --> N
+    N -. "later generators, when enabled" .-> O["catalog/enrichment/<br/>summaries + changelog"]
     G --> J["site/src/lib/catalog.ts<br/>(build-time loader)"]
     H --> J
+    O --> P["site/src/lib/enrichment.ts<br/>(freshness-gated loader)"]
+    P --> K
     J --> K["Astro static site<br/>+ Pagefind search index"]
     K --> L["GitHub Pages deployment"]
 ```
@@ -49,7 +54,18 @@ flowchart LR
 7. At build time, **`site/src/lib/catalog.ts`** reads the lock file for every
    catalog route and reads a skill's history ledger for that skill's detail
    timeline (see [Website](website.md)).
-8. The built site (including its Pagefind search index) deploys to **GitHub
+8. **`scripts/lib/enrichment.mjs`** defines the shared sidecar schema,
+   eligibility rules, freshness keys, and locale signatures. Later generators
+   may populate `catalog/enrichment/summaries/` and
+   `catalog/enrichment/changelog/` only when the durable
+   `catalog/enrichment/manifest.json` flag for that kind is enabled.
+9. **`site/src/lib/enrichment.ts`** reads only the requested locale from a
+   fresh, schema-valid sidecar. Restricted or tombstoned skills are rejected
+   before a sidecar path is touched. A missing artifact, stale artifact, or
+   missing requested locale returns the caller's existing fallback. The
+   mandatory manifest and any artifact that exists must parse and validate;
+   unexpected I/O or schema failures stop the build.
+10. The built site (including its Pagefind search index) deploys to **GitHub
    Pages**.
 
 `node scripts/validate.mjs` cuts across every stage: it walks the whole
@@ -57,6 +73,85 @@ flowchart LR
 manifest coverage, and relative links. Both apply engines run it after the
 candidate swap and roll back on failure. The workflow also runs a separate
 pre-apply validation (and an explicit post-apply validation for baseline).
+
+Enrichment validation is deliberately outside that transaction. The default
+`npm run validate:enrichment` command always enforces sidecar safety:
+every artifact in an existing kind directory must be schema-valid and
+path-safe, and artifacts cannot refer to skills that are restricted,
+tombstoned, or absent from the lock. An enabled kind must also have its
+directory. Missing and stale artifacts pass. Publishing uses
+`npm run validate:enrichment -- --strict`,
+which additionally requires the artifact set to exactly match the eligible
+skills and every artifact to be fresh. A legitimate upstream swap therefore
+cannot be rolled back merely because optional sidecars have not caught up.
+
+## Enrichment sidecar contract
+
+Both artifact kinds use the history filename convention. For example,
+`skills/azure/az-cost-optimize` maps to
+`skills__azure__az-cost-optimize.json` below its kind directory. The shared
+shape is frozen at schema version 1:
+
+```json
+{
+  "path": "skills/azure/az-cost-optimize",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:...",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/az-cost-optimize",
+    "pinnedCommit": "..."
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:...",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:...",
+      "generatorVersion": 1,
+      "content": {}
+    },
+    "zh-tw": {
+      "signature": "sha256:...",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:...",
+      "generatorVersion": 1,
+      "content": {}
+    },
+    "zh-cn": {
+      "signature": "sha256:...",
+      "producer": "opencc",
+      "converterVersion": "1.0.6",
+      "generatorVersion": 1,
+      "content": {}
+    }
+  }
+}
+```
+
+Summary freshness contains only `contentHash`. Changelog freshness contains
+the full provenance tuple shown above, so a new pinned commit invalidates a
+changelog even when the upstream bytes are unchanged. Mapped skills use their
+pre-transform `contentHash`; orphan and local summary artifacts use
+`snapshotHash` as the value of the `contentHash` field.
+
+Summary eligibility is `not tombstone AND not restricted`. Changelog
+eligibility adds `upstream != null`, so frozen orphans cannot accidentally
+receive changelogs. Each locale signature hashes the locale, schema version,
+producer, prompt ID, prompt hash, model or converter version, mandatory
+generator version, and the pinned Copilot CLI contract. The generator version
+is the explicit cache invalidation control for logic-only changes.
+
+`scripts/lib/localization.mjs` is the single deterministic Chinese conversion
+boundary. It uses `opencc-js` with the Taiwan-phrases-to-Simplified
+`twp -> cn` preset and records `opencc-js:twp-to-cn@<version>` in both the
+`zh-cn` locale artifact and its signature. When either enrichment kind is
+enabled, generators must materialize all three locale slots (`en`, `zh-tw`,
+and `zh-cn`) even though localized site routes are not exposed yet. No custom
+glossary is embedded here; later editorial vocabulary work remains tracked by
+[issue #12](https://github.com/lettucebo/Skills/issues/12).
 
 ## Safety boundaries
 
@@ -77,6 +172,10 @@ pre-apply validation (and an explicit post-apply validation for baseline).
   is resolved from the journal on the next apply after a stale lock is
   safely cleared, or leaves a clearly reported, manually recoverable backup
   (see [Sync and releases](sync-and-releases.md#transaction-safety-journal-rollback-crash-recovery)).
+- **Forbidden-sidecar pruning.** After an applied upstream update and before
+  its commit, `npm run enrich:prune` removes artifacts whose skill became
+  restricted, became a tombstone, or left the lock. It performs deletion only
+  and has no LLM, network, or API-key dependency.
 
 ## Restricted content isolation
 
