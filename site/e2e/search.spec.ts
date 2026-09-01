@@ -88,6 +88,18 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
     await expect(page.locator('#catalog-count')).toHaveText(String(rows.length));
   });
 
+  test('latest-change clarification does not turn every card into a Pagefind match', async ({ page }) => {
+    const total = await page.locator('[data-skill-card]').count();
+    await page.locator('#search-input').fill('pinned');
+    const rows = await waitForRenderedResults(page);
+
+    expect(
+      rows.length,
+      'Pagefind must ignore the shared latest-change clarification text',
+    ).toBeLessThan(total);
+    await expect(page.locator('.search-result-item')).toHaveCount(0);
+  });
+
   test('visible cards keep their source/version metadata', async ({ page }) => {
     await page.locator('#search-input').fill('azure');
     const rows = await waitForRenderedResults(page);

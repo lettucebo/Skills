@@ -578,6 +578,23 @@ test('changelog artifacts require the precise structured commit content schema',
     valid: true,
     errors: [],
   });
+
+  for (const malformedDate of [
+    'not-a-date',
+    '2026-13-01T00:00:00Z',
+    '2026-02-30T00:00:00Z',
+    '2026-01-01',
+  ]) {
+    const malformedDateArtifact = structuredClone(valid);
+    for (const locale of Object.values(malformedDateArtifact.locales)) {
+      locale.content.commits[0].date = malformedDate;
+    }
+    assert.equal(
+      validateEnrichmentArtifact('changelog', malformedDateArtifact).valid,
+      false,
+      `expected malformed author date ${malformedDate} to fail schema validation`,
+    );
+  }
 });
 
 test('freshness comparison is independent of JSON property order', () => {

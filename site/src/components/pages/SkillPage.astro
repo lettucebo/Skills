@@ -1,10 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import InstallCommand from '../InstallCommand.astro';
+import LatestIncludedChange from '../LatestIncludedChange.astro';
 import {
   formatChangelogDate,
   loadEnrichmentLocale,
-  type SkillChangelogContent,
+  loadSkillChangelog,
   type SkillSummaryContent,
 } from '../../lib/enrichment';
 import {
@@ -49,29 +50,15 @@ const loadedSummary = await loadEnrichmentLocale<SkillSummaryContent>({
   fallback: noSummary,
 });
 const summary = loadedSummary === noSummary ? null : loadedSummary;
-const emptyUpstreamChanges: SkillChangelogContent = { commits: [] };
-const upstreamChangesPromise =
-  !skill.isRestricted && !skill.isOrphan && skill.upstreamRepo
-    ? loadEnrichmentLocale<SkillChangelogContent>({
-        repoRoot,
-        kind: 'changelog',
-        skill: skill.lockEntry,
-        locale,
-        fallback: emptyUpstreamChanges,
-        fallbackFromArtifact: locale === 'en'
-          ? undefined
-          : (artifact) => ({
-              commits: artifact.locales.en.content.commits.map((entry) => ({
-                ...entry,
-                summary: '',
-              })),
-              ...(artifact.locales.en.content.truncatedAt
-                ? { truncatedAt: artifact.locales.en.content.truncatedAt }
-                : {}),
-            }),
-      })
-    : Promise.resolve(emptyUpstreamChanges);
-const upstreamChanges = await upstreamChangesPromise;
+const changelog = !skill.isRestricted
+  ? await loadSkillChangelog({
+      repoRoot,
+      skill: skill.lockEntry,
+      locale,
+    })
+  : null;
+const upstreamChanges = changelog?.content ?? { commits: [] };
+const latestIncludedChange = changelog?.latestIncludedChange ?? null;
 const installCmd = skill.isRestricted
   ? null
   : generateSingleSkillInstallCommand(skill.name);
@@ -95,6 +82,9 @@ function statusBadgeClass(): string {
   </nav>
 
   <article data-pagefind-body>
+    <span id="latest-included-change-description" class="visually-hidden" data-pagefind-ignore>
+      {t(locale, 'latestIncludedChangeClarification')}
+    </span>
     <div class="detail-header">
       <h1>{skill.name}</h1>
       <div class="detail-meta">
@@ -123,6 +113,13 @@ function statusBadgeClass(): string {
               <code>{skill.upstreamCommit.slice(0, 7)}</code>
             )}
           </span>
+        )}
+        {!skill.isRestricted && latestIncludedChange && (
+          <LatestIncludedChange
+            locale={locale}
+            value={latestIncludedChange}
+            descriptionId="latest-included-change-description"
+          />
         )}
       </div>
     </div>
@@ -160,6 +157,39 @@ function statusBadgeClass(): string {
       </div>
     )}
 
+    {upstreamChanges.commits.length > 0 && latestIncludedChange?.date && (
+      <details class="upstream-changes" data-pagefind-ignore>
+        <summary>
+          {t(locale, 'upstreamChangesSummary', {
+            count: upstreamChanges.commits.length,
+            date: formatChangelogDate(latestIncludedChange.date),
+          })}
+        </summary>
+        <div class="timeline upstream-changes-timeline">
+          {upstreamChanges.commits.map((entry) => (
+            <div class="timeline-entry">
+              <a
+                class="timeline-version"
+                href={entry.url}
+                rel="noopener noreferrer"
+              >
+                <code>{entry.sha.slice(0, 7)}</code>
+              </a>
+              <time datetime={entry.date}>{formatChangelogDate(entry.date)}</time>
+              <span class="timeline-subject">{entry.subject}</span>
+              {entry.summary && <span class="timeline-summary">{entry.summary}</span>}
+            </div>
+          ))}
+          {upstreamChanges.truncatedAt && (
+            <p class="timeline-note">
+              {t(locale, 'earlierHistoryTruncated')}{' '}
+              <code>{upstreamChanges.truncatedAt.sha.slice(0, 7)}</code>.
+            </p>
+          )}
+        </div>
+      </details>
+    )}
+
     {!skill.isRestricted && installCmd && (
       <div data-pagefind-ignore>
         <InstallCommand command={installCmd} locale={locale} />
@@ -172,32 +202,6 @@ function statusBadgeClass(): string {
       </div>
     )}
   </article>
-
-  {upstreamChanges.commits.length > 0 && (
-    <div class="timeline" data-pagefind-ignore>
-      <h2>{t(locale, 'upstreamChanges')}</h2>
-      {upstreamChanges.commits.map((entry) => (
-        <div class="timeline-entry">
-          <a
-            class="timeline-version"
-            href={entry.url}
-            rel="noopener noreferrer"
-          >
-            <code>{entry.sha.slice(0, 7)}</code>
-          </a>
-          <time datetime={entry.date}>{formatChangelogDate(entry.date)}</time>
-          <span class="timeline-subject">{entry.subject}</span>
-          {entry.summary && <span class="timeline-summary">{entry.summary}</span>}
-        </div>
-      ))}
-      {upstreamChanges.truncatedAt && (
-        <p class="timeline-note">
-          {t(locale, 'earlierHistoryTruncated')}{' '}
-          <code>{upstreamChanges.truncatedAt.sha.slice(0, 7)}</code>.
-        </p>
-      )}
-    </div>
-  )}
 
   {history.length > 0 && (
     <div class="timeline" data-pagefind-ignore>

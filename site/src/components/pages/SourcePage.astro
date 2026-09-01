@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import InstallCommand from '../InstallCommand.astro';
+import LatestIncludedChange from '../LatestIncludedChange.astro';
 import {
   loadCatalog,
   getSkillsBySource,
@@ -9,6 +10,10 @@ import {
   RELEASE_VERSION,
   RELEASE_PUBLISHED,
 } from '../../lib/catalog';
+import {
+  loadSkillChangelog,
+  type LatestIncludedChange as LatestIncludedChangeValue,
+} from '../../lib/enrichment';
 import {
   localizedPath,
   statusMessageKey,
@@ -28,6 +33,20 @@ const catalog = await loadCatalog(repoRoot);
 const skills = getSkillsBySource(catalog.skills, source);
 const upstreamRepo = getUpstreamRepoForSource(catalog.skills, source);
 const sourceCmd = generateSourceInstallCommand(catalog.skills, source);
+const latestIncludedChanges = new Map<string, LatestIncludedChangeValue>(
+  await Promise.all(
+    skills
+      .filter((skill) => !skill.isRestricted)
+      .map(async (skill) => {
+        const changelog = await loadSkillChangelog({
+          repoRoot,
+          skill: skill.lockEntry,
+          locale,
+        });
+        return [skill.path, changelog!.latestIncludedChange] as const;
+      }),
+  ),
+);
 ---
 <Layout title={t(locale, 'sourcePageTitle', { source })} locale={locale}>
   <nav class="breadcrumbs" aria-label={t(locale, 'breadcrumb')}>
@@ -48,6 +67,10 @@ const sourceCmd = generateSourceInstallCommand(catalog.skills, source);
     </p>
   </div>
 
+  <span id="latest-included-change-description" class="visually-hidden" data-pagefind-ignore>
+    {t(locale, 'latestIncludedChangeClarification')}
+  </span>
+
   {sourceCmd && (
     <InstallCommand command={sourceCmd} locale={locale} />
   )}
@@ -60,6 +83,7 @@ const sourceCmd = generateSourceInstallCommand(catalog.skills, source);
           <th>{t(locale, 'version')}</th>
           <th>{t(locale, 'status')}</th>
           <th>{t(locale, 'license')}</th>
+          <th>{t(locale, 'latestIncludedChange')}</th>
         </tr>
       </thead>
       <tbody>
@@ -75,6 +99,16 @@ const sourceCmd = generateSourceInstallCommand(catalog.skills, source);
               </span>
             </td>
             <td>{skill.license}</td>
+            <td>
+              {!skill.isRestricted && latestIncludedChanges.has(skill.path) && (
+                <LatestIncludedChange
+                  locale={locale}
+                  value={latestIncludedChanges.get(skill.path)!}
+                  showLabel={false}
+                  descriptionId="latest-included-change-description"
+                />
+              )}
+            </td>
           </tr>
         ))}
       </tbody>

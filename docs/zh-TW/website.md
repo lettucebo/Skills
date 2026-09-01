@@ -53,7 +53,8 @@ document／fragment。四個已移除的專有 skill route 與 legacy redirect �
 符合資格的 skill 具有面向一般使用者的摘要成品，分為**用途**、**使用時機**與
 **輸出結果**三個欄位。詳細頁面會顯示全部三個欄位，Pagefind 也會在既有的 skill
 頁面中索引這些內容。目錄卡片則以摘要的用途取代給 agent 使用的 frontmatter
-觸發描述。
+觸發描述。每張 active 且非受限制的卡片也會顯示目前 changelog 成品中的
+**收錄的最新變更**日期。
 
 只有在 enrichment 已啟用，而且摘要成品與目前 lock 項目保持最新時，網站才會
 採用該摘要。每個在地化路由只請求對應的 enrichment locale。若該 locale 停用、
@@ -114,16 +115,26 @@ npm --prefix site run test:e2e
 
 符合資格的 mapped skill 詳情頁可以顯示兩條彼此獨立的 timeline：
 
-- **Upstream changes** 列出從最早到 lockfile 所釘選精確 commit 之間，每一個實際
-  影響該 skill `SKILL.md` 的非 merge 上游 commit。每一筆都直接連到該 repository
-  的 commit、保留原始上游 subject，並使用目前路由對應 locale 的生成摘要。
+- **Upstream changes** 是位於安裝指令與原始 `SKILL.md` 內容之前的原生 disclosure，
+  預設收合；summary 會顯示 commit 筆數與最新收錄日期。展開後列出直到 lockfile
+  所釘選精確 commit 為止，每一個實際影響該 skill `SKILL.md` 的非 merge 上游
+  commit。每一筆都直接連到該 repository 的 commit、保留原始上游 subject，並
+  使用目前路由對應 locale 的生成摘要。整個 disclosure 都排除於 Pagefind 之外。
 - **History** 維持原本來自 `catalog/history/*.json` 的 registry release 帳本，
-  顯示這個 registry 何時採用該 skill 或調整其版本。
+  顯示這個 registry 何時採用該 skill 或調整其版本，並維持為頁尾獨立區塊。
 
 兩者刻意不合併：前者描述上游 Git history，後者描述 registry release。中文生成
 摘要缺少或無效時絕不退回英文；若仍有安全的 commit metadata，頁面只顯示原始
 subject 與 metadata，不顯示生成摘要。不符合資格或無可用 changelog 資料時則省略
 Upstream changes，既有的 History 仍會正常渲染。
+
+詳細頁 metadata、每張目錄卡片與每個來源表格都會顯示**收錄的最新變更**；只有
+changelog sidecar 通過完整來源證明 freshness 檢查時，才會使用
+`commits[0].date`。這代表 registry **釘選版本所收錄的最新上游 author date**，
+不是即時上游查詢，也不是 committer date 的「最後更新」；rebase 與 cherry-pick
+可能保留較舊的 author date。沒有已驗證上游的 frozen skill，以及上游 metadata
+遺失或過期的 mapped skill，都會顯示 em dash，但提供不同的螢幕閱讀器說明。
+網站不會改用 registry 產生時間、來源 commit 日期、建置時間或目前日期。
 
 ## 網站上的受限制內容
 
