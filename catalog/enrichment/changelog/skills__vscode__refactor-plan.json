@@ -1,0 +1,168 @@
+{
+  "path": "skills/vscode/refactor-plan",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:a11242c577d97bd3deb56e2cb7c2ecbacafc643743a716d258553bacdaa3cc62",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/refactor-plan",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "c0d4a0583c55c829aa0f20b98423cb2bc1242ae1",
+            "date": "2026-05-11T17:49:12-06:00",
+            "subject": "fix(refactor-plan): expand skill description and instructions (#1676)",
+            "url": "https://github.com/github/awesome-copilot/commit/c0d4a0583c55c829aa0f20b98423cb2bc1242ae1",
+            "pathAtCommit": "skills/refactor-plan/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated `skills/refactor-plan/SKILL.md` to expand the description, require planning before edits, add more specific planning and validation steps, and change the closing prompt wording."
+          },
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/refactor-plan/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C096",
+              "sourcePath": "prompts/refactor-plan.prompt.md",
+              "destinationPath": "skills/refactor-plan/SKILL.md"
+            },
+            "summary": "Added `skills/refactor-plan/SKILL.md` with frontmatter, a refactor-goal placeholder, planning instructions, a structured output template, and a closing confirmation question."
+          },
+          {
+            "sha": "2a324116dbd1a53c24089e9b992e7c21efb9b124",
+            "date": "2026-02-10T22:43:10+03:00",
+            "subject": "Fix review feedback: mode→agent frontmatter, add applyTo, generate plugin",
+            "url": "https://github.com/github/awesome-copilot/commit/2a324116dbd1a53c24089e9b992e7c21efb9b124",
+            "pathAtCommit": "prompts/refactor-plan.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the frontmatter key in `prompts/refactor-plan.prompt.md` from `mode` to `agent`."
+          },
+          {
+            "sha": "99018f421a164867d5612cda388a52cd95f5e657",
+            "date": "2026-02-06T23:06:50+03:00",
+            "subject": "Add context-engineering collection",
+            "url": "https://github.com/github/awesome-copilot/commit/99018f421a164867d5612cda388a52cd95f5e657",
+            "pathAtCommit": "prompts/refactor-plan.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added `prompts/refactor-plan.prompt.md` with frontmatter, a refactor-goal placeholder, planning instructions, a structured output template, and a closing confirmation question."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "c0d4a0583c55c829aa0f20b98423cb2bc1242ae1",
+            "date": "2026-05-11T17:49:12-06:00",
+            "subject": "fix(refactor-plan): expand skill description and instructions (#1676)",
+            "url": "https://github.com/github/awesome-copilot/commit/c0d4a0583c55c829aa0f20b98423cb2bc1242ae1",
+            "pathAtCommit": "skills/refactor-plan/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了 `skills/refactor-plan/SKILL.md`，擴充說明內容、要求在編輯前先規劃、加入更具體的規劃與驗證步驟，並修改結尾提示語。"
+          },
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/refactor-plan/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C096",
+              "sourcePath": "prompts/refactor-plan.prompt.md",
+              "destinationPath": "skills/refactor-plan/SKILL.md"
+            },
+            "summary": "新增了 `skills/refactor-plan/SKILL.md`，包含 frontmatter、重構目標預留欄位、規劃指示、結構化輸出範本，以及結尾的確認提問。"
+          },
+          {
+            "sha": "2a324116dbd1a53c24089e9b992e7c21efb9b124",
+            "date": "2026-02-10T22:43:10+03:00",
+            "subject": "Fix review feedback: mode→agent frontmatter, add applyTo, generate plugin",
+            "url": "https://github.com/github/awesome-copilot/commit/2a324116dbd1a53c24089e9b992e7c21efb9b124",
+            "pathAtCommit": "prompts/refactor-plan.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 `prompts/refactor-plan.prompt.md` 中的 frontmatter 鍵名從 `mode` 改為 `agent`。"
+          },
+          {
+            "sha": "99018f421a164867d5612cda388a52cd95f5e657",
+            "date": "2026-02-06T23:06:50+03:00",
+            "subject": "Add context-engineering collection",
+            "url": "https://github.com/github/awesome-copilot/commit/99018f421a164867d5612cda388a52cd95f5e657",
+            "pathAtCommit": "prompts/refactor-plan.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "新增了 `prompts/refactor-plan.prompt.md`，包含 frontmatter、重構目標預留欄位、規劃指示、結構化輸出範本，以及結尾的確認提問。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "c0d4a0583c55c829aa0f20b98423cb2bc1242ae1",
+            "date": "2026-05-11T17:49:12-06:00",
+            "subject": "fix(refactor-plan): expand skill description and instructions (#1676)",
+            "url": "https://github.com/github/awesome-copilot/commit/c0d4a0583c55c829aa0f20b98423cb2bc1242ae1",
+            "pathAtCommit": "skills/refactor-plan/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了 `skills/refactor-plan/SKILL.md`，扩充说明内容、要求在编辑前先规划、加入更具体的规划与验证步骤，并修改结尾提示语。"
+          },
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/refactor-plan/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C096",
+              "sourcePath": "prompts/refactor-plan.prompt.md",
+              "destinationPath": "skills/refactor-plan/SKILL.md"
+            },
+            "summary": "添加了 `skills/refactor-plan/SKILL.md`，包含 frontmatter、重构目标预留字段、规划指示、结构化输出范本，以及结尾的确认提问。"
+          },
+          {
+            "sha": "2a324116dbd1a53c24089e9b992e7c21efb9b124",
+            "date": "2026-02-10T22:43:10+03:00",
+            "subject": "Fix review feedback: mode→agent frontmatter, add applyTo, generate plugin",
+            "url": "https://github.com/github/awesome-copilot/commit/2a324116dbd1a53c24089e9b992e7c21efb9b124",
+            "pathAtCommit": "prompts/refactor-plan.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 `prompts/refactor-plan.prompt.md` 中的 frontmatter 键名从 `mode` 改为 `agent`。"
+          },
+          {
+            "sha": "99018f421a164867d5612cda388a52cd95f5e657",
+            "date": "2026-02-06T23:06:50+03:00",
+            "subject": "Add context-engineering collection",
+            "url": "https://github.com/github/awesome-copilot/commit/99018f421a164867d5612cda388a52cd95f5e657",
+            "pathAtCommit": "prompts/refactor-plan.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "添加了 `prompts/refactor-plan.prompt.md`，包含 frontmatter、重构目标预留字段、规划指示、结构化输出范本，以及结尾的确认提问。"
+          }
+        ]
+      }
+    }
+  }
+}

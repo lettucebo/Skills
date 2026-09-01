@@ -1,0 +1,126 @@
+{
+  "path": "skills/github/dependabot",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:022db8954828a41e72a6036650bdcfb0fe070b732eeb9aa30e5b74cfff58ac44",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/dependabot",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "71c55d4e12cf0f05d473bd7b5fb3943f3e1ed112",
+            "date": "2026-06-15T09:56:29+09:00",
+            "subject": "Fix uv ecosystem value in dependabot skill (#1990)",
+            "url": "https://github.com/github/awesome-copilot/commit/71c55d4e12cf0f05d473bd7b5fb3943f3e1ed112",
+            "pathAtCommit": "skills/dependabot/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The dependabot skill now lists `uv` as its own ecosystem with `uv.lock` support and says to prefer `uv` when `uv.lock` is present."
+          },
+          {
+            "sha": "cffceae26ce9dcede24b81485a17f2ea06553d6d",
+            "date": "2026-05-06T22:23:47-04:00",
+            "subject": "Add pre-commit dependency scanning via AI coding agents to dependabot skill (#4)",
+            "url": "https://github.com/github/awesome-copilot/commit/cffceae26ce9dcede24b81485a17f2ea06553d6d",
+            "pathAtCommit": "skills/dependabot/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The dependabot skill added guidance for pre-commit dependency vulnerability scanning via AI coding agents, including setup steps for the Advanced Security plugin and Dependabot toolset."
+          },
+          {
+            "sha": "f601edcc8725f914d8b50041eadb1312dc39f232",
+            "date": "2026-03-17T17:15:29-07:00",
+            "subject": "GHAS Pack - Agent Skills for GitHub Advanced Security - Includes Dependabot, CodeQL, and Secret Scanning (#1049)",
+            "url": "https://github.com/github/awesome-copilot/commit/f601edcc8725f914d8b50041eadb1312dc39f232",
+            "pathAtCommit": "skills/dependabot/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The dependabot skill was added with a comprehensive guide to configuring and managing Dependabot, including ecosystems, grouping, scheduling, and security updates."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "71c55d4e12cf0f05d473bd7b5fb3943f3e1ed112",
+            "date": "2026-06-15T09:56:29+09:00",
+            "subject": "Fix uv ecosystem value in dependabot skill (#1990)",
+            "url": "https://github.com/github/awesome-copilot/commit/71c55d4e12cf0f05d473bd7b5fb3943f3e1ed112",
+            "pathAtCommit": "skills/dependabot/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "dependabot 技能現在將 `uv` 列為獨立生態系，支援 `uv.lock`，並說明在存在 `uv.lock` 時應優先使用 `uv`。"
+          },
+          {
+            "sha": "cffceae26ce9dcede24b81485a17f2ea06553d6d",
+            "date": "2026-05-06T22:23:47-04:00",
+            "subject": "Add pre-commit dependency scanning via AI coding agents to dependabot skill (#4)",
+            "url": "https://github.com/github/awesome-copilot/commit/cffceae26ce9dcede24b81485a17f2ea06553d6d",
+            "pathAtCommit": "skills/dependabot/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "dependabot 技能新增了 AI 編碼代理在提交前進行相依性弱點掃描的指引，包括 Advanced Security 外掛與 Dependabot 工具集的設定步驟。"
+          },
+          {
+            "sha": "f601edcc8725f914d8b50041eadb1312dc39f232",
+            "date": "2026-03-17T17:15:29-07:00",
+            "subject": "GHAS Pack - Agent Skills for GitHub Advanced Security - Includes Dependabot, CodeQL, and Secret Scanning (#1049)",
+            "url": "https://github.com/github/awesome-copilot/commit/f601edcc8725f914d8b50041eadb1312dc39f232",
+            "pathAtCommit": "skills/dependabot/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "已新增 dependabot 技能，提供設定與管理 Dependabot 的完整指南，涵蓋生態系、分組、排程與安全性更新。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "71c55d4e12cf0f05d473bd7b5fb3943f3e1ed112",
+            "date": "2026-06-15T09:56:29+09:00",
+            "subject": "Fix uv ecosystem value in dependabot skill (#1990)",
+            "url": "https://github.com/github/awesome-copilot/commit/71c55d4e12cf0f05d473bd7b5fb3943f3e1ed112",
+            "pathAtCommit": "skills/dependabot/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "dependabot 技能现在将 `uv` 列为独立生态系，支持 `uv.lock`，并说明在存在 `uv.lock` 时应优先使用 `uv`。"
+          },
+          {
+            "sha": "cffceae26ce9dcede24b81485a17f2ea06553d6d",
+            "date": "2026-05-06T22:23:47-04:00",
+            "subject": "Add pre-commit dependency scanning via AI coding agents to dependabot skill (#4)",
+            "url": "https://github.com/github/awesome-copilot/commit/cffceae26ce9dcede24b81485a17f2ea06553d6d",
+            "pathAtCommit": "skills/dependabot/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "dependabot 技能添加了 AI 编码代理在提交前进行相依性弱点扫描的指引，包括 Advanced Security 插件与 Dependabot 工具集的设置步骤。"
+          },
+          {
+            "sha": "f601edcc8725f914d8b50041eadb1312dc39f232",
+            "date": "2026-03-17T17:15:29-07:00",
+            "subject": "GHAS Pack - Agent Skills for GitHub Advanced Security - Includes Dependabot, CodeQL, and Secret Scanning (#1049)",
+            "url": "https://github.com/github/awesome-copilot/commit/f601edcc8725f914d8b50041eadb1312dc39f232",
+            "pathAtCommit": "skills/dependabot/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "已添加 dependabot 技能，提供设置与管理 Dependabot 的完整指南，涵盖生态系、分组、调度与安全性更新。"
+          }
+        ]
+      }
+    }
+  }
+}

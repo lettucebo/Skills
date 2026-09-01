@@ -3,9 +3,10 @@
 [繁體中文](../zh-TW/website.md) | [**English**](../en/website.md) | [Documentation home](README.md)
 
 The catalog website lives entirely under `site/` and is built from
-`catalog/skills.lock.json` and `catalog/history/*.json` at build time — it
-never queries the network at runtime. See [Architecture](architecture.md) for
-how it fits into the overall data flow.
+`catalog/skills.lock.json`, `catalog/history/*.json`, and fresh enabled
+`catalog/enrichment/changelog/*.json` sidecars at build time — it never
+queries the network at runtime. See [Architecture](architecture.md) for how it
+fits into the overall data flow.
 
 ## Setup
 
@@ -103,6 +104,23 @@ setting you configure on the site itself. See
 [Configuration](configuration.md#release_published-is-not-operator-configured)
 for the full explanation.
 
+## Registry history and upstream changes
+
+Eligible mapped skill pages can show two separate timelines:
+
+- **Upstream changes** lists every non-merge upstream commit that affected the
+  skill's `SKILL.md` through the exact commit pinned in the lockfile. Each
+  entry links directly to that repository commit and uses the English summary
+  from the fresh changelog sidecar.
+- **History** remains the registry-release ledger from
+  `catalog/history/*.json`, showing when this registry adopted or versioned
+  the skill.
+
+The two timelines are intentionally not combined: one describes upstream Git
+history and the other describes registry releases. If changelog enrichment is
+disabled, missing, stale, or ineligible, the Upstream changes section is
+omitted while the existing History section continues to render.
+
 ## Restricted content on the site
 
 Restricted skills (see [Installation](installation.md)) never have their
@@ -112,6 +130,8 @@ restricted skills, but the site no longer places an on-page restricted-content
 warning beside it — consult `/status/` or the lockfile for the current
 restricted inventory and licensing (see
 [Architecture](architecture.md#restricted-content-isolation)).
+Restricted and orphan pages also never read or render upstream changelog
+sidecars.
 
 ## See also
 

@@ -1,0 +1,183 @@
+{
+  "path": "skills/dotnet/dotnet-upgrade",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6a82883259b8b86e6de8ae9b8053fa5be253c597398e2d730f43c742eeff9e08",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/dotnet-upgrade",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/dotnet-upgrade/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C097",
+              "sourcePath": "prompts/dotnet-upgrade.prompt.md",
+              "destinationPath": "skills/dotnet-upgrade/SKILL.md"
+            },
+            "summary": "Added `skills/dotnet-upgrade/SKILL.md` as a new skill file containing .NET upgrade analysis prompts."
+          },
+          {
+            "sha": "e496ef1b9b215939e4e7bda39480033a7ef140e6",
+            "date": "2026-01-07T21:58:26-03:00",
+            "subject": "prompt are not supported on .prompt.md files (#501)",
+            "url": "https://github.com/github/awesome-copilot/commit/e496ef1b9b215939e4e7bda39480033a7ef140e6",
+            "pathAtCommit": "prompts/dotnet-upgrade.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Removed the `prompts:` front matter key from `prompts/dotnet-upgrade.prompt.md` and normalized blank-line whitespace."
+          },
+          {
+            "sha": "c6b3a646454c7209af5056c4f9d97154b5233dc1",
+            "date": "2025-11-05T23:30:51+01:00",
+            "subject": "Rename dotnet-upgrade.prompts.md to dotnet-upgrade.prompt.md (#373)",
+            "url": "https://github.com/github/awesome-copilot/commit/c6b3a646454c7209af5056c4f9d97154b5233dc1",
+            "pathAtCommit": "prompts/dotnet-upgrade.prompt.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "prompts/dotnet-upgrade.prompts.md",
+              "destinationPath": "prompts/dotnet-upgrade.prompt.md"
+            },
+            "summary": "Renamed `prompts/dotnet-upgrade.prompts.md` to `prompts/dotnet-upgrade.prompt.md` without changing its content."
+          },
+          {
+            "sha": "f773b30fb072c518369b8335a89df2bb157a1000",
+            "date": "2025-10-22T03:50:53+05:30",
+            "subject": "Add Instructions , Prompts, Chatmode options to Upgrade a dotnet solution to higher version (#322)",
+            "url": "https://github.com/github/awesome-copilot/commit/f773b30fb072c518369b8335a89df2bb157a1000",
+            "pathAtCommit": "prompts/dotnet-upgrade.prompts.md",
+            "resolvedVia": "direct",
+            "summary": "Added `prompts/dotnet-upgrade.prompts.md` with .NET upgrade analysis prompts."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/dotnet-upgrade/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C097",
+              "sourcePath": "prompts/dotnet-upgrade.prompt.md",
+              "destinationPath": "skills/dotnet-upgrade/SKILL.md"
+            },
+            "summary": "新增 `skills/dotnet-upgrade/SKILL.md` 技能檔案，內含 .NET 升級分析提示內容。"
+          },
+          {
+            "sha": "e496ef1b9b215939e4e7bda39480033a7ef140e6",
+            "date": "2026-01-07T21:58:26-03:00",
+            "subject": "prompt are not supported on .prompt.md files (#501)",
+            "url": "https://github.com/github/awesome-copilot/commit/e496ef1b9b215939e4e7bda39480033a7ef140e6",
+            "pathAtCommit": "prompts/dotnet-upgrade.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "移除 `prompts/dotnet-upgrade.prompt.md` 前言區塊中的 `prompts:` 鍵，並整理空白行的空白字元。"
+          },
+          {
+            "sha": "c6b3a646454c7209af5056c4f9d97154b5233dc1",
+            "date": "2025-11-05T23:30:51+01:00",
+            "subject": "Rename dotnet-upgrade.prompts.md to dotnet-upgrade.prompt.md (#373)",
+            "url": "https://github.com/github/awesome-copilot/commit/c6b3a646454c7209af5056c4f9d97154b5233dc1",
+            "pathAtCommit": "prompts/dotnet-upgrade.prompt.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "prompts/dotnet-upgrade.prompts.md",
+              "destinationPath": "prompts/dotnet-upgrade.prompt.md"
+            },
+            "summary": "將 `prompts/dotnet-upgrade.prompts.md` 重新命名為 `prompts/dotnet-upgrade.prompt.md`，內容未變更。"
+          },
+          {
+            "sha": "f773b30fb072c518369b8335a89df2bb157a1000",
+            "date": "2025-10-22T03:50:53+05:30",
+            "subject": "Add Instructions , Prompts, Chatmode options to Upgrade a dotnet solution to higher version (#322)",
+            "url": "https://github.com/github/awesome-copilot/commit/f773b30fb072c518369b8335a89df2bb157a1000",
+            "pathAtCommit": "prompts/dotnet-upgrade.prompts.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `prompts/dotnet-upgrade.prompts.md`，其中包含 .NET 升級分析提示。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/dotnet-upgrade/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C097",
+              "sourcePath": "prompts/dotnet-upgrade.prompt.md",
+              "destinationPath": "skills/dotnet-upgrade/SKILL.md"
+            },
+            "summary": "添加 `skills/dotnet-upgrade/SKILL.md` 技能文件，内含 .NET 升级分析提示内容。"
+          },
+          {
+            "sha": "e496ef1b9b215939e4e7bda39480033a7ef140e6",
+            "date": "2026-01-07T21:58:26-03:00",
+            "subject": "prompt are not supported on .prompt.md files (#501)",
+            "url": "https://github.com/github/awesome-copilot/commit/e496ef1b9b215939e4e7bda39480033a7ef140e6",
+            "pathAtCommit": "prompts/dotnet-upgrade.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "移除 `prompts/dotnet-upgrade.prompt.md` 前言区块中的 `prompts:` 键，并整理空白行的空白字符。"
+          },
+          {
+            "sha": "c6b3a646454c7209af5056c4f9d97154b5233dc1",
+            "date": "2025-11-05T23:30:51+01:00",
+            "subject": "Rename dotnet-upgrade.prompts.md to dotnet-upgrade.prompt.md (#373)",
+            "url": "https://github.com/github/awesome-copilot/commit/c6b3a646454c7209af5056c4f9d97154b5233dc1",
+            "pathAtCommit": "prompts/dotnet-upgrade.prompt.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "prompts/dotnet-upgrade.prompts.md",
+              "destinationPath": "prompts/dotnet-upgrade.prompt.md"
+            },
+            "summary": "将 `prompts/dotnet-upgrade.prompts.md` 重命名为 `prompts/dotnet-upgrade.prompt.md`，内容未变更。"
+          },
+          {
+            "sha": "f773b30fb072c518369b8335a89df2bb157a1000",
+            "date": "2025-10-22T03:50:53+05:30",
+            "subject": "Add Instructions , Prompts, Chatmode options to Upgrade a dotnet solution to higher version (#322)",
+            "url": "https://github.com/github/awesome-copilot/commit/f773b30fb072c518369b8335a89df2bb157a1000",
+            "pathAtCommit": "prompts/dotnet-upgrade.prompts.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `prompts/dotnet-upgrade.prompts.md`，其中包含 .NET 升级分析提示。"
+          }
+        ]
+      }
+    }
+  }
+}

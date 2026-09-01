@@ -1,0 +1,99 @@
+{
+  "path": "skills/google-play-console-cli/gplay-metadata-sync",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:3ffd9e98717989465c23c773f44b76c80f511ca2331d2480c64a2d8a04c416d9",
+    "repository": "tamtom/gplay-cli-skills",
+    "reference": "refs/heads/main",
+    "source": "skills/gplay-metadata-sync",
+    "pinnedCommit": "10301b24639e4f768d009b2edda9315cb2149712"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-metadata-sync/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the SKILL.md listing docs to use individual `gplay listings update` flags, changed the image deletion flag to `--image`, and corrected the title limit to 30 characters."
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-metadata-sync/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial `gplay-metadata-sync` SKILL.md with Google Play metadata sync instructions, listing and image commands, validation limits, and workflow guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-metadata-sync/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了 SKILL.md 的 listing 文件，改為以個別 `gplay listings update` 旗標設定欄位、將刪除圖片旗標改為 `--image`，並把標題上限更正為 30 個字元。"
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-metadata-sync/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了初始的 `gplay-metadata-sync` SKILL.md，包含 Google Play 中繼資料同步說明、listing 與圖片指令、驗證限制，以及工作流程指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-metadata-sync/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新了 SKILL.md 的 listing 文档，改为以个别 `gplay listings update` 旗标设置字段、将删除图片旗标改为 `--image`，并把标题上限更正为 30 个字符。"
+          },
+          {
+            "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "date": "2026-02-05T16:20:24+04:00",
+            "subject": "Initial commit: Google Play CLI Skills repository",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
+            "pathAtCommit": "skills/gplay-metadata-sync/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了初始的 `gplay-metadata-sync` SKILL.md，包含 Google Play 中继数据同步说明、listing 与图片指令、验证限制，以及工作流程指引。"
+          }
+        ]
+      }
+    }
+  }
+}

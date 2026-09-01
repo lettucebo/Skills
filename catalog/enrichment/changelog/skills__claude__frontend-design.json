@@ -1,0 +1,168 @@
+{
+  "path": "skills/claude/frontend-design",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:665c585455decbcb02116bc928adf5148b9cd0f67b7eb4908c8c0d647c00f68a",
+    "repository": "anthropics/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/frontend-design",
+    "pinnedCommit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "2235be7c60b551f5de82ade908fd3816455afcda",
+            "date": "2026-06-09T12:33:41-07:00",
+            "subject": "Update frontend-design skill (#1293)",
+            "url": "https://github.com/anthropics/skills/commit/2235be7c60b551f5de82ade908fd3816455afcda",
+            "pathAtCommit": "skills/frontend-design/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The frontend-design skill was rewritten with a new description and expanded guidance on subject-driven design, planning, critique, motion, and writing."
+          },
+          {
+            "sha": "00756142ab04c82a447693cf373c4e0c554d1005",
+            "date": "2025-12-04T12:01:46-05:00",
+            "subject": "Add doc-coauthoring skill and update example skills (#134)",
+            "url": "https://github.com/anthropics/skills/commit/00756142ab04c82a447693cf373c4e0c554d1005",
+            "pathAtCommit": "skills/frontend-design/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The frontend-design skill description was expanded to cover artifacts, posters, more UI examples, and styling or beautifying existing web UI."
+          },
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/frontend-design/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "frontend-design/SKILL.md",
+              "destinationPath": "skills/frontend-design/SKILL.md"
+            },
+            "summary": "The frontend-design skill file was moved from frontend-design/SKILL.md to skills/frontend-design/SKILL.md without content changes."
+          },
+          {
+            "sha": "e5c60158df67e67d7609065ba3ad5605a6794e93",
+            "date": "2025-11-12T12:58:13-05:00",
+            "subject": "Add 'frontend-design' example skill (#98)",
+            "url": "https://github.com/anthropics/skills/commit/e5c60158df67e67d7609065ba3ad5605a6794e93",
+            "pathAtCommit": "frontend-design/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "A new frontend-design skill file was added with a description and guidance for distinctive frontend design and aesthetics."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "2235be7c60b551f5de82ade908fd3816455afcda",
+            "date": "2026-06-09T12:33:41-07:00",
+            "subject": "Update frontend-design skill (#1293)",
+            "url": "https://github.com/anthropics/skills/commit/2235be7c60b551f5de82ade908fd3816455afcda",
+            "pathAtCommit": "skills/frontend-design/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "frontend-design 技能被改寫，加入了新的描述，並擴充了以主題為核心的設計、規劃、檢討、動效與文案撰寫指引。"
+          },
+          {
+            "sha": "00756142ab04c82a447693cf373c4e0c554d1005",
+            "date": "2025-12-04T12:01:46-05:00",
+            "subject": "Add doc-coauthoring skill and update example skills (#134)",
+            "url": "https://github.com/anthropics/skills/commit/00756142ab04c82a447693cf373c4e0c554d1005",
+            "pathAtCommit": "skills/frontend-design/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "frontend-design 技能描述被擴充，納入了成品、海報、更多 UI 範例，以及為既有網頁 UI 進行樣式設計或美化的情境。"
+          },
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/frontend-design/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "frontend-design/SKILL.md",
+              "destinationPath": "skills/frontend-design/SKILL.md"
+            },
+            "summary": "frontend-design 技能檔案從 frontend-design/SKILL.md 移至 skills/frontend-design/SKILL.md，內容沒有變更。"
+          },
+          {
+            "sha": "e5c60158df67e67d7609065ba3ad5605a6794e93",
+            "date": "2025-11-12T12:58:13-05:00",
+            "subject": "Add 'frontend-design' example skill (#98)",
+            "url": "https://github.com/anthropics/skills/commit/e5c60158df67e67d7609065ba3ad5605a6794e93",
+            "pathAtCommit": "frontend-design/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增了 frontend-design 技能檔案，內容包含描述以及關於獨特前端設計與美感的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "2235be7c60b551f5de82ade908fd3816455afcda",
+            "date": "2026-06-09T12:33:41-07:00",
+            "subject": "Update frontend-design skill (#1293)",
+            "url": "https://github.com/anthropics/skills/commit/2235be7c60b551f5de82ade908fd3816455afcda",
+            "pathAtCommit": "skills/frontend-design/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "frontend-design 技能被改写，加入了新的描述，并扩充了以主题为内核的设计、规划、检讨、动效与文案撰写指引。"
+          },
+          {
+            "sha": "00756142ab04c82a447693cf373c4e0c554d1005",
+            "date": "2025-12-04T12:01:46-05:00",
+            "subject": "Add doc-coauthoring skill and update example skills (#134)",
+            "url": "https://github.com/anthropics/skills/commit/00756142ab04c82a447693cf373c4e0c554d1005",
+            "pathAtCommit": "skills/frontend-design/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "frontend-design 技能描述被扩充，纳入了成品、海报、更多 UI 范例，以及为既有网页 UI 进行样式设计或美化的情境。"
+          },
+          {
+            "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "date": "2025-12-01T13:05:36-05:00",
+            "subject": "Move example skills into dedicated folder and create minimal top-level folder structure (#129)",
+            "url": "https://github.com/anthropics/skills/commit/ef740771ac901e03fbca3ce4e1c453a96010f30a",
+            "pathAtCommit": "skills/frontend-design/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "frontend-design/SKILL.md",
+              "destinationPath": "skills/frontend-design/SKILL.md"
+            },
+            "summary": "frontend-design 技能文件从 frontend-design/SKILL.md 移至 skills/frontend-design/SKILL.md，内容没有变更。"
+          },
+          {
+            "sha": "e5c60158df67e67d7609065ba3ad5605a6794e93",
+            "date": "2025-11-12T12:58:13-05:00",
+            "subject": "Add 'frontend-design' example skill (#98)",
+            "url": "https://github.com/anthropics/skills/commit/e5c60158df67e67d7609065ba3ad5605a6794e93",
+            "pathAtCommit": "frontend-design/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加了 frontend-design 技能文件，内容包含描述以及关于独特前端设计与美感的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

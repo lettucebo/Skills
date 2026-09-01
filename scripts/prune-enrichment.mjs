@@ -2,7 +2,10 @@ import { rm, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-import { ENRICHMENT_ARTIFACT_KINDS } from './lib/enrichment.mjs';
+import {
+  ENRICHMENT_ARTIFACT_KINDS,
+  isEligibleForEnrichment,
+} from './lib/enrichment.mjs';
 import { collectEnrichmentArtifacts } from './validate-enrichment.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -22,7 +25,7 @@ export async function pruneEnrichment({ repoRoot = defaultRepoRoot } = {}) {
     const collection = await collectEnrichmentArtifacts({ repoRoot, kind });
     for (const entry of collection.artifacts) {
       const skill = skills.get(entry.artifact.path);
-      if (!skill || skill.redistributable === false || skill.category === 'removed') {
+      if (!skill || !isEligibleForEnrichment(kind, skill)) {
         removals.push(entry);
       }
     }

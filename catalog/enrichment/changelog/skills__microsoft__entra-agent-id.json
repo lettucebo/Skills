@@ -1,0 +1,99 @@
+{
+  "path": "skills/microsoft/entra-agent-id",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:caf1db35b66bc7b3893db6ae4db67e45ea74b49a91a10031390e0584936bbc86",
+    "repository": "microsoft/skills",
+    "reference": "refs/heads/main",
+    "source": ".github/skills/entra-agent-id",
+    "pinnedCommit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "af147bb0192296646964b31f6ea3b8dd33e4f704",
+            "date": "2026-03-24T09:49:31-05:00",
+            "subject": "feat(entra-agent-id): add SDK sidecar reference for polyglot agent auth",
+            "url": "https://github.com/microsoft/skills/commit/af147bb0192296646964b31f6ea3b8dd33e4f704",
+            "pathAtCommit": ".github/skills/entra-agent-id/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the Entra Agent ID skill to mention the SDK sidecar, add related triggers, and link the new sidecar reference and external SDK documentation."
+          },
+          {
+            "sha": "cdb4bfc61e6139e6e9aee87805414bddef4cae62",
+            "date": "2026-03-12T14:20:43-07:00",
+            "subject": "Add entra-agent-id skill for Microsoft Entra Agent ID (preview)",
+            "url": "https://github.com/microsoft/skills/commit/cdb4bfc61e6139e6e9aee87805414bddef4cae62",
+            "pathAtCommit": ".github/skills/entra-agent-id/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Entra Agent ID skill document covering setup, authentication, provisioning workflow, permissions, cleanup, and references."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "af147bb0192296646964b31f6ea3b8dd33e4f704",
+            "date": "2026-03-24T09:49:31-05:00",
+            "subject": "feat(entra-agent-id): add SDK sidecar reference for polyglot agent auth",
+            "url": "https://github.com/microsoft/skills/commit/af147bb0192296646964b31f6ea3b8dd33e4f704",
+            "pathAtCommit": ".github/skills/entra-agent-id/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 Entra Agent ID 技能，加入 SDK sidecar 的說明、相關觸發詞，以及新的 sidecar 參考文件與外部 SDK 文件連結。"
+          },
+          {
+            "sha": "cdb4bfc61e6139e6e9aee87805414bddef4cae62",
+            "date": "2026-03-12T14:20:43-07:00",
+            "subject": "Add entra-agent-id skill for Microsoft Entra Agent ID (preview)",
+            "url": "https://github.com/microsoft/skills/commit/cdb4bfc61e6139e6e9aee87805414bddef4cae62",
+            "pathAtCommit": ".github/skills/entra-agent-id/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版 Entra Agent ID 技能文件，涵蓋設定、驗證、佈建流程、權限、清理與參考資料。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "af147bb0192296646964b31f6ea3b8dd33e4f704",
+            "date": "2026-03-24T09:49:31-05:00",
+            "subject": "feat(entra-agent-id): add SDK sidecar reference for polyglot agent auth",
+            "url": "https://github.com/microsoft/skills/commit/af147bb0192296646964b31f6ea3b8dd33e4f704",
+            "pathAtCommit": ".github/skills/entra-agent-id/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 Entra Agent ID 技能，加入 SDK sidecar 的说明、相关触发词，以及新的 sidecar 参考文档与外部 SDK 文档链接。"
+          },
+          {
+            "sha": "cdb4bfc61e6139e6e9aee87805414bddef4cae62",
+            "date": "2026-03-12T14:20:43-07:00",
+            "subject": "Add entra-agent-id skill for Microsoft Entra Agent ID (preview)",
+            "url": "https://github.com/microsoft/skills/commit/cdb4bfc61e6139e6e9aee87805414bddef4cae62",
+            "pathAtCommit": ".github/skills/entra-agent-id/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版 Entra Agent ID 技能文档，涵盖设置、验证、布建流程、权限、清理与参考资料。"
+          }
+        ]
+      }
+    }
+  }
+}

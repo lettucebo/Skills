@@ -12,6 +12,7 @@ import {
   isEligibleForEnrichment,
   validateEnrichmentArtifact,
 } from '../lib/enrichment.mjs';
+import { createChangelogArtifact } from '../enrich-changelog.mjs';
 import { pruneEnrichment } from '../prune-enrichment.mjs';
 import { validateEnrichment } from '../validate-enrichment.mjs';
 
@@ -337,6 +338,126 @@ test('prune removes restricted and lock-removed artifacts without invoking an LL
   }
 });
 
+test('prune removes changelog artifacts for orphan skills', async () => {
+  const orphan = orphanSkill();
+  const root = await createFixture({
+    skills: [orphan],
+    enabled: { summaries: false, changelog: false },
+    directories: ['changelog'],
+  });
+  const mappedProxy = mappedSkill({
+    path: orphan.path,
+    name: orphan.name,
+  });
+  const invalidOrphanChangelog = createChangelogArtifact({
+    skill: mappedProxy,
+    history: {
+      commits: [{
+        sha: mappedProxy.upstream.commit,
+        date: '2026-01-01T00:00:00Z',
+        subject: 'Add orphan',
+        changes: [{
+          status: 'A',
+          paths: [`${mappedProxy.upstream.source}/SKILL.md`],
+        }],
+        pathAtCommit: `${mappedProxy.upstream.source}/SKILL.md`,
+        resolvedVia: 'direct',
+      }],
+    },
+    summaries: new Map([[
+      mappedProxy.upstream.commit,
+      { en: 'Adds orphan.', 'zh-tw': '新增 orphan。' },
+    ]]),
+  });
+
+  try {
+    const target = await writeArtifact(
+      root,
+      'changelog',
+      invalidOrphanChangelog,
+    );
+    const result = await pruneEnrichment({ repoRoot: root });
+
+    assert.deepEqual(
+      result.removed.map((entry) => entry.replace(/\\/g, '/')),
+      ['catalog/enrichment/changelog/skills__demo__orphan.json'],
+    );
+    await assert.rejects(readFile(target), /ENOENT/);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('strict validation rejects changelog locale signature drift', async () => {
+  const targetSkill = mappedSkill();
+  const root = await createFixture({
+    skills: [targetSkill],
+    enabled: { summaries: false, changelog: true },
+    directories: ['changelog'],
+  });
+  const history = {
+    commits: [{
+      sha: targetSkill.upstream.commit,
+      date: '2026-01-01T00:00:00Z',
+      subject: 'Add alpha',
+      changes: [{
+        status: 'A',
+        paths: [`${targetSkill.upstream.source}/SKILL.md`],
+      }],
+      pathAtCommit: `${targetSkill.upstream.source}/SKILL.md`,
+      resolvedVia: 'direct',
+    }],
+  };
+  const value = createChangelogArtifact({
+    skill: targetSkill,
+    history,
+    summaries: new Map([[
+      targetSkill.upstream.commit,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+  value.locales.en.signature = SIGNATURE;
+
+  try {
+    await writeArtifact(root, 'changelog', value);
+    await assert.rejects(
+      validateEnrichment({ repoRoot: root, strict: true }),
+      /signature-mismatched changelog artifact.*skills\/demo\/alpha/i,
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('changelog content schema rejects an empty commit history', () => {
+  const targetSkill = mappedSkill();
+  const value = createChangelogArtifact({
+    skill: targetSkill,
+    history: {
+      commits: [{
+        sha: targetSkill.upstream.commit,
+        date: '2026-01-01T00:00:00Z',
+        subject: 'Add alpha',
+        changes: [{
+          status: 'A',
+          paths: [`${targetSkill.upstream.source}/SKILL.md`],
+        }],
+        pathAtCommit: `${targetSkill.upstream.source}/SKILL.md`,
+        resolvedVia: 'direct',
+      }],
+    },
+    summaries: new Map([[
+      targetSkill.upstream.commit,
+      { en: 'Adds alpha.', 'zh-tw': '新增 alpha。' },
+    ]]),
+  });
+  for (const locale of Object.values(value.locales)) {
+    locale.content.commits = [];
+  }
+
+  assert.equal(validateEnrichmentArtifact('changelog', value).valid, false);
+});
+
 test('locale signature changes when generatorVersion changes alone', () => {
   const base = {
     locale: 'en',
@@ -390,6 +511,73 @@ test('changelog freshness rejects a changed pinnedCommit with unchanged contentH
 
   assert.equal(isArtifactFresh('changelog', value, skill), true);
   assert.equal(isArtifactFresh('changelog', value, advanced), false);
+});
+
+test('the current lock has exactly 112 changelog-eligible mapped skills', async () => {
+  const lock = JSON.parse(
+    await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
+  );
+  const eligible = lock.skills.filter((skill) =>
+    isEligibleForEnrichment('changelog', skill),
+  );
+
+  assert.equal(eligible.length, 112);
+  assert.equal(eligible.every((skill) => skill.category === 'mapped'), true);
+  assert.equal(eligible.some((skill) => skill.redistributable === false), false);
+  assert.equal(eligible.some((skill) => skill.upstream === null), false);
+});
+
+test('changelog artifacts require the precise structured commit content schema', () => {
+  const skill = mappedSkill();
+  const malformed = artifact(skill, 'changelog');
+
+  assert.equal(
+    validateEnrichmentArtifact('changelog', malformed).valid,
+    false,
+  );
+
+  const valid = artifact(skill, 'changelog', {
+    locales: {
+      en: llmLocale({
+        commits: [{
+          sha: skill.upstream.commit,
+          date: '2026-01-01T00:00:00+00:00',
+          subject: 'Add alpha skill',
+          url: `https://github.com/${skill.upstream.repository}/commit/${skill.upstream.commit}`,
+          pathAtCommit: 'skills/alpha/SKILL.md',
+          resolvedVia: 'direct',
+          summary: 'Adds the alpha skill.',
+        }],
+      }),
+      'zh-tw': llmLocale({
+        commits: [{
+          sha: skill.upstream.commit,
+          date: '2026-01-01T00:00:00+00:00',
+          subject: 'Add alpha skill',
+          url: `https://github.com/${skill.upstream.repository}/commit/${skill.upstream.commit}`,
+          pathAtCommit: 'skills/alpha/SKILL.md',
+          resolvedVia: 'direct',
+          summary: '新增 alpha skill。',
+        }],
+      }),
+      'zh-cn': openccLocale({
+        commits: [{
+          sha: skill.upstream.commit,
+          date: '2026-01-01T00:00:00+00:00',
+          subject: 'Add alpha skill',
+          url: `https://github.com/${skill.upstream.repository}/commit/${skill.upstream.commit}`,
+          pathAtCommit: 'skills/alpha/SKILL.md',
+          resolvedVia: 'direct',
+          summary: '新增 alpha skill。',
+        }],
+      }),
+    },
+  });
+
+  assert.deepEqual(validateEnrichmentArtifact('changelog', valid), {
+    valid: true,
+    errors: [],
+  });
 });
 
 test('freshness comparison is independent of JSON property order', () => {

@@ -1,0 +1,222 @@
+{
+  "path": "skills/dotnet/csharp-tunit",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:afd8cbb2a839216e764dad90ba48e78464ffcdf0de7b01cd2e495ff026fca2b7",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/csharp-tunit",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/csharp-tunit/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C098",
+              "sourcePath": "prompts/csharp-tunit.prompt.md",
+              "destinationPath": "skills/csharp-tunit/SKILL.md"
+            },
+            "summary": "Added the csharp-tunit skill file with metadata and TUnit testing best-practice guidance, including data-driven tests."
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the prompt frontmatter field `mode` to `agent`."
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the prompt tools list to use the namespaced `search/codebase` entry instead of `codebase`."
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the prompt tools list entry from `editFiles` to `edit/editFiles` and added a trailing newline."
+          },
+          {
+            "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "date": "2025-08-14T12:09:33+10:00",
+            "subject": "Add missing `mode` field to all prompt files with 'agent' as default (#180)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Removed the UTF-8 BOM from the start of the prompt file."
+          },
+          {
+            "sha": "05f68143388be78781a9c2137cecaadf00f44d9c",
+            "date": "2025-07-14T00:13:03+02:00",
+            "subject": "Add C# TUnit testing prompt template (#88)",
+            "url": "https://github.com/github/awesome-copilot/commit/05f68143388be78781a9c2137cecaadf00f44d9c",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added the csharp-tunit prompt file with agent-mode frontmatter and TUnit testing best-practice guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/csharp-tunit/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C098",
+              "sourcePath": "prompts/csharp-tunit.prompt.md",
+              "destinationPath": "skills/csharp-tunit/SKILL.md"
+            },
+            "summary": "新增 csharp-tunit 技能檔案，包含中繼資料與 TUnit 測試最佳實務指引，其中也涵蓋資料驅動測試。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將提示檔前言中的 `mode` 欄位重新命名為 `agent`。"
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "更新提示檔的工具清單，將 `codebase` 改為使用具命名空間的 `search/codebase` 項目。"
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將提示檔工具清單中的 `editFiles` 改為 `edit/editFiles`，並補上檔尾換行。"
+          },
+          {
+            "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "date": "2025-08-14T12:09:33+10:00",
+            "subject": "Add missing `mode` field to all prompt files with 'agent' as default (#180)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "移除了提示檔開頭的 UTF-8 BOM。"
+          },
+          {
+            "sha": "05f68143388be78781a9c2137cecaadf00f44d9c",
+            "date": "2025-07-14T00:13:03+02:00",
+            "subject": "Add C# TUnit testing prompt template (#88)",
+            "url": "https://github.com/github/awesome-copilot/commit/05f68143388be78781a9c2137cecaadf00f44d9c",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "新增 csharp-tunit 提示檔，包含 agent 模式前言與 TUnit 測試最佳實務指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/csharp-tunit/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C098",
+              "sourcePath": "prompts/csharp-tunit.prompt.md",
+              "destinationPath": "skills/csharp-tunit/SKILL.md"
+            },
+            "summary": "添加 csharp-tunit 技能文件，包含中继数据与 TUnit 测试最佳实务指引，其中也涵盖数据驱动测试。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将提示档前言中的 `mode` 字段重命名为 `agent`。"
+          },
+          {
+            "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "date": "2025-10-30T06:29:27+08:00",
+            "subject": "feat: update deprecated tool names to namespaced versions (#365)",
+            "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "更新提示档的工具清单，将 `codebase` 改为使用具命名空间的 `search/codebase` 项目。"
+          },
+          {
+            "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "date": "2025-10-15T17:07:01-06:00",
+            "subject": "update `editFiles` to `edit/editFiles` (#319)",
+            "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将提示档工具清单中的 `editFiles` 改为 `edit/editFiles`，并补上档尾换行。"
+          },
+          {
+            "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "date": "2025-08-14T12:09:33+10:00",
+            "subject": "Add missing `mode` field to all prompt files with 'agent' as default (#180)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "移除了提示档开头的 UTF-8 BOM。"
+          },
+          {
+            "sha": "05f68143388be78781a9c2137cecaadf00f44d9c",
+            "date": "2025-07-14T00:13:03+02:00",
+            "subject": "Add C# TUnit testing prompt template (#88)",
+            "url": "https://github.com/github/awesome-copilot/commit/05f68143388be78781a9c2137cecaadf00f44d9c",
+            "pathAtCommit": "prompts/csharp-tunit.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "添加 csharp-tunit 提示档，包含 agent 模式前言与 TUnit 测试最佳实务指引。"
+          }
+        ]
+      }
+    }
+  }
+}

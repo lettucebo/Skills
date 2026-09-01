@@ -110,6 +110,9 @@ export async function validateEnrichment({
   }
 
   const skills = new Map(lock.skills.map((skill) => [skill.path, skill]));
+  const changelogSignatureValidator = strict
+    ? (await import('./enrich-changelog.mjs')).isChangelogArtifactCurrent
+    : null;
   const errors = [];
   let artifactCount = 0;
 
@@ -157,6 +160,11 @@ export async function validateEnrichment({
         errors.push(`Missing ${kind} artifact for ${skill.path}.`);
       } else if (!isArtifactFresh(kind, entry.artifact, skill)) {
         errors.push(`Stale ${kind} artifact for ${skill.path}.`);
+      } else if (
+        kind === 'changelog' &&
+        !changelogSignatureValidator(entry.artifact, skill)
+      ) {
+        errors.push(`Signature-mismatched changelog artifact for ${skill.path}.`);
       }
     }
 

@@ -1,0 +1,99 @@
+{
+  "path": "skills/gtm/gtm-enterprise-account-planning",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d65928c413e330003004eb2152de49e943b02fc7ffd4869596441d59124a6273",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/gtm-enterprise-account-planning",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "date": "2026-03-22T20:49:51-04:00",
+            "subject": "docs: add author attribution to GTM skills (#1100)",
+            "url": "https://github.com/github/awesome-copilot/commit/aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "pathAtCommit": "skills/gtm-enterprise-account-planning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The patch added author and source metadata to the SKILL.md front matter."
+          },
+          {
+            "sha": "3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "date": "2026-03-19T19:09:57-04:00",
+            "subject": "feat: add 11 GTM skills for technical product founders and operators (#1066)",
+            "url": "https://github.com/github/awesome-copilot/commit/3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "pathAtCommit": "skills/gtm-enterprise-account-planning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The patch added a new SKILL.md file for the enterprise account planning skill."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "date": "2026-03-22T20:49:51-04:00",
+            "subject": "docs: add author attribution to GTM skills (#1100)",
+            "url": "https://github.com/github/awesome-copilot/commit/aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "pathAtCommit": "skills/gtm-enterprise-account-planning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補在 SKILL.md 的前言區塊新增了作者與來源中繼資料。"
+          },
+          {
+            "sha": "3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "date": "2026-03-19T19:09:57-04:00",
+            "subject": "feat: add 11 GTM skills for technical product founders and operators (#1066)",
+            "url": "https://github.com/github/awesome-copilot/commit/3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "pathAtCommit": "skills/gtm-enterprise-account-planning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補新增了企業帳戶規劃技能的 SKILL.md 檔案。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "date": "2026-03-22T20:49:51-04:00",
+            "subject": "docs: add author attribution to GTM skills (#1100)",
+            "url": "https://github.com/github/awesome-copilot/commit/aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
+            "pathAtCommit": "skills/gtm-enterprise-account-planning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补在 SKILL.md 的前言区块添加了作者与来源中继数据。"
+          },
+          {
+            "sha": "3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "date": "2026-03-19T19:09:57-04:00",
+            "subject": "feat: add 11 GTM skills for technical product founders and operators (#1066)",
+            "url": "https://github.com/github/awesome-copilot/commit/3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
+            "pathAtCommit": "skills/gtm-enterprise-account-planning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补添加了企业帐户规划技能的 SKILL.md 文件。"
+          }
+        ]
+      }
+    }
+  }
+}

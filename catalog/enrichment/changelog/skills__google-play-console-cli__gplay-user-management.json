@@ -1,0 +1,99 @@
+{
+  "path": "skills/google-play-console-cli/gplay-user-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9bd8e65f6fa2e4e4b8c1c7f6f029e05f34e1578428f3d635c2c138790fdcfdb6",
+    "repository": "tamtom/gplay-cli-skills",
+    "reference": "refs/heads/main",
+    "source": "skills/gplay-user-management",
+    "pinnedCommit": "10301b24639e4f768d009b2edda9315cb2149712"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-user-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the gplay-user-management skill document to distinguish account-wide users from per-app grants and to use `--developer` plus `--json` permission bodies in the command examples."
+          },
+          {
+            "sha": "f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "date": "2026-02-15T13:04:42+04:00",
+            "subject": "feat: add skills for v0.4.2 new commands (vitals, users, migrate)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "pathAtCommit": "skills/gplay-user-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the gplay-user-management skill document with Google Play Console user and app grant management commands, flags, permissions, and workflow examples."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-user-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 gplay-user-management 技能文件，區分帳戶層級使用者與單一應用程式授權，並在指令範例中改用 `--developer` 與 `--json` 權限內容。"
+          },
+          {
+            "sha": "f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "date": "2026-02-15T13:04:42+04:00",
+            "subject": "feat: add skills for v0.4.2 new commands (vitals, users, migrate)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "pathAtCommit": "skills/gplay-user-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 gplay-user-management 技能文件，包含 Google Play Console 使用者與應用程式授權管理的指令、旗標、權限與工作流程範例。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "439c9aea171247318a32da91674e50b295aef94e",
+            "date": "2026-07-04T20:09:54+04:00",
+            "subject": "fix(skills): audit cleanup — correct every command, cut dead weight, add drift guardrail (#3)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
+            "pathAtCommit": "skills/gplay-user-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 gplay-user-management 技能文档，区分帐户层级用户与单一应用程序授权，并在指令范例中改用 `--developer` 与 `--json` 权限内容。"
+          },
+          {
+            "sha": "f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "date": "2026-02-15T13:04:42+04:00",
+            "subject": "feat: add skills for v0.4.2 new commands (vitals, users, migrate)",
+            "url": "https://github.com/tamtom/gplay-cli-skills/commit/f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
+            "pathAtCommit": "skills/gplay-user-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 gplay-user-management 技能文档，包含 Google Play Console 用户与应用程序授权管理的指令、旗标、权限与工作流程范例。"
+          }
+        ]
+      }
+    }
+  }
+}

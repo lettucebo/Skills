@@ -1,0 +1,141 @@
+{
+  "path": "skills/power-platform/power-bi-model-design-review",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d524faea64407dded6011e23136c423df84bfd6bc0b8082cb90f6c7ecd0156ae",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/power-bi-model-design-review",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/power-bi-model-design-review/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C099",
+              "sourcePath": "prompts/power-bi-model-design-review.prompt.md",
+              "destinationPath": "skills/power-bi-model-design-review/SKILL.md"
+            },
+            "summary": "Added SKILL.md for the Power BI model design review skill with metadata and a comprehensive review framework."
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the frontmatter field in the Power BI model design review prompt from `mode` to `agent`."
+          },
+          {
+            "sha": "38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "date": "2025-10-15T19:05:56-04:00",
+            "subject": "Add Power BI resources (#298)",
+            "url": "https://github.com/github/awesome-copilot/commit/38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Power BI model design review prompt file with metadata, documentation tool configuration, and a comprehensive review framework."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/power-bi-model-design-review/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C099",
+              "sourcePath": "prompts/power-bi-model-design-review.prompt.md",
+              "destinationPath": "skills/power-bi-model-design-review/SKILL.md"
+            },
+            "summary": "新增 Power BI 模型設計審查技能的 SKILL.md，包含中繼資料與完整的審查框架。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "將 Power BI 模型設計審查提示中的 frontmatter 欄位由 `mode` 重新命名為 `agent`。"
+          },
+          {
+            "sha": "38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "date": "2025-10-15T19:05:56-04:00",
+            "subject": "Add Power BI resources (#298)",
+            "url": "https://github.com/github/awesome-copilot/commit/38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Power BI 模型設計審查提示檔，包含中繼資料、文件工具設定與完整的審查框架。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
+            "date": "2026-02-19T04:34:07Z",
+            "subject": "Convert all prompts to skills and update plugin manifests",
+            "url": "https://github.com/github/awesome-copilot/commit/caab1f623bb68a330f294a11279597d7ae7be737",
+            "pathAtCommit": "skills/power-bi-model-design-review/SKILL.md",
+            "resolvedVia": "copy-then-delete-migration",
+            "transition": {
+              "status": "C099",
+              "sourcePath": "prompts/power-bi-model-design-review.prompt.md",
+              "destinationPath": "skills/power-bi-model-design-review/SKILL.md"
+            },
+            "summary": "添加 Power BI 模型设计审查技能的 SKILL.md，包含中继数据与完整的审查框架。"
+          },
+          {
+            "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "date": "2025-12-01T10:56:45+11:00",
+            "subject": "Fix deprecated 'mode' attribute in prompt files by renaming to 'agent' (#441)",
+            "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
+            "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "将 Power BI 模型设计审查提示中的 frontmatter 字段由 `mode` 重命名为 `agent`。"
+          },
+          {
+            "sha": "38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "date": "2025-10-15T19:05:56-04:00",
+            "subject": "Add Power BI resources (#298)",
+            "url": "https://github.com/github/awesome-copilot/commit/38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
+            "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Power BI 模型设计审查提示档，包含中继数据、文档工具设置与完整的审查框架。"
+          }
+        ]
+      }
+    }
+  }
+}

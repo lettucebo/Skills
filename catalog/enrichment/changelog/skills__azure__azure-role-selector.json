@@ -1,0 +1,99 @@
+{
+  "path": "skills/azure/azure-role-selector",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:94ced8d0bfaba6142c770e89ecf422708aa728eca0fa04abcf71e379a50d1fb4",
+    "repository": "github/awesome-copilot",
+    "reference": "refs/heads/main",
+    "source": "skills/azure-role-selector",
+    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "78e0b5a91662a97b6355ab3921a8678ff032b7ac",
+            "date": "2026-01-05T11:31:06-08:00",
+            "subject": "Update skills/azure-role-selector/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/78e0b5a91662a97b6355ab3921a8678ff032b7ac",
+            "pathAtCommit": "skills/azure-role-selector/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a space before the opening parenthesis in the SKILL.md instruction sentence."
+          },
+          {
+            "sha": "42f29723cbd3dc8f42db3aad9ad7e7af43ba124d",
+            "date": "2025-12-19T13:52:06-06:00",
+            "subject": "add azure role selector skills",
+            "url": "https://github.com/github/awesome-copilot/commit/42f29723cbd3dc8f42db3aad9ad7e7af43ba124d",
+            "pathAtCommit": "skills/azure-role-selector/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added SKILL.md for the azure-role-selector skill with metadata and instructions for finding the least-privilege Azure role, generating assignment CLI commands, and providing a Bicep role-assignment snippet."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "producer": "llm",
+      "model": "gpt-5.4",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "78e0b5a91662a97b6355ab3921a8678ff032b7ac",
+            "date": "2026-01-05T11:31:06-08:00",
+            "subject": "Update skills/azure-role-selector/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/78e0b5a91662a97b6355ab3921a8678ff032b7ac",
+            "pathAtCommit": "skills/azure-role-selector/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 SKILL.md 的說明句子中，於左括號前新增了一個空格。"
+          },
+          {
+            "sha": "42f29723cbd3dc8f42db3aad9ad7e7af43ba124d",
+            "date": "2025-12-19T13:52:06-06:00",
+            "subject": "add azure role selector skills",
+            "url": "https://github.com/github/awesome-copilot/commit/42f29723cbd3dc8f42db3aad9ad7e7af43ba124d",
+            "pathAtCommit": "skills/azure-role-selector/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 azure-role-selector 技能的 SKILL.md，包含中繼資料，以及尋找最低權限 Azure 角色、產生指派 CLI 命令與提供 Bicep 角色指派片段的說明。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "78e0b5a91662a97b6355ab3921a8678ff032b7ac",
+            "date": "2026-01-05T11:31:06-08:00",
+            "subject": "Update skills/azure-role-selector/SKILL.md",
+            "url": "https://github.com/github/awesome-copilot/commit/78e0b5a91662a97b6355ab3921a8678ff032b7ac",
+            "pathAtCommit": "skills/azure-role-selector/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 SKILL.md 的说明句子中，于左括号前添加了一个空格。"
+          },
+          {
+            "sha": "42f29723cbd3dc8f42db3aad9ad7e7af43ba124d",
+            "date": "2025-12-19T13:52:06-06:00",
+            "subject": "add azure role selector skills",
+            "url": "https://github.com/github/awesome-copilot/commit/42f29723cbd3dc8f42db3aad9ad7e7af43ba124d",
+            "pathAtCommit": "skills/azure-role-selector/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 azure-role-selector 技能的 SKILL.md，包含中继数据，以及寻找最低权限 Azure 角色、产生指派 CLI 命令与提供 Bicep 角色指派片段的说明。"
+          }
+        ]
+      }
+    }
+  }
+}
