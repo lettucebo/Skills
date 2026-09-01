@@ -278,7 +278,11 @@ export async function resolvePinnedMappedLicenses({
             clone.dir,
             sourcePath,
             frontmatter,
-            { upstream: upstreamEvidence, rootLicense },
+            {
+              upstream: upstreamEvidence,
+              rootLicense,
+              policyPath: skill.path,
+            },
           );
           resolvedByPath.set(skill.path, resolved);
 
@@ -404,7 +408,13 @@ export async function validateLicenseBundle(repoRoot, lock) {
         evidence.path &&
         evidence.hash)
     ) {
-      required.set(evidenceKey(evidence), evidence);
+      const key = evidenceKey(evidence);
+      const requirement = required.get(key) ?? {
+        evidence,
+        licenses: new Set(),
+      };
+      requirement.licenses.add(skill.license);
+      required.set(key, requirement);
     }
   }
 
@@ -439,15 +449,30 @@ export async function validateLicenseBundle(repoRoot, lock) {
         `License bundle hash mismatch for ${entry.bundlePath}: expected ${entry.hash}, got ${actualHash}.`,
       );
     }
+    const detectedLicense = detectLicenseText(content.toString('utf8')) ?? 'Unknown';
+    if (entry.license !== detectedLicense) {
+      throw new LicenseEvidenceError(
+        `License bundle classification mismatch for ${entry.bundlePath}: ` +
+          `expected ${entry.license}, got ${detectedLicense}.`,
+      );
+    }
     indexed.set(evidenceKey(entry), entry);
     expectedFiles.add(entry.bundlePath);
   }
 
-  for (const key of required.keys()) {
+  for (const [key, requirement] of required) {
     if (!indexed.has(key)) {
       throw new LicenseEvidenceError(
         'License bundle is missing root evidence required by the lock.',
       );
+    }
+    for (const license of requirement.licenses) {
+      if (indexed.get(key).license !== license) {
+        throw new LicenseEvidenceError(
+          `License bundle license classification mismatch for required lock evidence: ` +
+            `expected ${license}, got ${indexed.get(key).license}.`,
+        );
+      }
     }
   }
   for (const key of indexed.keys()) {

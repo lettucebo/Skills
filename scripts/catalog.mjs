@@ -80,6 +80,21 @@ export const SKILL_LICENSE_CANDIDATES = Object.freeze([
   'COPYING',
 ]);
 
+export class LicensePolicyError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'LicensePolicyError';
+  }
+}
+
+function assertLicensePolicy(license, policyPath) {
+  if (license === 'Proprietary') {
+    throw new LicensePolicyError(
+      `Proprietary evidence detected for ${policyPath}; add it to RESTRICTED_SKILL_PATHS before publishing.`,
+    );
+  }
+}
+
 function hashBytes(content) {
   return `sha256:${createHash('sha256').update(content).digest('hex')}`;
 }
@@ -125,6 +140,7 @@ export async function resolveLicense(
     const fileEvidence = await detectLicenseFromFile(licenseFilePath);
 
     if (fileEvidence) {
+      assertLicensePolicy(fileEvidence.license, policyPath);
       const evidence = withUpstreamEvidence(
         {
           source: fileEvidence.license ? 'skill-license-file' : 'unresolved',
@@ -145,6 +161,7 @@ export async function resolveLicense(
   const fromFrontmatter = normalizeFrontmatterLicense(frontmatter?.license);
 
   if (fromFrontmatter) {
+    assertLicensePolicy(fromFrontmatter, policyPath);
     return {
       license: fromFrontmatter,
       redistributable: true,
@@ -160,6 +177,7 @@ export async function resolveLicense(
   }
 
   if (rootLicense) {
+    assertLicensePolicy(rootLicense.license, policyPath);
     return {
       license: rootLicense.license ?? 'Unknown',
       redistributable: true,
@@ -216,7 +234,7 @@ export function detectLicenseText(text) {
   return null;
 }
 
-function normalizeFrontmatterLicense(value) {
+export function normalizeFrontmatterLicense(value) {
   if (typeof value !== 'string') {
     return null;
   }

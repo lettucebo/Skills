@@ -1418,6 +1418,23 @@ async function readHistoryDoc(repoRoot, skillPath) {
   return { fileName, content: JSON.parse(await readFile(filePath, 'utf8')) };
 }
 
+export async function copyLicenseBundleTarget(repoRoot, candidateRoot) {
+  try {
+    await cp(
+      path.join(repoRoot, 'catalog', 'licenses'),
+      path.join(candidateRoot, 'catalog', 'licenses'),
+      { recursive: true },
+    );
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      throw new BaselineError(
+        'Required catalog/licenses is missing; restore the generated bundle before applying.',
+      );
+    }
+    throw error;
+  }
+}
+
 /**
  * Builds the complete candidate tree in the staging area: a full copy of the
  * live skills tree and history with the mapped skills replaced, plus the
@@ -1430,11 +1447,7 @@ async function buildCandidate({ repoRoot, candidateRoot, manifest, lock, staged,
     path.join(candidateRoot, 'catalog', 'history'),
     { recursive: true },
   );
-  await cp(
-    path.join(repoRoot, 'catalog', 'licenses'),
-    path.join(candidateRoot, 'catalog', 'licenses'),
-    { recursive: true },
-  );
+  await copyLicenseBundleTarget(repoRoot, candidateRoot);
   await cp(
     path.join(repoRoot, 'catalog', 'sources.yml'),
     path.join(candidateRoot, 'catalog', 'sources.yml'),
@@ -2132,11 +2145,7 @@ async function buildUpdateCandidate({
     path.join(candidateRoot, 'catalog', 'history'),
     { recursive: true },
   );
-  await cp(
-    path.join(repoRoot, 'catalog', 'licenses'),
-    path.join(candidateRoot, 'catalog', 'licenses'),
-    { recursive: true },
-  );
+  await copyLicenseBundleTarget(repoRoot, candidateRoot);
   await cp(
     path.join(repoRoot, 'catalog', 'sources.yml'),
     path.join(candidateRoot, 'catalog', 'sources.yml'),
@@ -2282,11 +2291,7 @@ async function buildDeproprietizeCandidate({
     path.join(candidateRoot, 'catalog', 'history'),
     { recursive: true },
   );
-  await cp(
-    path.join(repoRoot, 'catalog', 'licenses'),
-    path.join(candidateRoot, 'catalog', 'licenses'),
-    { recursive: true },
-  );
+  await copyLicenseBundleTarget(repoRoot, candidateRoot);
 
   const manifestText = await readFile(
     path.join(repoRoot, 'catalog', 'sources.yml'),

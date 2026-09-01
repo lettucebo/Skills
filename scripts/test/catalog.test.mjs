@@ -11,6 +11,7 @@ import { historyFileName } from '../lib/history.mjs';
 import {
   buildCatalog,
   detectLicenseText,
+  LicensePolicyError,
   renderReadme,
   resolveLicense,
 } from '../catalog.mjs';
@@ -408,6 +409,7 @@ test('an unrecognized explicit skill license stays Unknown instead of falling th
     await createSkill(fixtureRoot, 'skills/demo/custom', 'custom', {
       LICENSE: 'Custom terms that are not recognized.\n',
     });
+
     const result = await resolveLicense(
       fixtureRoot,
       'skills/demo/custom',
@@ -429,6 +431,20 @@ test('an unrecognized explicit skill license stays Unknown instead of falling th
     assert.equal(result.licenseEvidence.scope, 'skill-license-file');
     assert.equal(result.licenseEvidence.path, 'skills/demo/custom/LICENSE');
     assert.match(result.licenseEvidence.hash, /^sha256:[0-9a-f]{64}$/);
+  });
+});
+
+test('proprietary evidence outside the permanent denylist fails closed', async () => {
+  await withFixture('proprietary-policy', async (fixtureRoot) => {
+    await createSkill(fixtureRoot, 'skills/demo/proprietary', 'proprietary', {
+      LICENSE: 'Copyright Anthropic PBC. All rights reserved.\n',
+    });
+    await assert.rejects(
+      resolveLicense(fixtureRoot, 'skills/demo/proprietary', {}),
+      (error) =>
+        error instanceof LicensePolicyError &&
+        /add it to RESTRICTED_SKILL_PATHS/.test(error.message),
+    );
   });
 });
 

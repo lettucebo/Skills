@@ -11,6 +11,7 @@ import {
   assertLicenseEvidenceMigrationComplete,
   BaselineError,
   buildLicenseRefreshLock,
+  copyLicenseBundleTarget,
   LICENSE_REFRESH_COMMIT_MESSAGE,
   LICENSE_REFRESH_RELEASE,
 } from '../lib/baseline.mjs';
@@ -355,6 +356,24 @@ test('ordinary sync is blocked after 2.0.0 until license evidence migration comp
       ],
     }),
   );
+});
+
+test('legacy apply paths report a guided error when the license bundle is missing', async () => {
+  await mkdir(runtimeRoot, { recursive: true });
+  const workspace = await mkdtemp(path.join(runtimeRoot, 'missing-license-bundle-'));
+  try {
+    await assert.rejects(
+      copyLicenseBundleTarget(
+        path.join(workspace, 'repo'),
+        path.join(workspace, 'candidate'),
+      ),
+      (error) =>
+        error instanceof BaselineError &&
+        /catalog\/licenses is missing/.test(error.message),
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
 });
 
 test('applyLicenseRefresh atomically generates 2.0.1 without changing skill bytes or versions', async () => {

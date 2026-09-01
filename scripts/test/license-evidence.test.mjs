@@ -287,6 +287,18 @@ test('license bundle validation rejects traversal and byte/hash corruption', asy
       release: '2.0.1',
       skills: [
         {
+          license: 'MIT',
+          licenseEvidence: {
+            source: 'upstream-root:LICENSE',
+            repository: evidence.repository,
+            reference: evidence.reference,
+            commit: evidence.commit,
+            path: evidence.path,
+            hash: evidence.hash,
+          },
+        },
+        {
+          license: 'MIT',
           licenseEvidence: {
             source: 'upstream-root:LICENSE',
             repository: evidence.repository,
@@ -299,6 +311,15 @@ test('license bundle validation rejects traversal and byte/hash corruption', asy
       ],
     };
     await validateLicenseBundle(workspace, lock);
+
+    lock.skills[0].license = 'Apache-2.0';
+    await assert.rejects(
+      validateLicenseBundle(workspace, lock),
+      (error) =>
+        error instanceof LicenseEvidenceError &&
+        /license classification mismatch/.test(error.message),
+    );
+    lock.skills[0].license = 'MIT';
 
     await writeFile(
       path.join(destination, metadata.licenses[0].bundlePath),
@@ -342,4 +363,40 @@ test('license bundle validation rejects traversal and byte/hash corruption', asy
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }
+});
+
+test('pinned proprietary evidence reports the registry destination path', async () => {
+  await mkdir(runtimeRoot, { recursive: true });
+  const workspace = await mkdtemp(path.join(runtimeRoot, 'proprietary-path-'));
+  try {
+    const upstream = await createUpstream(workspace);
+    await writeFileEnsured(
+      path.join(upstream.root, 'skills', 'alpha', 'LICENSE'),
+      'Copyright Anthropic PBC. All rights reserved.\n',
+    );
+    git(upstream.root, ['add', '-A']);
+    git(upstream.root, ['commit', '-q', '-m', 'proprietary skill terms']);
+    const commit = git(upstream.root, ['rev-parse', 'HEAD']);
+
+    await assert.rejects(
+      resolvePinnedMappedLicenses({
+        manifest: manifestFor(upstream.url),
+        lock: lockFor(upstream.url, commit),
+        workspace: path.join(workspace, 'work'),
+      }),
+      (error) =>
+        error instanceof LicenseEvidenceError &&
+        /skills\/demo\/alpha/.test(error.message),
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+});
+
+test('git attributes preserve exact license evidence bytes on checkout', async () => {
+  const attributes = await readFile(
+    path.resolve(__dirname, '..', '..', '.gitattributes'),
+    'utf8',
+  );
+  assert.match(attributes, /^catalog\/licenses\/\*\* -text$/m);
 });
