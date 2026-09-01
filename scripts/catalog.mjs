@@ -41,7 +41,7 @@ export const RESTRICTED_SKILL_PATHS = new Set([
 const SOURCE_META = {
   azure: { description: 'Azure 雲端架構、部署、定價、DevOps', doc: '—' },
   chrome: { description: 'Chrome DevTools 偵錯與效能分析', doc: '—' },
-  claude: { description: 'Claude API、文件生成、創意工具（PDF/PPTX/XLSX 等）', doc: '—' },
+  claude: { description: 'Claude API、協作寫作、前端與創意工具', doc: '—' },
   cloudflare: {
     description: 'Cloudflare Workers、Durable Objects、Agents SDK',
     doc: '[README](skills/cloudflare/README.md)',

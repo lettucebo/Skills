@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 import * as syncModule from '../sync.mjs';
 import * as baselineModule from '../lib/baseline.mjs';
+import { renderReadme } from '../catalog.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const runtimeRoot = path.join(__dirname, '.runtime');
@@ -353,6 +354,31 @@ test('buildDeproprietizedLock preserves four tombstones while counting only acti
     assert.equal(tombstone.removedIn, '2.0.0');
     assert.match(tombstone.removalReason, /proprietary redistribution/i);
   }
+});
+
+test('the regenerated claude source description does not advertise removed document formats', () => {
+  const readme = renderReadme(
+    [
+      '<!-- CATALOG:START -->',
+      'old',
+      '<!-- CATALOG:END -->',
+      '',
+    ].join('\n'),
+    {
+      release: '2.0.0',
+      generatedAt: '2026-09-02T00:00:00Z',
+      counts: { total: 1, mapped: 1, orphan: 0, local: 0 },
+      skills: [{
+        ...restrictedSkill('skills/claude/active'),
+        name: 'active',
+        license: 'Unknown',
+        redistributable: true,
+      }],
+    },
+  );
+
+  assert.match(readme, /Claude API、協作寫作、前端與創意工具/);
+  assert.doesNotMatch(readme, /PDF\/PPTX\/XLSX/);
 });
 
 test('removeDeproprietizedMappings removes only the four exact anthropics mapping blocks', () => {
