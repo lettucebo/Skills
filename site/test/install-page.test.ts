@@ -144,8 +144,9 @@ test('built install page includes claude after restricted mirrors become tombsto
   const html = read(path.join(distDir, 'en', 'install', 'index.html'));
   const catalog = await loadCatalog(repoRoot);
   assert.equal(catalog.counts.restricted, 0);
+  const claudeCommand = generateSourceInstallCommand(catalog.skills, 'claude');
   assert.ok(
-    html.includes('npx skills add lettucebo/Skills/skills/claude#v2.0.0'),
+    claudeCommand && html.includes(claudeCommand),
     'claude must offer a bulk install command after restricted mirrors are removed',
   );
   assert.doesNotMatch(html, /warning-box/, 'install page must not render a warning box');

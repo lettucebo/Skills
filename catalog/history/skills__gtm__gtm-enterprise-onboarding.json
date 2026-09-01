@@ -19,6 +19,28 @@
       "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
       "diffUrl": null,
       "contentHash": "sha256:f58e46d926c39e767db27078722b76a7bfc915a5c69709b784fa684cb85a5d85"
+    },
+    {
+      "release": "2.0.1",
+      "kind": "license-refresh",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "oldLicense": "MIT",
+      "newLicense": "MIT",
+      "oldRedistributable": true,
+      "newRedistributable": true,
+      "oldEvidence": null,
+      "newEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-enterprise-onboarding/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "evidenceCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "evidenceHash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7"
     }
   ]
 }

@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { RELEASE_VERSION } from '../src/lib/catalog.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, '..');
@@ -682,9 +683,8 @@ test('INT8: built install page publishes the full-repo install command without a
 }, () => {
   const html = fs.readFileSync(path.join(distDir, 'en', 'install', 'index.html'), 'utf8');
 
-  assert.match(
-    html,
-    /npx skills add lettucebo\/Skills#v2\.0\.0/,
+  assert.ok(
+    html.includes(`npx skills add lettucebo/Skills#v${RELEASE_VERSION}`),
     'the full-repo install command must still be published',
   );
   // The restricted licensing disclosure was intentionally removed; guard that it
@@ -718,9 +718,8 @@ test('INT9: built claude source page publishes a bulk install command after remo
   skip: !distExists && 'dist/ not found',
 }, () => {
   const html = fs.readFileSync(path.join(distDir, 'en', 'sources', 'claude', 'index.html'), 'utf8');
-  assert.match(
-    html,
-    /npx skills add lettucebo\/Skills\/skills\/claude#v2\.0\.0/,
+  assert.ok(
+    html.includes(`npx skills add lettucebo/Skills/skills/claude#v${RELEASE_VERSION}`),
     'claude must offer a bulk install command after restricted mirrors are removed',
   );
   assert.match(
@@ -739,9 +738,8 @@ test('INT10: built source page for a clean source keeps its bulk install command
   skip: !distExists && 'dist/ not found',
 }, () => {
   const html = fs.readFileSync(path.join(distDir, 'en', 'sources', 'azure', 'index.html'), 'utf8');
-  assert.match(
-    html,
-    /npx skills add lettucebo\/Skills\/skills\/azure#v2\.0\.0/,
+  assert.ok(
+    html.includes(`npx skills add lettucebo/Skills/skills/azure#v${RELEASE_VERSION}`),
     'sources without restricted skills must keep their bulk install command',
   );
 });

@@ -11,6 +11,23 @@
       "upstreamCommit": null,
       "diffUrl": null,
       "snapshotHash": "sha256:6a610bc40f5f31b9f5d0d8cdd4d5d40839ffc69191d72a2df086e0f952f0f724"
+    },
+    {
+      "release": "2.0.1",
+      "kind": "license-refresh",
+      "version": "1.0.0",
+      "upstreamCommit": null,
+      "diffUrl": null,
+      "oldLicense": "Unknown",
+      "newLicense": "Unknown",
+      "oldRedistributable": true,
+      "newRedistributable": true,
+      "oldEvidence": null,
+      "newEvidence": {
+        "source": "unresolved"
+      },
+      "evidenceCommit": null,
+      "evidenceHash": null
     }
   ]
 }

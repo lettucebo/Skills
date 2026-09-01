@@ -1,4 +1,50 @@
 {
-  "release": "2.0.0",
-  "licenses": []
+  "release": "2.0.1",
+  "licenses": [
+    {
+      "repository": "cloudflare/skills",
+      "reference": "refs/heads/main",
+      "commit": "f96bff754e428838818017f75817f0f9428acd48",
+      "license": "Apache-2.0",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "bundlePath": "cloudflare--skills--a317a9aaf9890e04--f96bff754e428838818017f75817f0f9428acd48--LICENSE"
+    },
+    {
+      "repository": "github/awesome-copilot",
+      "reference": "refs/heads/main",
+      "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "license": "MIT",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823",
+      "bundlePath": "github--awesome-copilot--a178dc401fe03076--4742f265959bf025882314564b364d9d7af6e2d5--LICENSE"
+    },
+    {
+      "repository": "henkisdabro/wookstar-claude-plugins",
+      "reference": "refs/heads/main",
+      "commit": "5091eccfb7cf09275f20fda850c190dff83be100",
+      "license": "MIT",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:48dfa68521bf12091285618e22ed767d79c328189e2b7f6745aa473535101335",
+      "bundlePath": "henkisdabro--wookstar-claude-plugins--d3e12b52a035c7c5--5091eccfb7cf09275f20fda850c190dff83be100--LICENSE"
+    },
+    {
+      "repository": "microsoft/skills",
+      "reference": "refs/heads/main",
+      "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+      "license": "MIT",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb",
+      "bundlePath": "microsoft--skills--d7f8dad1627d0b67--cde32f9c7332b53de67faa7dadabb6873d02bb0c--LICENSE"
+    },
+    {
+      "repository": "tamtom/gplay-cli-skills",
+      "reference": "refs/heads/main",
+      "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "license": "MIT",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "bundlePath": "tamtom--gplay-cli-skills--17e243c1cf010aa9--10301b24639e4f768d009b2edda9315cb2149712--LICENSE"
+    }
+  ]
 }

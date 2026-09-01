@@ -69,27 +69,27 @@ hooks/                     ← Copilot Hook 腳本集合
 <!-- INSTALL:START -->
 > 以下安裝指令由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
 
-安裝一律使用 `#<tag>` 釘選版本（不支援 `@version` 或 semver range）。目前 lockfile 的 release 為 **v2.0.0**。
+安裝一律使用 `#<tag>` 釘選版本（不支援 `@version` 或 semver range）。目前 lockfile 的 release 為 **v2.0.1**。
 
 安裝整個 registry：
 
 ```bash
-npx skills add lettucebo/Skills#v2.0.0
+npx skills add lettucebo/Skills#v2.0.1
 ```
 
 只安裝單一來源：
 
 ```bash
-npx skills add lettucebo/Skills/skills/azure#v2.0.0
+npx skills add lettucebo/Skills/skills/azure#v2.0.1
 ```
 
 只安裝單一技能：
 
 ```bash
-npx skills add "lettucebo/Skills#v2.0.0@agents-sdk"
+npx skills add "lettucebo/Skills#v2.0.1@agents-sdk"
 ```
 
-> ⚠️ 上述指令需要 `v2.0.0` tag 已推送到 GitHub；若該 tag 尚未發布，`npx skills` 會找不到對應 ref 而失敗。
+> ⚠️ 上述指令需要 `v2.0.1` tag 已推送到 GitHub；若該 tag 尚未發布，`npx skills` 會找不到對應 ref 而失敗。
 <!-- INSTALL:END -->
 
 ### 方法二：直接複製

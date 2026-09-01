@@ -19,6 +19,28 @@
       "upstreamCommit": "5091eccfb7cf09275f20fda850c190dff83be100",
       "diffUrl": null,
       "contentHash": "sha256:cde80ad6dfe90690947dfb326574137bdea632dc49c3aa38c64ff2f7416e2290"
+    },
+    {
+      "release": "2.0.1",
+      "kind": "license-refresh",
+      "version": "1.1.0",
+      "upstreamCommit": "5091eccfb7cf09275f20fda850c190dff83be100",
+      "diffUrl": null,
+      "oldLicense": "Unknown",
+      "newLicense": "MIT",
+      "oldRedistributable": true,
+      "newRedistributable": true,
+      "oldEvidence": null,
+      "newEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "henkisdabro/wookstar-claude-plugins",
+        "reference": "refs/heads/main",
+        "commit": "5091eccfb7cf09275f20fda850c190dff83be100",
+        "path": "LICENSE",
+        "hash": "sha256:48dfa68521bf12091285618e22ed767d79c328189e2b7f6745aa473535101335"
+      },
+      "evidenceCommit": "5091eccfb7cf09275f20fda850c190dff83be100",
+      "evidenceHash": "sha256:48dfa68521bf12091285618e22ed767d79c328189e2b7f6745aa473535101335"
     }
   ]
 }
