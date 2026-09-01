@@ -15,8 +15,9 @@ every skill, grouped by source. It provides full-text search (via Pagefind)
 so you can find a skill by name or description without reading
 `catalog/skills.lock.json` directly.
 
-Choose English, Traditional Chinese, or Simplified Chinese from the language
-switcher. Every public page has a prefixed route under `/Skills/en/`,
+Open the compact language menu beside the theme control to choose English,
+Traditional Chinese, or Simplified Chinese. The native menu and links work
+without JavaScript. Every public page has a prefixed route under `/Skills/en/`,
 `/Skills/zh-tw/`, or `/Skills/zh-cn/`; changing language preserves the current
 logical page. Former unprefixed links remain redirects to their English
 equivalents.

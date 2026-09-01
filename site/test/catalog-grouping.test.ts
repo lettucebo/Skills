@@ -53,9 +53,12 @@ function renderedMarkup(html: string): string {
     .replace(/<style[\s\S]*?<\/style>/gi, '');
 }
 
-/** Splits built HTML into per-`<details>` chunks (index 0 is the pre-details head). */
+/** Splits built HTML into per-source `<details data-skill-group>` chunks. */
 function detailsChunks(html: string): string[] {
-  return renderedMarkup(html).split('<details').slice(1);
+  return renderedMarkup(html)
+    .split('<details')
+    .slice(1)
+    .filter((chunk) => chunk.slice(0, chunk.indexOf('>')).match(GROUP_MARKER_RE));
 }
 
 /** Expected non-tombstone card count per source, derived from the catalog. */

@@ -15,6 +15,9 @@ test.describe('full-route localization', () => {
       await expect(page.locator('html')).toHaveAttribute('lang', locale.lang);
       await expect(page.getByRole('link', { name: locale.catalog, exact: true }).first()).toBeVisible();
       await expect(page.locator('[data-theme-label]')).toHaveText(locale.theme);
+      await expect(page.locator('.language-menu-summary')).toContainText(
+        locale.route === 'en' ? 'English' : locale.route === 'zh-tw' ? '繁體中文' : '简体中文',
+      );
       await expect(page.locator(`[data-locale-link="${locale.route}"]`))
         .toHaveAttribute('aria-current', 'page');
     });
@@ -24,8 +27,10 @@ test.describe('full-route localization', () => {
     for (const locale of locales) {
       await page.goto(`${SITE_BASE}${locale.route}/`);
       await expect(page.getByRole('group', { name: locale.languageLabel })).toBeVisible();
+      await page.locator('.language-menu-summary').click();
       for (const target of locales) {
         const link = page.locator(`[data-locale-link="${target.route}"]`);
+        await expect(link).toBeVisible();
         await expect(link).toHaveAttribute('lang', target.lang);
         await expect(link).toHaveAttribute('hreflang', target.route);
       }
@@ -45,12 +50,33 @@ test.describe('full-route localization', () => {
 
   test('language switch preserves the logical route and persists explicit selection', async ({ page }) => {
     await page.goto(`${SITE_BASE}en/skills/github/github-issues/`);
+    await page.locator('.language-menu-summary').click();
     await page.locator('[data-locale-link="zh-tw"]').click();
 
     await expect(page).toHaveURL(/\/Skills\/zh-tw\/skills\/github\/github-issues\/$/);
     await expect(page.locator('[data-locale-link="zh-tw"]')).toHaveAttribute('aria-current', 'page');
     await expect.poll(() => page.evaluate(() => localStorage.getItem('skillsLocale')))
       .toBe('zh-tw');
+  });
+
+  test('keyboard opens the native menu with Enter and Space and navigates a language link', async ({ page }) => {
+    await page.goto(`${SITE_BASE}en/status/`);
+    const menu = page.locator('.language-menu');
+    const summary = page.locator('.language-menu-summary');
+
+    await summary.focus();
+    await page.keyboard.press('Enter');
+    await expect(menu).toHaveAttribute('open', '');
+    await page.keyboard.press('Space');
+    await expect(menu).not.toHaveAttribute('open', '');
+    await page.keyboard.press('Space');
+    await expect(menu).toHaveAttribute('open', '');
+
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await expect(page.locator('[data-locale-link="zh-tw"]')).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/\/Skills\/zh-tw\/status\/$/);
   });
 
   test('saved locale affects only the legacy root and never overrides a direct locale URL', async ({ page }) => {
@@ -85,6 +111,11 @@ test.describe('full-route localization', () => {
     expect(html).toContain(`content="0;url=${target}"`);
     expect(html).toContain(`href="${target}"`);
     expect(html).toContain('data-pagefind-ignore="all"');
+    expect(html).toContain('class="language-menu legacy-language-menu"');
+    expect(html).toContain(`href="${SITE_BASE}zh-tw/skills/github/github-issues/"`);
+    expect(html).toContain('lang="zh-TW"');
+    expect(html).toContain('hreflang="zh-tw"');
+    expect(html).toContain('aria-current="page"');
 
     const root = await request.get(SITE_BASE, { maxRedirects: 0 });
     const rootHtml = await root.text();
@@ -97,10 +128,67 @@ test.describe('full-route localization', () => {
     const page = await context.newPage();
     try {
       await page.goto(`${SITE_BASE}zh-tw/skills/github/github-issues/`);
+      await page.locator('.language-menu-summary').click();
       await page.locator('[data-locale-link="en"]').click();
       await expect(page).toHaveURL(/\/Skills\/en\/skills\/github\/github-issues\/$/);
     } finally {
       await context.close();
+    }
+  });
+
+  test('language menu stays inside a 375px viewport without horizontal overflow', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto(`${SITE_BASE}zh-tw/`);
+    await page.locator('.language-menu-summary').click();
+
+    const geometry = await page.evaluate(() => {
+      const list = document.querySelector('.language-menu-list')?.getBoundingClientRect();
+      return {
+        clientWidth: document.documentElement.clientWidth,
+        scrollWidth: document.documentElement.scrollWidth,
+        left: list?.left ?? -1,
+        right: list?.right ?? -1,
+      };
+    });
+
+    expect(geometry.scrollWidth).toBeLessThanOrEqual(geometry.clientWidth + 1);
+    expect(geometry.left).toBeGreaterThanOrEqual(0);
+    expect(geometry.right).toBeLessThanOrEqual(geometry.clientWidth + 1);
+  });
+
+  test('legacy redirect language menu opens within a 375px viewport', async ({ page }) => {
+    const legacyPath = `${SITE_BASE}skills/github/github-issues/`;
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.route(`**${legacyPath}`, async (route) => {
+      const response = await route.fetch();
+      const html = (await response.text()).replace(
+        /<meta http-equiv="refresh"[^>]*>/,
+        '',
+      );
+      await route.fulfill({ response, body: html });
+    });
+    await page.goto(legacyPath);
+    await page.locator('.language-menu-summary').click();
+
+    const geometry = await page.evaluate(() => {
+      const list = document.querySelector('.language-menu-list')?.getBoundingClientRect();
+      const links = Array.from(document.querySelectorAll('.language-menu-list a'))
+        .map((link) => link.getBoundingClientRect());
+      return {
+        clientWidth: document.documentElement.clientWidth,
+        scrollWidth: document.documentElement.scrollWidth,
+        listLeft: list?.left ?? -1,
+        listRight: list?.right ?? -1,
+        links,
+      };
+    });
+
+    expect(geometry.scrollWidth).toBeLessThanOrEqual(geometry.clientWidth + 1);
+    expect(geometry.listLeft).toBeGreaterThanOrEqual(0);
+    expect(geometry.listRight).toBeLessThanOrEqual(geometry.clientWidth + 1);
+    for (const link of geometry.links) {
+      expect(link.left).toBeGreaterThanOrEqual(0);
+      expect(link.right).toBeLessThanOrEqual(geometry.clientWidth + 1);
     }
   });
 

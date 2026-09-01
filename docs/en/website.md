@@ -26,12 +26,15 @@ Starts the Astro dev server. Astro uses prefix-all i18n routing for `en`,
 base, locale, and trailing slash (for example `/Skills/en/status/` or
 `/Skills/zh-tw/skills/github/github-issues/`).
 
-The language switcher uses native links and preserves the current logical
-home, install, status, source, or skill route. An explicit selection is saved
-for the legacy `/Skills/` entry point only; it never overrides a directly
-requested localized URL. Every former unprefixed route remains as a static
-redirect with an English meta-refresh/canonical/anchor fallback, while the
-root redirect may choose the saved or browser locale when JavaScript runs.
+The compact language menu sits beside the theme control and uses native
+`<details>`, `<summary>`, and links, so it opens and navigates without
+JavaScript. It preserves the current logical home, install, status, source, or
+skill route. An explicit selection is saved for the legacy `/Skills/` entry
+point only; it never overrides a directly requested localized URL. Every
+former unprefixed route remains as a static redirect with an English
+meta-refresh/canonical/anchor fallback and the same compact language
+affordance, while the root redirect may choose the saved or browser locale
+when JavaScript runs.
 
 ## Build and Pagefind
 

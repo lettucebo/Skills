@@ -9,6 +9,13 @@ import {
   getLegacyRedirectEntries,
   getLocalizedRouteEntries,
 } from '../src/i18n/routes.ts';
+import {
+  HTML_LANG,
+  LOCALE_DISPLAY_NAMES,
+  SUPPORTED_LOCALES,
+  routeForLocale,
+  t,
+} from '../src/i18n/index.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, '..');
@@ -53,11 +60,13 @@ test('build emits exactly 520 static pages with approved localized and redirect 
   }
 });
 
-test('all 130 legacy redirects contain exact English meta, canonical, anchor, and Pagefind exclusion', {
+test('all current legacy redirects contain exact redirect metadata and a compact language menu', {
   skip: !distExists && 'dist/ not found',
 }, async () => {
   const catalog = await loadCatalog(repoRoot);
   const redirects = getLegacyRedirectEntries(catalog);
+  const activeSkillCount = catalog.skills.filter((skill) => !skill.isTombstone).length;
+  assert.equal(redirects.length, 3 + catalog.sources.length + activeSkillCount);
   assert.equal(redirects.length, 130);
 
   for (const { from, to } of redirects) {
@@ -70,15 +79,23 @@ test('all 130 legacy redirects contain exact English meta, canonical, anchor, an
     assert.ok(html.includes(`href="${to}"`), `${from} anchor target`);
     assert.match(html, /data-pagefind-ignore="all"/, `${from} Pagefind exclusion`);
     assert.doesNotMatch(html, /data-pagefind-body/, `${from} must not be indexed`);
-    for (const { locale, lang, label } of [
-      { locale: 'en', lang: 'en', label: 'English' },
-      { locale: 'zh-tw', lang: 'zh-TW', label: '繁體中文' },
-      { locale: 'zh-cn', lang: 'zh-CN', label: '简体中文' },
-    ]) {
+    assert.doesNotMatch(
+      html,
+      /<link\b[^>]*rel="stylesheet"/,
+      `${from} redirect must not wait for a stylesheet before meta refresh`,
+    );
+    const menu = html.match(
+      /<details\b[^>]*class="language-menu legacy-language-menu"[^>]*>[\s\S]*?<\/details>/,
+    )?.[0];
+    assert.ok(menu, `${from} compact language details`);
+    assert.match(menu, new RegExp(`aria-label="${t('en', 'languageNavigation')}"`));
+    assert.match(menu, /<summary\b[^>]*>[\s\S]*English[\s\S]*<\/summary>/);
+    for (const locale of SUPPORTED_LOCALES) {
+      const expectedTarget = routeForLocale(locale, to);
       assert.match(
-        html,
+        menu,
         new RegExp(
-          `<a[^>]+lang="${lang}"[^>]+hreflang="${locale}"[^>]*>${label}</a>`,
+          `<a[^>]+href="${expectedTarget}"[^>]+lang="${HTML_LANG[locale]}"[^>]+hreflang="${locale}"[^>]*${locale === 'en' ? 'aria-current="page"[^>]*' : ''}>${LOCALE_DISPLAY_NAMES[locale]}</a>`,
         ),
         `${from} must identify the language of ${locale} link text and target`,
       );
@@ -86,65 +103,40 @@ test('all 130 legacy redirects contain exact English meta, canonical, anchor, an
   }
 });
 
-test('localized pages expose language, canonical, hreflang, translated navigation, and route-preserving switcher', {
+test('every localized page exposes a compact named route-preserving language menu', {
   skip: !distExists && 'dist/ not found',
-}, () => {
-  const samples = [
-    {
-      locale: 'en',
-      lang: 'en',
-      path: '/Skills/en/skills/github/github-issues/',
-      nav: 'Catalog',
-    },
-    {
-      locale: 'zh-tw',
-      lang: 'zh-TW',
-      path: '/Skills/zh-tw/skills/github/github-issues/',
-      nav: '目錄',
-    },
-    {
-      locale: 'zh-cn',
-      lang: 'zh-CN',
-      path: '/Skills/zh-cn/skills/github/github-issues/',
-      nav: '目录',
-    },
-  ];
+}, async () => {
+  const catalog = await loadCatalog(repoRoot);
+  const localized = getLocalizedRouteEntries(catalog);
+  const redirects = getLegacyRedirectEntries(catalog);
+  assert.equal(localized.length, SUPPORTED_LOCALES.length * redirects.length);
 
-  for (const sample of samples) {
-    const html = fs.readFileSync(htmlPath(sample.path), 'utf8');
-    assert.match(html, new RegExp(`<html[^>]+lang="${sample.lang}"`));
+  for (const entry of localized) {
+    const html = fs.readFileSync(htmlPath(entry.path), 'utf8');
+    assert.match(html, new RegExp(`<html[^>]+lang="${HTML_LANG[entry.locale]}"`));
     assert.ok(
-      html.includes(`rel="canonical" href="https://lettucebo.github.io${sample.path}"`),
+      html.includes(`rel="canonical" href="https://lettucebo.github.io${entry.path}"`),
     );
-    for (const locale of ['en', 'zh-tw', 'zh-cn']) {
-      const target = sample.path.replace(`/Skills/${sample.locale}/`, `/Skills/${locale}/`);
+    const menu = html.match(
+      /<details\b[^>]*class="language-menu"[^>]*>[\s\S]*?<\/details>/,
+    )?.[0];
+    assert.ok(menu, `${entry.path} compact language details`);
+    assert.match(menu, new RegExp(`aria-label="${t(entry.locale, 'languageNavigation')}"`));
+    assert.match(
+      menu,
+      new RegExp(`<summary\\b[^>]*>[\\s\\S]*${LOCALE_DISPLAY_NAMES[entry.locale]}[\\s\\S]*</summary>`),
+    );
+    for (const locale of SUPPORTED_LOCALES) {
+      const target = routeForLocale(locale, entry.path);
       assert.ok(html.includes(`hreflang="${locale}" href="https://lettucebo.github.io${target}"`));
-      assert.ok(html.includes(`href="${target}"`), `switcher must preserve route to ${locale}`);
-    }
-    assert.ok(html.includes(`>${sample.nav}</a>`));
-    const switcher = html.match(
-      /<(nav|div)\b[^>]*class="language-switcher"[^>]*>/,
-    );
-    assert.ok(switcher, 'language switcher wrapper must exist');
-    assert.match(switcher[0], /aria-label="[^"]+"/);
-    assert.ok(
-      switcher[1] === 'nav' || /role="group"/.test(switcher[0]),
-      'language switcher must be a named nav or group, not a generic div',
-    );
-    for (const { locale, lang, label } of [
-      { locale: 'en', lang: 'en', label: 'English' },
-      { locale: 'zh-tw', lang: 'zh-TW', label: '繁體中文' },
-      { locale: 'zh-cn', lang: 'zh-CN', label: '简体中文' },
-    ]) {
       assert.match(
-        html,
+        menu,
         new RegExp(
-          `<a[^>]+lang="${lang}"[^>]+hreflang="${locale}"[^>]*>${label}</a>`,
+          `<a[^>]+href="${target}"[^>]+lang="${HTML_LANG[locale]}"[^>]+hreflang="${locale}"[^>]*${locale === entry.locale ? 'aria-current="page"[^>]*' : ''}>${LOCALE_DISPLAY_NAMES[locale]}</a>`,
         ),
-        `${sample.path} must identify the language of ${locale} link text and target`,
+        `${entry.path} must identify the language of ${locale} link text and target`,
       );
     }
-    assert.match(html, new RegExp(`href="[^"]*"[^>]+aria-current="page"[^>]*>${sample.locale === 'en' ? 'English' : sample.locale === 'zh-tw' ? '繁體中文' : '简体中文'}</a>`));
   }
 });
 

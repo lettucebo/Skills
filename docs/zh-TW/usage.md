@@ -13,9 +13,10 @@
 skill。它提供全文搜尋（透過 Pagefind），讓你不必直接閱讀
 `catalog/skills.lock.json` 就能依名稱或描述找到某個 skill。
 
-你可以從語言切換器選擇英文、繁體中文或簡體中文。每個公開頁面都位於
-`/Skills/en/`、`/Skills/zh-tw/` 或 `/Skills/zh-cn/` 前綴之下；切換語言會保留
-目前的邏輯頁面。舊版無語言前綴連結仍會 redirect 到對應英文頁面。
+開啟主題控制項旁的精簡語言選單，即可選擇英文、繁體中文或簡體中文；原生選單
+與連結不需 JavaScript 也能使用。每個公開頁面都位於 `/Skills/en/`、
+`/Skills/zh-tw/` 或 `/Skills/zh-cn/` 前綴之下；切換語言會保留目前的邏輯頁面。
+舊版無語言前綴連結仍會 redirect 到對應英文頁面。
 
 ### Skill 頁面
 
