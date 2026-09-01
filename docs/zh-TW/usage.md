@@ -13,6 +13,10 @@
 skill。它提供全文搜尋（透過 Pagefind），讓你不必直接閱讀
 `catalog/skills.lock.json` 就能依名稱或描述找到某個 skill。
 
+每張 active 目錄卡片都會在已驗證的 changelog metadata 保持最新時，顯示
+**收錄的最新變更**。這是 registry 釘選版本所收錄的最新上游 author date，不是
+即時的「最後更新」查詢。
+
 開啟主題控制項旁的精簡語言選單，即可選擇英文、繁體中文或簡體中文；原生選單
 與連結不需 JavaScript 也能使用。每個公開頁面都位於 `/Skills/en/`、
 `/Skills/zh-tw/` 或 `/Skills/zh-cn/` 前綴之下；切換語言會保留目前的邏輯頁面。
@@ -27,7 +31,10 @@ skill。它提供全文搜尋（透過 Pagefind），讓你不必直接閱讀
 - 它的狀態標籤（`Synced`、`Frozen`、`Local` 或 `Restricted`），
 - 它個別的**版本**與**授權**，
 - 它可取得的**上游來源證明** — 釘選在解析後 commit 的完整 repository 來源路徑，
-  並提供來源樹與 commit 的連結，以及
+  提供來源樹與 commit 的連結，並在目前 changelog metadata 可用時顯示
+  **收錄的最新變更** author date，
+- 位於安裝指令與原始內容之前、預設收合的 **Upstream changes** disclosure；
+  summary 顯示收錄的 commit 筆數／日期，展開後顯示在地化 timeline，以及
 - 它的**歷史紀錄** — 記錄的版本、變更種類與上游 commit。
 
 非受限制的詳情頁也會渲染 repository-root 安裝指令。Repository-root 與單一
@@ -49,7 +56,8 @@ inventory 沒有這類頁面：四個專有 claude 鏡像已成為 tombstone，�
 每個來源集合（例如 `skills/azure`）都有一個頁面位於
 `/Skills/<locale>/sources/<source>/`，
 列出該集合中的每個 skill；除非該集合含有受限制的 skill，否則也會提供安裝整個
-集合的確切 `npx skills add` 指令。
+集合的確切 `npx skills add` 指令。表格新增**收錄的最新變更**欄位，並維持既有
+名稱排序。
 
 ### 狀態頁面
 

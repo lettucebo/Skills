@@ -60,7 +60,8 @@ Eligible skills have a human-oriented summary artifact with separate
 **Purpose**, **When to use**, and **Outputs** fields. Detail pages render all
 three fields, and Pagefind indexes them as part of the existing skill page.
 Catalog cards use the summary purpose instead of the agent-trigger
-frontmatter description.
+frontmatter description. Every active non-restricted card also shows the
+skill's **Latest included change** date from the current changelog artifact.
 
 Summary artifacts are accepted only when enrichment is enabled and the
 artifact is fresh for the current lock entry. Each localized route requests
@@ -130,13 +131,17 @@ for the full explanation.
 
 Eligible mapped skill pages can show two separate timelines:
 
-- **Upstream changes** lists every non-merge upstream commit that affected the
-  skill's `SKILL.md` through the exact commit pinned in the lockfile. Each
-  entry links directly to that repository commit, preserves the original
-  upstream subject, and uses the current route's localized generated summary.
+- **Upstream changes** is a native disclosure above the install command and
+  raw `SKILL.md` body. It is closed by default, and its summary shows the
+  commit count and latest included date. Expanding it lists every non-merge
+  upstream commit that affected the skill's `SKILL.md` through the exact
+  commit pinned in the lockfile. Each entry links directly to that repository
+  commit, preserves the original upstream subject, and uses the current
+  route's localized generated summary. The complete disclosure is excluded
+  from Pagefind.
 - **History** remains the registry-release ledger from
   `catalog/history/*.json`, showing when this registry adopted or versioned
-  the skill.
+  the skill. It remains a separate section at the page foot.
 
 The two timelines are intentionally not combined: one describes upstream Git
 history and the other describes registry releases. A missing or invalid
@@ -144,6 +149,16 @@ Chinese generated summary never falls back to English; when safe commit
 metadata remains available, the original subject and metadata render without
 a generated summary. Ineligible or unavailable changelog data is omitted while
 the existing History section continues to render.
+
+The detail metadata, every catalog card, and each source table show **Latest
+included change** from `commits[0].date` only when the changelog sidecar passes
+the complete provenance freshness check. This is the newest upstream **author
+date included at the registry's pinned revision**, not a live upstream query
+or a committer-date “last updated” value; rebases and cherry-picks can preserve
+an older author date. Frozen skills with no verified upstream and mapped
+skills with missing or stale metadata both show an em dash, with distinct
+screen-reader explanations. No registry generation, source commit, build, or
+current date is substituted.
 
 ## Restricted content on the site
 

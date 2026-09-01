@@ -39,6 +39,21 @@ export function formatChangelogDate(value: string): string {
   return new Date(value).toISOString().slice(0, 10);
 }
 
+export type LatestIncludedChangeReason =
+  | 'available'
+  | 'no-upstream'
+  | 'missing-or-stale';
+
+export interface LatestIncludedChange {
+  date: string | null;
+  reason: LatestIncludedChangeReason;
+}
+
+export interface SkillChangelogView {
+  content: SkillChangelogContent;
+  latestIncludedChange: LatestIncludedChange;
+}
+
 export interface EnrichmentLoadRequest<TContent extends JsonObject> {
   repoRoot: string;
   kind: EnrichmentArtifactKind;
@@ -350,4 +365,65 @@ export async function loadEnrichmentLocale<TContent extends JsonObject>({
 
   return artifact.locales[locale]?.content ??
     artifactFallback(kind, artifact, skill, fallback, fallbackFromArtifact);
+}
+
+export async function loadSkillChangelog({
+  repoRoot,
+  skill,
+  locale,
+}: {
+  repoRoot: string;
+  skill: LockSkillEntry;
+  locale: EnrichmentLocale;
+}): Promise<SkillChangelogView | null> {
+  if (skill.redistributable === false || skill.category === 'removed') {
+    return null;
+  }
+  if (skill.upstream === null) {
+    return {
+      content: { commits: [] },
+      latestIncludedChange: {
+        date: null,
+        reason: 'no-upstream',
+      },
+    };
+  }
+
+  const unavailable: SkillChangelogContent = { commits: [] };
+  const content = await loadEnrichmentLocale<SkillChangelogContent>({
+    repoRoot,
+    kind: 'changelog',
+    skill,
+    locale,
+    fallback: unavailable,
+    fallbackFromArtifact: locale === 'en'
+      ? undefined
+      : (artifact) => ({
+          commits: artifact.locales.en.content.commits.map((entry) => ({
+            ...entry,
+            summary: '',
+          })),
+          ...(artifact.locales.en.content.truncatedAt
+            ? { truncatedAt: artifact.locales.en.content.truncatedAt }
+            : {}),
+        }),
+  });
+
+  if (content === unavailable) {
+    return {
+      content,
+      latestIncludedChange: {
+        date: null,
+        reason: 'missing-or-stale',
+      },
+    };
+  }
+
+  return {
+    content,
+    latestIncludedChange: {
+      date: content.commits[0]?.date ?? null,
+      reason: 'available',
+    },
+  };
 }

@@ -130,6 +130,18 @@ body {
   min-height: 100vh;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 code, pre, kbd, samp {
   font-family: Consolas, "Courier New", Courier, monospace;
 }
@@ -411,6 +423,12 @@ a:focus-visible {
   flex-wrap: wrap;
   align-items: center;
 }
+.card-latest-change {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--cp-muted-text);
+}
 .card-description {
   font-size: 0.8125rem;
   color: var(--cp-text-soft);
@@ -571,6 +589,15 @@ a:focus-visible {
   font-size: 0.8125rem;
   color: var(--cp-muted-text);
 }
+.latest-included-change time {
+  color: inherit;
+}
+.latest-included-change-label {
+  font-weight: 600;
+}
+.latest-included-change-unavailable {
+  white-space: nowrap;
+}
 
 .skill-summary {
   background: var(--cp-surface);
@@ -724,6 +751,27 @@ a:focus-visible {
 }
 .timeline-summary {
   color: var(--cp-muted-text);
+}
+.upstream-changes {
+  margin: 16px 0;
+  border: 1px solid var(--cp-border);
+  border-radius: 12px;
+  background: var(--cp-surface);
+}
+.upstream-changes > summary {
+  padding: 12px 16px;
+  color: var(--cp-text);
+  font-weight: 600;
+  cursor: pointer;
+}
+.upstream-changes > summary:focus-visible {
+  outline: 2px solid var(--cp-accent);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+.upstream-changes-timeline {
+  margin-top: 0;
+  padding: 0 16px 12px;
 }
 
 /* ─── Source page ─────────────────────────────────────────────────── */
@@ -917,6 +965,12 @@ a:focus-visible {
     outline: 2px solid Highlight;
     outline-offset: -2px;
   }
+  .upstream-changes {
+    border-color: ButtonText;
+  }
+  .upstream-changes > summary:focus-visible {
+    outline: 2px solid Highlight;
+  }
   .skill-group-summary::before {
     border-left-color: ButtonText;
   }
@@ -993,6 +1047,14 @@ a:focus-visible {
   .detail-description,
   .detail-meta,
   .skill-table {
+    overflow-wrap: anywhere;
+  }
+  .upstream-changes .timeline-entry {
+    flex-wrap: wrap;
+  }
+  .upstream-changes .timeline-subject,
+  .upstream-changes .timeline-summary {
+    min-width: 0;
     overflow-wrap: anywhere;
   }
 }

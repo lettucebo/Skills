@@ -24,27 +24,29 @@ const enrichmentPath = path.join(
 test('skill detail keeps registry History separate from fresh Upstream changes', async () => {
   const source = await readFile(pagePath, 'utf8');
 
-  assert.match(source, /loadEnrichmentLocale/);
-  assert.match(source, /kind:\s*'changelog'/);
+  assert.match(source, /loadSkillChangelog/);
   assert.match(source, /locale,/);
   assert.match(source, /'history'/);
-  assert.match(source, /'upstreamChanges'/);
+  assert.match(source, /'upstreamChangesSummary'/);
   assert.match(source, /upstreamChanges\.commits\.length\s*>\s*0/);
+  assert.ok(
+    source.indexOf('class="upstream-changes"') <
+      source.indexOf('class="detail-body"'),
+  );
 });
 
 test('restricted and orphan pages are gated before changelog loading or rendering', async () => {
-  const source = await readFile(pagePath, 'utf8');
+  const [source, enrichment] = await Promise.all([
+    readFile(pagePath, 'utf8'),
+    readFile(enrichmentPath, 'utf8'),
+  ]);
 
+  assert.match(source, /const changelog = !skill\.isRestricted/);
+  assert.match(enrichment, /skill\.redistributable === false \|\| skill\.category === 'removed'/);
   assert.match(
-    source,
-    /!skill\.isRestricted\s*&&\s*!skill\.isOrphan\s*&&\s*skill\.upstreamRepo/,
+    enrichment,
+    /if \(skill\.upstream === null\)[\s\S]*reason: 'no-upstream'/,
   );
-  assert.match(source, /upstreamChangesPromise/);
-  assert.match(
-    source,
-    /const emptyUpstreamChanges:\s*SkillChangelogContent\s*=\s*\{\s*commits:\s*\[\]\s*\}/,
-  );
-  assert.match(source, /Promise\.resolve\(emptyUpstreamChanges\)/);
 });
 
 test('site enrichment module re-exports the changelog content type used by the page', async () => {
