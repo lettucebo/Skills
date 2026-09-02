@@ -44,7 +44,7 @@ npm --prefix site run build
 `data-pagefind-body` 選擇加入索引；舊版 redirect、目錄與狀態頁不會被索引。輸出
 結果會放在 `site/dist/`。
 
-2.0.0 catalog 會建置 390 個在地化 route 與 130 個 legacy redirect（合計 520
+2.0.1 catalog 會建置 390 個在地化 route 與 130 個 legacy redirect（合計 520
 個 HTML 檔）。每個 locale 的 115 個 active skill 頁會產生 345 個 Pagefind
 document／fragment。四個已移除的專有 skill route 與 legacy redirect 刻意不產生。
 

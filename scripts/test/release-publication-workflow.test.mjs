@@ -266,6 +266,23 @@ test('SY5: the daily schedule trigger is retained', async () => {
   assert.match(String(cron[0].cron), /^\S+ \S+ \S+ \S+ \S+$/, 'cron must be a 5-field schedule');
 });
 
+test('SY5b: manual workflow exposes the explicit license refresh transaction', async () => {
+  const wf = await loadWorkflow('sync.yml');
+  assert.equal(
+    wf.on?.workflow_dispatch?.inputs?.refresh_licenses?.type,
+    'boolean',
+  );
+  assert.equal(
+    wf.on?.workflow_dispatch?.inputs?.refresh_licenses?.default,
+    false,
+  );
+  const updateRun = stepsOf(wf.jobs?.update)
+    .map((step) => String(step.run ?? ''))
+    .join('\n');
+  assert.match(updateRun, /--refresh-licenses/);
+  assert.match(updateRun, /--apply/);
+});
+
 test('SY5a: the scheduled apply requires both main and SKILLS_SYNC_ENABLED', async () => {
   const condition = await jobCondition('update');
   assert.equal(

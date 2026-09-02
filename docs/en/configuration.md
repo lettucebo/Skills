@@ -51,12 +51,12 @@ the upstream repository. `path` must already exist on disk with a `SKILL.md`
 License restrictions are **not** declared in this YAML manifest. Before
 adopting proprietary content, add its destination path to
 `RESTRICTED_SKILL_PATHS` in `scripts/catalog.mjs`; otherwise the catalog
-defaults it to `redistributable: true`, even when a `LICENSE.txt` is detected
-as proprietary. The generated lockfile is the resulting public inventory, not
-the place to set this policy. Update apply preserves an existing lock entry's
-license and redistribution fields, so correcting a missed classification
-after adoption requires a reviewed engine/data migration with tests; adding
-the path later is not enough.
+does not apply the permanent redistribution restriction. The generated
+lockfile is the resulting public inventory, not the place to set this policy.
+Every entry records structured evidence from restricted policy, a
+skill-local license file, frontmatter, a lock-pinned upstream-root file, or
+an explicit unresolved result. Use `--refresh-licenses` to correct existing
+metadata; ordinary apply does not watch root-license-only drift.
 
 The four removed claude document-format paths remain in
 `RESTRICTED_SKILL_PATHS` as a permanent denylist. For lock releases 2.0.0 and

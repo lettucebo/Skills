@@ -70,8 +70,9 @@ transaction 中一起變更。
    `catalog/sources.yml` 中設定。
 5. 提交，並確認目前 lock `release` 的 tag 已經發布且是 `HEAD` 的祖先。
 6. 執行 `node scripts/sync.mjs --apply`。引擎會從真正的上游重新 staging 該
-   skill、驗證其來源證明、蓋上 `x-source*` frontmatter 欄位戳記，並記錄一筆
-   從版本 `1.0.0` 開始的 `mapping-added` 歷史項目。
+   skill、驗證其來源證明、蓋上 `x-source*` frontmatter 欄位戳記、在該 staged
+   commit 解析授權證據、需要時更新第三方根授權原文包，並記錄一筆從版本
+   `1.0.0` 開始的 `mapping-added` 歷史項目。
 7. 完成[收編收尾流程](#收編收尾流程)中的驗證、commit、merge 與 tag 交接。
 
 ## 新增一個 orphan skill
@@ -107,8 +108,8 @@ transaction 中一起變更。
 1. 執行 `npm run smoke:npx -- --ref HEAD`，再執行 `npm test` 與
    `node scripts/validate.mjs`。Smoke 檢查必須在 lockfile 已包含新 skill **之後**
    執行。
-2. 提交同步產生的 lockfile、history、`NOTICE` 與 README 區塊，再把經過審查的
-   變更合併至 `main`。
+2. 提交同步產生的 lockfile、history、`catalog/licenses/`、`NOTICE` 與 README
+   區塊，再把經過審查的變更合併至 `main`。
 3. Release 發布前保持排程同步停用。在更新後的 `main` 上，於合併後的 release
    commit 建立 lockfile 所指定的 annotated `v<release>` tag 並推送。不要在
    feature branch 上打 tag。由於 PR merge 時 commit 已先到遠端，這條手動路徑
@@ -138,7 +139,8 @@ job 會執行收編與驗證、commit 產生輸出、建立確切的 `nextTag`�
 
 `catalog/skills.lock.json`、`catalog/history/*.json`、根目錄 `README.md` 中的
 `<!-- CATALOG:START -->`／`<!-- INSTALL:START -->` 區塊，以及 `NOTICE`，全部都
-是依據 manifest 加上目前 staged 內容確定性地衍生出來的。手動編輯其中任何一個，
+是依據 manifest、目前 staged 內容與釘選授權證據確定性地衍生出來的。
+`catalog/licenses/` 也會一起產生，保存精確的上游根授權位元組與證據索引。手動編輯其中任何一個，
 都只會產生一個下次同步執行時就會被直接覆蓋的值，而在那之前它還可能誤導使用者
 真正能安裝的內容。請把它們當成建置輸出，而不是原始碼。
 

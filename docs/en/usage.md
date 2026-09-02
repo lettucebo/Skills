@@ -90,7 +90,7 @@ Prefer the narrowest scope that meets your need:
   only when that skill is not itself restricted.
 - **Single source** — when you want a whole collection (for example all
   `skills/dotnet` skills) that does not contain a restricted skill.
-- **Full registry** — installs all 115 active skills in 2.0.0. Continue
+- **Full registry** — installs all 115 active skills in 2.0.1. Continue
   checking the status page for future restricted inventory.
 
 ## Pinning versions

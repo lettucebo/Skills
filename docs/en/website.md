@@ -49,7 +49,7 @@ Traditional Chinese, and Simplified Chinese indexes. Only localized skill
 pages opt in with `data-pagefind-body`; legacy redirects and catalog/status
 pages are excluded. The output lands in `site/dist/`.
 
-The 2.0.0 catalog builds 390 localized routes and 130 legacy redirects (520
+The 2.0.1 catalog builds 390 localized routes and 130 legacy redirects (520
 HTML files total). Its 115 active skill pages per locale produce 345 Pagefind
 documents/fragments. The four removed proprietary skill routes and legacy
 redirects are intentionally absent.

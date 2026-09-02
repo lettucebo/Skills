@@ -150,6 +150,7 @@ test('normalizeSkill: restricted skill (redistributable: false)', () => {
     baseline: 'verified',
     license: 'Proprietary',
     redistributable: false,
+    licenseEvidence: { source: 'restricted-policy' },
     snapshotHash: 'sha256:abc',
     contentHash: 'sha256:def',
     upstream: {
@@ -335,15 +336,15 @@ test('restricted skill: body reader is NEVER invoked', async () => {
 
 test('repo install command uses #ref syntax (never @version)', () => {
   const cmd = generateRepoInstallCommand();
-  assert.match(cmd, /^npx skills add lettucebo\/Skills#v2\.0\.0 --full-depth$/);
-  assert.doesNotMatch(cmd, /@v2\.0\.0/);
+  assert.equal(cmd, `npx skills add lettucebo/Skills#v${RELEASE_VERSION} --full-depth`);
+  assert.doesNotMatch(cmd, /@v\d/);
 });
 
 test('source install command uses #ref syntax', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const cmd = generateSourceInstallCommand(catalog.skills, 'azure');
-  assert.match(cmd!, /^npx skills add lettucebo\/Skills\/skills\/azure#v2\.0\.0$/);
-  assert.doesNotMatch(cmd!, /@v2\.0\.0/);
+  assert.equal(cmd, `npx skills add lettucebo/Skills/skills/azure#v${RELEASE_VERSION}`);
+  assert.doesNotMatch(cmd!, /@v\d/);
   assert.doesNotMatch(cmd!, /--full-depth/);
 });
 
@@ -351,7 +352,7 @@ test('single skill install command uses #ref@name syntax', () => {
   const cmd = generateSingleSkillInstallCommand('az-cost-optimize');
   assert.equal(
     cmd,
-    'npx skills add "lettucebo/Skills#v2.0.0@az-cost-optimize" --full-depth',
+    `npx skills add "lettucebo/Skills#v${RELEASE_VERSION}@az-cost-optimize" --full-depth`,
   );
 });
 

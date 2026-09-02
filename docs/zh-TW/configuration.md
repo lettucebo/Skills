@@ -47,11 +47,11 @@ manifest 項目。
 
 授權限制**不是**在這份 YAML manifest 中宣告。收編專有內容之前，請把目的路徑
 加入 `scripts/catalog.mjs` 的 `RESTRICTED_SKILL_PATHS`；否則即使
-`LICENSE.txt` 被辨識為 proprietary，catalog 仍預設
-`redistributable: true`。產生的 lockfile 是公開清單的結果，不是設定這項政策的
-位置。Update apply 會保留既有 lock 項目的 license 與 redistribution 欄位，因此
-若收編後才發現分類遺漏，必須以含測試、經過審查的 engine／data migration 修正；
-事後只加入路徑並不夠。
+`LICENSE.txt` 被辨識為 proprietary，catalog 也不會套用永久的散布限制。產生的
+lockfile 是公開清單的結果，不是設定這項政策的位置。每個項目會記錄結構化證據：
+restricted policy、skill-local 授權檔、frontmatter、lock 釘選 commit 的上游根
+目錄授權檔，或明確 unresolved。既有 metadata 請用 `--refresh-licenses` 修正；
+一般 apply 不監看只有根授權變動的情況。
 
 四個已移除的 claude 文件格式路徑仍永久保留在 `RESTRICTED_SKILL_PATHS` 作為
 denylist。Lock release 2.0.0 之後，validator 要求它們不存在於磁碟與 active

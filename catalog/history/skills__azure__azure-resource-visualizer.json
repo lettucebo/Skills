@@ -19,6 +19,28 @@
       "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
       "diffUrl": null,
       "contentHash": "sha256:c9295d8ce9d75312f258dcfff13d83a3b23529dda7a8abb4119670f0cf8bed48"
+    },
+    {
+      "release": "2.0.1",
+      "kind": "license-refresh",
+      "version": "1.1.0",
+      "upstreamCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "diffUrl": null,
+      "oldLicense": "MIT",
+      "newLicense": "MIT",
+      "oldRedistributable": true,
+      "newRedistributable": true,
+      "oldEvidence": null,
+      "newEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/azure-resource-visualizer/LICENSE.txt",
+        "hash": "sha256:cacacf3e9ede21a9237d9fdef6728ebe7a27d489f6df08cbf946f622ad9b834c",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "evidenceCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
+      "evidenceHash": "sha256:cacacf3e9ede21a9237d9fdef6728ebe7a27d489f6df08cbf946f622ad9b834c"
     }
   ]
 }

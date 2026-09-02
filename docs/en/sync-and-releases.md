@@ -6,7 +6,7 @@ This page documents `scripts/sync.mjs` and the workflow that drives it end to
 end. For the manifest fields it reads, see [Configuration](configuration.md);
 for how a specific skill is added, see [Skill management](skill-management.md).
 
-## Four modes
+## Five modes
 
 ### Dry-run (the default)
 
@@ -82,10 +82,41 @@ deletion guard (4/17, below the 30% threshold). It never calls
 published, and `v1.1.0` must never be published. The exact `1.1.0`
 precondition makes the command non-repeatable.
 
-`--apply`, `--baseline`, `--deproprietize`, and `--dry-run` are mutually
+### Refresh licenses
+
+```bash
+node scripts/sync.mjs --refresh-licenses --output sync-report/license-refresh.json
+```
+
+This explicit metadata transaction requires a clean tree and reconciled
+current tag. For each distinct repository/reference group it fetches enough
+history to prove every lock-pinned commit is reachable from the declared ref,
+checks out that exact commit, and resolves license precedence as permanent
+restricted policy, skill-local license file, frontmatter, upstream-root
+license, then unresolved. Network, fetch, reachability, or recognition
+failures abort before mutation; a known license cannot become `Unknown` at
+unchanged pinned provenance.
+
+The command changes only `license`, `redistributable`, and structured
+`licenseEvidence`, appends `license-refresh` history where those values
+changed, regenerates `NOTICE`, README generated blocks, and the complete
+`catalog/licenses/` root-license bundle, and classifies the result as a
+metadata patch. It never stages, copies, or swaps `skills/`, and never changes
+per-skill versions, hashes, or upstream tuples. A fully refreshed,
+tag-reconciled state is revalidated and returns `applied: false` without
+mutation.
+
+Ordinary `--apply` intentionally does not detect root-license-only drift.
+Run `--refresh-licenses` for that purpose. Newly added mappings and mapped
+content/tuple updates still resolve license evidence from their staged pinned
+commit and update the bundle as part of the normal transaction. Starting with
+the 2.x line, ordinary apply refuses to run until the one-time evidence
+migration marker and evidence on every entry are present.
+
+`--apply`, `--baseline`, `--deproprietize`, `--refresh-licenses`, and `--dry-run` are mutually
 exclusive; combining modes is rejected before any work starts.
 
-On Windows, apply, baseline, and deproprietize require `powershell.exe` for
+On Windows, apply, baseline, deproprietize, and refresh-licenses require `powershell.exe` for
 durable journal replacement; the engine refuses to start the transaction if
 it is unavailable.
 
@@ -98,6 +129,9 @@ it is unavailable.
 - **Apply**: writes the JSON to **both** the given file **and** stdout.
 - **Deproprietize**: like apply, writes the JSON to **both** the given file
   **and** stdout.
+- **Refresh licenses**: like apply, writes the JSON to **both** the given file
+  **and** stdout. The report includes metadata paths/count, release/tag,
+  commit message, evidence summary, license counts, and `applied`.
 - **Baseline**: `--output` is **not supported**. The baseline branch always
   writes its result to stdout only and returns without writing an output
   file at all, even if `--output` is passed.
@@ -123,7 +157,7 @@ their `upstream` field is `null`.
 
 ## Transaction safety: journal, rollback, crash recovery
 
-`--apply`, `--baseline`, and `--deproprietize` write through a durable transaction:
+`--apply`, `--baseline`, `--deproprietize`, and `--refresh-licenses` write through a durable transaction:
 
 - workflow runs are serialized by the `sync-upstream-skills` concurrency
   group (`cancel-in-progress: false`), so a second dispatch waits rather than
@@ -140,7 +174,9 @@ their `upstream` field is `null`.
   recovery instead of deleting it.
 
 The manifest `catalog/sources.yml` is a shared swap target alongside
-`skills/`, history, the lock, `NOTICE`, and README. A rollback or crash
+`skills/`, history, `catalog/licenses/`, the lock, `NOTICE`, and README.
+License refresh uses the same journal/backup machinery but swaps only history,
+the license bundle, lock, `NOTICE`, and README, so no `skills/` bytes move. A rollback or crash
 recovery therefore cannot leave declarations and materialized state on
 opposite sides of a migration.
 
@@ -163,6 +199,7 @@ classified with strict precedence:
 | Any removed mapping (including a rename/restructure represented as removal plus addition) | `major` | `feat(skills)!: sync upstream changes` |
 | Otherwise, any addition | `minor` | `feat(skills): sync new upstream skills` |
 | Otherwise, any in-place change | `patch` | `fix(skills): sync upstream updates` |
+| License metadata/evidence refresh | `patch` | `fix(catalog): refresh upstream license metadata` |
 | Nothing changed | `none` | no commit; `applied: false` |
 
 ## Clone-unavailable and deletion guard behavior
@@ -181,7 +218,10 @@ availability guard with `removed: 0`.
 
 ## The daily and manual workflow sequence
 
-`.github/workflows/sync.yml` defines five jobs:
+`.github/workflows/sync.yml` defines five jobs. A manual dispatch may set
+`refresh_licenses=true`, `dry_run=false`, and `baseline=false`; the update job
+runs the explicit refresh command, then uses the same generated commit message,
+tag, atomic push, and deploy handoff as an ordinary applied update:
 
 1. **`guard`** — always validates the workflow inputs first and fails when
    `baseline=true` is combined with `dry_run=true`. Every other job depends on

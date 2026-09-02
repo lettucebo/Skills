@@ -16,8 +16,10 @@ flowchart LR
     F --> E["scripts/transform.mjs<br/>(provenance stamping, renames)"]
     E --> G["catalog/skills.lock.json"]
     E --> H["catalog/history/*.json"]
+    C --> W["Pinned license evidence<br/>+ catalog/licenses/"]
+    W --> G
     G --> M["scripts/catalog.mjs<br/>(deterministic rendering)"]
-    M --> I["NOTICE +<br/>README generated blocks"]
+    M --> I["NOTICE + license bundle +<br/>README generated blocks"]
     G --> N["scripts/lib/enrichment.mjs<br/>(schema, eligibility, freshness)"]
     H --> N
     N --> Q["scripts/enrich-summaries.mjs<br/>(Copilot + OpenCC)"]
@@ -40,7 +42,7 @@ flowchart LR
 1. **`catalog/sources.yml`** declares every upstream, mapping, orphan, local
    root, override, and link exception (see [Configuration](configuration.md)).
 2. **`scripts/sync.mjs`** reads the manifest and either plans or delegates a
-   real apply/baseline/deproprietize operation to
+   real apply/baseline/deproprietize/license-refresh operation to
    **`scripts/lib/baseline.mjs`**, which owns the apply lock, journal,
    candidate/backup swap, and recovery (see
    [Sync and releases](sync-and-releases.md)).
@@ -54,20 +56,26 @@ flowchart LR
    `contentHash` reflects the real upstream content, not the local stamp.
 5. The result is written to **`catalog/skills.lock.json`** (current state per
    skill) and **`catalog/history/*.json`** (one ledger per skill, every
-   version bump ever recorded).
-6. **`scripts/catalog.mjs`** deterministically renders the lock file into
+   version bump and license metadata refresh ever recorded). Every lock entry
+   has structured `licenseEvidence`.
+6. Explicit `--refresh-licenses` fetches enough declared-ref history to prove
+   each lock-pinned commit is reachable, checks out that exact commit, and
+   resolves restricted policy, skill-local files, frontmatter, upstream-root
+   files, then unresolved. Root texts actually used are stored byte-for-byte
+   under **`catalog/licenses/`** with deterministic evidence metadata.
+7. **`scripts/catalog.mjs`** deterministically renders the lock file into
    **`NOTICE`** and the
    `<!-- CATALOG:START -->`/`<!-- INSTALL:START -->` blocks in the root
    `README.md` — never edited by hand (see
    [Skill management](skill-management.md#why-generated-outputs-cannot-be-edited-independently)).
-7. **`scripts/lib/enrichment.mjs`** defines the shared sidecar schema,
+8. **`scripts/lib/enrichment.mjs`** defines the shared sidecar schema,
    eligibility rules, freshness keys, and locale signatures.
    **`scripts/enrich-summaries.mjs`** makes one Copilot request per eligible
    skill for English and Traditional Chinese, derives Simplified Chinese with
    OpenCC, and writes each artifact atomically. The first complete summary set
    is validated before the generator enables summaries in
    `catalog/enrichment/manifest.json`.
-8. **`scripts/enrich-changelog.mjs`** filters eligible skills from the lock
+9. **`scripts/enrich-changelog.mjs`** filters eligible skills from the lock
    before any per-skill data access, skips fully cached upstream groups, and
    full-clones each remaining distinct upstream once. It traverses each
    `SKILL.md` through the exact pinned commit with NUL-delimited, no-merge,
@@ -75,10 +83,10 @@ flowchart LR
    deletion proves a migration; otherwise the artifact records truncation.
    Every commit patch is restricted to the tracked path (or explicit
    transition pair) before one bilingual Copilot request is made per skill.
-9. At build time, **`site/src/lib/catalog.ts`** reads the lock file for every
+10. At build time, **`site/src/lib/catalog.ts`** reads the lock file for every
    catalog route and reads a skill's registry-release history ledger for its
    History timeline (see [Website](website.md)).
-10. **`site/src/lib/enrichment.ts`** reads only the requested locale from a
+11. **`site/src/lib/enrichment.ts`** reads only the requested locale from a
    fresh, schema-valid sidecar. Restricted or tombstoned skills are rejected
    before a sidecar path is touched; orphan skills are also rejected for
    changelogs. Its centralized changelog view model derives the latest
@@ -90,27 +98,29 @@ flowchart LR
    generated summary; it never substitutes the English generated summary.
    The mandatory manifest and any artifact that exists must parse; unexpected
    I/O or unrelated schema failures stop the build.
-11. Detail metadata, catalog cards, and source tables render that pinned
+12. Detail metadata, catalog cards, and source tables render that pinned
     latest-included date. Skill pages place the changelog timeline in a
     closed, Pagefind-excluded native disclosure above the raw body, while the
     registry History ledger remains separate at the page foot; upstream
     commits are never conflated with registry releases.
-12. **`site/src/i18n/`** centralizes the supported locale type, dictionaries,
+13. **`site/src/i18n/`** centralizes the supported locale type, dictionaries,
     parser/assertion, HTML language mapping, and base-aware path helpers.
     Shared page components render the five logical page kinds, while explicit
     `[locale]` routes expand them for `en`, `zh-tw`, and `zh-cn`.
-13. The current catalog produces 390 localized pages plus 130 unprefixed
+14. The current catalog produces 390 localized pages plus 130 unprefixed
     static redirect pages. Redirects preserve the old logical target, use
     English as the canonical/meta/no-JS fallback, and are excluded from
     Pagefind. Only the 115 skill pages per locale opt into Pagefind, producing
     345 indexed pages across three language indexes. Together these routes
     produce exactly 520 HTML pages.
-14. The built site deploys to **GitHub Pages**.
+15. The built site deploys to **GitHub Pages**.
 
 `node scripts/validate.mjs` cuts across every stage: it walks the whole
 `skills/` tree independently of any one sync run, checking frontmatter,
 manifest coverage, relative links, and the post-2.0 permanent restricted
-denylist. All three apply engines use it in the transaction; deproprietize
+denylist, while also validating lock license evidence and the bundled root
+license files. All four transactional modes (`--apply`, `--baseline`,
+`--deproprietize`, and `--refresh-licenses`) use it; deproprietize
 also validates the complete candidate before the first swap. The workflow
 also runs a separate pre-apply validation.
 

@@ -19,6 +19,28 @@
       "upstreamCommit": "f96bff754e428838818017f75817f0f9428acd48",
       "diffUrl": null,
       "contentHash": "sha256:68eb3d7762fc723d835a5d383abaf863ba7c7acfe680e925398f5f14f0740a5e"
+    },
+    {
+      "release": "2.0.1",
+      "kind": "license-refresh",
+      "version": "1.1.0",
+      "upstreamCommit": "f96bff754e428838818017f75817f0f9428acd48",
+      "diffUrl": null,
+      "oldLicense": "Unknown",
+      "newLicense": "Apache-2.0",
+      "oldRedistributable": true,
+      "newRedistributable": true,
+      "oldEvidence": null,
+      "newEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+      },
+      "evidenceCommit": "f96bff754e428838818017f75817f0f9428acd48",
+      "evidenceHash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
     }
   ]
 }

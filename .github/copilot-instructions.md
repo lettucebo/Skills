@@ -52,6 +52,9 @@ npm run validate
 # Networked, read-only upstream plan
 node scripts/sync.mjs --dry-run --output sync-report/changeset.json
 
+# Re-resolve licenses from lock-pinned upstream commits
+node scripts/sync.mjs --refresh-licenses --output sync-report/license-refresh.json
+
 # Verify npx installation against the current checkout
 npm run smoke:npx -- --ref HEAD
 ```
@@ -100,8 +103,9 @@ preview.
    added automatically.
 3. **Apply transaction:** `scripts/lib/baseline.mjs` builds and validates a
    complete candidate tree before swapping `skills/`, lock/history, `NOTICE`,
-   and generated README sections. The durable journal and backups are part of
-   crash recovery and rollback; do not bypass them with direct copy logic.
+   generated README sections, and `catalog/licenses/`. The durable journal and
+   backups are part of crash recovery and rollback; do not bypass them with
+   direct copy logic.
 4. **Materialized state:** `catalog/skills.lock.json` is the current release
    snapshot. `catalog/history/*.json` is the per-skill audit ledger. README
    catalog/install blocks and `NOTICE` are generated views of the same state.
@@ -143,6 +147,10 @@ preview.
   exceptions; only already-public, non-secret `.env` content may appear there,
   including under local skills. `node_modules/` remains excluded from both
   staging and hashing.
+- Every lock entry carries structured `licenseEvidence`. Mapped evidence is
+  resolved from the exact lock-pinned commit, never branch HEAD. Root-license
+  text used by an entry is committed under `catalog/licenses/`; do not edit
+  the bundle, lock evidence, history, or `NOTICE` independently.
 - Manifest and upstream paths must stay inside their approved roots. Preserve
   traversal checks and the fail-closed rejection of symbolic links during
   staging and hashing.
@@ -174,8 +182,11 @@ preview.
   Unavailable upstreams are blockers and must never be interpreted as
   deletions.
 - Do not hand-edit `catalog/skills.lock.json`, `catalog/history/`, `NOTICE`, or
-  content between `CATALOG`/`INSTALL` markers in `README.md`. They must change
-  together through the catalog/sync transaction.
+  `catalog/licenses/`, or content between `CATALOG`/`INSTALL` markers in
+  `README.md`. They must change together through the catalog/sync transaction.
+- Root-license-only drift is intentionally not detected by ordinary
+  `--apply`. Use explicit `--refresh-licenses`; additions and content/tuple
+  updates still resolve evidence from the staged pinned commit.
 - The release recorded in the lockfile and Git tag `v<release>` are distinct
   facts. Install commands always use `#vX.Y.Z` (never `@version`, a range, or a
   commit SHA). `v2.0.0` is the first publishable tag; `v1.1.0` must never be

@@ -6,7 +6,7 @@
 manifest 欄位請見 [環境設定](configuration.md)；如何新增特定 skill 請見
 [技能管理](skill-management.md)。
 
-## 四種模式
+## 五種模式
 
 ### Dry-run（預設）
 
@@ -74,10 +74,35 @@ mapping（`docx`、`pdf`、`pptx`、`xlsx`）仍為 active。遷移在同一個 
 `assertTagReconciled`；因此 `v2.0.0` 才是第一個可以發布的 tag，`v1.1.0` 永遠
 不得發布。精確的 `1.1.0` 前置條件也讓此命令無法重複執行。
 
-`--apply`、`--baseline`、`--deproprietize` 與 `--dry-run` 彼此互斥；組合多個
+### 重新整理授權
+
+```bash
+node scripts/sync.mjs --refresh-licenses --output sync-report/license-refresh.json
+```
+
+這個明確的 metadata 交易要求乾淨工作目錄與已對帳的目前 tag。它會針對每個不同
+的 repository／reference 群組，只抓取一次足以證明各 lock 釘選 commit 可由宣告
+ref 追溯的 history，checkout 該精確 commit，再依永久 restricted policy、
+skill-local 授權檔、frontmatter、上游根目錄授權檔、unresolved 的順序解析。網路、
+fetch、可追溯性或辨識失敗都會在任何寫入前中止；相同釘選來源證明下，已知授權
+不得降級為 `Unknown`。
+
+此命令只變更 `license`、`redistributable` 與結構化 `licenseEvidence`，在值有
+變更時追加 `license-refresh` history，重新產生 `NOTICE`、README 產生區塊與完整
+的 `catalog/licenses/` 根授權原文包，並把結果分類為 metadata patch。它不會
+staging、複製或 swap `skills/`，也不會變更逐 skill 版本、雜湊或上游 tuple。
+已完整重新整理且 tag 對帳成功的狀態會再次驗證，回傳 `applied: false`，不產生
+任何變更。
+
+一般 `--apply` 刻意不偵測只有上游根授權變動的情況；這類更新必須明確執行
+`--refresh-licenses`。新 mapping 與 mapped 內容／tuple 更新仍會從其 staged
+釘選 commit 解析授權證據，並在一般交易中更新原文包。自 2.x 版本線起，一般
+apply 會在一次性證據 migration marker 與每個項目的證據都存在之前拒絕執行。
+
+`--apply`、`--baseline`、`--deproprietize`、`--refresh-licenses` 與 `--dry-run` 彼此互斥；組合多個
 模式會在任何工作開始之前被拒絕。
 
-在 Windows 上，apply、baseline 與 deproprietize 需要 `powershell.exe` 進行
+在 Windows 上，apply、baseline、deproprietize 與 refresh-licenses 需要 `powershell.exe` 進行
 持久化 journal 替換；若找不到，交易開始前就會被拒絕。
 
 ## 機器可讀輸出（`--output`）
@@ -88,6 +113,9 @@ mapping（`docx`、`pdf`、`pptx`、`xlsx`）仍為 active。遷移在同一個 
   stdout。
 - **Apply**：把 JSON**同時**寫入指定檔案**與** stdout。
 - **Deproprietize**：與 apply 相同，把 JSON**同時**寫入指定檔案**與** stdout。
+- **Refresh licenses**：與 apply 相同，把 JSON**同時**寫入指定檔案**與**
+  stdout。報告包含 metadata 路徑／數量、release／tag、commit 訊息、證據摘要、
+  授權計數與 `applied`。
 - **Baseline**：**不支援** `--output`。Baseline 分支永遠只把結果寫到
   stdout，就算傳入 `--output` 也完全不會寫出任何輸出檔案。
 
@@ -110,7 +138,7 @@ Orphan 與 local skill 沒有上游可以雜湊比對；它們的 lockfile
 
 ## 交易安全性：日誌、回溯與當機復原
 
-`--apply`、`--baseline` 與 `--deproprietize` 都透過一個持久化交易來寫入：
+`--apply`、`--baseline`、`--deproprietize` 與 `--refresh-licenses` 都透過一個持久化交易來寫入：
 
 - Workflow 由 `sync-upstream-skills` concurrency group 序列化
   （`cancel-in-progress: false`），因此第二次 dispatch 會等待，不會取消正在
@@ -123,8 +151,10 @@ Orphan 與 local skill 沒有上游可以雜湊比對；它們的 lockfile
   回溯本身也失敗，錯誤訊息會回報備份位置，並保留它以供人工復原，而不是刪除
   它。
 
-Manifest `catalog/sources.yml` 與 `skills/`、history、lock、`NOTICE`、README
-同屬共用 swap target。因此 rollback 或當機復原不可能讓宣告與 materialized
+Manifest `catalog/sources.yml` 與 `skills/`、history、`catalog/licenses/`、
+lock、`NOTICE`、README 同屬共用 swap target。授權 refresh 沿用相同 journal／
+backup 機制，但只 swap history、授權包、lock、`NOTICE` 與 README，因此不會移動
+任何 `skills/` 位元組。因此 rollback 或當機復原不可能讓宣告與 materialized
 狀態停在遷移的不同側。
 
 Lock 檔名為 `.skills-sync-apply.lock`，journal 檔名為
@@ -144,6 +174,7 @@ manifest／staged 內容與目前 lockfile 之間的差異，會依照嚴格優�
 | 任何被移除的 mapping（包含以移除加新增表示的改名／重組） | `major` | `feat(skills)!: sync upstream changes` |
 | 否則，任何新增 | `minor` | `feat(skills): sync new upstream skills` |
 | 否則，任何原地變更 | `patch` | `fix(skills): sync upstream updates` |
+| 授權 metadata／證據 refresh | `patch` | `fix(catalog): refresh upstream license metadata` |
 | 沒有任何變動 | `none` | 不 commit；`applied: false` |
 
 ## 無法連線的上游與刪除防護行為
@@ -159,7 +190,10 @@ manifest／staged 內容與目前 lockfile 之間的差異，會依照嚴格優�
 
 ## 每日與手動 workflow 順序
 
-`.github/workflows/sync.yml` 定義了五個 job：
+`.github/workflows/sync.yml` 定義了五個 job。手動 dispatch 可設定
+`refresh_licenses=true`、`dry_run=false`、`baseline=false`；update job 會執行
+明確的 refresh 指令，再沿用一般已套用更新的產生 commit 訊息、tag、原子 push 與
+deploy 交接：
 
 1. **`guard`** — 永遠先驗證 workflow 輸入；`baseline=true` 與
    `dry_run=true` 同時出現時直接失敗。其他所有 job 都依賴這個 gate。

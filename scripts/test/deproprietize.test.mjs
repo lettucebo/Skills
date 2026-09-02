@@ -121,6 +121,10 @@ async function buildMigrationFixture(prefix) {
   );
   await writeFileEnsured(path.join(repoRoot, 'NOTICE'), 'old notice\n');
   await writeFileEnsured(
+    path.join(repoRoot, 'catalog', 'licenses', 'index.json'),
+    '{"release":"1.1.0","licenses":[]}\n',
+  );
+  await writeFileEnsured(
     path.join(repoRoot, 'README.md'),
     [
       '# Fixture',

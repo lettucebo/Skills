@@ -1,6 +1,7 @@
 {
-  "release": "2.0.0",
-  "generatedAt": "2026-09-01T17:20:20.832Z",
+  "release": "2.0.1",
+  "generatedAt": "2026-09-01T21:28:41.968Z",
+  "licenseEvidenceVersion": 1,
   "counts": {
     "total": 115,
     "mapped": 112,
@@ -14,7 +15,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:2fdfc9a1eafeb643e66533f4ef9b8f8a24e9f0dfcad7193eaa96b04b5af90f63",
       "contentHash": "sha256:93685dda53ab0db0936399b9705d30e5774f5d3ef058c378a69ccf3ba5dfc23b",
@@ -23,6 +24,14 @@
         "reference": "refs/heads/main",
         "source": "skills/az-cost-optimize",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -31,7 +40,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:6c3f7a19b23b6d574dc650b67a18e9a62f23b32341a3292403a8eb53a0d4f5a1",
       "contentHash": "sha256:37914830b5d947e7f3090619f3492d6ba9a4c308abdaf72e2abecbe955dbf1e8",
@@ -40,6 +49,14 @@
         "reference": "refs/heads/main",
         "source": "skills/azure-architecture-autopilot",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -48,7 +65,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:69b62440adbd7ac2db6907950103dec84447e2113db2dc7e926543dfe413934a",
       "contentHash": "sha256:4da7570aed0ed3593678b0cf468aed75c6a1de063bc4b910631b0c46f45bdaa1",
@@ -57,6 +74,14 @@
         "reference": "refs/heads/main",
         "source": "skills/azure-deployment-preflight",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -65,7 +90,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:6ed296a15b056bb308a7c2bc3900a13443db912eabcf77057b04efff21293d74",
       "contentHash": "sha256:347118a6eb6908cb639dd3473823aa2a1004f3d86f225363d60f8fa397180a54",
@@ -74,6 +99,14 @@
         "reference": "refs/heads/main",
         "source": "skills/azure-devops-cli",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -82,7 +115,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:cfd071bef14fc11c80c7838aa9ab992407fc3046bfb04213c46ac7f610624237",
       "contentHash": "sha256:a35b9a894351c21dce4857e867cc841df48d5d307a2ba30190971b33f346653a",
@@ -91,6 +124,14 @@
         "reference": "refs/heads/main",
         "source": "skills/azure-pricing",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -99,7 +140,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:3b2c7df8d2b59399dd77fcdd65b6876ced2e1f52cc1c996438ec755c0b3d7f51",
       "contentHash": "sha256:15d76d9c53429aa7503a385fea2d487f8eba20ff232dd8e26392278b4c36d206",
@@ -108,6 +149,14 @@
         "reference": "refs/heads/main",
         "source": "skills/azure-resource-health-diagnose",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -124,6 +173,14 @@
         "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/azure-resource-visualizer",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/azure-resource-visualizer/LICENSE.txt",
+        "hash": "sha256:cacacf3e9ede21a9237d9fdef6728ebe7a27d489f6df08cbf946f622ad9b834c",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
@@ -142,6 +199,14 @@
         "reference": "refs/heads/main",
         "source": "skills/azure-role-selector",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/azure-role-selector/LICENSE.txt",
+        "hash": "sha256:cacacf3e9ede21a9237d9fdef6728ebe7a27d489f6df08cbf946f622ad9b834c",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
     {
@@ -150,7 +215,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:7dfb9c171f975f9346a5a0af22fce315082d57563e22a7752e2bb4945851482f",
       "contentHash": "sha256:2f192e753cda678b38ff1a6cdc2916113e683be9da863c14aa6398f649847aa0",
@@ -159,6 +224,14 @@
         "reference": "refs/heads/main",
         "source": "skills/azure-static-web-apps",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -175,6 +248,14 @@
         "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/chrome-devtools",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/chrome-devtools/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
@@ -193,6 +274,14 @@
         "reference": "refs/heads/main",
         "source": "skills/algorithmic-art",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/algorithmic-art/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
     {
@@ -209,6 +298,14 @@
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
         "source": "skills/brand-guidelines",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/brand-guidelines/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
@@ -227,6 +324,14 @@
         "reference": "refs/heads/main",
         "source": "skills/canvas-design",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/canvas-design/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
     {
@@ -243,6 +348,14 @@
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
         "source": "skills/claude-api",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/claude-api/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
@@ -261,6 +374,9 @@
         "reference": "refs/heads/main",
         "source": "skills/doc-coauthoring",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "unresolved"
       }
     },
     {
@@ -280,7 +396,10 @@
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       },
       "removedIn": "2.0.0",
-      "removalReason": "Removed proprietary material to prevent proprietary redistribution."
+      "removalReason": "Removed proprietary material to prevent proprietary redistribution.",
+      "licenseEvidence": {
+        "source": "restricted-policy"
+      }
     },
     {
       "path": "skills/claude/frontend-design",
@@ -296,6 +415,14 @@
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
         "source": "skills/frontend-design",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/frontend-design/LICENSE.txt",
+        "hash": "sha256:0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
@@ -314,6 +441,14 @@
         "reference": "refs/heads/main",
         "source": "skills/internal-comms",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/internal-comms/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
     {
@@ -330,6 +465,14 @@
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
         "source": "skills/mcp-builder",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/mcp-builder/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
@@ -350,7 +493,10 @@
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       },
       "removedIn": "2.0.0",
-      "removalReason": "Removed proprietary material to prevent proprietary redistribution."
+      "removalReason": "Removed proprietary material to prevent proprietary redistribution.",
+      "licenseEvidence": {
+        "source": "restricted-policy"
+      }
     },
     {
       "path": "skills/claude/pptx",
@@ -369,7 +515,10 @@
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       },
       "removedIn": "2.0.0",
-      "removalReason": "Removed proprietary material to prevent proprietary redistribution."
+      "removalReason": "Removed proprietary material to prevent proprietary redistribution.",
+      "licenseEvidence": {
+        "source": "restricted-policy"
+      }
     },
     {
       "path": "skills/claude/skill-creator",
@@ -385,6 +534,14 @@
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
         "source": "skills/skill-creator",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/skill-creator/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
@@ -403,6 +560,14 @@
         "reference": "refs/heads/main",
         "source": "skills/slack-gif-creator",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/slack-gif-creator/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
     {
@@ -419,6 +584,14 @@
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
         "source": "skills/theme-factory",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/theme-factory/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
@@ -437,6 +610,14 @@
         "reference": "refs/heads/main",
         "source": "skills/web-artifacts-builder",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/web-artifacts-builder/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
     {
@@ -453,6 +634,14 @@
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
         "source": "skills/webapp-testing",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "licenseEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/webapp-testing/LICENSE.txt",
+        "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       }
     },
@@ -473,7 +662,10 @@
         "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
       },
       "removedIn": "2.0.0",
-      "removalReason": "Removed proprietary material to prevent proprietary redistribution."
+      "removalReason": "Removed proprietary material to prevent proprietary redistribution.",
+      "licenseEvidence": {
+        "source": "restricted-policy"
+      }
     },
     {
       "path": "skills/cloudflare/agents-sdk",
@@ -481,7 +673,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:21f95f816019d6616852fb92c6c1b4e0be68a7d58bdb97ec2fce1b60ce8fedb5",
       "contentHash": "sha256:5a5fabaeca0c1abbbd9c6dcf9bc87116551b33ff02e98e66af127fa453c09b92",
@@ -490,6 +682,14 @@
         "reference": "refs/heads/main",
         "source": "skills/agents-sdk",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -498,7 +698,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:5328df6f4e9393519ecfb6802c7f7a524d00a2af93d7117c1641d5d685d93ad8",
       "contentHash": "sha256:9a990c360f49535d9b3cc014a5e0f1162875863fd221bcf295567431a6207089",
@@ -507,6 +707,14 @@
         "reference": "refs/heads/main",
         "source": "skills/cloudflare",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -515,7 +723,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:70377f50439caa7d82bb8431c35304dcb9cfa5ee1839c3cc1a16b11f1c27c9c0",
       "contentHash": "sha256:2fa7033322f461bda4508aea0a93294241d670d088afef8cbfbfbc1685393532",
@@ -524,6 +732,14 @@
         "reference": "refs/heads/main",
         "source": "skills/cloudflare-email-service",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -532,7 +748,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:1dc2f7db825caebd68473a9ea8ee38298a5f86e1b23f3cd7e6b4fd1b04972a6b",
       "contentHash": "sha256:436653a1a9471b91e9ca5c94b3e3dce334f87b4608917be1be8713ecb4294e1a",
@@ -541,6 +757,14 @@
         "reference": "refs/heads/main",
         "source": "skills/cloudflare-one",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -549,7 +773,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:0148b974b7aa45dd437fe3e5fb142865afe9eff650e7fad1cdc27d5863a17d29",
       "contentHash": "sha256:a1e47294c3f6b972e87c55e888aa03db40e15e6817c7b5ca19b4aabeea14081c",
@@ -558,6 +782,14 @@
         "reference": "refs/heads/main",
         "source": "skills/cloudflare-one-migrations",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -566,7 +798,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:565e1bedbdef42069a4e6a8dc59c9af335d109f5c0193302bb46e7ba2537c5f3",
       "contentHash": "sha256:b4fa625f1c7a01119ea71d1ef7354f8aab2f9035da5c581891795e296b2b7ce9",
@@ -575,6 +807,14 @@
         "reference": "refs/heads/main",
         "source": "skills/durable-objects",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -583,7 +823,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:198ae717a4000804177aaac8e8fa5744f53f1f323e2e0cf0f16d3b8272396f55",
       "contentHash": "sha256:b9c7eda2d4d6bd8e9dd4aa6dc4921bc6e3d9450e91f34412cf4273a7b043bc06",
@@ -592,6 +832,14 @@
         "reference": "refs/heads/main",
         "source": "skills/sandbox-migrate-to-next",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -600,7 +848,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:ea0b70b4573412f8581923c1adf24f05c4e7acce43abfd6b81010d010a11d108",
       "contentHash": "sha256:21e796cab41735e9adb716d10e4041707299f023f03fabd55c869bee9720d0fb",
@@ -609,6 +857,14 @@
         "reference": "refs/heads/main",
         "source": "skills/sandbox-next",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -617,7 +873,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:6c704a814e03bdb56668ad72c0c7f38485eeae59d77b32db428b91c72af67512",
       "contentHash": "sha256:051141ce004cf8060023f3bfbcaad33b987e3913fa1303f332acf8baa4e95f80",
@@ -626,6 +882,14 @@
         "reference": "refs/heads/main",
         "source": "skills/sandbox-stable",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -634,7 +898,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:29abac19988dbe77346d6724fca12b4d9408dc2488c352ab3b3f5d185f531a36",
       "contentHash": "sha256:3fe385121c10dba8d6a4d60c4e5372372641fce1d8bf55fd99907ff93a95a2ed",
@@ -643,6 +907,14 @@
         "reference": "refs/heads/main",
         "source": "skills/turnstile-spin",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -651,7 +923,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:101d945fc7ad370a1625d342d397ec6ad069fa91b39c8f243d59868c62cf4015",
       "contentHash": "sha256:6ae8cb7d20fddbc4e39b16dc611cc4c271b007d8486d4a5bfec26291729db707",
@@ -660,6 +932,14 @@
         "reference": "refs/heads/main",
         "source": "skills/web-perf",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -668,7 +948,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:175f52ceab49497758482e63c40f97209fc3099544537d6f3d0d671a7a89eb18",
       "contentHash": "sha256:68eb3d7762fc723d835a5d383abaf863ba7c7acfe680e925398f5f14f0740a5e",
@@ -677,6 +957,14 @@
         "reference": "refs/heads/main",
         "source": "skills/workers-best-practices",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -685,7 +973,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "Apache-2.0",
       "redistributable": true,
       "snapshotHash": "sha256:a09731f73fdd9fce0efcb090be58cfe043353b9c7e119218c37873154c7a96c7",
       "contentHash": "sha256:572a54107e930cff92ad894f65e71dc7cd74ac415833b54a7621dcf9f2474a31",
@@ -694,6 +982,14 @@
         "reference": "refs/heads/main",
         "source": "skills/wrangler",
         "commit": "f96bff754e428838818017f75817f0f9428acd48"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "f96bff754e428838818017f75817f0f9428acd48",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       }
     },
     {
@@ -702,7 +998,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:a6d6ed8142273e83464b47a6a5695ceb0356eecabb9dda147fe035b6bad1a8c0",
       "contentHash": "sha256:308914873eb82e9d4f2e46036341bb80f445fb859c24eb0a3015d7e09e4e374c",
@@ -711,6 +1007,14 @@
         "reference": "refs/heads/main",
         "source": "skills/csharp-async",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -719,7 +1023,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:c6babeea28dd2384b12ecbaf790f69be169a28f64bf74c1da2385cc7c119e1e0",
       "contentHash": "sha256:f23954d8c26c5a79d522a8b3d5122fccd35dd25e1f12a6bdfbccba2fe7ff3629",
@@ -728,6 +1032,14 @@
         "reference": "refs/heads/main",
         "source": "skills/csharp-docs",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -739,7 +1051,10 @@
       "license": "Unknown",
       "redistributable": true,
       "snapshotHash": "sha256:69cf550963b495a259c2d60ae0b2484b400118cd794edaa575aad8212fba0ade",
-      "upstream": null
+      "upstream": null,
+      "licenseEvidence": {
+        "source": "unresolved"
+      }
     },
     {
       "path": "skills/dotnet/csharp-mstest",
@@ -747,7 +1062,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:06c7087eabccc705d2aafabd5c56ad8bb1b64c8b7276f07db991a9f5aab10550",
       "contentHash": "sha256:8afdc801d29acfda4c9f214f7d0e306080b442b18ceaa10c993fb3a98b7e571d",
@@ -756,6 +1071,14 @@
         "reference": "refs/heads/main",
         "source": "skills/csharp-mstest",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -764,7 +1087,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:e3e1a0ff193420fdd9da288285ea17febea0a50be58b61a48f880147b9ed2344",
       "contentHash": "sha256:814b44a296bce8ca61c29e226b96a7a06e445854bf74036b391dd85de5f7abd8",
@@ -773,6 +1096,14 @@
         "reference": "refs/heads/main",
         "source": "skills/csharp-nunit",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -781,7 +1112,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:db86e1505309fd2418bd5c88ac07e87477fca562e86150acb7cb85d46dd4daf3",
       "contentHash": "sha256:afd8cbb2a839216e764dad90ba48e78464ffcdf0de7b01cd2e495ff026fca2b7",
@@ -790,6 +1121,14 @@
         "reference": "refs/heads/main",
         "source": "skills/csharp-tunit",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -798,7 +1137,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:dafcb25fa472271ab991e6e345b50dc15266a48647d57400a290bf7b90a19766",
       "contentHash": "sha256:b9ce758e7c3f3c72d992278de3f9d8728e06d8fbba756a27b1421036b5256c2a",
@@ -807,6 +1146,14 @@
         "reference": "refs/heads/main",
         "source": "skills/csharp-xunit",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -815,7 +1162,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:7f9316a37a25448b166cebe65da84c477f46cb0aa8e9ce2b1e9fc87796068ba3",
       "contentHash": "sha256:6333591c72e84ed759c4586607cab5ebfa868fa82329cfa33446a8007d2fd3cd",
@@ -824,6 +1171,14 @@
         "reference": "refs/heads/main",
         "source": "skills/dotnet-best-practices",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -832,7 +1187,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:3d05ea4cfb17d2b6ab545d3d3f7076147a863f13921e1a86c7daabfb73d8c96c",
       "contentHash": "sha256:f53d5dbebd84a83c7f1c1a4c7ccee2384b540bce91e2da59f1099ad4c4b86029",
@@ -841,6 +1196,14 @@
         "reference": "refs/heads/main",
         "source": "skills/dotnet-design-pattern-review",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -849,7 +1212,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:cd686787c5a3cbb0fa5134c2472dd3aa74265072b097b7d7e467a372a0bec7dd",
       "contentHash": "sha256:13d870c3564afa6ca9cd373eeff5ecce74192563fb67aa501cd651f03041088b",
@@ -858,6 +1221,14 @@
         "reference": "refs/heads/main",
         "source": "skills/dotnet-timezone",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -866,7 +1237,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:56b5f13f3f27b3b6a71c420c01c778ff7f110e3d9f1891bb50a441bbedf30c6a",
       "contentHash": "sha256:6a82883259b8b86e6de8ae9b8053fa5be253c597398e2d730f43c742eeff9e08",
@@ -875,6 +1246,14 @@
         "reference": "refs/heads/main",
         "source": "skills/dotnet-upgrade",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -883,7 +1262,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:d3958bb5853ec72bd62b112a777ed8b220cee26b193e12ad000be9f6c52ace30",
       "contentHash": "sha256:6a984956d5cbeda94b8967ed64eeb19269b224fe3d89c7ebd5cf09b3f0767e74",
@@ -892,6 +1271,14 @@
         "reference": "refs/heads/main",
         "source": "skills/editorconfig",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -900,7 +1287,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:e55fe5328ef8827bd1dcdefaf11a698137693f14a03f4bdc2f5997fed022b78e",
       "contentHash": "sha256:aa9c626a37cbdbbf238e9623480a407bc019e2bd1dc131f4418d8ae17249c88d",
@@ -909,6 +1296,14 @@
         "reference": "refs/heads/main",
         "source": "skills/ef-core",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -917,7 +1312,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:bfcdfe3c2c8a0a40da340fec1928bd80d9ce37fc6e7c85753e5453d8536d455b",
       "contentHash": "sha256:3134af737455dcaa65369ea92b0c7f3a9ad64f888541db2b34a175b4a63bfccb",
@@ -926,6 +1321,14 @@
         "reference": "refs/heads/main",
         "source": "skills/nuget-manager",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -934,7 +1337,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:8453097c37753e6dec79b97328ee8cfbc3fe4876512e01cf6703bdea8d23625f",
       "contentHash": "sha256:9fbe82b74b15f168aed7961d9e3b8804ea6b0a85aed48c00e49c9e5e3de882b9",
@@ -943,6 +1346,14 @@
         "reference": "refs/heads/main",
         "source": "skills/codeql",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -954,7 +1365,10 @@
       "license": "Unknown",
       "redistributable": true,
       "snapshotHash": "sha256:6a610bc40f5f31b9f5d0d8cdd4d5d40839ffc69191d72a2df086e0f952f0f724",
-      "upstream": null
+      "upstream": null,
+      "licenseEvidence": {
+        "source": "unresolved"
+      }
     },
     {
       "path": "skills/github/dependabot",
@@ -962,7 +1376,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:699730d089c5f0df06303876e9c9f6414b4fccfde8cc9789fda6c210a7a49b19",
       "contentHash": "sha256:022db8954828a41e72a6036650bdcfb0fe070b732eeb9aa30e5b74cfff58ac44",
@@ -971,6 +1385,14 @@
         "reference": "refs/heads/main",
         "source": "skills/dependabot",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -988,6 +1410,9 @@
         "reference": "refs/heads/main",
         "source": "skills/github/gh-cli",
         "commit": "27f583d0e4df7f0cef3c06840848a32efc55e1b4"
+      },
+      "licenseEvidence": {
+        "source": "unresolved"
       }
     },
     {
@@ -996,7 +1421,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:7073cd25319df58b75f6b1255338d868fdfa47ea8b49ea0cc03e852e7cb83ec6",
       "contentHash": "sha256:a64f1e0ee5b447a050a720fd0d32a928e14be27640f17e71d6ba256eeca18567",
@@ -1005,6 +1430,14 @@
         "reference": "refs/heads/main",
         "source": "skills/git-flow-branch-creator",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1013,7 +1446,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:aa9a0ca12ff8862845ef2a75c7532c2a122ef37886097a456aeb1fc0e3693580",
       "contentHash": "sha256:b18be7e1e115fc09713b398fe197feea43d02b5afd9ceafcc3db070c5bc07020",
@@ -1022,6 +1455,14 @@
         "reference": "refs/heads/main",
         "source": "skills/github-issues",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1030,7 +1471,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:4940dff432edc92f430377fad314bd278d46b818fbcdfcc69b33e4330501bb71",
       "contentHash": "sha256:11455bebdeb629c398612982a4577c7b77bbb6dd21cd4ae063e0c818e2dc254c",
@@ -1039,6 +1480,14 @@
         "reference": "refs/heads/main",
         "source": "skills/publish-to-pages",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1047,7 +1496,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:522cea5b75436fb40c0d3a30a19c165e8c5fd960cfacd7f1bf38dcc7d608a906",
       "contentHash": "sha256:74a9c915b4454b84adfd07d09ccc87a1bc31ab28ee08bd98b1822653123469f6",
@@ -1056,6 +1505,14 @@
         "reference": "refs/heads/main",
         "source": "skills/secret-scanning",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1064,7 +1521,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:f32ef09a68e5738d1cf0184d27d72927a4ac95c7b9e658bf225ec3cb680dc6df",
       "contentHash": "sha256:862ce0ce874324c9485a1c1faf8feed4eb46a855126cf3065f31d2392e2d67d8",
@@ -1073,6 +1530,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-cli-usage",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1081,7 +1546,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:09aa0de03b44745dbe1fb7a03c256a877338a1d56c2c49ece4426a8b8f8440ed",
       "contentHash": "sha256:fc7a94a8c3ec67edd36dd6c806c9868bffff3312fa60bf47d58d9eb80ed3b5a8",
@@ -1090,6 +1555,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-gradle-build",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1098,7 +1571,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:be7f65fe687143197c145dc6d9092345131619d013f8a98b6a112e38f2bd54a5",
       "contentHash": "sha256:3a5b419d3d5602d8dd1cbd97f8c24f4ba24d4dd5493a16a06fc7cd1621d1578a",
@@ -1107,6 +1580,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-iap-setup",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1115,7 +1596,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:470810b2c801f6d5998938c7cd5489ee7aea2b5aae71a0f1760750b519639678",
       "contentHash": "sha256:3ffd9e98717989465c23c773f44b76c80f511ca2331d2480c64a2d8a04c416d9",
@@ -1124,6 +1605,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-metadata-sync",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1132,7 +1621,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:70db21d6316cd595b0556cc84d4c9756c9be6b526ebe30ee8e16c60e3377febb",
       "contentHash": "sha256:ce2c756c401a0d33933b8d0d153b91d6909f8c1c4ee4209a667e94378a570bbe",
@@ -1141,6 +1630,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-migrate-fastlane",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1149,7 +1646,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:74238fe8bda8b2a29fb078d792effad13f4a41e64a9f0e2b325fb3198ab94171",
       "contentHash": "sha256:15478f3953fcc1dc56a7b558b0b848008a4cdea770b25b128f17f73c28bce0e9",
@@ -1158,6 +1655,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-ppp-pricing",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1166,7 +1671,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:d9cae157dfd804e7fd4663ab44e75265aee0f0c9b90afe1687791bf47a2dbaa3",
       "contentHash": "sha256:58aac8f1c340b4a365caf5e2cfc6be01a2f44588e27c01ad145c601d418812d1",
@@ -1175,6 +1680,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-purchase-verification",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1183,7 +1696,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:6aac4dad72dde215a54344a820f45ba5b712dbbc22cc6b3f04530dfb2a1d5b64",
       "contentHash": "sha256:72518d0ff6ab37ba2fceb59e2a100e268a9969fb6395ee9ed8ee6b5b48f00eff",
@@ -1192,6 +1705,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-release-flow",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1200,7 +1721,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:25b68004ea83da48e800b62a34ed77c6c99c10da84b60a41c782c1e8aa96e9bf",
       "contentHash": "sha256:03994061feea3d09e7a2050263290edf71b9f3250b50d0f25cd8a4cd1ae70445",
@@ -1209,6 +1730,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-reports-download",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1217,7 +1746,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:945c72732b4f9c735f15203b2e2b3b3373727b148772ad851d31da6866fe15fb",
       "contentHash": "sha256:0ff0eceb983e986e925c1a76ac7518f8c2d99730a0f3a15b41b8adea975a9c64",
@@ -1226,6 +1755,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-review-management",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1234,7 +1771,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:0669c9fc63204df6776261e1f5612a11735754621087ac230077dec508e794df",
       "contentHash": "sha256:469a2c368f9fc4d7f66e2c24966a89e3b5bbac99fa04bc56aa2fe4eecc1e0eab",
@@ -1243,6 +1780,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-rollout-management",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1251,7 +1796,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:98db962f6acea6d13a81a4e90b3704fec1e77e12379b57617b0fc955e28526a9",
       "contentHash": "sha256:9f93238d7d2013e8b027b27ad2694bce85e0423452d6f518f94f362f5e1401de",
@@ -1260,6 +1805,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-screenshot-automation",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1268,7 +1821,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:ed1734f863b2afe49a50b3d95b84fb681e63c399a82cf867a2be17b6f8c59cba",
       "contentHash": "sha256:c7a415f85f1091c29df56afa9c6d76eca8ac76cd883c1d90fb7a836d2209fae0",
@@ -1277,6 +1830,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-submission-checks",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1285,7 +1846,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:db0de51fc6034c2947040b87e3d82daf4efc5dbf2a6fc8d0517283c6a14767a5",
       "contentHash": "sha256:01b011ad95c66d888504a14b7e2a0446cc17d1dfb89d6712e1ee51b4ff115d65",
@@ -1294,6 +1855,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-testers-orchestration",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1302,7 +1871,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:a8ed9f87ac628584f27b3879d24eaa79dc4776ee6b7343000e451ce640086772",
       "contentHash": "sha256:9bd8e65f6fa2e4e4b8c1c7f6f029e05f34e1578428f3d635c2c138790fdcfdb6",
@@ -1311,6 +1880,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-user-management",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1319,7 +1896,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:2dc769afdb15959899958954ef0fc7f4ca1713dd56fa278ecf4641c33189acb0",
       "contentHash": "sha256:196c32fc5001a72082f060c02a87da97b77fe0a11f53ce316268e2773fee40e1",
@@ -1328,6 +1905,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gplay-vitals-monitoring",
         "commit": "10301b24639e4f768d009b2edda9315cb2149712"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
       }
     },
     {
@@ -1344,6 +1929,14 @@
         "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/gtm-0-to-1-launch",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-0-to-1-launch/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
@@ -1362,6 +1955,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gtm-ai-gtm",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-ai-gtm/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
     {
@@ -1378,6 +1979,14 @@
         "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/gtm-board-and-investor-communication",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-board-and-investor-communication/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
@@ -1396,6 +2005,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gtm-developer-ecosystem",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-developer-ecosystem/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
     {
@@ -1412,6 +2029,14 @@
         "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/gtm-enterprise-account-planning",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-enterprise-account-planning/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
@@ -1430,6 +2055,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gtm-enterprise-onboarding",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-enterprise-onboarding/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
     {
@@ -1446,6 +2079,14 @@
         "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/gtm-operating-cadence",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-operating-cadence/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
@@ -1464,6 +2105,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gtm-partnership-architecture",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-partnership-architecture/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
     {
@@ -1480,6 +2129,14 @@
         "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/gtm-positioning-strategy",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-positioning-strategy/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
@@ -1498,6 +2155,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gtm-product-led-growth",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-product-led-growth/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
     {
@@ -1515,6 +2180,14 @@
         "reference": "refs/heads/main",
         "source": "skills/gtm-technical-product-pricing",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/gtm-technical-product-pricing/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
     {
@@ -1523,7 +2196,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:104a4ea16233c73d260ba2ae7620d9e0ae684da4b07b47f0b0170c84594e85ce",
       "contentHash": "sha256:14fc184151de3edfc4269c0ebee1cc0889dd1ac9562cb3916e05d09a91171cbc",
@@ -1532,6 +2205,14 @@
         "reference": "refs/heads/main",
         "source": ".github/skills/cloud-solution-architect",
         "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
       }
     },
     {
@@ -1540,7 +2221,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:80892c08d6bc2ee7ebc896b7ff079c3bdc6f278d7b7418e49f65eb91a88d75c3",
       "contentHash": "sha256:7dce5cfc20a9750a6d90bb7141ce07bb2eb9e6aeb38ca84b6d00653affd22dd5",
@@ -1549,6 +2230,14 @@
         "reference": "refs/heads/main",
         "source": ".github/skills/continual-learning",
         "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
       }
     },
     {
@@ -1557,7 +2246,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:d907bdad2bd0015281aa276896f1aff899b0ec265ffa51ff59e860e9f538859d",
       "contentHash": "sha256:7c61131ca6daf3ee426ec2082c432a6f80fc4e56fab6023602a0b859cbfdc0e3",
@@ -1566,6 +2255,14 @@
         "reference": "refs/heads/main",
         "source": ".github/skills/copilot-sdk",
         "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
       }
     },
     {
@@ -1574,7 +2271,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:c5635962ac198942cdb2ee06045248160a9fc455245d8d5266f7ecec8f4655d6",
       "contentHash": "sha256:caf1db35b66bc7b3893db6ae4db67e45ea74b49a91a10031390e0584936bbc86",
@@ -1583,6 +2280,14 @@
         "reference": "refs/heads/main",
         "source": ".github/skills/entra-agent-id",
         "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
       }
     },
     {
@@ -1591,7 +2296,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:8f66db04adece6106de9beb1850fae9c6e0af9e9573eb56ea944da85dd866c48",
       "contentHash": "sha256:ff28c09bb4264604c1b20e3a98511b9b49a0858bc990920fac0ef06a4397e3c6",
@@ -1600,6 +2305,14 @@
         "reference": "refs/heads/main",
         "source": ".github/skills/frontend-design-review",
         "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
       }
     },
     {
@@ -1608,7 +2321,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:dc99ad5efa941460c44609c50486b5f90ac29a014ee7b2d55dc267a90bc39c59",
       "contentHash": "sha256:c446cc1fc35619d089b4ab9cf09d45b4b04b49e7e8f4c41b6572401ea9c894f0",
@@ -1617,6 +2330,14 @@
         "reference": "refs/heads/main",
         "source": ".github/skills/github-issue-creator",
         "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
       }
     },
     {
@@ -1625,7 +2346,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:f4b77eedf6718d8ad19d296eaa5b2115df8d794815e79864757853f276ca09dd",
       "contentHash": "sha256:925884c49458e0c6880450415e316183b324b446133332104e22511e2523aff2",
@@ -1634,6 +2355,14 @@
         "reference": "refs/heads/main",
         "source": ".github/skills/mcp-builder",
         "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
       }
     },
     {
@@ -1642,7 +2371,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:8dc331be237f568bbdd54a118763fe4d684daa8a271084df17164e069cc1e5ae",
       "contentHash": "sha256:28977297291d6fdf9be3cf43768264cbc102258fc8f87cfe0bb17b3bb037c662",
@@ -1651,6 +2380,14 @@
         "reference": "refs/heads/main",
         "source": "skills/microsoft-agent-framework",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1659,7 +2396,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:04945a0110aa7e0f9c5311a6c2ef02a56389231f3d8ceffcd1e14e19286a5619",
       "contentHash": "sha256:859394a503290ebad57e217767040ab8594d6a9c3b6990bcb9b00a30ff73c387",
@@ -1668,6 +2405,14 @@
         "reference": "refs/heads/main",
         "source": "skills/microsoft-code-reference",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1676,7 +2421,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:d088049cfcdd0208f5f332e9b7e7b1229af862b91eadf43f44dba5fe45930ae9",
       "contentHash": "sha256:585b6cde026858cc5b256de67bd8ed8284030ff1aa8fc04bbf554e359570e182",
@@ -1685,6 +2430,14 @@
         "reference": "refs/heads/main",
         "source": ".github/skills/microsoft-docs",
         "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
       }
     },
     {
@@ -1693,7 +2446,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:e851eaf97a2a61d158ce14722ec224f179ffe7291a1ff84a40593f45bbaea762",
       "contentHash": "sha256:8c616423da2b6c2fea3cee0209daa80002fa39add568aad0f8763c67d0635773",
@@ -1702,6 +2455,14 @@
         "reference": "refs/heads/main",
         "source": ".github/skills/podcast-generation",
         "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
       }
     },
     {
@@ -1710,7 +2471,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:d20ece27c0d2462c1f9986e5fd6e7924002b1e27f469122d51215fffd6e16499",
       "contentHash": "sha256:28c430c7698be58937d82395f874346bb7858df1b45458841c6a403d0b5e3b95",
@@ -1719,6 +2480,14 @@
         "reference": "refs/heads/main",
         "source": ".github/skills/skill-creator",
         "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
       }
     },
     {
@@ -1727,7 +2496,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:140a21e3c474733438c13ef4240f1922e78618eae67cd7b27cdd5eb05d4f5593",
       "contentHash": "sha256:7dc24dcbd6fb7181aabea8577da910a5f0115cbbb7146da846f1e536ae9b4bf2",
@@ -1736,6 +2505,14 @@
         "reference": "refs/heads/main",
         "source": "skills/fabric-lakehouse",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1744,7 +2521,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:a08691b506ad9b0e27fca40a5bb748f46fd0c135f4bb92619c69707febf626f1",
       "contentHash": "sha256:3190ac9f94bc21786b043d853a02d08dbbe7239993b83544224da137f2c569f4",
@@ -1753,6 +2530,14 @@
         "reference": "refs/heads/main",
         "source": "skills/power-apps-code-app-scaffold",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1761,7 +2546,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:7fd4ce80ffa30aeee68d4daa77f4b487c963fd8c15d661e32c80812d2c94635b",
       "contentHash": "sha256:8009e106c39ab91a843a9f80f6a569a3c1f6ba6f04a1f90b1d95b2537697eb48",
@@ -1770,6 +2555,14 @@
         "reference": "refs/heads/main",
         "source": "skills/power-bi-dax-optimization",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1778,7 +2571,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:723e400060c7586bf0545316feb552cb7364116282fc0ba20e681acabeadf498",
       "contentHash": "sha256:d524faea64407dded6011e23136c423df84bfd6bc0b8082cb90f6c7ecd0156ae",
@@ -1787,6 +2580,14 @@
         "reference": "refs/heads/main",
         "source": "skills/power-bi-model-design-review",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1795,7 +2596,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:2229e2930db710f72550cc220631d536e48c7904d219e05f51d4a58a184fa8ec",
       "contentHash": "sha256:81d54c9fd15c968eaada2b392af9e301a18848af699cc36c227903897cc26d2d",
@@ -1804,6 +2605,14 @@
         "reference": "refs/heads/main",
         "source": "skills/power-bi-performance-troubleshooting",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1812,7 +2621,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:4031ce4dbb9e27878cb3afb212e50d4b8a7ac6214ad58ff56d28aae1cf7a3dd3",
       "contentHash": "sha256:66fc1f1d77d35b30b5203be7973026b63fa4a08b811ba18b24e47534f444bd78",
@@ -1821,6 +2630,14 @@
         "reference": "refs/heads/main",
         "source": "skills/power-bi-report-design-consultation",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1829,7 +2646,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:c4c2a401534dde8f0b2a1c5543238ed772de083959bb17774b93284691bed9f3",
       "contentHash": "sha256:3b52f674112549b3d5a26a157ce7ee7932539ad9171cb2acbdf862ec20e0cb8d",
@@ -1838,6 +2655,14 @@
         "reference": "refs/heads/main",
         "source": "skills/power-platform-mcp-connector-suite",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1846,7 +2671,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:14de90a1d6498856cce7b7ee2007b534f2b7387a3fff363a4a24c47d0da0225b",
       "contentHash": "sha256:64d4782eb9e93d6f5f16d0a171a76cf1c5e1571accdeea957525328f569f4eaf",
@@ -1855,6 +2680,14 @@
         "reference": "refs/heads/main",
         "source": "skills/powerbi-modeling",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1863,7 +2696,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:e40eac989b8a1ae0685b817c59f6028cd648bad45a198384c1b479b239bed691",
       "contentHash": "sha256:cde80ad6dfe90690947dfb326574137bdea632dc49c3aa38c64ff2f7416e2290",
@@ -1872,6 +2705,14 @@
         "reference": "refs/heads/main",
         "source": "plugins/tampermonkey/skills/tampermonkey",
         "commit": "5091eccfb7cf09275f20fda850c190dff83be100"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "henkisdabro/wookstar-claude-plugins",
+        "reference": "refs/heads/main",
+        "commit": "5091eccfb7cf09275f20fda850c190dff83be100",
+        "path": "LICENSE",
+        "hash": "sha256:48dfa68521bf12091285618e22ed767d79c328189e2b7f6745aa473535101335"
       }
     },
     {
@@ -1883,7 +2724,10 @@
       "license": "Unknown",
       "redistributable": true,
       "snapshotHash": "sha256:cb45a129752f8cd29eb107a4e4abcdfd51e4045dd92b7a983f3debae825e2c1f",
-      "upstream": null
+      "upstream": null,
+      "licenseEvidence": {
+        "source": "unresolved"
+      }
     },
     {
       "path": "skills/vscode/create-implementation-plan",
@@ -1891,7 +2735,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:27f61ff4171a521d4be8ca13718c167dbc91ba939f0fa1db4e18a4188793e6b1",
       "contentHash": "sha256:353e9f48eb2529bf790a31cc64b9556f9ba727ad116f80baf0c6f4134dbd3201",
@@ -1900,6 +2744,14 @@
         "reference": "refs/heads/main",
         "source": "skills/create-implementation-plan",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1908,7 +2760,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:79bdb8c1ea3286ccc6e8a34cb69eb5d99cd37e759e569b71116f1e0082626a36",
       "contentHash": "sha256:ad429604c79ffd64bc6a51db719b5f1a71244404ad76e482a034e3bd1ee194ba",
@@ -1917,6 +2769,14 @@
         "reference": "refs/heads/main",
         "source": "skills/create-readme",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1925,7 +2785,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:56d326f75ecbfb4e9288c42ad20e469c2181380d1a57173bde39dc22cf513e0e",
       "contentHash": "sha256:9fb8dd4198a8e83ebdb538a1042c54b77061cffb1f065fe306ba3aa644d27e3a",
@@ -1934,6 +2794,14 @@
         "reference": "refs/heads/main",
         "source": "skills/create-specification",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1942,7 +2810,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:04ee69e6cf8800506c2061a943749916216fb8d4ac564e8c04017d98b2500491",
       "contentHash": "sha256:028bf3a56398509f755d7c059e9f94149e69564376e449f941bdd872d22e05b8",
@@ -1951,6 +2819,14 @@
         "reference": "refs/heads/main",
         "source": "skills/generate-custom-instructions-from-codebase",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -1967,6 +2843,14 @@
         "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/git-commit",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/git-commit/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
@@ -1985,6 +2869,14 @@
         "reference": "refs/heads/main",
         "source": "skills/refactor",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/refactor/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
       }
     },
     {
@@ -1993,7 +2885,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:f96f1afb94d9d8470b9db5edb0f4aba4c743f5919549c38ea599a9110acd743a",
       "contentHash": "sha256:a11242c577d97bd3deb56e2cb7c2ecbacafc643743a716d258553bacdaa3cc62",
@@ -2002,6 +2894,14 @@
         "reference": "refs/heads/main",
         "source": "skills/refactor-plan",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     },
     {
@@ -2010,7 +2910,7 @@
       "category": "mapped",
       "version": "1.1.0",
       "baseline": "verified",
-      "license": "Unknown",
+      "license": "MIT",
       "redistributable": true,
       "snapshotHash": "sha256:11d35d7327d75e926db113ae30717df3e2a6e183e88b66e37e8b112c9d4cb8e7",
       "contentHash": "sha256:a74d7421eca101950a509a489ad33646ac2741ad06724a3d9eb581686dae0199",
@@ -2019,6 +2919,14 @@
         "reference": "refs/heads/main",
         "source": "skills/security-review",
         "commit": "4742f265959bf025882314564b364d9d7af6e2d5"
+      },
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "4742f265959bf025882314564b364d9d7af6e2d5",
+        "path": "LICENSE",
+        "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
       }
     }
   ]

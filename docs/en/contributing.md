@@ -35,8 +35,16 @@ node --test --test-name-pattern="DOC1" "scripts/test/**/*.test.mjs"
 npm test
 ```
 
+**Pinned license metadata refresh** — real, networked metadata transaction;
+run only from a clean tree whose current release tag is reconciled:
+
+```bash
+node scripts/sync.mjs --refresh-licenses --output sync-report/license-refresh.json
+```
+
 **Validator** — structural checks across the whole `skills/` tree
-(frontmatter, manifest coverage, relative links):
+(frontmatter, manifest coverage, relative links) plus lock license evidence
+and bundled root-license integrity:
 
 ```bash
 node scripts/validate.mjs
@@ -192,7 +200,8 @@ when you touch `site/` itself.
 ## Generated files, mirrored content, and freshness
 
 - Never hand-edit `catalog/skills.lock.json`, `catalog/history/*.json`,
-  `NOTICE`, or the `<!-- CATALOG:START -->`/`<!-- INSTALL:START -->` blocks in
+  `catalog/licenses/`, `NOTICE`, or the
+  `<!-- CATALOG:START -->`/`<!-- INSTALL:START -->` blocks in
   the root `README.md` — they are sync output (see
   [Skill management](skill-management.md#why-generated-outputs-cannot-be-edited-independently)).
 - Preserve each vendored skill's upstream content and layout faithfully;

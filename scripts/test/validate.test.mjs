@@ -4,7 +4,7 @@ import { mkdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { validateRepository } from '../validate.mjs';
+import { collectLicenseEvidenceErrors, validateRepository } from '../validate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const runtimeRoot = path.join(__dirname, '.runtime');
@@ -56,6 +56,186 @@ async function expectValidationFailure(fixtureRoot, pattern) {
     },
   );
 }
+
+test('license evidence validator enforces domain and cross-field invariants', () => {
+  const base = {
+    path: 'skills/demo/alpha',
+    category: 'mapped',
+    license: 'MIT',
+    redistributable: true,
+    upstream: {
+      repository: 'example/repo',
+      reference: 'refs/heads/main',
+      source: 'skills/alpha',
+      commit: 'a'.repeat(40),
+    },
+  };
+
+  assert.deepEqual(
+    collectLicenseEvidenceErrors({
+      ...base,
+      licenseEvidence: {
+        source: 'upstream-root:LICENSE',
+        repository: 'example/repo',
+        reference: 'refs/heads/main',
+        commit: 'a'.repeat(40),
+        path: 'LICENSE',
+        hash: `sha256:${'b'.repeat(64)}`,
+      },
+    }),
+    [],
+  );
+
+  assert.match(
+    collectLicenseEvidenceErrors({
+      ...base,
+      licenseEvidence: { source: 'guessed-from-repository-name' },
+    }).join('\n'),
+    /invalid license evidence source/,
+  );
+  assert.match(
+    collectLicenseEvidenceErrors({
+      ...base,
+      license: 'Unknown',
+      licenseEvidence: { source: 'frontmatter' },
+    }).join('\n'),
+    /Unknown license must use unresolved evidence/,
+  );
+  assert.match(
+    collectLicenseEvidenceErrors({
+      ...base,
+      licenseEvidence: { source: 'unresolved' },
+    }).join('\n'),
+    /unresolved evidence requires license Unknown/,
+  );
+  assert.match(
+    collectLicenseEvidenceErrors({
+      ...base,
+      redistributable: false,
+      license: 'MIT',
+      licenseEvidence: { source: 'restricted-policy' },
+    }).join('\n'),
+    /redistributable false requires Proprietary/,
+  );
+  assert.match(
+    collectLicenseEvidenceErrors({
+      ...base,
+      licenseEvidence: {
+        source: 'upstream-root:LICENSE',
+        repository: 'example/repo',
+        reference: 'refs/heads/main',
+        commit: 'c'.repeat(40),
+        path: 'LICENSE',
+        hash: `sha256:${'b'.repeat(64)}`,
+      },
+    }).join('\n'),
+    /evidence commit must equal pinned upstream commit/,
+  );
+});
+
+test('release after 2.0.0 requires the license evidence schema marker', async () => {
+  await withFixture('missing-license-schema-marker', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      '---\nname: alpha\ndescription: Fixture skill\n---\n',
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  fixtures:
+    repository: fixtures/repo
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+`,
+    );
+    await writeLock(fixtureRoot, {
+      release: '2.0.2',
+      generatedAt: '2026-09-02T00:00:00Z',
+      counts: { total: 1, mapped: 1, orphan: 0, local: 0 },
+      skills: [],
+    });
+
+    await expectValidationFailure(
+      fixtureRoot,
+      /release 2\.0\.2 requires licenseEvidenceVersion 1/,
+    );
+  });
+});
+
+test('validator checks frontmatter evidence hash and license semantics', async () => {
+  await withFixture('frontmatter-license-evidence', async (fixtureRoot) => {
+    await createSkill(
+      fixtureRoot,
+      'skills/azure/alpha',
+      '---\nname: alpha\ndescription: Fixture skill\nlicense: MIT\n---\n',
+    );
+    await writeManifest(
+      fixtureRoot,
+      `
+upstreams:
+  fixtures:
+    repository: fixtures/repo
+    reference: refs/heads/main
+mappings:
+  - path: skills/azure/alpha
+    upstream: fixtures
+    source: skills/alpha
+orphans: []
+local: []
+overrides: []
+`,
+    );
+    await writeLock(fixtureRoot, {
+      release: '2.0.1',
+      generatedAt: '2026-09-02T00:00:00Z',
+      licenseEvidenceVersion: 1,
+      counts: { total: 1, mapped: 1, orphan: 0, local: 0 },
+      skills: [{
+        path: 'skills/azure/alpha',
+        name: 'alpha',
+        category: 'mapped',
+        version: '1.0.0',
+        baseline: 'verified',
+        license: 'Apache-2.0',
+        redistributable: true,
+        licenseEvidence: {
+          source: 'frontmatter',
+          repository: 'fixtures/repo',
+          reference: 'refs/heads/main',
+          commit: 'a'.repeat(40),
+          path: 'skills/alpha/SKILL.md',
+          hash: `sha256:${'0'.repeat(64)}`,
+        },
+        snapshotHash: `sha256:${'1'.repeat(64)}`,
+        contentHash: `sha256:${'2'.repeat(64)}`,
+        upstream: {
+          repository: 'fixtures/repo',
+          reference: 'refs/heads/main',
+          source: 'skills/alpha',
+          commit: 'a'.repeat(40),
+        },
+      }],
+    });
+    await writeRepoFile(
+      fixtureRoot,
+      'catalog/licenses/index.json',
+      '{"release":"2.0.1","licenses":[]}\n',
+    );
+
+    await expectValidationFailure(
+      fixtureRoot,
+      /frontmatter license evidence (hash|classification) mismatch/,
+    );
+  });
+});
 
 test('validateRepository rejects skills whose frontmatter name is blank', async () => {
   await withFixture('missing-name', async (fixtureRoot) => {

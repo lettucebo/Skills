@@ -19,6 +19,23 @@
       "upstreamCommit": "27f583d0e4df7f0cef3c06840848a32efc55e1b4",
       "diffUrl": null,
       "contentHash": "sha256:653c1d667afbae4aca8d72c49cbacd67d37f256577151f76c22bf3ef56871b07"
+    },
+    {
+      "release": "2.0.1",
+      "kind": "license-refresh",
+      "version": "1.1.0",
+      "upstreamCommit": "27f583d0e4df7f0cef3c06840848a32efc55e1b4",
+      "diffUrl": null,
+      "oldLicense": "Unknown",
+      "newLicense": "Unknown",
+      "oldRedistributable": true,
+      "newRedistributable": true,
+      "oldEvidence": null,
+      "newEvidence": {
+        "source": "unresolved"
+      },
+      "evidenceCommit": "27f583d0e4df7f0cef3c06840848a32efc55e1b4",
+      "evidenceHash": null
     }
   ]
 }

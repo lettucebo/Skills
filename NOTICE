@@ -20,9 +20,23 @@ deterministically from `catalog/skills.lock.json`; do not edit it by hand.
 
 | License | Skills |
 |---------|:------:|
-| Apache-2.0 | 12 |
-| MIT | 16 |
-| Unknown | 87 |
+| Apache-2.0 | 25 |
+| MIT | 85 |
+| Unknown | 5 |
+
+## Third-party root licenses
+
+Complete upstream root-license texts used by the registry are committed under
+`catalog/licenses/`; deterministic evidence metadata is recorded in
+`catalog/licenses/index.json`.
+
+| Upstream repository | Reference | Evidence commit | License | Text |
+|---------------------|-----------|-----------------|---------|------|
+| cloudflare/skills | refs/heads/main | `f96bff754e428838818017f75817f0f9428acd48` | Apache-2.0 | [LICENSE](catalog/licenses/cloudflare--skills--a317a9aaf9890e04--f96bff754e428838818017f75817f0f9428acd48--LICENSE) |
+| github/awesome-copilot | refs/heads/main | `4742f265959bf025882314564b364d9d7af6e2d5` | MIT | [LICENSE](catalog/licenses/github--awesome-copilot--a178dc401fe03076--4742f265959bf025882314564b364d9d7af6e2d5--LICENSE) |
+| henkisdabro/wookstar-claude-plugins | refs/heads/main | `5091eccfb7cf09275f20fda850c190dff83be100` | MIT | [LICENSE](catalog/licenses/henkisdabro--wookstar-claude-plugins--d3e12b52a035c7c5--5091eccfb7cf09275f20fda850c190dff83be100--LICENSE) |
+| microsoft/skills | refs/heads/main | `cde32f9c7332b53de67faa7dadabb6873d02bb0c` | MIT | [LICENSE](catalog/licenses/microsoft--skills--d7f8dad1627d0b67--cde32f9c7332b53de67faa7dadabb6873d02bb0c--LICENSE) |
+| tamtom/gplay-cli-skills | refs/heads/main | `10301b24639e4f768d009b2edda9315cb2149712` | MIT | [LICENSE](catalog/licenses/tamtom--gplay-cli-skills--17e243c1cf010aa9--10301b24639e4f768d009b2edda9315cb2149712--LICENSE) |
 
 ## Restricted skills
 

@@ -14,7 +14,7 @@
 ## 步驟一：確認發布版本是否真的已經發布
 
 [`catalog/skills.lock.json`](../../catalog/skills.lock.json) 的 lockfile 永遠
-會標示一個 `release` 版本 — 目前是 `2.0.0`。這個欄位描述的是目前已提交的樹目前
+會標示一個 `release` 版本 — 目前是 `2.0.1`。這個欄位描述的是目前已提交的樹目前
 「是」什麼版本，而不是任何人現在能不能安裝它。
 
 安裝一律使用釘選的 `#<tag>` 參照（絕不使用 `@version` 或 semver 範圍），而
@@ -104,7 +104,7 @@ npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" --agent github-copilot --copy
 
 ## 受限制內容
 
-2.0.0 的 active inventory 沒有受限制 skill。先前專有的
+2.0.1 的 active inventory 沒有受限制 skill。先前專有的
 `skills/claude/{docx,pdf,pptx,xlsx}` 鏡像已在第一個 release tag 前移除；其舊
 在地化與無語言前綴 URL 刻意回傳 404。Lock tombstone 與 history 稽核仍保留，
 但完整 registry 安裝只包含 115 個 active skill。

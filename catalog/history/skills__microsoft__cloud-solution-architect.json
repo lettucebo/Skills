@@ -19,6 +19,28 @@
       "upstreamCommit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
       "diffUrl": null,
       "contentHash": "sha256:14fc184151de3edfc4269c0ebee1cc0889dd1ac9562cb3916e05d09a91171cbc"
+    },
+    {
+      "release": "2.0.1",
+      "kind": "license-refresh",
+      "version": "1.1.0",
+      "upstreamCommit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+      "diffUrl": null,
+      "oldLicense": "Unknown",
+      "newLicense": "MIT",
+      "oldRedistributable": true,
+      "newRedistributable": true,
+      "oldEvidence": null,
+      "newEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "microsoft/skills",
+        "reference": "refs/heads/main",
+        "commit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+        "path": "LICENSE",
+        "hash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
+      },
+      "evidenceCommit": "cde32f9c7332b53de67faa7dadabb6873d02bb0c",
+      "evidenceHash": "sha256:d9a1b1e30d633d5732ea18e3cba9538d293ebc53e1a9e4e96ab739e0c5c4f1cb"
     }
   ]
 }

@@ -19,6 +19,28 @@
       "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
       "diffUrl": null,
       "contentHash": "sha256:665c585455decbcb02116bc928adf5148b9cd0f67b7eb4908c8c0d647c00f68a"
+    },
+    {
+      "release": "2.0.1",
+      "kind": "license-refresh",
+      "version": "1.1.0",
+      "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "diffUrl": null,
+      "oldLicense": "Apache-2.0",
+      "newLicense": "Apache-2.0",
+      "oldRedistributable": true,
+      "newRedistributable": true,
+      "oldEvidence": null,
+      "newEvidence": {
+        "source": "skill-license-file",
+        "path": "skills/frontend-design/LICENSE.txt",
+        "hash": "sha256:0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "repository": "anthropics/skills",
+        "reference": "refs/heads/main",
+        "commit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+      },
+      "evidenceCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "evidenceHash": "sha256:0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
     }
   ]
 }

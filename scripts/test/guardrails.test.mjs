@@ -76,6 +76,7 @@ test('classifyDiff returns minor when only additions exist', () => {
 
 test('classifyDiff returns patch when only changes exist', () => {
   assert.equal(classifyDiff({ changed: ['c'] }), 'patch');
+  assert.equal(classifyDiff({ metadata: ['license'] }), 'patch');
 });
 
 test('classifyDiff returns none for an empty change set', () => {

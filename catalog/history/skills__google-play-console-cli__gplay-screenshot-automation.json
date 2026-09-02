@@ -11,6 +11,28 @@
       "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
       "diffUrl": null,
       "contentHash": "sha256:9f93238d7d2013e8b027b27ad2694bce85e0423452d6f518f94f362f5e1401de"
+    },
+    {
+      "release": "2.0.1",
+      "kind": "license-refresh",
+      "version": "1.1.0",
+      "upstreamCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "diffUrl": null,
+      "oldLicense": "Unknown",
+      "newLicense": "MIT",
+      "oldRedistributable": true,
+      "newRedistributable": true,
+      "oldEvidence": null,
+      "newEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "tamtom/gplay-cli-skills",
+        "reference": "refs/heads/main",
+        "commit": "10301b24639e4f768d009b2edda9315cb2149712",
+        "path": "LICENSE",
+        "hash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
+      },
+      "evidenceCommit": "10301b24639e4f768d009b2edda9315cb2149712",
+      "evidenceHash": "sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
     }
   ]
 }

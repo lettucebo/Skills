@@ -79,7 +79,7 @@ inventory 沒有這類頁面：四個專有 claude 鏡像已成為 tombstone，�
   受限制內容風險。
 - **單一來源** — 當你想要一整個集合（例如所有 `skills/dotnet` skill）且該集合
   不含受限制 skill 時。
-- **整個 registry** — 2.0.0 會安裝全部 115 個 active skill。未來仍應查看狀態
+- **整個 registry** — 2.0.1 會安裝全部 115 個 active skill。未來仍應查看狀態
   頁面確認受限制 inventory。
 
 ## 釘選版本

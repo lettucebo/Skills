@@ -1,11 +1,17 @@
 import { access, readdir, readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { parseSkillFrontmatter } from './lib/frontmatter.mjs';
 import { collectManagedRelativeLinks, createLinkExceptionKey } from './lib/links.mjs';
 import { loadManifest, ManifestValidationError } from './lib/manifest.mjs';
-import { RESTRICTED_SKILL_PATHS } from './catalog.mjs';
+import {
+  detectLicenseText,
+  normalizeFrontmatterLicense,
+  RESTRICTED_SKILL_PATHS,
+} from './catalog.mjs';
+import { validateLicenseBundle } from './lib/license.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const defaultRepoRoot = path.resolve(__dirname, '..');
@@ -16,6 +22,166 @@ export class ValidationError extends Error {
     this.name = 'ValidationError';
     this.errors = errors;
   }
+}
+
+const LICENSE_EVIDENCE_SOURCE_PATTERN =
+  /^(restricted-policy|skill-license-file|frontmatter|upstream-root:[^/\\]+|unresolved)$/;
+const SHA256_PATTERN = /^sha256:[0-9a-f]{64}$/;
+
+function sha256(content) {
+  return `sha256:${createHash('sha256').update(content).digest('hex')}`;
+}
+
+async function collectStoredLicenseEvidenceErrors({
+  skill,
+  skillDirectory,
+  frontmatter,
+}) {
+  const evidence = skill?.licenseEvidence;
+  if (!evidence) {
+    return [];
+  }
+  const prefix = `Lock entry ${skill.path}:`;
+
+  if (evidence.source === 'frontmatter') {
+    const normalized = normalizeFrontmatterLicense(frontmatter.license);
+    const hash = sha256(Buffer.from(String(frontmatter.license ?? '').trim(), 'utf8'));
+    const errors = [];
+    if (hash !== evidence.hash) {
+      errors.push(`${prefix} frontmatter license evidence hash mismatch.`);
+    }
+    if (normalized !== skill.license) {
+      errors.push(`${prefix} frontmatter license evidence classification mismatch.`);
+    }
+    return errors;
+  }
+
+  const skillFileEvidence =
+    evidence.source === 'skill-license-file' ||
+    (evidence.source === 'unresolved' &&
+      evidence.scope === 'skill-license-file');
+  if (!skillFileEvidence) {
+    return [];
+  }
+
+  const filename = path.posix.basename(evidence.path ?? '');
+  let content;
+  try {
+    content = await readFile(path.join(skillDirectory, filename));
+  } catch {
+    return [`${prefix} skill license evidence file is missing: ${filename}.`];
+  }
+
+  const rawHash = sha256(content);
+  const lfHash = sha256(
+    Buffer.from(content.toString('utf8').replace(/\r\n/g, '\n'), 'utf8'),
+  );
+  const errors = [];
+  if (evidence.hash !== rawHash && evidence.hash !== lfHash) {
+    errors.push(`${prefix} skill license evidence hash mismatch.`);
+  }
+  const detected = detectLicenseText(content.toString('utf8')) ?? 'Unknown';
+  if (detected !== skill.license) {
+    errors.push(`${prefix} skill license evidence classification mismatch.`);
+  }
+  return errors;
+}
+
+export function collectLicenseEvidenceErrors(skill) {
+  const errors = [];
+  const prefix = `Lock entry ${skill?.path ?? '<unknown>'}:`;
+  const evidence = skill?.licenseEvidence;
+
+  if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)) {
+    return [`${prefix} licenseEvidence must be an object.`];
+  }
+
+  if (
+    typeof evidence.source !== 'string' ||
+    !LICENSE_EVIDENCE_SOURCE_PATTERN.test(evidence.source)
+  ) {
+    errors.push(`${prefix} invalid license evidence source ${JSON.stringify(evidence.source)}.`);
+    return errors;
+  }
+
+  if (skill.redistributable === false && skill.license !== 'Proprietary') {
+    errors.push(`${prefix} redistributable false requires Proprietary license.`);
+  }
+  if (
+    skill.redistributable === false &&
+    evidence.source !== 'restricted-policy'
+  ) {
+    errors.push(`${prefix} redistributable false requires restricted-policy evidence.`);
+  }
+  if (
+    evidence.source === 'restricted-policy' &&
+    (skill.license !== 'Proprietary' || skill.redistributable !== false)
+  ) {
+    errors.push(`${prefix} restricted-policy evidence requires Proprietary/non-redistributable metadata.`);
+  }
+  if (evidence.source === 'unresolved' && skill.license !== 'Unknown') {
+    errors.push(`${prefix} unresolved evidence requires license Unknown.`);
+  }
+  if (skill.license === 'Unknown' && evidence.source !== 'unresolved') {
+    errors.push(`${prefix} Unknown license must use unresolved evidence.`);
+  }
+
+  const fileBacked =
+    evidence.source === 'skill-license-file' ||
+    evidence.source === 'frontmatter' ||
+    evidence.source.startsWith('upstream-root:') ||
+    (evidence.source === 'unresolved' &&
+      (evidence.path !== undefined || evidence.hash !== undefined));
+  if (fileBacked) {
+    if (typeof evidence.path !== 'string' || evidence.path.trim() === '') {
+      errors.push(`${prefix} file-backed license evidence requires a relative path.`);
+    } else if (
+      path.posix.isAbsolute(evidence.path) ||
+      evidence.path.split('/').includes('..')
+    ) {
+      errors.push(`${prefix} license evidence path must remain relative.`);
+    }
+    if (!SHA256_PATTERN.test(evidence.hash ?? '')) {
+      errors.push(`${prefix} file-backed license evidence requires a SHA-256 hash.`);
+    }
+  }
+
+  if (evidence.source.startsWith('upstream-root:')) {
+    const sourceFilename = evidence.source.slice('upstream-root:'.length);
+    if (sourceFilename !== path.posix.basename(evidence.path ?? '')) {
+      errors.push(`${prefix} upstream-root source filename must match evidence path.`);
+    }
+    if (!skill.upstream) {
+      errors.push(`${prefix} upstream-root evidence requires upstream provenance.`);
+    } else {
+      if (evidence.repository !== skill.upstream.repository) {
+        errors.push(`${prefix} evidence repository must equal pinned upstream repository.`);
+      }
+      if (evidence.reference !== skill.upstream.reference) {
+        errors.push(`${prefix} evidence reference must equal pinned upstream reference.`);
+      }
+      if (evidence.commit !== skill.upstream.commit) {
+        errors.push(`${prefix} evidence commit must equal pinned upstream commit.`);
+      }
+    }
+  }
+
+  if (
+    (evidence.source === 'skill-license-file' ||
+      evidence.source === 'frontmatter' ||
+      (evidence.source === 'unresolved' && evidence.repository)) &&
+    skill.upstream
+  ) {
+    if (
+      evidence.repository !== skill.upstream.repository ||
+      evidence.reference !== skill.upstream.reference ||
+      evidence.commit !== skill.upstream.commit
+    ) {
+      errors.push(`${prefix} mapped file evidence must match pinned upstream provenance.`);
+    }
+  }
+
+  return errors;
 }
 
 export async function validateRepository(repoRoot = defaultRepoRoot) {
@@ -58,6 +224,39 @@ export async function validateRepository(repoRoot = defaultRepoRoot) {
   }
 
   const releaseMajor = Number.parseInt(String(lock?.release ?? '').split('.')[0], 10);
+  if (
+    releaseMajor >= 2 &&
+    lock?.release !== '2.0.0' &&
+    lock?.licenseEvidenceVersion !== 1
+  ) {
+    errors.push(
+      `Lock release ${lock?.release} requires licenseEvidenceVersion 1.`,
+    );
+  }
+  if (
+    lock?.licenseEvidenceVersion !== undefined &&
+    lock.licenseEvidenceVersion !== 1
+  ) {
+    errors.push(
+      `Unsupported licenseEvidenceVersion: ${JSON.stringify(lock.licenseEvidenceVersion)}.`,
+    );
+  }
+  const requiresLicenseEvidence = lock?.licenseEvidenceVersion === 1;
+  const lockByPath = new Map(
+    (lock?.skills ?? []).map((skill) => [skill.path, skill]),
+  );
+
+  if (requiresLicenseEvidence) {
+    for (const skill of lock?.skills ?? []) {
+      errors.push(...collectLicenseEvidenceErrors(skill));
+    }
+    try {
+      await validateLicenseBundle(absoluteRepoRoot, lock);
+    } catch (error) {
+      errors.push(error.message);
+    }
+  }
+
   if (releaseMajor >= 2) {
     const skillPathSet = new Set(
       skillDirectories.map((directory) =>
@@ -109,6 +308,15 @@ export async function validateRepository(repoRoot = defaultRepoRoot) {
       const existingPaths = skillNames.get(frontmatter.name) ?? [];
       existingPaths.push(skillDocumentPath);
       skillNames.set(frontmatter.name, existingPaths);
+      if (requiresLicenseEvidence) {
+        errors.push(
+          ...(await collectStoredLicenseEvidenceErrors({
+            skill: lockByPath.get(skillPath),
+            skillDirectory,
+            frontmatter,
+          })),
+        );
+      }
     } catch (error) {
       errors.push(error.message);
     }

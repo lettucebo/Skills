@@ -13,6 +13,10 @@ on:
         description: 'Establish the verified upstream baseline. Requires dry_run = false.'
         type: boolean
         default: false
+      refresh_licenses:
+        description: 'Refresh pinned license evidence and the third-party license bundle.'
+        type: boolean
+        default: false
 
 concurrency:
   group: sync-upstream-skills
@@ -34,6 +38,11 @@ jobs:
         run: |
           echo "::error::baseline=true requires dry_run=false. A baseline apply must not run during a dry run."
           exit 1
+      - name: Reject conflicting license refresh modes
+        if: ${{ inputs.refresh_licenses && (inputs.dry_run || inputs.baseline) }}
+        run: |
+          echo "::error::refresh_licenses=true requires dry_run=false and baseline=false."
+          exit 1
 
   dry-run:
     name: Dry-run plan
@@ -41,7 +50,7 @@ jobs:
     # Only an explicit dry-run dispatch plans. `dry_run=false` is an apply
     # request and is handled by `update`; without the positive `inputs.dry_run`
     # test both jobs would run for the same dispatch.
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && !inputs.baseline }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && !inputs.baseline && !inputs.refresh_licenses }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -138,7 +147,8 @@ jobs:
       github.event_name == 'workflow_dispatch' &&
       github.ref == 'refs/heads/main' &&
       inputs.baseline &&
-      !inputs.dry_run
+      !inputs.dry_run &&
+      !inputs.refresh_licenses
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -250,7 +260,11 @@ jobs:
         id: apply
         run: |
           mkdir -p sync-report
-          node scripts/sync.mjs --apply --output sync-report/result.json
+          if [ "${{ inputs.refresh_licenses }}" = "true" ]; then
+            node scripts/sync.mjs --refresh-licenses --output sync-report/result.json
+          else
+            node scripts/sync.mjs --apply --output sync-report/result.json
+          fi
 
           # Read the engine result to decide whether to commit.
           APPLIED=$(node -e "const r=JSON.parse(require('fs').readFileSync('sync-report/result.json','utf8'));process.stdout.write(String(r.applied))")

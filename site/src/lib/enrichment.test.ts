@@ -34,6 +34,7 @@ function skill(overrides: Partial<LockSkillEntry> = {}): LockSkillEntry {
     baseline: 'verified',
     license: 'MIT',
     redistributable: true,
+    licenseEvidence: { source: 'frontmatter' },
     snapshotHash: HASH_B,
     contentHash: HASH_A,
     upstream: {

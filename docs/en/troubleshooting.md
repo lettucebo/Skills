@@ -52,7 +52,7 @@ repository-root full or single-skill command.
 ### A full-registry install pulled in skills I didn't expect
 
 **Cause:** a full-registry install selects every active skill in the pinned
-release. Release 2.0.0 contains 115 active skills and no restricted skills.
+release. Release 2.0.1 contains 115 active skills and no restricted skills.
 
 **Fix:** install one source or one skill when broad coverage is not intended.
 Also check `catalog/skills.lock.json` or the website status page because future
@@ -75,7 +75,7 @@ filing a bug.
 
 ### "the git working tree is not clean"
 
-**Cause:** `applyBaseline` and `applyUpdate` both refuse to run unless
+**Cause:** baseline, update, deproprietize, and license-refresh transactions refuse to run unless
 `git status` is empty, so a transaction can never mix uncommitted local edits
 with sync-generated changes.
 
@@ -115,6 +115,18 @@ the run instead.
 **Fix:** confirm the upstream `repository`/`reference` in
 `catalog/sources.yml` are still correct, and retry once the upstream is
 reachable again.
+
+### License refresh rejects pinned evidence
+
+**Cause:** `--refresh-licenses` could not fetch the lock-pinned commit, could
+not prove it is an ancestor of the declared ref, or detected a known-license
+to `Unknown` downgrade at unchanged pinned provenance. It never substitutes
+branch HEAD or treats network failure as absence of a license.
+
+**Fix:** verify the lock upstream tuple and declared ref, restore upstream
+access, and inspect the pinned file/hash. If detector behavior intentionally
+changed, add exact regression tests and review the compliance impact before
+retrying. Do not hand-edit the lock or `catalog/licenses/`.
 
 ### GitHub Pages deploy fails with "GitHub Pages is not enabled"
 

@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { readdir, readFile, rm, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -69,43 +70,155 @@ export function serialize(value) {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
 
+export const SKILL_LICENSE_CANDIDATES = Object.freeze([
+  'LICENSE.txt',
+  'LICENSE',
+  'LICENSE.md',
+  'LICENCE.txt',
+  'LICENCE',
+  'LICENCE.md',
+  'COPYING',
+]);
+
+export class LicensePolicyError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'LicensePolicyError';
+  }
+}
+
+function assertLicensePolicy(license, policyPath) {
+  if (license === 'Proprietary') {
+    throw new LicensePolicyError(
+      `Proprietary evidence detected for ${policyPath}; add it to RESTRICTED_SKILL_PATHS before publishing.`,
+    );
+  }
+}
+
+function hashBytes(content) {
+  return `sha256:${createHash('sha256').update(content).digest('hex')}`;
+}
+
+function withUpstreamEvidence(evidence, upstream) {
+  if (!upstream) {
+    return evidence;
+  }
+
+  return {
+    ...evidence,
+    repository: upstream.repository,
+    reference: upstream.reference,
+    commit: upstream.commit,
+  };
+}
+
 /**
  * Resolves a skill's license without inference.
  *
- * Resolution order: explicit restricted set -> local LICENSE.txt -> frontmatter
- * `license` field. Anything unresolved stays `Unknown` so the registry never
- * falsely claims a permissive license.
+ * Resolution order: explicit restricted set -> skill-local license file ->
+ * frontmatter `license` field -> supplied pinned upstream root license.
+ * Anything unresolved stays `Unknown` so the registry never falsely claims a
+ * permissive license.
  */
-export async function resolveLicense(repoRoot, skillPath, frontmatter) {
-  if (RESTRICTED_SKILL_PATHS.has(skillPath)) {
-    return { license: 'Proprietary', redistributable: false };
+export async function resolveLicense(
+  repoRoot,
+  skillPath,
+  frontmatter,
+  { upstream = null, rootLicense = null, policyPath = skillPath } = {},
+) {
+  if (RESTRICTED_SKILL_PATHS.has(policyPath)) {
+    return {
+      license: 'Proprietary',
+      redistributable: false,
+      licenseEvidence: { source: 'restricted-policy' },
+    };
   }
 
-  const licenseFilePath = path.join(repoRoot, ...skillPath.split('/'), 'LICENSE.txt');
-  const fromFile = await detectLicenseFromFile(licenseFilePath);
+  for (const filename of SKILL_LICENSE_CANDIDATES) {
+    const relativePath = path.posix.join(skillPath, filename);
+    const licenseFilePath = path.join(repoRoot, ...relativePath.split('/'));
+    const fileEvidence = await detectLicenseFromFile(licenseFilePath);
 
-  if (fromFile) {
-    return { license: fromFile, redistributable: true };
+    if (fileEvidence) {
+      assertLicensePolicy(fileEvidence.license, policyPath);
+      const evidence = withUpstreamEvidence(
+        {
+          source: fileEvidence.license ? 'skill-license-file' : 'unresolved',
+          ...(fileEvidence.license ? {} : { scope: 'skill-license-file' }),
+          path: relativePath,
+          hash: fileEvidence.hash,
+        },
+        upstream,
+      );
+      return {
+        license: fileEvidence.license ?? 'Unknown',
+        redistributable: true,
+        licenseEvidence: evidence,
+      };
+    }
   }
 
   const fromFrontmatter = normalizeFrontmatterLicense(frontmatter?.license);
 
   if (fromFrontmatter) {
-    return { license: fromFrontmatter, redistributable: true };
+    assertLicensePolicy(fromFrontmatter, policyPath);
+    return {
+      license: fromFrontmatter,
+      redistributable: true,
+      licenseEvidence: withUpstreamEvidence(
+        {
+          source: 'frontmatter',
+          path: path.posix.join(skillPath, 'SKILL.md'),
+          hash: hashBytes(Buffer.from(String(frontmatter.license).trim(), 'utf8')),
+        },
+        upstream,
+      ),
+    };
   }
 
-  return { license: 'Unknown', redistributable: true };
+  if (rootLicense) {
+    assertLicensePolicy(rootLicense.license, policyPath);
+    return {
+      license: rootLicense.license ?? 'Unknown',
+      redistributable: true,
+      licenseEvidence: {
+        source: rootLicense.license
+          ? `upstream-root:${rootLicense.filename}`
+          : 'unresolved',
+        ...(rootLicense.license ? {} : { scope: 'upstream-root' }),
+        repository: rootLicense.repository,
+        reference: rootLicense.reference,
+        commit: rootLicense.commit,
+        path: rootLicense.path,
+        hash: rootLicense.hash,
+      },
+    };
+  }
+
+  return {
+    license: 'Unknown',
+    redistributable: true,
+    licenseEvidence: { source: 'unresolved' },
+  };
 }
 
 async function detectLicenseFromFile(licenseFilePath) {
-  let text;
+  let content;
 
   try {
-    text = await readFile(licenseFilePath, 'utf8');
-  } catch {
-    return null;
+    content = await readFile(licenseFilePath);
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      return null;
+    }
+    throw error;
   }
 
+  const license = detectLicenseText(content.toString('utf8'));
+  return { license, hash: hashBytes(content) };
+}
+
+export function detectLicenseText(text) {
   if (/\bMIT License\b/i.test(text)) {
     return 'MIT';
   }
@@ -121,7 +234,7 @@ async function detectLicenseFromFile(licenseFilePath) {
   return null;
 }
 
-function normalizeFrontmatterLicense(value) {
+export function normalizeFrontmatterLicense(value) {
   if (typeof value !== 'string') {
     return null;
   }
@@ -156,7 +269,7 @@ export async function buildCatalog({ manifest, repoRoot, commitTimestamp, previo
     const skillAbsoluteDir = path.join(repoRoot, ...input.path.split('/'));
     const frontmatter = await readFrontmatter(skillAbsoluteDir);
     const snapshotHash = await hashDirectory(skillAbsoluteDir);
-    const { license, redistributable } = await resolveLicense(
+    const { license, redistributable, licenseEvidence } = await resolveLicense(
       repoRoot,
       input.path,
       frontmatter,
@@ -170,6 +283,7 @@ export async function buildCatalog({ manifest, repoRoot, commitTimestamp, previo
       baseline: input.category === 'mapped' ? 'unverified' : null,
       license,
       redistributable,
+      licenseEvidence,
       snapshotHash,
       upstream: input.upstream,
     });
@@ -471,7 +585,7 @@ async function writeNotice(repoRoot, lock) {
   await writeFile(path.join(repoRoot, 'NOTICE'), renderNotice(lock));
 }
 
-export function renderNotice(lock) {
+export function renderNotice(lock, { licenseBundle = null } = {}) {
   const activeSkills = lock.skills.filter((skill) => skill.category !== 'removed');
   const lines = [];
   lines.push('# NOTICE');
@@ -522,6 +636,31 @@ export function renderNotice(lock) {
 
   for (const license of [...licenseCounts.keys()].sort(compareStrings)) {
     lines.push(`| ${license} | ${licenseCounts.get(license)} |`);
+  }
+  lines.push('');
+
+  lines.push('## Third-party root licenses');
+  lines.push('');
+  lines.push(
+    'Complete upstream root-license texts used by the registry are committed under',
+  );
+  lines.push(
+    '`catalog/licenses/`; deterministic evidence metadata is recorded in',
+  );
+  lines.push('`catalog/licenses/index.json`.');
+  lines.push('');
+
+  if (!licenseBundle || licenseBundle.licenses.length === 0) {
+    lines.push('_None._');
+  } else {
+    lines.push('| Upstream repository | Reference | Evidence commit | License | Text |');
+    lines.push('|---------------------|-----------|-----------------|---------|------|');
+    for (const evidence of licenseBundle.licenses) {
+      lines.push(
+        `| ${evidence.repository} | ${evidence.reference} | \`${evidence.commit}\` | ` +
+          `${evidence.license} | [${evidence.sourcePath}](catalog/licenses/${evidence.bundlePath}) |`,
+      );
+    }
   }
   lines.push('');
 

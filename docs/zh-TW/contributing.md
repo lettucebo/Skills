@@ -34,8 +34,15 @@ node --test --test-name-pattern="DOC1" "scripts/test/**/*.test.mjs"
 npm test
 ```
 
+**釘選授權 metadata refresh** — 會存取網路的真實 metadata 交易；只能在乾淨
+工作目錄且目前 release tag 已對帳時執行：
+
+```bash
+node scripts/sync.mjs --refresh-licenses --output sync-report/license-refresh.json
+```
+
 **驗證器** — 針對整個 `skills/` 樹的結構檢查（frontmatter、manifest 涵蓋範圍、
-相對連結）：
+相對連結），以及 lock 授權證據與根授權原文包完整性：
 
 ```bash
 node scripts/validate.mjs
@@ -178,7 +185,7 @@ npm run smoke:npx -- --ref HEAD
 ## 產生的檔案、鏡射內容與時效性
 
 - 絕不手動編輯 `catalog/skills.lock.json`、`catalog/history/*.json`、
-  `NOTICE`，或根目錄 `README.md` 中的
+  `catalog/licenses/`、`NOTICE`，或根目錄 `README.md` 中的
   `<!-- CATALOG:START -->`／`<!-- INSTALL:START -->` 區塊 — 它們都是同步機制
   的輸出（見
   [技能管理](skill-management.md#為什麼產生的輸出不能被獨立編輯)）。

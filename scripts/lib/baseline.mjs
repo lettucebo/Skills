@@ -47,12 +47,19 @@ import {
 } from './hash.mjs';
 import { assertClonePathBoundary } from './path-boundary.mjs';
 import { historyFileName } from './history.mjs';
+import {
+  LicenseEvidenceError,
+  readRootLicenseEvidence,
+  resolvePinnedMappedLicenses,
+  validateLicenseBundle,
+  writeLicenseBundle,
+} from './license.mjs';
 import { loadManifest } from './manifest.mjs';
 import { parseSkillFrontmatter } from './frontmatter.mjs';
 import { parseVersion, formatVersion, planRelease, readCurrentVersion, tagExists, assertTagReconciled } from './release.mjs';
 import { transformStaged } from '../transform.mjs';
 import { renderNotice, renderReadme, resolveLicense, serialize } from '../catalog.mjs';
-import { validateRepository } from '../validate.mjs';
+import { collectLicenseEvidenceErrors, validateRepository } from '../validate.mjs';
 
 const execFileAsync = promisify(execFile);
 
@@ -79,6 +86,9 @@ export const TRANSACTION_JOURNAL_FILE = '.skills-sync-transaction.json';
 export const DEPROPRIETIZE_RELEASE = '2.0.0';
 export const DEPROPRIETIZE_COMMIT_MESSAGE =
   'feat(skills)!: remove proprietary skill mirrors';
+export const LICENSE_REFRESH_RELEASE = '2.0.1';
+export const LICENSE_REFRESH_COMMIT_MESSAGE =
+  'fix(catalog): refresh upstream license metadata';
 export const DEPROPRIETIZE_PATHS = Object.freeze([
   'skills/claude/docx',
   'skills/claude/pdf',
@@ -93,12 +103,23 @@ export const DEPROPRIETIZE_PATHS = Object.freeze([
 export const SWAP_TARGETS = [
   { rel: 'skills', kind: 'dir' },
   { rel: 'catalog/history', kind: 'dir' },
+  { rel: 'catalog/licenses', kind: 'dir' },
   { rel: 'catalog/sources.yml', kind: 'file' },
   { rel: 'catalog/skills.lock.json', kind: 'file' },
   { rel: 'NOTICE', kind: 'file' },
   { rel: 'README.md', kind: 'file' },
 ];
-const LEGACY_SWAP_TARGETS = SWAP_TARGETS.filter(
+export const LICENSE_REFRESH_SWAP_TARGETS = Object.freeze([
+  { rel: 'catalog/history', kind: 'dir' },
+  { rel: 'catalog/licenses', kind: 'dir' },
+  { rel: 'catalog/skills.lock.json', kind: 'file' },
+  { rel: 'NOTICE', kind: 'file' },
+  { rel: 'README.md', kind: 'file' },
+]);
+const LEGACY_SIX_SWAP_TARGETS = SWAP_TARGETS.filter(
+  (target) => target.rel !== 'catalog/licenses',
+);
+const LEGACY_FIVE_SWAP_TARGETS = LEGACY_SIX_SWAP_TARGETS.filter(
   (target) => target.rel !== 'catalog/sources.yml',
 );
 
@@ -107,6 +128,103 @@ export class BaselineError extends Error {
     super(message);
     this.name = 'BaselineError';
   }
+}
+
+export function assertLicenseEvidenceMigrationComplete(lock) {
+  const release = parseVersion(lock.release);
+  if (release.major < 2) {
+    return;
+  }
+  if (lock.licenseEvidenceVersion !== 1) {
+    throw new BaselineError(
+      'Refusing ordinary sync: license evidence migration is incomplete; run --refresh-licenses first.',
+    );
+  }
+  for (const skill of lock.skills ?? []) {
+    if (!skill.licenseEvidence) {
+      throw new BaselineError(
+        `Refusing ordinary sync: ${skill.path} has no license evidence; run --refresh-licenses first.`,
+      );
+    }
+  }
+}
+
+function sameJson(left, right) {
+  return JSON.stringify(left ?? null) === JSON.stringify(right ?? null);
+}
+
+export function buildLicenseRefreshLock({
+  lock,
+  resolvedByPath,
+  release,
+  generatedAt,
+}) {
+  const resolved =
+    resolvedByPath instanceof Map
+      ? resolvedByPath
+      : new Map(Object.entries(resolvedByPath ?? {}));
+  const changedPaths = [];
+
+  const skills = lock.skills.map((skill) => {
+    const nextLicense = resolved.get(skill.path);
+    if (!nextLicense) {
+      throw new BaselineError(
+        `License refresh did not resolve evidence for ${skill.path}.`,
+      );
+    }
+
+    if (skill.license !== 'Unknown' && nextLicense.license === 'Unknown') {
+      throw new BaselineError(
+        `Refusing license refresh downgrade for ${skill.path}: known license ${skill.license} to Unknown at unchanged pinned provenance.`,
+      );
+    }
+
+    const changed =
+      skill.license !== nextLicense.license ||
+      skill.redistributable !== nextLicense.redistributable ||
+      !sameJson(skill.licenseEvidence, nextLicense.licenseEvidence);
+    if (changed) {
+      changedPaths.push(skill.path);
+    }
+
+    return {
+      ...skill,
+      license: nextLicense.license,
+      redistributable: nextLicense.redistributable,
+      licenseEvidence: nextLicense.licenseEvidence,
+    };
+  });
+
+  return {
+    lock: {
+      release,
+      generatedAt,
+      licenseEvidenceVersion: 1,
+      counts: { ...lock.counts },
+      skills,
+    },
+    changedPaths: changedPaths.sort(),
+  };
+}
+
+export function appendLicenseRefreshHistory(history, { release, before, after }) {
+  const newEvidence = after.licenseEvidence ?? null;
+  const entry = {
+    release,
+    kind: 'license-refresh',
+    version: before.version,
+    upstreamCommit: before.upstream?.commit ?? null,
+    diffUrl: null,
+    oldLicense: before.license,
+    newLicense: after.license,
+    oldRedistributable: before.redistributable,
+    newRedistributable: after.redistributable,
+    oldEvidence: before.licenseEvidence ?? null,
+    newEvidence,
+    evidenceCommit: newEvidence?.commit ?? before.upstream?.commit ?? null,
+    evidenceHash: newEvidence?.hash ?? null,
+  };
+  return { ...history, entries: [...history.entries, entry] };
 }
 
 export function assertDeproprietizePreconditions({ lock, manifest }) {
@@ -316,8 +434,9 @@ export function buildVerifiedLock({ lock, staged, release = BASELINE_RELEASE, ge
       category: skill.category,
       version: release,
       baseline: 'verified',
-      license: skill.license,
-      redistributable: skill.redistributable,
+      license: stagedEntry.license ?? skill.license,
+      redistributable: stagedEntry.redistributable ?? skill.redistributable,
+      licenseEvidence: stagedEntry.licenseEvidence ?? skill.licenseEvidence,
       snapshotHash: stagedEntry.snapshotHash,
       contentHash: stagedEntry.contentHash,
       upstream: {
@@ -329,7 +448,15 @@ export function buildVerifiedLock({ lock, staged, release = BASELINE_RELEASE, ge
     };
   });
 
-  return { release, generatedAt, counts: lock.counts, skills };
+  return {
+    release,
+    generatedAt,
+    ...(lock.licenseEvidenceVersion
+      ? { licenseEvidenceVersion: lock.licenseEvidenceVersion }
+      : {}),
+    counts: lock.counts,
+    skills,
+  };
 }
 
 /**
@@ -434,6 +561,8 @@ export async function createApplyWorkRoot(repoRoot, kind) {
       ? '.update-work-'
       : kind === 'deproprietize'
         ? '.deproprietize-work-'
+        : kind === 'license-refresh'
+          ? '.license-refresh-work-'
       : null;
 
   if (!prefix) {
@@ -661,8 +790,8 @@ async function syncPathTree(targetPath) {
   }
 }
 
-async function syncSwapTargets(rootPath) {
-  for (const target of SWAP_TARGETS) {
+async function syncSwapTargets(rootPath, targets = SWAP_TARGETS) {
+  for (const target of targets) {
     await syncPathTree(path.join(rootPath, ...target.rel.split('/')));
   }
 }
@@ -772,6 +901,7 @@ function buildTransaction({
   renameOp,
   targetRenameOp,
   expectedSnapshots,
+  targets = SWAP_TARGETS,
 }) {
   return {
     version: 2,
@@ -783,7 +913,8 @@ function buildTransaction({
     journalPath,
     renameOp,
     targetRenameOp,
-    targets: SWAP_TARGETS.map((target) => ({
+    definitions: targets,
+    targets: targets.map((target) => ({
       ...target,
       live: path.join(repoRoot, ...target.rel.split('/')),
       backup: path.join(backupRoot, ...target.rel.split('/')),
@@ -795,7 +926,7 @@ function buildTransaction({
 }
 
 async function writeTransaction(transaction) {
-  const { journalPath, renameOp, targetRenameOp, ...content } = transaction;
+  const { journalPath, renameOp, targetRenameOp, definitions, ...content } = transaction;
   await writeAtomicJson(journalPath, content, { renameOp });
 }
 
@@ -816,12 +947,20 @@ function assertValidTransaction(transaction, journalPath) {
 
   const recordedShape = transaction.targets.map((target) => target?.rel).join('\0');
   const currentShape = SWAP_TARGETS.map((target) => target.rel).join('\0');
-  const legacyShape = LEGACY_SWAP_TARGETS.map((target) => target.rel).join('\0');
+  const legacySixShape = LEGACY_SIX_SWAP_TARGETS.map((target) => target.rel).join('\0');
+  const legacyFiveShape = LEGACY_FIVE_SWAP_TARGETS.map((target) => target.rel).join('\0');
+  const licenseRefreshShape = LICENSE_REFRESH_SWAP_TARGETS
+    .map((target) => target.rel)
+    .join('\0');
   const targetDefinitions = recordedShape === currentShape
     ? SWAP_TARGETS
-    : recordedShape === legacyShape
-      ? LEGACY_SWAP_TARGETS
-      : null;
+    : recordedShape === legacySixShape
+      ? LEGACY_SIX_SWAP_TARGETS
+      : recordedShape === legacyFiveShape
+        ? LEGACY_FIVE_SWAP_TARGETS
+        : recordedShape === licenseRefreshShape
+          ? LICENSE_REFRESH_SWAP_TARGETS
+          : null;
 
   if (!targetDefinitions) {
     throw new BaselineError(
@@ -929,9 +1068,9 @@ export async function snapshotSwapTarget(targetPath, kind) {
   return { kind, hash: await hashExactTarget(targetPath) };
 }
 
-async function snapshotSwapTargets(repoRoot) {
+async function snapshotSwapTargets(repoRoot, targets = SWAP_TARGETS) {
   const snapshots = new Map();
-  for (const target of SWAP_TARGETS) {
+  for (const target of targets) {
     snapshots.set(
       target.rel,
       await snapshotSwapTarget(path.join(repoRoot, ...target.rel.split('/')), target.kind),
@@ -1044,7 +1183,10 @@ async function recoverPendingTransaction(journalPath, { renameOp = durableTarget
 }
 
 async function completeTransaction(transaction) {
-  await syncSwapTargets(transaction.repoRoot);
+  await syncSwapTargets(
+    transaction.repoRoot,
+    transaction.definitions ?? SWAP_TARGETS,
+  );
   await assertBackupsMatchExpectedSnapshots(transaction);
   transaction.status = 'validated';
   await writeTransaction(transaction);
@@ -1109,6 +1251,12 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
     }
 
     sources.push({ upstream: upstreamName, available: true, commit: clone.commit });
+    const upstreamEvidence = {
+      repository: upstream.repository,
+      reference: upstream.reference,
+      commit: clone.commit,
+    };
+    const rootLicense = await readRootLicenseEvidence(cloneDir, upstreamEvidence);
 
     for (const mapping of mappings) {
       const { path: sourceAbs, stat: sourceStat } = await assertClonePathBoundary(
@@ -1129,6 +1277,25 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
         unavailable.push({ path: mapping.path, upstream: upstreamName, reason: 'source-not-directory' });
         continue;
       }
+
+      const sourceFrontmatter = parseSkillFrontmatter(
+        await readFile(path.join(sourceAbs, 'SKILL.md'), 'utf8'),
+        `${mapping.source}/SKILL.md`,
+      );
+      const {
+        license,
+        redistributable,
+        licenseEvidence,
+      } = await resolveLicense(
+        cloneDir,
+        mapping.source,
+        sourceFrontmatter,
+        {
+          upstream: upstreamEvidence,
+          rootLicense,
+          policyPath: mapping.path,
+        },
+      );
 
       const stageDir = path.join(stagingDir, ...mapping.path.split('/'));
       await mkdir(path.dirname(stageDir), { recursive: true });
@@ -1155,11 +1322,6 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
         await readFile(path.join(stageDir, 'SKILL.md'), 'utf8'),
         `${mapping.path}/SKILL.md`,
       );
-      const { license, redistributable } = await resolveLicense(
-        stagingDir,
-        mapping.path,
-        stagedFrontmatter,
-      );
       staged.set(mapping.path, {
         category: 'mapped',
         commit: clone.commit,
@@ -1172,6 +1334,8 @@ async function stageMappedSkills({ manifest, workRoot, runGit, version = BASELIN
         source: mapping.source,
         license,
         redistributable,
+        licenseEvidence,
+        rootLicense,
       });
     }
   }
@@ -1254,6 +1418,23 @@ async function readHistoryDoc(repoRoot, skillPath) {
   return { fileName, content: JSON.parse(await readFile(filePath, 'utf8')) };
 }
 
+export async function copyLicenseBundleTarget(repoRoot, candidateRoot) {
+  try {
+    await cp(
+      path.join(repoRoot, 'catalog', 'licenses'),
+      path.join(candidateRoot, 'catalog', 'licenses'),
+      { recursive: true },
+    );
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      throw new BaselineError(
+        'Required catalog/licenses is missing; restore the generated bundle before applying.',
+      );
+    }
+    throw error;
+  }
+}
+
 /**
  * Builds the complete candidate tree in the staging area: a full copy of the
  * live skills tree and history with the mapped skills replaced, plus the
@@ -1266,6 +1447,7 @@ async function buildCandidate({ repoRoot, candidateRoot, manifest, lock, staged,
     path.join(candidateRoot, 'catalog', 'history'),
     { recursive: true },
   );
+  await copyLicenseBundleTarget(repoRoot, candidateRoot);
   await cp(
     path.join(repoRoot, 'catalog', 'sources.yml'),
     path.join(candidateRoot, 'catalog', 'sources.yml'),
@@ -1295,7 +1477,20 @@ async function buildCandidate({ repoRoot, candidateRoot, manifest, lock, staged,
     await writeFile(path.join(candidateRoot, 'catalog', 'history', fileName), serialize(next));
   }
 
-  await writeFile(path.join(candidateRoot, 'NOTICE'), renderNotice(nextLock));
+  const rootLicenses = await collectRequiredRootLicenses({
+    repoRoot,
+    nextLock,
+    staged,
+  });
+  const licenseBundle = await writeLicenseBundle(
+    path.join(candidateRoot, 'catalog', 'licenses'),
+    rootLicenses,
+    { release: nextLock.release },
+  );
+  await writeFile(
+    path.join(candidateRoot, 'NOTICE'),
+    renderNotice(nextLock, { licenseBundle }),
+  );
 
   const readmeText = await readFile(path.join(repoRoot, 'README.md'), 'utf8');
   await writeFile(path.join(candidateRoot, 'README.md'), renderReadme(readmeText, nextLock));
@@ -1335,12 +1530,13 @@ export async function swapInCandidate(
 ) {
   const backedUp = [];
   const activeRenameOp = transaction?.targetRenameOp ?? renameOp;
+  const targetDefinitions = transaction?.definitions ?? SWAP_TARGETS;
 
   try {
     if (transaction) {
-      await syncSwapTargets(candidateRoot);
+      await syncSwapTargets(candidateRoot, targetDefinitions);
     }
-    for (const [index, target] of SWAP_TARGETS.entries()) {
+    for (const [index, target] of targetDefinitions.entries()) {
       const original = path.join(repoRoot, ...target.rel.split('/'));
       const backup = path.join(backupRoot, ...target.rel.split('/'));
       const candidate = path.join(candidateRoot, ...target.rel.split('/'));
@@ -1671,6 +1867,79 @@ function diffUrl(repository, previousCommit, newCommit) {
   return `https://github.com/${repository}/compare/${previousCommit}...${newCommit}`;
 }
 
+function sameRootEvidence(left, right) {
+  return (
+    left?.repository === right?.repository &&
+    left?.reference === right?.reference &&
+    left?.commit === right?.commit &&
+    (left?.path ?? left?.sourcePath) === (right?.path ?? right?.sourcePath) &&
+    left?.hash === right?.hash
+  );
+}
+
+async function collectRequiredRootLicenses({ repoRoot, nextLock, staged }) {
+  const requiredEvidence = nextLock.skills
+    .map((skill) => skill.licenseEvidence)
+    .filter(
+      (evidence) =>
+        evidence?.source?.startsWith('upstream-root:') ||
+        (evidence?.source === 'unresolved' &&
+          evidence.scope === 'upstream-root'),
+    );
+  const stagedRoots = [...staged.values()]
+    .map((entry) => entry.rootLicense)
+    .filter(Boolean);
+
+  let existing = { licenses: [] };
+  try {
+    const liveLock = JSON.parse(
+      await readFile(
+        path.join(repoRoot, 'catalog', 'skills.lock.json'),
+        'utf8',
+      ),
+    );
+    existing = await validateLicenseBundle(repoRoot, liveLock);
+  } catch (error) {
+    if (error?.code !== 'ENOENT') {
+      throw error;
+    }
+  }
+
+  const collected = [];
+  for (const evidence of requiredEvidence) {
+    const stagedRoot = stagedRoots.find((root) =>
+      sameRootEvidence(root, evidence),
+    );
+    if (stagedRoot) {
+      collected.push(stagedRoot);
+      continue;
+    }
+
+    const existingEntry = (existing.licenses ?? []).find((entry) =>
+      sameRootEvidence(entry, evidence),
+    );
+    if (!existingEntry) {
+      throw new BaselineError(
+        `Required root license evidence is missing from staged and bundled state: ` +
+          `${evidence.repository}@${evidence.commit}:${evidence.path}.`,
+      );
+    }
+    collected.push({
+      license: existingEntry.license,
+      filename: path.posix.basename(existingEntry.sourcePath),
+      path: existingEntry.sourcePath,
+      hash: existingEntry.hash,
+      content: await readFile(
+        path.join(repoRoot, 'catalog', 'licenses', existingEntry.bundlePath),
+      ),
+      repository: existingEntry.repository,
+      reference: existingEntry.reference,
+      commit: existingEntry.commit,
+    });
+  }
+  return collected;
+}
+
 async function readOptionalHistoryDoc(repoRoot, skillPath, name) {
   const fileName = historyFileName(skillPath);
 
@@ -1763,8 +2032,9 @@ export function buildUpdateLock({
         category: skill.category,
         version: bumpPatch(skill.version),
         baseline: 'verified',
-        license: skill.license,
-        redistributable: skill.redistributable,
+        license: stagedEntry.license ?? skill.license,
+        redistributable: stagedEntry.redistributable ?? skill.redistributable,
+        licenseEvidence: stagedEntry.licenseEvidence ?? skill.licenseEvidence,
         snapshotHash: stagedEntry.snapshotHash,
         contentHash: stagedEntry.contentHash,
         upstream: {
@@ -1818,6 +2088,7 @@ export function buildUpdateLock({
       baseline: isMapped ? 'verified' : null,
       license: stagedEntry.license,
       redistributable: stagedEntry.redistributable,
+      licenseEvidence: stagedEntry.licenseEvidence,
       snapshotHash: stagedEntry.snapshotHash,
       ...(isMapped ? { contentHash: stagedEntry.contentHash } : {}),
       upstream: isMapped
@@ -1841,7 +2112,15 @@ export function buildUpdateLock({
     counts[skill.category] += 1;
   }
 
-  return { release, generatedAt, counts, skills };
+  return {
+    release,
+    generatedAt,
+    ...(lock.licenseEvidenceVersion
+      ? { licenseEvidenceVersion: lock.licenseEvidenceVersion }
+      : {}),
+    counts,
+    skills,
+  };
 }
 
 /**
@@ -1866,6 +2145,7 @@ async function buildUpdateCandidate({
     path.join(candidateRoot, 'catalog', 'history'),
     { recursive: true },
   );
+  await copyLicenseBundleTarget(repoRoot, candidateRoot);
   await cp(
     path.join(repoRoot, 'catalog', 'sources.yml'),
     path.join(candidateRoot, 'catalog', 'sources.yml'),
@@ -1976,7 +2256,20 @@ async function buildUpdateCandidate({
     await writeFile(path.join(candidateRoot, 'catalog', 'history', fileName), serialize(next));
   }
 
-  await writeFile(path.join(candidateRoot, 'NOTICE'), renderNotice(nextLock));
+  const rootLicenses = await collectRequiredRootLicenses({
+    repoRoot,
+    nextLock,
+    staged,
+  });
+  const licenseBundle = await writeLicenseBundle(
+    path.join(candidateRoot, 'catalog', 'licenses'),
+    rootLicenses,
+    { release: nextLock.release },
+  );
+  await writeFile(
+    path.join(candidateRoot, 'NOTICE'),
+    renderNotice(nextLock, { licenseBundle }),
+  );
 
   const readmeText = await readFile(path.join(repoRoot, 'README.md'), 'utf8');
   await writeFile(path.join(candidateRoot, 'README.md'), renderReadme(readmeText, nextLock));
@@ -1998,6 +2291,7 @@ async function buildDeproprietizeCandidate({
     path.join(candidateRoot, 'catalog', 'history'),
     { recursive: true },
   );
+  await copyLicenseBundleTarget(repoRoot, candidateRoot);
 
   const manifestText = await readFile(
     path.join(repoRoot, 'catalog', 'sources.yml'),
@@ -2047,6 +2341,398 @@ async function buildDeproprietizeCandidate({
   );
 
   return nextLock;
+}
+
+async function resolveAllLicenseMetadata({
+  repoRoot,
+  manifest,
+  lock,
+  workRoot,
+  runGit,
+}) {
+  let pinned;
+  try {
+    pinned = await resolvePinnedMappedLicenses({
+      manifest,
+      lock,
+      workspace: path.join(workRoot, 'license-evidence'),
+      runGit,
+    });
+  } catch (error) {
+    if (error instanceof LicenseEvidenceError) {
+      throw new BaselineError(error.message);
+    }
+    throw error;
+  }
+
+  const resolvedByPath = new Map(pinned.resolvedByPath);
+  for (const skill of lock.skills) {
+    if (resolvedByPath.has(skill.path)) {
+      continue;
+    }
+
+    if (skill.category === 'removed') {
+      if (skill.licenseEvidence) {
+        resolvedByPath.set(skill.path, {
+          license: skill.license,
+          redistributable: skill.redistributable,
+          licenseEvidence: skill.licenseEvidence,
+        });
+        continue;
+      }
+      if (skill.license !== 'Unknown') {
+        throw new BaselineError(
+          `Removed skill ${skill.path} has a known license without auditable evidence.`,
+        );
+      }
+      resolvedByPath.set(skill.path, {
+        license: 'Unknown',
+        redistributable: true,
+        licenseEvidence: { source: 'unresolved' },
+      });
+      continue;
+    }
+
+    const skillFile = path.join(repoRoot, ...skill.path.split('/'), 'SKILL.md');
+    const frontmatter = parseSkillFrontmatter(
+      await readFile(skillFile, 'utf8'),
+      `${skill.path}/SKILL.md`,
+    );
+    resolvedByPath.set(
+      skill.path,
+      await resolveLicense(repoRoot, skill.path, frontmatter),
+    );
+  }
+
+  return { ...pinned, resolvedByPath };
+}
+
+function countLicenses(lock) {
+  const counts = {};
+  for (const skill of lock.skills) {
+    if (skill.category === 'removed') {
+      continue;
+    }
+    counts[skill.license] = (counts[skill.license] ?? 0) + 1;
+  }
+  return Object.fromEntries(
+    Object.entries(counts).sort(([left], [right]) =>
+      left < right ? -1 : left > right ? 1 : 0,
+    ),
+  );
+}
+
+async function buildLicenseRefreshCandidate({
+  repoRoot,
+  candidateRoot,
+  lock,
+  nextLock,
+  changedPaths,
+  rootLicenses,
+}) {
+  await cp(
+    path.join(repoRoot, 'catalog', 'history'),
+    path.join(candidateRoot, 'catalog', 'history'),
+    { recursive: true },
+  );
+  const bundle = await writeLicenseBundle(
+    path.join(candidateRoot, 'catalog', 'licenses'),
+    rootLicenses,
+    { release: nextLock.release },
+  );
+  await writeFile(
+    path.join(candidateRoot, 'catalog', 'skills.lock.json'),
+    serialize(nextLock),
+  );
+
+  const beforeByPath = new Map(lock.skills.map((skill) => [skill.path, skill]));
+  const afterByPath = new Map(nextLock.skills.map((skill) => [skill.path, skill]));
+  for (const skillPath of changedPaths) {
+    const { fileName, content } = await readHistoryDoc(repoRoot, skillPath);
+    const next = appendLicenseRefreshHistory(content, {
+      release: nextLock.release,
+      before: beforeByPath.get(skillPath),
+      after: afterByPath.get(skillPath),
+    });
+    await writeFile(
+      path.join(candidateRoot, 'catalog', 'history', fileName),
+      serialize(next),
+    );
+  }
+
+  await writeFile(
+    path.join(candidateRoot, 'NOTICE'),
+    renderNotice(nextLock, { licenseBundle: bundle }),
+  );
+  const readmeText = await readFile(path.join(repoRoot, 'README.md'), 'utf8');
+  await writeFile(
+    path.join(candidateRoot, 'README.md'),
+    renderReadme(readmeText, nextLock),
+  );
+  return bundle;
+}
+
+async function assertLicenseRefreshCandidate({
+  repoRoot,
+  candidateRoot,
+  nextLock,
+}) {
+  const evidenceErrors = nextLock.skills.flatMap((skill) =>
+    collectLicenseEvidenceErrors(skill),
+  );
+  if (evidenceErrors.length > 0) {
+    throw new BaselineError(
+      `License refresh candidate failed evidence validation: ${evidenceErrors.join(' ')}`,
+    );
+  }
+
+  await assertStructuralIntegrity(repoRoot, nextLock);
+  const candidateLock = JSON.parse(
+    await readFile(
+      path.join(candidateRoot, 'catalog', 'skills.lock.json'),
+      'utf8',
+    ),
+  );
+  if (!sameJson(candidateLock, nextLock)) {
+    throw new BaselineError('License refresh candidate lock does not match planned state.');
+  }
+  await validateLicenseBundle(candidateRoot, nextLock);
+}
+
+/**
+ * Re-resolves every license from pinned evidence without changing skill bytes
+ * or per-skill provenance/version fields.
+ */
+export async function applyLicenseRefresh({
+  repoRoot = defaultRepoRoot,
+  readGitStatus = defaultReadGitStatus,
+  now = () => new Date().toISOString(),
+  runGit,
+  validate = validateRepository,
+  afterCleanCheck,
+  afterBackupMove,
+} = {}) {
+  const absoluteRepoRoot = path.resolve(repoRoot);
+  const { commonGitDir } = await resolveGitDirectories(absoluteRepoRoot);
+  const journalPath = path.join(commonGitDir, TRANSACTION_JOURNAL_FILE);
+  let applyLock;
+  let workRoot;
+  let transaction;
+  let journalRenamer;
+  let preserveWorkRoot = false;
+
+  try {
+    applyLock = await acquireApplyLock(commonGitDir);
+    journalRenamer = createJournalRenamer();
+    await recoverPendingTransaction(journalPath, {
+      renameOp: journalRenamer?.rename.bind(journalRenamer),
+    });
+
+    const initialStatus = await readGitStatus(absoluteRepoRoot);
+    if (initialStatus.trim() !== '') {
+      throw new BaselineError(
+        'Refusing to refresh licenses: the git working tree is not clean. Commit or stash changes first.',
+      );
+    }
+
+    const manifest = await loadManifest(
+      path.join(absoluteRepoRoot, 'catalog', 'sources.yml'),
+    );
+    const lock = await readLock(absoluteRepoRoot);
+
+    try {
+      await assertTagReconciled(lock.release, { runGit: runGit ?? undefined });
+    } catch (error) {
+      throw new BaselineError(
+        `Refusing license refresh: tag/lock reconciliation failed. ${error.message}`,
+      );
+    }
+
+    for (const skill of lock.skills) {
+      if (skill.category === 'mapped' && skill.baseline !== 'verified') {
+        throw new BaselineError(
+          `Refusing license refresh: mapped skill ${skill.path} is not verified.`,
+        );
+      }
+    }
+
+    workRoot = await createApplyWorkRoot(absoluteRepoRoot, 'license-refresh');
+    const backupRoot = path.join(workRoot, 'backup');
+    const candidateRoot = path.join(workRoot, 'candidate');
+    await mkdir(candidateRoot, { recursive: true });
+
+    const evidence = await resolveAllLicenseMetadata({
+      repoRoot: absoluteRepoRoot,
+      manifest,
+      lock,
+      workRoot,
+      runGit,
+    });
+    const preview = buildLicenseRefreshLock({
+      lock,
+      resolvedByPath: evidence.resolvedByPath,
+      release: lock.release,
+      generatedAt: lock.generatedAt,
+    });
+
+    if (preview.changedPaths.length === 0) {
+      await validate(absoluteRepoRoot);
+      await assertStructuralIntegrity(absoluteRepoRoot, lock);
+      return {
+        added: [],
+        changed: [],
+        removed: [],
+        metadataChanged: [],
+        metadataChangedCount: 0,
+        release: lock.release,
+        nextTag: null,
+        commitMessage: null,
+        evidence: {
+          ...evidence.summary,
+          licenseCounts: countLicenses(lock),
+        },
+        applied: false,
+      };
+    }
+
+    const diffClass = classifyDiff({ metadata: preview.changedPaths });
+    const releasePlan = await planRelease({
+      diffClass,
+      currentVersion: lock.release,
+      runGit,
+    });
+    if (
+      lock.release === DEPROPRIETIZE_RELEASE &&
+      releasePlan.nextVersion !== LICENSE_REFRESH_RELEASE
+    ) {
+      throw new BaselineError(
+        `Refusing license refresh: metadata patch must produce ${LICENSE_REFRESH_RELEASE}, got ${releasePlan.nextVersion}.`,
+      );
+    }
+
+    const refreshed = buildLicenseRefreshLock({
+      lock,
+      resolvedByPath: evidence.resolvedByPath,
+      release: releasePlan.nextVersion,
+      generatedAt: now(),
+    });
+    const nextLock = refreshed.lock;
+    await buildLicenseRefreshCandidate({
+      repoRoot: absoluteRepoRoot,
+      candidateRoot,
+      lock,
+      nextLock,
+      changedPaths: refreshed.changedPaths,
+      rootLicenses: evidence.rootLicenses,
+    });
+
+    await validate(absoluteRepoRoot);
+    await assertLicenseRefreshCandidate({
+      repoRoot: absoluteRepoRoot,
+      candidateRoot,
+      nextLock,
+    });
+
+    const expectedSnapshots = await snapshotSwapTargets(
+      absoluteRepoRoot,
+      LICENSE_REFRESH_SWAP_TARGETS,
+    );
+    transaction = buildTransaction({
+      repoRoot: absoluteRepoRoot,
+      candidateRoot,
+      backupRoot,
+      workRoot,
+      journalPath,
+      renameOp: journalRenamer?.rename.bind(journalRenamer),
+      targetRenameOp: journalRenamer?.rename.bind(journalRenamer) ?? durableTargetRename,
+      expectedSnapshots,
+      targets: LICENSE_REFRESH_SWAP_TARGETS,
+    });
+
+    const placed = await swapInCandidate(
+      absoluteRepoRoot,
+      candidateRoot,
+      backupRoot,
+      {
+        transaction,
+        beforeFirstDestructiveMove: () =>
+          assertUnchangedGitState(absoluteRepoRoot, initialStatus, readGitStatus),
+        afterCleanCheck,
+        afterBackupMove,
+      },
+    );
+
+    try {
+      await validate(absoluteRepoRoot);
+      await assertStructuralIntegrity(absoluteRepoRoot, nextLock);
+    } catch (error) {
+      try {
+        await rollbackSwap(absoluteRepoRoot, backupRoot, placed, {
+          renameOp: transaction.targetRenameOp,
+        });
+      } catch (rollbackError) {
+        const wrapped = new BaselineError(
+          `License refresh validation failed and rollback also failed. ` +
+            `Backup data preserved at ${backupRoot}. Validation error: ${error.message}. ` +
+            `Rollback error: ${rollbackError.message}`,
+        );
+        wrapped.backupPath = backupRoot;
+        wrapped.rollbackFailed = true;
+        throw wrapped;
+      }
+      throw new BaselineError(
+        `License refresh post-apply validation failed; rolled back. ${error.message}`,
+      );
+    }
+
+    await completeTransaction(transaction);
+    transaction = null;
+
+    return {
+      added: [],
+      changed: [],
+      removed: [],
+      metadataChanged: refreshed.changedPaths,
+      metadataChangedCount: refreshed.changedPaths.length,
+      release: releasePlan.nextVersion,
+      nextTag: releasePlan.nextTag,
+      commitMessage: LICENSE_REFRESH_COMMIT_MESSAGE,
+      evidence: {
+        ...evidence.summary,
+        licenseCounts: countLicenses(nextLock),
+      },
+      applied: true,
+    };
+  } catch (error) {
+    if (error.rollbackFailed) {
+      preserveWorkRoot = true;
+    } else if (transaction) {
+      try {
+        await recoverPendingTransaction(journalPath, {
+          renameOp: journalRenamer?.rename.bind(journalRenamer),
+        });
+        transaction = null;
+      } catch (recoveryError) {
+        preserveWorkRoot = true;
+        const wrapped = new BaselineError(
+          `License refresh failed and transaction recovery also failed. ` +
+            `Journal preserved at ${journalPath}. Original error: ${error.message}. ` +
+            `Recovery error: ${recoveryError.message}`,
+        );
+        wrapped.recoveryFailed = true;
+        throw wrapped;
+      }
+    }
+    throw error;
+  } finally {
+    journalRenamer?.close();
+    if (!preserveWorkRoot && workRoot) {
+      await rm(workRoot, { recursive: true, force: true });
+    }
+    if (applyLock) {
+      await applyLock.release();
+    }
+  }
 }
 
 /**
@@ -2317,6 +3003,7 @@ export async function applyUpdate({
     const protectedRoots = assertMappingsWritable(manifest);
 
     const lock = await readLock(absoluteRepoRoot);
+    assertLicenseEvidenceMigrationComplete(lock);
 
     // The daily update must never run before the verified baseline exists.
     for (const skill of lock.skills) {
@@ -2413,7 +3100,7 @@ export async function applyUpdate({
           await readFile(path.join(skillDir, 'SKILL.md'), 'utf8'),
           `${skillPath}/SKILL.md`,
         );
-        const { license, redistributable } = await resolveLicense(
+        const { license, redistributable, licenseEvidence } = await resolveLicense(
           absoluteRepoRoot,
           skillPath,
           frontmatter,
@@ -2426,6 +3113,7 @@ export async function applyUpdate({
           snapshotHash: await hashDirectory(skillDir),
           license,
           redistributable,
+          licenseEvidence,
         });
       }
     }
