@@ -145,7 +145,7 @@ test('all active non-restricted skills render honest metadata on every localized
     for (const skill of skills) {
       const view = expected.get(skill.path);
       assert.ok(view);
-      const detailUrl = `/Skills/${locale}/skills/${skill.source}/${skill.slug}/`;
+      const detailUrl = `/${locale}/skills/${skill.source}/${skill.slug}/`;
       const card = containingElement(
         home,
         `data-url="${detailUrl}"`,

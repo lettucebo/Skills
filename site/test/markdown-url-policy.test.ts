@@ -115,8 +115,8 @@ test('M9: relative links remain usable', () => {
 });
 
 test('M10: root-relative links remain usable', () => {
-  const html = renderMarkdownBody('[home](/Skills/index.html)');
-  assert.match(html, /<a href="\/Skills\/index\.html">home<\/a>/);
+  const html = renderMarkdownBody('[home](/index.html)');
+  assert.match(html, /<a href="\/index\.html">home<\/a>/);
 });
 
 test('M11: fragment links remain usable', () => {
@@ -178,7 +178,7 @@ test('M18: isSafeUrl allows only http, https, mailto, and relative URLs', () => 
     './a.md',
     '../a.md',
     'a.md',
-    '/Skills/a.html',
+    '/a.html',
     '#frag',
     '?q=1',
     '',

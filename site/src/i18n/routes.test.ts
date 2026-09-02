@@ -38,19 +38,19 @@ test('every legacy route maps to the exact English logical target', async () => 
   const redirects = getLegacyRedirectEntries(catalog);
   const mapping = new Map(redirects.map(({ from, to }) => [from, to]));
 
-  assert.equal(mapping.get('/Skills/'), '/Skills/en/');
-  assert.equal(mapping.get('/Skills/install/'), '/Skills/en/install/');
-  assert.equal(mapping.get('/Skills/status/'), '/Skills/en/status/');
+  assert.equal(mapping.get('/'), '/en/');
+  assert.equal(mapping.get('/install/'), '/en/install/');
+  assert.equal(mapping.get('/status/'), '/en/status/');
   assert.equal(
-    mapping.get('/Skills/sources/microsoft/'),
-    '/Skills/en/sources/microsoft/',
+    mapping.get('/sources/microsoft/'),
+    '/en/sources/microsoft/',
   );
   assert.equal(
-    mapping.get('/Skills/skills/azure/az-cost-optimize/'),
-    '/Skills/en/skills/azure/az-cost-optimize/',
+    mapping.get('/skills/azure/az-cost-optimize/'),
+    '/en/skills/azure/az-cost-optimize/',
   );
 
   for (const [from, to] of mapping) {
-    assert.equal(to, from.replace('/Skills/', '/Skills/en/'));
+    assert.equal(to, from === '/' ? '/en/' : from.replace('/', '/en/'));
   }
 });

@@ -1,5 +1,6 @@
 import type { CatalogData, SkillViewModel } from '../lib/catalog.ts';
 import {
+  SITE_BASE,
   SUPPORTED_LOCALES,
   localizedPath,
   type Locale,
@@ -74,5 +75,5 @@ export function getLegacyRedirectEntries(
 
 export function localizedPathWithoutLocale(route = ''): string {
   const rest = route.replace(/^\/+|\/+$/g, '');
-  return `${'/Skills/'}${rest ? `${rest}/` : ''}`;
+  return `${SITE_BASE}${rest ? `${rest}/` : ''}`;
 }

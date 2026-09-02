@@ -46,7 +46,7 @@ collection of Markdown skills.
 5. **Build/deploy identity** — Pages builds the checked-out ref, resolves build
    provenance after checkout, tests built output before upload, and never
    deploys pull requests.
-6. **Routing and UX** — `/Skills/` base paths and trailing slashes are
+6. **Routing and UX** — root-based paths and trailing slashes are
    preserved; theme, no-JS behavior, keyboard access, and forced-colors support
    do not regress.
 

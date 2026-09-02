@@ -198,7 +198,7 @@ test('built homepage links to /install/ without an install command block', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const html = read(path.join(distDir, 'en', 'index.html'));
-  assert.match(html, /href="\/Skills\/en\/install\/"/, 'homepage must link to the localized install page');
+  assert.match(html, /href="\/en\/install\/"/, 'homepage must link to the localized install page');
   assert.doesNotMatch(
     html,
     /npx skills add lettucebo\/Skills#v/,

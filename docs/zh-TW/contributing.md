@@ -131,7 +131,7 @@ npx playwright test search.spec.ts
 `SKILL.md` description 與 body、安裝指令、URL、技術專有名詞，以及原始上游
 commit subject 保持不變。
 
-內部連結使用 `localizedPath()` 與保留路由的 locale helper，確保 `/Skills/`、
+內部連結使用 `localizedPath()` 與保留路由的 locale helper，確保根目錄 base、
 locale 前綴與結尾斜線一致。在地化動態路由必須展開所有支援 locale，並呼叫
 `assertLocale()`，讓不支援的值 fail closed。舊版路由檔案維持為小型 redirect
 wrapper，並保留精確的英文邏輯目標。

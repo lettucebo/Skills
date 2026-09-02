@@ -18,14 +18,14 @@ skill。它提供全文搜尋（透過 Pagefind），讓你不必直接閱讀
 即時的「最後更新」查詢。
 
 開啟主題控制項旁的精簡語言選單，即可選擇英文、繁體中文或簡體中文；原生選單
-與連結不需 JavaScript 也能使用。每個公開頁面都位於 `/Skills/en/`、
-`/Skills/zh-tw/` 或 `/Skills/zh-cn/` 前綴之下；切換語言會保留目前的邏輯頁面。
+與連結不需 JavaScript 也能使用。每個公開頁面都位於 `/en/`、
+`/zh-tw/` 或 `/zh-cn/` 前綴之下；切換語言會保留目前的邏輯頁面。
 舊版無語言前綴連結仍會 redirect 到對應英文頁面。
 
 ### Skill 頁面
 
 每個 skill 都有自己的在地化頁面，位於
-`/Skills/<locale>/skills/<source>/<skill>/`。它會渲染該 skill 本身
+`/<locale>/skills/<source>/<skill>/`。它會渲染該 skill 本身
 `SKILL.md` 的描述與內容（僅限非受限制的 skill），並附上：
 
 - 它的狀態標籤（`Synced`、`Frozen`、`Local` 或 `Restricted`），
@@ -54,14 +54,14 @@ inventory 沒有這類頁面：四個專有 claude 鏡像已成為 tombstone，�
 ### 來源頁面
 
 每個來源集合（例如 `skills/azure`）都有一個頁面位於
-`/Skills/<locale>/sources/<source>/`，
+`/<locale>/sources/<source>/`，
 列出該集合中的每個 skill；除非該集合含有受限制的 skill，否則也會提供安裝整個
 集合的確切 `npx skills add` 指令。表格新增**收錄的最新變更**欄位，並維持既有
 名稱排序。
 
 ### 狀態頁面
 
-在地化狀態頁面（例如 `/Skills/zh-tw/status/`）回報這個註冊庫即時、於建置時期
+在地化狀態頁面（例如 `/zh-tw/status/`）回報這個註冊庫即時、於建置時期
 解析出的狀態：
 
 - lock 的 `release` 版本，以及它是否真的已經以 `v<release>` tag 發布（見

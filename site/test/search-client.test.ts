@@ -139,28 +139,28 @@ const CARDS: CardData[] = [
     license: 'MIT',
     origin: 'Synced',
     name: 'az-cost-optimize',
-    url: '/Skills/skills/azure/az-cost-optimize/',
+    url: '/skills/azure/az-cost-optimize/',
   },
   {
     source: 'azure',
     license: 'Apache-2.0',
     origin: 'Synced',
     name: 'az-deploy',
-    url: '/Skills/skills/azure/az-deploy/',
+    url: '/skills/azure/az-deploy/',
   },
   {
     source: 'cloudflare',
     license: 'MIT',
     origin: 'Synced',
     name: 'workers-ai',
-    url: '/Skills/skills/cloudflare/workers-ai/',
+    url: '/skills/cloudflare/workers-ai/',
   },
   {
     source: 'claude',
     license: 'Unknown',
     origin: 'Restricted',
     name: 'docx',
-    url: '/Skills/skills/claude/docx/',
+    url: '/skills/claude/docx/',
   },
 ];
 
@@ -371,8 +371,8 @@ test('C5: a filter-only change that matches nothing shows the no-results status'
 test('C6: a text query keeps only the cards whose URL is in the Pagefind result set', async () => {
   (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = {
     results: pagefindResults([
-      '/Skills/skills/azure/az-cost-optimize/',
-      '/Skills/skills/cloudflare/workers-ai/',
+      '/skills/azure/az-cost-optimize/',
+      '/skills/cloudflare/workers-ai/',
     ]),
   };
   const harness = bootSearch(fixturesBase);
@@ -392,8 +392,8 @@ test('C6: a text query keeps only the cards whose URL is in the Pagefind result 
 test('C7: a text query intersected with a dropdown filter keeps only cards in both sets', async () => {
   (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = {
     results: pagefindResults([
-      '/Skills/skills/azure/az-cost-optimize/',
-      '/Skills/skills/cloudflare/workers-ai/',
+      '/skills/azure/az-cost-optimize/',
+      '/skills/cloudflare/workers-ai/',
     ]),
   };
   const harness = bootSearch(fixturesBase);
@@ -494,7 +494,7 @@ test('C11: changing text immediately invalidates an older in-flight search befor
   assert.equal(scheduled.length, 1, 'the replacement query must still be waiting in debounce');
 
   releaseFirst({
-    results: pagefindResults(['/Skills/skills/tampermonkey/tampermonkey/']),
+    results: pagefindResults(['/skills/tampermonkey/tampermonkey/']),
   });
   await firstSearch;
 
@@ -511,7 +511,7 @@ test('C11: changing text immediately invalidates an older in-flight search befor
 test('C12: a failed Pagefind initialization is retried on the next text query', async () => {
   (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = {
     optionsFailures: 1,
-    results: pagefindResults(['/Skills/skills/azure/az-cost-optimize/']),
+    results: pagefindResults(['/skills/azure/az-cost-optimize/']),
   };
   const harness = bootSearch(fixturesBase);
 
@@ -663,8 +663,8 @@ test('G7: Expand all / Collapse all operate only on non-hidden groups and never 
 test('G8: a text query opens every group holding a matching card', async () => {
   (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = {
     results: pagefindResults([
-      '/Skills/skills/azure/az-cost-optimize/',
-      '/Skills/skills/cloudflare/workers-ai/',
+      '/skills/azure/az-cost-optimize/',
+      '/skills/cloudflare/workers-ai/',
     ]),
   };
   const harness = bootSearch(fixturesBase);

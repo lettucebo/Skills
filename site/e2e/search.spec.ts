@@ -25,7 +25,7 @@ const HOME = BASE;
  * A visible card must link to the current locale's skill detail page.
  * The localized homepage and source pages do not match.
  */
-const SKILL_DETAIL_PATH_RE = /^\/Skills\/en\/skills\/[^/]+\/[^/]+\/$/;
+const SKILL_DETAIL_PATH_RE = /^\/en\/skills\/[^/]+\/[^/]+\/$/;
 
 /**
  * A query with no match at all. Pagefind does fuzzy/partial word matching, so
@@ -507,7 +507,7 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
     const targetPath = new URL(target.href, page.url()).pathname;
     expect(
       targetPath,
-      `card href "${target.href}" must point at /Skills/en/skills/<source>/<skill>/`,
+      `card href "${target.href}" must point at /en/skills/<source>/<skill>/`,
     ).toMatch(SKILL_DETAIL_PATH_RE);
     expect(target.title.length, 'card must expose a title to compare against the destination').toBeGreaterThan(0);
 
@@ -516,9 +516,9 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
 
     const landedPath = new URL(page.url()).pathname;
     expect(landedPath, 'must land on the href captured before the click').toBe(targetPath);
-    expect(landedPath, 'the homepage must not satisfy this assertion').not.toBe('/Skills/en/');
+    expect(landedPath, 'the homepage must not satisfy this assertion').not.toBe('/en/');
     expect(landedPath, 'a source listing page must not satisfy this assertion').not.toMatch(
-      /^\/Skills\/sources\//,
+      /^\/sources\//,
     );
 
     // The destination must be the skill named in the clicked card.

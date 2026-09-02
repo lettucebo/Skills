@@ -114,7 +114,7 @@ test('Search component does not hardcode root pagefind path', () => {
     path.join(siteRoot, 'src', 'components', 'Search.astro'),
     'utf8',
   );
-  // Must not contain a bare "/pagefind/" path (which breaks under /Skills base)
+  // Must not bypass the configured base with a hardcoded "/pagefind/" path.
   assert.doesNotMatch(
     template,
     /['"`]\/pagefind\//,

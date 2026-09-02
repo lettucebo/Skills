@@ -26,19 +26,19 @@
   [tags](https://github.com/lettucebo/Skills/tags) 頁面是否有對應的
   `v<release>` 項目，**或者**
 - 開啟已發布網站的
-  [繁體中文狀態頁面](https://lettucebo.github.io/Skills/zh-tw/status/)，該頁面會回報目前 lock
+  [繁體中文狀態頁面](https://skill.yu.money/zh-tw/status/)，該頁面會回報目前 lock
   的 release 是否已經打上 tag 並可供安裝。
 
 如果對應的 tag 尚未存在，`npx skills add` 會因為無法解析該 ref 而失敗 — 這是
 預期行為，不是 bug。請改用目前確實存在的最新 tag。如果 Releases、tags 與
-`/Skills/zh-tw/status/` 都顯示沒有任何已發布 tag，代表目前尚不能供消費者安裝；請等待發布。
+`/zh-tw/status/` 都顯示沒有任何已發布 tag，代表目前尚不能供消費者安裝；請等待發布。
 
 ## 步驟二：選擇安裝內容
 
 以下每個指令都用 `$TAG` 代表已確認、已發布的 tag。指定值刻意使用無法解析的
 placeholder；執行任何指令前都必須換掉。
 
-已發布的[在地化安裝頁面](https://lettucebo.github.io/Skills/zh-tw/install/)
+已發布的[在地化安裝頁面](https://skill.yu.money/zh-tw/install/)
 會顯示相同指令，也可切換英文或簡體中文；切換語言不會改變指令文字。
 
 ```bash
@@ -111,7 +111,7 @@ npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" --agent github-copilot --copy
 
 未來 inventory 若再出現受限制項目，處理仍維持 fail-closed：任何 active
 `"redistributable": false` skill 都不會渲染 body，並會抑制來源／單一 skill
-指令。請查看 lockfile 或 `/Skills/zh-tw/status/` 的 active 清單，不要從
+指令。請查看 lockfile 或 `/zh-tw/status/` 的 active 清單，不要從
 tombstone 推測目前 inventory。
 
 ## 直接複製備援方案

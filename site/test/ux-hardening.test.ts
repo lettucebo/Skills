@@ -711,7 +711,7 @@ test('INT8b: built landing page no longer publishes the full-repo install comman
     /npx skills add lettucebo\/Skills#v/,
     'the landing page must delegate install commands to the install page',
   );
-  assert.match(html, /href="\/Skills\/en\/install\/"/, 'the landing page must link to the localized install page');
+  assert.match(html, /href="\/en\/install\/"/, 'the landing page must link to the localized install page');
 });
 
 test('INT9: built claude source page publishes a bulk install command after removal', {
