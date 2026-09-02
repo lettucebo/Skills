@@ -49,6 +49,23 @@ node --test --test-name-pattern="rejects duplicate coverage" scripts/test/manife
 # Frontmatter, manifest coverage, unique names, layout, and relative links
 npm run validate
 
+# Always-on enrichment safety checks; missing/stale eligible artifacts pass
+npm run validate:enrichment
+
+# Publishing gate: exact set/freshness plus changelog locale signatures
+npm run validate:enrichment -- --strict
+
+# Read-only cache checks: no clone, Copilot call, or write
+npm run enrich:summaries -- --check
+npm run enrich:changelog -- --check
+
+# Target one skill when regenerating or diagnosing enrichment
+npm run enrich:summaries -- --skill skills/github/github-issues
+npm run enrich:changelog -- --skill skills/github/github-issues
+
+# After a manual applied sync, prune artifacts that became ineligible
+npm run enrich:prune
+
 # Networked, read-only upstream plan
 node scripts/sync.mjs --dry-run --output sync-report/changeset.json
 
@@ -65,6 +82,12 @@ routine updates after a verified baseline exists. Use `node scripts/sync.mjs
 `node scripts/sync.mjs --baseline` is also a one-time migration from the
 unverified `1.0.0` bootstrap to the verified `1.1.0` baseline; it is not an
 onboarding path for later mappings.
+
+The transaction engine has four distinct write modes. `--apply` is the routine
+content/provenance path; `--refresh-licenses` is the explicit metadata-only
+license path. `--baseline` and `--deproprietize` are completed one-time
+migrations with narrow historical preconditions and must not be reused or
+generalized into onboarding commands.
 
 ### Catalog site
 
@@ -103,18 +126,31 @@ preview.
    added automatically.
 3. **Apply transaction:** `scripts/lib/baseline.mjs` builds and validates a
    complete candidate tree before swapping `skills/`, lock/history, `NOTICE`,
-   generated README sections, and `catalog/licenses/`. The durable journal and
-   backups are part of crash recovery and rollback; do not bypass them with
-   direct copy logic.
+   generated README sections, `catalog/sources.yml`, and `catalog/licenses/`.
+   The license-refresh mode intentionally uses a narrower transaction that
+   excludes unchanged skill content and the manifest. Routine `--apply` copies
+   the hand-maintained manifest unchanged; its transaction ownership exists so
+   the completed `--deproprietize` migration could update declaration and
+   materialized state atomically. The durable journal and backups are part of
+   crash recovery and rollback; do not bypass them with direct copy logic.
 4. **Materialized state:** `catalog/skills.lock.json` is the current release
-   snapshot. `catalog/history/*.json` is the per-skill audit ledger. README
-   catalog/install blocks and `NOTICE` are generated views of the same state.
+   snapshot, including structured license evidence. `catalog/history/*.json`
+   is the per-skill audit ledger; `catalog/licenses/` stores pinned root-license
+   evidence. README catalog/install blocks and `NOTICE` are generated views of
+   the same transaction-owned state. `catalog/enrichment/` is a separately
+   validated, committed sidecar read model for summaries and upstream commit
+   changelogs; it is deliberately outside the registry swap transaction.
 5. **Website read model:** `site/src/lib/catalog.ts` reads the lockfile,
-   histories, and allowed `SKILL.md` content at build time. Astro generates the
-   catalog, install, source, skill, and status pages. The homepage groups
-   browsable skills by source inside one canonical card collection; Pagefind
-   supplies text-search matches over the static output. The site performs no
-   runtime registry or GitHub API calls.
+   histories, and allowed `SKILL.md` content at build time, while
+   `site/src/lib/enrichment.ts` admits fresh, schema-valid generated content for
+   the requested locale. A missing localized changelog summary may retain only
+   validated locale-independent commit metadata and the original subject; it
+   never substitutes the English generated summary. Explicit `en`, `zh-tw`,
+   and `zh-cn` routes render five shared page components; unprefixed routes are
+   static compatibility redirects. The homepage groups browsable skills by
+   source inside one canonical card collection, and Pagefind builds a separate
+   index per document language. The site performs no runtime registry or
+   GitHub API calls.
 6. **Automation:** `validate.yml` runs root tests, site tests, and path-filtered
    E2E. `deploy-site.yml` builds on pull requests but deploys only non-PR runs.
    `sync.yml` invokes the same deploy workflow with the exact post-sync commit
@@ -122,6 +158,9 @@ preview.
    Workflow structure is itself tested under `scripts/test/*workflow.test.mjs`;
    preserve least-privilege permissions, path filters, the Pages prerequisite
    check, and build-before-test-before-upload ordering.
+   E2E in `validate.yml` is path-filtered to `site/**`, `catalog/**`, and
+   `skills/**`; when a `scripts/**` change affects modules imported by the site,
+   run E2E locally even though the workflow filter may not select it.
    These workflows target GitHub.com and GitHub Pages; do not assume artifact
    or Pages action versions are portable to GitHub Enterprise Server.
 
@@ -159,10 +198,11 @@ preview.
   per-skill manifest entry. Update every root/site test that pins exact catalog
   counts or source inventories; `scripts/test/provenance.test.mjs` also carries
   approved source lists for the `microsoft` and `cloudflare` upstreams.
-- Proprietary content must be added explicitly to `RESTRICTED_SKILL_PATHS` in
-  `scripts/catalog.mjs`; this policy is not inferred from `LICENSE.txt`,
-  frontmatter, or `catalog/sources.yml`. Verify the generated lock entry records
-  `license: "Proprietary"` and `redistributable: false`.
+- `RESTRICTED_SKILL_PATHS` in `scripts/catalog.mjs` is a permanent denylist.
+  For release 2.0.0 and later, validation rejects those paths on disk, in an
+  active mapping, or in an active lock entry. Do not onboard proprietary
+  content through the normal mapping flow; detecting a proprietary license
+  does not create permission to redistribute it or bypass the denylist.
 - Commit the adoption declaration/content before running `sync --apply`. The
   completed `--deproprietize` migration was the sole exception: it changed the
   manifest and materialized state inside one journaled transaction. Apply
@@ -225,6 +265,11 @@ preview.
 - Restricted skills are derived from `redistributable: false` in the lockfile.
   The site must never read or render their `SKILL.md` body and must not emit
   install/copy controls for them.
+- Site-owned text belongs in the typed dictionaries under `site/src/i18n/`.
+  Add keys to all three locales together; keep skill names, raw descriptions
+  and bodies, install commands, source names, URLs, and upstream commit subjects
+  unchanged. Use the locale/path helpers rather than constructing base-prefixed
+  URLs in components.
 - Derive release labels, counts, restricted inventory, filters, and install
   commands from the lockfile. Do not duplicate exact skill counts in site code.
 - Derive homepage navigation and source folders from non-tombstone skills so
@@ -238,6 +283,14 @@ preview.
 - Homepage source folders are native `<details>` elements, collapsed by
   default. Active search/filter results open folders with matches and hide
   empty folders; clearing restores the collapsed overview.
+- The compact header language selector and the skill-page upstream-change
+  timeline are also native `<details>` controls. Preserve no-JS navigation,
+  keyboard semantics, `lang`/`hreflang`, `aria-current`, mobile containment,
+  forced-colors styling, and Pagefind exclusion for the changelog disclosure.
+- The visible “Latest included change” value comes from a fresh changelog
+  sidecar's newest Git author date at the lock-pinned revision. Do not relabel
+  it as a live upstream “last updated” timestamp or substitute build/sync time
+  when history is unavailable.
 - Repository-root and single-skill `npx skills add` commands require
   `--full-depth`; source-subpath commands do not. Generate commands through the
   helpers in `site/src/lib/catalog.ts` rather than duplicating strings.
