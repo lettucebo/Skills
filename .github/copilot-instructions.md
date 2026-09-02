@@ -7,7 +7,7 @@ single application. It contains three connected products:
 
 - Vendored and local skills under `skills/<source>/<skill>/`
 - A Node.js registry/sync engine driven by `catalog/sources.yml`
-- A static Astro + Pagefind catalog under `site/`, published at `/Skills/`
+- A static Astro + Pagefind catalog under `site/`, published at the custom-domain root
 
 The root Node.js package owns registry validation, catalog generation, upstream
 sync, release history, and `npx skills` smoke tests. The `site/` package is a
@@ -251,8 +251,8 @@ preview.
 - Theme choice supports Light, Dark, and System, persists explicit choices, and
   applies before first paint. Preserve the validated `scoutTheme=light|dark`
   preview override and live System preference behavior.
-- Internal links and Playwright `baseURL` must include Astro's `/Skills/` base
-  and trailing slash. A site test can be affected by changes under `site/`,
+- Internal links and Playwright `baseURL` must include Astro's root base and
+  trailing slash. A site test can be affected by changes under `site/`,
   `catalog/`, or `skills/`, because the static build reads all three.
 - Keep URL sanitization and the restricted-content boundary in
   `site/src/lib/catalog.ts`/`url-policy.ts`; do not bypass them in page

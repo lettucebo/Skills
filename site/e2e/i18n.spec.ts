@@ -53,7 +53,7 @@ test.describe('full-route localization', () => {
     await page.locator('.language-menu-summary').click();
     await page.locator('[data-locale-link="zh-tw"]').click();
 
-    await expect(page).toHaveURL(/\/Skills\/zh-tw\/skills\/github\/github-issues\/$/);
+    await expect(page).toHaveURL(/\/zh-tw\/skills\/github\/github-issues\/$/);
     await expect(page.locator('[data-locale-link="zh-tw"]')).toHaveAttribute('aria-current', 'page');
     await expect.poll(() => page.evaluate(() => localStorage.getItem('skillsLocale')))
       .toBe('zh-tw');
@@ -76,7 +76,7 @@ test.describe('full-route localization', () => {
     await page.keyboard.press('Tab');
     await expect(page.locator('[data-locale-link="zh-tw"]')).toBeFocused();
     await page.keyboard.press('Enter');
-    await expect(page).toHaveURL(/\/Skills\/zh-tw\/status\/$/);
+    await expect(page).toHaveURL(/\/zh-tw\/status\/$/);
   });
 
   test('saved locale affects only the legacy root and never overrides a direct locale URL', async ({ page }) => {
@@ -84,10 +84,10 @@ test.describe('full-route localization', () => {
     await page.evaluate(() => localStorage.setItem('skillsLocale', 'zh-cn'));
 
     await page.goto(SITE_BASE);
-    await expect(page).toHaveURL(/\/Skills\/zh-cn\/$/);
+    await expect(page).toHaveURL(/\/zh-cn\/$/);
 
     await page.goto(`${SITE_BASE}en/status/`);
-    await expect(page).toHaveURL(/\/Skills\/en\/status\/$/);
+    await expect(page).toHaveURL(/\/en\/status\/$/);
   });
 
   test('legacy root detects browser Chinese locale when no explicit selection exists', async ({ browser }) => {
@@ -95,7 +95,7 @@ test.describe('full-route localization', () => {
     const page = await context.newPage();
     try {
       await page.goto(SITE_BASE);
-      await expect(page).toHaveURL(/\/Skills\/zh-tw\/$/);
+      await expect(page).toHaveURL(/\/zh-tw\/$/);
     } finally {
       await context.close();
     }
@@ -130,7 +130,7 @@ test.describe('full-route localization', () => {
       await page.goto(`${SITE_BASE}zh-tw/skills/github/github-issues/`);
       await page.locator('.language-menu-summary').click();
       await page.locator('[data-locale-link="en"]').click();
-      await expect(page).toHaveURL(/\/Skills\/en\/skills\/github\/github-issues\/$/);
+      await expect(page).toHaveURL(/\/en\/skills\/github\/github-issues\/$/);
     } finally {
       await context.close();
     }
@@ -200,7 +200,7 @@ test.describe('full-route localization', () => {
     expect(rows.length).toBeGreaterThan(0);
     expect(rows.some((row) => row.title === 'github-issues')).toBe(true);
     for (const row of rows) {
-      expect(row.href).toMatch(/^\/Skills\/zh-tw\/skills\//);
+      expect(row.href).toMatch(/^\/zh-tw\/skills\//);
     }
   });
 
@@ -212,7 +212,7 @@ test.describe('full-route localization', () => {
     expect(rows.length).toBeGreaterThan(0);
     expect(rows.some((row) => row.title === 'github-issues')).toBe(true);
     for (const row of rows) {
-      expect(row.href).toMatch(/^\/Skills\/zh-cn\/skills\//);
+      expect(row.href).toMatch(/^\/zh-cn\/skills\//);
     }
   });
 

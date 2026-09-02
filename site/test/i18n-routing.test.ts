@@ -17,7 +17,8 @@ test('Astro config enables prefix_all routing for all supported locales', () => 
   assert.match(config, /locales:\s*\[['"]en['"],\s*['"]zh-tw['"],\s*['"]zh-cn['"]\]/);
   assert.match(config, /prefixDefaultLocale:\s*true/);
   assert.match(config, /redirectToDefaultLocale:\s*false/);
-  assert.match(config, /base:\s*['"]\/Skills['"]/);
+  assert.match(config, /site:\s*['"]https:\/\/skill\.yu\.money['"]/);
+  assert.match(config, /base:\s*['"]\/['"]/);
   assert.match(config, /trailingSlash:\s*['"]always['"]/);
 });
 

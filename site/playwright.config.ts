@@ -12,12 +12,12 @@ import { defineConfig, devices } from '@playwright/test';
  *   move the suite off a busy port.
  * - Local (CI unset): uses the system Chrome channel to avoid downloading browsers.
  * - CI: uses Playwright's installed Chromium (`npx playwright install chromium`).
- * - baseURL includes the /Skills/ base path matching astro.config.mjs.
+ * - baseURL starts at the root-based English route matching astro.config.mjs.
  * - `npm run test:e2e` builds the site (including the Pagefind postbuild) first.
  */
 const PORT = Number(process.env.E2E_PORT) || 4331;
 const isCI = !!process.env.CI;
-const BASE_URL = `http://127.0.0.1:${PORT}/Skills/en/`;
+const BASE_URL = `http://127.0.0.1:${PORT}/en/`;
 
 export default defineConfig({
   testDir: './e2e',

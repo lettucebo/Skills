@@ -21,13 +21,13 @@ npm --prefix site run dev
 ```
 
 啟動 Astro 開發伺服器。Astro 對 `en`、`zh-tw` 與 `zh-cn` 使用 prefix-all
-i18n 路由，同時保留 `base: '/Skills'` 與 `trailingSlash: 'always'`。因此每個
-在地化路由都包含網站 base、locale 與結尾斜線（例如 `/Skills/en/status/` 或
-`/Skills/zh-tw/skills/github/github-issues/`）。
+i18n 路由，同時保留 `base: '/'` 與 `trailingSlash: 'always'`。因此每個
+在地化路由都包含網站 base、locale 與結尾斜線（例如 `/en/status/` 或
+`/zh-tw/skills/github/github-issues/`）。
 
 精簡的語言選單位於主題控制項旁，使用原生 `<details>`、`<summary>` 與連結，
 因此不需 JavaScript 就能展開及導覽。它會保留目前的首頁、安裝、狀態、來源或
-skill 邏輯路徑。明確選取的語言只會供舊版 `/Skills/` 入口使用，絕不覆蓋直接
+skill 邏輯路徑。明確選取的語言只會供舊版 `/` 入口使用，絕不覆蓋直接
 請求的在地化 URL。每個舊版無語言前綴路由都保留為靜態 redirect，並提供英文
 meta refresh、canonical、anchor fallback 與相同的精簡語言切換介面；只有根
 redirect 可在 JavaScript 執行時改用已儲存或瀏覽器語言。
@@ -68,8 +68,8 @@ enrichment 檔案或 `SKILL.md` 內容之前就被排除。
 npm --prefix site run preview
 ```
 
-以相同的 `/Skills/` base path，提供已經建置好的 `site/dist/`（請先執行
-`build`），用來做貼近正式環境的本機檢查。請開啟 `/Skills/en/` 等在地化路由，
+以相同的根目錄 base path，提供已經建置好的 `site/dist/`（請先執行
+`build`），用來做貼近正式環境的本機檢查。請開啟 `/en/` 等在地化路由，
 不要依賴舊版 redirect。
 
 ## 單元測試
@@ -95,7 +95,7 @@ npm --prefix site run test:e2e
 `astro preview` 伺服器執行 Playwright 套件 — 這個套件永遠不會重複使用已經在
 執行的伺服器，因此若該 port 已被其他程序佔用，測試會直接大聲失敗，而不是默默
 測試到另一個不同的建置結果。若 `4331` 被佔用，可用 `E2E_PORT` 覆寫（見
-[環境設定](configuration.md#e2e_port)）。`baseURL` 永遠包含 `/Skills/` 前綴，
+[環境設定](configuration.md#e2e_port)）。`baseURL` 永遠包含根目錄前綴，
 與已部署的網站一致。
 
 ## 已發布與待發布的渲染差異

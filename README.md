@@ -57,7 +57,7 @@ hooks/                     ← Copilot Hook 腳本集合
 | [vscode](skills/vscode/) | 9 | 重構、規格撰寫、README 生成、安全審查、Git commit | — |
 <!-- CATALOG:END -->
 
-> 各來源的完整技能清單、說明與 upstream commit 請見 [`catalog/skills.lock.json`](catalog/skills.lock.json) 或 [Skills Registry 網站](https://lettucebo.github.io/Skills/)。
+> 各來源的完整技能清單、說明與 upstream commit 請見 [`catalog/skills.lock.json`](catalog/skills.lock.json) 或 [Skills Registry 網站](https://skill.yu.money/)。
 > 本 README 不再手動維護逐一技能表格，以免與 lockfile 產生分歧。
 
 ---

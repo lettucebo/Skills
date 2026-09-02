@@ -21,15 +21,15 @@ included at the registry's pinned revision, not a live “last updated” query.
 
 Open the compact language menu beside the theme control to choose English,
 Traditional Chinese, or Simplified Chinese. The native menu and links work
-without JavaScript. Every public page has a prefixed route under `/Skills/en/`,
-`/Skills/zh-tw/`, or `/Skills/zh-cn/`; changing language preserves the current
+without JavaScript. Every public page has a prefixed route under `/en/`,
+`/zh-tw/`, or `/zh-cn/`; changing language preserves the current
 logical page. Former unprefixed links remain redirects to their English
 equivalents.
 
 ### Skill pages
 
 Each skill has its own localized page at
-`/Skills/<locale>/skills/<source>/<skill>/`. It renders the
+`/<locale>/skills/<source>/<skill>/`. It renders the
 skill's own `SKILL.md` description and body (for non-restricted skills only),
 plus:
 
@@ -64,14 +64,14 @@ claude mirrors are tombstones, and their old URLs return 404.
 ### Source pages
 
 Each source collection (for example `skills/azure`) has a page at
-`/Skills/<locale>/sources/<source>/` listing every skill in that collection and, unless the
+`/<locale>/sources/<source>/` listing every skill in that collection and, unless the
 collection contains a restricted skill, the exact `npx skills add` command to
 install that collection alone. The table includes a **Latest included change**
 column and keeps the existing name sort order.
 
 ### Status page
 
-The localized status page (for example `/Skills/en/status/`) reports the live,
+The localized status page (for example `/en/status/`) reports the live,
 build-time state of the registry:
 
 - the lock `release` version and whether it has actually been published as a

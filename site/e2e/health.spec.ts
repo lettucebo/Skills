@@ -3,7 +3,7 @@
  *
  * Uses Playwright's APIRequestContext (no browser tabs, no JS) to verify key
  * pages are reachable, return 200, and render their *own* page identity
- * (`<title>` + `<h1>`) — not just any page under the /Skills/ base path.
+ * (`<title>` + `<h1>`) — not just any page under the site root.
  */
 import { test, expect } from '@playwright/test';
 import { BASE, SITE_BASE } from './_helpers';

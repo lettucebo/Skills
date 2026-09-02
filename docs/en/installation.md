@@ -26,12 +26,12 @@ tag is real:
   or [tags](https://github.com/lettucebo/Skills/tags) page for a `v<release>`
   entry, **or**
 - Open the published website's
-  [English status page](https://lettucebo.github.io/Skills/en/status/), which reports
+  [English status page](https://skill.yu.money/en/status/), which reports
   whether the current lock release has been tagged and is installable.
 
 If the matching tag does not exist yet, `npx skills add` fails because it
 cannot resolve the ref — this is expected, not a bug. Use the most recent tag
-that does exist. If Releases, tags, and `/Skills/en/status/` show that no tag has been
+that does exist. If Releases, tags, and `/en/status/` show that no tag has been
 published, consumer installation is not available yet; wait for a release.
 
 ## Step 2: Choose what to install
@@ -40,7 +40,7 @@ Every command below uses `$TAG` for the confirmed, published tag. The
 assignment is intentionally a non-resolving placeholder: replace it before
 running any command.
 
-The published [localized install page](https://lettucebo.github.io/Skills/en/install/)
+The published [localized install page](https://skill.yu.money/en/install/)
 shows the same commands and lets you switch to Traditional or Simplified
 Chinese without changing command text.
 
@@ -118,7 +118,7 @@ install contains only the 115 active skills.
 
 Restricted handling remains fail-closed for future inventory. Any active skill
 with `"redistributable": false` is excluded from body rendering and suppresses
-source/single-skill commands. Check the lockfile or `/Skills/en/status/` for
+source/single-skill commands. Check the lockfile or `/en/status/` for
 the current active inventory rather than inferring it from tombstones.
 
 ## Direct-copy fallback

@@ -24,27 +24,27 @@ test('locale parsing accepts only the three supported route locales', () => {
   assert.throws(() => assertLocale('fr'), /Unsupported locale/);
 });
 
-test('localized paths always include the base, locale prefix, and trailing slash', () => {
-  assert.equal(localizedPath('en', '/'), '/Skills/en/');
-  assert.equal(localizedPath('zh-tw', 'install'), '/Skills/zh-tw/install/');
+test('localized paths always include the root base, locale prefix, and trailing slash', () => {
+  assert.equal(localizedPath('en', '/'), '/en/');
+  assert.equal(localizedPath('zh-tw', 'install'), '/zh-tw/install/');
   assert.equal(
     localizedPath('zh-cn', '/skills/azure/az-cost-optimize/'),
-    '/Skills/zh-cn/skills/azure/az-cost-optimize/',
+    '/zh-cn/skills/azure/az-cost-optimize/',
   );
 });
 
 test('locale switching preserves the logical source or skill route', () => {
   assert.equal(
-    routeForLocale('zh-cn', '/Skills/en/sources/microsoft/'),
-    '/Skills/zh-cn/sources/microsoft/',
+    routeForLocale('zh-cn', '/en/sources/microsoft/'),
+    '/zh-cn/sources/microsoft/',
   );
   assert.equal(
-    routeForLocale('zh-tw', '/Skills/zh-cn/skills/vscode/code-review/'),
-    '/Skills/zh-tw/skills/vscode/code-review/',
+    routeForLocale('zh-tw', '/zh-cn/skills/vscode/code-review/'),
+    '/zh-tw/skills/vscode/code-review/',
   );
-  assert.equal(routeForLocale('en', '/Skills/'), '/Skills/en/');
+  assert.equal(routeForLocale('en', '/'), '/en/');
   assert.throws(
-    () => routeForLocale('en', '/Other/en/skills/demo/'),
+    () => routeForLocale('en', 'en/skills/demo/'),
     /outside the site base/,
   );
 });

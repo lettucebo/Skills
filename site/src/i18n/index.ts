@@ -2,7 +2,7 @@ export const SUPPORTED_LOCALES = ['en', 'zh-tw', 'zh-cn'] as const;
 export type Locale = (typeof SUPPORTED_LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = 'en';
-export const SITE_BASE = '/Skills/';
+export const SITE_BASE = '/';
 
 export const HTML_LANG: Record<Locale, string> = {
   en: 'en',

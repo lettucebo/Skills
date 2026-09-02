@@ -139,7 +139,7 @@ and bodies, install commands, URLs, technical proper nouns, and original
 upstream commit subjects unchanged.
 
 Use `localizedPath()` and the route-preserving locale helper for internal
-links so `/Skills/`, the locale prefix, and trailing slash remain consistent.
+links so the root base, locale prefix, and trailing slash remain consistent.
 Localized dynamic routes must expand all supported locales and call
 `assertLocale()` so unsupported values fail closed. Legacy route files remain
 small redirect wrappers and must preserve the exact English logical target.

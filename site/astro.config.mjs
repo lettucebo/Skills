@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://lettucebo.github.io',
-  base: '/Skills',
+  site: 'https://skill.yu.money',
+  base: '/',
   trailingSlash: 'always',
   i18n: {
     defaultLocale: 'en',

@@ -11,7 +11,7 @@
  */
 import { expect, type Page } from '@playwright/test';
 
-export const SITE_BASE = '/Skills/';
+export const SITE_BASE = '/';
 export const BASE = `${SITE_BASE}en/`;
 
 export const NO_RESULTS_STATUS = 'No matching skills found.';

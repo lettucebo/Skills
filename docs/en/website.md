@@ -21,15 +21,15 @@ npm --prefix site run dev
 ```
 
 Starts the Astro dev server. Astro uses prefix-all i18n routing for `en`,
-`zh-tw`, and `zh-cn`, while retaining `base: '/Skills'` and
+`zh-tw`, and `zh-cn`, while retaining `base: '/'` and
 `trailingSlash: 'always'`. Every localized route therefore includes the site
-base, locale, and trailing slash (for example `/Skills/en/status/` or
-`/Skills/zh-tw/skills/github/github-issues/`).
+base, locale, and trailing slash (for example `/en/status/` or
+`/zh-tw/skills/github/github-issues/`).
 
 The compact language menu sits beside the theme control and uses native
 `<details>`, `<summary>`, and links, so it opens and navigates without
 JavaScript. It preserves the current logical home, install, status, source, or
-skill route. An explicit selection is saved for the legacy `/Skills/` entry
+skill route. An explicit selection is saved for the legacy `/` entry
 point only; it never overrides a directly requested localized URL. Every
 former unprefixed route remains as a static redirect with an English
 meta-refresh/canonical/anchor fallback and the same compact language
@@ -78,8 +78,8 @@ npm --prefix site run preview
 ```
 
 Serves the already-built `site/dist/` (run `build` first) at the same
-`/Skills/` base path, for a production-accurate local check. Open a localized
-route such as `/Skills/en/` rather than relying on the legacy redirect.
+root base path, for a production-accurate local check. Open a localized
+route such as `/en/` rather than relying on the legacy redirect.
 
 ## Unit tests
 
@@ -108,7 +108,7 @@ already-running server, so a stray process on that port fails the run
 loudly instead of silently testing a different build. Override the port with
 `E2E_PORT` if `4331` is occupied (see
 [Configuration](configuration.md#e2e_port)). The `baseURL` always includes the
-`/Skills/` prefix to match the deployed site.
+root prefix to match the deployed site.
 
 ## Published vs. pending rendering
 

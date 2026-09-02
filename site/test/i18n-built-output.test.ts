@@ -24,7 +24,7 @@ const distDir = path.join(siteRoot, 'dist');
 const distExists = fs.existsSync(path.join(distDir, 'pagefind', 'pagefind.js'));
 
 function htmlPath(urlPath: string): string {
-  const relative = urlPath.replace(/^\/Skills\/?/, '').replace(/\/$/, '');
+  const relative = urlPath.replace(/^\/+/, '').replace(/\/$/, '');
   return path.join(distDir, relative, 'index.html');
 }
 
@@ -33,7 +33,7 @@ function allHtmlFiles(directory: string): string[] {
     const fullPath = path.join(directory, entry.name);
     return entry.isDirectory()
       ? allHtmlFiles(fullPath)
-      : entry.name === 'index.html' ? [fullPath] : [];
+      : entry.name.endsWith('.html') ? [fullPath] : [];
   });
 }
 
@@ -60,6 +60,20 @@ test('build emits exactly 520 static pages with approved localized and redirect 
   }
 });
 
+test('built HTML never references the retired GitHub project-page base', {
+  skip: !distExists && 'dist/ not found (run npm run build first)',
+}, () => {
+  const retiredSiteUrl = /(?:href|src)="\/Skills\/|url=\/Skills\/|lettucebo\.github\.io\/Skills/;
+
+  for (const file of allHtmlFiles(distDir)) {
+    assert.doesNotMatch(
+      fs.readFileSync(file, 'utf8'),
+      retiredSiteUrl,
+      `${path.relative(distDir, file)} must use the custom-domain root`,
+    );
+  }
+});
+
 test('all current legacy redirects contain exact redirect metadata and a compact language menu', {
   skip: !distExists && 'dist/ not found',
 }, async () => {
@@ -73,7 +87,7 @@ test('all current legacy redirects contain exact redirect metadata and a compact
     const html = fs.readFileSync(htmlPath(from), 'utf8');
     assert.ok(html.includes(`content="0;url=${to}"`), `${from} meta target`);
     assert.ok(
-      html.includes(`rel="canonical" href="https://lettucebo.github.io${to}"`),
+      html.includes(`rel="canonical" href="https://skill.yu.money${to}"`),
       `${from} canonical target`,
     );
     assert.ok(html.includes(`href="${to}"`), `${from} anchor target`);
@@ -115,7 +129,7 @@ test('every localized page exposes a compact named route-preserving language men
     const html = fs.readFileSync(htmlPath(entry.path), 'utf8');
     assert.match(html, new RegExp(`<html[^>]+lang="${HTML_LANG[entry.locale]}"`));
     assert.ok(
-      html.includes(`rel="canonical" href="https://lettucebo.github.io${entry.path}"`),
+      html.includes(`rel="canonical" href="https://skill.yu.money${entry.path}"`),
     );
     const menu = html.match(
       /<details\b[^>]*class="language-menu"[^>]*>[\s\S]*?<\/details>/,
@@ -128,7 +142,7 @@ test('every localized page exposes a compact named route-preserving language men
     );
     for (const locale of SUPPORTED_LOCALES) {
       const target = routeForLocale(locale, entry.path);
-      assert.ok(html.includes(`hreflang="${locale}" href="https://lettucebo.github.io${target}"`));
+      assert.ok(html.includes(`hreflang="${locale}" href="https://skill.yu.money${target}"`));
       assert.match(
         menu,
         new RegExp(
@@ -154,7 +168,7 @@ test('localized skill metadata translates the Commit label without changing its 
 
   for (const locale of ['en', 'zh-tw', 'zh-cn'] as const) {
     const html = fs.readFileSync(
-      htmlPath(`/Skills/${locale}/skills/azure/az-cost-optimize/`),
+      htmlPath(`/${locale}/skills/azure/az-cost-optimize/`),
       'utf8',
     );
     assert.ok(html.includes(`${labels[locale]}:`));
@@ -177,7 +191,7 @@ test('localized UI uses matching summaries while raw names, body, and commit sub
 
   for (const locale of ['en', 'zh-tw', 'zh-cn'] as const) {
     const html = fs.readFileSync(
-      htmlPath(`/Skills/${locale}/skills/github/github-issues/`),
+      htmlPath(`/${locale}/skills/github/github-issues/`),
       'utf8',
     );
     assert.match(html, /<h1>github-issues<\/h1>/);
@@ -199,7 +213,7 @@ test('all three structured summary locales render their matching content', {
 
   for (const locale of ['en', 'zh-tw', 'zh-cn'] as const) {
     const html = fs.readFileSync(
-      htmlPath(`/Skills/${locale}/skills/vscode/code-review/`),
+      htmlPath(`/${locale}/skills/vscode/code-review/`),
       'utf8',
     );
     const summary = artifact.locales[locale].content;
@@ -215,12 +229,12 @@ test('removed proprietary pages and their legacy redirects are absent', {
   for (const skill of ['docx', 'pdf', 'pptx', 'xlsx']) {
     for (const locale of ['en', 'zh-tw', 'zh-cn']) {
       assert.equal(
-        fs.existsSync(htmlPath(`/Skills/${locale}/skills/claude/${skill}/`)),
+        fs.existsSync(htmlPath(`/${locale}/skills/claude/${skill}/`)),
         false,
       );
     }
     assert.equal(
-      fs.existsSync(htmlPath(`/Skills/skills/claude/${skill}/`)),
+      fs.existsSync(htmlPath(`/skills/claude/${skill}/`)),
       false,
     );
   }
