@@ -66,3 +66,52 @@ test('language menu CSS uses logical positioning and preserves focus and forced-
   assert.match(forcedColors, /\.language-menu-list/);
   assert.match(forcedColors, /\.language-menu-list a\[aria-current="page"\]/);
 });
+
+test('language menus use a CSS-drawn triangle instead of the baseline-misaligned U+2304 glyph', () => {
+  assert.doesNotMatch(layout, /⌄/);
+  assert.doesNotMatch(redirect, /⌄/);
+
+  assert.match(
+    css,
+    /\.language-menu-summary::after\s*\{[\s\S]*?content:\s*''[\s\S]*?border-top:\s*\d+px solid currentColor/,
+  );
+  assert.match(
+    css,
+    /\.language-menu\[open\] \.language-menu-summary::after\s*\{[\s\S]*?transform:\s*rotate\(180deg\)/,
+  );
+
+  const reducedMotion = css.slice(css.indexOf('@media (prefers-reduced-motion: reduce)'));
+  assert.match(reducedMotion, /\.language-menu-summary::after\s*\{[\s\S]*?transition:\s*none/);
+
+  const forcedColors = css.slice(css.indexOf('@media (forced-colors: active)'));
+  assert.match(
+    forcedColors,
+    /\.language-menu-summary::after\s*\{[\s\S]*?border-top-color:\s*ButtonText/,
+  );
+  assert.match(
+    forcedColors,
+    /\.language-menu-summary::after\s*\{[\s\S]*?border-inline-color:\s*Canvas/,
+  );
+  assert.match(
+    redirect,
+    /\.language-menu-summary::after\s*\{[\s\S]*?border-top:\s*\d+px solid currentColor/,
+  );
+
+  const redirectReducedMotion = redirect.slice(
+    redirect.indexOf('@media (prefers-reduced-motion: reduce)'),
+  );
+  assert.match(
+    redirectReducedMotion,
+    /\.language-menu-summary::after\s*\{[\s\S]*?transition:\s*none/,
+  );
+
+  const redirectForcedColors = redirect.slice(redirect.indexOf('@media (forced-colors: active)'));
+  assert.match(
+    redirectForcedColors,
+    /\.language-menu-summary::after\s*\{[\s\S]*?border-top-color:\s*ButtonText/,
+  );
+  assert.match(
+    redirectForcedColors,
+    /\.language-menu-summary::after\s*\{[\s\S]*?border-inline-color:\s*Canvas/,
+  );
+});

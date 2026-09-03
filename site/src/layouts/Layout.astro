@@ -96,9 +96,8 @@ function isActive(href: string): boolean {
           role="group"
           aria-label={t(locale, 'languageNavigation')}
         >
-          <summary class="language-menu-summary">
+          <summary class="language-menu-summary"          >
             <span>{LOCALE_DISPLAY_NAMES[locale]}</span>
-            <span class="language-menu-chevron" aria-hidden="true">⌄</span>
           </summary>
           <ul class="language-menu-list">
             {localeLinks.map((link) => (
