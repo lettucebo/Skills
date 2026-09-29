@@ -8,6 +8,12 @@ upstreams:
   cloudflare:
     repository: cloudflare/skills
     reference: refs/heads/main
+  expo:
+    repository: expo/skills
+    reference: refs/heads/main
+  google:
+    repository: google/skills
+    reference: refs/heads/main
   microsoft:
     repository: microsoft/skills
     reference: refs/heads/main
@@ -373,6 +379,531 @@ mappings:
   - path: skills/google-play-console-cli/gplay-vitals-monitoring
     upstream: google-play-console-cli
     source: skills/gplay-vitals-monitoring
+
+  # expo
+  - path: skills/expo/eas-app-stores
+    upstream: expo
+    source: plugins/expo/skills/eas-app-stores
+  - path: skills/expo/eas-hosting
+    upstream: expo
+    source: plugins/expo/skills/eas-hosting
+  - path: skills/expo/eas-observe
+    upstream: expo
+    source: plugins/expo/skills/eas-observe
+  - path: skills/expo/eas-simulator
+    upstream: expo
+    source: plugins/expo/skills/eas-simulator
+  - path: skills/expo/eas-update
+    upstream: expo
+    source: plugins/expo/skills/eas-update
+  - path: skills/expo/eas-update-insights
+    upstream: expo
+    source: plugins/expo/skills/eas-update-insights
+  - path: skills/expo/eas-workflows
+    upstream: expo
+    source: plugins/expo/skills/eas-workflows
+  - path: skills/expo/expo-animation
+    upstream: expo
+    source: plugins/expo/skills/expo-animation
+  - path: skills/expo/expo-app-clip
+    upstream: expo
+    source: plugins/expo/skills/expo-app-clip
+  - path: skills/expo/expo-brownfield
+    upstream: expo
+    source: plugins/expo/skills/expo-brownfield
+  - path: skills/expo/expo-data-fetching
+    upstream: expo
+    source: plugins/expo/skills/expo-data-fetching
+  - path: skills/expo/expo-design-system
+    upstream: expo
+    source: plugins/expo/skills/expo-design-system
+  - path: skills/expo/expo-dev-client
+    upstream: expo
+    source: plugins/expo/skills/expo-dev-client
+  - path: skills/expo/expo-dom
+    upstream: expo
+    source: plugins/expo/skills/expo-dom
+  - path: skills/expo/expo-examples
+    upstream: expo
+    source: plugins/expo/skills/expo-examples
+  - path: skills/expo/expo-module
+    upstream: expo
+    source: plugins/expo/skills/expo-module
+  - path: skills/expo/expo-native-ui
+    upstream: expo
+    source: plugins/expo/skills/expo-native-ui
+  - path: skills/expo/expo-overview
+    upstream: expo
+    source: plugins/expo/skills/expo-overview
+  - path: skills/expo/expo-project-structure
+    upstream: expo
+    source: plugins/expo/skills/expo-project-structure
+  - path: skills/expo/expo-router
+    upstream: expo
+    source: plugins/expo/skills/expo-router
+  - path: skills/expo/expo-skill-feedback
+    upstream: expo
+    source: plugins/expo/skills/expo-skill-feedback
+  - path: skills/expo/expo-ui
+    upstream: expo
+    source: plugins/expo/skills/expo-ui
+  - path: skills/expo/expo-upgrade
+    upstream: expo
+    source: plugins/expo/skills/expo-upgrade
+  - path: skills/expo/expo-web-to-native
+    upstream: expo
+    source: plugins/expo/skills/expo-web-to-native
+  # google
+  - path: skills/google/ads/data-manager-api-audience-ingestion
+    upstream: google
+    source: skills/ads/data-manager-api-audience-ingestion
+  - path: skills/google/ads/data-manager-api-event-ingestion
+    upstream: google
+    source: skills/ads/data-manager-api-event-ingestion
+  - path: skills/google/ads/data-manager-api-setup
+    upstream: google
+    source: skills/ads/data-manager-api-setup
+  - path: skills/google/ads/google-ads-api-account-diagnostics
+    upstream: google
+    source: skills/ads/google-ads-api-account-diagnostics
+  - path: skills/google/ads/google-ads-api-mcp-setup
+    upstream: google
+    source: skills/ads/google-ads-api-mcp-setup
+  - path: skills/google/ads/google-ads-api-quickstart
+    upstream: google
+    source: skills/ads/google-ads-api-quickstart
+  - path: skills/google/ads/google-mobile-ads-android-migrate-to-next-gen
+    upstream: google
+    source: skills/ads/google-mobile-ads-android-migrate-to-next-gen
+  - path: skills/google/ads/google-mobile-ads-banner
+    upstream: google
+    source: skills/ads/google-mobile-ads-banner
+  - path: skills/google/ads/google-mobile-ads-get-started
+    upstream: google
+    source: skills/ads/google-mobile-ads-get-started
+  - path: skills/google/ads/google-mobile-ads-interstitial
+    upstream: google
+    source: skills/ads/google-mobile-ads-interstitial
+  - path: skills/google/ads/google-mobile-ads-rewarded
+    upstream: google
+    source: skills/ads/google-mobile-ads-rewarded
+  - path: skills/google/ads/google-mobile-ads-validate
+    upstream: google
+    source: skills/ads/google-mobile-ads-validate
+  - path: skills/google/ads/ima-dai-sdk
+    upstream: google
+    source: skills/ads/ima-dai-sdk
+  - path: skills/google/ads/ima-sdk-client-side
+    upstream: google
+    source: skills/ads/ima-sdk-client-side
+  - path: skills/google/analytics/google-analytics-admin-api-basics
+    upstream: google
+    source: skills/analytics/google-analytics-admin-api-basics
+  - path: skills/google/analytics/google-analytics-data-api-basics
+    upstream: google
+    source: skills/analytics/google-analytics-data-api-basics
+  - path: skills/google/cloud/agent-platform-alert-configuration
+    upstream: google
+    source: skills/cloud/agent-platform-alert-configuration
+  - path: skills/google/cloud/agent-platform-deploy
+    upstream: google
+    source: skills/cloud/agent-platform-deploy
+  - path: skills/google/cloud/agent-platform-endpoint-management
+    upstream: google
+    source: skills/cloud/agent-platform-endpoint-management
+  - path: skills/google/cloud/agent-platform-eval-flywheel
+    upstream: google
+    source: skills/cloud/agent-platform-eval-flywheel
+  - path: skills/google/cloud/agent-platform-inference
+    upstream: google
+    source: skills/cloud/agent-platform-inference
+  - path: skills/google/cloud/agent-platform-migrate-from-ai-studio
+    upstream: google
+    source: skills/cloud/agent-platform-migrate-from-ai-studio
+  - path: skills/google/cloud/agent-platform-model-registry
+    upstream: google
+    source: skills/cloud/agent-platform-model-registry
+  - path: skills/google/cloud/agent-platform-prompt-management
+    upstream: google
+    source: skills/cloud/agent-platform-prompt-management
+  - path: skills/google/cloud/agent-platform-rag-engine-management
+    upstream: google
+    source: skills/cloud/agent-platform-rag-engine-management
+  - path: skills/google/cloud/agent-platform-skill-registry
+    upstream: google
+    source: skills/cloud/agent-platform-skill-registry
+  - path: skills/google/cloud/agent-platform-troubleshooting
+    upstream: google
+    source: skills/cloud/agent-platform-troubleshooting
+  - path: skills/google/cloud/agent-platform-tuning
+    upstream: google
+    source: skills/cloud/agent-platform-tuning
+  - path: skills/google/cloud/agent-platform-tuning-management
+    upstream: google
+    source: skills/cloud/agent-platform-tuning-management
+  - path: skills/google/cloud/alloydb-basics
+    upstream: google
+    source: skills/cloud/alloydb-basics
+  - path: skills/google/cloud/application-design-center-design-deploy
+    upstream: google
+    source: skills/cloud/application-design-center-design-deploy
+  - path: skills/google/cloud/bigquery-ai-ml
+    upstream: google
+    source: skills/cloud/bigquery-ai-ml
+  - path: skills/google/cloud/bigquery-basics
+    upstream: google
+    source: skills/cloud/bigquery-basics
+  - path: skills/google/cloud/bigquery-bigframes
+    upstream: google
+    source: skills/cloud/bigquery-bigframes
+  - path: skills/google/cloud/bigquery-observability
+    upstream: google
+    source: skills/cloud/bigquery-observability
+  - path: skills/google/cloud/bigquery-optimization
+    upstream: google
+    source: skills/cloud/bigquery-optimization
+  - path: skills/google/cloud/bigquery-slot-cost-optimizer
+    upstream: google
+    source: skills/cloud/bigquery-slot-cost-optimizer
+  - path: skills/google/cloud/bigquery-troubleshooting
+    upstream: google
+    source: skills/cloud/bigquery-troubleshooting
+  - path: skills/google/cloud/bigtable-basics
+    upstream: google
+    source: skills/cloud/bigtable-basics
+  - path: skills/google/cloud/cloud-build-basics
+    upstream: google
+    source: skills/cloud/cloud-build-basics
+  - path: skills/google/cloud/cloud-databases-onboarding
+    upstream: google
+    source: skills/cloud/cloud-databases-onboarding
+  - path: skills/google/cloud/cloud-logging-configuration-basics
+    upstream: google
+    source: skills/cloud/cloud-logging-configuration-basics
+  - path: skills/google/cloud/cloud-logging-cross-project-configuration
+    upstream: google
+    source: skills/cloud/cloud-logging-cross-project-configuration
+  - path: skills/google/cloud/cloud-logging-query-generation
+    upstream: google
+    source: skills/cloud/cloud-logging-query-generation
+  - path: skills/google/cloud/cloud-monitoring-chart-generation
+    upstream: google
+    source: skills/cloud/cloud-monitoring-chart-generation
+  - path: skills/google/cloud/cloud-monitoring-list-time-series-request
+    upstream: google
+    source: skills/cloud/cloud-monitoring-list-time-series-request
+  - path: skills/google/cloud/cloud-monitoring-metric-selection
+    upstream: google
+    source: skills/cloud/cloud-monitoring-metric-selection
+  - path: skills/google/cloud/cloud-monitoring-promql-query
+    upstream: google
+    source: skills/cloud/cloud-monitoring-promql-query
+  - path: skills/google/cloud/cloud-run-alert-configuration
+    upstream: google
+    source: skills/cloud/cloud-run-alert-configuration
+  - path: skills/google/cloud/cloud-run-basics
+    upstream: google
+    source: skills/cloud/cloud-run-basics
+  - path: skills/google/cloud/cloud-sql-basics
+    upstream: google
+    source: skills/cloud/cloud-sql-basics
+  - path: skills/google/cloud/datalineage-bigquery-asset-impact-analysis
+    upstream: google
+    source: skills/cloud/datalineage-bigquery-asset-impact-analysis
+  - path: skills/google/cloud/datalineage-summary
+    upstream: google
+    source: skills/cloud/datalineage-summary
+  - path: skills/google/cloud/dbt-sf-to-bq-translator
+    upstream: google
+    source: skills/cloud/dbt-sf-to-bq-translator
+  - path: skills/google/cloud/detection-engineering-coverage-evaluation
+    upstream: google
+    source: skills/cloud/detection-engineering-coverage-evaluation
+  - path: skills/google/cloud/developer-device-platform-basics
+    upstream: google
+    source: skills/cloud/developer-device-platform-basics
+  - path: skills/google/cloud/developing-genkit-dart
+    upstream: google
+    source: skills/cloud/developing-genkit-dart
+  - path: skills/google/cloud/developing-genkit-go
+    upstream: google
+    source: skills/cloud/developing-genkit-go
+  - path: skills/google/cloud/developing-genkit-js
+    upstream: google
+    source: skills/cloud/developing-genkit-js
+  - path: skills/google/cloud/developing-genkit-python
+    upstream: google
+    source: skills/cloud/developing-genkit-python
+  - path: skills/google/cloud/firebase-basics
+    upstream: google
+    source: skills/cloud/firebase-basics
+  - path: skills/google/cloud/gcloud
+    upstream: google
+    source: skills/cloud/gcloud
+  - path: skills/google/cloud/gemini-agents-api
+    upstream: google
+    source: skills/cloud/gemini-agents-api
+  - path: skills/google/cloud/gemini-api
+    upstream: google
+    source: skills/cloud/gemini-api
+  - path: skills/google/cloud/gemini-interactions-api
+    upstream: google
+    source: skills/cloud/gemini-interactions-api
+  - path: skills/google/cloud/gemini-live-api
+    upstream: google
+    source: skills/cloud/gemini-live-api
+  - path: skills/google/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu
+    upstream: google
+    source: skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu
+  - path: skills/google/cloud/gke-ai-troubleshooting-jobset-interruption
+    upstream: google
+    source: skills/cloud/gke-ai-troubleshooting-jobset-interruption
+  - path: skills/google/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring
+    upstream: google
+    source: skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring
+  - path: skills/google/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring
+    upstream: google
+    source: skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring
+  - path: skills/google/cloud/gke-ai-troubleshooting-tpu-vbar-oom
+    upstream: google
+    source: skills/cloud/gke-ai-troubleshooting-tpu-vbar-oom
+  - path: skills/google/cloud/gke-alert-configuration
+    upstream: google
+    source: skills/cloud/gke-alert-configuration
+  - path: skills/google/cloud/gke-app-onboarding
+    upstream: google
+    source: skills/cloud/gke-app-onboarding
+  - path: skills/google/cloud/gke-backup-dr
+    upstream: google
+    source: skills/cloud/gke-backup-dr
+  - path: skills/google/cloud/gke-basics
+    upstream: google
+    source: skills/cloud/gke-basics
+  - path: skills/google/cloud/gke-batch-hpc
+    upstream: google
+    source: skills/cloud/gke-batch-hpc
+  - path: skills/google/cloud/gke-cluster-autoscaler
+    upstream: google
+    source: skills/cloud/gke-cluster-autoscaler
+  - path: skills/google/cloud/gke-cluster-creation
+    upstream: google
+    source: skills/cloud/gke-cluster-creation
+  - path: skills/google/cloud/gke-compute-classes
+    upstream: google
+    source: skills/cloud/gke-compute-classes
+  - path: skills/google/cloud/gke-cost-analysis
+    upstream: google
+    source: skills/cloud/gke-cost-analysis
+  - path: skills/google/cloud/gke-cost-optimization
+    upstream: google
+    source: skills/cloud/gke-cost-optimization
+  - path: skills/google/cloud/gke-custom-golden-image-discovery
+    upstream: google
+    source: skills/cloud/gke-custom-golden-image-discovery
+  - path: skills/google/cloud/gke-golden-path
+    upstream: google
+    source: skills/cloud/gke-golden-path
+  - path: skills/google/cloud/gke-inference
+    upstream: google
+    source: skills/cloud/gke-inference
+  - path: skills/google/cloud/gke-manifest-generation
+    upstream: google
+    source: skills/cloud/gke-manifest-generation
+  - path: skills/google/cloud/gke-multitenancy
+    upstream: google
+    source: skills/cloud/gke-multitenancy
+  - path: skills/google/cloud/gke-networking
+    upstream: google
+    source: skills/cloud/gke-networking
+  - path: skills/google/cloud/gke-node-notready
+    upstream: google
+    source: skills/cloud/gke-node-notready
+  - path: skills/google/cloud/gke-observability
+    upstream: google
+    source: skills/cloud/gke-observability
+  - path: skills/google/cloud/gke-platform-security
+    upstream: google
+    source: skills/cloud/gke-platform-security
+  - path: skills/google/cloud/gke-productionize
+    upstream: google
+    source: skills/cloud/gke-productionize
+  - path: skills/google/cloud/gke-reliability
+    upstream: google
+    source: skills/cloud/gke-reliability
+  - path: skills/google/cloud/gke-service-networking
+    upstream: google
+    source: skills/cloud/gke-service-networking
+  - path: skills/google/cloud/gke-storage
+    upstream: google
+    source: skills/cloud/gke-storage
+  - path: skills/google/cloud/gke-storage-troubleshooting
+    upstream: google
+    source: skills/cloud/gke-storage-troubleshooting
+  - path: skills/google/cloud/gke-upgrades
+    upstream: google
+    source: skills/cloud/gke-upgrades
+  - path: skills/google/cloud/gke-workload-identity
+    upstream: google
+    source: skills/cloud/gke-workload-identity
+  - path: skills/google/cloud/gke-workload-scaling
+    upstream: google
+    source: skills/cloud/gke-workload-scaling
+  - path: skills/google/cloud/gke-workload-scaling-troubleshooting
+    upstream: google
+    source: skills/cloud/gke-workload-scaling-troubleshooting
+  - path: skills/google/cloud/gke-workload-security
+    upstream: google
+    source: skills/cloud/gke-workload-security
+  - path: skills/google/cloud/gke-workload-troubleshooting
+    upstream: google
+    source: skills/cloud/gke-workload-troubleshooting
+  - path: skills/google/cloud/google-agents-cli-onboarding
+    upstream: google
+    source: skills/cloud/google-agents-cli-onboarding
+  - path: skills/google/cloud/google-cloud-filestore-auditing
+    upstream: google
+    source: skills/cloud/google-cloud-filestore-auditing
+  - path: skills/google/cloud/google-cloud-filestore-autoscale
+    upstream: google
+    source: skills/cloud/google-cloud-filestore-autoscale
+  - path: skills/google/cloud/google-cloud-filestore-log-troubleshooting
+    upstream: google
+    source: skills/cloud/google-cloud-filestore-log-troubleshooting
+  - path: skills/google/cloud/google-cloud-filestore-nfs-browser
+    upstream: google
+    source: skills/cloud/google-cloud-filestore-nfs-browser
+  - path: skills/google/cloud/google-cloud-global-frontend-configuration
+    upstream: google
+    source: skills/cloud/google-cloud-global-frontend-configuration
+  - path: skills/google/cloud/google-cloud-networking-observability
+    upstream: google
+    source: skills/cloud/google-cloud-networking-observability
+  - path: skills/google/cloud/google-cloud-recipe-auth
+    upstream: google
+    source: skills/cloud/google-cloud-recipe-auth
+  - path: skills/google/cloud/google-cloud-recipe-foundation-builder
+    upstream: google
+    source: skills/cloud/google-cloud-recipe-foundation-builder
+  - path: skills/google/cloud/google-cloud-recipe-onboarding
+    upstream: google
+    source: skills/cloud/google-cloud-recipe-onboarding
+  - path: skills/google/cloud/google-cloud-scc-query
+    upstream: google
+    source: skills/cloud/google-cloud-scc-query
+  - path: skills/google/cloud/google-cloud-slo-alert-configuration
+    upstream: google
+    source: skills/cloud/google-cloud-slo-alert-configuration
+  - path: skills/google/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming
+    upstream: google
+    source: skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming
+  - path: skills/google/cloud/google-cloud-solution-agentic-ai-borderless-data-lakehouse
+    upstream: google
+    source: skills/cloud/google-cloud-solution-agentic-ai-borderless-data-lakehouse
+  - path: skills/google/cloud/google-cloud-solution-agentic-ai-data-science-workflow
+    upstream: google
+    source: skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow
+  - path: skills/google/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog
+    upstream: google
+    source: skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog
+  - path: skills/google/cloud/google-cloud-solution-architecture
+    upstream: google
+    source: skills/cloud/google-cloud-solution-architecture
+  - path: skills/google/cloud/google-cloud-solution-build-deploy-agents
+    upstream: google
+    source: skills/cloud/google-cloud-solution-build-deploy-agents
+  - path: skills/google/cloud/google-cloud-solution-guided-gke-ai-migration
+    upstream: google
+    source: skills/cloud/google-cloud-solution-guided-gke-ai-migration
+  - path: skills/google/cloud/google-cloud-solution-hybrid-search-alloydb
+    upstream: google
+    source: skills/cloud/google-cloud-solution-hybrid-search-alloydb
+  - path: skills/google/cloud/google-cloud-solution-multi-agent-security
+    upstream: google
+    source: skills/cloud/google-cloud-solution-multi-agent-security
+  - path: skills/google/cloud/google-cloud-solution-n-tier-serverless-web-app
+    upstream: google
+    source: skills/cloud/google-cloud-solution-n-tier-serverless-web-app
+  - path: skills/google/cloud/google-cloud-solution-rag-enterprise-search-gke-sqldb
+    upstream: google
+    source: skills/cloud/google-cloud-solution-rag-enterprise-search-gke-sqldb
+  - path: skills/google/cloud/google-cloud-storage-basics
+    upstream: google
+    source: skills/cloud/google-cloud-storage-basics
+  - path: skills/google/cloud/google-cloud-storage-bucket-architect
+    upstream: google
+    source: skills/cloud/google-cloud-storage-bucket-architect
+  - path: skills/google/cloud/google-cloud-storage-fuse
+    upstream: google
+    source: skills/cloud/google-cloud-storage-fuse
+  - path: skills/google/cloud/google-cloud-waf-cost-optimization
+    upstream: google
+    source: skills/cloud/google-cloud-waf-cost-optimization
+  - path: skills/google/cloud/google-cloud-waf-operational-excellence
+    upstream: google
+    source: skills/cloud/google-cloud-waf-operational-excellence
+  - path: skills/google/cloud/google-cloud-waf-performance-optimization
+    upstream: google
+    source: skills/cloud/google-cloud-waf-performance-optimization
+  - path: skills/google/cloud/google-cloud-waf-reliability
+    upstream: google
+    source: skills/cloud/google-cloud-waf-reliability
+  - path: skills/google/cloud/google-cloud-waf-security
+    upstream: google
+    source: skills/cloud/google-cloud-waf-security
+  - path: skills/google/cloud/google-cloud-waf-sustainability
+    upstream: google
+    source: skills/cloud/google-cloud-waf-sustainability
+  - path: skills/google/cloud/iam-helper-for-policy-management
+    upstream: google
+    source: skills/cloud/iam-helper-for-policy-management
+  - path: skills/google/cloud/iam-helper-for-policy-simulator
+    upstream: google
+    source: skills/cloud/iam-helper-for-policy-simulator
+  - path: skills/google/cloud/iam-helper-for-privileged-access-management
+    upstream: google
+    source: skills/cloud/iam-helper-for-privileged-access-management
+  - path: skills/google/cloud/iam-helper-for-troubleshooting
+    upstream: google
+    source: skills/cloud/iam-helper-for-troubleshooting
+  - path: skills/google/cloud/managed-airflow-dag-authoring
+    upstream: google
+    source: skills/cloud/managed-airflow-dag-authoring
+  - path: skills/google/cloud/managed-airflow-dag-troubleshooting
+    upstream: google
+    source: skills/cloud/managed-airflow-dag-troubleshooting
+  - path: skills/google/cloud/managed-airflow-migrations
+    upstream: google
+    source: skills/cloud/managed-airflow-migrations
+  - path: skills/google/cloud/secops-cases
+    upstream: google
+    source: skills/cloud/secops-cases
+  - path: skills/google/cloud/secops-detection-engineering
+    upstream: google
+    source: skills/cloud/secops-detection-engineering
+  - path: skills/google/cloud/secops-hunt
+    upstream: google
+    source: skills/cloud/secops-hunt
+  - path: skills/google/cloud/secops-investigate
+    upstream: google
+    source: skills/cloud/secops-investigate
+  - path: skills/google/cloud/secops-triage
+    upstream: google
+    source: skills/cloud/secops-triage
+  - path: skills/google/cloud/spanner-basics
+    upstream: google
+    source: skills/cloud/spanner-basics
+  - path: skills/google/cloud/workload-manager-basics
+    upstream: google
+    source: skills/cloud/workload-manager-basics
+  - path: skills/google/developers/finding-google-skills
+    upstream: google
+    source: skills/developers/finding-google-skills
+  - path: skills/google/developers/retrieving-developer-knowledge
+    upstream: google
+    source: skills/developers/retrieving-developer-knowledge
+  - path: skills/google/identity/dpop-adoption
+    upstream: google
+    source: skills/identity/dpop-adoption
 
 orphans:
   - path: skills/dotnet/csharp-mcp-server-generator
