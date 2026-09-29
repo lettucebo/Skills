@@ -89,6 +89,10 @@ test.describe('Catalog source folders — JS enabled', () => {
     await expect(page.locator('[data-skill-group]:not([data-source="azure"]):not([hidden])')).toHaveCount(0);
     // The azure cards are now user-visible.
     await expect(azure.locator('[data-skill-card]:not([hidden])').first()).toBeVisible();
+    const matched = await azure.locator('[data-skill-card]:not([hidden])').count();
+    const total = await azure.locator('[data-skill-card]').count();
+    await expect(azure.locator('[data-skill-group-count]')).toHaveText(`${matched} / ${total}`);
+    await expect(azure.locator('[data-skill-group-count]')).toHaveAttribute('aria-label', `${matched} of ${total} skills matched`);
   });
 
   test('a keyword query opens every folder holding a match', async ({ page }) => {
@@ -130,6 +134,7 @@ test.describe('Catalog source folders — JS enabled', () => {
 
     await expect(page.locator('[data-skill-group]:not([hidden])')).toHaveCount(total);
     await expect(page.locator('[data-skill-group][open]')).toHaveCount(0);
+    await expect(page.locator('[data-skill-group]').first().locator('[data-skill-group-count]')).toHaveText(/^\d+$/);
   });
 });
 

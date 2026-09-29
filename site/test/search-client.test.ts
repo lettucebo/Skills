@@ -34,6 +34,8 @@ const CLIENT_MESSAGES = {
   resultsFound: '{count} results found.',
   unavailableFilter: 'Full-text search is unavailable. Showing {count} filter match{suffix}.',
   unavailableAll: 'Full-text search is unavailable. Showing all {count} skill{suffix}.',
+  searching: 'Searching…',
+  groupCount: '{count} of {total} skills matched',
 };
 
 const UNAVAILABLE_RE = /full-text search is unavailable/i;
@@ -60,6 +62,56 @@ interface FakeCard {
   hidden: boolean;
   getAttribute(name: string): string | null;
   data: CardData;
+  querySelector(selector: string): FakeElement | null;
+  parentElement: FakeElement | null;
+  anchor: FakeElement;
+}
+
+class FakeElement {
+  tagName: string;
+  children: Array<FakeElement | FakeCard | FakeGroup> = [];
+  parentElement: FakeElement | null = null;
+  className = '';
+  attributes: Record<string, string> = {};
+  private value = '';
+  constructor(tagName = 'div') { this.tagName = tagName; }
+  get textContent(): string {
+    return this.children.length
+      ? this.children.map((child) => child instanceof FakeElement ? child.textContent : '').join('')
+      : this.value;
+  }
+  set textContent(value: string) {
+    this.children = [];
+    this.value = value;
+  }
+  appendChild<T extends FakeElement | FakeCard | FakeGroup>(child: T): T {
+    if (child.parentElement) {
+      child.parentElement.children = child.parentElement.children.filter((entry) => entry !== child);
+    }
+    child.parentElement = this;
+    this.children.push(child);
+    return child;
+  }
+  remove() {
+    if (this.parentElement) this.parentElement.children = this.parentElement.children.filter((child) => child !== this);
+    this.parentElement = null;
+  }
+  setAttribute(name: string, value: string) { this.attributes[name] = value; }
+  removeAttribute(name: string) { delete this.attributes[name]; }
+  getAttribute(name: string) { return this.attributes[name] ?? null; }
+  querySelector(selector: string): FakeElement | null {
+    const matches = (element: FakeElement) =>
+      selector === '[data-search-excerpt]' ? element.getAttribute('data-search-excerpt') !== null
+        : selector.startsWith('.') ? element.className.split(' ').includes(selector.slice(1))
+          : element.tagName === selector;
+    for (const child of this.children) {
+      if (!(child instanceof FakeElement)) continue;
+      if (matches(child)) return child;
+      const nested = child.querySelector(selector);
+      if (nested) return nested;
+    }
+    return null;
+  }
 }
 
 interface FakeGroup {
@@ -67,8 +119,12 @@ interface FakeGroup {
   open: boolean;
   source: string;
   cards: FakeCard[];
+  grid: FakeElement;
+  count: FakeElement;
+  parentElement: FakeElement | null;
   getAttribute(name: string): string | null;
   querySelectorAll(selector: string): FakeCard[];
+  querySelector(selector: string): FakeElement | null;
 }
 
 function createControl(id: string): FakeControl {
@@ -84,10 +140,22 @@ function createControl(id: string): FakeControl {
   };
 }
 
-function createCard(data: CardData): FakeCard {
+function createCard(data: CardData, order: number): FakeCard {
+  const anchor = new FakeElement('a');
+  const title = new FakeElement();
+  title.className = 'card-title';
+  title.textContent = data.name;
+  const description = new FakeElement();
+  description.className = 'card-description';
+  description.textContent = data.name + ' description';
+  anchor.appendChild(title);
+  anchor.appendChild(description);
   return {
     hidden: false,
     data,
+    anchor,
+    parentElement: null,
+    querySelector(selector) { return selector === 'a' ? anchor : anchor.querySelector(selector); },
     getAttribute(name: string) {
       switch (name) {
         case 'data-source':
@@ -100,6 +168,8 @@ function createCard(data: CardData): FakeCard {
           return this.data.name;
         case 'data-url':
           return this.data.url;
+        case 'data-catalog-order':
+          return String(order);
         default:
           return null;
       }
@@ -119,18 +189,32 @@ function createGroups(cards: FakeCard[]): FakeGroup[] {
     const source = card.data.source;
     (bySource.get(source) ?? bySource.set(source, []).get(source)!).push(card);
   }
-  return [...bySource.keys()].sort().map((source) => ({
+  return [...bySource.keys()].sort().map((source, order) => ({
     hidden: false,
     open: false,
     source,
     cards: bySource.get(source)!,
+    grid: new FakeElement(),
+    count: new FakeElement(),
+    parentElement: null,
     getAttribute(name: string) {
-      return name === 'data-source' ? this.source : null;
+      return name === 'data-source' ? this.source
+        : name === 'data-catalog-order' ? String(order)
+          : null;
     },
     querySelectorAll(selector: string) {
-      return selector === '[data-skill-card]' ? this.cards : [];
+      return selector === '[data-skill-card]' ? this.grid.children as FakeCard[] : [];
     },
-  }));
+    querySelector(selector: string) {
+      if (selector === '.skill-group-grid') return this.grid;
+      if (selector === '[data-skill-group-count]') return this.count;
+      return null;
+    },
+  })).map((group) => {
+    group.count.textContent = String(group.cards.length);
+    for (const card of group.cards) group.grid.appendChild(card);
+    return group;
+  });
 }
 
 const CARDS: CardData[] = [
@@ -188,6 +272,8 @@ function bootSearch(
 
   const cards = cardData.map(createCard);
   const groups = createGroups(cards);
+  const catalogGrid = new FakeElement();
+  for (const group of groups) catalogGrid.appendChild(group);
   const consoleErrors: unknown[][] = [];
   const documentHandlers: Record<string, Array<() => unknown>> = {};
 
@@ -203,6 +289,12 @@ function bootSearch(
       if (selector === '[data-skill-card]') return cards;
       if (selector === '[data-skill-group]') return groups;
       return [];
+    },
+    createElement(tag: string) { return new FakeElement(tag); },
+    createTextNode(text: string) {
+      const node = new FakeElement('#text');
+      node.textContent = text;
+      return node;
     },
   };
   const consoleStub = {
@@ -235,8 +327,11 @@ function bootSearch(
     groups,
     consoleErrors,
     visibleNames() {
-      return cards.filter((c) => !c.hidden).map((c) => c.data.name);
+      return catalogGrid.children.flatMap((group) =>
+        (group as FakeGroup).grid.children.filter((c) => !(c as FakeCard).hidden).map((c) => (c as FakeCard).data.name));
     },
+    groupOrder() { return catalogGrid.children.map((group) => (group as FakeGroup).source); },
+    groupCounts() { return groups.map((group) => group.count.textContent); },
     /** Snapshot of every group's visibility and open state, in DOM order. */
     groupState() {
       return groups.map((g) => ({
@@ -382,7 +477,7 @@ test('C6: a text query keeps only the cards whose URL is in the Pagefind result 
   await harness.fireFilterChange();
 
   const state = (globalThis as Record<string, any>).__PAGEFIND_STUB__;
-  assert.equal(state.searchCalls, 1, 'a text query must reach Pagefind');
+  assert.equal(state.searchCalls, 1, `a text query must reach Pagefind: ${String(harness.consoleErrors)}`);
   assert.deepEqual(harness.visibleNames(), ['az-cost-optimize', 'workers-ai']);
   assert.equal(harness.status(), '2 results found.');
 
@@ -491,7 +586,7 @@ test('C11: changing text immediately invalidates an older in-flight search befor
 
   harness.controls['search-input'].value = 'terraform';
   harness.fireInput();
-  assert.equal(scheduled.length, 1, 'the replacement query must still be waiting in debounce');
+  assert.equal(scheduled.length, 3, 'the replacement query schedules status and debounce without settling the old result');
 
   releaseFirst({
     results: pagefindResults(['/skills/tampermonkey/tampermonkey/']),
@@ -500,7 +595,7 @@ test('C11: changing text immediately invalidates an older in-flight search befor
 
   assert.deepEqual(
     harness.visibleNames(),
-    CARDS.map((card) => card.name),
+    ['az-cost-optimize', 'az-deploy', 'docx', 'workers-ai'],
     'the stale first response must not change cards after the input value changes',
   );
   assert.equal(harness.status(), '', 'the stale response must not announce its result count');
@@ -690,4 +785,186 @@ test('G9: the DOMContentLoaded initial pass leaves all groups collapsed and visi
     assert.equal(g.open, false, `group ${g.source} must be collapsed after the initial pass`);
   }
   assert.equal(harness.controlsHidden(), false, 'controls must be revealed after DOMContentLoaded');
+});
+
+test('R1: ranked results reorder existing cards and groups; clearing restores catalog order', async () => {
+  (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = {
+    results: [
+      { score: 1, data: async () => ({ url: CARDS[0].url }) },
+      { score: 12, data: async () => ({ url: CARDS[2].url }) },
+      { score: 5, data: async () => ({ url: CARDS[1].url }) },
+    ],
+  };
+  const harness = bootSearch(fixturesBase);
+  harness.controls['search-input'].value = 'deploy';
+  await harness.fireFilterChange();
+  assert.deepEqual(harness.groupOrder().slice(0, 2), ['cloudflare', 'azure']);
+  assert.deepEqual(harness.visibleNames(), ['workers-ai', 'az-deploy', 'az-cost-optimize']);
+  harness.controls['search-input'].value = '';
+  await harness.fireFilterChange();
+  assert.deepEqual(harness.groupOrder(), ['azure', 'claude', 'cloudflare']);
+  assert.deepEqual(harness.visibleNames(), ['az-cost-optimize', 'az-deploy', 'docx', 'workers-ai']);
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+});
+
+test('R2: excerpt decodes entities and treats hostile HTML as text, title/description marks clear', async () => {
+  (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = {
+    results: [{
+      score: 9,
+      data: async () => ({
+        url: CARDS[1].url,
+        excerpt: 'An <mark>az</mark> &amp; &lt;img src=x onerror=alert(1)&gt; <script>oops</script> &#x1F680;',
+      }),
+    }],
+  };
+  const harness = bootSearch(fixturesBase);
+  harness.controls['search-input'].value = 'az';
+  await harness.fireFilterChange();
+  const card = harness.cards[1];
+  const excerpt = card.querySelector('[data-search-excerpt]');
+  assert.ok(excerpt);
+  assert.equal(excerpt.textContent, 'An az & <img src=x onerror=alert(1)> <script>oops</script> 🚀');
+  assert.equal(excerpt.children.filter((child) => (child as FakeElement).tagName === 'mark').length, 1);
+  assert.equal(card.querySelector('.card-title')?.querySelector('mark')?.textContent, 'az');
+  assert.equal(card.querySelector('.card-description')?.querySelector('mark')?.textContent, 'az');
+  harness.controls['search-input'].value = '';
+  await harness.fireFilterChange();
+  assert.equal(card.querySelector('[data-search-excerpt]'), null);
+  assert.equal(card.querySelector('.card-title')?.querySelector('mark'), null);
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+});
+
+test('R3: active group count shows matched / total with localized accessible label', async () => {
+  const harness = bootSearch(missingBase);
+  harness.controls['filter-license'].value = 'MIT';
+  await harness.fireLicenseChange();
+  assert.deepEqual(harness.groupCounts(), ['1 / 2', '0 / 1', '1 / 1']);
+  assert.equal(harness.groups[0].count.getAttribute('aria-label'), '1 of 2 skills matched');
+  harness.controls['filter-license'].value = '';
+  await harness.fireLicenseChange();
+  assert.deepEqual(harness.groupCounts(), ['2', '1', '1']);
+});
+
+test('R4: pending status is delayed and cancelled on settlement and replacement', async () => {
+  const callbacks = new Map<number, () => unknown>();
+  let next = 0;
+  const harness = bootSearch(fixturesBase, CARDS, {
+    setTimeout(handler) { const id = ++next; callbacks.set(id, handler); return id; },
+    clearTimeout(id) { callbacks.delete(id as number); },
+  });
+  (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = { results: [] };
+  harness.controls['search-input'].value = 'first';
+  harness.fireInput();
+  assert.equal(harness.status(), '');
+  const delayed = [...callbacks.values()][0];
+  delayed();
+  assert.equal(harness.status(), 'Searching…');
+  harness.controls['search-input'].value = '';
+  harness.fireInput();
+  assert.equal(harness.status(), '');
+  delayed();
+  assert.equal(harness.status(), '');
+  for (const [id, callback] of [...callbacks]) if (id === next - 1) callback();
+  assert.equal(harness.status(), '');
+  await new Promise<void>((resolve) => setImmediate(resolve));
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+});
+
+test('R5: non-empty input preloads before debounce and its load failure settles unavailable only once', async () => {
+  (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = {
+    optionsFailures: 1, results: pagefindResults([CARDS[0].url]),
+  };
+  const callbacks = new Map<number, () => unknown>();
+  let next = 0;
+  const harness = bootSearch(fixturesBase, CARDS, {
+    setTimeout(handler) { const id = ++next; callbacks.set(id, handler); return id; },
+    clearTimeout(id) { callbacks.delete(id as number); },
+  });
+  harness.controls['search-input'].value = 'first';
+  harness.fireInput();
+  await new Promise<void>((resolve) => setImmediate(resolve));
+  assert.equal((globalThis as Record<string, any>).__PAGEFIND_STUB__.optionsCalls, 1);
+  const debounce = callbacks.get(2)!;
+  await debounce();
+  await new Promise<void>((resolve) => setImmediate(resolve));
+  assert.match(harness.status(), UNAVAILABLE_RE);
+  assert.equal((globalThis as Record<string, any>).__PAGEFIND_STUB__.optionsCalls, 1);
+  harness.controls['search-input'].value = 'second';
+  await harness.fireFilterChange();
+  assert.equal((globalThis as Record<string, any>).__PAGEFIND_STUB__.optionsCalls, 2);
+  assert.deepEqual(harness.visibleNames(), ['az-cost-optimize']);
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+});
+
+test('R6: a replaced failed preload cannot write UI and next query retries', async () => {
+  (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = {
+    optionsFailures: 1, results: pagefindResults([CARDS[0].url]),
+  };
+  const harness = bootSearch(fixturesBase);
+  harness.controls['search-input'].value = 'first';
+  harness.fireInput();
+  await new Promise<void>((resolve) => setImmediate(resolve));
+  harness.controls['search-input'].value = '';
+  harness.fireInput();
+  harness.controls['search-input'].value = 'second';
+  await harness.fireFilterChange();
+  assert.deepEqual(harness.visibleNames(), ['az-cost-optimize']);
+  assert.equal((globalThis as Record<string, any>).__PAGEFIND_STUB__.optionsCalls, 2);
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+});
+
+test('R7: a failed search destroys Pagefind and the next query reinitializes it', async () => {
+  (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = { searchThrows: true };
+  const harness = bootSearch(fixturesBase);
+  harness.controls['search-input'].value = 'bad';
+  await harness.fireFilterChange();
+  assert.match(harness.status(), UNAVAILABLE_RE);
+  const state = (globalThis as Record<string, any>).__PAGEFIND_STUB__;
+  assert.equal(state.destroyCalls, 1);
+  state.searchThrows = false;
+  state.results = pagefindResults([CARDS[2].url]);
+  harness.controls['search-input'].value = 'good';
+  await harness.fireFilterChange();
+  assert.equal(state.optionsCalls, 2);
+  assert.deepEqual(harness.visibleNames(), ['workers-ai']);
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+});
+
+test('R8: input preloads the current query and filters before debounce, without loading on filter-only input', async () => {
+  (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = { results: [] };
+  const harness = bootSearch(fixturesBase, CARDS, {
+    setTimeout() { return 1; },
+    clearTimeout() {},
+  });
+  harness.controls['filter-source'].value = 'azure';
+  harness.controls['search-input'].value = 'deploy';
+  harness.fireInput();
+  await new Promise<void>((resolve) => setImmediate(resolve));
+  const state = (globalThis as Record<string, any>).__PAGEFIND_STUB__;
+  assert.equal(state.preloadCalls, 1);
+  assert.equal(state.searchCalls, undefined);
+  assert.equal(state.lastPreloadQuery, 'deploy');
+  assert.deepEqual(state.lastPreloadOptions, { filters: { source: 'azure' } });
+  harness.controls['search-input'].value = '';
+  harness.fireInput();
+  assert.equal(state.preloadCalls, 1);
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
+});
+
+test('R9: settled result count cannot be overwritten by an expired Searching callback', async () => {
+  (globalThis as Record<string, unknown>).__PAGEFIND_STUB__ = { results: pagefindResults([CARDS[0].url]) };
+  const callbacks: Array<() => unknown> = [];
+  const harness = bootSearch(fixturesBase, CARDS, {
+    setTimeout(handler) { callbacks.push(handler); return callbacks.length; },
+    clearTimeout() {},
+  });
+  harness.controls['search-input'].value = 'azure';
+  harness.fireInput();
+  const delayed = callbacks[0];
+  await callbacks[1]();
+  await new Promise<void>((resolve) => setImmediate(resolve));
+  assert.equal(harness.status(), '1 result found.');
+  delayed();
+  assert.equal(harness.status(), '1 result found.');
+  delete (globalThis as Record<string, unknown>).__PAGEFIND_STUB__;
 });

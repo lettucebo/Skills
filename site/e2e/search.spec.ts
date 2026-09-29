@@ -88,6 +88,45 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
     await expect(page.locator('#catalog-count')).toHaveText(String(rows.length));
   });
 
+  test('github ranks relevant source first and shows safe highlights and excerpts', async ({ page }) => {
+    const total = await page.locator('[data-skill-card]').count();
+    await page.locator('#search-input').fill('github');
+    const rows = await waitForRenderedResults(page);
+    expect(rows.length).toBeGreaterThan(0);
+    expect(rows.length).toBeLessThan(total);
+    const first = page.locator('[data-skill-card]:visible').first();
+    await expect(first).toHaveAttribute('data-name', /github/);
+    await expect(page.locator('[data-skill-group]:visible').first()).not.toHaveAttribute('data-source', 'azure');
+    await expect(first.locator('mark').first()).toBeVisible();
+    await expect(first.locator('[data-search-excerpt]')).toBeVisible();
+    await expect(page.locator('#search-status')).toHaveAttribute('data-search-state', 'settled');
+  });
+
+  test('every visible github excerpt reveals its highlighted match', async ({ page }) => {
+    await page.locator('#search-input').fill('github');
+    await waitForRenderedResults(page);
+
+    for (const name of ['microsoft-mcp-builder', 'continual-learning', 'cloud-solution-architect']) {
+      const excerpt = page.locator(`[data-skill-card][data-name="${name}"] [data-search-excerpt]`);
+      const highlight = excerpt.locator('mark').first();
+      await expect(highlight).toHaveCount(1);
+      const bounds = await excerpt.evaluate((element) => ({
+        bottom: element.getBoundingClientRect().bottom,
+        highlightBottom: element.querySelector('mark')!.getBoundingClientRect().bottom,
+      }));
+      expect(bounds.highlightBottom, `${name} must show why it matched`).toBeLessThanOrEqual(bounds.bottom);
+    }
+  });
+
+  test('zh-tw search shows localized status and highlighting', async ({ page }) => {
+    await page.goto('/zh-tw/');
+    await page.locator('#search-input').fill('github');
+    const rows = await waitForRenderedResults(page);
+    expect(rows.length).toBeGreaterThan(0);
+    await expect(page.locator('#search-status')).toContainText('找到');
+    await expect(page.locator('[data-skill-card]:visible').first().locator('[data-search-excerpt] mark').first()).toBeVisible();
+  });
+
   test('latest-change clarification does not turn every card into a Pagefind match', async ({ page }) => {
     const total = await page.locator('[data-skill-card]').count();
     await page.locator('#search-input').fill('pinned');

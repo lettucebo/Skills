@@ -130,18 +130,18 @@ function badgeClass(skill: typeof catalog.skills[0]): string {
       </div>
     </div>
     <div id="skill-grid" class="catalog-groups">
-      {browsableSources.map((source) => {
+      {browsableSources.map((source, groupOrder) => {
         const groupSkills = catalog.skills.filter(
           (s) => !s.isTombstone && s.source === source,
         );
         return (
-          <details class="skill-group" data-skill-group data-source={source}>
+          <details class="skill-group" data-skill-group data-source={source} data-catalog-order={groupOrder}>
             <summary class="skill-group-summary">
               <span class="skill-group-name">{source}</span>
               <span class="skill-group-count" data-skill-group-count>{groupSkills.length}</span>
             </summary>
             <div class="card-grid skill-group-grid">
-              {groupSkills.map((skill) => {
+              {groupSkills.map((skill, cardOrder) => {
                 const desc = skillDescriptions.get(skill.path);
                 const latestIncludedChange = latestIncludedChanges.get(skill.path);
                 const url = localizedPath(locale, `skills/${skill.source}/${skill.slug}`);
@@ -154,6 +154,7 @@ function badgeClass(skill: typeof catalog.skills[0]): string {
                     data-origin={skill.statusLabel}
                     data-name={skill.name}
                     data-url={url}
+                    data-catalog-order={cardOrder}
                   >
                     <a href={url}>
                       <div class="card-title">{skill.name}</div>

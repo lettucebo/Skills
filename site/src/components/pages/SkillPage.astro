@@ -97,7 +97,7 @@ function statusBadgeClass(): string {
         )}
         <span data-pagefind-filter="source" data-pagefind-meta="source" hidden>{skill.source}</span>
         {skill.upstreamRepo && (
-          <span>
+          <span data-pagefind-ignore>
             {t(locale, 'source')}: {upstreamTreeUrl && skill.upstreamSource ? (
               <a href={upstreamTreeUrl} rel="noopener noreferrer">{skill.upstreamRepo}/{skill.upstreamSource}</a>
             ) : (
@@ -106,7 +106,7 @@ function statusBadgeClass(): string {
           </span>
         )}
         {skill.upstreamCommit && (
-          <span>
+          <span data-pagefind-ignore>
             {t(locale, 'commit')}: {upstreamCommitUrl ? (
               <a href={upstreamCommitUrl} rel="noopener noreferrer"><code>{skill.upstreamCommit.slice(0, 7)}</code></a>
             ) : (

@@ -554,7 +554,7 @@ test('F1: doSearch uses a monotonic generation counter to discard stale async re
 test('F2: loadPagefind must not mutate DOM in catch — stale load errors must not clobber current UI', () => {
   const search = fs.readFileSync(path.join(siteRoot, 'src', 'components', 'Search.astro'), 'utf8');
 
-  const loadPfStart = search.indexOf('async function loadPagefind()');
+  const loadPfStart = search.search(/\basync\s+function\s+loadPagefind\s*\([^)]*\)\s*\{/);
   const doSearchStart = search.indexOf('async function doSearch');
 
   assert.ok(loadPfStart !== -1, 'loadPagefind function must exist');
