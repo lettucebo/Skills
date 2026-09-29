@@ -1,10 +1,18 @@
 ---
 name: google-cloud-filestore-nfs-browser
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Storage
-description: >-
-  Inspects, searches, and reads files and POSIX metadata on Google Cloud Filestore (NFS) instances without local NFS client packages or root privileges. Use when browsing Filestore shares, searching files, reading remote logs, or inspecting file attributes; don't use for Cloud Storage buckets, Cloud NetApp Volumes, Persistent Disks, or modifying/deleting files.
+description: Inspects, searches, and reads files and POSIX metadata on Google
+  Cloud Filestore (NFS) instances without local NFS client packages or root
+  privileges. Use when browsing Filestore shares, searching files, reading
+  remote logs, or inspecting file attributes; don't use for Cloud Storage
+  buckets, Cloud NetApp Volumes, Persistent Disks, or modifying/deleting files.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-filestore-nfs-browser
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Filestore NFS File Browser

@@ -1,19 +1,25 @@
 ---
 name: gke-workload-security
-description: >-
-  Audits, configures, and hardens workload-level security controls for Google
-  Kubernetes Engine (GKE) applications and namespaces. Covers running security
-  audits (`audit_cluster.sh`), enforcing Network Policies (default-deny and Dataplane
-  V2 logging), isolating high-risk pods inside GKE Sandbox (`gVisor`), enforcing Pod
-  Security Standards (`restricted` labeling) and pod securityContext, and mounting Secret Manager secrets via
-  CSI (`SecretProviderClass`). Use when auditing workload security posture, isolating
-  namespaces, applying pod security standards, or
-  configuring network policies and secret volume mounts. Don't use for Workload Identity (use gke-workload-identity), cluster-wide
-  control plane security, RBAC hardening, Binary Authorization, Shielded Nodes,
-  or enabling platform-level GKE add-ons (use gke-platform-security instead).
+description: Audits, configures, and hardens workload-level security controls
+  for Google Kubernetes Engine (GKE) applications and namespaces. Covers running
+  security audits (`audit_cluster.sh`), enforcing Network Policies (default-deny
+  and Dataplane V2 logging), isolating high-risk pods inside GKE Sandbox
+  (`gVisor`), enforcing Pod Security Standards (`restricted` labeling) and pod
+  securityContext, and mounting Secret Manager secrets via CSI
+  (`SecretProviderClass`). Use when auditing workload security posture,
+  isolating namespaces, applying pod security standards, or configuring network
+  policies and secret volume mounts. Don't use for Workload Identity (use
+  gke-workload-identity), cluster-wide control plane security, RBAC hardening,
+  Binary Authorization, Shielded Nodes, or enabling platform-level GKE add-ons
+  (use gke-platform-security instead).
 metadata:
-  version: "1.0.1"
+  version: 1.0.1
   category: Security
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-workload-security
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Workload Security

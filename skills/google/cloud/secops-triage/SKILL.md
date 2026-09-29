@@ -3,16 +3,21 @@ name: secops-triage
 metadata:
   category: Security
   author: Google LLC
-  version: "1.1.0"
+  version: 1.1.0
   status: published
-description: >-
-  Expert guidance for security alert triage in Google SecOps. Use when
-  investigating and triaging security alerts, determining false positives vs.
-  true positives, assessing entity risk, adjusting alert severity or priority,
-  and closing or escalating alerts and cases. Don't use for deep multi-hop
-  incident investigations across host timelines (use secops-investigate),
-  proactive threat hunting or retroactive IoC sweeps (use secops-hunt), or
-  authoring new detection rules (use secops-detection-engineering).
+description: Expert guidance for security alert triage in Google SecOps. Use
+  when investigating and triaging security alerts, determining false positives
+  vs. true positives, assessing entity risk, adjusting alert severity or
+  priority, and closing or escalating alerts and cases. Don't use for deep
+  multi-hop incident investigations across host timelines (use
+  secops-investigate), proactive threat hunting or retroactive IoC sweeps (use
+  secops-hunt), or authoring new detection rules (use
+  secops-detection-engineering).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/secops-triage
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google SecOps Security Alert Triage Specialist

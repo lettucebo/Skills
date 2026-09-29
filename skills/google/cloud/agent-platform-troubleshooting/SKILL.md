@@ -1,12 +1,19 @@
 ---
 name: agent-platform-troubleshooting
-description: >-
-  Troubleshoots Google Cloud Gemini Enterprise Agent Platform issues (Agent Gateway, Registry, Identity, Policies, Model Armor, Identity-Aware Proxy (IAP)).
-  Use when agent requests fail with 403 (especially unauthorized egress), Agent Runtime queries return 500, or gateway/IAP logs show permission errors.
-  Don't use for general Google Cloud Identity and Access Management (IAM) debugging or networking issues unrelated to the Agent Platform stack.
+description: Troubleshoots Google Cloud Gemini Enterprise Agent Platform issues
+  (Agent Gateway, Registry, Identity, Policies, Model Armor, Identity-Aware
+  Proxy (IAP)). Use when agent requests fail with 403 (especially unauthorized
+  egress), Agent Runtime queries return 500, or gateway/IAP logs show permission
+  errors. Don't use for general Google Cloud Identity and Access Management
+  (IAM) debugging or networking issues unrelated to the Agent Platform stack.
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/agent-platform-troubleshooting
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Agent Platform Troubleshooting

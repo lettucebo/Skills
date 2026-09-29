@@ -1,10 +1,19 @@
 ---
 name: bigtable-basics
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Databases
-description: >-
-  Assists in provisioning instances/tables, designing performant schemas, and querying data in Bigtable. Use when designing Bigtable row keys, configuring column families, writing SQL queries or client library code (Java, Go, Python) for Bigtable, or diagnosing performance/hotspotting issues. Also use when provisioning Bigtable clusters using gcloud or cbt CLIs. Don't use for generic Cloud SQL administration.
+description: Assists in provisioning instances/tables, designing performant
+  schemas, and querying data in Bigtable. Use when designing Bigtable row keys,
+  configuring column families, writing SQL queries or client library code (Java,
+  Go, Python) for Bigtable, or diagnosing performance/hotspotting issues. Also
+  use when provisioning Bigtable clusters using gcloud or cbt CLIs. Don't use
+  for generic Cloud SQL administration.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/bigtable-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Bigtable Basics

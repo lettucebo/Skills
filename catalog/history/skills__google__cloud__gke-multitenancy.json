@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/gke-multitenancy",
+  "name": "gke-multitenancy",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:834d126aac3325319844c7d5ffc46abc550d6ff7f922b75b75a135621b4de027"
+    }
+  ]
+}

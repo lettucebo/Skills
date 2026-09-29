@@ -1,9 +1,17 @@
 ---
 name: eas-workflows
-description: EAS service (paid). Helps understand and write EAS workflow YAML files for Expo projects. Use this skill when the user asks about CI/CD or workflows in an Expo or EAS context, mentions .eas/workflows/, or wants help with EAS build pipelines or deployment automation.
-allowed-tools: "Read,Write,Bash(node:*),Bash(npx *eas-cli@*)"
+description: EAS service (paid). Helps understand and write EAS workflow YAML
+  files for Expo projects. Use this skill when the user asks about CI/CD or
+  workflows in an Expo or EAS context, mentions .eas/workflows/, or wants help
+  with EAS build pipelines or deployment automation.
+allowed-tools: Read,Write,Bash(node:*),Bash(npx *eas-cli@*)
 version: 1.0.0
 license: MIT License
+x-source: expo/skills
+x-source-ref: refs/heads/main
+x-source-path: plugins/expo/skills/eas-workflows
+x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
+x-version: 1.0.0
 ---
 
 # EAS Workflows Skill

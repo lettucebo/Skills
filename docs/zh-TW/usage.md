@@ -82,6 +82,8 @@ inventory 沒有這類頁面：四個專有 claude 鏡像已成為 tombstone，�
 - 目前解析出的上游 repository 與釘選的 commit，以及
 - 目前 frozen orphan 與受限制 skill 的清單。
 
+2.1.0 的 active inventory 有 289 個 skill：286 個 mapped、3 個 frozen orphan。
+
 ## 選擇要安裝的範圍
 
 優先選擇符合需求的最小範圍：
@@ -90,7 +92,7 @@ inventory 沒有這類頁面：四個專有 claude 鏡像已成為 tombstone，�
   受限制內容風險。
 - **單一來源** — 當你想要一整個集合（例如所有 `skills/dotnet` skill）且該集合
   不含受限制 skill 時。
-- **整個 registry** — 2.0.1 會安裝全部 115 個 active skill。未來仍應查看狀態
+- **整個 registry** — 2.1.0 會安裝全部 289 個 active skill。未來仍應查看狀態
   頁面確認受限制 inventory。
 
 ## 釘選版本

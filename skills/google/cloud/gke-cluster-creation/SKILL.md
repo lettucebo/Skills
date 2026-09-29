@@ -1,15 +1,19 @@
 ---
 name: gke-cluster-creation
-description: >-
-  Plans and executes GKE cluster creation, provisioning, and production
-  readiness audits using pre-defined templates (Autopilot, Standard Regional,
-  GPU/AI Inference, AI Hypercompute). Use when creating GKE clusters,
+description: Plans and executes GKE cluster creation, provisioning, and
+  production readiness audits using pre-defined templates (Autopilot, Standard
+  Regional, GPU/AI Inference, AI Hypercompute). Use when creating GKE clusters,
   provisioning GKE environments, selecting cluster modes, or auditing GKE
   clusters. Don't use for application onboarding or deployment configuration
   (use gke-app-onboarding instead).
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Containers
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-cluster-creation
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Cluster Creation

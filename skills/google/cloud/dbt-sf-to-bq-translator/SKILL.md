@@ -1,15 +1,19 @@
 ---
 name: dbt-sf-to-bq-translator
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: BigDataAndAnalytics
-description: >-
-  Translates Snowflake dbt SQL models to Standardized BigQuery SQL. Handles SQL
-  compilation, Jinja macro placeholder masking, BigQuery Translation Service migration
-  workflows, AST-based config transformations, explicit type casting, JSON extraction
-  standardization, and deduplication. Use when migrating Snowflake dbt pipelines
-  or models to Google Cloud BigQuery. Don't use for generic BigQuery queries or
-  non-Snowflake SQL migrations.
+description: Translates Snowflake dbt SQL models to Standardized BigQuery SQL.
+  Handles SQL compilation, Jinja macro placeholder masking, BigQuery Translation
+  Service migration workflows, AST-based config transformations, explicit type
+  casting, JSON extraction standardization, and deduplication. Use when
+  migrating Snowflake dbt pipelines or models to Google Cloud BigQuery. Don't
+  use for generic BigQuery queries or non-Snowflake SQL migrations.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/dbt-sf-to-bq-translator
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # dbt Snowflake to BigQuery Translator

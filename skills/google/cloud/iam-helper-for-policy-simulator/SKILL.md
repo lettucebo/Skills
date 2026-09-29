@@ -1,15 +1,19 @@
 ---
 name: iam-helper-for-policy-simulator
-description: >-
-  Safely simulates and applies Google Cloud IAM v1 (Allow) policy changes.
-  Uses the Policy Simulator to replay historical access logs against proposed policies
-  to prevent breaking active workloads before applying the changes. Use when
-  simulating or applying IAM v1 allow policies across Projects, Folders, or Organizations.
-  Don't use for analyzing IAM v2 deny policies, VPC Service Controls, or performing
-  general policy troubleshooting.
+description: Safely simulates and applies Google Cloud IAM v1 (Allow) policy
+  changes. Uses the Policy Simulator to replay historical access logs against
+  proposed policies to prevent breaking active workloads before applying the
+  changes. Use when simulating or applying IAM v1 allow policies across
+  Projects, Folders, or Organizations. Don't use for analyzing IAM v2 deny
+  policies, VPC Service Controls, or performing general policy troubleshooting.
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Security
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/iam-helper-for-policy-simulator
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # IAM Policy Simulator (v1 Allow)

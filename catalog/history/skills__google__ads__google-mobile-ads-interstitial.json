@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-interstitial",
+  "name": "google-mobile-ads-interstitial",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:c34cfca32349e4598c8ad607a6c7f9ffedbe5c9ce18350c9c6dde8409f11611e"
+    }
+  ]
+}

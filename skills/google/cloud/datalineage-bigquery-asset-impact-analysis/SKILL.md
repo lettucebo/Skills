@@ -1,19 +1,23 @@
 ---
 name: datalineage-bigquery-asset-impact-analysis
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: BigDataAndAnalytics
-description: >-
-  Analyzes the downstream impact (blast radius) when a BigQuery table or view is broken, stale, or modified.
-  Identifies all downstream tables, dashboards, and processes that will be affected.
-  Use when:
-  - Performing a blast radius or impact analysis for a BigQuery table or view.
-  - Assessing the consequences of modifying, deleting, or pausing updates to a BigQuery asset.
-  - Identifying downstream dependencies (tables, dashboards, processes) of a BigQuery asset.
-  Don't use for:
-  - General BigQuery querying or data analysis (use BigQuery-related tools instead).
-  - Non-BigQuery assets (e.g., Cloud Storage files) unless they are part of the BigQuery lineage.
-  - Creating or modifying lineage links directly.
+description: "Analyzes the downstream impact (blast radius) when a BigQuery
+  table or view is broken, stale, or modified. Identifies all downstream tables,
+  dashboards, and processes that will be affected. Use when: - Performing a
+  blast radius or impact analysis for a BigQuery table or view. - Assessing the
+  consequences of modifying, deleting, or pausing updates to a BigQuery asset. -
+  Identifying downstream dependencies (tables, dashboards, processes) of a
+  BigQuery asset. Don't use for: - General BigQuery querying or data analysis
+  (use BigQuery-related tools instead). - Non-BigQuery assets (e.g., Cloud
+  Storage files) unless they are part of the BigQuery lineage. - Creating or
+  modifying lineage links directly."
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/datalineage-bigquery-asset-impact-analysis
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # BigQuery Asset Impact Analysis

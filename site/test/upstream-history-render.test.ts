@@ -6,13 +6,13 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, '..');
-const githubIssuesPage = path.join(
+const mappedSkillPage = path.join(
   siteRoot,
   'dist',
   'en',
   'skills',
-  'github',
-  'github-issues',
+  'azure',
+  'az-cost-optimize',
   'index.html',
 );
 const restrictedPage = path.join(
@@ -67,7 +67,7 @@ test('skill template places a closed Pagefind-excluded upstream disclosure above
 test('built mapped skill renders Upstream changes separately from registry History', {
   skip: !distExists && 'dist/ not found (run npm run build first)',
 }, () => {
-  const rendered = fs.readFileSync(githubIssuesPage, 'utf8');
+  const rendered = fs.readFileSync(mappedSkillPage, 'utf8');
 
   assert.match(
     rendered,

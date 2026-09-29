@@ -1,10 +1,21 @@
 ---
 name: google-analytics-data-api-basics
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: GoogleAnalytics
-description: >-
-  Manages Google Analytics reporting data, enables the Analytics Data API via the Cloud CLI, and creates reports using the Google Analytics Data API (v1beta). Use when you need to interact with Google Analytics properties, run customized analytics reports, query metrics (like activeUsers, screenPageViews) and dimensions (like city, date), check metrics and dimensions compatibility, or verify API enablement. Don't use for Google Analytics Admin API operations (e.g., creating properties, managing users) or for front-end tracking installation.
+description: Manages Google Analytics reporting data, enables the Analytics Data
+  API via the Cloud CLI, and creates reports using the Google Analytics Data API
+  (v1beta). Use when you need to interact with Google Analytics properties, run
+  customized analytics reports, query metrics (like activeUsers,
+  screenPageViews) and dimensions (like city, date), check metrics and
+  dimensions compatibility, or verify API enablement. Don't use for Google
+  Analytics Admin API operations (e.g., creating properties, managing users) or
+  for front-end tracking installation.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/analytics/google-analytics-data-api-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Getting Started with Google Analytics Data API

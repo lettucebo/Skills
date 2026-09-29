@@ -1,14 +1,18 @@
 ---
 name: gke-app-onboarding
-description: >-
-  Manages GKE application onboarding, covering containerization, deployment
-  manifests, and migration. Use when onboarding or deploying an application to
-  GKE for the first time, or containerizing an app for GKE. Don't use for
-  general GKE cluster administration or upgrades (use gke-basics or
+description: Manages GKE application onboarding, covering containerization,
+  deployment manifests, and migration. Use when onboarding or deploying an
+  application to GKE for the first time, or containerizing an app for GKE. Don't
+  use for general GKE cluster administration or upgrades (use gke-basics or
   gke-upgrades instead).
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Containers
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-app-onboarding
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE App Onboarding

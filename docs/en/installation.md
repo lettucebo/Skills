@@ -14,7 +14,7 @@ repository instead, see [Skill management](skill-management.md).
 ## Step 1: Confirm a release is actually published
 
 The lockfile at [`catalog/skills.lock.json`](../../catalog/skills.lock.json)
-always names a `release` version — currently `2.0.1`. That field describes
+always names a `release` version — currently `2.1.0`. That field describes
 what the checked-in tree currently *is*, not whether anyone can install it yet.
 
 Installation always uses a pinned `#<tag>` reference (never `@version` or a
@@ -62,7 +62,7 @@ This short form is interactive when choices are needed: choose project or
 global scope, the target agent, copy/symlink mode, and the skills to install.
 The CLI can auto-select a single detected agent, and it skips the
 copy/symlink prompt when all selected agents use one skills directory (copy
-is then used). Selecting all skills (`*`) installs the current 115 active
+is then used). Selecting all skills (`*`) installs the current 289 active
 skills.
 `--full-depth` is required at repository-root scope; without it, the CLI stops
 at the top-level `.github/skills/` directory instead of discovering the
@@ -110,11 +110,11 @@ before relying on it in unattended external automation.
 
 ## Restricted content
 
-The active 2.0.1 inventory has no restricted skills. The former proprietary
+The active 2.1.0 inventory has no restricted skills. The former proprietary
 `skills/claude/{docx,pdf,pptx,xlsx}` mirrors were removed before the first
 release tag; their old localized and unprefixed URLs intentionally return 404.
 Their lock tombstones and history entries remain for audit, but a full-registry
-install contains only the 115 active skills.
+install contains only the 289 active skills.
 
 Restricted handling remains fail-closed for future inventory. Any active skill
 with `"redistributable": false` is excluded from body rendering and suppresses

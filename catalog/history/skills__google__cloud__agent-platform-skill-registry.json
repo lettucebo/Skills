@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/agent-platform-skill-registry",
+  "name": "agent-platform-skill-registry",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:ddd389c97ae55bddbfc12bff1652ed0112b2285d3234b29f6b7bd2274a52df8c"
+    }
+  ]
+}

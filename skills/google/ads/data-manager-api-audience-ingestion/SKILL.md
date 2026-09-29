@@ -1,14 +1,20 @@
 ---
 name: data-manager-api-audience-ingestion
-description: >-
-  Guides developers through managing (adding, removing, and clearing) audience members for Google products using
-  the Data Manager API and its associated client libraries. Use this skill when the user wants to upload audience
-  members, remove specific users, or clear/replace an entire audience for Customer Match, mobile device ID audiences, or any
-  other audience use case supported by the Data Manager API. Don't use for uploading events or
+description: Guides developers through managing (adding, removing, and clearing)
+  audience members for Google products using the Data Manager API and its
+  associated client libraries. Use this skill when the user wants to upload
+  audience members, remove specific users, or clear/replace an entire audience
+  for Customer Match, mobile device ID audiences, or any other audience use case
+  supported by the Data Manager API. Don't use for uploading events or
   conversions (use the data-manager-api-event-ingestion skill).
 metadata:
-  version: "1.1.0"
+  version: 1.1.0
   category: GoogleAds
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/ads/data-manager-api-audience-ingestion
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Data Manager API Audience Ingestion

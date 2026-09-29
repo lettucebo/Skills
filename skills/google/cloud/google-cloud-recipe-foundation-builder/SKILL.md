@@ -1,13 +1,23 @@
 ---
 name: google-cloud-recipe-foundation-builder
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: GettingStarted
 description: >-
-  Deploys a baseline landing zone foundation for a Google Cloud Organization, establishing security guardrails using Organization Policies, resource hierarchy folders and projects, billing association, and centralized logging and monitoring. Deploys Google Cloud's recommended security controls and architecture.
-  Use when setting up a new Google Cloud Organization or establishing a secure, enterprise-grade landing zone foundation.
+  Deploys a baseline landing zone foundation for a Google Cloud Organization,
+  establishing security guardrails using Organization Policies, resource
+  hierarchy folders and projects, billing association, and centralized logging
+  and monitoring. Deploys Google Cloud's recommended security controls and
+  architecture. Use when setting up a new Google Cloud Organization or
+  establishing a secure, enterprise-grade landing zone foundation.
 
-  Don't use for individual project onboarding (use google-cloud-recipe-onboarding or product-specific skills instead).
+  Don't use for individual project onboarding (use
+  google-cloud-recipe-onboarding or product-specific skills instead).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-recipe-foundation-builder
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Recipe: Foundation Builder

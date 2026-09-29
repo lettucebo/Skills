@@ -1,8 +1,14 @@
 ---
 name: expo-upgrade
-description: Framework (OSS). Guidelines for upgrading Expo SDK versions and fixing dependency issues
+description: Framework (OSS). Guidelines for upgrading Expo SDK versions and
+  fixing dependency issues
 version: 1.0.0
 license: MIT
+x-source: expo/skills
+x-source-ref: refs/heads/main
+x-source-path: plugins/expo/skills/expo-upgrade
+x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
+x-version: 1.0.0
 ---
 
 ## References

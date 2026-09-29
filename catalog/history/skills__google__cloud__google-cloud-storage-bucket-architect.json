@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-storage-bucket-architect",
+  "name": "google-cloud-storage-bucket-architect",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:f6ed4737883ca10cd6f4fc32e5a5ce693616c224b79310cea6e8c530a30a3104"
+    }
+  ]
+}

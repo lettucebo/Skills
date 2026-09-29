@@ -1,18 +1,22 @@
 ---
 name: google-cloud-solution-architecture
 metadata:
-  version: "1.0.2"
+  version: 1.0.2
   category: MultiProductSolutions
-description: >-
-  Interactively discovers requirements and designs holistic, multi-product
-  system architectures, solution blueprints, and deployment recommendations for
-  complex workloads on Google Cloud. Use when designing end-to-end cloud
-  solutions, selecting and integrating Google Cloud services, generating
-  architecture diagrams, or conducting requirements discovery for new cloud
-  workloads or migrations. Don't use for single-product tasks (use
+description: Interactively discovers requirements and designs holistic,
+  multi-product system architectures, solution blueprints, and deployment
+  recommendations for complex workloads on Google Cloud. Use when designing
+  end-to-end cloud solutions, selecting and integrating Google Cloud services,
+  generating architecture diagrams, or conducting requirements discovery for new
+  cloud workloads or migrations. Don't use for single-product tasks (use
   product-specific skills), initial onboarding or authentication (use
   google-cloud-recipe-*), Well-Architected Framework reviews or audits (use
   google-cloud-waf-*), or workloads covered by specialized solution skills.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-solution-architecture
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud solution-architecture workflow

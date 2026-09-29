@@ -82,7 +82,7 @@ test.describe('No-JS fallback', () => {
 
   test.describe('Upstream changes disclosure', () => {
     test('is closed by default and opens from the keyboard with a visible focus ring', async ({ page }) => {
-      await page.goto(`${BASE}skills/github/github-issues/`);
+      await page.goto(`${BASE}skills/azure/az-cost-optimize/`);
 
       const details = page.locator('details.upstream-changes');
       const summary = details.locator('summary');
@@ -105,7 +105,7 @@ test.describe('No-JS fallback', () => {
     test.use({ forcedColors: 'active' });
 
     test('keeps a visible summary focus indicator', async ({ page }) => {
-      await page.goto(`${BASE}skills/github/github-issues/`);
+      await page.goto(`${BASE}skills/azure/az-cost-optimize/`);
       const summary = page.locator('details.upstream-changes > summary');
       await summary.focus();
       await expect(summary).toBeFocused();

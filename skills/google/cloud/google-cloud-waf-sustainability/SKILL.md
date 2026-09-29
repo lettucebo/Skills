@@ -1,19 +1,24 @@
 ---
 name: google-cloud-waf-sustainability
 metadata:
-  version: "1.0.1"
+  version: 1.0.1
   category: WellArchitectedFramework
-description: >-
-  Provides recommendations for environmental sustainability, carbon footprint
-  reduction, and energy efficiency based on the Sustainability pillar of the
-  Google Cloud Well-Architected Framework (WAF). Use when the user asks to
-  assess, design, or optimize Google Cloud workloads for sustainability—including
-  the shared responsibility model, selecting low-carbon regions (CFE%), reducing
-  resource and AI/ML energy waste, designing efficient software and storage
-  lifecycles, or measuring and tracking emissions using Google Cloud Carbon Footprint.
-  Don't use for financial cost reduction (use google-cloud-waf-cost-optimization),
-  latency and throughput tuning (use google-cloud-waf-performance-optimization),
-  or high availability and disaster recovery (use google-cloud-waf-reliability).
+description: Provides recommendations for environmental sustainability, carbon
+  footprint reduction, and energy efficiency based on the Sustainability pillar
+  of the Google Cloud Well-Architected Framework (WAF). Use when the user asks
+  to assess, design, or optimize Google Cloud workloads for
+  sustainability—including the shared responsibility model, selecting low-carbon
+  regions (CFE%), reducing resource and AI/ML energy waste, designing efficient
+  software and storage lifecycles, or measuring and tracking emissions using
+  Google Cloud Carbon Footprint. Don't use for financial cost reduction (use
+  google-cloud-waf-cost-optimization), latency and throughput tuning (use
+  google-cloud-waf-performance-optimization), or high availability and disaster
+  recovery (use google-cloud-waf-reliability).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-waf-sustainability
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Well-Architected Framework skill for the Sustainability pillar

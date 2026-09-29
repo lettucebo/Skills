@@ -3,17 +3,21 @@ name: secops-hunt
 metadata:
   category: Security
   author: Google LLC
-  version: "1.1.0"
+  version: 1.1.0
   status: published
-description: >-
-  Expert guidance for proactive threat hunting in Google SecOps. Use when
-  proactively hunting for threats, retroactively analyzing indicators of
+description: Expert guidance for proactive threat hunting in Google SecOps. Use
+  when proactively hunting for threats, retroactively analyzing indicators of
   compromise (IoCs), performing prevalence searches across enterprise events,
   hunting for MITRE ATT&CK techniques, or detecting behavioral and statistical
   outliers using UDM queries. Don't use for incoming alert triage (use
   secops-triage), active incident response and timeline deep-dives on a known
   breach (use secops-investigate), or detection rule authoring (use
   secops-detection-engineering).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/secops-hunt
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google SecOps Threat Hunting Skill

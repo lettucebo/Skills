@@ -1,15 +1,19 @@
 ---
 name: gke-networking
-description: >-
-  Plans, configures, and manages core GKE cluster networking. Covers private
-  clusters, VPC-native configurations, DNS, node egress, Dataplane V2, and
-  IP planning. Use when designing GKE networking layouts, configuring private
-  clusters, setting up Dataplane V2, planning GKE IP ranges, or managing VPC-
-  native cluster modes. Don't use for application ingress, load balancing, or
-  service networking (use gke-service-networking instead).
+description: Plans, configures, and manages core GKE cluster networking. Covers
+  private clusters, VPC-native configurations, DNS, node egress, Dataplane V2,
+  and IP planning. Use when designing GKE networking layouts, configuring
+  private clusters, setting up Dataplane V2, planning GKE IP ranges, or managing
+  VPC- native cluster modes. Don't use for application ingress, load balancing,
+  or service networking (use gke-service-networking instead).
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Networking
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-networking
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Networking

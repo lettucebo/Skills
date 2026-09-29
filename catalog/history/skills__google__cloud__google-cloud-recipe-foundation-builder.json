@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-recipe-foundation-builder",
+  "name": "google-cloud-recipe-foundation-builder",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:e85371e0041f207980f7f951221a3916f81f1d8ba8864943d9170ed804fabb41"
+    }
+  ]
+}

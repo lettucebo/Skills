@@ -1,18 +1,22 @@
 ---
 name: agent-platform-inference
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
-description: >-
-  Connects to and performs inference with Google Cloud Agent Platform GenAI
-  models, including First-Party Gemini models and Third-Party OpenMaaS models
-  (Llama, DeepSeek, Qwen, etc.). Use when asked to perform inference, ask a
-  model a question, run a test prompt, execute chat completions, or generate
+description: Connects to and performs inference with Google Cloud Agent Platform
+  GenAI models, including First-Party Gemini models and Third-Party OpenMaaS
+  models (Llama, DeepSeek, Qwen, etc.). Use when asked to perform inference, ask
+  a model a question, run a test prompt, execute chat completions, or generate
   code for calling Gemini or OpenMaaS models, authenticate with GenAI SDK,
   OpenAI SDK, or legacy Agent Platform SDK, configure base URLs and
   global/regional endpoints, or troubleshoot 429 Resource Exhausted (DSQ), 400
   User Validation, or 404 Not Found errors. Don't use for deploying models to
   endpoints or for running model evaluations.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/agent-platform-inference
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Agent Platform GenAI Inference Skill

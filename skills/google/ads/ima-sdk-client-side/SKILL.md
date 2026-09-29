@@ -1,15 +1,19 @@
 ---
 name: ima-sdk-client-side
-description: >-
-  Supports Interactive Media Ads (IMA) SDK.
-  Use this skill for client-side ad insertion when you are requesting video ads
-  for websites, apps, TVs or other platforms using VAST or VMAP.
-  Do not use for Dynamic Ad Insertion (DAI), SSAI, or SGAI.
+description: Supports Interactive Media Ads (IMA) SDK. Use this skill for
+  client-side ad insertion when you are requesting video ads for websites, apps,
+  TVs or other platforms using VAST or VMAP. Do not use for Dynamic Ad Insertion
+  (DAI), SSAI, or SGAI.
 license: Apache-2.0
 metadata:
   author: Google LLC
-  version: "1.0.2"
+  version: 1.0.2
   category: GoogleAds
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/ads/ima-sdk-client-side
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 # IMA SDK client-side
 

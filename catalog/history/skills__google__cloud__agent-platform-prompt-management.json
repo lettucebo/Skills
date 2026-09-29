@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/agent-platform-prompt-management",
+  "name": "agent-platform-prompt-management",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:ac840819b44f5fd2b5402911a2dde8a6714fe82ca8aedfc0131970beef4e7158"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "path": "skills/expo/expo-web-to-native",
+  "name": "expo-web-to-native",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+      "diffUrl": null,
+      "contentHash": "sha256:6e4837e5e10fb3eeca43a74e0fb81e3460eb37042eb194325081ba83787ec31e"
+    }
+  ]
+}

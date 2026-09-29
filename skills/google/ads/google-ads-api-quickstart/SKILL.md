@@ -1,18 +1,36 @@
 ---
 name: google-ads-api-quickstart
-description: |
-  Guides developers through Google Ads API quickstart: credential setup, choosing from 6 client libraries/REST, configuring environments, and running a "retrieve campaigns" script. Troubleshoots common setup errors: USER_PERMISSION_DENIED, login_customer_id issues, and DEVELOPER_TOKEN_NOT_APPROVED.
+description: >
+  Guides developers through Google Ads API quickstart: credential setup,
+  choosing from 6 client libraries/REST, configuring environments, and running a
+  "retrieve campaigns" script. Troubleshoots common setup errors:
+  USER_PERMISSION_DENIED, login_customer_id issues, and
+  DEVELOPER_TOKEN_NOT_APPROVED.
+
 
   Use this skill when:
+
   - The user asks how to get started with the Google Ads API.
+
   - The user needs to set up Google Ads credentials or developer tokens.
+
   - The user wants to write a quickstart/example script for Google Ads.
-  - The user encounters errors like USER_PERMISSION_DENIED or DEVELOPER_TOKEN_NOT_APPROVED.
-compatibility: "Outbound HTTPS connectivity required to access the Google Ads API and documentation. Note: If network access is restricted, the agent will fall back to using the last-known stable versions cached within the skill resources."
+
+  - The user encounters errors like USER_PERMISSION_DENIED or
+  DEVELOPER_TOKEN_NOT_APPROVED.
+compatibility: "Outbound HTTPS connectivity required to access the Google Ads
+  API and documentation. Note: If network access is restricted, the agent will
+  fall back to using the last-known stable versions cached within the skill
+  resources."
 metadata:
   author: google-ads-api-team
-  version: "1.0.0"
+  version: 1.0.0
   category: GoogleAds
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/ads/google-ads-api-quickstart
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 # Google Ads API Quickstart
 This skill guides you from absolute zero to running your first successful request to retrieve campaigns.

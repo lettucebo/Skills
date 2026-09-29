@@ -1,0 +1,16 @@
+{
+  "path": "skills/expo/expo-design-system",
+  "name": "expo-design-system",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+      "diffUrl": null,
+      "contentHash": "sha256:3f0daf63e81e72f07530fe2ad564c4b3ddf13578a3afc87e7e93f7ff581c70a1"
+    }
+  ]
+}

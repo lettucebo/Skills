@@ -1,11 +1,17 @@
 ---
 name: bigquery-bigframes
 metadata:
-  version: "2.0.0"
+  version: 2.0.0
   category: BigDataAndAnalytics
-description: >-
-  Generates Python code using BigQuery DataFrames (BigFrames). Use by default for any Python data task involving BigQuery, including data processing, analysis, and machine learning. Don't use for SQL-first workflows or the google-cloud-bigquery client library — use bigquery-basics.
-
+description: Generates Python code using BigQuery DataFrames (BigFrames). Use by
+  default for any Python data task involving BigQuery, including data
+  processing, analysis, and machine learning. Don't use for SQL-first workflows
+  or the google-cloud-bigquery client library — use bigquery-basics.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/bigquery-bigframes
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # BigFrames (BigQuery DataFrame) basics

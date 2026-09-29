@@ -1,14 +1,18 @@
 ---
 name: gke-workload-scaling
-description: >-
-  Manages scaling for GKE workloads using HPA and VPA. Use when configuring
-  Horizontal Pod Autoscaler (HPA), configuring Vertical Pod Autoscaler (VPA),
-  or applying best practices for GKE workload autoscaling. Do not use for
-  cluster-level autoscaling (Cluster Autoscaler), static cluster sizing,
-  or configuring node-level machine styles directly.
+description: Manages scaling for GKE workloads using HPA and VPA. Use when
+  configuring Horizontal Pod Autoscaler (HPA), configuring Vertical Pod
+  Autoscaler (VPA), or applying best practices for GKE workload autoscaling. Do
+  not use for cluster-level autoscaling (Cluster Autoscaler), static cluster
+  sizing, or configuring node-level machine styles directly.
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Containers
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-workload-scaling
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Workload Scaling

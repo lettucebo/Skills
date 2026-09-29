@@ -1,16 +1,21 @@
 ---
 name: gke-ai-troubleshooting-tpu-vbar-oom
-description: >-
-  Diagnoses and prevents vbar_control_agent segfaults, out-of-memory (OOM) errors,
-  and TPU device initialization failures on TPU v6e nodes in GKE caused by race
-  conditions during TPU device resets or high-frequency metrics polling. Use when
-  troubleshooting vbar_control_agent crashes, memory cgroup OOMs in serial console
-  logs, tpu-device-plugin metrics checksum corruption errors, or custom TPU metrics
-  collection conflicts on GKE TPU v6e nodes. Don't use for general non-TPU container
-  OOM troubleshooting or standard GKE node lifecycle operations.
+description: Diagnoses and prevents vbar_control_agent segfaults, out-of-memory
+  (OOM) errors, and TPU device initialization failures on TPU v6e nodes in GKE
+  caused by race conditions during TPU device resets or high-frequency metrics
+  polling. Use when troubleshooting vbar_control_agent crashes, memory cgroup
+  OOMs in serial console logs, tpu-device-plugin metrics checksum corruption
+  errors, or custom TPU metrics collection conflicts on GKE TPU v6e nodes. Don't
+  use for general non-TPU container OOM troubleshooting or standard GKE node
+  lifecycle operations.
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: CloudObservabilityAndMonitoring
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-ai-troubleshooting-tpu-vbar-oom
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # TPU Connection Failure and VBAR OOM Troubleshooting

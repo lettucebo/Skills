@@ -1,14 +1,19 @@
 ---
 name: google-cloud-waf-operational-excellence
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: WellArchitectedFramework
-description: >-
-  Generates operations-focused guidance for Google Cloud workloads based on the
-  design principles and recommendations in the Operational Excellence pillar of
-  the Google Cloud Well-Architected Framework (WAF). Use this skill to evaluate
-  a workload, identify operational requirements, and provide actionable
-  recommendations for deployment, monitoring, and incident management.
+description: Generates operations-focused guidance for Google Cloud workloads
+  based on the design principles and recommendations in the Operational
+  Excellence pillar of the Google Cloud Well-Architected Framework (WAF). Use
+  this skill to evaluate a workload, identify operational requirements, and
+  provide actionable recommendations for deployment, monitoring, and incident
+  management.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-waf-operational-excellence
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Well-Architected Framework skill for the Operational Excellence pillar

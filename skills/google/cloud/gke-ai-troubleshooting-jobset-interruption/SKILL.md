@@ -1,12 +1,18 @@
 ---
 name: gke-ai-troubleshooting-jobset-interruption
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Containers
-description: >-
-  Diagnoses GKE JobSet interruptions, restarts, and preemptions for AI/ML training workloads autonomously.
-  Use when troubleshooting JobSet restart loops, spot VM preemptions, node readiness failures, host VM issues, or coordinator worker crashes.
-  Don't use for general GKE cluster creation, basic workload deployment, or non-JobSet application issues.
+description: Diagnoses GKE JobSet interruptions, restarts, and preemptions for
+  AI/ML training workloads autonomously. Use when troubleshooting JobSet restart
+  loops, spot VM preemptions, node readiness failures, host VM issues, or
+  coordinator worker crashes. Don't use for general GKE cluster creation, basic
+  workload deployment, or non-JobSet application issues.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-ai-troubleshooting-jobset-interruption
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE JobSet Interruption Troubleshooting

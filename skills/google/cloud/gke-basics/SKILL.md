@@ -1,14 +1,19 @@
 ---
 name: gke-basics
 metadata:
-  version: "1.1.1"
+  version: 1.1.1
   category: Containers
-description: >-
-  Manages core GKE cluster provisioning, credentials, Autopilot vs Standard selection,
-  and workload deployment. Use when creating GKE clusters, fetching kubectl credentials,
-  or deciding between Autopilot and Standard modes. Don't use for Workload Identity
-  (use gke-workload-identity), GKE networking (use gke-networking), security hardening
-  (use gke-platform-security or gke-workload-security), or cluster upgrades (use gke-upgrades).
+description: Manages core GKE cluster provisioning, credentials, Autopilot vs
+  Standard selection, and workload deployment. Use when creating GKE clusters,
+  fetching kubectl credentials, or deciding between Autopilot and Standard
+  modes. Don't use for Workload Identity (use gke-workload-identity), GKE
+  networking (use gke-networking), security hardening (use gke-platform-security
+  or gke-workload-security), or cluster upgrades (use gke-upgrades).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Basics & Critical Gotchas

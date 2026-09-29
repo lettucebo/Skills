@@ -1,17 +1,21 @@
 ---
 name: iam-helper-for-policy-management
-description: >-
-  Streamlines the creation, modification, and management of IAM allow policies
-  (v1) and deny policies (v2). Manages access control across Resource Manager
-  resources (Organization, Folder, Project) and individual resources. Use when
-  creating, updating, listing, or deleting IAM allow policies or deny policies.
-  Don't use for access denial troubleshooting (use
+description: Streamlines the creation, modification, and management of IAM allow
+  policies (v1) and deny policies (v2). Manages access control across Resource
+  Manager resources (Organization, Folder, Project) and individual resources.
+  Use when creating, updating, listing, or deleting IAM allow policies or deny
+  policies. Don't use for access denial troubleshooting (use
   iam-helper-for-troubleshooting), temporary privileged access (use
   iam-helper-for-privileged-access-management), configuring VPC Service
   Controls, or managing network firewall rules.
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Security
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/iam-helper-for-policy-management
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # IAM Helper for Policy Management

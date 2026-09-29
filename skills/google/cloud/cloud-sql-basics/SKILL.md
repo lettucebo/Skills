@@ -1,7 +1,7 @@
 ---
 name: cloud-sql-basics
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Databases
 description: >-
   This file generates or explains Cloud SQL resources. Use this file when the
@@ -15,6 +15,11 @@ description: >-
 
   Cloud SQL handles backups, high availability, and secure connectivity for
   relational database workloads.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/cloud-sql-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Cloud SQL Basics

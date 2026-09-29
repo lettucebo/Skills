@@ -1,14 +1,19 @@
 ---
 name: gke-ai-troubleshooting-tpu-metrics-monitoring
-description: >-
-  Monitors and troubleshoots GKE TPU workloads, nodes, and node pools using GKE
-  system metrics and PromQL. Use when monitoring TensorCore duty cycle, TPU memory,
-  node readiness, multi-host TPU node pool availability, host maintenance or
-  preemption interruptions, and calculating MTTR or MTBI metrics for GKE TPUs.
-  Don't use for general non-TPU GKE workload monitoring or non-metric TPU debugging.
+description: Monitors and troubleshoots GKE TPU workloads, nodes, and node pools
+  using GKE system metrics and PromQL. Use when monitoring TensorCore duty
+  cycle, TPU memory, node readiness, multi-host TPU node pool availability, host
+  maintenance or preemption interruptions, and calculating MTTR or MTBI metrics
+  for GKE TPUs. Don't use for general non-TPU GKE workload monitoring or
+  non-metric TPU debugging.
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: CloudObservabilityAndMonitoring
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE TPU Metrics Monitoring Guide

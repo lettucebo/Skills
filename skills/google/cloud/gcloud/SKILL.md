@@ -1,15 +1,19 @@
 ---
 name: gcloud
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: CloudInfrastructureAndServices
-description: >-
-  Provides safety-critical validation, guardrails, and data reduction for gcloud
-  CLI operations across Google Cloud Platform (GCP) services and infrastructure.
-  Use when planning, generating, constructing, proposing, describing, or
-  executing any gcloud CLI commands - including when answering questions about
-  gcloud syntax, or formatting flags. Don't use when writing Google Cloud
-  client library code or raw REST/gRPC API requests.
+description: Provides safety-critical validation, guardrails, and data reduction
+  for gcloud CLI operations across Google Cloud Platform (GCP) services and
+  infrastructure. Use when planning, generating, constructing, proposing,
+  describing, or executing any gcloud CLI commands - including when answering
+  questions about gcloud syntax, or formatting flags. Don't use when writing
+  Google Cloud client library code or raw REST/gRPC API requests.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gcloud
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # gcloud CLI Skill for AI Agents

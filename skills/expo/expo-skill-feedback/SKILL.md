@@ -1,6 +1,20 @@
 ---
 name: expo-skill-feedback
-description: 'Submit feedback on an Expo skill—or Expo itself—and control bundled anonymous usage telemetry (off by default / opt-in). Submit feedback with: npx --yes submit-expo-feedback@latest "ACTIONABLE_FEEDBACK". Optionally add either or both: --category "CATEGORY" and --subject "SUBJECT". Replace the uppercase placeholders before running. Use when a skill was useful, confusing, broken, missing context, or worth improving; when Expo, Expo CLI, EAS CLI, docs, or MCP worked well or fell short; when an AI agent repeatedly failed, got stuck, or needed the user to take over an Expo task (report it as an eval candidate); or when the user explicitly asks to enable or disable telemetry (tracking), check its status, or understand what it collects.'
+description: 'Submit feedback on an Expo skill—or Expo itself—and control
+  bundled anonymous usage telemetry (off by default / opt-in). Submit feedback
+  with: npx --yes submit-expo-feedback@latest "ACTIONABLE_FEEDBACK". Optionally
+  add either or both: --category "CATEGORY" and --subject "SUBJECT". Replace the
+  uppercase placeholders before running. Use when a skill was useful, confusing,
+  broken, missing context, or worth improving; when Expo, Expo CLI, EAS CLI,
+  docs, or MCP worked well or fell short; when an AI agent repeatedly failed,
+  got stuck, or needed the user to take over an Expo task (report it as an eval
+  candidate); or when the user explicitly asks to enable or disable telemetry
+  (tracking), check its status, or understand what it collects.'
+x-source: expo/skills
+x-source-ref: refs/heads/main
+x-source-path: plugins/expo/skills/expo-skill-feedback
+x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
+x-version: 1.0.0
 ---
 
 # Expo Skill Feedback

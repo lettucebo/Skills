@@ -1,15 +1,19 @@
 ---
 name: google-cloud-waf-reliability
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: WellArchitectedFramework
-description: >-
-  Generates guidance for reliability, resilience, availability, redundancy,
-  fault-tolerance, and disaster recovery (DR) for Google Cloud workloads based
-  on the design principles and recommendations in the Google Cloud
-  Well-Architected Framework. Use when the user asks to evaluate, design, or
-  improve the reliability, resilience, availability, or disaster recovery
+description: Generates guidance for reliability, resilience, availability,
+  redundancy, fault-tolerance, and disaster recovery (DR) for Google Cloud
+  workloads based on the design principles and recommendations in the Google
+  Cloud Well-Architected Framework. Use when the user asks to evaluate, design,
+  or improve the reliability, resilience, availability, or disaster recovery
   capabilities of Google Cloud workloads.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-waf-reliability
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Well-Architected Framework skill for the Reliability pillar

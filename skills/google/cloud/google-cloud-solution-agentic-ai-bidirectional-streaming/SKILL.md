@@ -1,17 +1,21 @@
 ---
 name: google-cloud-solution-agentic-ai-bidirectional-streaming
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: MultiProductSolutions
-description: >-
-  Guides agents to interactively discover customer requirements
-  for live, bidirectional multi-agent AI systems that process continuous streams
-  of multimodal data for real-time technical guidance and safety monitoring.
+description: Guides agents to interactively discover customer requirements for
+  live, bidirectional multi-agent AI systems that process continuous streams of
+  multimodal data for real-time technical guidance and safety monitoring.
   Generates a custom Google Cloud solution that uses opinionated best practices
   and architecture guidance. Use when users need agentic assistance to design
   and create a multi-product solution in the cloud for live bidirectional
   multimodal streaming workloads. Don't use for simple text-based chat
   applications or workloads without real-time streaming requirements.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Live bidirectional multimodal streaming agentic AI solution

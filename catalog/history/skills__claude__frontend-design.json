@@ -41,6 +41,14 @@
       },
       "evidenceCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
       "evidenceHash": "sha256:0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "release": "2.1.0",
+      "kind": "upstream-update",
+      "version": "1.1.1",
+      "upstreamCommit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+      "diffUrl": "https://github.com/anthropics/skills/compare/3b3fad96af16a10759d930941b4520ba0c40edae...8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+      "contentHash": "sha256:7e9c2af00fd5b3144f49ce6fb1b16037b392ab9c2f049423b0b6114d99381ba2"
     }
   ]
 }

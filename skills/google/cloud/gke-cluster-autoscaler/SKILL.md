@@ -1,10 +1,19 @@
 ---
 name: gke-cluster-autoscaler
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Containers
-description: >-
-  Trigger on mention of GKE cluster autoscaler, node autoscaling, node pool auto-creation / node auto-provisioning. Provides guidance on enabling and optimizing cluster autoscaler, best practices, and troubleshooting issues such as nodes not scaling up or down, zonal stockouts, or capacity buffers. Do not use for ComputeClass-specific YAML generation or priority configuration (defer to gke-compute-classes skill).
+description: Trigger on mention of GKE cluster autoscaler, node autoscaling,
+  node pool auto-creation / node auto-provisioning. Provides guidance on
+  enabling and optimizing cluster autoscaler, best practices, and
+  troubleshooting issues such as nodes not scaling up or down, zonal stockouts,
+  or capacity buffers. Do not use for ComputeClass-specific YAML generation or
+  priority configuration (defer to gke-compute-classes skill).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-cluster-autoscaler
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Cluster Autoscaler

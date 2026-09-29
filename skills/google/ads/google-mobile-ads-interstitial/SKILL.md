@@ -1,13 +1,17 @@
 ---
 name: google-mobile-ads-interstitial
-description: >-
-  Provides instructions for implementing, integrating, or configuring Google
-  Mobile Ads (GMA) SDK interstitial ads in Android, iOS, or Unity mobile
+description: Provides instructions for implementing, integrating, or configuring
+  Google Mobile Ads (GMA) SDK interstitial ads in Android, iOS, or Unity mobile
   applications. Use when the task involves setting up interstitial ads. Don't
   use for "rewarded interstitial" ads.
 metadata:
-  version: "1.1.0"
+  version: 1.1.0
   category: GoogleAds
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/ads/google-mobile-ads-interstitial
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 # Google Mobile Ads SDK - Interstitial Ads
 

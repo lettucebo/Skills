@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/gke-service-networking",
+  "name": "gke-service-networking",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:82883cfb5e6e0bd2e5927866e7ca55951a017908149ecdb5f416f8086ffcee35"
+    }
+  ]
+}

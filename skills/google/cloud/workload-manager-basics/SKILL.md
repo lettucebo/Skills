@@ -1,18 +1,22 @@
 ---
 name: workload-manager-basics
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: CloudObservabilityAndMonitoring
-description: >-
-  Use this skill to manage Google Cloud Workload Manager evaluations, rules,
-  scanned resources, and validation results by using public client libraries
-  and the REST API. Use when you need to inspect workload best-practice rules,
-  create and run evaluations for Google Cloud general best practices, SAP, SQL
-  Server, or custom organizational rules, review violations, export results to
-  BigQuery, or automate Workload Manager through client libraries because no
-  service-specific public CLI or MCP server is available. Don't use for general
-  Google Compute Engine instance management, VPC configuration, or standard IAM
-  auditing.
+description: Use this skill to manage Google Cloud Workload Manager evaluations,
+  rules, scanned resources, and validation results by using public client
+  libraries and the REST API. Use when you need to inspect workload
+  best-practice rules, create and run evaluations for Google Cloud general best
+  practices, SAP, SQL Server, or custom organizational rules, review violations,
+  export results to BigQuery, or automate Workload Manager through client
+  libraries because no service-specific public CLI or MCP server is available.
+  Don't use for general Google Compute Engine instance management, VPC
+  configuration, or standard IAM auditing.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/workload-manager-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Workload Manager Basics

@@ -1,16 +1,20 @@
 ---
 name: google-cloud-solution-rag-enterprise-search-gke-sqldb
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: MultiProductSolutions
-description: >-
-  Discovers requirements, and generates architectural, design, and deployment
-  guidance for a retrieval-augmented generation (RAG)-capable enterprise search
-  system in Google Cloud. Use when users need a vector-enabled SQL database as
-  the store and index for the embedding vectors, an open model and open-source
-  inferencing framework, and Kubernetes containers to host all the application
-  components. DON'T use this skill for fully-managed RAG, or SaaS search
-  services, or when a non-SQL vector database is required.
+description: Discovers requirements, and generates architectural, design, and
+  deployment guidance for a retrieval-augmented generation (RAG)-capable
+  enterprise search system in Google Cloud. Use when users need a vector-enabled
+  SQL database as the store and index for the embedding vectors, an open model
+  and open-source inferencing framework, and Kubernetes containers to host all
+  the application components. DON'T use this skill for fully-managed RAG, or
+  SaaS search services, or when a non-SQL vector database is required.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-solution-rag-enterprise-search-gke-sqldb
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # RAG for enterprise search using GKE and AlloyDB

@@ -1,10 +1,17 @@
 ---
 name: spanner-basics
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Databases
-description: >-
-  Assists in provisioning instances and databases, designing performant schemas, and querying data in Spanner. Use when designing primary keys, writing SQL queries or client library code, or diagnosing performance issues.
+description: Assists in provisioning instances and databases, designing
+  performant schemas, and querying data in Spanner. Use when designing primary
+  keys, writing SQL queries or client library code, or diagnosing performance
+  issues.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/spanner-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Spanner Basics

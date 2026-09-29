@@ -1,12 +1,17 @@
 ---
 name: cloud-run-basics
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Serverless
-description: >-
-  Manages Cloud Run services, jobs, and worker pools. Use when you need to deploy applications
-  responding to HTTP requests (services), run event-triggered or scheduled tasks (jobs),
-  or handle always-on pull-based background processing (worker pools).
+description: Manages Cloud Run services, jobs, and worker pools. Use when you
+  need to deploy applications responding to HTTP requests (services), run
+  event-triggered or scheduled tasks (jobs), or handle always-on pull-based
+  background processing (worker pools).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/cloud-run-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Cloud Run Basics

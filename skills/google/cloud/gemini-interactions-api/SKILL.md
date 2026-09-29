@@ -1,9 +1,17 @@
 ---
 name: gemini-interactions-api
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
-description: Guides the usage of Gemini Interactions API on Gemini Enterprise Agent Platform. Use when the user wants to use the stateful, server-managed Interactions API for multi-turn conversations, background execution, streaming, structured output, and function calling on the Agent Platform.
+description: Guides the usage of Gemini Interactions API on Gemini Enterprise
+  Agent Platform. Use when the user wants to use the stateful, server-managed
+  Interactions API for multi-turn conversations, background execution,
+  streaming, structured output, and function calling on the Agent Platform.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gemini-interactions-api
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Gemini Interactions API Skill

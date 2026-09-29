@@ -1,19 +1,24 @@
 ---
 name: cloud-run-alert-configuration
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Serverless
-description: >-
-  Configures best-practice, high-signal alerting policies for Google Cloud Run
-  resources (services, jobs, and worker pools) based on seasoned SRE practices. Use
-  when analyzing, recommending, writing, or deploying Terraform PromQL alerting
-  policies to monitor Cloud Run error rates (4xx/5xx), request latency, container instance
-  saturation (warning/critical), container CPU/memory utilization and allocation, billable
-  instance time, job execution status, and worker pool queue backlog. Don't use for
-  GKE workloads (use gke-alert-configuration) or Compute Engine VMs.
+description: Configures best-practice, high-signal alerting policies for Google
+  Cloud Run resources (services, jobs, and worker pools) based on seasoned SRE
+  practices. Use when analyzing, recommending, writing, or deploying Terraform
+  PromQL alerting policies to monitor Cloud Run error rates (4xx/5xx), request
+  latency, container instance saturation (warning/critical), container
+  CPU/memory utilization and allocation, billable instance time, job execution
+  status, and worker pool queue backlog. Don't use for GKE workloads (use
+  gke-alert-configuration) or Compute Engine VMs.
 allowed-tools:
   - terraform
   - gcloud
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/cloud-run-alert-configuration
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Cloud Run Alert Configuration

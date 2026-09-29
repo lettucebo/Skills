@@ -1,17 +1,21 @@
 ---
 name: gke-cost-analysis
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: CloudObservabilityAndMonitoring
-description: >-
-  Answer natural language questions and perform analysis on GKE cluster and
-  workload costs using BigQuery billing exports, cost allocation data, and live
-  cluster monitoring metrics. Use when querying GKE costs across projects,
-  namespaces, or workloads, analyzing billing reports in BigQuery (`bq`), checking
-  cluster cost budgets (`gcloud billing`), or diagnosing cost drivers like pod
-  requests vs. actual utilization (`kubectl top`). Don't use for applying cost
-  optimization changes, creating rightsizing manifests (VPA/MPA), or selecting
-  ComputeClasses (use gke-cost-optimization instead).
+description: Answer natural language questions and perform analysis on GKE
+  cluster and workload costs using BigQuery billing exports, cost allocation
+  data, and live cluster monitoring metrics. Use when querying GKE costs across
+  projects, namespaces, or workloads, analyzing billing reports in BigQuery
+  (`bq`), checking cluster cost budgets (`gcloud billing`), or diagnosing cost
+  drivers like pod requests vs. actual utilization (`kubectl top`). Don't use
+  for applying cost optimization changes, creating rightsizing manifests
+  (VPA/MPA), or selecting ComputeClasses (use gke-cost-optimization instead).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-cost-analysis
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Cost Analysis

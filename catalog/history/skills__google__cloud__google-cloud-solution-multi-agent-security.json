@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-multi-agent-security",
+  "name": "google-cloud-solution-multi-agent-security",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:c9a7f8c47d90d4e75034e580279802e3afe72480c3ec781fea5f5443bfbe9a6e"
+    }
+  ]
+}

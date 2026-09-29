@@ -1,10 +1,9 @@
 ---
 name: bigquery-troubleshooting
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: BigDataAndAnalytics
-description: >-
-  Provides diagnostic workflows and step-by-step root-cause analysis
+description: Provides diagnostic workflows and step-by-step root-cause analysis
   procedures for actively broken, failing, or slow BigQuery jobs, execution
   graph and query plan stage bottlenecks, system performance issues, or
   unexpectedly expensive workloads. Use when interpreting symptoms, isolating
@@ -14,6 +13,11 @@ description: >-
   writing or optimizing SQL, proactive capacity planning, or storage layout
   design (use bigquery-optimization), or when the user already knows which
   telemetry they want and just needs the query (use bigquery-observability).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/bigquery-troubleshooting
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # BigQuery Troubleshooting

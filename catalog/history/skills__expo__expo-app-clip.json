@@ -1,0 +1,16 @@
+{
+  "path": "skills/expo/expo-app-clip",
+  "name": "expo-app-clip",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+      "diffUrl": null,
+      "contentHash": "sha256:09c2083cda6aff26f63ed67e8dfd74f8eec76eebd28b22876d0a7b213e7022f5"
+    }
+  ]
+}

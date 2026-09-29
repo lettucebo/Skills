@@ -1,14 +1,18 @@
 ---
 name: cloud-monitoring-metric-selection
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: CloudObservabilityAndMonitoring
-description: >-
-  Retrieve, query, and identify relevant Google Cloud Monitoring metric
-  descriptors for a GCP service or resource (such as Compute Engine, Spanner,
-  BigQuery, Cloud Run, Cloud SQL, Pub/Sub, Cloud Storage, etc.). Use when asked
-  to find, list, search, or discover GCP metric types, names, kind/value
-  schemas, or descriptors.
+description: Retrieve, query, and identify relevant Google Cloud Monitoring
+  metric descriptors for a GCP service or resource (such as Compute Engine,
+  Spanner, BigQuery, Cloud Run, Cloud SQL, Pub/Sub, Cloud Storage, etc.). Use
+  when asked to find, list, search, or discover GCP metric types, names,
+  kind/value schemas, or descriptors.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/cloud-monitoring-metric-selection
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Metric Selection (Service Query & Local Keyword Filtering)

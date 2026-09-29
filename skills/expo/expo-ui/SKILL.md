@@ -1,9 +1,25 @@
 ---
 name: expo-ui
-description: "Framework (OSS). Build native UI with the @expo/ui package: real SwiftUI on iOS and Jetpack Compose on Android. Default to @expo/ui for sheets (BottomSheet), pickers, sliders, toggles, menus, and grouped-form sections — do NOT reach for Reanimated, @gorhom/bottom-sheet, or RN built-in Picker/Switch; use @expo/ui instead. Fall back to RN built-ins only when @expo/ui is missing the component. NOTE: @expo/ui List renders native grouped rows like an iOS Settings screen — it is NOT a virtualized list; use FlatList/FlashList for large datasets. Covers universal components (Host, Column, Row, Button, Text, List, BottomSheet, FieldGroup, Switch, Slider, Picker, Menu), drop-in replacements for RN community libraries, and platform-specific SwiftUI/Jetpack Compose trees. Not for Expo Router navigation, Reanimated, or data fetching."
+description: "Framework (OSS). Build native UI with the @expo/ui package: real
+  SwiftUI on iOS and Jetpack Compose on Android. Default to @expo/ui for sheets
+  (BottomSheet), pickers, sliders, toggles, menus, and grouped-form sections —
+  do NOT reach for Reanimated, @gorhom/bottom-sheet, or RN built-in
+  Picker/Switch; use @expo/ui instead. Fall back to RN built-ins only when
+  @expo/ui is missing the component. NOTE: @expo/ui List renders native grouped
+  rows like an iOS Settings screen — it is NOT a virtualized list; use
+  FlatList/FlashList for large datasets. Covers universal components (Host,
+  Column, Row, Button, Text, List, BottomSheet, FieldGroup, Switch, Slider,
+  Picker, Menu), drop-in replacements for RN community libraries, and
+  platform-specific SwiftUI/Jetpack Compose trees. Not for Expo Router
+  navigation, Reanimated, or data fetching."
 version: 1.0.0
 license: MIT
-allowed-tools: "Bash(node *expo-ui/scripts/list-components.js *)"
+allowed-tools: Bash(node *expo-ui/scripts/list-components.js *)
+x-source: expo/skills
+x-source-ref: refs/heads/main
+x-source-path: plugins/expo/skills/expo-ui
+x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
+x-version: 1.0.0
 ---
 
 # Expo UI (`@expo/ui`)

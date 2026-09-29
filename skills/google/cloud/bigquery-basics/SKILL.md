@@ -1,12 +1,16 @@
 ---
 name: bigquery-basics
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: BigDataAndAnalytics
-description: >-
-  Manages datasets, tables, and jobs in BigQuery. Use when you need to interact
-  with BigQuery, run SQL queries, manage BigQuery resources (datasets, tables,
-  views), or perform basic data ingestion and analysis.
+description: Manages datasets, tables, and jobs in BigQuery. Use when you need
+  to interact with BigQuery, run SQL queries, manage BigQuery resources
+  (datasets, tables, views), or perform basic data ingestion and analysis.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/bigquery-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # BigQuery Basics

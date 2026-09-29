@@ -108,14 +108,14 @@ test('summary generator exposes a versioned prompt contract', async () => {
   assert.match(generator.PROMPT_HASH, /^sha256:[0-9a-f]{64}$/);
 });
 
-test('production generation filters eligibility before SKILL.md reads and counts all 115 allowed skills', async () => {
+test('production generation filters eligibility before SKILL.md reads and counts all 289 allowed skills', async () => {
   const { runSummaryEnrichment } = await import('../enrich-summaries.mjs');
   const repositoryCheck = await runSummaryEnrichment({ repoRoot, check: true });
   const lock = JSON.parse(
     await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
   );
 
-  assert.equal(repositoryCheck.eligible, 115);
+  assert.equal(repositoryCheck.eligible, 289);
   assert.deepEqual(
     lock.skills
       .filter((entry) => isEligibleForEnrichment('summaries', entry))

@@ -1,13 +1,17 @@
 ---
 name: gke-batch-hpc
-description: >-
-  Runs batch and HPC workloads on GKE, utilizing job queues and parallel
-  processing. Use when running GKE batch jobs, configuring GKE HPC, or setting
-  up GKE job queues. Don't use for standard web application deployments (use
-  gke-app-onboarding instead).
+description: Runs batch and HPC workloads on GKE, utilizing job queues and
+  parallel processing. Use when running GKE batch jobs, configuring GKE HPC, or
+  setting up GKE job queues. Don't use for standard web application deployments
+  (use gke-app-onboarding instead).
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Containers
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-batch-hpc
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Batch & HPC Workloads

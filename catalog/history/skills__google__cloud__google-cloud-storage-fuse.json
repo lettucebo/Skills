@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-storage-fuse",
+  "name": "google-cloud-storage-fuse",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:1703ac040bbc2f256e2cbdc18a077884281d85711d2baf88318002625663bb3c"
+    }
+  ]
+}

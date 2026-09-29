@@ -1,12 +1,18 @@
 ---
 name: developer-device-platform-basics
-description: >-
-  Provides guidance and instructions on managing remote devices on Developer Device Platform (DDP).
-  Use when reserving remote Android devices, establishing connection tunnels, checking session status, or extending/cancelling leases.
-  Don't use for iOS or local device/hardware inquiries.
+description: Provides guidance and instructions on managing remote devices on
+  Developer Device Platform (DDP). Use when reserving remote Android devices,
+  establishing connection tunnels, checking session status, or
+  extending/cancelling leases. Don't use for iOS or local device/hardware
+  inquiries.
 metadata:
-  version: "0.5.0"
+  version: 0.5.0
   category: CloudInfrastructureAndServices
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/developer-device-platform-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Developer Device Platform

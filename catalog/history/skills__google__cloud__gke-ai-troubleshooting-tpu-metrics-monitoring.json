@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring",
+  "name": "gke-ai-troubleshooting-tpu-metrics-monitoring",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:4d943030e90bbb9d048b08153b6e626175af01e8f1faa9785b71b300c7dff89b"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/gke-ai-troubleshooting-jobset-interruption",
+  "name": "gke-ai-troubleshooting-jobset-interruption",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:1c9b89a0177b7b27cfb0f00d0608e6ad0856480099a76fec08943ce127ad364f"
+    }
+  ]
+}

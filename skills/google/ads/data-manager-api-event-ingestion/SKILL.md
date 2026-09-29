@@ -1,16 +1,20 @@
 ---
 name: data-manager-api-event-ingestion
-description: >-
-  Guides developers through implementing event and conversion ingestion to
-  Google products using the Data Manager API /v1/events/ingest endpoint
-  and its associated client libraries. Use this skill when the user wants to upload
-  offline conversions, enhanced conversions for leads, click conversions, Google
-  Analytics web or app events, or any other event ingestion use case supported by
-  the Data Manager API. Don't use for uploading audience members (use the
-  data-manager-api-audience-ingestion skill).
+description: Guides developers through implementing event and conversion
+  ingestion to Google products using the Data Manager API /v1/events/ingest
+  endpoint and its associated client libraries. Use this skill when the user
+  wants to upload offline conversions, enhanced conversions for leads, click
+  conversions, Google Analytics web or app events, or any other event ingestion
+  use case supported by the Data Manager API. Don't use for uploading audience
+  members (use the data-manager-api-audience-ingestion skill).
 metadata:
-  version: "1.2.0"
+  version: 1.2.0
   category: GoogleAds
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/ads/data-manager-api-event-ingestion
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 # Data Manager API Event Ingestion
 

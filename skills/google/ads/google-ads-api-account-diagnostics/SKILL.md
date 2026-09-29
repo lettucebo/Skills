@@ -1,11 +1,22 @@
 ---
 name: google-ads-api-account-diagnostics
-description: >-
-  Diagnoses Google Ads account performance issues such as conversion loss (value or volume), low lead flow/volume, and lost impression share (opportunities) due to ad rank, bids, or budgets. Use when troubleshooting sudden performance drops, analyzing campaign impression share metrics, investigating low lead flow, or searching for bidding and budget constraints. Don't use for setting up new campaigns, uploading conversion events directly, or general Google Mobile Ads SDK integration issues (use gma-android-integrate instead).
+description: Diagnoses Google Ads account performance issues such as conversion
+  loss (value or volume), low lead flow/volume, and lost impression share
+  (opportunities) due to ad rank, bids, or budgets. Use when troubleshooting
+  sudden performance drops, analyzing campaign impression share metrics,
+  investigating low lead flow, or searching for bidding and budget constraints.
+  Don't use for setting up new campaigns, uploading conversion events directly,
+  or general Google Mobile Ads SDK integration issues (use gma-android-integrate
+  instead).
 metadata:
   category: GoogleAds
   author: google-ads-api-team
-  version: "1.0.0"
+  version: 1.0.0
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/ads/google-ads-api-account-diagnostics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Ads API Account Performance Diagnostics Skill

@@ -1,21 +1,25 @@
 ---
 name: agent-platform-deploy
 metadata:
-  version: "1.0.3"
+  version: 1.0.3
   category: AiAndMachineLearning
-description: >-
-  Deploy open models or custom weights from Model Garden to Agent Platform
-  endpoints, check the status of an in-progress deployment operation, or clean
-  up resources by undeploying models and deleting endpoints. Use when asked to
-  actively deploy a model, list the Model Garden CATALOG of available models,
-  check if a specific model is deployable
-  (`gcloud ai model-garden models list-deployment-config`), query deployment
-  cost, troubleshoot deployment errors (like quota limits), or undeploy/clean
-  up endpoints. Also use when copying and deploying a 1P Tuned Model. Don't
-  use for pure listing/discovery questions of the form "is X deployed?",
-  "list my endpoints", or "which regions have models running?" — for those
-  use `agent-platform-endpoint-management`. Don't use for running model evaluations
+description: Deploy open models or custom weights from Model Garden to Agent
+  Platform endpoints, check the status of an in-progress deployment operation,
+  or clean up resources by undeploying models and deleting endpoints. Use when
+  asked to actively deploy a model, list the Model Garden CATALOG of available
+  models, check if a specific model is deployable (`gcloud ai model-garden
+  models list-deployment-config`), query deployment cost, troubleshoot
+  deployment errors (like quota limits), or undeploy/clean up endpoints. Also
+  use when copying and deploying a 1P Tuned Model. Don't use for pure
+  listing/discovery questions of the form "is X deployed?", "list my endpoints",
+  or "which regions have models running?" — for those use
+  `agent-platform-endpoint-management`. Don't use for running model evaluations
   (use `agent-platform-eval-flywheel` skill).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/agent-platform-deploy
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Agent Platform Model Garden Deploy Skill

@@ -1,13 +1,17 @@
 ---
 name: agent-platform-prompt-management
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
-description: >-
-  Manages and orchestrates prompts in Agent Platform. Use when you need to create,
-  list, retrieve, version, or delete managed prompts in Agent Platform. Don't use
-  for model training, model deployment to endpoints, or managing non-Agent Platform
-  prompts.
+description: Manages and orchestrates prompts in Agent Platform. Use when you
+  need to create, list, retrieve, version, or delete managed prompts in Agent
+  Platform. Don't use for model training, model deployment to endpoints, or
+  managing non-Agent Platform prompts.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/agent-platform-prompt-management
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 ## Usage Guide

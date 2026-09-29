@@ -1,14 +1,19 @@
 ---
 name: gke-cost-optimization
-description: >-
-  Optimizes GKE costs, rightsizes workloads, and configures Spot VMs, CUDs, cost
-  allocation, and resource quotas. Use when optimizing GKE cluster or workload
-  costs, configuring GKE cost allocation or quotas, rightsizing CPU/memory
-  requests, or selecting Spot VMs and machine types. Don't use for general
-  compute class provisioning or GPU Selection (use gke-compute-classes instead).
+description: Optimizes GKE costs, rightsizes workloads, and configures Spot VMs,
+  CUDs, cost allocation, and resource quotas. Use when optimizing GKE cluster or
+  workload costs, configuring GKE cost allocation or quotas, rightsizing
+  CPU/memory requests, or selecting Spot VMs and machine types. Don't use for
+  general compute class provisioning or GPU Selection (use gke-compute-classes
+  instead).
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: CloudObservabilityAndMonitoring
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-cost-optimization
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Cost Optimization

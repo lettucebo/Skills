@@ -1,16 +1,20 @@
 ---
 name: google-cloud-scc-query
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Security
-description: >-
-  Queries and retrieves active security findings, external exposures, toxic
-  combinations, vulnerabilities, threats, and sensitive data risks from Google
-  Cloud Security Command Center. Use when retrieving details for a security
-  finding by its name, validating finding scope (e.g., verifying findingClass is
-  TOXIC_COMBINATION, VULNERABILITY, EXTERNAL_EXPOSURE, or THREAT), or fetching
-  finding details for triage. Don't use to draft remediations, apply patches,
-  or execute configurations.
+description: Queries and retrieves active security findings, external exposures,
+  toxic combinations, vulnerabilities, threats, and sensitive data risks from
+  Google Cloud Security Command Center. Use when retrieving details for a
+  security finding by its name, validating finding scope (e.g., verifying
+  findingClass is TOXIC_COMBINATION, VULNERABILITY, EXTERNAL_EXPOSURE, or
+  THREAT), or fetching finding details for triage. Don't use to draft
+  remediations, apply patches, or execute configurations.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-scc-query
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Security Command Center Query Skill

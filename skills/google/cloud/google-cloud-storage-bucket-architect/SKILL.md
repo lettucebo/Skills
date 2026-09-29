@@ -1,9 +1,8 @@
 ---
 name: google-cloud-storage-bucket-architect
-description: >-
-  Creates Cloud Storage (Google Cloud Storage, or GCS) buckets. Analyzes the
-  workload (sensitive data, media hosting, ingestion, web hosting, archiving,
-  backup, logging, analytics, AI/ML, or general-purpose), validates
+description: Creates Cloud Storage (Google Cloud Storage, or GCS) buckets.
+  Analyzes the workload (sensitive data, media hosting, ingestion, web hosting,
+  archiving, backup, logging, analytics, AI/ML, or general-purpose), validates
   project-level security settings, and designs a secure-by-default,
   cost-effective configuration (location, storage class, uniform bucket-level
   access, public access prevention, soft delete, lifecycle) before creating it.
@@ -16,11 +15,16 @@ description: >-
   changes, or reconfiguring existing buckets, use google-cloud-storage-basics.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   publisher: google
-  tags: "gcs, storage, architect, bucket-creation"
+  tags: gcs, storage, architect, bucket-creation
   category: Storage
   support_tier: primary
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-storage-bucket-architect
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Storage Bucket Architect

@@ -1,19 +1,22 @@
 ---
 name: ima-dai-sdk
-description: >-
-  Integrates the Google Interactive Media Ads (IMA) Dynamic Ad Insertion (DAI)
-  SDK into websites, web apps, mobile apps, or TV apps.
-  Use when:
-  - A video player needs to load and play HLS or DASH streams in web apps,
-  Android apps, iOS apps, tvOS apps, Cast (CAF) receivers, or Roku channels.
-  - The app needs to make use of a Google DAI livestream event asset key, or
-  content source CMS ID, video ID for video on demand.
-  Don't use this skill to load and play a VAST or VMAP URL.
+description: "Integrates the Google Interactive Media Ads (IMA) Dynamic Ad
+  Insertion (DAI) SDK into websites, web apps, mobile apps, or TV apps. Use
+  when: - A video player needs to load and play HLS or DASH streams in web apps,
+  Android apps, iOS apps, tvOS apps, Cast (CAF) receivers, or Roku channels. -
+  The app needs to make use of a Google DAI livestream event asset key, or
+  content source CMS ID, video ID for video on demand. Don't use this skill to
+  load and play a VAST or VMAP URL."
 license: Apache-2.0
 metadata:
   author: Google LLC
-  version: "1.0.0"
+  version: 1.0.0
   category: GoogleAds
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/ads/ima-dai-sdk
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # IMA DAI SDK

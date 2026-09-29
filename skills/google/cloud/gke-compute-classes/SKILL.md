@@ -1,10 +1,19 @@
 ---
 name: gke-compute-classes
-description: >-
-  Configures, optimizes, and troubleshoots GKE ComputeClasses. Use when configuring Spot VMs with on-demand fallback, targeting specific accelerators (GPUs/TPUs) or machine families, restricting ComputeClass access, or debugging pending pods related to node pool auto-creation. Do not use for cluster-level Node Auto Provisioning configuration or general GKE cluster creation.
+description: Configures, optimizes, and troubleshoots GKE ComputeClasses. Use
+  when configuring Spot VMs with on-demand fallback, targeting specific
+  accelerators (GPUs/TPUs) or machine families, restricting ComputeClass access,
+  or debugging pending pods related to node pool auto-creation. Do not use for
+  cluster-level Node Auto Provisioning configuration or general GKE cluster
+  creation.
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Containers
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-compute-classes
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 <!-- disableFinding(LINE_OVER_80) -->

@@ -1,23 +1,27 @@
 ---
 name: gke-upgrades
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Containers
-description: >-
-  Plans, executes, and validates Google Kubernetes Engine (GKE) cluster upgrades
-  and maintenance operations for both Standard and Autopilot clusters. Produces
-  upgrade plans, pre/post-upgrade checklists, maintenance runbooks with gcloud
-  commands, release channel strategy, and troubleshooting guides. Handles node
-  pool upgrade strategies (surge, blue-green), version compatibility, PDB
-  management, and workload-specific concerns (stateful, GPU, operators). Use this
-  skill whenever the user mentions GKE upgrades, Kubernetes version bumps, node
-  pool maintenance, GKE patching, cluster version management, release channel
-  selection, maintenance windows, surge upgrades, stuck upgrades, or any GKE
-  lifecycle management task — even casual mentions like "we need to upgrade our
-  clusters" or "plan our next GKE maintenance" or "our upgrade is stuck." Don't
-  use for GKE cluster creation, application onboarding, general networking/routing
-  setup, or security policy configurations (use gke-basics or relevant GKE skills
-  instead).
+description: Plans, executes, and validates Google Kubernetes Engine (GKE)
+  cluster upgrades and maintenance operations for both Standard and Autopilot
+  clusters. Produces upgrade plans, pre/post-upgrade checklists, maintenance
+  runbooks with gcloud commands, release channel strategy, and troubleshooting
+  guides. Handles node pool upgrade strategies (surge, blue-green), version
+  compatibility, PDB management, and workload-specific concerns (stateful, GPU,
+  operators). Use this skill whenever the user mentions GKE upgrades, Kubernetes
+  version bumps, node pool maintenance, GKE patching, cluster version
+  management, release channel selection, maintenance windows, surge upgrades,
+  stuck upgrades, or any GKE lifecycle management task — even casual mentions
+  like "we need to upgrade our clusters" or "plan our next GKE maintenance" or
+  "our upgrade is stuck." Don't use for GKE cluster creation, application
+  onboarding, general networking/routing setup, or security policy
+  configurations (use gke-basics or relevant GKE skills instead).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-upgrades
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Upgrades & Maintenance

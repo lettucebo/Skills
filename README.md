@@ -35,11 +35,11 @@ hooks/                     ← Copilot Hook 腳本集合
 ## 目前收錄的 Skills
 
 <!-- CATALOG:START -->
-共 **115 個技能**，來自 12 個來源。
+共 **289 個技能**，來自 14 個來源。
 
 > 以下統計由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
 >
-> 全部 112 個 mapped 技能皆已 verified，每個技能的 upstream commit 與 contentHash 均已記錄。
+> 全部 286 個 mapped 技能皆已 verified，每個技能的 upstream commit 與 contentHash 均已記錄。
 
 | 來源 | 數量 | 說明 | 文件 |
 |------|:----:|------|------|
@@ -48,7 +48,9 @@ hooks/                     ← Copilot Hook 腳本集合
 | [claude](skills/claude/) | 13 | Claude API、協作寫作、前端與創意工具 | — |
 | [cloudflare](skills/cloudflare/) | 13 | Cloudflare Workers、Durable Objects、Agents SDK | [README](skills/cloudflare/README.md) |
 | [dotnet](skills/dotnet/) | 14 | C# 測試（NUnit/xUnit/MSTest/TUnit）、EF Core、NuGet、非同步 | — |
+| [expo](skills/expo/) | 24 | Expo、EAS、React Native 應用程式開發與發布 | — |
 | [github](skills/github/) | 8 | GitHub Issues、PR、CodeQL、Dependabot、gh CLI | — |
+| [google](skills/google/) | 150 | Google Cloud、廣告、分析與開發者工具 | — |
 | [google-play-console-cli](skills/google-play-console-cli/) | 16 | Google Play 發布、審查、測試、定價與營運自動化 | — |
 | [gtm](skills/gtm/) | 11 | GTM 技術整合、產品策略、企業銷售、AI GTM | — |
 | [microsoft](skills/microsoft/) | 12 | Azure SDK、AI Foundry、Copilot SDK、MCP Builder | [README](skills/microsoft/README.md) |
@@ -69,27 +71,27 @@ hooks/                     ← Copilot Hook 腳本集合
 <!-- INSTALL:START -->
 > 以下安裝指令由 `scripts/catalog.mjs` 依 `catalog/skills.lock.json` 自動產生，請勿手動編輯。
 
-安裝一律使用 `#<tag>` 釘選版本（不支援 `@version` 或 semver range）。目前 lockfile 的 release 為 **v2.0.1**。
+安裝一律使用 `#<tag>` 釘選版本（不支援 `@version` 或 semver range）。目前 lockfile 的 release 為 **v2.1.0**。
 
 安裝整個 registry：
 
 ```bash
-npx skills add lettucebo/Skills#v2.0.1
+npx skills add lettucebo/Skills#v2.1.0
 ```
 
 只安裝單一來源：
 
 ```bash
-npx skills add lettucebo/Skills/skills/azure#v2.0.1
+npx skills add lettucebo/Skills/skills/azure#v2.1.0
 ```
 
 只安裝單一技能：
 
 ```bash
-npx skills add "lettucebo/Skills#v2.0.1@agents-sdk"
+npx skills add "lettucebo/Skills#v2.1.0@agent-platform-alert-configuration"
 ```
 
-> ⚠️ 上述指令需要 `v2.0.1` tag 已推送到 GitHub；若該 tag 尚未發布，`npx skills` 會找不到對應 ref 而失敗。
+> ⚠️ 上述指令需要 `v2.1.0` tag 已推送到 GitHub；若該 tag 尚未發布，`npx skills` 會找不到對應 ref 而失敗。
 <!-- INSTALL:END -->
 
 ### 方法二：直接複製

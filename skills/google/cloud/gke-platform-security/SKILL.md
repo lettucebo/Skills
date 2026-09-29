@@ -1,19 +1,24 @@
 ---
 name: gke-platform-security
-description: >-
-  Plans, configures, and hardens platform-level Google Kubernetes Engine (GKE)
-  cluster security. Covers cluster add-ons (Secret Manager enablement), RBAC
-  hardening (disabling insecure bindings, audit tools), Binary Authorization,
-  Secrets Encryption (--database-encryption-key), Security Posture (--security-posture),
-  enabling Shielded Nodes, GKE Sandbox cluster enablement, GKE IAM roles, and
-  cross-service authentication IAM patterns. Use when securing cluster control
-  planes, hardening GKE RBAC, enabling Shielded Nodes, enabling GKE Sandbox runtime,
-  enabling cluster-wide security add-ons, or managing GKE IAM roles. Don't use
-  for Workload Identity (use gke-workload-identity) or workload-level security
-  (SecretProviderClass, PSS, NetPol, gVisor pod runtimeClassName; use gke-workload-security).
+description: Plans, configures, and hardens platform-level Google Kubernetes
+  Engine (GKE) cluster security. Covers cluster add-ons (Secret Manager
+  enablement), RBAC hardening (disabling insecure bindings, audit tools), Binary
+  Authorization, Secrets Encryption (--database-encryption-key), Security
+  Posture (--security-posture), enabling Shielded Nodes, GKE Sandbox cluster
+  enablement, GKE IAM roles, and cross-service authentication IAM patterns. Use
+  when securing cluster control planes, hardening GKE RBAC, enabling Shielded
+  Nodes, enabling GKE Sandbox runtime, enabling cluster-wide security add-ons,
+  or managing GKE IAM roles. Don't use for Workload Identity (use
+  gke-workload-identity) or workload-level security (SecretProviderClass, PSS,
+  NetPol, gVisor pod runtimeClassName; use gke-workload-security).
 metadata:
-  version: "1.0.1"
+  version: 1.0.1
   category: Security
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-platform-security
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Platform Security

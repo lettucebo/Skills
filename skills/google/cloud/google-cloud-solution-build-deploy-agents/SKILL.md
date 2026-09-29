@@ -1,15 +1,20 @@
 ---
 name: google-cloud-solution-build-deploy-agents
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: MultiProductSolutions
-description: >-
-  Designs, builds, and deploys AI agents or multi-agent systems on Google Cloud.
-  Provides an interactive workflow to gather requirements, recommend a tailored
-  architecture, and generate deployment instructions. Use when designing or
-  implementing agentic systems on Google Cloud. Don't use for general Google
-  Cloud solution architecture (use google-cloud-solution-architecture instead)
-  or for narrow tasks targeting a single product without agent context.
+description: Designs, builds, and deploys AI agents or multi-agent systems on
+  Google Cloud. Provides an interactive workflow to gather requirements,
+  recommend a tailored architecture, and generate deployment instructions. Use
+  when designing or implementing agentic systems on Google Cloud. Don't use for
+  general Google Cloud solution architecture (use
+  google-cloud-solution-architecture instead) or for narrow tasks targeting a
+  single product without agent context.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-solution-build-deploy-agents
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Build and deploy AI agents on Google Cloud

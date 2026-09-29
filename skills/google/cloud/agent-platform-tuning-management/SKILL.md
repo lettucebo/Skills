@@ -1,14 +1,18 @@
 ---
 name: agent-platform-tuning-management
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
-description: >-
-  Manages GenAI tuning jobs in Agent Platform. Use this to list, get, or cancel
-  ongoing model tuning jobs. Don't use for fine-tuning models (use
+description: Manages GenAI tuning jobs in Agent Platform. Use this to list, get,
+  or cancel ongoing model tuning jobs. Don't use for fine-tuning models (use
   `agent-platform-tuning`), deploying models to endpoints (use
   `agent-platform-deploy`), or managing serving endpoints (use
   `agent-platform-endpoint-management`).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/agent-platform-tuning-management
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Agent Platform Tuning Management

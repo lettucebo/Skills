@@ -1,6 +1,14 @@
 ---
 name: expo-app-clip
-description: Framework (OSS). Add an iOS App Clip target to an Expo app. Use when the user mentions App Clip, AASA, apple-app-site-association, appclips, smart app banner, or wants to ship a lightweight iOS Clip invoked from a URL alongside their parent app.
+description: Framework (OSS). Add an iOS App Clip target to an Expo app. Use
+  when the user mentions App Clip, AASA, apple-app-site-association, appclips,
+  smart app banner, or wants to ship a lightweight iOS Clip invoked from a URL
+  alongside their parent app.
+x-source: expo/skills
+x-source-ref: refs/heads/main
+x-source-path: plugins/expo/skills/expo-app-clip
+x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
+x-version: 1.0.0
 ---
 
 # Add an App Clip to an Expo App

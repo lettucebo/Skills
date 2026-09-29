@@ -1,13 +1,20 @@
 ---
 name: datalineage-summary
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: BigDataAndAnalytics
-description: >-
-  Summarizes Google Cloud Data Lineage graphs to help users debug data quality issues and understand data provenance for BQ/GCS.
-  Use when summarizing upstream and downstream data flows, and presenting complex lineage data as an intuitive Markdown report.
-  Don't use for generic BigQuery queries, editing lineage relationships, or downstream deprecation.
-  Don't use for downstream blast-radius impact analysis (use datalineage-bigquery-asset-impact-analysis skill instead).
+description: Summarizes Google Cloud Data Lineage graphs to help users debug
+  data quality issues and understand data provenance for BQ/GCS. Use when
+  summarizing upstream and downstream data flows, and presenting complex lineage
+  data as an intuitive Markdown report. Don't use for generic BigQuery queries,
+  editing lineage relationships, or downstream deprecation. Don't use for
+  downstream blast-radius impact analysis (use
+  datalineage-bigquery-asset-impact-analysis skill instead).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/datalineage-summary
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Data Lineage Summary

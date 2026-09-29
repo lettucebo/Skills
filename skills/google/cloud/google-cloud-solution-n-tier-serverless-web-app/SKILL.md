@@ -1,10 +1,19 @@
 ---
 name: google-cloud-solution-n-tier-serverless-web-app
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: MultiProductSolutions
-description: >-
-  Assists in designing and implementing secure n-tier serverless web applications and microservices on Google Cloud. Use when users need architecture designs, security checklists, Terraform code, or deployment guidance for multi-tier serverless apps, regional data residency / European sovereignty compliance, zero-trust private VPC networking, or Private Service Connect. Don't use for VM, GKE, or non-Google Cloud architectures.
+description: Assists in designing and implementing secure n-tier serverless web
+  applications and microservices on Google Cloud. Use when users need
+  architecture designs, security checklists, Terraform code, or deployment
+  guidance for multi-tier serverless apps, regional data residency / European
+  sovereignty compliance, zero-trust private VPC networking, or Private Service
+  Connect. Don't use for VM, GKE, or non-Google Cloud architectures.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-solution-n-tier-serverless-web-app
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 <!-- disableFinding(all) -->

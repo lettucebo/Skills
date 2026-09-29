@@ -1,9 +1,22 @@
 ---
 name: eas-update
-description: "EAS service (paid). Configure and use EAS Update for over-the-air JavaScript and asset updates with expo-updates and EAS CLI. Use when setting up OTA updates, running eas update:configure or eas update, publishing to preview/staging/production channels, explaining branches/channels/runtime versions, testing updates, or debugging why an installed build still shows old code. Load for TestFlight, preview, or production updates that do not appear, including questions about cold launches or reopening the app. Not for update health metrics; use eas-update-insights for adoption, crashes, and rollout monitoring."
+description: EAS service (paid). Configure and use EAS Update for over-the-air
+  JavaScript and asset updates with expo-updates and EAS CLI. Use when setting
+  up OTA updates, running eas update:configure or eas update, publishing to
+  preview/staging/production channels, explaining branches/channels/runtime
+  versions, testing updates, or debugging why an installed build still shows old
+  code. Load for TestFlight, preview, or production updates that do not appear,
+  including questions about cold launches or reopening the app. Not for update
+  health metrics; use eas-update-insights for adoption, crashes, and rollout
+  monitoring.
 version: 1.0.0
 license: MIT
-allowed-tools: "Bash(npx expo *), Bash(npx *eas-cli@*), Bash(eas *)"
+allowed-tools: Bash(npx expo *), Bash(npx *eas-cli@*), Bash(eas *)
+x-source: expo/skills
+x-source-ref: refs/heads/main
+x-source-path: plugins/expo/skills/eas-update
+x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
+x-version: 1.0.0
 ---
 
 # EAS Update

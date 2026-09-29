@@ -1,12 +1,17 @@
 ---
 name: agent-platform-skill-registry
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
 description: >
   Interact with the Gemini Enterprise Agent Platform Skill Registry to create
   and search for available skills. Use this skill to enable agents to register
   functionality or discover new capabilities.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/agent-platform-skill-registry
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Skill Registry

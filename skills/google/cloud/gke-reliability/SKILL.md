@@ -1,14 +1,19 @@
 ---
 name: gke-reliability
-description: >-
-  Improves GKE workload reliability, using PDBs, health probes, and topology
-  spread constraints. Use when configuring GKE workload reliability, setting up
-  PDBs, or configuring GKE health probes (liveness, readiness, startup). Don't
-  use for generating K8s YAML manifests (use gke-manifest-generation) or
-  disaster recovery and cluster backups (use gke-backup-dr).
+description: Improves GKE workload reliability, using PDBs, health probes, and
+  topology spread constraints. Use when configuring GKE workload reliability,
+  setting up PDBs, or configuring GKE health probes (liveness, readiness,
+  startup). Don't use for generating K8s YAML manifests (use
+  gke-manifest-generation) or disaster recovery and cluster backups (use
+  gke-backup-dr).
 metadata:
-  version: "1.0.1"
+  version: 1.0.1
   category: Containers
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-reliability
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Reliability

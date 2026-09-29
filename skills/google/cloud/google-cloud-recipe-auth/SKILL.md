@@ -1,9 +1,16 @@
 ---
 name: google-cloud-recipe-auth
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: GettingStarted
-description: Provides expert guidance on authenticating and authorizing to Google Cloud services and APIs, covering human users, service identities, Application Default Credentials (ADC), and best practices for secure access.
+description: Provides expert guidance on authenticating and authorizing to
+  Google Cloud services and APIs, covering human users, service identities,
+  Application Default Credentials (ADC), and best practices for secure access.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-recipe-auth
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Authenticating to Google Cloud

@@ -1,19 +1,24 @@
 ---
 name: agent-platform-alert-configuration
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
-description: >-
-  Configures best-practice alerting policies for AI agents using OpenTelemetry
-  (OTel) metrics, generating output as Terraform (.tf) configuration files.
-  Use when analyzing, writing, or deploying alerting policies
-  to monitor agent latency, error rates, token usage, and quality metrics.
-  Don't use for standard infrastructure monitoring unrelated to AI agents,
-  or when the agent is not instrumented with OpenTelemetry (for Reliability, Cost, Safety, Security alerts).
-  NOTE: Reliability, Cost, Safety, and Security alerts use generic OTel metrics
-  and work across runtimes (such as Cloud Run, Vertex AI). Quality alerts rely
-  on Vertex AI Online Monitors and are strictly bound to Vertex AI deployments.
+description: "Configures best-practice alerting policies for AI agents using
+  OpenTelemetry (OTel) metrics, generating output as Terraform (.tf)
+  configuration files. Use when analyzing, writing, or deploying alerting
+  policies to monitor agent latency, error rates, token usage, and quality
+  metrics. Don't use for standard infrastructure monitoring unrelated to AI
+  agents, or when the agent is not instrumented with OpenTelemetry (for
+  Reliability, Cost, Safety, Security alerts). NOTE: Reliability, Cost, Safety,
+  and Security alerts use generic OTel metrics and work across runtimes (such as
+  Cloud Run, Vertex AI). Quality alerts rely on Vertex AI Online Monitors and
+  are strictly bound to Vertex AI deployments."
 allowed-tools: terraform gcloud python
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/agent-platform-alert-configuration
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Agent Platform Alert Configuration

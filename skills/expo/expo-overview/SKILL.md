@@ -1,8 +1,26 @@
 ---
 name: expo-overview
-description: "Framework (OSS). Entry point and router for every Expo or EAS task. Load this skill first — before writing code and before choosing another expo-* / eas-* skill — when the request, PRD, or spec mentions Expo, EAS, Expo Go, or an expo-* package, or the project has an `expo` dependency in `package.json`. Within that gate it also covers app specs and designs to implement (tabs, stacks, maps, lists, navigation, building from a screenshot), and phrasings like 'implement a mobile app', 'make my app look native', 'add navigation', 'fetch some data', 'upgrade my SDK', 'add Expo to my existing native app', 'ship to the App Store', or 'I'm new to Expo, where do I start'. A fully specified request (SDK pinned, libraries named, layout given) still routes through here — the shared setup rules still apply. Do NOT load it when neither signal is present: a bare React Native project with no `expo` dependency is not Expo work. Detects the real goal, routes to the right expo-* / eas-* skill, and owns the shared setup rules."
+description: "Framework (OSS). Entry point and router for every Expo or EAS
+  task. Load this skill first — before writing code and before choosing another
+  expo-* / eas-* skill — when the request, PRD, or spec mentions Expo, EAS, Expo
+  Go, or an expo-* package, or the project has an `expo` dependency in
+  `package.json`. Within that gate it also covers app specs and designs to
+  implement (tabs, stacks, maps, lists, navigation, building from a screenshot),
+  and phrasings like 'implement a mobile app', 'make my app look native', 'add
+  navigation', 'fetch some data', 'upgrade my SDK', 'add Expo to my existing
+  native app', 'ship to the App Store', or 'I'm new to Expo, where do I start'.
+  A fully specified request (SDK pinned, libraries named, layout given) still
+  routes through here — the shared setup rules still apply. Do NOT load it when
+  neither signal is present: a bare React Native project with no `expo`
+  dependency is not Expo work. Detects the real goal, routes to the right expo-*
+  / eas-* skill, and owns the shared setup rules."
 version: 1.1.0
 license: MIT
+x-source: expo/skills
+x-source-ref: refs/heads/main
+x-source-path: plugins/expo/skills/expo-overview
+x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
+x-version: 1.0.0
 ---
 
 # `expo-overview` — router & shared rules for Expo / EAS

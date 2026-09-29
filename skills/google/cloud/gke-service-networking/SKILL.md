@@ -1,15 +1,19 @@
 ---
 name: gke-service-networking
-description: >-
-  Configures GKE edge networking, traffic routing, load balancing, and private
-  service endpoints. Use when configuring Gateway API manifests, standard
-  Ingress, Cloud Armor WAF security policies, Container-Native Load Balancing
-  (NEGs), Private Service Connect (PSC), or Google-managed SSL certificates on
-  GKE. Don't use for core cluster IP planning, Dataplane V2 network policies, or
-  node NAT egress (use gke-networking instead).
+description: Configures GKE edge networking, traffic routing, load balancing,
+  and private service endpoints. Use when configuring Gateway API manifests,
+  standard Ingress, Cloud Armor WAF security policies, Container-Native Load
+  Balancing (NEGs), Private Service Connect (PSC), or Google-managed SSL
+  certificates on GKE. Don't use for core cluster IP planning, Dataplane V2
+  network policies, or node NAT egress (use gke-networking instead).
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Networking
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-service-networking
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Service Networking Skill

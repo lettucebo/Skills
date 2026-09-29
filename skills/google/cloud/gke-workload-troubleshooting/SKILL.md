@@ -1,10 +1,17 @@
 ---
 name: gke-workload-troubleshooting
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Containers
-description: >-
-  Diagnoses GKE workload failures (CrashLoopBackOff, OOMKilled, ImagePullBackOff, Pending, etc.) via logs and events. Use when pods fail to start or crash repeatedly. Don't use for GKE cluster infrastructure provisioning, node pool creation, or non-Kubernetes Google Cloud services.
+description: Diagnoses GKE workload failures (CrashLoopBackOff, OOMKilled,
+  ImagePullBackOff, Pending, etc.) via logs and events. Use when pods fail to
+  start or crash repeatedly. Don't use for GKE cluster infrastructure
+  provisioning, node pool creation, or non-Kubernetes Google Cloud services.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-workload-troubleshooting
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Workload Troubleshooting Skill

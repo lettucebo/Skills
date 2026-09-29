@@ -1,14 +1,18 @@
 ---
 name: agent-platform-endpoint-management
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
-description: >-
-  Manages Agent Platform serving endpoints. Use when you need to create, list,
-  describe, update, or delete serving endpoints for model deployment on Agent
-  Platform. Also use when troubleshooting endpoint permission, quota, or resource
-  busy errors. Don't use for deploying models to endpoints or for running
-  model evaluations.
+description: Manages Agent Platform serving endpoints. Use when you need to
+  create, list, describe, update, or delete serving endpoints for model
+  deployment on Agent Platform. Also use when troubleshooting endpoint
+  permission, quota, or resource busy errors. Don't use for deploying models to
+  endpoints or for running model evaluations.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/agent-platform-endpoint-management
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Agent Platform Endpoint Management

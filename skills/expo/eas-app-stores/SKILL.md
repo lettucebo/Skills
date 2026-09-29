@@ -1,8 +1,18 @@
 ---
 name: eas-app-stores
-description: EAS service (paid). Build and submit iOS and Android apps with EAS to TestFlight, the App Store, or Google Play. Supports Expo and other React Native projects, plus existing native apps. Use for eas.json setup, release pipelines, signing, app versions and build numbers, store submissions, and listing metadata. For Expo websites and API routes, use eas-hosting; for adding React Native screens to a native app, use expo-brownfield.
+description: EAS service (paid). Build and submit iOS and Android apps with EAS
+  to TestFlight, the App Store, or Google Play. Supports Expo and other React
+  Native projects, plus existing native apps. Use for eas.json setup, release
+  pipelines, signing, app versions and build numbers, store submissions, and
+  listing metadata. For Expo websites and API routes, use eas-hosting; for
+  adding React Native screens to a native app, use expo-brownfield.
 version: 1.1.0
 license: MIT
+x-source: expo/skills
+x-source-ref: refs/heads/main
+x-source-path: plugins/expo/skills/eas-app-stores
+x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
+x-version: 1.0.0
 ---
 
 # App Store Deployment

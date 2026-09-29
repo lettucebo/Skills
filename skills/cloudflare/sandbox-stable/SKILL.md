@@ -1,15 +1,13 @@
 ---
 name: sandbox-stable
-description: Use when building or changing Cloudflare Sandbox apps on the
-  current stable @cloudflare/sandbox package (default npm tag)—commands,
-  sessions, files, ports, tunnels, terminals, bridge, production, or
-  deprecated-API cleanup while staying on stable. Not for
-  @cloudflare/sandbox@next (use sandbox-next) or for porting to 1.0 (use
-  sandbox-migrate-to-next).
+description: Build or maintain Cloudflare Sandbox apps on the stable
+  @cloudflare/sandbox package. Use sandbox-next for preview apps and
+  sandbox-migrate-to-next for stable-to-preview migrations.
 x-source: cloudflare/skills
+x-source-ref: refs/heads/main
 x-source-path: skills/sandbox-stable
-x-source-commit: f96bff754e428838818017f75817f0f9428acd48
-x-version: 1.1.0
+x-source-commit: 626547c06881a20b3322bdc2ed6e6451b33a4fb6
+x-version: 1.1.1
 ---
 
 # Sandbox SDK — stable package

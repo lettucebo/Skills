@@ -1,14 +1,18 @@
 ---
 name: managed-airflow-dag-authoring
-description: >-
-  Provides guidance for authoring Apache Airflow DAGs in Managed Service for
-  Apache Airflow (MSAA; formerly Cloud Composer). Covers environment context
-  discovery, Airflow 2 vs 3 compatibility, authoring best practices, and local/remote
-  validation processes. Use when creating or extending an Airflow DAG. Don't
-  use when authoring Python code unrelated to Airflow DAGs.
+description: Provides guidance for authoring Apache Airflow DAGs in Managed
+  Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers environment
+  context discovery, Airflow 2 vs 3 compatibility, authoring best practices, and
+  local/remote validation processes. Use when creating or extending an Airflow
+  DAG. Don't use when authoring Python code unrelated to Airflow DAGs.
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: BigDataAndAnalytics
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/managed-airflow-dag-authoring
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GCP Managed Airflow DAG Authoring Guide

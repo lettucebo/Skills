@@ -1,18 +1,22 @@
 ---
 name: google-cloud-solution-hybrid-search-alloydb
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: MultiProductSolutions
-description: >-
-  Discovers requirements and generates architectural, design, and deployment
-  guidance for dynamic hybrid search systems by combining semantic search and
-  keyword search. Optimized for AlloyDB hybrid search use cases in Google Cloud.
-  Use when users need vector search combined with structured SQL
+description: Discovers requirements and generates architectural, design, and
+  deployment guidance for dynamic hybrid search systems by combining semantic
+  search and keyword search. Optimized for AlloyDB hybrid search use cases in
+  Google Cloud. Use when users need vector search combined with structured SQL
   filtering, faceted attributes, semantic reranking, in-database AI validation,
   or serverless hosting across transactional relational databases, analytical
   data warehouses, or managed database engines. DON'T use this skill for simple
   keyword-only search, or when a standalone non-relational vector database is
   required.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-solution-hybrid-search-alloydb
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Dynamic Hybrid Search using AlloyDB

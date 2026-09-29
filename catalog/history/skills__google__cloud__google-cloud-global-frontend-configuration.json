@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-global-frontend-configuration",
+  "name": "google-cloud-global-frontend-configuration",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:8c33cf1586ca9c9fad1232cd3927051417ce424e0462e79e723e7f4812714dbe"
+    }
+  ]
+}

@@ -1,14 +1,18 @@
 ---
 name: gke-golden-path
-description: >-
-  Provides GKE golden path configuration defaults, production readiness
-  checklists, and cluster default patterns. Use when designing GKE clusters,
-  verifying GKE production readiness, or checking configurations against
-  GKE defaults. Don't use for setting up workload autoscaling specifically (use
-  gke-workload-scaling instead).
+description: Provides GKE golden path configuration defaults, production
+  readiness checklists, and cluster default patterns. Use when designing GKE
+  clusters, verifying GKE production readiness, or checking configurations
+  against GKE defaults. Don't use for setting up workload autoscaling
+  specifically (use gke-workload-scaling instead).
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Containers
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gke-golden-path
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # GKE Golden Path Configuration

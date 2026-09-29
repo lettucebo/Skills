@@ -1,15 +1,20 @@
 ---
 name: iam-helper-for-troubleshooting
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Security
-description: >-
-  Diagnoses, remediates, and manages Google Cloud Identity and Access Management (IAM)
-  access issues. Supports two distinct operational modes: (1) Requester Flow for
-  developers encountering access denials (capturing error context, self-service PAM
-  JIT activations, elevated developer self-remediation, or logging structured tickets),
-  and (2) Resolver Flow for privileged administrators (authoritative Policy Troubleshooter
-  analysis, deny policy exemptions, least-privilege role discovery, and PAM/IAM provisioning).
+description: "Diagnoses, remediates, and manages Google Cloud Identity and
+  Access Management (IAM) access issues. Supports two distinct operational
+  modes: (1) Requester Flow for developers encountering access denials
+  (capturing error context, self-service PAM JIT activations, elevated developer
+  self-remediation, or logging structured tickets), and (2) Resolver Flow for
+  privileged administrators (authoritative Policy Troubleshooter analysis, deny
+  policy exemptions, least-privilege role discovery, and PAM/IAM provisioning)."
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/iam-helper-for-troubleshooting
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud IAM Access Troubleshooter & Remediation Orchestrator

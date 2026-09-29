@@ -1,13 +1,17 @@
 ---
 name: agent-platform-model-registry
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
-description: >-
-  Agent Platform Model Registry Management. Use when you need to upload, list,
-  describe, update, or delete machine learning models (and their versions)
-  in the Agent Platform Model Registry. Don't use for model training, model
-  deployment to endpoints, or managing non-Agent Platform models.
+description: Agent Platform Model Registry Management. Use when you need to
+  upload, list, describe, update, or delete machine learning models (and their
+  versions) in the Agent Platform Model Registry. Don't use for model training,
+  model deployment to endpoints, or managing non-Agent Platform models.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/agent-platform-model-registry
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Agent Platform Model Registry Management

@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/cloud-build-basics",
+  "name": "cloud-build-basics",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:4d408055d48f7a2d507dc01a6498f645f67dc195fe7af7c1caa89156366cf813"
+    }
+  ]
+}

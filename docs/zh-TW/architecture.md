@@ -96,11 +96,11 @@ flowchart LR
 13. **`site/src/i18n/`** 集中管理支援的 locale 型別、字典、parser/assertion、
     HTML 語言對應與理解 base path 的路徑 helper。共用頁面元件渲染五種邏輯頁面，
     明確的 `[locale]` 路由則為 `en`、`zh-tw` 與 `zh-cn` 展開它們。
-14. 目前 catalog 產生 390 個在地化頁面與 130 個無語言前綴的靜態 redirect
+14. 目前 catalog 產生 918 個在地化頁面與 306 個無語言前綴的靜態 redirect
     頁面。Redirect 保留舊版邏輯目標，以英文作為 canonical、meta 與 no-JS
-    fallback，並排除於 Pagefind 之外。每個 locale 只有 115 個 skill 頁加入
-    Pagefind，因此三個語言索引合計 345 個已索引頁面；全部路由合計正好產生
-    520 個 HTML 頁面。
+    fallback，並排除於 Pagefind 之外。每個 locale 只有 289 個 skill 頁加入
+    Pagefind，因此三個語言索引合計 867 個已索引頁面；全部路由合計正好產生
+    1224 個 HTML 頁面。
 15. 建置完成的網站會部署到 **GitHub Pages**。
 
 `node scripts/validate.mjs` 橫跨每一個階段：它會獨立於任何一次同步執行，走遍

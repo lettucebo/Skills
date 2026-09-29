@@ -1,17 +1,21 @@
 ---
 name: gemini-live-api
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
-description: >-
-  Generates a Gemini LiveAPI client service class in the user's chosen programming
-  language. Use when the user wants to build, scaffold, or integrate a client
-  that connects to the Gemini Enterprise LiveAPI websocket endpoint, handles
-  session setup/resumption, bearer token refresh, and sending/receiving
-  `ClientMessage`/`ServerMessage` protos. Don't use for general (non-live,
-  non-bidirectional) Gemini API usage such as one-shot `generateContent`,
-  embeddings, image/video generation, or fine-tuning — use the `gemini-api`
-  skill for those.
+description: Generates a Gemini LiveAPI client service class in the user's
+  chosen programming language. Use when the user wants to build, scaffold, or
+  integrate a client that connects to the Gemini Enterprise LiveAPI websocket
+  endpoint, handles session setup/resumption, bearer token refresh, and
+  sending/receiving `ClientMessage`/`ServerMessage` protos. Don't use for
+  general (non-live, non-bidirectional) Gemini API usage such as one-shot
+  `generateContent`, embeddings, image/video generation, or fine-tuning — use
+  the `gemini-api` skill for those.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/gemini-live-api
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # LiveAPI Service Skill

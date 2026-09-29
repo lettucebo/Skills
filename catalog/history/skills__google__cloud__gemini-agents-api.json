@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/gemini-agents-api",
+  "name": "gemini-agents-api",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:01c2f95a79ad3db4f3587e55a7f4713194ee30098d2c30c7a89552f3de6d799d"
+    }
+  ]
+}

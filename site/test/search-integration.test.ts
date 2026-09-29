@@ -29,7 +29,7 @@ test('pagefind index files exist in dist/', { skip: !distExists && 'dist/ not fo
 
 // ─── Programmatic Search: Known Public Skill ────────────────────────
 
-test('pagefind indexes exactly 345 localized skill pages with filters and metadata', {
+test('pagefind indexes exactly 867 localized skill pages with filters and metadata', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   // Verify the built pagefind index has the correct page count
@@ -38,16 +38,16 @@ test('pagefind indexes exactly 345 localized skill pages with filters and metada
 
   const entry = JSON.parse(fs.readFileSync(entryPath, 'utf8'));
   assert.equal(
-    entry.languages.en.page_count, 115,
-    'Pagefind must index exactly 115 English skill pages',
+    entry.languages.en.page_count, 289,
+    'Pagefind must index exactly 289 English skill pages',
   );
-  assert.equal(entry.languages['zh-tw'].page_count, 115);
-  assert.equal(entry.languages['zh-cn'].page_count, 115);
+  assert.equal(entry.languages['zh-tw'].page_count, 289);
+  assert.equal(entry.languages['zh-cn'].page_count, 289);
 
   // Verify fragment files exist (one per indexed page)
   const fragmentDir = path.join(distDir, 'pagefind', 'fragment');
   const fragments = fs.readdirSync(fragmentDir).filter(f => f.endsWith('.pf_fragment'));
-  assert.equal(fragments.length, 345, 'Must have 345 fragment files');
+  assert.equal(fragments.length, 867, 'Must have 867 fragment files');
 
   // Verify filter index files exist
   const filterDir = path.join(distDir, 'pagefind', 'filter');

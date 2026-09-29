@@ -5,9 +5,10 @@ description: Manage Azure DevOps resources via CLI including projects, repos,
   endpoints. Use when working with Azure DevOps, az commands, devops automation,
   CI/CD, or when user mentions Azure DevOps CLI.
 x-source: github/awesome-copilot
+x-source-ref: refs/heads/main
 x-source-path: skills/azure-devops-cli
-x-source-commit: 4742f265959bf025882314564b364d9d7af6e2d5
-x-version: 1.1.0
+x-source-commit: 997e95a6e42869c350f8ca6ec4c066287697c9f0
+x-version: 1.1.1
 ---
 
 # Azure DevOps CLI

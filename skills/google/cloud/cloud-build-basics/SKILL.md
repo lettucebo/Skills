@@ -1,13 +1,18 @@
 ---
 name: cloud-build-basics
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: DevOps
-description: >-
-  Teaches the fundamentals of Google Cloud Build (GCB). Covers core concepts,
-  API enablement, console navigation to the Build History page, and the end-to-end
-  workflow for creating and manually running a basic build trigger. Do not use for
-  managing private pools or complex pipeline architectures.
+description: Teaches the fundamentals of Google Cloud Build (GCB). Covers core
+  concepts, API enablement, console navigation to the Build History page, and
+  the end-to-end workflow for creating and manually running a basic build
+  trigger. Do not use for managing private pools or complex pipeline
+  architectures.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/cloud-build-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Build Basics

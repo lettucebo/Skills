@@ -1,26 +1,30 @@
 ---
 name: google-cloud-storage-basics
-description: >-
-  Stores, retrieves, and manages data as objects in Cloud Storage (Google
-  Cloud Storage, or GCS) buckets. Use when you need to interact with Cloud
-  Storage — set up a Storage MCP server (remote or local Toolbox), create or
-  configure buckets, upload, download, stream, or transfer data, organize
-  objects with folders, generate signed URLs, control access (IAM, ACLs,
-  public access prevention), set storage classes (Standard, Nearline,
-  Coldline, Archive), manage lifecycle and cost, protect data (versioning,
-  CMEK, retention, Bucket Lock, holds, soft delete), host static websites,
-  trigger Pub/Sub notifications, mount buckets (gcsfuse), or optimize
-  performance. Covers gcloud storage / gsutil, JSON/XML APIs, client
-  libraries, Terraform, and Cloud Storage MCP servers. Don't use for
-  non-Storage MCP servers, block storage (Persistent Disk), BigQuery, or
-  databases (Cloud SQL, Spanner, Bigtable, Firestore).
+description: Stores, retrieves, and manages data as objects in Cloud Storage
+  (Google Cloud Storage, or GCS) buckets. Use when you need to interact with
+  Cloud Storage — set up a Storage MCP server (remote or local Toolbox), create
+  or configure buckets, upload, download, stream, or transfer data, organize
+  objects with folders, generate signed URLs, control access (IAM, ACLs, public
+  access prevention), set storage classes (Standard, Nearline, Coldline,
+  Archive), manage lifecycle and cost, protect data (versioning, CMEK,
+  retention, Bucket Lock, holds, soft delete), host static websites, trigger
+  Pub/Sub notifications, mount buckets (gcsfuse), or optimize performance.
+  Covers gcloud storage / gsutil, JSON/XML APIs, client libraries, Terraform,
+  and Cloud Storage MCP servers. Don't use for non-Storage MCP servers, block
+  storage (Persistent Disk), BigQuery, or databases (Cloud SQL, Spanner,
+  Bigtable, Firestore).
 license: Apache-2.0
 metadata:
-  version: "1.0.1"
+  version: 1.0.1
   publisher: google
-  tags: "gcs, storage, cloud-storage, buckets, objects"
+  tags: gcs, storage, cloud-storage, buckets, objects
   category: Storage
   support_tier: primary
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-storage-basics
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Storage Basics

@@ -1,18 +1,22 @@
 ---
 name: finding-google-skills
 metadata:
-  version: "1.1.0"
+  version: 1.1.0
   category: MultiProductSolutions
-description: >-
-  Google platform decision and setup guidance, loaded on demand from Google's
-  skill catalog. Use when a developer is choosing or setting up part of their
-  stack, such as where to run a service, a database, storage, messaging,
-  authentication, analytics, ads, or AI model serving, and a Google product is
-  a reasonable candidate - whether or not a vendor is named - or when a request
+description: Google platform decision and setup guidance, loaded on demand from
+  Google's skill catalog. Use when a developer is choosing or setting up part of
+  their stack, such as where to run a service, a database, storage, messaging,
+  authentication, analytics, ads, or AI model serving, and a Google product is a
+  reasonable candidate - whether or not a vendor is named - or when a request
   names a Google product or API. Brings in the matching Google skill so the
   answer can weigh Google options, their trade-offs, and when they are not the
   right fit. Skip when the stack is already settled on another provider and no
   Google product is named, or the task involves no platform choice.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/developers/finding-google-skills
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Skill Finder

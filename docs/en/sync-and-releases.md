@@ -253,6 +253,18 @@ tag, atomic push, and deploy handoff as an ordinary applied update:
    original triggering SHA, because a reusable workflow otherwise inherits
    the caller's pre-sync commit.
 
+After the `v<release>` tag has been pushed, publish a separate GitHub Release
+with manually verified notes:
+
+```bash
+gh release create v<release> --verify-tag --notes-file <verified-notes-file>
+```
+
+`--verify-tag` requires the tag to already exist on GitHub; a GitHub Release
+does not create or replace the registry tag. It also does not replace the
+deploy workflow rerun required after manual tagging (see
+[Finishing an adoption](skill-management.md#finishing-an-adoption)).
+
 A manual apply or baseline dispatch from a non-`main` ref does not fail: the
 apply and deploy jobs are skipped, so the workflow can appear green while
 performing no sync. Select `main` for every mutating dispatch. A manual

@@ -1,13 +1,18 @@
 ---
 name: cloud-monitoring-promql-query
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: CloudObservabilityAndMonitoring
-description: >-
-  Generates valid PromQL queries from Cloud Monitoring metric descriptors and
-  resource parameters. Use when asked to create, generate, write, or format
-  PromQL queries, PromQL strings, or PromQL aggregations for Cloud Monitoring
-  metrics and resources. Don't use for raw metric discovery or metric selection.
+description: Generates valid PromQL queries from Cloud Monitoring metric
+  descriptors and resource parameters. Use when asked to create, generate,
+  write, or format PromQL queries, PromQL strings, or PromQL aggregations for
+  Cloud Monitoring metrics and resources. Don't use for raw metric discovery or
+  metric selection.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/cloud-monitoring-promql-query
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Cloud Monitoring PromQL Generator

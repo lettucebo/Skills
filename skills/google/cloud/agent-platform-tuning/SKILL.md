@@ -1,14 +1,18 @@
 ---
 name: agent-platform-tuning
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: AiAndMachineLearning
-description: >-
-  Agent Platform Model Tuning. Use when you need to fine-tune open models
-  or Gemini models using Agent Platform infrastructure. Don't use for model
-  training outside Agent Platform, model deployment to endpoints (use
+description: Agent Platform Model Tuning. Use when you need to fine-tune open
+  models or Gemini models using Agent Platform infrastructure. Don't use for
+  model training outside Agent Platform, model deployment to endpoints (use
   `agent-platform-deploy`), or managing serving endpoints (use
   `agent-platform-endpoint-management`).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/agent-platform-tuning
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Agent Platform Model Tuning

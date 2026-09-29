@@ -1,14 +1,19 @@
 ---
 name: cloud-monitoring-list-time-series-request
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: CloudObservabilityAndMonitoring
-description: >-
-  Generates valid Cloud Monitoring ListTimeSeries requests and aggregation
-  specifications from metric descriptors and resource parameters. Use when asked
-  to create, generate, format, or build ListTimeSeries requests, JSON payloads,
-  filter expressions, or aligner/reducer aggregations for Cloud Monitoring
-  metrics and charts. Don't use for metric discovery or metric selection.
+description: Generates valid Cloud Monitoring ListTimeSeries requests and
+  aggregation specifications from metric descriptors and resource parameters.
+  Use when asked to create, generate, format, or build ListTimeSeries requests,
+  JSON payloads, filter expressions, or aligner/reducer aggregations for Cloud
+  Monitoring metrics and charts. Don't use for metric discovery or metric
+  selection.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/cloud-monitoring-list-time-series-request
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Cloud Monitoring ListTimeSeries Request Generator

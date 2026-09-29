@@ -1,15 +1,20 @@
 ---
 name: data-manager-api-setup
-description: >-
-  Guides developers through client library installation and authentication setup
-  steps for the Data Manager API. Use this skill when a user is getting started
-  with the Data Manager API and needs to setup their local environment, install
-  the client library, or setup access to the API. Don't use for implementing
-  audience or event ingestion logic (use the data-manager-api-audience-ingestion
-  or data-manager-api-event-ingestion skills instead).
+description: Guides developers through client library installation and
+  authentication setup steps for the Data Manager API. Use this skill when a
+  user is getting started with the Data Manager API and needs to setup their
+  local environment, install the client library, or setup access to the API.
+  Don't use for implementing audience or event ingestion logic (use the
+  data-manager-api-audience-ingestion or data-manager-api-event-ingestion skills
+  instead).
 metadata:
-  version: "1.0.2"
+  version: 1.0.2
   category: GoogleAds
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/ads/data-manager-api-setup
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 # Data Manager API Setup
 

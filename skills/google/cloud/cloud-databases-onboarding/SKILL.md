@@ -1,14 +1,19 @@
 ---
 name: cloud-databases-onboarding
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Databases
-description: >-
-  Guides users through discovering their database requirements, recommends a
-  Google Cloud database based on a recommendation matrix, and assists in database
-  creation. Use when a user asks 'What database service should I use?', 'Help me pick
-  a database', or when a user wants to create a new database on Google Cloud.
-  Don't use for general Google Cloud maintenance, managing existing databases, or database migrations.
+description: Guides users through discovering their database requirements,
+  recommends a Google Cloud database based on a recommendation matrix, and
+  assists in database creation. Use when a user asks 'What database service
+  should I use?', 'Help me pick a database', or when a user wants to create a
+  new database on Google Cloud. Don't use for general Google Cloud maintenance,
+  managing existing databases, or database migrations.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/cloud-databases-onboarding
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Database Onboarding Skill

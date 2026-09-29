@@ -3,17 +3,21 @@ name: secops-investigate
 metadata:
   category: Security
   author: Google LLC
-  version: "1.1.1"
+  version: 1.1.1
   status: published
-description: >-
-  Expert guidance for deep security incident and entity investigations in Google
-  SecOps. Use when investigating cases, analyzing entities (hosts, IPs, domains,
-  hashes, users), extracting and searching UDM events, performing asset and user
-  timeline analysis, and detecting lateral movement across enterprise networks.
-  Don't use for detection rule authoring or YARA-L tuning (use
-  secops-detection-engineering), proactive hypothesis-driven hunting (use
-  secops-hunt), initial alert triage (use secops-triage), or basic case status
-  updates (use secops-cases).
+description: Expert guidance for deep security incident and entity
+  investigations in Google SecOps. Use when investigating cases, analyzing
+  entities (hosts, IPs, domains, hashes, users), extracting and searching UDM
+  events, performing asset and user timeline analysis, and detecting lateral
+  movement across enterprise networks. Don't use for detection rule authoring or
+  YARA-L tuning (use secops-detection-engineering), proactive hypothesis-driven
+  hunting (use secops-hunt), initial alert triage (use secops-triage), or basic
+  case status updates (use secops-cases).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/secops-investigate
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google SecOps Incident & Entity Investigation Skill

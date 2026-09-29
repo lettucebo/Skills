@@ -1,7 +1,7 @@
 ---
 name: bigquery-optimization
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: BigDataAndAnalytics
 description: >-
   Provides workflows to optimize BigQuery environments (capacity planning,
@@ -15,6 +15,11 @@ description: >-
   Do not use for raw usage reporting (use bigquery-observability), query
   execution plan analysis, error troubleshooting, or diagnosing why a specific
   job was slow (use bigquery-troubleshooting).
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/bigquery-optimization
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # BigQuery Optimization Workflow

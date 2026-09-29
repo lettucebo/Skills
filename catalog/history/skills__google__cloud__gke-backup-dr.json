@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/gke-backup-dr",
+  "name": "gke-backup-dr",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:6e0d7e9f6ed67d8cb0929899e08b5657ac50e531ac8bb1d16d949f7966c977dd"
+    }
+  ]
+}

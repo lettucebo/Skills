@@ -1,22 +1,22 @@
 ---
 name: application-design-center-design-deploy
-description: >-
-  Processes GCP infrastructure design and deployment workflows within Application Design Center (ADC).
-  Use when:
-  - Designing GCP infrastructure with Terraform.
-  - Validating local HCL.
-  - Performing best-practice plan scans.
-  - Importing templates to Application Design Center (ADC).
-  - Deploying templates.
-  - Troubleshooting deployment failures.
-  Boundaries:
-  - Only use for GCP-specific cloud infrastructure.
-  - Only use for Terraform coding within the ADC context.
+description: "Processes GCP infrastructure design and deployment workflows
+  within Application Design Center (ADC). Use when: - Designing GCP
+  infrastructure with Terraform. - Validating local HCL. - Performing
+  best-practice plan scans. - Importing templates to Application Design Center
+  (ADC). - Deploying templates. - Troubleshooting deployment failures.
+  Boundaries: - Only use for GCP-specific cloud infrastructure. - Only use for
+  Terraform coding within the ADC context."
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   publisher: google
   category: CloudInfrastructure
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/application-design-center-design-deploy
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Designing and Deploying GCP Infrastructure with Application Design Center

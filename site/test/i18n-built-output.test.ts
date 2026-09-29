@@ -45,19 +45,31 @@ function escapeHtmlText(value: string): string {
     .replace(/>/g, '&gt;');
 }
 
-test('build emits exactly 520 static pages with approved localized and redirect arithmetic', {
+test('build emits exactly 1224 static pages with approved localized and redirect arithmetic', {
   skip: !distExists && 'dist/ not found (run npm run build first)',
 }, async () => {
   const catalog = await loadCatalog(repoRoot);
   const localized = getLocalizedRouteEntries(catalog);
   const redirects = getLegacyRedirectEntries(catalog);
 
-  assert.equal(localized.length, 390);
-  assert.equal(redirects.length, 130);
-  assert.equal(allHtmlFiles(distDir).length, 520);
+  assert.equal(localized.length, 918);
+  assert.equal(redirects.length, 306);
+  assert.equal(allHtmlFiles(distDir).length, 1224);
   for (const entry of [...localized.map(({ path }) => path), ...redirects.map(({ from }) => from)]) {
     assert.ok(fs.existsSync(htmlPath(entry)), `missing built page for ${entry}`);
   }
+});
+
+test('nested Google skill has a localized page and an unprefixed redirect', {
+  skip: !distExists && 'dist/ not found (run npm run build first)',
+}, () => {
+  const route = '/skills/google/cloud/gke-basics/';
+  const localized = fs.readFileSync(htmlPath(`/en${route}`), 'utf8');
+  const redirect = fs.readFileSync(htmlPath(route), 'utf8');
+
+  assert.match(localized, /<h1>gke-basics<\/h1>/);
+  assert.ok(redirect.includes(`content="0;url=/en${route}"`));
+  assert.ok(redirect.includes(`href="/en${route}"`));
 });
 
 test('built HTML never references the retired GitHub project-page base', {
@@ -81,7 +93,7 @@ test('all current legacy redirects contain exact redirect metadata and a compact
   const redirects = getLegacyRedirectEntries(catalog);
   const activeSkillCount = catalog.skills.filter((skill) => !skill.isTombstone).length;
   assert.equal(redirects.length, 3 + catalog.sources.length + activeSkillCount);
-  assert.equal(redirects.length, 130);
+  assert.equal(redirects.length, 306);
 
   for (const { from, to } of redirects) {
     const html = fs.readFileSync(htmlPath(from), 'utf8');
@@ -184,17 +196,17 @@ test('localized UI uses matching summaries while raw names, body, and commit sub
   skip: !distExists && 'dist/ not found',
 }, () => {
   const artifact = JSON.parse(fs.readFileSync(
-    path.join(repoRoot, 'catalog', 'enrichment', 'changelog', 'skills__github__github-issues.json'),
+    path.join(repoRoot, 'catalog', 'enrichment', 'changelog', 'skills__azure__az-cost-optimize.json'),
     'utf8',
   ));
   const subject = artifact.locales.en.content.commits[0].subject;
 
   for (const locale of ['en', 'zh-tw', 'zh-cn'] as const) {
     const html = fs.readFileSync(
-      htmlPath(`/${locale}/skills/github/github-issues/`),
+      htmlPath(`/${locale}/skills/azure/az-cost-optimize/`),
       'utf8',
     );
-    assert.match(html, /<h1>github-issues<\/h1>/);
+    assert.match(html, /<h1>az-cost-optimize<\/h1>/);
     assert.ok(html.includes(subject), 'original upstream subject must remain unchanged');
     assert.ok(html.includes(escapeHtmlText(
       artifact.locales[locale].content.commits[0].summary,
@@ -240,23 +252,23 @@ test('removed proprietary pages and their legacy redirects are absent', {
   }
 });
 
-test('Pagefind indexes exactly 345 localized skill pages across all three languages', {
+test('Pagefind indexes exactly 867 localized skill pages across all three languages', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const entry = JSON.parse(
     fs.readFileSync(path.join(distDir, 'pagefind', 'pagefind-entry.json'), 'utf8'),
   );
-  assert.equal(entry.languages.en.page_count, 115);
-  assert.equal(entry.languages['zh-tw'].page_count, 115);
-  assert.equal(entry.languages['zh-cn'].page_count, 115);
+  assert.equal(entry.languages.en.page_count, 289);
+  assert.equal(entry.languages['zh-tw'].page_count, 289);
+  assert.equal(entry.languages['zh-cn'].page_count, 289);
   assert.equal(
     Object.values(entry.languages).reduce(
       (sum: number, language: any) => sum + language.page_count,
       0,
     ),
-    345,
+    867,
   );
   const fragments = fs.readdirSync(path.join(distDir, 'pagefind', 'fragment'))
     .filter((name) => name.endsWith('.pf_fragment'));
-  assert.equal(fragments.length, 345);
+  assert.equal(fragments.length, 867);
 });

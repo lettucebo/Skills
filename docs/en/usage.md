@@ -97,6 +97,9 @@ build-time state of the registry:
 - resolved upstream repositories and the commits currently pinned, and
 - the current list of frozen orphan and restricted skills.
 
+For release 2.1.0, the active inventory is 289 skills: 286 mapped and
+3 frozen orphans.
+
 ## Choosing what to install
 
 Prefer the narrowest scope that meets your need:
@@ -105,7 +108,7 @@ Prefer the narrowest scope that meets your need:
   only when that skill is not itself restricted.
 - **Single source** — when you want a whole collection (for example all
   `skills/dotnet` skills) that does not contain a restricted skill.
-- **Full registry** — installs all 115 active skills in 2.0.1. Continue
+- **Full registry** — installs all 289 active skills in 2.1.0. Continue
   checking the status page for future restricted inventory.
 
 ## Pinning versions

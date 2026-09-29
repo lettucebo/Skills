@@ -28,7 +28,7 @@ test('localized route tree delegates all five route kinds to shared page compone
     'src/pages/[locale]/install.astro',
     'src/pages/[locale]/status.astro',
     'src/pages/[locale]/sources/[source].astro',
-    'src/pages/[locale]/skills/[source]/[skill].astro',
+    'src/pages/[locale]/skills/[source]/[...skill].astro',
   ];
 
   for (const route of routes) {
@@ -45,7 +45,7 @@ test('legacy route files are redirect wrappers and never duplicate full page log
     'src/pages/install.astro',
     'src/pages/status.astro',
     'src/pages/sources/[source].astro',
-    'src/pages/skills/[source]/[skill].astro',
+    'src/pages/skills/[source]/[...skill].astro',
   ];
 
   for (const route of routes) {

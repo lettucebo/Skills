@@ -7,8 +7,13 @@ description: Migrates Android applications from the old, legacy Google Mobile
   signatures to help determine migration steps. Use when migrating an existing
   Android codebase from the old, legacy GMA SDK to GMA Next-Gen SDK.
 metadata:
-  version: "1.1.0"
+  version: 1.1.0
   category: GoogleAds
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/ads/google-mobile-ads-android-migrate-to-next-gen
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 # AI Migration Agent Instructions for the Google Mobile Ads SDK
 

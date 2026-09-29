@@ -1,18 +1,23 @@
 ---
 name: bigquery-ai-ml
 metadata:
-  version: "1.1.0"
+  version: 1.1.0
   category: AiAndMachineLearning
-description: >-
-  Leverages BigQuery's built-in machine learning and GenAI capabilities
-  for advanced data analytics. Use when you need to write SQL queries
-  that perform time-series forecasting, predict values, detect outliers or anomalies, find key drivers,
-  perform semantic search or vector search, classify text, calculate similarity,
-  summarize content, translate language, evaluate models, filter by semantic conditions,
-  measure the causal effect of an intervention, compute correlations between columns,
-  detect change points or structural breaks, extract trend or seasonality components,
-  or leverage generative AI capabilities in BigQuery. Do not use for general
-  BigQuery dataset, table, or job management requests.
+description: Leverages BigQuery's built-in machine learning and GenAI
+  capabilities for advanced data analytics. Use when you need to write SQL
+  queries that perform time-series forecasting, predict values, detect outliers
+  or anomalies, find key drivers, perform semantic search or vector search,
+  classify text, calculate similarity, summarize content, translate language,
+  evaluate models, filter by semantic conditions, measure the causal effect of
+  an intervention, compute correlations between columns, detect change points or
+  structural breaks, extract trend or seasonality components, or leverage
+  generative AI capabilities in BigQuery. Do not use for general BigQuery
+  dataset, table, or job management requests.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/bigquery-ai-ml
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # BigQuery AI & ML

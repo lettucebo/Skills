@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/gke-workload-identity",
+  "name": "gke-workload-identity",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:8a438744574a70b378d8a0e1c14ec93a9ec0fbf3c223047b3a9bb216628d1f41"
+    }
+  ]
+}

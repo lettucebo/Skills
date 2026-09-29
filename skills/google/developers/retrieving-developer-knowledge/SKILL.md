@@ -1,15 +1,21 @@
 ---
 name: retrieving-developer-knowledge
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: CloudInfrastructureAndServices
-description: >-
-  Searches, retrieves, and synthesizes official Google developer documentation across Google Cloud,
-  AI/Gemini, Android, Chrome, Web, Flutter, Go, Firebase, and other Google developer platforms.
-  Integrates with the Developer Knowledge MCP server (search_documents, get_documents, answer_query)
-  or the Developer Knowledge REST API fallback. Use when searching for gcloud CLI commands, API syntax,
-  IAM permissions, official documentation, architectural comparisons, or product choice overviews.
-  Don't use for local filesystem lookups or non-Google documentation.
+description: Searches, retrieves, and synthesizes official Google developer
+  documentation across Google Cloud, AI/Gemini, Android, Chrome, Web, Flutter,
+  Go, Firebase, and other Google developer platforms. Integrates with the
+  Developer Knowledge MCP server (search_documents, get_documents, answer_query)
+  or the Developer Knowledge REST API fallback. Use when searching for gcloud
+  CLI commands, API syntax, IAM permissions, official documentation,
+  architectural comparisons, or product choice overviews. Don't use for local
+  filesystem lookups or non-Google documentation.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/developers/retrieving-developer-knowledge
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Developer Knowledge

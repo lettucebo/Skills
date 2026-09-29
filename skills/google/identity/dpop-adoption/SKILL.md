@@ -1,16 +1,21 @@
 ---
 name: dpop-adoption
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Identity
-description: >-
-  Implement and debug OAuth 2.0 DPoP (RFC 9449) refresh token sender-constraining
-  for WebCrypto, Node.js ES6, and browser runtimes integrating with Google's OAuth
-  platform. Use when configuring non-extractable asymmetric key pairs (P-256),
-  generating DPoP Proof JWTs for authorization code exchange and token refresh, or
-  handling 400 use_dpop_nonce challenge retry loops at oauth2.googleapis.com/token.
-  Don't use for unconstrained OAuth 2.0 flows (where refresh tokens are not bound
-  to a client key pair), or for Google Cloud IAM / service account authentication.
+description: Implement and debug OAuth 2.0 DPoP (RFC 9449) refresh token
+  sender-constraining for WebCrypto, Node.js ES6, and browser runtimes
+  integrating with Google's OAuth platform. Use when configuring non-extractable
+  asymmetric key pairs (P-256), generating DPoP Proof JWTs for authorization
+  code exchange and token refresh, or handling 400 use_dpop_nonce challenge
+  retry loops at oauth2.googleapis.com/token. Don't use for unconstrained OAuth
+  2.0 flows (where refresh tokens are not bound to a client key pair), or for
+  Google Cloud IAM / service account authentication.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/identity/dpop-adoption
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # DPoP Adoption & Identity Security Architecture

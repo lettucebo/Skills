@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/managed-airflow-migrations",
+  "name": "managed-airflow-migrations",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:447b35fdc7c85fba2522e528c13b11b5565e3b353b42d3cc512c1f931a24051b"
+    }
+  ]
+}

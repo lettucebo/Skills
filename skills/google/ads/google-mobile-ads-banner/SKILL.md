@@ -1,13 +1,17 @@
 ---
 name: google-mobile-ads-banner
-description: >-
-  Provides instructions to implement, integrate, or configure Google Mobile
-  Ads (GMA) banner ads in Android, iOS, or Unity mobile applications. Use
+description: Provides instructions to implement, integrate, or configure Google
+  Mobile Ads (GMA) banner ads in Android, iOS, or Unity mobile applications. Use
   when the task involves setting up banner ads in a mobile application. Don't
   use for other ad formats like interstitial or rewarded ads.
 metadata:
-  version: "1.1.0"
+  version: 1.1.0
   category: GoogleAds
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/ads/google-mobile-ads-banner
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 # Google Mobile Ads SDK - Banner Ads
 

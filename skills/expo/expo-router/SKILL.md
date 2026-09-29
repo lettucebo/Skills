@@ -1,8 +1,16 @@
 ---
 name: expo-router
-description: Framework (OSS). Navigation and routing for Expo Router. Covers file-based routes, groups and dynamic routes, folder organization, Link with previews and context menus, native Stack, page titles, modals and form sheets, NativeTabs, headers and toolbars, and header search bars.
+description: Framework (OSS). Navigation and routing for Expo Router. Covers
+  file-based routes, groups and dynamic routes, folder organization, Link with
+  previews and context menus, native Stack, page titles, modals and form sheets,
+  NativeTabs, headers and toolbars, and header search bars.
 version: 1.0.1
 license: MIT
+x-source: expo/skills
+x-source-ref: refs/heads/main
+x-source-path: plugins/expo/skills/expo-router
+x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
+x-version: 1.0.0
 ---
 
 # Expo Router Navigation

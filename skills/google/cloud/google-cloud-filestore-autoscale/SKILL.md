@@ -1,16 +1,20 @@
 ---
 name: google-cloud-filestore-autoscale
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Storage
-description: >-
-  Inspects Google Cloud Filestore capacity and utilization, evaluates storage
-  scaling rules, and performs capacity autoscaling (scale UP for low free space
-  or scale DOWN for cost optimization). Use when monitoring Filestore instance
-  headroom, resizing instance shares, configuring automated growth/shrink
-  thresholds (custom thresholds apply globally across projects in session memory),
-  or preventing out-of-space outages. Don't use for Cloud Storage (GCS) buckets,
-  Persistent Disk block storage, or NetApp Volumes.
+description: Inspects Google Cloud Filestore capacity and utilization, evaluates
+  storage scaling rules, and performs capacity autoscaling (scale UP for low
+  free space or scale DOWN for cost optimization). Use when monitoring Filestore
+  instance headroom, resizing instance shares, configuring automated
+  growth/shrink thresholds (custom thresholds apply globally across projects in
+  session memory), or preventing out-of-space outages. Don't use for Cloud
+  Storage (GCS) buckets, Persistent Disk block storage, or NetApp Volumes.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/google-cloud-filestore-autoscale
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Google Cloud Filestore Autoscale

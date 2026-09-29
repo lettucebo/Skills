@@ -1,15 +1,19 @@
 ---
 name: iam-helper-for-privileged-access-management
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
   category: Security
-description: >-
-  Manages the end-to-end lifecycle of on-demand, temporary access using
-  Privileged Access Manager (PAM). Use when a user asks to create, read,
-  update, or delete PAM entitlements, request temporary access, or
-  approve/deny pending PAM grants. Do NOT use for permanent IAM policy
-  bindings, troubleshooting IAM permission errors, or general Google Cloud
-  resource provisioning.
+description: Manages the end-to-end lifecycle of on-demand, temporary access
+  using Privileged Access Manager (PAM). Use when a user asks to create, read,
+  update, or delete PAM entitlements, request temporary access, or approve/deny
+  pending PAM grants. Do NOT use for permanent IAM policy bindings,
+  troubleshooting IAM permission errors, or general Google Cloud resource
+  provisioning.
+x-source: google/skills
+x-source-ref: refs/heads/main
+x-source-path: skills/cloud/iam-helper-for-privileged-access-management
+x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
+x-version: 1.0.0
 ---
 
 # Privileged Access Manager (PAM)
