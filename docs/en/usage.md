@@ -49,6 +49,21 @@ Repository-root and single-skill commands include the CLI's required
 `--full-depth` flag. Source-page commands target `skills/<source>` directly
 and do not need `--full-depth`.
 
+On the catalog homepage, check the skills you want to install, including skills
+from different sources. A skill's detail page can add or remove it from the
+same selection. A tray at the bottom lists the selected skills and provides one
+copyable command, for example:
+
+```bash
+npx skills add "lettucebo/Skills#vX.Y.Z" --full-depth --skill agents-sdk --skill az-cost-optimize
+```
+
+The displayed release is derived from the current lockfile, not this example.
+The selection persists across reloads and language switches in this browser;
+the CLI prompts for installation scope and target agent. Removed and restricted
+skills cannot be selected. If the release is not yet published, the tray warns
+that the pinned command is not available yet.
+
 For the category, upstream reference, and any available `diffUrl`, inspect the
 corresponding entries in `catalog/skills.lock.json` and
 `catalog/history/*.json`; the detail page renders the upstream source subpath
