@@ -1,0 +1,212 @@
+---
+import { REPO_NAME, REPO_OWNER, RELEASE_PUBLISHED, RELEASE_VERSION } from '../lib/catalog';
+import { t, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  installableNames: string[];
+}
+
+const { locale, installableNames } = Astro.props;
+---
+<aside
+  class="selection-tray"
+  data-selection-tray
+  data-pagefind-ignore
+  data-installable-names={JSON.stringify(installableNames)}
+  data-owner={REPO_OWNER}
+  data-repo={REPO_NAME}
+  data-version={RELEASE_VERSION}
+  data-remove-label={t(locale, 'removeFromSelection')}
+  data-add-label={t(locale, 'addToSelection')}
+  hidden
+  aria-label={t(locale, 'selectedSkills')}
+>
+  <div class="selection-tray-header">
+    <details data-selection-list>
+      <summary><span data-selected-count>0</span> {t(locale, 'selectedSkills')}</summary>
+      <ul data-selected-list></ul>
+    </details>
+    <button type="button" data-clear-selection>{t(locale, 'clearSelection')}</button>
+  </div>
+  <div class="selection-tray-command">
+    <code data-selection-command></code>
+    <button type="button" data-copy-selection data-success={t(locale, 'copied')} data-failure={t(locale, 'copyFailed')} aria-label={t(locale, 'copyInstallCommand')}>
+      {t(locale, 'copy')}
+    </button>
+  </div>
+  <span data-selection-feedback role="status"></span>
+  {!RELEASE_PUBLISHED && <p class="selection-tray-pending">{t(locale, 'availableAfterPublication', { version: RELEASE_VERSION })}</p>}
+</aside>
+
+<script>
+  import { buildMultiSkillInstallCommand, parseStoredSelection } from '../lib/install-selection';
+
+  const tray = document.querySelector<HTMLElement>('[data-selection-tray]');
+  if (tray) {
+    const key = 'skills-selection';
+    const allowedNames: string[] = JSON.parse(tray.dataset.installableNames ?? '[]');
+    const allowed = new Set(allowedNames);
+    const count = tray.querySelector<HTMLElement>('[data-selected-count]')!;
+    const list = tray.querySelector<HTMLUListElement>('[data-selected-list]')!;
+    const command = tray.querySelector<HTMLElement>('[data-selection-command]')!;
+    const feedback = tray.querySelector<HTMLElement>('[data-selection-feedback]')!;
+    const copy = tray.querySelector<HTMLButtonElement>('[data-copy-selection]')!;
+    let selected: string[] = [];
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
+    function store() {
+      try {
+        localStorage.setItem(key, JSON.stringify(selected));
+      } catch (error) {
+        console.warn('Unable to persist skill selection', error);
+      }
+    }
+
+    function restore() {
+      try {
+        const raw = localStorage.getItem(key);
+        selected = parseStoredSelection(raw, allowedNames);
+        if (raw !== null && raw !== JSON.stringify(selected)) store();
+      } catch (error) {
+        console.warn('Unable to restore skill selection', error);
+        selected = [];
+      }
+      render();
+    }
+
+    function render() {
+      const chosen = new Set(selected);
+      for (const checkbox of document.querySelectorAll<HTMLInputElement>('[data-select-skill]')) {
+        checkbox.hidden = false;
+        checkbox.checked = chosen.has(checkbox.value);
+      }
+      for (const button of document.querySelectorAll<HTMLButtonElement>('[data-toggle-skill]')) {
+        button.hidden = false;
+        const active = chosen.has(button.value);
+        button.setAttribute('aria-pressed', String(active));
+        button.textContent = active ? tray!.dataset.removeLabel! : tray!.dataset.addLabel!;
+      }
+      tray!.hidden = selected.length === 0;
+      count.textContent = String(selected.length);
+      list.replaceChildren();
+      for (const name of selected) {
+        const item = document.createElement('li');
+        const label = document.createElement('span');
+        label.textContent = name;
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.dataset.removeSkill = name;
+        remove.setAttribute('aria-label', `${tray!.dataset.removeLabel}: ${name}`);
+        remove.textContent = '×';
+        item.append(label, remove);
+        list.append(item);
+      }
+      command.textContent = buildMultiSkillInstallCommand(selected, {
+        owner: tray!.dataset.owner!,
+        repo: tray!.dataset.repo!,
+        version: tray!.dataset.version!,
+      }) ?? '';
+      document.body.classList.toggle('has-selection-tray', selected.length > 0);
+      resize();
+    }
+
+    function resize() {
+      document.body.style.setProperty('--selection-tray-height', tray!.hidden ? '0px' : `${tray!.offsetHeight + 16}px`);
+    }
+
+    function toggle(name: string, include: boolean) {
+      if (!allowed.has(name)) {
+        console.warn(`Cannot select unknown skill: ${name}`);
+        return;
+      }
+      const next = new Set(selected);
+      if (include) next.add(name);
+      else next.delete(name);
+      selected = [...next].sort();
+      store();
+      render();
+    }
+
+    document.querySelectorAll<HTMLInputElement>('[data-select-skill]').forEach((checkbox) => {
+      checkbox.addEventListener('change', () => toggle(checkbox.value, checkbox.checked));
+    });
+    document.querySelectorAll<HTMLButtonElement>('[data-toggle-skill]').forEach((button) => {
+      button.addEventListener('click', () => toggle(button.value, !selected.includes(button.value)));
+    });
+    list.addEventListener('click', (event) => {
+      const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-remove-skill]');
+      if (button?.dataset.removeSkill) toggle(button.dataset.removeSkill, false);
+    });
+    tray.querySelector('[data-clear-selection]')?.addEventListener('click', () => {
+      selected = [];
+      store();
+      render();
+    });
+    copy.addEventListener('click', async () => {
+      clearTimeout(timer);
+      try {
+        await navigator.clipboard.writeText(command.textContent ?? '');
+        feedback.textContent = copy.dataset.success ?? '';
+      } catch (error) {
+        console.warn('Unable to copy skill selection', error);
+        feedback.textContent = copy.dataset.failure ?? '';
+      }
+      timer = setTimeout(() => { feedback.textContent = ''; }, 3000);
+    });
+    new ResizeObserver(resize).observe(tray);
+    window.addEventListener('storage', (event) => {
+      if (event.key === key || event.key === null) restore();
+    });
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted) restore();
+    });
+    restore();
+  }
+</script>
+
+<style>
+  .selection-tray {
+    position: fixed;
+    z-index: 20;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 65vh;
+    overflow: auto;
+    padding: 12px max(16px, calc((100vw - 1168px) / 2));
+    border-top: 2px solid var(--cp-border-strong);
+    background: var(--cp-surface);
+    color: var(--cp-text);
+    box-shadow: var(--cp-shadow);
+  }
+  .selection-tray[hidden] { display: none; }
+  .selection-tray-header, .selection-tray-command {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .selection-tray-header button, .selection-tray-command button, li button {
+    border: 1px solid var(--cp-border-strong);
+    border-radius: 6px;
+    padding: 4px 10px;
+    background: var(--cp-surface-soft);
+    color: var(--cp-text);
+    cursor: pointer;
+  }
+  .selection-tray-command { margin-top: 8px; }
+  .selection-tray-command code {
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0.8125rem;
+  }
+  ul { margin: 8px 0; padding: 0; list-style: none; max-height: 20vh; overflow: auto; }
+  li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 2px 0; }
+  .selection-tray-pending { color: var(--cp-warning-text); font-size: 0.75rem; margin: 4px 0 0; }
+  :global(body.has-selection-tray) { padding-bottom: var(--selection-tray-height); }
+  @media (forced-colors: active) {
+    .selection-tray { border-color: CanvasText; box-shadow: none; }
+    .selection-tray button { border-color: ButtonText; }
+  }
+</style>

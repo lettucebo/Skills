@@ -4,6 +4,7 @@ import path from 'node:path';
 import { Marked } from 'marked';
 import { parse as parseYaml } from 'yaml';
 import { escapeHtmlAttribute, isSafeUrl } from './url-policy.ts';
+import { buildMultiSkillInstallCommand, getInstallableSkillNames } from './install-selection.ts';
 
 // ─── Site Configuration ─────────────────────────────────────────────
 
@@ -411,6 +412,21 @@ export function generateSingleSkillInstallCommand(
     return null;
   }
   return `npx skills add "${REPO_OWNER}/${REPO_NAME}#v${RELEASE_VERSION}@${name}" --full-depth`;
+}
+
+export function generateMultiSkillInstallCommand(
+  names: readonly string[],
+  skills: readonly SkillViewModel[],
+): string | null {
+  const allowed = new Set(getInstallableSkillNames(skills));
+  if (names.some((name) => !allowed.has(name))) {
+    throw new Error('Cannot install a restricted or unknown skill');
+  }
+  return buildMultiSkillInstallCommand(names, {
+    owner: REPO_OWNER,
+    repo: REPO_NAME,
+    version: RELEASE_VERSION,
+  });
 }
 
 // ─── Markdown rendering ─────────────────────────────────────────────
