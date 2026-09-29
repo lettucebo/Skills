@@ -444,6 +444,18 @@ a:focus-visible {
   overflow: hidden;
   overflow-wrap: anywhere;
 }
+.card mark {
+  background: var(--cp-accent-soft);
+  color: var(--cp-accent-text);
+  border-radius: 2px;
+}
+.card-search-excerpt {
+  margin-top: 8px;
+  color: var(--cp-muted-text);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
 
 /* ─── Source folders (grouped catalog) ───────────────────────────── */
 .catalog-header {
@@ -945,6 +957,10 @@ a:focus-visible {
 
 /* ─── Forced colors (high-contrast mode) ─────────────────────────── */
 @media (forced-colors: active) {
+  .card mark {
+    background: Mark;
+    color: MarkText;
+  }
   .badge {
     border: 1px solid ButtonText;
   }

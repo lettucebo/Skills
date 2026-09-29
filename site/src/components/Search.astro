@@ -44,6 +44,8 @@ const clientMessages = {
   noMatching: t(locale, 'noMatchingSkills'),
   resultFound: t(locale, 'resultFound'),
   resultsFound: t(locale, 'resultsFound'),
+  searching: t(locale, 'searching'),
+  groupCount: t(locale, 'groupMatchCount'),
   unavailableFilter: t(locale, 'searchUnavailableFilter'),
   unavailableAll: t(locale, 'searchUnavailableAll'),
 };
@@ -118,6 +120,8 @@ const clientMessages = {
      const PAGEFIND_PATH = base + 'pagefind/pagefind.js';
     let pagefind = null;
     let pagefindLoad = null;
+    let pagefindLoadOwner = 0;
+    let pagefindLoadFailed = false;
     let loadAttempt = 0;
 
     const searchInput = document.getElementById('search-input');
@@ -131,9 +135,12 @@ const clientMessages = {
 
     if (!searchInput || !statusEl) return;
 
-    async function loadPagefind() {
+    async function loadPagefind(gen) {
       if (pagefind) return pagefind;
+      if (pagefindLoadFailed && pagefindLoadOwner !== gen) pagefindLoad = null;
       if (!pagefindLoad) {
+        pagefindLoadOwner = gen;
+        pagefindLoadFailed = false;
         const specifier = loadAttempt === 0
           ? PAGEFIND_PATH
           : PAGEFIND_PATH + '?retry=' + loadAttempt;
@@ -145,15 +152,61 @@ const clientMessages = {
             return mod;
           })
           .catch(function (error) {
-            pagefindLoad = null;
+            pagefindLoadFailed = true;
             throw error;
           });
       }
-      return pagefindLoad;
+      try {
+        return await pagefindLoad;
+      } catch (error) {
+        if (pagefindLoadOwner !== gen) {
+          pagefindLoad = null;
+          return loadPagefind(gen);
+        }
+        throw error;
+      }
     }
 
     let debounceTimer = null;
+    let pendingTimer = null;
     let generation = 0;
+    const originalText = new Map();
+
+    function beginGeneration() {
+      const gen = ++generation;
+      clearTimeout(pendingTimer);
+      if (pagefindLoadFailed) pagefindLoad = null;
+      markSearchState(gen, 'pending');
+      if (searchInput.value.trim()) {
+        statusEl.textContent = '';
+        pendingTimer = setTimeout(function () {
+          if (gen === generation && statusEl.dataset.searchState === 'pending') {
+            statusEl.textContent = clientMessages.searching;
+          }
+        }, 250);
+      } else {
+        statusEl.textContent = '';
+      }
+      return gen;
+    }
+
+    function settle(gen) {
+      clearTimeout(pendingTimer);
+      markSearchState(gen, 'settled');
+      if (pagefindLoadFailed) pagefindLoad = null;
+    }
+
+    function preload(gen) {
+      const query = searchInput.value.trim();
+      if (!query) return;
+      const filters = pagefindFilters(currentFilters());
+      loadPagefind(gen).then(function (pf) {
+        if (gen !== generation || typeof pf.preload !== 'function') return;
+        return pf.preload(query, { filters: filters });
+      }).catch(function (error) {
+        if (gen === generation && pagefind) console.error('Pagefind preload error:', error);
+      });
+    }
 
     function getCards() {
       // Cards are matched by attribute, not by parent, so future per-source
@@ -185,6 +238,18 @@ const clientMessages = {
     function syncGroups(active) {
       const groups = getGroups();
       for (const group of groups) {
+        const groupCards = group.querySelectorAll('[data-skill-card]');
+        const count = group.querySelector('[data-skill-group-count]');
+        if (count) {
+          const matched = Array.prototype.filter.call(groupCards, function (card) { return !card.hidden; }).length;
+          count.textContent = active ? matched + ' / ' + groupCards.length : String(groupCards.length);
+          if (active) {
+            count.setAttribute('aria-label', clientMessages.groupCount
+              .replace('{count}', String(matched)).replace('{total}', String(groupCards.length)));
+          } else {
+            count.removeAttribute('aria-label');
+          }
+        }
         if (!active) {
           group.hidden = false;
           group.open = false;
@@ -236,6 +301,141 @@ const clientMessages = {
       return u;
     }
 
+    function restoreCards(cards) {
+        for (const card of cards) {
+          const text = originalText.get(card);
+          if (text) {
+            for (const [selector, value] of text) {
+              const element = card.querySelector(selector);
+              if (element) element.textContent = value;
+            }
+          }
+          const excerpt = card.querySelector('[data-search-excerpt]');
+          if (excerpt) excerpt.remove();
+        }
+      }
+
+      function restoreOrder(groups) {
+        for (const group of groups) {
+          const grid = group.querySelector('.skill-group-grid');
+          if (grid) {
+            Array.prototype.slice.call(group.querySelectorAll('[data-skill-card]'))
+              .sort(function (a, b) { return Number(a.getAttribute('data-catalog-order')) - Number(b.getAttribute('data-catalog-order')); })
+              .forEach(function (card) { grid.appendChild(card); });
+          }
+        }
+        if (groups.length) {
+          const parent = groups[0].parentElement;
+          if (parent) groups.sort(function (a, b) {
+            return Number(a.getAttribute('data-catalog-order')) - Number(b.getAttribute('data-catalog-order'));
+          }).forEach(function (group) { parent.appendChild(group); });
+        }
+      }
+
+      function decodeEntities(text) {
+        const named = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: '\u00a0' };
+        return String(text).replace(/&(#(?:x[0-9a-f]+|\d+)|amp|lt|gt|quot|apos|nbsp);/gi, function (entity, code) {
+          if (code.charAt(0) !== '#') return named[code.toLowerCase()] || entity;
+          const value = code.charAt(1).toLowerCase() === 'x'
+            ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10);
+          return value > 0 && value <= 0x10ffff && !(value >= 0xd800 && value <= 0xdfff)
+            ? String.fromCodePoint(value) : '\ufffd';
+        });
+      }
+
+      function appendExcerpt(container, excerpt) {
+        const pieces = String(excerpt).split(/(<\/?mark>)/i);
+        let marked = false;
+        for (const piece of pieces) {
+          if (/^<mark>$/i.test(piece)) { marked = true; continue; }
+          if (/^<\/mark>$/i.test(piece)) { marked = false; continue; }
+          if (!piece) continue;
+          const text = decodeEntities(piece);
+          if (marked) {
+            const mark = document.createElement('mark');
+            mark.textContent = text;
+            container.appendChild(mark);
+          } else {
+            container.appendChild(document.createTextNode(text));
+          }
+        }
+      }
+
+      function highlight(element, query) {
+        const text = element.textContent;
+        const terms = query.match(/[\p{L}\p{N}]+/gu) || [];
+        const pattern = terms.sort(function (a, b) { return b.length - a.length; })
+          .map(function (term) { return term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|');
+        if (!pattern) return;
+        const matches = new RegExp(pattern, 'giu');
+        element.textContent = '';
+        let start = 0;
+        for (const match of text.matchAll(matches)) {
+          element.appendChild(document.createTextNode(text.slice(start, match.index)));
+          const mark = document.createElement('mark');
+          mark.textContent = match[0];
+          element.appendChild(mark);
+          start = match.index + match[0].length;
+        }
+        element.appendChild(document.createTextNode(text.slice(start)));
+      }
+
+      function showMatches(cards, results, query) {
+        const scores = new Map();
+        for (const result of results) {
+          const url = normalizeUrl(result.data && result.data.url);
+          if (url && !scores.has(url)) scores.set(url, result);
+        }
+        for (const card of cards) {
+          if (card.hidden) continue;
+          const result = scores.get(normalizeUrl(card.getAttribute('data-url')));
+          if (!result) continue;
+          const fields = ['.card-title', '.card-description'];
+          if (!originalText.has(card)) {
+            originalText.set(card, fields.map(function (selector) {
+              const element = card.querySelector(selector);
+              return [selector, element ? element.textContent : ''];
+            }));
+          }
+          for (const selector of fields) {
+            const element = card.querySelector(selector);
+            if (element) highlight(element, query);
+          }
+          if (result.data.excerpt) {
+            const excerpt = document.createElement('div');
+            excerpt.className = 'card-search-excerpt';
+            excerpt.setAttribute('data-search-excerpt', '');
+            appendExcerpt(excerpt, result.data.excerpt);
+            card.querySelector('a').appendChild(excerpt);
+          }
+        }
+        const groups = getGroups();
+        for (const group of groups) {
+          const grid = group.querySelector('.skill-group-grid');
+          if (!grid) continue;
+          Array.prototype.slice.call(group.querySelectorAll('[data-skill-card]'))
+            .sort(function (a, b) {
+              const scoreA = scores.get(normalizeUrl(a.getAttribute('data-url')));
+              const scoreB = scores.get(normalizeUrl(b.getAttribute('data-url')));
+              return (scoreB ? scoreB.score : -1) - (scoreA ? scoreA.score : -1)
+                || Number(a.getAttribute('data-catalog-order')) - Number(b.getAttribute('data-catalog-order'));
+            }).forEach(function (card) { grid.appendChild(card); });
+        }
+        if (groups.length && groups[0].parentElement) {
+          const parent = groups[0].parentElement;
+          groups.sort(function (a, b) {
+            function best(group) {
+              return Math.max(-1, ...Array.prototype.map.call(group.querySelectorAll('[data-skill-card]'), function (card) {
+                const result = !card.hidden && scores.get(normalizeUrl(card.getAttribute('data-url')));
+                return result ? result.score : -1;
+              }));
+            }
+            return best(b) - best(a)
+              || Number(a.getAttribute('data-catalog-order')) - Number(b.getAttribute('data-catalog-order'));
+          }).forEach(function (group) { parent.appendChild(group); });
+        }
+      }
+
     function pagefindFilters(filters) {
       const out = {};
       if (filters.source) out.source = filters.source;
@@ -285,9 +485,8 @@ const clientMessages = {
     }
 
     async function doSearch(requestGeneration) {
-      const gen = requestGeneration === undefined ? ++generation : requestGeneration;
+      const gen = requestGeneration === undefined ? beginGeneration() : requestGeneration;
       if (gen !== generation) return;
-      markSearchState(gen, 'pending');
       const query = searchInput.value.trim();
       const filters = currentFilters();
       const hasFilters = !!(filters.source || filters.license || filters.origin);
@@ -296,72 +495,94 @@ const clientMessages = {
 
       // Nothing active: restore every card, clear the live region.
       if (!query && !hasFilters) {
+        restoreCards(cards);
+        restoreOrder(getGroups());
         for (const card of cards) card.hidden = false;
         syncGroups(false);
         statusEl.textContent = '';
         updateCount(total);
-        markSearchState(gen, 'settled');
+        settle(gen);
         return;
       }
 
       // Filter-only: Pagefind-independent card matching.
       if (!query) {
+        restoreCards(cards);
+        restoreOrder(getGroups());
         const visible = applyVisibility(cards, function (c) { return cardMatchesFilters(c, filters); });
         syncGroups(true);
         announceCount(visible);
         updateCount(visible);
-        markSearchState(gen, 'settled');
+        settle(gen);
         return;
       }
 
       // Text query: load Pagefind, then intersect its result URLs with filters.
       let pf;
       try {
-        pf = await loadPagefind();
+        pf = await loadPagefind(gen);
       } catch (err) {
         if (gen !== generation) return;
+        restoreCards(cards);
+        restoreOrder(getGroups());
         const visible = applyVisibility(cards, function (c) { return cardMatchesFilters(c, filters); });
         syncGroups(true);
         announceUnavailable(visible, hasFilters);
         updateCount(visible);
-        markSearchState(gen, 'settled');
+        settle(gen);
         console.error('Pagefind load error:', err);
         return;
       }
       if (gen !== generation) return;
 
-      let urlSet;
+      let results;
       try {
         const search = await pf.search(query, { filters: pagefindFilters(filters) });
         if (gen !== generation) return;
         const data = await Promise.all(search.results.map(function (r) { return r.data(); }));
         if (gen !== generation) return;
-        urlSet = new Set(data.map(function (d) { return normalizeUrl(d && d.url); }));
+        results = search.results.map(function (result, index) {
+          return { score: result.score || 0, data: data[index] };
+        });
       } catch (err) {
         if (gen !== generation) return;
+        restoreCards(cards);
+        restoreOrder(getGroups());
         const visible = applyVisibility(cards, function (c) { return cardMatchesFilters(c, filters); });
         syncGroups(true);
         announceUnavailable(visible, hasFilters);
         updateCount(visible);
-        markSearchState(gen, 'settled');
+        settle(gen);
         console.error('Pagefind search error:', err);
+        try {
+          if (typeof pf.destroy === 'function') await pf.destroy();
+        } catch (destroyError) {
+          console.error('Pagefind destroy error:', destroyError);
+        }
+        if (gen === generation) {
+          pagefind = null;
+          pagefindLoad = null;
+        }
         return;
       }
 
       if (gen !== generation) return;
+      restoreCards(cards);
+      const urlSet = new Set(results.map(function (r) { return normalizeUrl(r.data && r.data.url); }));
       const visible = applyVisibility(cards, function (c) {
         return urlSet.has(normalizeUrl(c.getAttribute('data-url'))) && cardMatchesFilters(c, filters);
       });
+      showMatches(cards, results, query);
       syncGroups(true);
       announceCount(visible);
       updateCount(visible);
-      markSearchState(gen, 'settled');
+      settle(gen);
     }
 
     searchInput.addEventListener('input', function () {
-      const gen = ++generation;
-      markSearchState(gen, 'pending');
+      const gen = beginGeneration();
       clearTimeout(debounceTimer);
+      preload(gen);
       debounceTimer = setTimeout(function () { doSearch(gen); }, 200);
     });
 

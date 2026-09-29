@@ -26,11 +26,20 @@ export async function search(query, received) {
   state.searchCalls = (state.searchCalls ?? 0) + 1;
   state.lastQuery = query;
   state.lastSearchOptions = received;
-  if (state.searchThrows) {
-    throw new Error('stubbed pagefind search failure');
-  }
-  if (state.searchPromise) {
-    return state.searchPromise;
-  }
+  if (state.searchThrows) throw new Error('stubbed pagefind search failure');
+  if (state.searchPromise) return state.searchPromise;
   return { results: state.results ?? [] };
+}
+
+export async function preload(query, received) {
+  const state = stub();
+  state.preloadCalls = (state.preloadCalls ?? 0) + 1;
+  state.lastPreloadQuery = query;
+  state.lastPreloadOptions = received;
+  if (state.preloadThrows) throw new Error('stubbed preload failure');
+}
+
+export async function destroy() {
+  const state = stub();
+  state.destroyCalls = (state.destroyCalls ?? 0) + 1;
 }

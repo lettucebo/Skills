@@ -52,6 +52,18 @@ test('skill detail page template includes pagefind filter attributes', () => {
   assert.match(template, /data-pagefind-filter="origin"/, 'must have origin filter');
 });
 
+test('visible source and commit provenance is excluded from full-text indexing, not filter metadata', () => {
+  const template = fs.readFileSync(
+    path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
+    'utf8',
+  );
+  assert.match(template, /<span data-pagefind-ignore>\s*\{t\(locale, 'source'\)\}/);
+  assert.match(template, /<span data-pagefind-ignore>\s*\{t\(locale, 'commit'\)\}/);
+  assert.match(template, /<span data-pagefind-filter="source" data-pagefind-meta="source" hidden>/);
+  assert.match(template, /<span data-pagefind-filter="license" data-pagefind-meta="license" hidden>/);
+  assert.match(template, /<span data-pagefind-filter="origin" hidden>/);
+});
+
 test('skill detail page template includes pagefind version meta', () => {
   const template = fs.readFileSync(
     path.join(siteRoot, 'src', 'components', 'pages', 'SkillPage.astro'),
