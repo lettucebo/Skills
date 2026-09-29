@@ -63,7 +63,12 @@ test('createSmokePlan pins the CLI package and local smoke coverage', async () =
   const plan = await createSmokePlan();
 
   assert.equal(plan.cliSpec, SKILLS_CLI_SPEC);
-  assert.equal(plan.cases.length, 3);
+  assert.equal(plan.cases.length, 4);
+  const multi = plan.cases.find((entry) => entry.name === 'multi-skill');
+  assert.deepEqual(multi.expectedNames, ['agents-sdk', 'az-cost-optimize']);
+  assert.deepEqual(multi.argv.slice(-5), [
+    '--skill', 'az-cost-optimize', '--skill', 'agents-sdk', '--full-depth',
+  ]);
 
   assert.deepEqual(
     plan.cases.map((entry) => ({
@@ -89,6 +94,12 @@ test('createSmokePlan pins the CLI package and local smoke coverage', async () =
         name: 'single-skill',
         sourcePathSuffix: '',
         expectedCount: 1,
+        includesFullDepth: true,
+      },
+      {
+        name: 'multi-skill',
+        sourcePathSuffix: '',
+        expectedCount: 2,
         includesFullDepth: true,
       },
     ],

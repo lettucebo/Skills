@@ -41,6 +41,17 @@ skill。它提供全文搜尋（透過 Pagefind），讓你不必直接閱讀
 skill 指令都會包含 CLI 必要的 `--full-depth` 旗標。來源頁面直接指向
 `skills/<source>`，不需要 `--full-depth`。
 
+在首頁勾選想安裝的 skill（可跨來源），也能在 skill 詳情頁加入或移出同一份
+選取清單。畫面底部的選取列會列出已選項目，並提供一行可複製的指令，例如：
+
+```bash
+npx skills add "lettucebo/Skills#vX.Y.Z" --full-depth --skill agents-sdk --skill az-cost-optimize
+```
+
+畫面顯示的版本取自目前 lockfile，而不是這個範例。選取狀態會保留在這個瀏覽器，
+重新整理或切換語系後仍可使用；安裝範圍與目標 agent 交由 CLI 詢問。已移除或
+受限制的 skill 無法選取。若目前版本尚未發布，選取列會提醒釘選指令尚不可用。
+
 若要查看分類、上游 reference 與可取得的 `diffUrl`，請查閱
 `catalog/skills.lock.json` 與 `catalog/history/*.json` 中的對應項目；詳情頁會渲染
 上游來源子路徑與解析後的 commit，但不會渲染前述欄位。

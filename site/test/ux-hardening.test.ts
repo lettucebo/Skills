@@ -702,14 +702,14 @@ test('INT8: built install page publishes the full-repo install command without a
   );
 });
 
-test('INT8b: built landing page no longer publishes the full-repo install command', {
+test('INT8b: built landing page keeps the full-repo install command on the install page only', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const html = fs.readFileSync(path.join(distDir, 'en', 'index.html'), 'utf8');
   assert.doesNotMatch(
     html,
-    /npx skills add lettucebo\/Skills#v/,
-    'the landing page must delegate install commands to the install page',
+    /<code[^>]*>npx skills add (?:&quot;|")?lettucebo\/Skills#v[^<]*<\/code>/,
+    'the landing page must not expose the full-repo command before a selection',
   );
   assert.match(html, /href="\/en\/install\/"/, 'the landing page must link to the localized install page');
 });

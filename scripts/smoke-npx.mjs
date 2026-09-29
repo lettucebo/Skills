@@ -51,6 +51,13 @@ export async function createSmokePlan({
   const singleSkillExpectedNames = getExpectedNames(
     lock.skills.filter((entry) => entry.name === 'az-cost-optimize'),
   );
+  const multiNames = ['az-cost-optimize', 'agents-sdk'];
+  const multiSkillExpectedNames = getExpectedNames(
+    lock.skills.filter((entry) => multiNames.includes(entry.name)),
+  );
+  if (multiSkillExpectedNames.length !== multiNames.length) {
+    throw new Error('Multi-skill smoke case requires both declared skills in the active lockfile.');
+  }
 
   if (allExpectedNames.length !== lock.counts?.total) {
     throw new Error(
@@ -100,6 +107,15 @@ export async function createSmokePlan({
         sourcePath: repoRoot,
         expectedNames: singleSkillExpectedNames,
         skillArgs: ['--skill', 'az-cost-optimize'],
+        extraArgs: ['--full-depth'],
+      }),
+      buildSmokeCase({
+        cliSpec,
+        agent,
+        name: 'multi-skill',
+        sourcePath: repoRoot,
+        expectedNames: multiSkillExpectedNames,
+        skillArgs: multiNames.flatMap((name) => ['--skill', name]),
         extraArgs: ['--full-depth'],
       }),
     ],
