@@ -448,7 +448,7 @@ test('loadManifest accepts the repository manifest with exact 289-skill coverage
 
   assert.equal(manifest.mappings.length, 286);
   assert.equal(manifest.orphans.length, 3);
-  assert.equal(manifest.linkExceptions.length, 3);
+  assert.equal(manifest.linkExceptions.length, 0);
   assert.equal(localCoverage, 0);
   assert.equal(coveredSkills, 289);
   assert.equal(
@@ -459,11 +459,7 @@ test('loadManifest accepts the repository manifest with exact 289-skill coverage
     manifest.linkExceptions
       .map((entry) => createLinkExceptionKey(entry.sourcePath, entry.target))
       .sort(),
-    [
-      'skills/cloudflare/cloudflare/references/durable-objects/README.md -> ../websockets/README.md',
-      'skills/cloudflare/cloudflare/references/tunnel/README.md -> ../access/',
-      'skills/cloudflare/cloudflare/references/tunnel/README.md -> ../warp/',
-    ],
+    [],
   );
 
   const manifestText = await readFile(manifestPath, 'utf8');
