@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/managed-airflow-dag-troubleshooting",
+  "name": "managed-airflow-dag-troubleshooting",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:daeef18ac5e94d0086cc98fca001bf7d79ac49eab6d7012a42828b795ee42c82"
+    }
+  ]
+}

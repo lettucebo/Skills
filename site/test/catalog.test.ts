@@ -276,7 +276,7 @@ test('all ten microsoft dot-path sources produce safe pinned tree links', async 
 
 test('skill detail routes continue to exclude tombstones', () => {
   const source = fs.readFileSync(
-    path.join(repoRoot, 'src', 'pages', '[locale]', 'skills', '[source]', '[skill].astro'),
+    path.join(repoRoot, 'src', 'pages', '[locale]', 'skills', '[source]', '[...skill].astro'),
     'utf8',
   );
 
@@ -375,7 +375,7 @@ test('source without restricted skills has a source command', async () => {
 
 // ─── Route Parameter Derivation ─────────────────────────────────────
 
-test('route params derived from all 115 active skills are unique', async () => {
+test('route params derived from all 289 active skills are unique', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const params = catalog.skills.filter((skill) => !skill.isTombstone).map((s) => deriveRouteParams(s));
   const keys = params.map((p) => `${p.source}/${p.skill}`);
@@ -385,12 +385,12 @@ test('route params derived from all 115 active skills are unique', async () => {
 
 // ─── Count Verification ─────────────────────────────────────────────
 
-test('current lock yields counts: 115 total, 112 mapped, 3 orphan, 0 local, 0 restricted', async () => {
+test('current lock yields counts: 289 total, 286 mapped, 3 orphan, 0 local, 0 restricted', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const counts = computeCounts(catalog.skills);
 
-  assert.equal(counts.total, 115);
-  assert.equal(counts.mapped, 112);
+  assert.equal(counts.total, 289);
+  assert.equal(counts.mapped, 286);
   assert.equal(counts.orphan, 3);
   assert.equal(counts.local, 0);
   assert.equal(counts.restricted, 0);
@@ -623,13 +623,13 @@ test('computeBaselineVerification counts restricted mapped skills too', () => {
   });
 });
 
-test('current lock has 112 of 112 active mapped skills verified', async () => {
+test('current lock has 286 of 286 active mapped skills verified', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const verification = computeBaselineVerification(catalog.skills);
 
   assert.equal(verification.mapped, catalog.counts.mapped);
-  assert.equal(verification.mapped, 112);
-  assert.equal(verification.verified, 112);
+  assert.equal(verification.mapped, 286);
+  assert.equal(verification.verified, 286);
   assert.equal(verification.unverified, 0);
   assert.equal(verification.allVerified, true);
 });

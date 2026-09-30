@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-agentic-ai-data-science-workflow",
+  "name": "google-cloud-solution-agentic-ai-data-science-workflow",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:f68914a593bc3051cff2091d3b6e072fda66313325c227334b2a567acd353683"
+    }
+  ]
+}

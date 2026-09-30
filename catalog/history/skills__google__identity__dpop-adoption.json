@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/identity/dpop-adoption",
+  "name": "dpop-adoption",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:1145e7777388cddee98a083a643ab6f6845177a8c0ba9c511657200223b92155"
+    }
+  ]
+}

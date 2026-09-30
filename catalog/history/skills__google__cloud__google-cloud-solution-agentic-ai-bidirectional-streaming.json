@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming",
+  "name": "google-cloud-solution-agentic-ai-bidirectional-streaming",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:8839d09631ebaf90d730e878c7ff7fb92b18ef8c5696c94d931cff17cfd6c103"
+    }
+  ]
+}

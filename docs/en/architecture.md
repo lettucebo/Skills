@@ -107,12 +107,12 @@ flowchart LR
     parser/assertion, HTML language mapping, and base-aware path helpers.
     Shared page components render the five logical page kinds, while explicit
     `[locale]` routes expand them for `en`, `zh-tw`, and `zh-cn`.
-14. The current catalog produces 390 localized pages plus 130 unprefixed
+14. The current catalog produces 918 localized pages plus 306 unprefixed
     static redirect pages. Redirects preserve the old logical target, use
     English as the canonical/meta/no-JS fallback, and are excluded from
-    Pagefind. Only the 115 skill pages per locale opt into Pagefind, producing
-    345 indexed pages across three language indexes. Together these routes
-    produce exactly 520 HTML pages.
+    Pagefind. Only the 289 skill pages per locale opt into Pagefind, producing
+    867 indexed pages across three language indexes. Together these routes
+    produce exactly 1224 HTML pages.
 15. The built site deploys to **GitHub Pages**.
 
 `node scripts/validate.mjs` cuts across every stage: it walks the whole

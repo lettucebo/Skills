@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/ads/ima-sdk-client-side",
+  "name": "ima-sdk-client-side",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:912fcdd8b7812695460ec19896522d7e1b0a2e1ce0bc65dd51788562db849e4e"
+    }
+  ]
+}

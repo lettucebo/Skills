@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/gke-custom-golden-image-discovery",
+  "name": "gke-custom-golden-image-discovery",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:db41be5711f40d562221067d9a81b2730efa27bc836af601cd88bed1cbf3081b"
+    }
+  ]
+}

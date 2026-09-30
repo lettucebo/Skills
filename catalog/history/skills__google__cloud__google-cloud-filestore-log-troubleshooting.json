@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-filestore-log-troubleshooting",
+  "name": "google-cloud-filestore-log-troubleshooting",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:5cde0d43929521ac168d5c555ec8347f56a3cafc7ced52d76095bc3b79599a5a"
+    }
+  ]
+}

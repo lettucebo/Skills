@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/spanner-basics",
+  "name": "spanner-basics",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:bd5e502a34318face540c453ef56485bf1ccec2ad8ffe7bd843263a72a073731"
+    }
+  ]
+}

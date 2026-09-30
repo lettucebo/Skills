@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/agent-platform-endpoint-management",
+  "name": "agent-platform-endpoint-management",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:927f04397246ea039f4ed90fadbc23999281e4f94ea157ecf7fc641a4c8576cf"
+    }
+  ]
+}

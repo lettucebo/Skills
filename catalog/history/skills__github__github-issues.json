@@ -41,6 +41,14 @@
       },
       "evidenceCommit": "4742f265959bf025882314564b364d9d7af6e2d5",
       "evidenceHash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823"
+    },
+    {
+      "release": "2.1.0",
+      "kind": "upstream-update",
+      "version": "1.1.1",
+      "upstreamCommit": "997e95a6e42869c350f8ca6ec4c066287697c9f0",
+      "diffUrl": "https://github.com/github/awesome-copilot/compare/4742f265959bf025882314564b364d9d7af6e2d5...997e95a6e42869c350f8ca6ec4c066287697c9f0",
+      "contentHash": "sha256:4deb9112f1ce62b8415209ef10feebf1ebf44752995883adef8803ebfcb09085"
     }
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "path": "skills/expo/expo-project-structure",
+  "name": "expo-project-structure",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+      "diffUrl": null,
+      "contentHash": "sha256:247803066d5e635f9fb8a41ace3afb3ce7a10e18a017a8d6a933dbdf336ceb4a"
+    }
+  ]
+}

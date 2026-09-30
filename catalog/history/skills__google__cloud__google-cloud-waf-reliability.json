@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-reliability",
+  "name": "google-cloud-waf-reliability",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:08747ea0e0dc3df9eaca86e0c1f552cefe3271e89ab9b09ffb1ea0196374aec4"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-android-migrate-to-next-gen",
+  "name": "google-mobile-ads-android-migrate-to-next-gen",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:f7612ca05845457276a382f1330d3a6fdb2fd500977f15d8d91f27f43683a6f9"
+    }
+  ]
+}

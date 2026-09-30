@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/cloud-run-basics",
+  "name": "cloud-run-basics",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:9592e01f9164a443eab576bee92167794247759786c2837d80bdf37ef45a5ea9"
+    }
+  ]
+}

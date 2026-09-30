@@ -1,1 +1,4 @@
 catalog/licenses/** -text
+skills/google/cloud/gke-upgrades/references/checklists.md -text
+skills/google/cloud/gke-upgrades/references/runbook-template.md -text
+skills/google/cloud/gke-upgrades/references/troubleshooting.md -text

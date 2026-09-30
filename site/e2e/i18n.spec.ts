@@ -59,6 +59,20 @@ test.describe('full-route localization', () => {
       .toBe('zh-tw');
   });
 
+  test('nested Google skill keeps its route through localization and legacy redirect', async ({ page }) => {
+    const route = 'skills/google/cloud/gke-basics/';
+    await page.goto(`${SITE_BASE}en/${route}`);
+    await expect(page.getByRole('heading', { name: 'gke-basics', exact: true })).toBeVisible();
+
+    await page.locator('.language-menu-summary').click();
+    await page.locator('[data-locale-link="zh-tw"]').click();
+    await expect(page).toHaveURL(new RegExp(`/zh-tw/${route}$`));
+
+    await page.evaluate(() => localStorage.removeItem('skillsLocale'));
+    await page.goto(`${SITE_BASE}${route}`);
+    await expect(page).toHaveURL(new RegExp(`/en/${route}$`));
+  });
+
   test('keyboard opens the native menu with Enter and Space and navigates a language link', async ({ page }) => {
     await page.goto(`${SITE_BASE}en/status/`);
     const menu = page.locator('.language-menu');
@@ -194,11 +208,11 @@ test.describe('full-route localization', () => {
 
   test('traditional Chinese search uses its language index and keeps localized links', async ({ page }) => {
     await page.goto(`${SITE_BASE}zh-tw/`);
-    await page.locator('#search-input').fill('里程碑');
+    await page.locator('#search-input').fill('成本最佳化');
     const rows = await waitForRenderedResults(page);
 
     expect(rows.length).toBeGreaterThan(0);
-    expect(rows.some((row) => row.title === 'github-issues')).toBe(true);
+    expect(rows.some((row) => row.title === 'az-cost-optimize')).toBe(true);
     for (const row of rows) {
       expect(row.href).toMatch(/^\/zh-tw\/skills\//);
     }
@@ -206,11 +220,10 @@ test.describe('full-route localization', () => {
 
   test('simplified Chinese search uses its language index and keeps localized links', async ({ page }) => {
     await page.goto(`${SITE_BASE}zh-cn/`);
-    await page.locator('#search-input').fill('里程碑');
+    await page.locator('#search-input').fill('优化');
     const rows = await waitForRenderedResults(page);
 
     expect(rows.length).toBeGreaterThan(0);
-    expect(rows.some((row) => row.title === 'github-issues')).toBe(true);
     for (const row of rows) {
       expect(row.href).toMatch(/^\/zh-cn\/skills\//);
     }

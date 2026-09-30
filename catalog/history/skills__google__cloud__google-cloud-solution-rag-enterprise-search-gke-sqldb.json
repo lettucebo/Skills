@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-rag-enterprise-search-gke-sqldb",
+  "name": "google-cloud-solution-rag-enterprise-search-gke-sqldb",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:2f41c51e383e324f620589dcb1763cc7cd3e391f225d82495b5484ce70bdf1c1"
+    }
+  ]
+}

@@ -48,7 +48,9 @@ const SOURCE_META = {
     doc: '[README](skills/cloudflare/README.md)',
   },
   dotnet: { description: 'C# 測試（NUnit/xUnit/MSTest/TUnit）、EF Core、NuGet、非同步', doc: '—' },
+  expo: { description: 'Expo、EAS、React Native 應用程式開發與發布', doc: '—' },
   github: { description: 'GitHub Issues、PR、CodeQL、Dependabot、gh CLI', doc: '—' },
+  google: { description: 'Google Cloud、廣告、分析與開發者工具', doc: '—' },
   'google-play-console-cli': {
     description: 'Google Play 發布、審查、測試、定價與營運自動化',
     doc: '—',

@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/ads/google-ads-api-mcp-setup",
+  "name": "google-ads-api-mcp-setup",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:41bde3db3c7393043ca459db7fe8d36c40f7995e84cd4736ed981c95a2ec9adc"
+    }
+  ]
+}

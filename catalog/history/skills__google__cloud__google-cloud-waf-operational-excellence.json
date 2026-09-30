@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-operational-excellence",
+  "name": "google-cloud-waf-operational-excellence",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:4e1e7a8bf8e9dbe54e9b49fec875d65080fa2a2bf93ecfba77c7eb1b310d81ce"
+    }
+  ]
+}

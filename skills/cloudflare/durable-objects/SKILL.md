@@ -1,15 +1,12 @@
 ---
 name: durable-objects
-description: Create and review Cloudflare Durable Objects. Use when building
-  stateful coordination (chat rooms, multiplayer games, booking systems),
-  implementing RPC methods, SQLite storage, alarms, WebSockets, or reviewing DO
-  code for best practices. Covers Workers integration, wrangler config, and
-  testing with Vitest. Biases towards retrieval from Cloudflare docs over
-  pre-trained knowledge.
+description: Build, debug, or review Cloudflare Durable Objects code for
+  persistent state and coordination.
 x-source: cloudflare/skills
+x-source-ref: refs/heads/main
 x-source-path: skills/durable-objects
-x-source-commit: f96bff754e428838818017f75817f0f9428acd48
-x-version: 1.1.0
+x-source-commit: 626547c06881a20b3322bdc2ed6e6451b33a4fb6
+x-version: 1.1.1
 ---
 
 # Durable Objects
@@ -26,6 +23,7 @@ Your knowledge of Durable Objects APIs and configuration may be outdated. **Pref
 | API Reference | https://developers.cloudflare.com/durable-objects/api/ |
 | Best Practices | https://developers.cloudflare.com/durable-objects/best-practices/ |
 | Examples | https://developers.cloudflare.com/durable-objects/examples/ |
+| Roles and permissions | https://developers.cloudflare.com/workers/authorization/durable-objects/ |
 
 Fetch the relevant doc page when implementing features.
 
@@ -35,13 +33,13 @@ Fetch the relevant doc page when implementing features.
 - Implementing RPC methods, alarms, or WebSocket handlers
 - Reviewing existing DO code for best practices
 - Configuring wrangler.jsonc/toml for DO bindings and migrations
-- Writing tests with `@cloudflare/vitest-pool-workers`
+- Writing tests with Cloudflare’s Vitest integration
 - Designing sharding strategies and parent-child relationships
 
 ## Reference Documentation
 
 - `./references/rules.md` - Core rules, storage, concurrency, RPC, alarms
-- `./references/testing.md` - Vitest setup, unit/integration tests, alarm testing
+- [Testing reference](./references/testing.md) - Current Vitest documentation, migration choices, and test selection
 - `./references/workers.md` - Workers handlers, types, wrangler config, observability
 
 Search: `blockConcurrencyWhile`, `idFromName`, `getByName`, `setAlarm`, `sql.exec`
@@ -128,6 +126,10 @@ export default {
 6. **Persist first, cache second** - Always write to storage before updating in-memory state
 7. **One alarm per DO** - `setAlarm()` replaces any existing alarm
 
+## Authorization
+
+Durable Objects do not have separate roles or permissions; access follows the Worker that implements them. Retrieve the current [Durable Objects authorization guidance](https://developers.cloudflare.com/workers/authorization/durable-objects/) before granting observability or Data Studio access, and scope the Workers role to the intended Worker or Workers product.
+
 ## Anti-Patterns (NEVER)
 
 - Single global DO handling all requests (bottleneck)
@@ -179,17 +181,6 @@ async alarm(): Promise<void> {
 await this.ctx.storage.deleteAlarm();
 ```
 
-## Testing Quick Start
+## Testing
 
-```typescript
-import { env } from "cloudflare:test";
-import { describe, it, expect } from "vitest";
-
-describe("MyDO", () => {
-  it("should work", async () => {
-    const stub = env.MY_DO.getByName("test");
-    const result = await stub.addItem("test");
-    expect(result).toBe(1);
-  });
-});
-```
+Read the [testing reference](./references/testing.md) before configuring a suite or writing Durable Object tests. It routes to current setup, APIs, and examples and identifies the behavior to cover.

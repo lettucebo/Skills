@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/cloud-databases-onboarding",
+  "name": "cloud-databases-onboarding",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:92acd89eb080f4281309924c7dc7f2daf90ad0a17a5578a6564e2d89d7389c0d"
+    }
+  ]
+}

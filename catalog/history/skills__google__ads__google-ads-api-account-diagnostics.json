@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/ads/google-ads-api-account-diagnostics",
+  "name": "google-ads-api-account-diagnostics",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:dbd1790dc993c9261a6567b700b0de2d74f479d9db8ff2d23c2441e04d74c94e"
+    }
+  ]
+}

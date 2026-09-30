@@ -41,6 +41,14 @@
       },
       "evidenceCommit": "f96bff754e428838818017f75817f0f9428acd48",
       "evidenceHash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    {
+      "release": "2.1.0",
+      "kind": "upstream-update",
+      "version": "1.1.1",
+      "upstreamCommit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+      "diffUrl": "https://github.com/cloudflare/skills/compare/f96bff754e428838818017f75817f0f9428acd48...626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+      "contentHash": "sha256:fecdb1efad93b71de47b49f90253cf361706884488e734f0848b22ef210736ca"
     }
   ]
 }

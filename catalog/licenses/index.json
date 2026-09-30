@@ -1,14 +1,23 @@
 {
-  "release": "2.0.1",
+  "release": "2.1.0",
   "licenses": [
     {
       "repository": "cloudflare/skills",
       "reference": "refs/heads/main",
-      "commit": "f96bff754e428838818017f75817f0f9428acd48",
+      "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
       "license": "Apache-2.0",
       "sourcePath": "LICENSE",
       "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
-      "bundlePath": "cloudflare--skills--a317a9aaf9890e04--f96bff754e428838818017f75817f0f9428acd48--LICENSE"
+      "bundlePath": "cloudflare--skills--a317a9aaf9890e04--626547c06881a20b3322bdc2ed6e6451b33a4fb6--LICENSE"
+    },
+    {
+      "repository": "expo/skills",
+      "reference": "refs/heads/main",
+      "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+      "license": "MIT",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:49c5f9c7097c9a940ff663a54c27a4c60e379df6cc2b3052df0d37a09a85df93",
+      "bundlePath": "expo--skills--bda913dfa6363523--c0dadf355d4caa4e1720de372f0f8766df1a8978--LICENSE"
     },
     {
       "repository": "github/awesome-copilot",
@@ -18,6 +27,24 @@
       "sourcePath": "LICENSE",
       "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823",
       "bundlePath": "github--awesome-copilot--a178dc401fe03076--4742f265959bf025882314564b364d9d7af6e2d5--LICENSE"
+    },
+    {
+      "repository": "github/awesome-copilot",
+      "reference": "refs/heads/main",
+      "commit": "997e95a6e42869c350f8ca6ec4c066287697c9f0",
+      "license": "MIT",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823",
+      "bundlePath": "github--awesome-copilot--a178dc401fe03076--997e95a6e42869c350f8ca6ec4c066287697c9f0--LICENSE"
+    },
+    {
+      "repository": "google/skills",
+      "reference": "refs/heads/main",
+      "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "license": "Apache-2.0",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bundlePath": "google--skills--2c42a31a2228a072--99c871efb402aba106c3ce7432451d253efd77b1--LICENSE"
     },
     {
       "repository": "henkisdabro/wookstar-claude-plugins",

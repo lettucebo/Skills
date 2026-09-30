@@ -1,0 +1,16 @@
+{
+  "path": "skills/expo/eas-app-stores",
+  "name": "eas-app-stores",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+      "diffUrl": null,
+      "contentHash": "sha256:8775fea9147cc1da6fd7fc14921605f80d84a0826931a8723db7474986fcae5a"
+    }
+  ]
+}

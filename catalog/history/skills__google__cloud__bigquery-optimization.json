@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/bigquery-optimization",
+  "name": "bigquery-optimization",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:702b9d071fb70f251d72752d4d7a43fa753d4833ec7dbe12e6dc4268f4a48f7e"
+    }
+  ]
+}

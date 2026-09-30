@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/gke-app-onboarding",
+  "name": "gke-app-onboarding",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:407d4cfc6c2899845332b6c32f38edb9b5ad44b6626e54f7166a84c6c6412f8a"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/cloud-monitoring-promql-query",
+  "name": "cloud-monitoring-promql-query",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:f5890c9d0c51e69f27ab3f6cfd8dc4b421182e1de50110f72ea5e563421eb058"
+    }
+  ]
+}

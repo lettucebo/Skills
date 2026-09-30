@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/detection-engineering-coverage-evaluation",
+  "name": "detection-engineering-coverage-evaluation",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:6b5b448e1a9fe4ad98bba3a6a8fd935b637b05e8cb8a75cc4c1bc3d0cc7200d4"
+    }
+  ]
+}

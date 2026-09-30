@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-rewarded",
+  "name": "google-mobile-ads-rewarded",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:2938c0b5cab866f764e693d194de1ae51ed4c6b04780e06de07047108aa00c4e"
+    }
+  ]
+}

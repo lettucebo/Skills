@@ -222,6 +222,16 @@ deploy 交接：
    剛剛推送的確切 commit SHA，而不是 workflow 原始觸發時的 SHA，因為 reusable
    workflow 否則會繼承呼叫者同步前的 commit。
 
+推送 `v<release>` tag 之後，使用人工核對過的發布說明另行建立 GitHub Release：
+
+```bash
+gh release create v<release> --verify-tag --notes-file <verified-notes-file>
+```
+
+`--verify-tag` 要求 GitHub 上已存在該 tag；GitHub Release 不會建立或取代
+registry tag，也不能取代手動打 tag 後必須重新執行的 deploy workflow（見
+[收編收尾流程](skill-management.md#收編收尾流程)）。
+
 若從非 `main` ref 手動觸發 apply 或 baseline，workflow 不會失敗：apply 與
 deploy jobs 會被跳過，因此畫面可能是綠色，卻沒有進行任何同步。所有會寫入的
 dispatch 都必須選擇 `main`。手動 dry-run 不寫入，因此可以在其他 ref 執行。

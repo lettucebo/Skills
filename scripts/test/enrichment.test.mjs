@@ -513,7 +513,7 @@ test('changelog freshness rejects a changed pinnedCommit with unchanged contentH
   assert.equal(isArtifactFresh('changelog', value, advanced), false);
 });
 
-test('the current lock has exactly 112 changelog-eligible mapped skills', async () => {
+test('the current lock has exactly 286 changelog-eligible mapped skills', async () => {
   const lock = JSON.parse(
     await readFile(path.join(repoRoot, 'catalog', 'skills.lock.json'), 'utf8'),
   );
@@ -521,7 +521,7 @@ test('the current lock has exactly 112 changelog-eligible mapped skills', async 
     isEligibleForEnrichment('changelog', skill),
   );
 
-  assert.equal(eligible.length, 112);
+  assert.equal(eligible.length, 286);
   assert.equal(eligible.every((skill) => skill.category === 'mapped'), true);
   assert.equal(eligible.some((skill) => skill.redistributable === false), false);
   assert.equal(eligible.some((skill) => skill.upstream === null), false);

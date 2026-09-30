@@ -81,7 +81,7 @@ test('createSmokePlan pins the CLI package and local smoke coverage', async () =
       {
         name: 'full-repo',
         sourcePathSuffix: '',
-        expectedCount: 115,
+        expectedCount: 289,
         includesFullDepth: true,
       },
       {

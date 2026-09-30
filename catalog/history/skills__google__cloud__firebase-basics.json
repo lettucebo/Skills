@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/firebase-basics",
+  "name": "firebase-basics",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:53857b3810a93538e6b61fc43810b1c7f9abfa4e826f600ca7fe523d6801222d"
+    }
+  ]
+}

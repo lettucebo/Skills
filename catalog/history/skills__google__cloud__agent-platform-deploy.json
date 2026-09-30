@@ -1,0 +1,16 @@
+{
+  "path": "skills/google/cloud/agent-platform-deploy",
+  "name": "agent-platform-deploy",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.1.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-09-29T16:05:47.940Z",
+      "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
+      "diffUrl": null,
+      "contentHash": "sha256:88fd09fe3ad0e48acb08e9e8102f2346cefc9cdff150a8444f7d27c1dc757fb2"
+    }
+  ]
+}
