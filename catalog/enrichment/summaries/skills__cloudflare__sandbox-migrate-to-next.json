@@ -2,42 +2,42 @@
   "path": "skills/cloudflare/sandbox-migrate-to-next",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:b9c7eda2d4d6bd8e9dd4aa6dc4921bc6e3d9450e91f34412cf4273a7b043bc06"
+    "contentHash": "sha256:77dec2d5dc2ec204949c70da59bf811280c9cf9567b9e46d0d1aa53ff5aaef24"
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps port an existing Cloudflare Sandbox app from the stable package and runtime model to the Sandbox SDK 1.0 preview on @next.",
-        "whenToUse": "Use it when upgrading an existing stable Sandbox app to @cloudflare/sandbox@next, especially for codebases that need package, image, API, and deployment cutover changes.",
-        "outputs": "Produces a migration-oriented summary of the required replacements, upgrade steps, deployment constraints, and validation checks for moving to the preview line."
+        "purpose": "Guides the end-to-end port of an existing Cloudflare Sandbox application from the stable SDK to the 1.0 preview, including API and runtime behavior changes.",
+        "whenToUse": "Use when an existing app on the stable SDK is being moved to @cloudflare/sandbox@next; follow the separate setup or maintenance guidance for new or already-preview projects.",
+        "outputs": "A migrated codebase with the Worker package and container image aligned on the same @next line, preview-compatible code, and migration validation."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助將既有的 Cloudflare Sandbox 應用程式，從穩定版套件與執行模型遷移到採用 @next 的 Sandbox SDK 1.0 預覽版。",
-        "whenToUse": "當你要把既有的穩定版 Sandbox 應用程式升級到 @cloudflare/sandbox@next，尤其需要處理套件、映像、API 與部署切換變更時，就應使用它。",
-        "outputs": "會產出一份以遷移為重點的摘要，整理移轉到預覽版所需的替換項目、升級步驟、部署限制與驗證檢查。"
+        "purpose": "引導將既有 Cloudflare Sandbox 應用程式從穩定版 SDK 完整移植至 1.0 預覽版，涵蓋 API 與執行行為的變更。",
+        "whenToUse": "當仍使用穩定版 SDK 的既有應用程式準備升級至 @cloudflare/sandbox@next 時使用；新專案或已使用預覽版的專案應遵循各自的設定或維護指引。",
+        "outputs": "產出已讓 Worker 套件與容器映像檔對齊至同一 @next 版本線、更新為預覽版相容程式碼，並完成移植檢查的程式碼庫。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助将既有的 Cloudflare Sandbox 应用程序，从稳定版套件与运行模型迁移到采用 @next 的 Sandbox SDK 1.0 预览版。",
-        "whenToUse": "当你要把既有的稳定版 Sandbox 应用程序升级到 @cloudflare/sandbox@next，尤其需要处理套件、映像、API 与部署切换变更时，就应使用它。",
-        "outputs": "会产出一份以迁移为重点的摘要，整理移转到预览版所需的替换项目、升级步骤、部署限制与验证检查。"
+        "purpose": "引导将既有 Cloudflare Sandbox 应用程序从稳定版 SDK 完整移植至 1.0 预览版，涵盖 API 与运行行为的变更。",
+        "whenToUse": "当仍使用稳定版 SDK 的既有应用程序准备升级至 @cloudflare/sandbox@next 时使用；新项目或已使用预览版的项目应遵循各自的设置或维护指引。",
+        "outputs": "产出已让 Worker 套件与容器映像档对齐至同一 @next 版本线、更新为预览版兼容代码，并完成移植检查的代码库。"
       }
     }
   }

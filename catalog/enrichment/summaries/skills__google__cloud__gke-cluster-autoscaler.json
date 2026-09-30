@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-cluster-autoscaler",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b4ae1a7914da4d5844c8dfce256d64aa87d429bac205f76d8a105250123ef972"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides operational guidance for configuring, tuning, and troubleshooting GKE autoscaling so node capacity matches workload demand.",
+        "whenToUse": "Use it to investigate or improve node provisioning, scale-up or scale-down behavior, capacity shortages, and related GKE autoscaler issues; use the gke-compute-classes skill for ComputeClass YAML, schemas, or priority configurations.",
+        "outputs": "Returns practical configuration and tuning recommendations, diagnostic checks, relevant logs or commands, and explanations of common scaling blockers and capacity behavior."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供 GKE 自動擴縮的設定、調校與疑難排解指引，協助節點容量配合工作負載需求。",
+        "whenToUse": "在需要調查或改善節點佈建、擴容或縮容行為、容量不足及相關 GKE 自動擴縮問題時使用；ComputeClass 的 YAML、結構描述或優先順序設定則交由 gke-compute-classes 技能處理。",
+        "outputs": "提供實用的設定與調校建議、診斷檢查、相關日誌或指令，以及常見擴縮阻礙和容量行為的說明。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供 GKE 自动扩缩的设置、调校与疑难排解指引，协助节点容量配合工作负载需求。",
+        "whenToUse": "在需要调查或改善节点布建、扩容或缩容行为、容量不足及相关 GKE 自动扩缩问题时使用；ComputeClass 的 YAML、结构描述或优先级设置则交由 gke-compute-classes 技能处理。",
+        "outputs": "提供实用的设置与调校建议、诊断检查、相关日志或指令，以及常见扩缩阻碍和容量行为的说明。"
+      }
+    }
+  }
+}

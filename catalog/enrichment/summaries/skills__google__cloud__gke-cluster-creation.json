@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-cluster-creation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2b5ac1074cb1272685d6b469fee73b8549a679d1c4a2f404e9aa9a79b37d7775"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides users in choosing a GKE cluster mode and configuring production-ready settings for creation or readiness review.",
+        "whenToUse": "Use when planning or creating a GKE cluster, provisioning its environment, comparing Autopilot, Standard, or GPU and AI templates, or auditing cluster settings.",
+        "outputs": "Provides mode trade-offs, required inputs, recommended security, networking, and reliability settings, plus gcloud commands or create_cluster payloads for review."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助使用者選擇 GKE 叢集模式，並設定供建立或就緒度檢查使用的正式環境組態。",
+        "whenToUse": "當需要規劃或建立 GKE 叢集、佈建環境、比較 Autopilot、Standard 與 GPU／AI 範本，或稽核叢集設定時使用。",
+        "outputs": "提供模式取捨、所需輸入、建議的安全性、網路與可靠性設定，以及可供檢視的 gcloud 指令或 create_cluster 請求內容。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助用户选择 GKE 集群模式，并设置供创建或就绪度检查使用的正式环境组态。",
+        "whenToUse": "当需要规划或创建 GKE 集群、布建环境、比较 Autopilot、Standard 与 GPU／AI 范本，或审核集群设置时使用。",
+        "outputs": "提供模式取舍、所需输入、建议的安全性、网络与可靠性设置，以及可供查看的 gcloud 指令或 create_cluster 请求内容。"
+      }
+    }
+  }
+}

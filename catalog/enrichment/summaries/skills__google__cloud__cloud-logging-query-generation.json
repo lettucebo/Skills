@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-logging-query-generation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:63213f8f28fc601d730de307643b876d4fe1867d92d1dd0b481af1e5a2f327bc"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Creates Logging Query Language (LQL) queries from natural-language requests to help explore and troubleshoot Google Cloud Logging data.",
+        "whenToUse": "Use it to filter logs by Google Cloud service or investigate issues through log data.",
+        "outputs": "A raw LQL query with applicable resource and log filters, using placeholders only for missing values that are strictly required."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "根據自然語言需求產生 Logging Query Language（LQL）查詢，以協助探索及診斷 Google Cloud Logging 資料。",
+        "whenToUse": "當你需要依 Google Cloud 服務篩選日誌，或透過日誌調查問題時使用。",
+        "outputs": "輸出原始 LQL 查詢文字，包含適用的資源與日誌篩選條件，且只在缺少不可或缺的值時使用佔位符。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "根据自然语言需求产生 Logging Query Language（LQL）查找，以协助探索及诊断 Google Cloud Logging 数据。",
+        "whenToUse": "当你需要依 Google Cloud 服务筛选日志，或透过日志调查问题时使用。",
+        "outputs": "输出原始 LQL 查找文字，包含适用的资源与日志筛选条件，且只在缺少不可或缺的值时使用占位符。"
+      }
+    }
+  }
+}

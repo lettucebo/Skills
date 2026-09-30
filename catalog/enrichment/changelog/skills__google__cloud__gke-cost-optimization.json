@@ -1,0 +1,195 @@
+{
+  "path": "skills/google/cloud/gke-cost-optimization",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f79542e41516c1327b7f69549cd503032dc1eb771ba4b39c789401659d121e1a",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-cost-optimization",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill metadata."
+          },
+          {
+            "sha": "be838424d94c434e2665a2f5c3c4e42882bf4e04",
+            "date": "2026-08-19T16:55:31-07:00",
+            "subject": "Upgrade gke-cost-optimization skill and expand evaluation suite.",
+            "url": "https://github.com/google/skills/commit/be838424d94c434e2665a2f5c3c4e42882bf4e04",
+            "pathAtCommit": "skills/cloud/gke-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Revised quota, VPA, and Spot guidance with linked templates and an updated Spot selector, updated CUD and cluster-management recommendations, and removed the MCP-tools and golden-path sections."
+          },
+          {
+            "sha": "7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "date": "2026-07-22T10:29:42-07:00",
+            "subject": "Merged gke-cost into gke-cost-optimization skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "pathAtCommit": "skills/cloud/gke-cost-optimization/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R056",
+              "sourcePath": "skills/cloud/gke-cost/SKILL.md",
+              "destinationPath": "skills/cloud/gke-cost-optimization/SKILL.md"
+            },
+            "summary": "Renamed the skill from `gke-cost` to `gke-cost-optimization` and expanded it with cost-allocation, quota, rightsizing, Spot, machine-type, and CUD guidance."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-cost/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the skill's `category` field under the `metadata` block."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-cost/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial `gke-cost` skill guide covering GKE cost optimization through Spot VMs, pod rightsizing, machine selection, CUDs, and cluster management."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增版本 1.0.0。"
+          },
+          {
+            "sha": "be838424d94c434e2665a2f5c3c4e42882bf4e04",
+            "date": "2026-08-19T16:55:31-07:00",
+            "subject": "Upgrade gke-cost-optimization skill and expand evaluation suite.",
+            "url": "https://github.com/google/skills/commit/be838424d94c434e2665a2f5c3c4e42882bf4e04",
+            "pathAtCommit": "skills/cloud/gke-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新配額、VPA 與 Spot 指引，改用連結範本並更新 Spot 選取器；修訂 CUD 與叢集管理建議，並移除 MCP 工具和 Golden Path 章節。"
+          },
+          {
+            "sha": "7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "date": "2026-07-22T10:29:42-07:00",
+            "subject": "Merged gke-cost into gke-cost-optimization skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "pathAtCommit": "skills/cloud/gke-cost-optimization/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R056",
+              "sourcePath": "skills/cloud/gke-cost/SKILL.md",
+              "destinationPath": "skills/cloud/gke-cost-optimization/SKILL.md"
+            },
+            "summary": "將技能從 `gke-cost` 重新命名為 `gke-cost-optimization`，並擴充成本分攤、配額、資源調整、Spot VM、機型及 CUD 指引。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-cost/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能的 `category` 欄位移至 `metadata` 區塊下。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-cost/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版 `gke-cost` 技能指南，涵蓋以 Spot VM、Pod 資源調整、機型選擇、CUD 和叢集管理來最佳化 GKE 成本。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加版本 1.0.0。"
+          },
+          {
+            "sha": "be838424d94c434e2665a2f5c3c4e42882bf4e04",
+            "date": "2026-08-19T16:55:31-07:00",
+            "subject": "Upgrade gke-cost-optimization skill and expand evaluation suite.",
+            "url": "https://github.com/google/skills/commit/be838424d94c434e2665a2f5c3c4e42882bf4e04",
+            "pathAtCommit": "skills/cloud/gke-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新配额、VPA 与 Spot 指引，改用链接范本并更新 Spot 选取器；修订 CUD 与集群管理建议，并移除 MCP 工具和 Golden Path 章节。"
+          },
+          {
+            "sha": "7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "date": "2026-07-22T10:29:42-07:00",
+            "subject": "Merged gke-cost into gke-cost-optimization skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "pathAtCommit": "skills/cloud/gke-cost-optimization/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R056",
+              "sourcePath": "skills/cloud/gke-cost/SKILL.md",
+              "destinationPath": "skills/cloud/gke-cost-optimization/SKILL.md"
+            },
+            "summary": "将技能从 `gke-cost` 重命名为 `gke-cost-optimization`，并扩充成本分摊、配额、资源调整、Spot VM、机型及 CUD 指引。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-cost/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能的 `category` 字段移至 `metadata` 区块下。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-cost/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版 `gke-cost` 技能指南，涵盖以 Spot VM、Pod 资源调整、机型选择、CUD 和集群管理来优化 GKE 成本。"
+          }
+        ]
+      }
+    }
+  }
+}

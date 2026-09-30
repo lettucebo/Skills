@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/421418928715158da3610571cb9e9cbb18d4747d",
             "pathAtCommit": "skills/create-specification/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated the specification path reference to use inline code `/spec/` instead of a Markdown link."
+            "summary": "Changes the specification output-directory reference from a Markdown link to plain `/spec/` text."
           },
           {
             "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
@@ -38,7 +38,7 @@
               "sourcePath": "prompts/create-specification.prompt.md",
               "destinationPath": "skills/create-specification/SKILL.md"
             },
-            "summary": "Added `SKILL.md` with instructions and a Markdown template for creating AI-ready specification files."
+            "summary": "Adds the `create-specification` skill, including guidance and a structured template for AI-ready specification documents."
           },
           {
             "sha": "531b5118864d33e848863e415cb326ab532f8c77",
@@ -47,7 +47,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/531b5118864d33e848863e415cb326ab532f8c77",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Replaced `fetch` with `web/fetch` in the prompt tool list."
+            "summary": "Renames the prompt's `fetch` tool entry to `web/fetch`."
           },
           {
             "sha": "5afc90e633da52f255abe1fa45da5d2797c8f896",
@@ -56,7 +56,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/5afc90e633da52f255abe1fa45da5d2797c8f896",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Replaced `web/fetch` with `fetch` in the prompt tool list."
+            "summary": "Reverts the prompt's `web/fetch` tool entry to `fetch`."
           },
           {
             "sha": "ca790b171619f827da54e647dab9a2c4a8a5a1bb",
@@ -65,7 +65,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/ca790b171619f827da54e647dab9a2c4a8a5a1bb",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Replaced `fetch` with `web/fetch` in the prompt tool list."
+            "summary": "Renames the prompt's `fetch` tool entry to `web/fetch`."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -74,7 +74,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the front matter field from `mode` to `agent`."
+            "summary": "Renames the prompt front matter key from `mode` to `agent`."
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -83,7 +83,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Updated several prompt tool names to their namespaced forms in the front matter tool list."
+            "summary": "Replaces the prompt's `codebase`, `searchResults`, `terminalLastCommand`, and `terminalSelection` tool names with their namespaced forms."
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -92,7 +92,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the `editFiles` tool entry to `edit/editFiles` in the tool list."
+            "summary": "Renames the prompt's `editFiles` tool entry to `edit/editFiles`."
           },
           {
             "sha": "5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
@@ -101,7 +101,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Indented the example code block under the Examples & Edge Cases section."
+            "summary": "Indents the fenced code example in section 9 by four spaces."
           },
           {
             "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
@@ -110,15 +110,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added the create-specification prompt file with instructions and a specification template."
+            "summary": "Adds `create-specification.prompt.md` with agent metadata, authoring instructions, and a detailed specification template."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -130,7 +130,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/421418928715158da3610571cb9e9cbb18d4747d",
             "pathAtCommit": "skills/create-specification/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將規格儲存路徑的參照改為使用行內程式碼 `/spec/`，而非 Markdown 連結。"
+            "summary": "將規格文件輸出目錄的 Markdown 連結改為純文字 `/spec/`。"
           },
           {
             "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
@@ -144,7 +144,7 @@
               "sourcePath": "prompts/create-specification.prompt.md",
               "destinationPath": "skills/create-specification/SKILL.md"
             },
-            "summary": "新增 `SKILL.md`，提供建立適合 AI 使用之規格文件的說明與 Markdown 範本。"
+            "summary": "新增 `create-specification` 技能，包含撰寫適合 AI 使用的規格文件之指引與結構化範本。"
           },
           {
             "sha": "531b5118864d33e848863e415cb326ab532f8c77",
@@ -153,7 +153,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/531b5118864d33e848863e415cb326ab532f8c77",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單中的 `fetch` 改為 `web/fetch`。"
+            "summary": "將提示中的 `fetch` 工具項目改名為 `web/fetch`。"
           },
           {
             "sha": "5afc90e633da52f255abe1fa45da5d2797c8f896",
@@ -162,7 +162,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/5afc90e633da52f255abe1fa45da5d2797c8f896",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單中的 `web/fetch` 改回 `fetch`。"
+            "summary": "將提示中的 `web/fetch` 工具項目還原為 `fetch`。"
           },
           {
             "sha": "ca790b171619f827da54e647dab9a2c4a8a5a1bb",
@@ -171,7 +171,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/ca790b171619f827da54e647dab9a2c4a8a5a1bb",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單中的 `fetch` 改為 `web/fetch`。"
+            "summary": "將提示中的 `fetch` 工具項目改名為 `web/fetch`。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -180,7 +180,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 front matter 欄位從 `mode` 更名為 `agent`。"
+            "summary": "將提示檔前置中繼資料中的 `mode` 鍵改名為 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -189,7 +189,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 front matter 工具清單中的多個提示工具名稱更新為命名空間形式。"
+            "summary": "將提示中的 `codebase`、`searchResults`、`terminalLastCommand` 與 `terminalSelection` 工具名稱替換為其命名空間形式。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -198,7 +198,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將工具清單中的 `editFiles` 項目更名為 `edit/editFiles`。"
+            "summary": "將提示中的 `editFiles` 工具項目改名為 `edit/editFiles`。"
           },
           {
             "sha": "5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
@@ -207,7 +207,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將「Examples & Edge Cases」段落下的範例程式碼區塊改為縮排格式。"
+            "summary": "將第 9 節的圍欄程式碼範例縮排四個空格。"
           },
           {
             "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
@@ -216,13 +216,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增 create-specification 提示檔，內含說明與規格文件範本。"
+            "summary": "新增 `create-specification.prompt.md`，其中包含代理程式中繼資料、撰寫指引及詳細的規格範本。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -235,7 +235,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/421418928715158da3610571cb9e9cbb18d4747d",
             "pathAtCommit": "skills/create-specification/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将规格保存路径的参照改为使用行内代码 `/spec/`，而非 Markdown 链接。"
+            "summary": "将规格文档输出目录的 Markdown 链接改为纯文字 `/spec/`。"
           },
           {
             "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
@@ -249,7 +249,7 @@
               "sourcePath": "prompts/create-specification.prompt.md",
               "destinationPath": "skills/create-specification/SKILL.md"
             },
-            "summary": "添加 `SKILL.md`，提供创建适合 AI 使用之规格文档的说明与 Markdown 范本。"
+            "summary": "添加 `create-specification` 技能，包含撰写适合 AI 使用的规格文档之指引与结构化范本。"
           },
           {
             "sha": "531b5118864d33e848863e415cb326ab532f8c77",
@@ -258,7 +258,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/531b5118864d33e848863e415cb326ab532f8c77",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单中的 `fetch` 改为 `web/fetch`。"
+            "summary": "将提示中的 `fetch` 工具项目改名为 `web/fetch`。"
           },
           {
             "sha": "5afc90e633da52f255abe1fa45da5d2797c8f896",
@@ -267,7 +267,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/5afc90e633da52f255abe1fa45da5d2797c8f896",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单中的 `web/fetch` 改回 `fetch`。"
+            "summary": "将提示中的 `web/fetch` 工具项目还原为 `fetch`。"
           },
           {
             "sha": "ca790b171619f827da54e647dab9a2c4a8a5a1bb",
@@ -276,7 +276,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/ca790b171619f827da54e647dab9a2c4a8a5a1bb",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单中的 `fetch` 改为 `web/fetch`。"
+            "summary": "将提示中的 `fetch` 工具项目改名为 `web/fetch`。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -285,7 +285,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 front matter 字段从 `mode` 更名为 `agent`。"
+            "summary": "将提示档前置中继数据中的 `mode` 键改名为 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -294,7 +294,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 front matter 工具清单中的多个提示工具名称更新为命名空间形式。"
+            "summary": "将提示中的 `codebase`、`searchResults`、`terminalLastCommand` 与 `terminalSelection` 工具名称替换为其命名空间形式。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -303,7 +303,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将工具清单中的 `editFiles` 项目更名为 `edit/editFiles`。"
+            "summary": "将提示中的 `editFiles` 工具项目改名为 `edit/editFiles`。"
           },
           {
             "sha": "5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
@@ -312,7 +312,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/5a94cec531ff0c8a38bc4ad059dfbb1e6b387030",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将「Examples & Edge Cases」段落下的范例代码区块改为缩进格式。"
+            "summary": "将第 9 节的围栏代码范例缩进四个空格。"
           },
           {
             "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
@@ -321,7 +321,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
             "pathAtCommit": "prompts/create-specification.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加 create-specification 提示档，内含说明与规格文档范本。"
+            "summary": "添加 `create-specification.prompt.md`，其中包含代理程序中继数据、撰写指引及详细的规格范本。"
           }
         ]
       }

@@ -2,21 +2,48 @@
   "path": "skills/cloudflare/durable-objects",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:b4fa625f1c7a01119ea71d1ef7354f8aab2f9035da5c581891795e296b2b7ce9",
+    "contentHash": "sha256:c533f27520efef5c105ec36094a9865ac9e494bd61ba14911b948dd5d904fe25",
     "repository": "cloudflare/skills",
     "reference": "refs/heads/main",
     "source": "skills/durable-objects",
-    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+    "pinnedCommit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "date": "2026-09-22T14:51:24-04:00",
+            "subject": "Add Workers authorization skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "pathAtCommit": "skills/durable-objects/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a Workers authorization reference, notes that Durable Object access follows its Worker, and advises consulting current guidance and scoping roles to the intended Worker or Workers product before granting observability or Data Studio access."
+          },
+          {
+            "sha": "d56a4c009b5cb69ebe75017b938f5cd8400a602c",
+            "date": "2026-09-05T12:03:31-07:00",
+            "subject": "Route Durable Objects testing guidance to current docs",
+            "url": "https://github.com/cloudflare/skills/commit/d56a4c009b5cb69ebe75017b938f5cd8400a602c",
+            "pathAtCommit": "skills/durable-objects/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updates Durable Objects testing guidance to direct readers to Cloudflare's current Vitest integration and testing reference, replacing the inline quick-start test with instructions to read that reference."
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/durable-objects/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Narrows the skill description to focus on building, debugging, or reviewing Durable Objects code for persistent state and coordination."
+          },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
             "date": "2026-03-03T10:30:51-05:00",
@@ -24,7 +51,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/durable-objects/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated the skill description and retrieval guidance to emphasize preferring Cloudflare docs and renamed the retrieval section to \"Retrieval Sources\"."
+            "summary": "Renames the retrieval section and updates the description to emphasize that Durable Objects API and configuration knowledge may be outdated and documentation retrieval should be preferred for any task."
           },
           {
             "sha": "50c7477e4c6e249294712e88037392137a3d312f",
@@ -33,7 +60,7 @@
             "url": "https://github.com/cloudflare/skills/commit/50c7477e4c6e249294712e88037392137a3d312f",
             "pathAtCommit": "skills/durable-objects/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added a Retrieval-First Development section with Cloudflare Durable Objects documentation links and guidance to fetch relevant docs."
+            "summary": "Adds a retrieval-first section that prioritizes official Durable Objects documentation, links the docs, API, best-practices, and examples pages, and tells readers to fetch relevant pages when implementing features."
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -47,7 +74,7 @@
               "sourcePath": "durable-objects/SKILL.md",
               "destinationPath": "skills/durable-objects/SKILL.md"
             },
-            "summary": "Moved SKILL.md from durable-objects/ to skills/durable-objects/ without content changes."
+            "summary": "Renames `durable-objects/SKILL.md` to `skills/durable-objects/SKILL.md` without changing its content."
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -56,19 +83,46 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "durable-objects/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial Durable Objects skill file with usage guidance, reference links, configuration examples, and best-practice rules."
+            "summary": "Adds the initial Durable Objects skill with usage guidance, reference links, Wrangler and code examples, core rules and anti-patterns, storage and alarm guidance, and a Vitest quick start."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "date": "2026-09-22T14:51:24-04:00",
+            "subject": "Add Workers authorization skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "pathAtCommit": "skills/durable-objects/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Workers 授權參考資料，指出 Durable Objects 的存取權限隨所屬 Worker 而定，並建議在授予可觀測性或 Data Studio 存取權前查閱最新指引，且將角色限定於目標 Worker 或 Workers 產品。"
+          },
+          {
+            "sha": "d56a4c009b5cb69ebe75017b938f5cd8400a602c",
+            "date": "2026-09-05T12:03:31-07:00",
+            "subject": "Route Durable Objects testing guidance to current docs",
+            "url": "https://github.com/cloudflare/skills/commit/d56a4c009b5cb69ebe75017b938f5cd8400a602c",
+            "pathAtCommit": "skills/durable-objects/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 Durable Objects 測試指引，將讀者導向 Cloudflare 目前的 Vitest 整合與測試參考資料，並以閱讀該參考資料的指示取代內嵌的快速入門測試範例。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/durable-objects/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能描述限縮為專注於建置、除錯或審查用於持久狀態與協調的 Durable Objects 程式碼。"
+          },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
             "date": "2026-03-03T10:30:51-05:00",
@@ -76,7 +130,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/durable-objects/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新了技能描述與擷取指引，強調優先參考 Cloudflare 文件，並將該段落改名為「Retrieval Sources」。"
+            "summary": "重新命名檢索章節並更新描述，強調 Durable Objects API 與設定知識可能已過時，且任何任務都應優先查閱文件。"
           },
           {
             "sha": "50c7477e4c6e249294712e88037392137a3d312f",
@@ -85,7 +139,7 @@
             "url": "https://github.com/cloudflare/skills/commit/50c7477e4c6e249294712e88037392137a3d312f",
             "pathAtCommit": "skills/durable-objects/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 Retrieval-First Development 段落，包含 Cloudflare Durable Objects 文件連結與擷取相關文件的指引。"
+            "summary": "新增檢索優先章節，優先採用 Durable Objects 官方文件，連結文件、API、最佳實務與範例頁面，並指示讀者在實作功能時擷取相關頁面。"
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -99,7 +153,7 @@
               "sourcePath": "durable-objects/SKILL.md",
               "destinationPath": "skills/durable-objects/SKILL.md"
             },
-            "summary": "將 SKILL.md 從 durable-objects/ 移至 skills/durable-objects/，內容沒有變更。"
+            "summary": "將 `durable-objects/SKILL.md` 重新命名為 `skills/durable-objects/SKILL.md`，內容未變。"
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -108,26 +162,53 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "durable-objects/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了初始的 Durable Objects 技能檔案，包含使用指引、參考連結、設定範例與最佳實務規則。"
+            "summary": "新增 Durable Objects 技能初始版本，包含使用指引、參考連結、Wrangler 與程式碼範例、核心規則與反模式、儲存與 Alarm 指引，以及 Vitest 快速入門。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
         "commits": [
           {
+            "sha": "c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "date": "2026-09-22T14:51:24-04:00",
+            "subject": "Add Workers authorization skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "pathAtCommit": "skills/durable-objects/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Workers 授权参考资料，指出 Durable Objects 的访问权限随所属 Worker 而定，并建议在授予可观测性或 Data Studio 访问权前查阅最新指引，且将角色限定于目标 Worker 或 Workers 产品。"
+          },
+          {
+            "sha": "d56a4c009b5cb69ebe75017b938f5cd8400a602c",
+            "date": "2026-09-05T12:03:31-07:00",
+            "subject": "Route Durable Objects testing guidance to current docs",
+            "url": "https://github.com/cloudflare/skills/commit/d56a4c009b5cb69ebe75017b938f5cd8400a602c",
+            "pathAtCommit": "skills/durable-objects/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 Durable Objects 测试指引，将读者导向 Cloudflare 目前的 Vitest 集成与测试参考资料，并以阅读该参考资料的指示取代内嵌的快速入门测试范例。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/durable-objects/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能描述限缩为专注于建置、调试或审查用于持久状态与协调的 Durable Objects 代码。"
+          },
+          {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
             "date": "2026-03-03T10:30:51-05:00",
             "subject": "add uniform retrieval-bias directives to all skills (#30)",
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/durable-objects/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新了技能描述与截取指引，强调优先参考 Cloudflare 文档，并将该段落改名为「Retrieval Sources」。"
+            "summary": "重命名检索章节并更新描述，强调 Durable Objects API 与设置知识可能已过时，且任何任务都应优先查阅文档。"
           },
           {
             "sha": "50c7477e4c6e249294712e88037392137a3d312f",
@@ -136,7 +217,7 @@
             "url": "https://github.com/cloudflare/skills/commit/50c7477e4c6e249294712e88037392137a3d312f",
             "pathAtCommit": "skills/durable-objects/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 Retrieval-First Development 段落，包含 Cloudflare Durable Objects 文档链接与截取相关文档的指引。"
+            "summary": "添加检索优先章节，优先采用 Durable Objects 官方文档，链接文档、API、最佳实务与范例页面，并指示读者在实作功能时截取相关页面。"
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -150,7 +231,7 @@
               "sourcePath": "durable-objects/SKILL.md",
               "destinationPath": "skills/durable-objects/SKILL.md"
             },
-            "summary": "将 SKILL.md 从 durable-objects/ 移至 skills/durable-objects/，内容没有变更。"
+            "summary": "将 `durable-objects/SKILL.md` 重命名为 `skills/durable-objects/SKILL.md`，内容未变。"
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -159,7 +240,7 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "durable-objects/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了初始的 Durable Objects 技能文件，包含使用指引、参考链接、设置范例与最佳实务规则。"
+            "summary": "添加 Durable Objects 技能初始版本，包含使用指引、参考链接、Wrangler 与代码范例、内核规则与反模式、保存与 Alarm 指引，以及 Vitest 快速入门。"
           }
         ]
       }

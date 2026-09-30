@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Summarizes how to design and deliver an effective MCP server for connecting language models with external services.",
-        "whenToUse": "Use this when planning or building an MCP server for Azure, internal systems, or third-party APIs across TypeScript, Python, or .NET.",
-        "outputs": "Provides development guidance, implementation priorities, testing expectations, and evaluation instructions for the server."
+        "purpose": "Guides the full MCP server development lifecycle, from researching an API and choosing a framework and transport to implementing, testing, and evaluating useful tools.",
+        "whenToUse": "Use it to decide whether an existing Microsoft server fits, or to plan and build a custom integration for an internal API or third-party service.",
+        "outputs": "It provides language-specific implementation guidance and a workflow for delivering a tested server and an XML evaluation with ten realistic, independent, read-only questions and verified answers."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "說明如何設計並交付高品質的 MCP 伺服器，讓語言模型能連接外部服務。",
-        "whenToUse": "當你要規劃或建置用於 Azure、內部系統或第三方 API 的 MCP 伺服器，且採用 TypeScript、Python 或 .NET 時，可使用這份指引。",
-        "outputs": "提供伺服器的開發指引、實作重點、測試要求與評估說明。"
+        "purpose": "提供 MCP 伺服器的完整開發流程，從研究 API、選擇框架與傳輸方式，到實作、測試及評估實用工具。",
+        "whenToUse": "當你要判斷現有的 Microsoft 伺服器是否適用，或規劃並建置連接內部 API 或第三方服務的自訂整合時，請使用此指南。",
+        "outputs": "此指南提供依語言區分的實作指引，並說明如何完成經測試的伺服器及包含十個真實、獨立、唯讀問題且答案經驗證的 XML 評估檔。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "说明如何设计并交付高品质的 MCP 服务器，让语言模型能连接外部服务。",
-        "whenToUse": "当你要规划或建置用于 Azure、内部系统或第三方 API 的 MCP 服务器，且采用 TypeScript、Python 或 .NET 时，可使用这份指引。",
-        "outputs": "提供服务器的开发指引、实作重点、测试要求与评估说明。"
+        "purpose": "提供 MCP 服务器的完整开发流程，从研究 API、选择框架与传输方式，到实作、测试及评估实用工具。",
+        "whenToUse": "当你要判断现有的 Microsoft 服务器是否适用，或规划并建置连接内部 API 或第三方服务的自订集成时，请使用此指南。",
+        "outputs": "此指南提供依语言区分的实作指引，并说明如何完成经测试的服务器及包含十个真实、独立、唯读问题且答案经验证的 XML 评估档。"
       }
     }
   }

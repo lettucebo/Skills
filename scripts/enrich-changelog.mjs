@@ -50,7 +50,7 @@ const defaultRepoRoot = path.resolve(__dirname, '..');
 const execFileAsync = promisify(execFile);
 
 export const CHANGELOG_GENERATOR_VERSION = 1;
-export const CHANGELOG_LLM_TIMEOUT_MS = 300_000;
+export const CHANGELOG_LLM_TIMEOUT_MS = 900_000;
 export const CHANGELOG_PROMPT_HASH = hashText(CHANGELOG_PROMPT);
 
 function expectedLocaleSignatures(generatorVersion = CHANGELOG_GENERATOR_VERSION) {

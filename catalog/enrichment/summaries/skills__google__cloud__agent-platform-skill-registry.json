@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-skill-registry",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ddd389c97ae55bddbfc12bff1652ed0112b2285d3234b29f6b7bd2274a52df8c"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides ways to discover and manage skills on the Gemini Enterprise Agent Platform, monitor long-running operations, and scaffold new skills locally.",
+        "whenToUse": "Use it when you need to search or inspect registered skills, manage a skill's lifecycle, check a long-running operation, or scaffold a new skill locally.",
+        "outputs": "Depending on the operation, it provides skill search results, listings, individual skill details and revision histories, operation status, or a locally scaffolded skill."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供在 Gemini Enterprise Agent Platform 上探索與管理技能、監控長時間執行作業，並在本機建立新技能範本的方式。",
+        "whenToUse": "當您需要搜尋或檢視已登錄的技能、管理技能生命週期、查看長時間執行作業的狀態，或在本機建立新技能範本時使用。",
+        "outputs": "依操作提供技能搜尋結果、清單、個別技能資訊與修訂歷程、長時間執行作業狀態，或在本機建立的新技能範本。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供在 Gemini Enterprise Agent Platform 上探索与管理技能、监控长时间运行作业，并在本机创建新技能范本的方式。",
+        "whenToUse": "当您需要搜索或查看已登录的技能、管理技能生命周期、查看长时间运行作业的状态，或在本机创建新技能范本时使用。",
+        "outputs": "依操作提供技能搜索结果、清单、个别技能信息与修订历程、长时间运行作业状态，或在本机创建的新技能范本。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-router",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1dba9bc62ad5d6cb37e00c0802cd2cd21b941aacdd0c81e4c239334d606a306a"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides implementation of Expo Router navigation patterns, from route organization to native navigation interfaces.",
+        "whenToUse": "Use it when organizing app routes or configuring links, stacks, tabs, search, headers, modals, form sheets, link previews, or context menus.",
+        "outputs": "Provides route-layout guidance and Expo Router examples for navigation components and screen presentations."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供 Expo Router 導覽模式的實作指引，涵蓋路由組織與原生導覽介面。",
+        "whenToUse": "在規劃應用程式路由，或設定連結、堆疊、分頁、搜尋、標題、模態畫面、表單工作表、連結預覽或情境選單時使用。",
+        "outputs": "提供路由版面配置指引，以及導覽元件和畫面呈現方式的 Expo Router 範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供 Expo Router 导览模式的实作指引，涵盖路由组织与原生导览界面。",
+        "whenToUse": "在规划应用程序路由，或设置链接、堆栈、分页、搜索、标题、模态画面、表单工作表、链接预览或情境菜单时使用。",
+        "outputs": "提供路由版面配置指引，以及导览组件和画面呈现方式的 Expo Router 范例。"
+      }
+    }
+  }
+}

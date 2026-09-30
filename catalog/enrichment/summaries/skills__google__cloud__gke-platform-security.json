@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-platform-security",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d009494a6a13f1d6118570ac8fdb10d8150cef3cceebe741dd2e0364b4fd8fdd"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides guidance for securing GKE clusters through platform-level configuration, access controls, and service integrations.",
+        "whenToUse": "Use it when configuring cluster-wide security controls such as Secret Manager integration, RBAC restrictions, Binary Authorization, Shielded Nodes, GKE Sandbox, or cluster access roles.",
+        "outputs": "Includes recommended cluster security defaults, verification and configuration commands, RBAC auditing practices, IAM role guidance, and cross-service access examples."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供透過平台層級設定、存取控制與服務整合來強化 GKE 叢集安全性的指引。",
+        "whenToUse": "在設定叢集層級的安全控制（例如 Secret Manager 整合、RBAC 限制、Binary Authorization、Shielded Nodes、GKE Sandbox 或叢集存取角色）時使用。",
+        "outputs": "內容包括建議的叢集安全預設值、驗證與設定指令、RBAC 稽核做法、IAM 角色指引及跨服務存取範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供透过平台层级设置、访问控制与服务集成来强化 GKE 集群安全性的指引。",
+        "whenToUse": "在设置集群层级的安全控制（例如 Secret Manager 集成、RBAC 限制、Binary Authorization、Shielded Nodes、GKE Sandbox 或集群访问角色）时使用。",
+        "outputs": "内容包括建议的集群安全默认值、验证与设置指令、RBAC 审核做法、IAM 角色指引及跨服务访问范例。"
+      }
+    }
+  }
+}

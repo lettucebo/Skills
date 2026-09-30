@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/gke-platform-security",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d009494a6a13f1d6118570ac8fdb10d8150cef3cceebe741dd2e0364b4fd8fdd",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-platform-security",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description adds Secrets Encryption and Security Posture, redirects Workload Identity to `gke-workload-identity` (keeping other workload security on `gke-workload-security`), and increments the version to `1.0.1`."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill metadata now declares version `1.0.0`."
+          },
+          {
+            "sha": "ce6ea2519d6142ad5989c33303fee37ca0c968f7",
+            "date": "2026-09-02T07:02:28-07:00",
+            "subject": "Fix broken documentation links in gke-platform-security skill.",
+            "url": "https://github.com/google/skills/commit/ce6ea2519d6142ad5989c33303fee37ca0c968f7",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The Resources section replaces the Secret Manager, Binary Authorization, and GKE Sandbox documentation links with updated URLs."
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the initial `gke-platform-security` skill, covering GKE cluster hardening, Secret Manager, RBAC, Binary Authorization, Shielded Nodes, GKE Sandbox, and IAM patterns."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能描述新增 Secrets Encryption 與 Security Posture，將 Workload Identity 改導向 `gke-workload-identity`（其他工作負載安全性仍指向 `gke-workload-security`），並將版本升至 `1.0.1`。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中繼資料現在宣告版本為 `1.0.0`。"
+          },
+          {
+            "sha": "ce6ea2519d6142ad5989c33303fee37ca0c968f7",
+            "date": "2026-09-02T07:02:28-07:00",
+            "subject": "Fix broken documentation links in gke-platform-security skill.",
+            "url": "https://github.com/google/skills/commit/ce6ea2519d6142ad5989c33303fee37ca0c968f7",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Resources 區段將 Secret Manager、Binary Authorization 與 GKE Sandbox 的文件連結替換為更新後的網址。"
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `gke-platform-security` 技能初始版本，涵蓋 GKE 叢集強化、Secret Manager、RBAC、Binary Authorization、Shielded Nodes、GKE Sandbox 與 IAM 模式。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能描述添加 Secrets Encryption 与 Security Posture，将 Workload Identity 改导向 `gke-workload-identity`（其他工作负载安全性仍指向 `gke-workload-security`），并将版本升至 `1.0.1`。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中继数据现在声明版本为 `1.0.0`。"
+          },
+          {
+            "sha": "ce6ea2519d6142ad5989c33303fee37ca0c968f7",
+            "date": "2026-09-02T07:02:28-07:00",
+            "subject": "Fix broken documentation links in gke-platform-security skill.",
+            "url": "https://github.com/google/skills/commit/ce6ea2519d6142ad5989c33303fee37ca0c968f7",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Resources 区段将 Secret Manager、Binary Authorization 与 GKE Sandbox 的文档链接替换为更新后的网址。"
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-platform-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `gke-platform-security` 技能初始版本，涵盖 GKE 集群强化、Secret Manager、RBAC、Binary Authorization、Shielded Nodes、GKE Sandbox 与 IAM 模式。"
+          }
+        ]
+      }
+    }
+  }
+}

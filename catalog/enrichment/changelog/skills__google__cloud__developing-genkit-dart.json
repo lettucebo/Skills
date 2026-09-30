@@ -1,0 +1,141 @@
+{
+  "path": "skills/google/cloud/developing-genkit-dart",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:bcaf84add7185a74cdd2329b6dbd6bfc9d197577fc389f59e1919f9999604388",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/developing-genkit-dart",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "cb8dfc40ea546a629cb7b6a95392c10779f8d607",
+            "date": "2026-09-18T13:34:29-07:00",
+            "subject": "Import genkit skills from github.com/genkit-ai/skills",
+            "url": "https://github.com/google/skills/commit/cb8dfc40ea546a629cb7b6a95392c10779f8d607",
+            "pathAtCommit": "skills/cloud/developing-genkit-dart/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Documents experimental Genkit Dart agent import paths and the analyzer warning, and explains that top-level `final` flows or agents must be referenced from `main()` or an imported module to register."
+          },
+          {
+            "sha": "26bbc42092b645594dff53fe30beaf13f407b486",
+            "date": "2026-09-11T01:42:21-07:00",
+            "subject": "Rename genkit-* skills to developing-genkit-* to keep consistent with genkit/skills repository.",
+            "url": "https://github.com/google/skills/commit/26bbc42092b645594dff53fe30beaf13f407b486",
+            "pathAtCommit": "skills/cloud/developing-genkit-dart/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R089",
+              "sourcePath": "skills/cloud/genkit-dart/SKILL.md",
+              "destinationPath": "skills/cloud/developing-genkit-dart/SKILL.md"
+            },
+            "summary": "Renames the skill to `developing-genkit-dart`, changes the interrupt guidance to use `.interrupt(...)`, and adds A2UI documentation and a plugin reference."
+          },
+          {
+            "sha": "0de15a80e9b2912e98c7446f38e6c0413b3544aa",
+            "date": "2026-08-25T10:02:01-07:00",
+            "subject": "Import genkit skills from github.com/genkit-ai/skills",
+            "url": "https://github.com/google/skills/commit/0de15a80e9b2912e98c7446f38e6c0413b3544aa",
+            "pathAtCommit": "skills/cloud/genkit-dart/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the initial Genkit Dart skill guide with SDK and agent guidance, CLI workflows, plugin references, dependencies, and best practices."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "cb8dfc40ea546a629cb7b6a95392c10779f8d607",
+            "date": "2026-09-18T13:34:29-07:00",
+            "subject": "Import genkit skills from github.com/genkit-ai/skills",
+            "url": "https://github.com/google/skills/commit/cb8dfc40ea546a629cb7b6a95392c10779f8d607",
+            "pathAtCommit": "skills/cloud/developing-genkit-dart/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "補充 Genkit Dart agent 的實驗性匯入路徑與分析器警告，並說明頂層 `final` flow 或 agent 必須在 `main()` 或所匯入的模組中被參照，才能完成註冊。"
+          },
+          {
+            "sha": "26bbc42092b645594dff53fe30beaf13f407b486",
+            "date": "2026-09-11T01:42:21-07:00",
+            "subject": "Rename genkit-* skills to developing-genkit-* to keep consistent with genkit/skills repository.",
+            "url": "https://github.com/google/skills/commit/26bbc42092b645594dff53fe30beaf13f407b486",
+            "pathAtCommit": "skills/cloud/developing-genkit-dart/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R089",
+              "sourcePath": "skills/cloud/genkit-dart/SKILL.md",
+              "destinationPath": "skills/cloud/developing-genkit-dart/SKILL.md"
+            },
+            "summary": "將此技能重新命名為 `developing-genkit-dart`，將中斷處理說明改為使用 `.interrupt(...)`，並新增 A2UI 文件與外掛參考。"
+          },
+          {
+            "sha": "0de15a80e9b2912e98c7446f38e6c0413b3544aa",
+            "date": "2026-08-25T10:02:01-07:00",
+            "subject": "Import genkit skills from github.com/genkit-ai/skills",
+            "url": "https://github.com/google/skills/commit/0de15a80e9b2912e98c7446f38e6c0413b3544aa",
+            "pathAtCommit": "skills/cloud/genkit-dart/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Genkit Dart 技能指南初版，涵蓋 SDK 與 agent 用法、CLI 工作流程、外掛參考、相依套件及最佳實務。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "cb8dfc40ea546a629cb7b6a95392c10779f8d607",
+            "date": "2026-09-18T13:34:29-07:00",
+            "subject": "Import genkit skills from github.com/genkit-ai/skills",
+            "url": "https://github.com/google/skills/commit/cb8dfc40ea546a629cb7b6a95392c10779f8d607",
+            "pathAtCommit": "skills/cloud/developing-genkit-dart/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "补充 Genkit Dart agent 的实验性导入路径与分析器警告，并说明顶层 `final` flow 或 agent 必须在 `main()` 或所导入的模块中被参照，才能完成注册。"
+          },
+          {
+            "sha": "26bbc42092b645594dff53fe30beaf13f407b486",
+            "date": "2026-09-11T01:42:21-07:00",
+            "subject": "Rename genkit-* skills to developing-genkit-* to keep consistent with genkit/skills repository.",
+            "url": "https://github.com/google/skills/commit/26bbc42092b645594dff53fe30beaf13f407b486",
+            "pathAtCommit": "skills/cloud/developing-genkit-dart/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R089",
+              "sourcePath": "skills/cloud/genkit-dart/SKILL.md",
+              "destinationPath": "skills/cloud/developing-genkit-dart/SKILL.md"
+            },
+            "summary": "将此技能重命名为 `developing-genkit-dart`，将中断处理说明改为使用 `.interrupt(...)`，并添加 A2UI 文档与插件参考。"
+          },
+          {
+            "sha": "0de15a80e9b2912e98c7446f38e6c0413b3544aa",
+            "date": "2026-08-25T10:02:01-07:00",
+            "subject": "Import genkit skills from github.com/genkit-ai/skills",
+            "url": "https://github.com/google/skills/commit/0de15a80e9b2912e98c7446f38e6c0413b3544aa",
+            "pathAtCommit": "skills/cloud/genkit-dart/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Genkit Dart 技能指南初版，涵盖 SDK 与 agent 用法、CLI 工作流程、插件参考、相依套件及最佳实务。"
+          }
+        ]
+      }
+    }
+  }
+}

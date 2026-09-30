@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-filestore-nfs-browser",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:55bdbc11102e7787b0ec16bc9ba3bf8c3f3a2a722e60548e82b0fa57162dc5f8"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Supports read-only exploration of Google Cloud Filestore NFS exports by listing directories, searching file names or text, reading text files, and inspecting POSIX attributes.",
+        "whenToUse": "Use it when a task needs a structured view of an export, targeted file or text matches, a bounded text excerpt, or details such as ownership and permissions.",
+        "outputs": "It provides directory trees, matching paths and text hits, selected text-file lines, and file attributes such as permissions, UID/GID, size, and timestamps."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過列出目錄、搜尋檔名或文字、讀取文字檔及檢視 POSIX 屬性，唯讀探索 Google Cloud Filestore NFS 匯出內容。",
+        "whenToUse": "當任務需要查看匯出的目錄結構、比對特定檔案或文字、擷取有限範圍的文字，或檢視擁有者與權限等資訊時使用。",
+        "outputs": "結果包括目錄樹、符合條件的路徑與文字命中項、指定範圍的文字檔行，以及權限、UID/GID、大小與時間戳記等檔案屬性。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过列出目录、搜索文件名或文字、读取文字档及查看 POSIX 属性，唯读探索 Google Cloud Filestore NFS 导出内容。",
+        "whenToUse": "当任务需要查看导出的目录结构、比对特定文件或文字、截取有限范围的文字，或查看拥有者与权限等信息时使用。",
+        "outputs": "结果包括目录树、符合条件的路径与文字命中项、指定范围的文字档行，以及权限、UID/GID、大小与时间戳记等文件属性。"
+      }
+    }
+  }
+}

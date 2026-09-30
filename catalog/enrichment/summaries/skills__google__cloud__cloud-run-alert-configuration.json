@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-run-alert-configuration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d2de55f7d33a99bbc173992831c2f4c3c39d21e403c309a046c8c34cf307885e"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Configures actionable alerting for Google Cloud Run services, jobs, and worker pools using Terraform and PromQL.",
+        "whenToUse": "Use when analyzing, recommending, writing, or deploying alerts for Cloud Run error rates, latency, instance saturation, CPU or memory use, billable instance time, job status, or worker-pool backlog.",
+        "outputs": "Provides Terraform alert-policy configurations and explains their PromQL logic, triggering thresholds, and applied defaults."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "使用 Terraform 與 PromQL 為 Google Cloud Run 服務、工作和工作者集區設定具行動性的告警。",
+        "whenToUse": "當需要分析、建議、撰寫或部署監控 Cloud Run 錯誤率、延遲、執行個體飽和度、CPU 或記憶體用量、計費執行個體時間、工作狀態或工作者集區佇列積壓的告警時使用。",
+        "outputs": "提供 Terraform 告警政策設定，並說明其 PromQL 邏輯、觸發門檻及採用的預設值。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "使用 Terraform 与 PromQL 为 Google Cloud Run 服务、工作和工作者集区设置具行动性的告警。",
+        "whenToUse": "当需要分析、建议、撰写或部署监控 Cloud Run 错误率、延迟、运行个体饱和度、CPU 或内存用量、计费运行个体时间、工作状态或工作者集区队列积压的告警时使用。",
+        "outputs": "提供 Terraform 告警政策设置，并说明其 PromQL 逻辑、触发门槛及采用的默认值。"
+      }
+    }
+  }
+}

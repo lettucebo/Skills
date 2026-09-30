@@ -2,42 +2,42 @@
   "path": "skills/cloudflare/agents-sdk",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:5a5fabaeca0c1abbbd9c6dcf9bc87116551b33ff02e98e66af127fa453c09b92"
+    "contentHash": "sha256:2338cd234ff946eeb95ebdabaf12fb5acd8b46c99dd8aed1d588aa7719c2d9e9"
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Explains how to build Cloudflare Workers agents with persistent state, callable methods, workflows, scheduling, chat features, and related integrations.",
-        "whenToUse": "Use this when developing Cloudflare-based agents that need durable execution, real-time connections, background tasks, MCP support, voice features, or browser automation.",
-        "outputs": "Provides concise implementation guidance, configuration patterns, core API references, and documentation links for routing, state, RPC, queues, retries, observability, client hooks, and integrations."
+        "purpose": "It helps apply stateful agents, real-time communication, and durable background processing in Cloudflare Workers.",
+        "whenToUse": "Use it when a task depends on current Agents SDK guidance for setup, configuration, state, routing, RPC, chat, workflows, or integrations.",
+        "outputs": "It provides documentation pointers, setup and configuration examples, and implementation patterns for agent APIs and integrations."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "說明如何使用 Cloudflare Workers 建立具備持久狀態、可呼叫方法、工作流程、排程、聊天能力與相關整合的代理程式。",
-        "whenToUse": "當你要開發需要持久執行、即時連線、背景任務、MCP 支援、語音功能或瀏覽器自動化的 Cloudflare 代理程式時，可使用這份內容。",
-        "outputs": "提供精簡的實作指引、設定模式、核心 API 參考，以及涵蓋路由、狀態、RPC、佇列、重試、可觀測性、用戶端 hooks 與整合功能的文件連結。"
+        "purpose": "它協助在 Cloudflare Workers 中運用具狀態的代理、即時通訊與持久化背景處理能力。",
+        "whenToUse": "當工作需要 Agents SDK 的最新指引，涵蓋設定、組態、狀態、路由、RPC、聊天、工作流程或整合時使用。",
+        "outputs": "它提供文件參考連結、設定與組態範例，以及代理 API 和整合的實作模式。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "说明如何使用 Cloudflare Workers 创建具备持久状态、可调用方法、工作流程、调度、聊天能力与相关集成的代理程序。",
-        "whenToUse": "当你要开发需要持久运行、实时连接、背景任务、MCP 支持、语音功能或浏览器自动化的 Cloudflare 代理程序时，可使用这份内容。",
-        "outputs": "提供精简的实作指引、设置模式、内核 API 参考，以及涵盖路由、状态、RPC、队列、重试、可观测性、用户端 hooks 与集成功能的文档链接。"
+        "purpose": "它协助在 Cloudflare Workers 中运用具状态的代理、实时通信与持久化背景处理能力。",
+        "whenToUse": "当工作需要 Agents SDK 的最新指引，涵盖设置、组态、状态、路由、RPC、聊天、工作流程或集成时使用。",
+        "outputs": "它提供文档参考链接、设置与组态范例，以及代理 API 和集成的实作模式。"
       }
     }
   }

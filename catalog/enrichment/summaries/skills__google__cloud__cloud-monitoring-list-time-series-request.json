@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-monitoring-list-time-series-request",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:5d0387774956ee636fd3a508525c3f07e691bd745fdeb543a489a27b378a0857"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It translates metric descriptors and resource context into parameters for a Cloud Monitoring time-series query.",
+        "whenToUse": "Use it when the metric to query is known and you need a properly scoped, time-bounded request for monitoring data or charts.",
+        "outputs": "It produces a ListTimeSeries request with a project scope, metric and resource filters, a time interval, aggregation options, and a data-view setting."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它會將指標描述資料與資源脈絡轉換為 Cloud Monitoring 時間序列查詢所需的參數。",
+        "whenToUse": "當已知要查詢的指標，且需要範圍明確並包含時間區間的監控資料或圖表請求時使用。",
+        "outputs": "它會產生 ListTimeSeries 請求，包含專案範圍、指標與資源篩選條件、時間區間、彙總選項及資料檢視設定。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它会将指针描述数据与资源脉络转换为 Cloud Monitoring 时间串行查找所需的参数。",
+        "whenToUse": "当已知要查找的指针，且需要范围明确并包含时间区间的监控数据或图表请求时使用。",
+        "outputs": "它会产生 ListTimeSeries 请求，包含项目范围、指针与资源筛选条件、时间区间、汇总选项及数据查看设置。"
+      }
+    }
+  }
+}

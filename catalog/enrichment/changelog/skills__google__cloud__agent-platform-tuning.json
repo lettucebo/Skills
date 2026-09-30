@@ -1,0 +1,261 @@
+{
+  "path": "skills/google/cloud/agent-platform-tuning",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:02155e975f0849d96712c6e338ab2cd0a5785dd172b7ce4d88de12ce69200203",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/agent-platform-tuning",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the tuning workflow with project-and-region checks, stricter dataset preparation and cost estimation, SDK-based Gemini job submission, and clearer output-bucket handling."
+          },
+          {
+            "sha": "0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "date": "2026-09-02T09:45:34-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed two redundant blank lines from the location guidance."
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified the 90/10 validation-split rule and documented open-model resource-name and required output-URI handling."
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked setup and execution guidance around model-specific locations, probing existing Python dependencies, verifying live model IDs, and handling global jobs during monitoring and deployment."
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added live model-ID verification and clarified location restrictions, required open-model output storage, and region handling for monitoring and deployment."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the skill's category field under the YAML metadata block."
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the open-model tuning documentation link to its Markdown-text endpoint."
+          },
+          {
+            "sha": "098a617c036f95247fc8a8dd44c529ac4829491e",
+            "date": "2026-05-26T10:13:39-07:00",
+            "subject": "Add cloud agent-platform-tuning skill",
+            "url": "https://github.com/google/skills/commit/098a617c036f95247fc8a8dd44c529ac4829491e",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Agent Platform model-tuning skill with guidance spanning environment setup, dataset preparation, model configuration, job execution, monitoring, and deployment."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充微調工作流程，加入專案與區域檢查、更嚴謹的資料集準備與成本估算、以 SDK 提交 Gemini 工作，以及更明確的輸出 bucket 處理方式。"
+          },
+          {
+            "sha": "0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "date": "2026-09-02T09:45:34-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除位置說明中的兩個多餘空白行。"
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "釐清 90/10 驗證集切分規則，並說明開放模型資源名稱與必要輸出 URI 的處理方式。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整設定與執行指引，涵蓋依模型類別選擇位置、先檢查既有 Python 相依套件、驗證即時模型 ID，以及在監控與部署時處理 global 工作。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增即時模型 ID 驗證，並釐清位置限制、開放模型必要的輸出儲存位置，以及監控與部署的區域處理方式。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將此技能的 category 欄位移至 YAML metadata 區塊之下。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將開放模型微調文件連結改為 Markdown 文字端點。"
+          },
+          {
+            "sha": "098a617c036f95247fc8a8dd44c529ac4829491e",
+            "date": "2026-05-26T10:13:39-07:00",
+            "subject": "Add cloud agent-platform-tuning skill",
+            "url": "https://github.com/google/skills/commit/098a617c036f95247fc8a8dd44c529ac4829491e",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Agent Platform 模型微調技能，提供環境設定、資料集準備、模型組態、工作執行、監控與部署指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充微调工作流程，加入项目与区域检查、更严谨的数据集准备与成本估算、以 SDK 提交 Gemini 工作，以及更明确的输出 bucket 处理方式。"
+          },
+          {
+            "sha": "0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "date": "2026-09-02T09:45:34-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除位置说明中的两个多余空白行。"
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "厘清 90/10 验证集切分规则，并说明开放模型资源名称与必要输出 URI 的处理方式。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整设置与运行指引，涵盖依模型类别选择位置、先检查既有 Python 相依套件、验证实时模型 ID，以及在监控与部署时处理 global 工作。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加实时模型 ID 验证，并厘清位置限制、开放模型必要的输出保存位置，以及监控与部署的区域处理方式。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将此技能的 category 字段移至 YAML metadata 区块之下。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将开放模型微调文档链接改为 Markdown 文字端点。"
+          },
+          {
+            "sha": "098a617c036f95247fc8a8dd44c529ac4829491e",
+            "date": "2026-05-26T10:13:39-07:00",
+            "subject": "Add cloud agent-platform-tuning skill",
+            "url": "https://github.com/google/skills/commit/098a617c036f95247fc8a8dd44c529ac4829491e",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Agent Platform 模型微调技能，提供环境设置、数据集准备、模型组态、工作运行、监控与部署指引。"
+          }
+        ]
+      }
+    }
+  }
+}

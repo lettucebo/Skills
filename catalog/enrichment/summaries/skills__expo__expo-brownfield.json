@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-brownfield",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:10c9edf119c85f2d9fa209855d7c78679cfdd83a703dd579de49c9aa70be6ef9"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a version-aware path for adding React Native features to an existing iOS or Android app while preserving its native shell.",
+        "whenToUse": "Use it when deciding between a separately built AAR or XCFramework and adding React Native directly to the native Gradle or CocoaPods build.",
+        "outputs": "It guides host inspection, approach selection, compatible version and toolchain setup, native feature handoff, and Release-build verification."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供具備版本相容性考量的方式，讓現有 iOS 或 Android 應用程式加入 React Native 功能，同時保留原生外殼。",
+        "whenToUse": "當需要在獨立建置的 AAR 或 XCFramework，與直接將 React Native 加入原生 Gradle 或 CocoaPods 建置之間做選擇時使用。",
+        "outputs": "提供宿主檢視、整合方式選擇、相容版本與工具鏈設定、原生功能資料交接，以及 Release 建置驗證的指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供具备版本兼容性考量的方式，让现有 iOS 或 Android 应用程序加入 React Native 功能，同时保留原生外壳。",
+        "whenToUse": "当需要在独立建置的 AAR 或 XCFramework，与直接将 React Native 加入原生 Gradle 或 CocoaPods 建置之间做选择时使用。",
+        "outputs": "提供宿主查看、集成方式选择、兼容版本与工具链设置、原生功能数据交接，以及 Release 建置验证的指引。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-storage",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:a1012782814aafb588e376e097db0cfdeeec58d79347b2ca2d291780593946a7"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains GKE storage options and configuration for persistent disks, Filestore, StorageClasses, and persistent volume claims.",
+        "whenToUse": "Use it to choose access modes or StorageClasses, configure block or shared-file volumes, resize claims, or apply GKE storage best practices.",
+        "outputs": "It provides example StorageClass and PVC configurations plus guidance on CSI drivers, provisioning, volume expansion, and backups."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明 GKE 的儲存選項，以及永久磁碟、Filestore、StorageClass 與永久磁碟宣告的設定方式。",
+        "whenToUse": "可用它選擇存取模式或 StorageClass、設定區塊或共用檔案磁碟區、調整宣告容量，或遵循 GKE 儲存最佳實務。",
+        "outputs": "它提供 StorageClass 與 PVC 設定範例，並說明 CSI 驅動程式、動態佈建、磁碟區擴充及備份。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明 GKE 的保存选项，以及永久磁盘、Filestore、StorageClass 与永久磁盘声明的设置方式。",
+        "whenToUse": "可用它选择访问模式或 StorageClass、设置区块或共用文件磁盘区、调整声明容量，或遵循 GKE 保存最佳实务。",
+        "outputs": "它提供 StorageClass 与 PVC 设置范例，并说明 CSI 驱动程序、动态布建、磁盘区扩充及备份。"
+      }
+    }
+  }
+}

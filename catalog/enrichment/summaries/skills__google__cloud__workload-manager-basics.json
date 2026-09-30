@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/workload-manager-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c9f922e19d6797bff20385b69d47914bd54129a28d369d36129df094bf875af9"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It organizes workload best-practice checks into a repeatable process, from choosing a scope and rules to reviewing findings for remediation.",
+        "whenToUse": "Use it when assessing projects, folders, or organizations against general, SAP, SQL Server, or organization-defined best-practice rules.",
+        "outputs": "It provides guidance for listing rules, creating and running evaluations, inspecting results and scanned resources, and optionally exporting findings to BigQuery."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它將工作負載最佳實務評估整理為可重複的流程，從選擇範圍與規則到檢視可供修正的發現事項。",
+        "whenToUse": "當您需要依據一般、SAP、SQL Server 或組織自訂的最佳實務規則，評估專案、資料夾或組織時，請使用此技能。",
+        "outputs": "它提供列出規則、建立及執行評估、檢視結果與掃描資源，以及選擇性將發現事項匯出至 BigQuery 的指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它将工作负载最佳实务评估整理为可重复的流程，从选择范围与规则到查看可供修正的发现事项。",
+        "whenToUse": "当您需要依据一般、SAP、SQL Server 或组织自订的最佳实务规则，评估项目、文件夹或组织时，请使用此技能。",
+        "outputs": "它提供列出规则、创建及运行评估、查看结果与扫描资源，以及选择性将发现事项导出至 BigQuery 的指引。"
+      }
+    }
+  }
+}

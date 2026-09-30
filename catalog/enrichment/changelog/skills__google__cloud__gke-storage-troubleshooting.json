@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/gke-storage-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f8f09ba6e84beb83f087f6d7fff392c40a12ef9879d838cf9de4245417873344",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-storage-troubleshooting",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "756620d08ed03231cd08bd0015e3a8f9d4d52b66",
+            "date": "2026-09-23T07:33:17-07:00",
+            "subject": "Add a concrete dynamic StorageClass example to the gke-storage-troubleshooting skill's mixed-machine-generation resolution branch.",
+            "url": "https://github.com/google/skills/commit/756620d08ed03231cd08bd0015e3a8f9d4d52b66",
+            "pathAtCommit": "skills/cloud/gke-storage-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a GKE 1.35.3-gke.1290000+ dynamic StorageClass example for cross-generation disk selection and set the skill metadata version to 1.1.0."
+          },
+          {
+            "sha": "50d83edfc558028a6714e737ebd7824956461313",
+            "date": "2026-09-18T11:51:29-07:00",
+            "subject": "Extend the gke-storage-troubleshooting skill with two machine-type x disk-type scheduling failure modes, each mapped to public documentation:",
+            "url": "https://github.com/google/skills/commit/50d83edfc558028a6714e737ebd7824956461313",
+            "pathAtCommit": "skills/cloud/gke-storage-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance for Persistent Disk incompatibility on N4/N4A/N4D nodes and automated disk-type selection across VM generations, plus three related documentation links."
+          },
+          {
+            "sha": "8134835591c4f00384099ae9086124263ae7b9c2",
+            "date": "2026-09-18T10:24:37-07:00",
+            "subject": "Add a new gke-storage-troubleshooting skill that diagnoses GKE persistent-storage failures, mapped to the public GKE storage troubleshooting documentation:",
+            "url": "https://github.com/google/skills/commit/8134835591c4f00384099ae9086124263ae7b9c2",
+            "pathAtCommit": "skills/cloud/gke-storage-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created the GKE storage-troubleshooting skill with a read-only diagnostic workflow and guidance for attach/mount, disk performance and node pressure, provisioning, expansion, and Cloud Storage FUSE OOM failures."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "756620d08ed03231cd08bd0015e3a8f9d4d52b66",
+            "date": "2026-09-23T07:33:17-07:00",
+            "subject": "Add a concrete dynamic StorageClass example to the gke-storage-troubleshooting skill's mixed-machine-generation resolution branch.",
+            "url": "https://github.com/google/skills/commit/756620d08ed03231cd08bd0015e3a8f9d4d52b66",
+            "pathAtCommit": "skills/cloud/gke-storage-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增適用於 GKE 1.35.3-gke.1290000 以上版本、可跨 VM 世代選擇磁碟類型的動態 StorageClass 範例，並將技能中繼資料版本設為 1.1.0。"
+          },
+          {
+            "sha": "50d83edfc558028a6714e737ebd7824956461313",
+            "date": "2026-09-18T11:51:29-07:00",
+            "subject": "Extend the gke-storage-troubleshooting skill with two machine-type x disk-type scheduling failure modes, each mapped to public documentation:",
+            "url": "https://github.com/google/skills/commit/50d83edfc558028a6714e737ebd7824956461313",
+            "pathAtCommit": "skills/cloud/gke-storage-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 N4/N4A/N4D 節點與 Persistent Disk 不相容的處理指引，以及跨 VM 世代自動選擇磁碟類型的說明，並補上三個相關文件連結。"
+          },
+          {
+            "sha": "8134835591c4f00384099ae9086124263ae7b9c2",
+            "date": "2026-09-18T10:24:37-07:00",
+            "subject": "Add a new gke-storage-troubleshooting skill that diagnoses GKE persistent-storage failures, mapped to the public GKE storage troubleshooting documentation:",
+            "url": "https://github.com/google/skills/commit/8134835591c4f00384099ae9086124263ae7b9c2",
+            "pathAtCommit": "skills/cloud/gke-storage-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立 GKE 儲存疑難排解技能，提供唯讀診斷流程，以及磁碟連接／掛載、磁碟效能與節點壓力、佈建、擴充和 Cloud Storage FUSE 記憶體不足故障的處理指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "756620d08ed03231cd08bd0015e3a8f9d4d52b66",
+            "date": "2026-09-23T07:33:17-07:00",
+            "subject": "Add a concrete dynamic StorageClass example to the gke-storage-troubleshooting skill's mixed-machine-generation resolution branch.",
+            "url": "https://github.com/google/skills/commit/756620d08ed03231cd08bd0015e3a8f9d4d52b66",
+            "pathAtCommit": "skills/cloud/gke-storage-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加适用于 GKE 1.35.3-gke.1290000 以上版本、可跨 VM 世代选择磁盘类型的动态 StorageClass 范例，并将技能中继数据版本设为 1.1.0。"
+          },
+          {
+            "sha": "50d83edfc558028a6714e737ebd7824956461313",
+            "date": "2026-09-18T11:51:29-07:00",
+            "subject": "Extend the gke-storage-troubleshooting skill with two machine-type x disk-type scheduling failure modes, each mapped to public documentation:",
+            "url": "https://github.com/google/skills/commit/50d83edfc558028a6714e737ebd7824956461313",
+            "pathAtCommit": "skills/cloud/gke-storage-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 N4/N4A/N4D 节点与 Persistent Disk 不兼容的处理指引，以及跨 VM 世代自动选择磁盘类型的说明，并补上三个相关文档链接。"
+          },
+          {
+            "sha": "8134835591c4f00384099ae9086124263ae7b9c2",
+            "date": "2026-09-18T10:24:37-07:00",
+            "subject": "Add a new gke-storage-troubleshooting skill that diagnoses GKE persistent-storage failures, mapped to the public GKE storage troubleshooting documentation:",
+            "url": "https://github.com/google/skills/commit/8134835591c4f00384099ae9086124263ae7b9c2",
+            "pathAtCommit": "skills/cloud/gke-storage-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建 GKE 保存疑难排解技能，提供唯读诊断流程，以及磁盘连接／挂载、磁盘性能与节点压力、布建、扩充和 Cloud Storage FUSE 内存不足故障的处理指引。"
+          }
+        ]
+      }
+    }
+  }
+}

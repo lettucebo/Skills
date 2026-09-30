@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-tuning",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:02155e975f0849d96712c6e338ab2cd0a5785dd172b7ce4d88de12ce69200203"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a staged workflow for planning and operating managed model fine-tuning, including checks for project, region, data, model choice, and job readiness.",
+        "whenToUse": "Use it when preparing datasets, resolving prerequisites, configuring or submitting an open-model or Gemini tuning job on Agent Platform, or tracking its progress.",
+        "outputs": "Provides JSONL validation and preparation guidance, model and hyperparameter recommendations, job-submission and monitoring instructions, and deployment steps after a successful tune."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供規劃與執行託管模型微調的分階段流程，涵蓋專案、區域、資料、模型選擇及工作就緒狀態的檢查。",
+        "whenToUse": "在準備資料集、確認前置條件、設定或提交 Agent Platform 上的開放模型或 Gemini 微調工作，或追蹤其進度時使用。",
+        "outputs": "提供 JSONL 驗證與準備指引、模型與超參數建議、工作提交及監控說明，以及微調成功後的部署步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供规划与运行托管模型微调的分阶段流程，涵盖项目、区域、数据、模型选择及工作就绪状态的检查。",
+        "whenToUse": "在准备数据集、确认前置条件、设置或提交 Agent Platform 上的开放模型或 Gemini 微调工作，或追踪其进度时使用。",
+        "outputs": "提供 JSONL 验证与准备指引、模型与超参数建议、工作提交及监控说明，以及微调成功后的部署步骤。"
+      }
+    }
+  }
+}

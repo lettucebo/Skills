@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Build complex claude.ai HTML artifacts with a modern React-based frontend stack and single-file bundling.",
-        "whenToUse": "Use this for multi-component artifacts that need state management, routing, or shadcn/ui components instead of simple single-file HTML or JSX.",
-        "outputs": "It produces a configured React and TypeScript project for development plus a self-contained bundle.html with code and assets inlined for sharing."
+        "purpose": "Build and package frontend artifacts for Claude conversations using a configured React and TypeScript toolchain.",
+        "whenToUse": "Use it when a Claude conversation needs an interactive artifact assembled from frontend components and shared as a self-contained HTML file.",
+        "outputs": "A self-contained bundle.html file with the artifact's JavaScript, CSS, and dependencies inlined, ready to share in the conversation."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "用現代 React 前端技術堆疊與單一檔案封裝來建立複雜的 claude.ai HTML 成品。",
-        "whenToUse": "當成品包含多個元件，且需要狀態管理、路由或 shadcn/ui 元件，而不是簡單的單檔 HTML 或 JSX 時使用。",
-        "outputs": "它會產生可供開發的 React 與 TypeScript 設定專案，以及將程式碼與資產內嵌後可分享的單一 bundle.html。"
+        "purpose": "使用已配置的 React 與 TypeScript 工具鏈，建立並封裝適用於 Claude 對話的前端作品。",
+        "whenToUse": "當 Claude 對話需要由多個前端元件組成的互動作品，並要以可獨立使用的 HTML 分享時使用。",
+        "outputs": "產生將作品的 JavaScript、CSS 與相依項目內嵌其中的獨立 bundle.html，供在對話中分享。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "用现代 React 前端技术堆栈与单一文件封装来创建复杂的 claude.ai HTML 成品。",
-        "whenToUse": "当成品包含多个组件，且需要状态管理、路由或 shadcn/ui 组件，而不是简单的单档 HTML 或 JSX 时使用。",
-        "outputs": "它会产生可供开发的 React 与 TypeScript 设置项目，以及将代码与资产内嵌后可分享的单一 bundle.html。"
+        "purpose": "使用已配置的 React 与 TypeScript 工具链，创建并封装适用于 Claude 对话的前端作品。",
+        "whenToUse": "当 Claude 对话需要由多个前端组件组成的交互作品，并要以可独立使用的 HTML 分享时使用。",
+        "outputs": "产生将作品的 JavaScript、CSS 与相依项目内嵌其中的独立 bundle.html，供在对话中分享。"
       }
     }
   }

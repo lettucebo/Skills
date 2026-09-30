@@ -1,0 +1,414 @@
+{
+  "path": "skills/expo/expo-data-fetching",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:43b9e30947482dbacb34c798ffc7b48d4170e650b15612fd69357e1f1d106703",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-data-fetching",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill with guidance and examples for loading, error, empty, and content states, hydration, stale data on refresh failures, and retryable saves."
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Directed repeated agent failures or user takeovers to the expo-skill-feedback eval-candidate flow."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a feedback section with the Expo submission command and instructions to report only specific, actionable issues with context."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R084",
+              "sourcePath": "plugins/expo/skills/native-data-fetching/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-data-fetching/SKILL.md"
+            },
+            "summary": "Renamed the skill to expo-data-fetching, linked offline/cancellation guidance instead of inline examples, and corrected EXPO_PUBLIC_ formatting."
+          },
+          {
+            "sha": "f5ed81a2da9082ca9d34fdd6daadc27037a733e7",
+            "date": "2026-06-30T09:45:04-07:00",
+            "subject": "add CI check for skill description and body limits (#96)",
+            "url": "https://github.com/expo/skills/commit/f5ed81a2da9082ca9d34fdd6daadc27037a733e7",
+            "pathAtCommit": "plugins/expo/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed two extra blank lines from the skill's example-invocation section."
+          },
+          {
+            "sha": "7f17ad5ad02ca48692affff6da859153880f818c",
+            "date": "2026-03-25T11:47:13+05:30",
+            "subject": "Fix formatting in SKILL.md description (#36)",
+            "url": "https://github.com/expo/skills/commit/7f17ad5ad02ca48692affff6da859153880f818c",
+            "pathAtCommit": "plugins/expo/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Wrapped useLoaderData in backticks in the skill description."
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md",
+              "destinationPath": "plugins/expo/skills/native-data-fetching/SKILL.md"
+            },
+            "summary": "Moved the unchanged native-data-fetching skill from the expo-app-design plugin to the expo plugin."
+          },
+          {
+            "sha": "184e71828d19ec8ab416c860e0d167dd2bf1593a",
+            "date": "2026-02-23T23:31:26Z",
+            "subject": "feat(expo-app-design): add reference for data loaders on web (#25)",
+            "url": "https://github.com/expo/skills/commit/184e71828d19ec8ab416c860e0d167dd2bf1593a",
+            "pathAtCommit": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a reference and routing guidance for Expo Router web data loaders, including a useLoaderData usage trigger and example."
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+              "destinationPath": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md"
+            },
+            "summary": "Renamed the skill from data-fetching to native-data-fetching in its frontmatter."
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version and license metadata to the skill."
+          },
+          {
+            "sha": "e488d168f6d928735a8ef172e956dca7430919fb",
+            "date": "2026-01-14T09:42:58-08:00",
+            "subject": "Remove expo-native-code plugin and update docs",
+            "url": "https://github.com/expo/skills/commit/e488d168f6d928735a8ef172e956dca7430919fb",
+            "pathAtCommit": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added an expo/fetch-over-axios preference and updated API-client generic syntax and fetch/environment-variable examples."
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Expo networking skill with guidance on fetch, React Query/SWR, errors, authentication, offline support, environment variables, request cancellation, and common patterns."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充技能內容，加入載入、錯誤、空狀態與內容狀態的指引，並說明持久化狀態完成載入前的處理、重新整理失敗時保留舊資料，以及可重試的儲存流程。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若代理程式反覆失敗或使用者必須接手，應改走 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增意見回饋章節，提供 Expo 提交指令，並要求僅回報具體且可執行的問題並附上相關脈絡。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R084",
+              "sourcePath": "plugins/expo/skills/native-data-fetching/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-data-fetching/SKILL.md"
+            },
+            "summary": "將技能重新命名為 expo-data-fetching，以離線／取消請求參考文件取代內嵌範例，並修正 EXPO_PUBLIC_ 的格式。"
+          },
+          {
+            "sha": "f5ed81a2da9082ca9d34fdd6daadc27037a733e7",
+            "date": "2026-06-30T09:45:04-07:00",
+            "subject": "add CI check for skill description and body limits (#96)",
+            "url": "https://github.com/expo/skills/commit/f5ed81a2da9082ca9d34fdd6daadc27037a733e7",
+            "pathAtCommit": "plugins/expo/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了技能範例呼叫區段中多餘的兩個空白行。"
+          },
+          {
+            "sha": "7f17ad5ad02ca48692affff6da859153880f818c",
+            "date": "2026-03-25T11:47:13+05:30",
+            "subject": "Fix formatting in SKILL.md description (#36)",
+            "url": "https://github.com/expo/skills/commit/7f17ad5ad02ca48692affff6da859153880f818c",
+            "pathAtCommit": "plugins/expo/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能描述中以反引號標示 useLoaderData。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md",
+              "destinationPath": "plugins/expo/skills/native-data-fetching/SKILL.md"
+            },
+            "summary": "將內容未變更的 native-data-fetching 技能從 expo-app-design 外掛移至 expo 外掛。"
+          },
+          {
+            "sha": "184e71828d19ec8ab416c860e0d167dd2bf1593a",
+            "date": "2026-02-23T23:31:26Z",
+            "subject": "feat(expo-app-design): add reference for data loaders on web (#25)",
+            "url": "https://github.com/expo/skills/commit/184e71828d19ec8ab416c860e0d167dd2bf1593a",
+            "pathAtCommit": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Expo Router 網頁資料載入器的參考文件與導引，包括 useLoaderData 的適用情境和範例。"
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+              "destinationPath": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md"
+            },
+            "summary": "在 frontmatter 中將技能名稱從 data-fetching 改為 native-data-fetching。"
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "為技能新增版本與授權中繼資料。"
+          },
+          {
+            "sha": "e488d168f6d928735a8ef172e956dca7430919fb",
+            "date": "2026-01-14T09:42:58-08:00",
+            "subject": "Remove expo-native-code plugin and update docs",
+            "url": "https://github.com/expo/skills/commit/e488d168f6d928735a8ef172e956dca7430919fb",
+            "pathAtCommit": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增優先使用 expo/fetch 而非 axios 的建議，並更新 API 用戶端的泛型語法，以及 fetch 和環境變數範例。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版 Expo 網路功能技能，涵蓋 fetch、React Query／SWR、錯誤處理、驗證、離線支援、環境變數、請求取消與常見模式。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充技能内容，加入加载、错误、空状态与内容状态的指引，并说明持久化状态完成加载前的处理、刷新失败时保留旧数据，以及可重试的保存流程。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若代理程序反复失败或用户必须接手，应改走 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加意见回馈章节，提供 Expo 提交指令，并要求仅回报具体且可运行的问题并附上相关脉络。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R084",
+              "sourcePath": "plugins/expo/skills/native-data-fetching/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-data-fetching/SKILL.md"
+            },
+            "summary": "将技能重命名为 expo-data-fetching，以脱机／取消请求参考文档取代内嵌范例，并修正 EXPO_PUBLIC_ 的格式。"
+          },
+          {
+            "sha": "f5ed81a2da9082ca9d34fdd6daadc27037a733e7",
+            "date": "2026-06-30T09:45:04-07:00",
+            "subject": "add CI check for skill description and body limits (#96)",
+            "url": "https://github.com/expo/skills/commit/f5ed81a2da9082ca9d34fdd6daadc27037a733e7",
+            "pathAtCommit": "plugins/expo/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了技能范例调用区段中多余的两个空白行。"
+          },
+          {
+            "sha": "7f17ad5ad02ca48692affff6da859153880f818c",
+            "date": "2026-03-25T11:47:13+05:30",
+            "subject": "Fix formatting in SKILL.md description (#36)",
+            "url": "https://github.com/expo/skills/commit/7f17ad5ad02ca48692affff6da859153880f818c",
+            "pathAtCommit": "plugins/expo/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能描述中以反引号标示 useLoaderData。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md",
+              "destinationPath": "plugins/expo/skills/native-data-fetching/SKILL.md"
+            },
+            "summary": "将内容未变更的 native-data-fetching 技能从 expo-app-design 插件移至 expo 插件。"
+          },
+          {
+            "sha": "184e71828d19ec8ab416c860e0d167dd2bf1593a",
+            "date": "2026-02-23T23:31:26Z",
+            "subject": "feat(expo-app-design): add reference for data loaders on web (#25)",
+            "url": "https://github.com/expo/skills/commit/184e71828d19ec8ab416c860e0d167dd2bf1593a",
+            "pathAtCommit": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Expo Router 网页数据加载器的参考文档与导引，包括 useLoaderData 的适用情境和范例。"
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+              "destinationPath": "plugins/expo-app-design/skills/native-data-fetching/SKILL.md"
+            },
+            "summary": "在 frontmatter 中将技能名称从 data-fetching 改为 native-data-fetching。"
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "为技能添加版本与授权中继数据。"
+          },
+          {
+            "sha": "e488d168f6d928735a8ef172e956dca7430919fb",
+            "date": "2026-01-14T09:42:58-08:00",
+            "subject": "Remove expo-native-code plugin and update docs",
+            "url": "https://github.com/expo/skills/commit/e488d168f6d928735a8ef172e956dca7430919fb",
+            "pathAtCommit": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加优先使用 expo/fetch 而非 axios 的建议，并更新 API 用户端的泛型语法，以及 fetch 和环境变量范例。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-app-design/skills/data-fetching/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版 Expo 网络功能技能，涵盖 fetch、React Query／SWR、错误处理、验证、脱机支持、环境变量、请求取消与常见模式。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-n-tier-serverless-web-app",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:de52cb4db79de746789dee7c5be8b12ff52dd23313d8cd16de79a13f83dc1fdd",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.version: \"1.0.0\"` to the skill's front matter."
+          },
+          {
+            "sha": "0dad3f947e45a736060e524bbefa3eab692809f9",
+            "date": "2026-09-01T10:43:34-07:00",
+            "subject": "Code enhancements: - Allow for user to specify domain name or to test in dev mode without a domain name using a self-signed cert. - Ommitting record_client_address because it is not supported for Cloud SQL instances with Private Service Connect connectivity enabled.",
+            "url": "https://github.com/google/skills/commit/0dad3f947e45a736060e524bbefa3eab692809f9",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill's guidance for domain and self-signed certificate choices, Cloud NGFW and Cloud SQL egress requirements, task-specific reference loading, and complete Terraform, report, and deployment documentation."
+          },
+          {
+            "sha": "8403f005882a71fea276bb88e79d276e313c8eec",
+            "date": "2026-08-18T15:09:04-07:00",
+            "subject": "Changed firewall from VPC firewall to Cloud NGFW. Added guidance to skill file to reduce turns and reduce the amount of time the agent goes down unnecessary paths.",
+            "url": "https://github.com/google/skills/commit/8403f005882a71fea276bb88e79d276e313c8eec",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added direct asset-access and no-delegation guidance, documented Cloud NGFW policies and private `ALL_TRAFFIC` routing for Cloud Run, and adjusted the design and IaC workflow."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill's metadata category from `Serverless` to `MultiProductSolutions`."
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.category: Serverless` and normalized spacing in the skill description."
+          },
+          {
+            "sha": "65eb320d08270649a343f717dc14913387b10a16",
+            "date": "2026-07-20T10:10:10-07:00",
+            "subject": "Add skill for an N-tier web application based on Cloud Run and Cloud SQL",
+            "url": "https://github.com/google/skills/commit/65eb320d08270649a343f717dc14913387b10a16",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created the skill guide for a secure n-tier serverless web application, covering Cloud Run tiers, Cloud SQL, and architecture, deployment, and validation workflows."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在該技能的 front matter 中新增 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "0dad3f947e45a736060e524bbefa3eab692809f9",
+            "date": "2026-09-01T10:43:34-07:00",
+            "subject": "Code enhancements: - Allow for user to specify domain name or to test in dev mode without a domain name using a self-signed cert. - Ommitting record_client_address because it is not supported for Cloud SQL instances with Private Service Connect connectivity enabled.",
+            "url": "https://github.com/google/skills/commit/0dad3f947e45a736060e524bbefa3eab692809f9",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了技能對網域與自簽憑證選擇、Cloud NGFW 與 Cloud SQL 輸出需求、依任務載入參考資料，以及完整 Terraform、報告和部署文件的指引。"
+          },
+          {
+            "sha": "8403f005882a71fea276bb88e79d276e313c8eec",
+            "date": "2026-08-18T15:09:04-07:00",
+            "subject": "Changed firewall from VPC firewall to Cloud NGFW. Added guidance to skill file to reduce turns and reduce the amount of time the agent goes down unnecessary paths.",
+            "url": "https://github.com/google/skills/commit/8403f005882a71fea276bb88e79d276e313c8eec",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增直接存取資產與不委派工作的指引，說明 Cloud NGFW 政策及 Cloud Run 的私有 `ALL_TRAFFIC` 路由，並調整設計與 IaC 工作流程。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能的中繼資料類別從 `Serverless` 改為 `MultiProductSolutions`。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `metadata.category: Serverless`，並統一技能描述中的空格。"
+          },
+          {
+            "sha": "65eb320d08270649a343f717dc14913387b10a16",
+            "date": "2026-07-20T10:10:10-07:00",
+            "subject": "Add skill for an N-tier web application based on Cloud Run and Cloud SQL",
+            "url": "https://github.com/google/skills/commit/65eb320d08270649a343f717dc14913387b10a16",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立安全多層無伺服器 Web 應用程式的技能指南，涵蓋 Cloud Run 層級、Cloud SQL，以及架構、部署與驗證工作流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在该技能的 front matter 中添加 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "0dad3f947e45a736060e524bbefa3eab692809f9",
+            "date": "2026-09-01T10:43:34-07:00",
+            "subject": "Code enhancements: - Allow for user to specify domain name or to test in dev mode without a domain name using a self-signed cert. - Ommitting record_client_address because it is not supported for Cloud SQL instances with Private Service Connect connectivity enabled.",
+            "url": "https://github.com/google/skills/commit/0dad3f947e45a736060e524bbefa3eab692809f9",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了技能对网域与自签凭证选择、Cloud NGFW 与 Cloud SQL 输出需求、依任务加载参考资料，以及完整 Terraform、报告和部署文档的指引。"
+          },
+          {
+            "sha": "8403f005882a71fea276bb88e79d276e313c8eec",
+            "date": "2026-08-18T15:09:04-07:00",
+            "subject": "Changed firewall from VPC firewall to Cloud NGFW. Added guidance to skill file to reduce turns and reduce the amount of time the agent goes down unnecessary paths.",
+            "url": "https://github.com/google/skills/commit/8403f005882a71fea276bb88e79d276e313c8eec",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加直接访问资产与不委派工作的指引，说明 Cloud NGFW 政策及 Cloud Run 的私有 `ALL_TRAFFIC` 路由，并调整设计与 IaC 工作流程。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能的中继数据类别从 `Serverless` 改为 `MultiProductSolutions`。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `metadata.category: Serverless`，并统一技能描述中的空格。"
+          },
+          {
+            "sha": "65eb320d08270649a343f717dc14913387b10a16",
+            "date": "2026-07-20T10:10:10-07:00",
+            "subject": "Add skill for an N-tier web application based on Cloud Run and Cloud SQL",
+            "url": "https://github.com/google/skills/commit/65eb320d08270649a343f717dc14913387b10a16",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建安全多层无服务器 Web 应用程序的技能指南，涵盖 Cloud Run 层级、Cloud SQL，以及架构、部署与验证工作流程。"
+          }
+        ]
+      }
+    }
+  }
+}

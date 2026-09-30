@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-recipe-onboarding",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:e8a78613fe51aaa6436cd60108503bccf8fa29c5f351239c84e1f680ea253d9f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps an individual developer check Google Cloud CLI access and authentication, select a project, and confirm billing so the environment is ready for a first workload.",
+        "whenToUse": "Use when a standalone developer needs to establish access, choose or create a project, and ensure billing is ready; use another flow for organization-wide foundations or multi-project designs.",
+        "outputs": "Provides a selected or newly created project's billing-link status and setup verification steps, plus pointers to spend controls and a suitable workload quickstart."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助個人開發者檢查 Google Cloud CLI 存取與驗證狀態、選擇專案並確認帳務，為部署第一個工作負載做好準備。",
+        "whenToUse": "適用於需要建立存取權、選擇或建立專案並確認帳務就緒的獨立開發者；組織級基礎架構或多專案設計則應使用其他流程。",
+        "outputs": "提供所選或新建專案的帳務連結狀態與設定驗證步驟，並指向支出控管及合適的工作負載快速入門指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助个人开发者检查 Google Cloud CLI 访问与验证状态、选择项目并确认帐务，为部署第一个工作负载做好准备。",
+        "whenToUse": "适用于需要创建访问权、选择或创建项目并确认帐务就绪的独立开发者；组织级基础架构或多项目设计则应使用其他流程。",
+        "outputs": "提供所选或新建项目的帐务链接状态与设置验证步骤，并指向支出控管及合适的工作负载快速入门指引。"
+      }
+    }
+  }
+}

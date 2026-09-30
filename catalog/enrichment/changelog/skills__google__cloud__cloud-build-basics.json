@@ -1,0 +1,99 @@
+{
+  "path": "skills/google/cloud/cloud-build-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4d408055d48f7a2d507dc01a6498f645f67dc195fe7af7c1caa89156366cf813",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/cloud-build-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-build-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the skill's `metadata.version` field with the value `1.0.0`."
+          },
+          {
+            "sha": "aa3bad7ae814008355ea61cf27819717f05e61ec",
+            "date": "2026-08-24T10:44:31-07:00",
+            "subject": "Add cloud-build-basics skill covering core Google Cloud Build concepts, trigger creation, execution, and troubleshooting.",
+            "url": "https://github.com/google/skills/commit/aa3bad7ae814008355ea61cf27819717f05e61ec",
+            "pathAtCommit": "skills/cloud/cloud-build-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a `cloud-build-basics` skill covering Cloud Build fundamentals, Build History navigation, automated trigger creation, and manual trigger runs."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-build-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增此技能的 `metadata.version` 欄位，值為 `1.0.0`。"
+          },
+          {
+            "sha": "aa3bad7ae814008355ea61cf27819717f05e61ec",
+            "date": "2026-08-24T10:44:31-07:00",
+            "subject": "Add cloud-build-basics skill covering core Google Cloud Build concepts, trigger creation, execution, and troubleshooting.",
+            "url": "https://github.com/google/skills/commit/aa3bad7ae814008355ea61cf27819717f05e61ec",
+            "pathAtCommit": "skills/cloud/cloud-build-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `cloud-build-basics` 技能，涵蓋 Cloud Build 基礎、建置記錄導覽、自動化觸發器建立與手動執行。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-build-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加此技能的 `metadata.version` 字段，值为 `1.0.0`。"
+          },
+          {
+            "sha": "aa3bad7ae814008355ea61cf27819717f05e61ec",
+            "date": "2026-08-24T10:44:31-07:00",
+            "subject": "Add cloud-build-basics skill covering core Google Cloud Build concepts, trigger creation, execution, and troubleshooting.",
+            "url": "https://github.com/google/skills/commit/aa3bad7ae814008355ea61cf27819717f05e61ec",
+            "pathAtCommit": "skills/cloud/cloud-build-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `cloud-build-basics` 技能，涵盖 Cloud Build 基础、建置记录导览、自动化触发器创建与手动运行。"
+          }
+        ]
+      }
+    }
+  }
+}

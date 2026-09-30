@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-sql-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:dcd41694ef443db541054c8e5467504e2c33233849e3382d6e3891d6cbf77c61"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how Google Cloud’s managed relational database service runs MySQL, PostgreSQL, and SQL Server workloads while handling maintenance, backups, availability, and secure connectivity.",
+        "whenToUse": "Consult it when planning a managed database setup or reviewing how to administer, connect to, secure, or recover one on Google Cloud.",
+        "outputs": "It provides IAM prerequisites, a PostgreSQL setup and connection walkthrough, and references for CLI, client libraries, MCP, Terraform, security, backups, and disaster recovery."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明 Google Cloud 的全代管關聯式資料庫服務如何執行 MySQL、PostgreSQL 與 SQL Server 工作負載，並處理維護、備份、高可用性及安全連線。",
+        "whenToUse": "在規劃代管資料庫的設定，或檢視如何在 Google Cloud 上管理、連線、保護或復原資料庫時參考此內容。",
+        "outputs": "內容提供 IAM 權限前提、PostgreSQL 設定與連線步驟，以及 CLI、用戶端程式庫、MCP、Terraform、安全性、備份和災難復原的參考資料。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明 Google Cloud 的全代管关系数据库服务如何运行 MySQL、PostgreSQL 与 SQL Server 工作负载，并处理维护、备份、高可用性及安全连接。",
+        "whenToUse": "在规划代管数据库的设置，或查看如何在 Google Cloud 上管理、连接、保护或复原数据库时参考此内容。",
+        "outputs": "内容提供 IAM 权限前提、PostgreSQL 设置与连接步骤，以及 CLI、用户端程序库、MCP、Terraform、安全性、备份和灾难复原的参考资料。"
+      }
+    }
+  }
+}

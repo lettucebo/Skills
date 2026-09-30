@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/cloud/developer-device-platform-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9a1d723b04894245c4b10089b13763b5c0c3f669adb8002264ef74ca736c5558",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/developer-device-platform-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "d91e77ba3a08ca338f7ee423f45ab3fb1791de4b",
+            "date": "2026-09-21T13:05:28-07:00",
+            "subject": "Include client_info in DDP device reservation requests",
+            "url": "https://github.com/google/skills/commit/d91e77ba3a08ca338f7ee423f45ab3fb1791de4b",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill metadata version changes from 1.0.0 to 0.5.0."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill metadata adds version 1.0.0."
+          },
+          {
+            "sha": "777fb8e194b9941c74c85f17b10202614ef4e435",
+            "date": "2026-08-05T00:39:59-07:00",
+            "subject": "Update gcloud device-run to beta component",
+            "url": "https://github.com/google/skills/commit/777fb8e194b9941c74c85f17b10202614ef4e435",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The guide adds a step to install the gcloud beta component and switches the device-run listing command and CLI reference from alpha to beta."
+          },
+          {
+            "sha": "3666d302ad477128e442e67e56952d080e9bba7f",
+            "date": "2026-08-04T23:33:02-07:00",
+            "subject": "Show active GCP project ID at user confirmation for device reservation / extension",
+            "url": "https://github.com/google/skills/commit/3666d302ad477128e442e67e56952d080e9bba7f",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The reservation and session-extension confirmation text now identifies the active Google Cloud project as where billing charges will be incurred."
+          },
+          {
+            "sha": "8db47666a1307cb838f056ac03193f85c42e2c69",
+            "date": "2026-08-03T17:18:38-07:00",
+            "subject": "Publish Developer Device Platform basic skill",
+            "url": "https://github.com/google/skills/commit/8db47666a1307cb838f056ac03193f85c42e2c69",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The patch adds the initial DDP skill guide, covering Google Cloud setup, device discovery and reservation, session and forwarder management, and session cancellation or extension."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "d91e77ba3a08ca338f7ee423f45ab3fb1791de4b",
+            "date": "2026-09-21T13:05:28-07:00",
+            "subject": "Include client_info in DDP device reservation requests",
+            "url": "https://github.com/google/skills/commit/d91e77ba3a08ca338f7ee423f45ab3fb1791de4b",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能中繼資料中的版本從 1.0.0 改為 0.5.0。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能中繼資料新增了版本 1.0.0。"
+          },
+          {
+            "sha": "777fb8e194b9941c74c85f17b10202614ef4e435",
+            "date": "2026-08-05T00:39:59-07:00",
+            "subject": "Update gcloud device-run to beta component",
+            "url": "https://github.com/google/skills/commit/777fb8e194b9941c74c85f17b10202614ef4e435",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "指南新增安裝 gcloud beta 元件的步驟，並將 device-run 列表指令和 CLI 參考連結由 alpha 改為 beta。"
+          },
+          {
+            "sha": "3666d302ad477128e442e67e56952d080e9bba7f",
+            "date": "2026-08-04T23:33:02-07:00",
+            "subject": "Show active GCP project ID at user confirmation for device reservation / extension",
+            "url": "https://github.com/google/skills/commit/3666d302ad477128e442e67e56952d080e9bba7f",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "裝置預約與工作階段延長的確認說明現在指出，帳單費用將計入目前啟用的 Google Cloud 專案。"
+          },
+          {
+            "sha": "8db47666a1307cb838f056ac03193f85c42e2c69",
+            "date": "2026-08-03T17:18:38-07:00",
+            "subject": "Publish Developer Device Platform basic skill",
+            "url": "https://github.com/google/skills/commit/8db47666a1307cb838f056ac03193f85c42e2c69",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更新增 DDP 技能指南，涵蓋 Google Cloud 設定、裝置探索與預約、工作階段和連線轉送器管理，以及工作階段取消或延長。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "d91e77ba3a08ca338f7ee423f45ab3fb1791de4b",
+            "date": "2026-09-21T13:05:28-07:00",
+            "subject": "Include client_info in DDP device reservation requests",
+            "url": "https://github.com/google/skills/commit/d91e77ba3a08ca338f7ee423f45ab3fb1791de4b",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能中继数据中的版本从 1.0.0 改为 0.5.0。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能中继数据添加了版本 1.0.0。"
+          },
+          {
+            "sha": "777fb8e194b9941c74c85f17b10202614ef4e435",
+            "date": "2026-08-05T00:39:59-07:00",
+            "subject": "Update gcloud device-run to beta component",
+            "url": "https://github.com/google/skills/commit/777fb8e194b9941c74c85f17b10202614ef4e435",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "指南添加安装 gcloud beta 组件的步骤，并将 device-run 列表指令和 CLI 参考链接由 alpha 改为 beta。"
+          },
+          {
+            "sha": "3666d302ad477128e442e67e56952d080e9bba7f",
+            "date": "2026-08-04T23:33:02-07:00",
+            "subject": "Show active GCP project ID at user confirmation for device reservation / extension",
+            "url": "https://github.com/google/skills/commit/3666d302ad477128e442e67e56952d080e9bba7f",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "设备预约与工作阶段延长的确认说明现在指出，帐单费用将计入目前激活的 Google Cloud 项目。"
+          },
+          {
+            "sha": "8db47666a1307cb838f056ac03193f85c42e2c69",
+            "date": "2026-08-03T17:18:38-07:00",
+            "subject": "Publish Developer Device Platform basic skill",
+            "url": "https://github.com/google/skills/commit/8db47666a1307cb838f056ac03193f85c42e2c69",
+            "pathAtCommit": "skills/cloud/developer-device-platform-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更添加 DDP 技能指南，涵盖 Google Cloud 设置、设备探索与预约、工作阶段和连接转送器管理，以及工作阶段取消或延长。"
+          }
+        ]
+      }
+    }
+  }
+}

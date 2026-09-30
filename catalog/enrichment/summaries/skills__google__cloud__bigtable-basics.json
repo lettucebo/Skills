@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/bigtable-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:467234eb690195dfac840e95e54add4d5ca277dd44c315aa393777de9d26a8b5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides practical guidance for building and operating Google Bigtable systems with efficient data access and careful changes.",
+        "whenToUse": "Use when deciding between SQL and key-value access, planning secondary query patterns with materialized views or Data Boost, or investigating slow reads and hotspots.",
+        "outputs": "Expect row-key and schema recommendations, query, client, or CLI examples, performance diagnostics such as Key Visualizer, and a reminder to get explicit confirmation before non-emulator data or schema changes."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供建置與管理 Google Bigtable 系統的實用指引，著重於高效率資料存取與審慎變更。",
+        "whenToUse": "在需要決定採用 SQL 或鍵值存取、規劃以具體化檢視或 Data Boost 支援的次要查詢模式，或調查讀取緩慢與熱點時使用。",
+        "outputs": "預期會取得列鍵與結構建議、查詢／用戶端／命令列範例、Key Visualizer 等效能診斷方式，以及非模擬器環境中變更資料或結構前須取得明確確認的提醒。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供建置与管理 Google Bigtable 系统的实用指引，着重于高效率数据访问与审慎变更。",
+        "whenToUse": "在需要决定采用 SQL 或键值访问、规划以具体化查看或 Data Boost 支持的次要查找模式，或调查读取缓慢与热点时使用。",
+        "outputs": "预期会取得列键与结构建议、查找／用户端／命令行范例、Key Visualizer 等性能诊断方式，以及非模拟器环境中变更数据或结构前须取得明确确认的提醒。"
+      }
+    }
+  }
+}

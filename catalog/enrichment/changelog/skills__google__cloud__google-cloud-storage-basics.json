@@ -1,0 +1,315 @@
+{
+  "path": "skills/google/cloud/google-cloud-storage-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d59646766f68485b3653304da788f10c9005dd35f612b24b8581ee32840b8f18",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-storage-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f004524de788065fcfbbdb8b07ee69493c6ec190",
+            "date": "2026-09-24T14:02:45-07:00",
+            "subject": "Improve google-cloud-storage-basics skill triggering for Storage MCP server setup",
+            "url": "https://github.com/google/skills/commit/f004524de788065fcfbbdb8b07ee69493c6ec190",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill description and Quick Start with remote/local Storage MCP setup, revised routing and installation guidance, and changed gcloud attribution examples to append the skill tag while preserving existing metrics attribution."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill metadata version from v1 to 1.0.0."
+          },
+          {
+            "sha": "18152e0d310e4d7047e9c2ec25a37b0d22d6893e",
+            "date": "2026-09-18T14:25:29-07:00",
+            "subject": "Clarify in the google-cloud-developer routing rule that catalog skills are fetched and followed in-session rather than installed, and stop the Cloud Storage skill from promising that a newly installed skill is immediately usable.",
+            "url": "https://github.com/google/skills/commit/18152e0d310e4d7047e9c2ec25a37b0d22d6893e",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Revised installation guidance to note that availability varies by agent, recommending confirmation that the skill loaded and noting that a restart may be required."
+          },
+          {
+            "sha": "41cc0ab6835de89b627f963458e370b661c7e598",
+            "date": "2026-08-19T17:02:45-07:00",
+            "subject": "Fix metadata tags format for GCS skills and re-enable in Cloud Skill Registry",
+            "url": "https://github.com/google/skills/commit/41cc0ab6835de89b627f963458e370b661c7e598",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reformatted the skill metadata, changing tags from a YAML list to a comma-separated string and removing the support_tier field."
+          },
+          {
+            "sha": "2f33140c13a6a1cfd9e8d68ef7491274ca2d011a",
+            "date": "2026-08-19T16:40:29-07:00",
+            "subject": "Route agents from google-cloud-storage-basics to specialized GCS skills",
+            "url": "https://github.com/google/skills/commit/2f33140c13a6a1cfd9e8d68ef7491274ca2d011a",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added routing to specialized skills for production bucket design, advanced GCSFuse, 403/IAM troubleshooting, and security assessments, with corresponding updates to Quick Start and reference guidance."
+          },
+          {
+            "sha": "3347fc5b9cc14c6b239d80e75189fe74374702a6",
+            "date": "2026-08-04T16:27:45-07:00",
+            "subject": "Use block-style YAML for skill metadata tags",
+            "url": "https://github.com/google/skills/commit/3347fc5b9cc14c6b239d80e75189fe74374702a6",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed metadata tags from an inline YAML list to a block-style YAML list."
+          },
+          {
+            "sha": "46a44146dd8b52fa7624913acd9b34e2d72b69e5",
+            "date": "2026-08-04T14:53:01-07:00",
+            "subject": "Update google-cloud-storage-basics metadata",
+            "url": "https://github.com/google/skills/commit/46a44146dd8b52fa7624913acd9b34e2d72b69e5",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Apache-2.0 licensing and reorganized metadata to include version, publisher, tags, and support tier, keeping Storage as the category."
+          },
+          {
+            "sha": "d1c9be2009ba0b9243f4ace63533684cabe0dc05",
+            "date": "2026-07-24T15:42:54-07:00",
+            "subject": "Add User-Agent header attribution for GCS MCP server usage.",
+            "url": "https://github.com/google/skills/commit/d1c9be2009ba0b9243f4ace63533684cabe0dc05",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Extended HTTP User-Agent attribution guidance to cover requests to the Cloud Storage MCP server as well as direct API calls."
+          },
+          {
+            "sha": "f6fac47a6c4ade446a662f8fd6ebc6b48ff4d0b9",
+            "date": "2026-07-24T12:27:50-07:00",
+            "subject": "remove dev knowledge mcp server instruction",
+            "url": "https://github.com/google/skills/commit/f6fac47a6c4ade446a662f8fd6ebc6b48ff4d0b9",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed the instruction to use the Developer Knowledge MCP server's search_documents tool for missing product information."
+          },
+          {
+            "sha": "0ea2cd73e63c373b68364985673be7a56b8d266b",
+            "date": "2026-07-22T16:22:21-07:00",
+            "subject": "Adds the google-cloud-storage-basics skill",
+            "url": "https://github.com/google/skills/commit/0ea2cd73e63c373b68364985673be7a56b8d266b",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial skill with a GCS overview, attribution guidance, CLI/API Quick Start steps, and links to reference documentation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f004524de788065fcfbbdb8b07ee69493c6ec190",
+            "date": "2026-09-24T14:02:45-07:00",
+            "subject": "Improve google-cloud-storage-basics skill triggering for Storage MCP server setup",
+            "url": "https://github.com/google/skills/commit/f004524de788065fcfbbdb8b07ee69493c6ec190",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充技能描述與快速入門，加入遠端／本機 Storage MCP 設定，修訂路由與安裝指引，並調整 gcloud 歸因範例，使其附加技能標籤並保留既有指標歸因。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能中繼資料的版本從 v1 改為 1.0.0。"
+          },
+          {
+            "sha": "18152e0d310e4d7047e9c2ec25a37b0d22d6893e",
+            "date": "2026-09-18T14:25:29-07:00",
+            "subject": "Clarify in the google-cloud-developer routing rule that catalog skills are fetched and followed in-session rather than installed, and stop the Cloud Storage skill from promising that a newly installed skill is immediately usable.",
+            "url": "https://github.com/google/skills/commit/18152e0d310e4d7047e9c2ec25a37b0d22d6893e",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修訂安裝指引，指出技能是否可用會因代理程式而異，並建議確認技能已載入且說明可能需要重新啟動。"
+          },
+          {
+            "sha": "41cc0ab6835de89b627f963458e370b661c7e598",
+            "date": "2026-08-19T17:02:45-07:00",
+            "subject": "Fix metadata tags format for GCS skills and re-enable in Cloud Skill Registry",
+            "url": "https://github.com/google/skills/commit/41cc0ab6835de89b627f963458e370b661c7e598",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新整理技能中繼資料，將 tags 從 YAML 清單改為逗號分隔字串，並移除 support_tier 欄位。"
+          },
+          {
+            "sha": "2f33140c13a6a1cfd9e8d68ef7491274ca2d011a",
+            "date": "2026-08-19T16:40:29-07:00",
+            "subject": "Route agents from google-cloud-storage-basics to specialized GCS skills",
+            "url": "https://github.com/google/skills/commit/2f33140c13a6a1cfd9e8d68ef7491274ca2d011a",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增轉介至專門技能的指引，涵蓋正式環境儲存桶設計、進階 GCSFuse、403/IAM 疑難排解及安全評估，並相應更新快速入門與參考指引。"
+          },
+          {
+            "sha": "3347fc5b9cc14c6b239d80e75189fe74374702a6",
+            "date": "2026-08-04T16:27:45-07:00",
+            "subject": "Use block-style YAML for skill metadata tags",
+            "url": "https://github.com/google/skills/commit/3347fc5b9cc14c6b239d80e75189fe74374702a6",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將中繼資料中的 tags 從行內 YAML 清單改為區塊式 YAML 清單。"
+          },
+          {
+            "sha": "46a44146dd8b52fa7624913acd9b34e2d72b69e5",
+            "date": "2026-08-04T14:53:01-07:00",
+            "subject": "Update google-cloud-storage-basics metadata",
+            "url": "https://github.com/google/skills/commit/46a44146dd8b52fa7624913acd9b34e2d72b69e5",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "加入 Apache-2.0 授權並重整中繼資料，納入版本、發佈者、標籤與支援層級，同時保留 Storage 類別。"
+          },
+          {
+            "sha": "d1c9be2009ba0b9243f4ace63533684cabe0dc05",
+            "date": "2026-07-24T15:42:54-07:00",
+            "subject": "Add User-Agent header attribution for GCS MCP server usage.",
+            "url": "https://github.com/google/skills/commit/d1c9be2009ba0b9243f4ace63533684cabe0dc05",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 HTTP User-Agent 歸因指引擴展至 Cloud Storage MCP 伺服器請求，以及直接 API 呼叫。"
+          },
+          {
+            "sha": "f6fac47a6c4ade446a662f8fd6ebc6b48ff4d0b9",
+            "date": "2026-07-24T12:27:50-07:00",
+            "subject": "remove dev knowledge mcp server instruction",
+            "url": "https://github.com/google/skills/commit/f6fac47a6c4ade446a662f8fd6ebc6b48ff4d0b9",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除在找不到產品資訊時使用 Developer Knowledge MCP 伺服器 search_documents 工具的指示。"
+          },
+          {
+            "sha": "0ea2cd73e63c373b68364985673be7a56b8d266b",
+            "date": "2026-07-22T16:22:21-07:00",
+            "subject": "Adds the google-cloud-storage-basics skill",
+            "url": "https://github.com/google/skills/commit/0ea2cd73e63c373b68364985673be7a56b8d266b",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增此技能的初始版本，包含 GCS 概述、歸因指引、CLI/API 快速入門步驟及參考文件連結。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f004524de788065fcfbbdb8b07ee69493c6ec190",
+            "date": "2026-09-24T14:02:45-07:00",
+            "subject": "Improve google-cloud-storage-basics skill triggering for Storage MCP server setup",
+            "url": "https://github.com/google/skills/commit/f004524de788065fcfbbdb8b07ee69493c6ec190",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充技能描述与快速入门，加入远程／本机 Storage MCP 设置，修订路由与安装指引，并调整 gcloud 归因范例，使其附加技能标签并保留既有指针归因。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能中继数据的版本从 v1 改为 1.0.0。"
+          },
+          {
+            "sha": "18152e0d310e4d7047e9c2ec25a37b0d22d6893e",
+            "date": "2026-09-18T14:25:29-07:00",
+            "subject": "Clarify in the google-cloud-developer routing rule that catalog skills are fetched and followed in-session rather than installed, and stop the Cloud Storage skill from promising that a newly installed skill is immediately usable.",
+            "url": "https://github.com/google/skills/commit/18152e0d310e4d7047e9c2ec25a37b0d22d6893e",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修订安装指引，指出技能是否可用会因代理程序而异，并建议确认技能已加载且说明可能需要重新启动。"
+          },
+          {
+            "sha": "41cc0ab6835de89b627f963458e370b661c7e598",
+            "date": "2026-08-19T17:02:45-07:00",
+            "subject": "Fix metadata tags format for GCS skills and re-enable in Cloud Skill Registry",
+            "url": "https://github.com/google/skills/commit/41cc0ab6835de89b627f963458e370b661c7e598",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "刷新技能中继数据，将 tags 从 YAML 清单改为逗号分隔字符串，并移除 support_tier 字段。"
+          },
+          {
+            "sha": "2f33140c13a6a1cfd9e8d68ef7491274ca2d011a",
+            "date": "2026-08-19T16:40:29-07:00",
+            "subject": "Route agents from google-cloud-storage-basics to specialized GCS skills",
+            "url": "https://github.com/google/skills/commit/2f33140c13a6a1cfd9e8d68ef7491274ca2d011a",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加转介至专门技能的指引，涵盖正式环境保存桶设计、高级 GCSFuse、403/IAM 疑难排解及安全评估，并相应更新快速入门与参考指引。"
+          },
+          {
+            "sha": "3347fc5b9cc14c6b239d80e75189fe74374702a6",
+            "date": "2026-08-04T16:27:45-07:00",
+            "subject": "Use block-style YAML for skill metadata tags",
+            "url": "https://github.com/google/skills/commit/3347fc5b9cc14c6b239d80e75189fe74374702a6",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将中继数据中的 tags 从行内 YAML 清单改为区块式 YAML 清单。"
+          },
+          {
+            "sha": "46a44146dd8b52fa7624913acd9b34e2d72b69e5",
+            "date": "2026-08-04T14:53:01-07:00",
+            "subject": "Update google-cloud-storage-basics metadata",
+            "url": "https://github.com/google/skills/commit/46a44146dd8b52fa7624913acd9b34e2d72b69e5",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "加入 Apache-2.0 授权并重整中继数据，纳入版本、发布者、标签与支持层级，同时保留 Storage 类别。"
+          },
+          {
+            "sha": "d1c9be2009ba0b9243f4ace63533684cabe0dc05",
+            "date": "2026-07-24T15:42:54-07:00",
+            "subject": "Add User-Agent header attribution for GCS MCP server usage.",
+            "url": "https://github.com/google/skills/commit/d1c9be2009ba0b9243f4ace63533684cabe0dc05",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 HTTP User-Agent 归因指引扩展至 Cloud Storage MCP 服务器请求，以及直接 API 调用。"
+          },
+          {
+            "sha": "f6fac47a6c4ade446a662f8fd6ebc6b48ff4d0b9",
+            "date": "2026-07-24T12:27:50-07:00",
+            "subject": "remove dev knowledge mcp server instruction",
+            "url": "https://github.com/google/skills/commit/f6fac47a6c4ade446a662f8fd6ebc6b48ff4d0b9",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除在找不到产品信息时使用 Developer Knowledge MCP 服务器 search_documents 工具的指示。"
+          },
+          {
+            "sha": "0ea2cd73e63c373b68364985673be7a56b8d266b",
+            "date": "2026-07-22T16:22:21-07:00",
+            "subject": "Adds the google-cloud-storage-basics skill",
+            "url": "https://github.com/google/skills/commit/0ea2cd73e63c373b68364985673be7a56b8d266b",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加此技能的初始版本，包含 GCS 概述、归因指引、CLI/API 快速入门步骤及参考文档链接。"
+          }
+        ]
+      }
+    }
+  }
+}

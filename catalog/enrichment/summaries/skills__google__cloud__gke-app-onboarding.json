@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-app-onboarding",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:407d4cfc6c2899845332b6c32f38edb9b5ad44b6626e54f7166a84c6c6412f8a"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides application teams through assessing an app, containerizing it, preparing Kubernetes manifests, and deploying it to GKE.",
+        "whenToUse": "Use it when turning an application into a GKE-ready workload, from reviewing its runtime and dependencies through checking its initial deployment.",
+        "outputs": "It provides practical guidance and examples for building and publishing a container image, creating Kubernetes manifests, deploying them, and verifying rollout and pod status."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助應用程式團隊評估應用程式、將其容器化、準備 Kubernetes 資訊清單，並部署至 GKE。",
+        "whenToUse": "當需要將應用程式整理成可在 GKE 執行的工作負載，從檢視執行環境與相依項目到確認首次部署時，請使用此技能。",
+        "outputs": "提供建置與發布容器映像的實用指引與範例、建立 Kubernetes 資訊清單的方法，以及部署並驗證推出狀態和 Pod 狀態的步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助应用程序团队评估应用程序、将其容器化、准备 Kubernetes 信息清单，并部署至 GKE。",
+        "whenToUse": "当需要将应用程序整理成可在 GKE 运行的工作负载，从查看运行环境与相依项目到确认首次部署时，请使用此技能。",
+        "outputs": "提供建置与发布容器映像的实用指引与范例、创建 Kubernetes 信息清单的方法，以及部署并验证推出状态和 Pod 状态的步骤。"
+      }
+    }
+  }
+}

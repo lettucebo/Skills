@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/gke-service-networking",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:82883cfb5e6e0bd2e5927866e7ca55951a017908149ecdb5f416f8086ffcee35",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-service-networking",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added 1.0.0 version metadata to the skill."
+          },
+          {
+            "sha": "37d9f2dc6e172a8c5964807b4714fc2cfd7bc976",
+            "date": "2026-08-20T10:51:23-07:00",
+            "subject": "Upgrade gke-service-networking skill.",
+            "url": "https://github.com/google/skills/commit/37d9f2dc6e172a8c5964807b4714fc2cfd7bc976",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked the skill with asset-based manifest templates and expanded guidance on Gateway and Ingress, Cloud Armor, certificates, NEGs, PSC, topology-aware routing, and deployment gotchas."
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Networking category metadata to the skill."
+          },
+          {
+            "sha": "48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "date": "2026-07-23T08:29:12-07:00",
+            "subject": "Rescope gke-networking and add gke-service-networking. Refined evaluation benchmarks for both skills.",
+            "url": "https://github.com/google/skills/commit/48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial GKE service networking skill, covering Gateway API, Ingress, Cloud Armor, managed certificates, NEGs, and Private Service Connect workflows."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "為此技能新增 1.0.0 版本中繼資料。"
+          },
+          {
+            "sha": "37d9f2dc6e172a8c5964807b4714fc2cfd7bc976",
+            "date": "2026-08-20T10:51:23-07:00",
+            "subject": "Upgrade gke-service-networking skill.",
+            "url": "https://github.com/google/skills/commit/37d9f2dc6e172a8c5964807b4714fc2cfd7bc976",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能改用以資產檔案為基礎的資訊清單範本，並擴充 Gateway 與 Ingress、Cloud Armor、憑證、NEGs、PSC、拓撲感知路由及部署注意事項的指引。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "為此技能新增 Networking 類別中繼資料。"
+          },
+          {
+            "sha": "48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "date": "2026-07-23T08:29:12-07:00",
+            "subject": "Rescope gke-networking and add gke-service-networking. Refined evaluation benchmarks for both skills.",
+            "url": "https://github.com/google/skills/commit/48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 服務網路技能，涵蓋 Gateway API、Ingress、Cloud Armor、代管憑證、NEGs 和 Private Service Connect 工作流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "为此技能添加 1.0.0 版本中继数据。"
+          },
+          {
+            "sha": "37d9f2dc6e172a8c5964807b4714fc2cfd7bc976",
+            "date": "2026-08-20T10:51:23-07:00",
+            "subject": "Upgrade gke-service-networking skill.",
+            "url": "https://github.com/google/skills/commit/37d9f2dc6e172a8c5964807b4714fc2cfd7bc976",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能改用以资产文件为基础的信息清单范本，并扩充 Gateway 与 Ingress、Cloud Armor、凭证、NEGs、PSC、拓扑感知路由及部署注意事项的指引。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "为此技能添加 Networking 类别中继数据。"
+          },
+          {
+            "sha": "48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "date": "2026-07-23T08:29:12-07:00",
+            "subject": "Rescope gke-networking and add gke-service-networking. Refined evaluation benchmarks for both skills.",
+            "url": "https://github.com/google/skills/commit/48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "pathAtCommit": "skills/cloud/gke-service-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 服务网络技能，涵盖 Gateway API、Ingress、Cloud Armor、代管凭证、NEGs 和 Private Service Connect 工作流程。"
+          }
+        ]
+      }
+    }
+  }
+}

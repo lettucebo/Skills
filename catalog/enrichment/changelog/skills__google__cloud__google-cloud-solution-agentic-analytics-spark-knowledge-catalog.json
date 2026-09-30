@@ -1,0 +1,207 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4f1edd591ae480cb55646715ece602abd1567ecdccc6fa747e022a346c69a3fa",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "8f9a45796f708341b9d7710e25cd3c5e2ac6e37b",
+            "date": "2026-09-24T13:25:55-07:00",
+            "subject": "Update Lightning Engine guide documentation link.",
+            "url": "https://github.com/google/skills/commit/8f9a45796f708341b9d7710e25cd3c5e2ac6e37b",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the supporting-resource link from the Lightning Engine guide to the Lightning Engine serverless guide."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version metadata set to 1.0.0."
+          },
+          {
+            "sha": "6dcf624034094fb86a683222808e7f13c596fd2c",
+            "date": "2026-09-14T11:46:19-07:00",
+            "subject": "Updated `description` metadata for the `agentic-analytics-spark-knowledge-catalog` & `agentic-ai-borderless-data-lakehouse` skills",
+            "url": "https://github.com/google/skills/commit/6dcf624034094fb86a683222808e7f13c596fd2c",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Rewrote the description to focus on agentic analytics with Knowledge Catalog and Managed Service for Apache Spark, specify supported data sources and Data Agent Kit grounding, and exclude borderless data lakehouse provisioning."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the category metadata from BigDataAndAnalytics to MultiProductSolutions."
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added category metadata set to BigDataAndAnalytics."
+          },
+          {
+            "sha": "7da0b95141164fce6390ae9f0927d6f14dab56e7",
+            "date": "2026-07-17T08:01:46-07:00",
+            "subject": "Skill for cross-cloud agentic analytics using Spark and Knowledge Catalog",
+            "url": "https://github.com/google/skills/commit/7da0b95141164fce6390ae9f0927d6f14dab56e7",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial skill guide for designing and implementing governed cross-cloud agentic analytics, with phases for requirements discovery, architecture, validation, and solution packaging."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "8f9a45796f708341b9d7710e25cd3c5e2ac6e37b",
+            "date": "2026-09-24T13:25:55-07:00",
+            "subject": "Update Lightning Engine guide documentation link.",
+            "url": "https://github.com/google/skills/commit/8f9a45796f708341b9d7710e25cd3c5e2ac6e37b",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將支援資源連結從 Lightning Engine 指南改為 Lightning Engine 無伺服器指南。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增設為 1.0.0 的版本中繼資料。"
+          },
+          {
+            "sha": "6dcf624034094fb86a683222808e7f13c596fd2c",
+            "date": "2026-09-14T11:46:19-07:00",
+            "subject": "Updated `description` metadata for the `agentic-analytics-spark-knowledge-catalog` & `agentic-ai-borderless-data-lakehouse` skills",
+            "url": "https://github.com/google/skills/commit/6dcf624034094fb86a683222808e7f13c596fd2c",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重寫說明，聚焦於使用 Knowledge Catalog 和 Managed Service for Apache Spark 的代理式分析，列出支援的資料來源及 Data Agent Kit 的 grounding，並排除無邊界資料湖倉基礎架構的佈建。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將類別中繼資料從 BigDataAndAnalytics 改為 MultiProductSolutions。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增設為 BigDataAndAnalytics 的類別中繼資料。"
+          },
+          {
+            "sha": "7da0b95141164fce6390ae9f0927d6f14dab56e7",
+            "date": "2026-07-17T08:01:46-07:00",
+            "subject": "Skill for cross-cloud agentic analytics using Spark and Knowledge Catalog",
+            "url": "https://github.com/google/skills/commit/7da0b95141164fce6390ae9f0927d6f14dab56e7",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版技能指南，說明如何設計及實作受治理的跨雲代理式分析，並包含需求探索、架構設計、驗證及方案封裝等階段。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "8f9a45796f708341b9d7710e25cd3c5e2ac6e37b",
+            "date": "2026-09-24T13:25:55-07:00",
+            "subject": "Update Lightning Engine guide documentation link.",
+            "url": "https://github.com/google/skills/commit/8f9a45796f708341b9d7710e25cd3c5e2ac6e37b",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将支持资源链接从 Lightning Engine 指南改为 Lightning Engine 无服务器指南。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加设为 1.0.0 的版本中继数据。"
+          },
+          {
+            "sha": "6dcf624034094fb86a683222808e7f13c596fd2c",
+            "date": "2026-09-14T11:46:19-07:00",
+            "subject": "Updated `description` metadata for the `agentic-analytics-spark-knowledge-catalog` & `agentic-ai-borderless-data-lakehouse` skills",
+            "url": "https://github.com/google/skills/commit/6dcf624034094fb86a683222808e7f13c596fd2c",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重写说明，聚焦于使用 Knowledge Catalog 和 Managed Service for Apache Spark 的代理式分析，列出支持的数据源及 Data Agent Kit 的 grounding，并排除无边界数据湖仓基础架构的布建。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将类别中继数据从 BigDataAndAnalytics 改为 MultiProductSolutions。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加设为 BigDataAndAnalytics 的类别中继数据。"
+          },
+          {
+            "sha": "7da0b95141164fce6390ae9f0927d6f14dab56e7",
+            "date": "2026-07-17T08:01:46-07:00",
+            "subject": "Skill for cross-cloud agentic analytics using Spark and Knowledge Catalog",
+            "url": "https://github.com/google/skills/commit/7da0b95141164fce6390ae9f0927d6f14dab56e7",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版技能指南，说明如何设计及实作受治理的跨云代理式分析，并包含需求探索、架构设计、验证及方案封装等阶段。"
+          }
+        ]
+      }
+    }
+  }
+}

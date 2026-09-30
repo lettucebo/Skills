@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gemini-api",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7d7d91df77f3d75184ab12e1bc8cd865ca50421c23c8b34c8b994ad03525041a"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to build Gemini applications on Agent Platform with the Gen AI SDK, from client setup to text, multimodal, and advanced workflows.",
+        "whenToUse": "Use it when implementing or troubleshooting authentication, SDK configuration, model selection, or workflows such as embeddings, streaming, caching, batch prediction, safety, and tuning.",
+        "outputs": "It provides setup guidance and code examples for Python, JavaScript/TypeScript, Go, Java, and C#, plus workflow references and links to official documentation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何使用 Gen AI SDK 在 Agent Platform 上建置 Gemini 應用程式，涵蓋用戶端設定、文字與多模態功能，以及進階工作流程。",
+        "whenToUse": "在實作或疑難排解驗證、SDK 設定、模型選擇，或嵌入、串流、快取、批次預測、安全性與微調等工作流程時使用。",
+        "outputs": "提供設定指引與 Python、JavaScript/TypeScript、Go、Java 和 C# 程式碼範例，並附上工作流程參考資料及官方文件連結。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何使用 Gen AI SDK 在 Agent Platform 上建置 Gemini 应用程序，涵盖用户端设置、文字与多模态功能，以及高级工作流程。",
+        "whenToUse": "在实作或疑难排解验证、SDK 设置、模型选择，或嵌入、串流、缓存、批量预测、安全性与微调等工作流程时使用。",
+        "outputs": "提供设置指引与 Python、JavaScript/TypeScript、Go、Java 和 C# 代码范例，并附上工作流程参考资料及官方文档链接。"
+      }
+    }
+  }
+}

@@ -2,21 +2,219 @@
   "path": "skills/cloudflare/cloudflare",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:9a990c360f49535d9b3cc014a5e0f1162875863fd221bcf295567431a6207089",
+    "contentHash": "sha256:ce55f6c479ea5258149df28b3e69f8df500b8b7184029d59dfc1d674f7f3c842",
     "repository": "cloudflare/skills",
     "reference": "refs/heads/main",
     "source": "skills/cloudflare",
-    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+    "pinnedCommit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "date": "2026-09-22T14:51:24-04:00",
+            "subject": "Add Workers authorization skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a product-routing row for team, CI, and service-account access to Developer Platform resources, emphasizing least-privilege roles and scopes."
+          },
+          {
+            "sha": "8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "date": "2026-09-22T14:41:55-04:00",
+            "subject": "Add Workers Previews skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Split release guidance into isolated Workers Previews for branches and pull requests and production-resource versions and deployments, noting that bound resources may be shared or isolated."
+          },
+          {
+            "sha": "46c1f9f391c0a5e535c3b392d47a7355867ced8c",
+            "date": "2026-09-05T15:40:23-07:00",
+            "subject": "Add Next.js on Cloudflare skill routing to vinext",
+            "url": "https://github.com/cloudflare/skills/commit/46c1f9f391c0a5e535c3b392d47a7355867ced8c",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Next.js routing row that recommends vinext over OpenNext for new Cloudflare projects and links the related skill and docs."
+          },
+          {
+            "sha": "cb428e1d9453b25efa4e8ca907eea3ac0331e1dd",
+            "date": "2026-09-05T12:52:17-07:00",
+            "subject": "Apply suggestion from @irvinebroque",
+            "url": "https://github.com/cloudflare/skills/commit/cb428e1d9453b25efa4e8ca907eea3ac0331e1dd",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified that Workers can do everything Pages can and are recommended for all new projects, while existing Pages deployments should be preserved during unrelated maintenance."
+          },
+          {
+            "sha": "835110badc0bbb3abbd30c7c943e1ff3a8046462",
+            "date": "2026-09-05T12:50:00-07:00",
+            "subject": "Add foundational Cloudflare services and refine product selection",
+            "url": "https://github.com/cloudflare/skills/commit/835110badc0bbb3abbd30c7c943e1ff3a8046462",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked product discovery by adding mappings for Cache/CDN, DNS, SSL/TLS, load balancing, Access, and Rules, while revising or removing other product rows and the directory link."
+          },
+          {
+            "sha": "85026b59f184ef891c9c3fea393ba08ef86e5cf6",
+            "date": "2026-09-05T12:43:33-07:00",
+            "subject": "Map developer tasks directly to Cloudflare products and guidance",
+            "url": "https://github.com/cloudflare/skills/commit/85026b59f184ef891c9c3fea393ba08ef86e5cf6",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced grouped product decision trees and separate indexes with a detailed task-to-product table, adding selection criteria and links to skills and references."
+          },
+          {
+            "sha": "02927edbc20e6dfcf4e29a400f54484eb6761d70",
+            "date": "2026-09-05T12:35:03-07:00",
+            "subject": "Add Flue framework guidance for building agents on Cloudflare",
+            "url": "https://github.com/cloudflare/skills/commit/02927edbc20e6dfcf4e29a400f54484eb6761d70",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Flue as an agent framework in the AI guidance and clarified the related product and implementation-skill labels."
+          },
+          {
+            "sha": "1577d7001dbe56694153d48bec55bd4d1599f33f",
+            "date": "2026-09-05T12:32:33-07:00",
+            "subject": "Link directly to bundled product reference READMEs",
+            "url": "https://github.com/cloudflare/skills/commit/1577d7001dbe56694153d48bec55bd4d1599f33f",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced parenthesized reference-folder names with direct links to bundled product README files."
+          },
+          {
+            "sha": "2acc628b6a666644deee8fe1a891b47c87f84dc7",
+            "date": "2026-09-05T12:31:38-07:00",
+            "subject": "Clarify when to check current Cloudflare documentation",
+            "url": "https://github.com/cloudflare/skills/commit/2acc628b6a666644deee8fe1a891b47c87f84dc7",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the guidance to explicitly check current Cloudflare documentation for time-sensitive limits, prices, compatibility flags, and security requirements."
+          },
+          {
+            "sha": "1d61c6a2a961e6fa89d60c7308db78dad89bb3c5",
+            "date": "2026-09-05T12:31:20-07:00",
+            "subject": "Prefer Workers and Static Assets over Pages for new projects",
+            "url": "https://github.com/cloudflare/skills/commit/1d61c6a2a961e6fa89d60c7308db78dad89bb3c5",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a prominent recommendation for Workers and Workers Static Assets for new sites and apps, clarified existing Pages maintenance guidance, and updated the matching skill and reference labels."
+          },
+          {
+            "sha": "5bb632fa4e18be9c40fbaff6a50a283aa0fec339",
+            "date": "2026-09-05T12:30:36-07:00",
+            "subject": "Describe loading product skills without specialist handoff framing",
+            "url": "https://github.com/cloudflare/skills/commit/5bb632fa4e18be9c40fbaff6a50a283aa0fec339",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced specialist-skill wording with product-specific-skill wording in the routing description and guidance."
+          },
+          {
+            "sha": "86381857577788a66a4e0d5d6c0c032f728dec82",
+            "date": "2026-09-05T12:30:00-07:00",
+            "subject": "Add Cloudflare for SaaS to product discovery",
+            "url": "https://github.com/cloudflare/skills/commit/86381857577788a66a4e0d5d6c0c032f728dec82",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Cloudflare for SaaS to the product map and documented its direct docs and setup topics, including hostnames, certificates, fallback origins, and plan requirements."
+          },
+          {
+            "sha": "9688eb02e2d5a65fb98705a99ed22481a1c0c014",
+            "date": "2026-09-05T12:29:22-07:00",
+            "subject": "Add Dynamic Workers to Cloudflare product discovery",
+            "url": "https://github.com/cloudflare/skills/commit/9688eb02e2d5a65fb98705a99ed22481a1c0c014",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Dynamic Workers routing for executing untrusted or generated code and linked its docs and API, bindings, egress, and limits guidance."
+          },
+          {
+            "sha": "4b4b2f26b59d241b57d51b6b884674f77bcab3f4",
+            "date": "2026-09-05T12:25:00-07:00",
+            "subject": "Make Cloudflare product discovery the skill's primary role",
+            "url": "https://github.com/cloudflare/skills/commit/4b4b2f26b59d241b57d51b6b884674f77bcab3f4",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Recast the skill as the primary Cloudflare product-discovery guide, adding task-to-product recommendations and guidance for loading relevant skills and references."
+          },
+          {
+            "sha": "89e81e76d00eb4254ced316b8fc42452ef307a53",
+            "date": "2026-09-05T12:09:08-07:00",
+            "subject": "Make Workers Cache the default for advanced caching patterns",
+            "url": "https://github.com/cloudflare/skills/commit/89e81e76d00eb4254ced316b8fc42452ef307a53",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated caching guidance to prefer Workers Cache, including advanced patterns, and to use Cache API or KV only when a specific need requires them."
+          },
+          {
+            "sha": "0cb6116228ad153126f474dce1dfbd05f7944604",
+            "date": "2026-09-05T12:08:38-07:00",
+            "subject": "fix cloudflare router handoffs and retained reference links",
+            "url": "https://github.com/cloudflare/skills/commit/0cb6116228ad153126f474dce1dfbd05f7944604",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated skill-routing instructions to handle missing specialist skills and renamed AI-agent and MCP routes to the Agents SDK."
+          },
+          {
+            "sha": "f3550892b738b24b1da3f1fbad1a114de0a61936",
+            "date": "2026-09-05T12:05:43-07:00",
+            "subject": "Prefer Workers Cache for HTTP response caching",
+            "url": "https://github.com/cloudflare/skills/commit/f3550892b738b24b1da3f1fbad1a114de0a61936",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the storage tree to describe KV as application data rather than cache and added a recommendation for Workers Cache for eligible HTTP responses."
+          },
+          {
+            "sha": "edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "date": "2026-09-05T11:46:29-07:00",
+            "subject": "Fix skill frontmatter and optional web-perf setup",
+            "url": "https://github.com/cloudflare/skills/commit/edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed the references list from the skill's frontmatter."
+          },
+          {
+            "sha": "6cdde88f5326ef7880b492d3bed42e05d89f8b8e",
+            "date": "2026-09-05T09:57:16-07:00",
+            "subject": "refactor cloudflare skill into fallback router",
+            "url": "https://github.com/cloudflare/skills/commit/6cdde88f5326ef7880b492d3bed42e05d89f8b8e",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced the comprehensive platform guide with a compact router that defers to matching product skills and lists references, while retaining caching and working-principle guidance."
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Narrowed the skill description to product selection and reference lookup, directing specialized workflows to product-specific skills."
+          },
+          {
+            "sha": "9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "date": "2026-09-02T11:50:53-04:00",
+            "subject": "Add installable Codex and Agent Plugins packaging (#99)",
+            "url": "https://github.com/cloudflare/skills/commit/9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the Cloudflare documentation retrieval source from a search-tool label to the Cloudflare MCP docs tool."
+          },
+          {
+            "sha": "2b1ffd27c00be4f791a1618d646733c068592c11",
+            "date": "2026-08-04T16:46:34+01:00",
+            "subject": "Point full-stack web apps to Workers instead of Pages",
+            "url": "https://github.com/cloudflare/skills/commit/2b1ffd27c00be4f791a1618d646733c068592c11",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the full-stack web-app recommendation from Pages to Workers with Static Assets."
+          },
           {
             "sha": "9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
             "date": "2026-06-20T07:23:34-07:00",
@@ -24,7 +222,7 @@
             "url": "https://github.com/cloudflare/skills/commit/9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added R2 Data Catalog and R2 SQL entries to the storage and analytics decision trees."
+            "summary": "Added R2 Data Catalog and R2 SQL to the storage decision tree and added R2 SQL as an analytics option for querying Iceberg data."
           },
           {
             "sha": "7c449def4e0c63daa27212d853094e4c8e37bbe8",
@@ -33,7 +231,7 @@
             "url": "https://github.com/cloudflare/skills/commit/7c449def4e0c63daa27212d853094e4c8e37bbe8",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Flagship feature flags to the description, a feature-flags decision tree, and the product index."
+            "summary": "Added Flagship as a feature-flags recommendation and included its decision tree, binding, SDK, API options, and product-index entry."
           },
           {
             "sha": "0397d7d88fa6ac7517a88389622eb0799e86ded2",
@@ -42,7 +240,7 @@
             "url": "https://github.com/cloudflare/skills/commit/0397d7d88fa6ac7517a88389622eb0799e86ded2",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Artifacts to the storage decision tree and the product index."
+            "summary": "Added Artifacts to the storage decision tree for versioned file trees and to the product index."
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -51,7 +249,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated the skill description to prefer Cloudflare docs retrieval over pre-trained knowledge."
+            "summary": "Added a sentence to the skill description stating that it favors retrieval from Cloudflare docs over pre-trained knowledge."
           },
           {
             "sha": "00eec280fa5c788000cd32f27a58b39dba15edfc",
@@ -60,7 +258,7 @@
             "url": "https://github.com/cloudflare/skills/commit/00eec280fa5c788000cd32f27a58b39dba15edfc",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added an analytics decision tree and a GraphQL Analytics API entry to the product index."
+            "summary": "Added an analytics decision tree for Cloudflare product metrics, custom Worker metrics, RUM, and logs, and added the GraphQL Analytics API to the index."
           },
           {
             "sha": "6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
@@ -69,7 +267,7 @@
             "url": "https://github.com/cloudflare/skills/commit/6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added guidance to retrieve current Cloudflare docs, types, schemas, and changelogs before citing specifics."
+            "summary": "Added current-documentation retrieval guidance and instructed readers to trust docs over bundled references for time-sensitive details such as limits and pricing."
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -83,7 +281,7 @@
               "sourcePath": "cloudflare/SKILL.md",
               "destinationPath": "skills/cloudflare/SKILL.md"
             },
-            "summary": "Renamed cloudflare/SKILL.md to skills/cloudflare/SKILL.md without content changes."
+            "summary": "Renamed the skill file from cloudflare/SKILL.md to skills/cloudflare/SKILL.md without changing its contents."
           },
           {
             "sha": "1bf879fb777798036920b7f7ab93139f2b2af3de",
@@ -92,19 +290,217 @@
             "url": "https://github.com/cloudflare/skills/commit/1bf879fb777798036920b7f7ab93139f2b2af3de",
             "pathAtCommit": "cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial Cloudflare platform SKILL.md with decision trees and a product reference index."
+            "summary": "Created the initial Cloudflare platform skill with product-selection decision trees and a product-reference index."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "date": "2026-09-22T14:51:24-04:00",
+            "subject": "Add Workers authorization skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增一列產品路由，說明如何管理團隊、CI 與服務帳戶對 Developer Platform 資源的存取，並強調採用最小權限角色與範圍。"
+          },
+          {
+            "sha": "8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "date": "2026-09-22T14:41:55-04:00",
+            "subject": "Add Workers Previews skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將發布指引拆分為供分支與 pull request 使用的隔離 Workers Previews，以及使用正式環境資源的版本與部署，並提醒綁定資源可能隔離或共用。"
+          },
+          {
+            "sha": "46c1f9f391c0a5e535c3b392d47a7355867ced8c",
+            "date": "2026-09-05T15:40:23-07:00",
+            "subject": "Add Next.js on Cloudflare skill routing to vinext",
+            "url": "https://github.com/cloudflare/skills/commit/46c1f9f391c0a5e535c3b392d47a7355867ced8c",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Next.js 路由列，建議新的 Cloudflare 專案使用 vinext 而非 OpenNext，並連結相關技能與文件。"
+          },
+          {
+            "sha": "cb428e1d9453b25efa4e8ca907eea3ac0331e1dd",
+            "date": "2026-09-05T12:52:17-07:00",
+            "subject": "Apply suggestion from @irvinebroque",
+            "url": "https://github.com/cloudflare/skills/commit/cb428e1d9453b25efa4e8ca907eea3ac0331e1dd",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "明確指出 Workers 可執行 Pages 的所有功能，且所有新專案都建議使用 Workers；無關維護時應保留既有 Pages 部署。"
+          },
+          {
+            "sha": "835110badc0bbb3abbd30c7c943e1ff3a8046462",
+            "date": "2026-09-05T12:50:00-07:00",
+            "subject": "Add foundational Cloudflare services and refine product selection",
+            "url": "https://github.com/cloudflare/skills/commit/835110badc0bbb3abbd30c7c943e1ff3a8046462",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新整理產品探索內容，新增 Cache/CDN、DNS、SSL/TLS、負載平衡、Access 與 Rules 的對應列，並修訂或移除其他產品列及產品目錄連結。"
+          },
+          {
+            "sha": "85026b59f184ef891c9c3fea393ba08ef86e5cf6",
+            "date": "2026-09-05T12:43:33-07:00",
+            "subject": "Map developer tasks directly to Cloudflare products and guidance",
+            "url": "https://github.com/cloudflare/skills/commit/85026b59f184ef891c9c3fea393ba08ef86e5cf6",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以詳細的任務至產品對照表取代分組式產品決策樹與獨立索引，並加入選擇條件及技能與參考資料連結。"
+          },
+          {
+            "sha": "02927edbc20e6dfcf4e29a400f54484eb6761d70",
+            "date": "2026-09-05T12:35:03-07:00",
+            "subject": "Add Flue framework guidance for building agents on Cloudflare",
+            "url": "https://github.com/cloudflare/skills/commit/02927edbc20e6dfcf4e29a400f54484eb6761d70",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 AI 指引中新增 Flue 作為代理程式框架，並釐清相關產品與實作技能的標籤。"
+          },
+          {
+            "sha": "1577d7001dbe56694153d48bec55bd4d1599f33f",
+            "date": "2026-09-05T12:32:33-07:00",
+            "subject": "Link directly to bundled product reference READMEs",
+            "url": "https://github.com/cloudflare/skills/commit/1577d7001dbe56694153d48bec55bd4d1599f33f",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將括號中的參考資料資料夾名稱改為直接連結至隨附的產品 README 檔案。"
+          },
+          {
+            "sha": "2acc628b6a666644deee8fe1a891b47c87f84dc7",
+            "date": "2026-09-05T12:31:38-07:00",
+            "subject": "Clarify when to check current Cloudflare documentation",
+            "url": "https://github.com/cloudflare/skills/commit/2acc628b6a666644deee8fe1a891b47c87f84dc7",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將指引改為明確要求查閱最新 Cloudflare 文件，以確認可能變動的限制、價格、相容性旗標與安全性要求。"
+          },
+          {
+            "sha": "1d61c6a2a961e6fa89d60c7308db78dad89bb3c5",
+            "date": "2026-09-05T12:31:20-07:00",
+            "subject": "Prefer Workers and Static Assets over Pages for new projects",
+            "url": "https://github.com/cloudflare/skills/commit/1d61c6a2a961e6fa89d60c7308db78dad89bb3c5",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增醒目的建議，要求新網站與應用程式使用 Workers 和 Workers Static Assets，釐清既有 Pages 的維護指引，並更新對應的技能與參考標籤。"
+          },
+          {
+            "sha": "5bb632fa4e18be9c40fbaff6a50a283aa0fec339",
+            "date": "2026-09-05T12:30:36-07:00",
+            "subject": "Describe loading product skills without specialist handoff framing",
+            "url": "https://github.com/cloudflare/skills/commit/5bb632fa4e18be9c40fbaff6a50a283aa0fec339",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將路由說明與指引中的「專家技能」措辭改為「產品專屬技能」。"
+          },
+          {
+            "sha": "86381857577788a66a4e0d5d6c0c032f728dec82",
+            "date": "2026-09-05T12:30:00-07:00",
+            "subject": "Add Cloudflare for SaaS to product discovery",
+            "url": "https://github.com/cloudflare/skills/commit/86381857577788a66a4e0d5d6c0c032f728dec82",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在產品對照表中新增 Cloudflare for SaaS，並說明其官方文件入口與設定主題，包括主機名稱、憑證、備援來源及方案需求。"
+          },
+          {
+            "sha": "9688eb02e2d5a65fb98705a99ed22481a1c0c014",
+            "date": "2026-09-05T12:29:22-07:00",
+            "subject": "Add Dynamic Workers to Cloudflare product discovery",
+            "url": "https://github.com/cloudflare/skills/commit/9688eb02e2d5a65fb98705a99ed22481a1c0c014",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Dynamic Workers 路由，供執行不受信任或生成的程式碼使用，並連結其文件、API、繫結、輸出流量控制與資源限制指引。"
+          },
+          {
+            "sha": "4b4b2f26b59d241b57d51b6b884674f77bcab3f4",
+            "date": "2026-09-05T12:25:00-07:00",
+            "subject": "Make Cloudflare product discovery the skill's primary role",
+            "url": "https://github.com/cloudflare/skills/commit/4b4b2f26b59d241b57d51b6b884674f77bcab3f4",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將此技能重新定位為主要的 Cloudflare 產品探索指南，新增任務至產品的建議，並說明如何載入相關技能與參考資料。"
+          },
+          {
+            "sha": "89e81e76d00eb4254ced316b8fc42452ef307a53",
+            "date": "2026-09-05T12:09:08-07:00",
+            "subject": "Make Workers Cache the default for advanced caching patterns",
+            "url": "https://github.com/cloudflare/skills/commit/89e81e76d00eb4254ced316b8fc42452ef307a53",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新快取指引，建議優先使用 Workers Cache（包括進階模式），僅在具體需求要求時才使用 Cache API 或 KV。"
+          },
+          {
+            "sha": "0cb6116228ad153126f474dce1dfbd05f7944604",
+            "date": "2026-09-05T12:08:38-07:00",
+            "subject": "fix cloudflare router handoffs and retained reference links",
+            "url": "https://github.com/cloudflare/skills/commit/0cb6116228ad153126f474dce1dfbd05f7944604",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能路由指引以處理找不到專家技能的情況，並將 AI 代理程式與 MCP 的路由改為 Agents SDK。"
+          },
+          {
+            "sha": "f3550892b738b24b1da3f1fbad1a114de0a61936",
+            "date": "2026-09-05T12:05:43-07:00",
+            "subject": "Prefer Workers Cache for HTTP response caching",
+            "url": "https://github.com/cloudflare/skills/commit/f3550892b738b24b1da3f1fbad1a114de0a61936",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將儲存決策樹中的 KV 用途改為應用程式資料而非快取，並新增符合條件的 HTTP 回應應使用 Workers Cache 的建議。"
+          },
+          {
+            "sha": "edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "date": "2026-09-05T11:46:29-07:00",
+            "subject": "Fix skill frontmatter and optional web-perf setup",
+            "url": "https://github.com/cloudflare/skills/commit/edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除技能 frontmatter 中的 references 清單。"
+          },
+          {
+            "sha": "6cdde88f5326ef7880b492d3bed42e05d89f8b8e",
+            "date": "2026-09-05T09:57:16-07:00",
+            "subject": "refactor cloudflare skill into fallback router",
+            "url": "https://github.com/cloudflare/skills/commit/6cdde88f5326ef7880b492d3bed42e05d89f8b8e",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以精簡路由器取代完整的平台指南，讓其依需求轉介至相符的產品技能並列出參考資料，同時保留快取與工作原則指引。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "縮小技能描述的範圍至產品選擇與參考資料查詢，並將專門工作流程導向產品專屬技能。"
+          },
+          {
+            "sha": "9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "date": "2026-09-02T11:50:53-04:00",
+            "subject": "Add installable Codex and Agent Plugins packaging (#99)",
+            "url": "https://github.com/cloudflare/skills/commit/9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Cloudflare 文件的檢索來源從搜尋工具名稱改為 Cloudflare MCP docs 工具。"
+          },
+          {
+            "sha": "2b1ffd27c00be4f791a1618d646733c068592c11",
+            "date": "2026-08-04T16:46:34+01:00",
+            "subject": "Point full-stack web apps to Workers instead of Pages",
+            "url": "https://github.com/cloudflare/skills/commit/2b1ffd27c00be4f791a1618d646733c068592c11",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將全端 Web 應用程式的建議從 Pages 更新為搭配 Static Assets 的 Workers。"
+          },
           {
             "sha": "9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
             "date": "2026-06-20T07:23:34-07:00",
@@ -112,7 +508,7 @@
             "url": "https://github.com/cloudflare/skills/commit/9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在儲存與分析決策樹中新增了 R2 Data Catalog 與 R2 SQL 項目。"
+            "summary": "在儲存決策樹中新增 R2 Data Catalog 與 R2 SQL，並將 R2 SQL 新增為查詢 Iceberg 資料的分析選項。"
           },
           {
             "sha": "7c449def4e0c63daa27212d853094e4c8e37bbe8",
@@ -121,7 +517,7 @@
             "url": "https://github.com/cloudflare/skills/commit/7c449def4e0c63daa27212d853094e4c8e37bbe8",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在描述中加入了 Flagship 功能旗標，並新增功能旗標決策樹與產品索引。"
+            "summary": "新增以 Flagship 作為功能旗標的建議，並加入其決策樹、binding、SDK、API 選項及產品索引項目。"
           },
           {
             "sha": "0397d7d88fa6ac7517a88389622eb0799e86ded2",
@@ -130,7 +526,7 @@
             "url": "https://github.com/cloudflare/skills/commit/0397d7d88fa6ac7517a88389622eb0799e86ded2",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在儲存決策樹與產品索引中新增了 Artifacts。"
+            "summary": "將 Artifacts 新增至版本化檔案樹的儲存決策樹，並加入產品索引。"
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -139,7 +535,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新技能描述，改為優先依賴 Cloudflare 文件檢索而非預訓練知識。"
+            "summary": "在技能描述中新增一句，指出應優先從 Cloudflare 文件檢索，而非依賴預訓練知識。"
           },
           {
             "sha": "00eec280fa5c788000cd32f27a58b39dba15edfc",
@@ -148,7 +544,7 @@
             "url": "https://github.com/cloudflare/skills/commit/00eec280fa5c788000cd32f27a58b39dba15edfc",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了分析決策樹，並在產品索引中加入 GraphQL Analytics API 項目。"
+            "summary": "新增涵蓋 Cloudflare 產品指標、Worker 自訂指標、RUM 與日誌的分析決策樹，並將 GraphQL Analytics API 加入索引。"
           },
           {
             "sha": "6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
@@ -157,7 +553,7 @@
             "url": "https://github.com/cloudflare/skills/commit/6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增指引，要求在引用具體內容前先檢索最新的 Cloudflare 文件、型別、結構描述與變更日誌。"
+            "summary": "新增檢索最新文件的指引，並要求在限制、價格等可能變動的細節上以官方文件為準，而非隨附參考資料。"
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -171,7 +567,7 @@
               "sourcePath": "cloudflare/SKILL.md",
               "destinationPath": "skills/cloudflare/SKILL.md"
             },
-            "summary": "將 cloudflare/SKILL.md 重新命名為 skills/cloudflare/SKILL.md，內容未變更。"
+            "summary": "將技能檔案從 cloudflare/SKILL.md 重新命名為 skills/cloudflare/SKILL.md，內容未變。"
           },
           {
             "sha": "1bf879fb777798036920b7f7ab93139f2b2af3de",
@@ -180,26 +576,224 @@
             "url": "https://github.com/cloudflare/skills/commit/1bf879fb777798036920b7f7ab93139f2b2af3de",
             "pathAtCommit": "cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了初始的 Cloudflare 平台 SKILL.md，包含決策樹與產品參考索引。"
+            "summary": "建立初版 Cloudflare 平台技能，內容包含產品選擇決策樹與產品參考索引。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
         "commits": [
           {
+            "sha": "c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "date": "2026-09-22T14:51:24-04:00",
+            "subject": "Add Workers authorization skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加一列产品路由，说明如何管理团队、CI 与服务帐户对 Developer Platform 资源的访问，并强调采用最小权限角色与范围。"
+          },
+          {
+            "sha": "8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "date": "2026-09-22T14:41:55-04:00",
+            "subject": "Add Workers Previews skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将发布指引拆分为供分支与 pull request 使用的隔离 Workers Previews，以及使用正式环境资源的版本与部署，并提醒绑定资源可能隔离或共用。"
+          },
+          {
+            "sha": "46c1f9f391c0a5e535c3b392d47a7355867ced8c",
+            "date": "2026-09-05T15:40:23-07:00",
+            "subject": "Add Next.js on Cloudflare skill routing to vinext",
+            "url": "https://github.com/cloudflare/skills/commit/46c1f9f391c0a5e535c3b392d47a7355867ced8c",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Next.js 路由列，建议新的 Cloudflare 项目使用 vinext 而非 OpenNext，并链接相关技能与文档。"
+          },
+          {
+            "sha": "cb428e1d9453b25efa4e8ca907eea3ac0331e1dd",
+            "date": "2026-09-05T12:52:17-07:00",
+            "subject": "Apply suggestion from @irvinebroque",
+            "url": "https://github.com/cloudflare/skills/commit/cb428e1d9453b25efa4e8ca907eea3ac0331e1dd",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "明确指出 Workers 可运行 Pages 的所有功能，且所有新项目都建议使用 Workers；无关维护时应保留既有 Pages 部署。"
+          },
+          {
+            "sha": "835110badc0bbb3abbd30c7c943e1ff3a8046462",
+            "date": "2026-09-05T12:50:00-07:00",
+            "subject": "Add foundational Cloudflare services and refine product selection",
+            "url": "https://github.com/cloudflare/skills/commit/835110badc0bbb3abbd30c7c943e1ff3a8046462",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "刷新产品探索内容，添加 Cache/CDN、DNS、SSL/TLS、负载平衡、Access 与 Rules 的对应列，并修订或移除其他产品列及产品目录链接。"
+          },
+          {
+            "sha": "85026b59f184ef891c9c3fea393ba08ef86e5cf6",
+            "date": "2026-09-05T12:43:33-07:00",
+            "subject": "Map developer tasks directly to Cloudflare products and guidance",
+            "url": "https://github.com/cloudflare/skills/commit/85026b59f184ef891c9c3fea393ba08ef86e5cf6",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以详细的任务至产品对照表取代分组式产品决策树与独立索引，并加入选择条件及技能与参考资料链接。"
+          },
+          {
+            "sha": "02927edbc20e6dfcf4e29a400f54484eb6761d70",
+            "date": "2026-09-05T12:35:03-07:00",
+            "subject": "Add Flue framework guidance for building agents on Cloudflare",
+            "url": "https://github.com/cloudflare/skills/commit/02927edbc20e6dfcf4e29a400f54484eb6761d70",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 AI 指引中添加 Flue 作为代理程序框架，并厘清相关产品与实作技能的标签。"
+          },
+          {
+            "sha": "1577d7001dbe56694153d48bec55bd4d1599f33f",
+            "date": "2026-09-05T12:32:33-07:00",
+            "subject": "Link directly to bundled product reference READMEs",
+            "url": "https://github.com/cloudflare/skills/commit/1577d7001dbe56694153d48bec55bd4d1599f33f",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将括号中的参考资料文件夹名称改为直接链接至随附的产品 README 文件。"
+          },
+          {
+            "sha": "2acc628b6a666644deee8fe1a891b47c87f84dc7",
+            "date": "2026-09-05T12:31:38-07:00",
+            "subject": "Clarify when to check current Cloudflare documentation",
+            "url": "https://github.com/cloudflare/skills/commit/2acc628b6a666644deee8fe1a891b47c87f84dc7",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将指引改为明确要求查阅最新 Cloudflare 文档，以确认可能变动的限制、价格、兼容性旗标与安全性要求。"
+          },
+          {
+            "sha": "1d61c6a2a961e6fa89d60c7308db78dad89bb3c5",
+            "date": "2026-09-05T12:31:20-07:00",
+            "subject": "Prefer Workers and Static Assets over Pages for new projects",
+            "url": "https://github.com/cloudflare/skills/commit/1d61c6a2a961e6fa89d60c7308db78dad89bb3c5",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加醒目的建议，要求新网站与应用程序使用 Workers 和 Workers Static Assets，厘清既有 Pages 的维护指引，并更新对应的技能与参考标签。"
+          },
+          {
+            "sha": "5bb632fa4e18be9c40fbaff6a50a283aa0fec339",
+            "date": "2026-09-05T12:30:36-07:00",
+            "subject": "Describe loading product skills without specialist handoff framing",
+            "url": "https://github.com/cloudflare/skills/commit/5bb632fa4e18be9c40fbaff6a50a283aa0fec339",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将路由说明与指引中的「专家技能」措辞改为「产品专属技能」。"
+          },
+          {
+            "sha": "86381857577788a66a4e0d5d6c0c032f728dec82",
+            "date": "2026-09-05T12:30:00-07:00",
+            "subject": "Add Cloudflare for SaaS to product discovery",
+            "url": "https://github.com/cloudflare/skills/commit/86381857577788a66a4e0d5d6c0c032f728dec82",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在产品对照表中添加 Cloudflare for SaaS，并说明其官方文档入口与设置主题，包括主机名称、凭证、备援来源及方案需求。"
+          },
+          {
+            "sha": "9688eb02e2d5a65fb98705a99ed22481a1c0c014",
+            "date": "2026-09-05T12:29:22-07:00",
+            "subject": "Add Dynamic Workers to Cloudflare product discovery",
+            "url": "https://github.com/cloudflare/skills/commit/9688eb02e2d5a65fb98705a99ed22481a1c0c014",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Dynamic Workers 路由，供运行不受信任或生成的代码使用，并链接其文档、API、绑定、输出流量控制与资源限制指引。"
+          },
+          {
+            "sha": "4b4b2f26b59d241b57d51b6b884674f77bcab3f4",
+            "date": "2026-09-05T12:25:00-07:00",
+            "subject": "Make Cloudflare product discovery the skill's primary role",
+            "url": "https://github.com/cloudflare/skills/commit/4b4b2f26b59d241b57d51b6b884674f77bcab3f4",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将此技能重新定位为主要的 Cloudflare 产品探索指南，添加任务至产品的建议，并说明如何加载相关技能与参考资料。"
+          },
+          {
+            "sha": "89e81e76d00eb4254ced316b8fc42452ef307a53",
+            "date": "2026-09-05T12:09:08-07:00",
+            "subject": "Make Workers Cache the default for advanced caching patterns",
+            "url": "https://github.com/cloudflare/skills/commit/89e81e76d00eb4254ced316b8fc42452ef307a53",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新缓存指引，建议优先使用 Workers Cache（包括高级模式），仅在具体需求要求时才使用 Cache API 或 KV。"
+          },
+          {
+            "sha": "0cb6116228ad153126f474dce1dfbd05f7944604",
+            "date": "2026-09-05T12:08:38-07:00",
+            "subject": "fix cloudflare router handoffs and retained reference links",
+            "url": "https://github.com/cloudflare/skills/commit/0cb6116228ad153126f474dce1dfbd05f7944604",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能路由指引以处理找不到专家技能的情况，并将 AI 代理程序与 MCP 的路由改为 Agents SDK。"
+          },
+          {
+            "sha": "f3550892b738b24b1da3f1fbad1a114de0a61936",
+            "date": "2026-09-05T12:05:43-07:00",
+            "subject": "Prefer Workers Cache for HTTP response caching",
+            "url": "https://github.com/cloudflare/skills/commit/f3550892b738b24b1da3f1fbad1a114de0a61936",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将保存决策树中的 KV 用途改为应用程序数据而非缓存，并添加符合条件的 HTTP 回应应使用 Workers Cache 的建议。"
+          },
+          {
+            "sha": "edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "date": "2026-09-05T11:46:29-07:00",
+            "subject": "Fix skill frontmatter and optional web-perf setup",
+            "url": "https://github.com/cloudflare/skills/commit/edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除技能 frontmatter 中的 references 清单。"
+          },
+          {
+            "sha": "6cdde88f5326ef7880b492d3bed42e05d89f8b8e",
+            "date": "2026-09-05T09:57:16-07:00",
+            "subject": "refactor cloudflare skill into fallback router",
+            "url": "https://github.com/cloudflare/skills/commit/6cdde88f5326ef7880b492d3bed42e05d89f8b8e",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以精简路由器取代完整的平台指南，让其依需求转介至相符的产品技能并列出参考资料，同时保留缓存与工作原则指引。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "缩小技能描述的范围至产品选择与参考资料查找，并将专门工作流程导向产品专属技能。"
+          },
+          {
+            "sha": "9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "date": "2026-09-02T11:50:53-04:00",
+            "subject": "Add installable Codex and Agent Plugins packaging (#99)",
+            "url": "https://github.com/cloudflare/skills/commit/9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Cloudflare 文档的检索来源从搜索工具名称改为 Cloudflare MCP docs 工具。"
+          },
+          {
+            "sha": "2b1ffd27c00be4f791a1618d646733c068592c11",
+            "date": "2026-08-04T16:46:34+01:00",
+            "subject": "Point full-stack web apps to Workers instead of Pages",
+            "url": "https://github.com/cloudflare/skills/commit/2b1ffd27c00be4f791a1618d646733c068592c11",
+            "pathAtCommit": "skills/cloudflare/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将全端 Web 应用程序的建议从 Pages 更新为搭配 Static Assets 的 Workers。"
+          },
+          {
             "sha": "9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
             "date": "2026-06-20T07:23:34-07:00",
             "subject": "docs: refresh Pipelines, R2 Data Catalog, and R2 SQL references",
             "url": "https://github.com/cloudflare/skills/commit/9c8c21bbfedcfce12e42e4a2c3de8e355959ee51",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在保存与分析决策树中添加了 R2 Data Catalog 与 R2 SQL 项目。"
+            "summary": "在保存决策树中添加 R2 Data Catalog 与 R2 SQL，并将 R2 SQL 添加为查找 Iceberg 数据的分析选项。"
           },
           {
             "sha": "7c449def4e0c63daa27212d853094e4c8e37bbe8",
@@ -208,7 +802,7 @@
             "url": "https://github.com/cloudflare/skills/commit/7c449def4e0c63daa27212d853094e4c8e37bbe8",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在描述中加入了 Flagship 功能旗标，并添加功能旗标决策树与产品索引。"
+            "summary": "添加以 Flagship 作为功能旗标的建议，并加入其决策树、binding、SDK、API 选项及产品索引项目。"
           },
           {
             "sha": "0397d7d88fa6ac7517a88389622eb0799e86ded2",
@@ -217,7 +811,7 @@
             "url": "https://github.com/cloudflare/skills/commit/0397d7d88fa6ac7517a88389622eb0799e86ded2",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在保存决策树与产品索引中添加了 Artifacts。"
+            "summary": "将 Artifacts 添加至版本化文件树的保存决策树，并加入产品索引。"
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -226,7 +820,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新技能描述，改为优先依赖 Cloudflare 文档检索而非预训练知识。"
+            "summary": "在技能描述中添加一句，指出应优先从 Cloudflare 文档检索，而非依赖预训练知识。"
           },
           {
             "sha": "00eec280fa5c788000cd32f27a58b39dba15edfc",
@@ -235,7 +829,7 @@
             "url": "https://github.com/cloudflare/skills/commit/00eec280fa5c788000cd32f27a58b39dba15edfc",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了分析决策树，并在产品索引中加入 GraphQL Analytics API 项目。"
+            "summary": "添加涵盖 Cloudflare 产品指针、Worker 自订指针、RUM 与日志的分析决策树，并将 GraphQL Analytics API 加入索引。"
           },
           {
             "sha": "6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
@@ -244,7 +838,7 @@
             "url": "https://github.com/cloudflare/skills/commit/6bd8243a7e187da8f1bdd49d190ce7bb421e2d1e",
             "pathAtCommit": "skills/cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加指引，要求在引用具体内容前先检索最新的 Cloudflare 文档、类型、结构描述与变更日志。"
+            "summary": "添加检索最新文档的指引，并要求在限制、价格等可能变动的细节上以官方文档为准，而非随附参考资料。"
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -258,7 +852,7 @@
               "sourcePath": "cloudflare/SKILL.md",
               "destinationPath": "skills/cloudflare/SKILL.md"
             },
-            "summary": "将 cloudflare/SKILL.md 重命名为 skills/cloudflare/SKILL.md，内容未变更。"
+            "summary": "将技能文件从 cloudflare/SKILL.md 重命名为 skills/cloudflare/SKILL.md，内容未变。"
           },
           {
             "sha": "1bf879fb777798036920b7f7ab93139f2b2af3de",
@@ -267,7 +861,7 @@
             "url": "https://github.com/cloudflare/skills/commit/1bf879fb777798036920b7f7ab93139f2b2af3de",
             "pathAtCommit": "cloudflare/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了初始的 Cloudflare 平台 SKILL.md，包含决策树与产品参考索引。"
+            "summary": "创建初版 Cloudflare 平台技能，内容包含产品选择决策树与产品参考索引。"
           }
         ]
       }

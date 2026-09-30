@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides guidance and helper utilities for creating animated GIFs that meet Slack-friendly size, color, timing, and quality constraints.",
-        "whenToUse": "Use it when someone wants to create or refine an animated GIF for Slack, including work based on an uploaded image or a custom drawing.",
-        "outputs": "It helps produce Slack-ready GIF files and validation feedback showing whether a GIF meets Slack requirements."
+        "purpose": "Provides guidance and utilities for building and optimizing animated GIFs for Slack.",
+        "whenToUse": "Use it when making an animation for Slack, whether drawing from scratch or adapting an uploaded image.",
+        "outputs": "Supports creating Slack-optimized animated GIFs and checking them against Slack's requirements."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供製作動畫 GIF 的指引與輔助工具，讓成品符合 Slack 對尺寸、色彩、幀率與品質的需求。",
-        "whenToUse": "當有人想為 Slack 製作或調整動畫 GIF 時可使用，包括根據上傳圖片或自行繪製內容來製作。",
-        "outputs": "它可協助產出適合 Slack 的 GIF 檔案，並提供顯示該 GIF 是否符合 Slack 要求的驗證結果。"
+        "purpose": "提供建立與最佳化 Slack 動畫 GIF 的指引與工具。",
+        "whenToUse": "在為 Slack 製作動畫時使用，可從頭繪製或改編上傳的圖片。",
+        "outputs": "可協助產生適合 Slack 的動畫 GIF，並檢查成品是否符合 Slack 規範。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供制作动画 GIF 的指引与辅助工具，让成品符合 Slack 对尺寸、色彩、帧率与品质的需求。",
-        "whenToUse": "当有人想为 Slack 制作或调整动画 GIF 时可使用，包括根据上传图片或自行绘制内容来制作。",
-        "outputs": "它可协助产出适合 Slack 的 GIF 文件，并提供显示该 GIF 是否符合 Slack 要求的验证结果。"
+        "purpose": "提供创建与优化 Slack 动画 GIF 的指引与工具。",
+        "whenToUse": "在为 Slack 制作动画时使用，可从头绘制或改编上传的图片。",
+        "outputs": "可协助产生适合 Slack 的动画 GIF，并检查成品是否符合 Slack 规范。"
       }
     }
   }

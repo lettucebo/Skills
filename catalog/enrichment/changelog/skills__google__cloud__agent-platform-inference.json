@@ -1,0 +1,234 @@
+{
+  "path": "skills/google/cloud/agent-platform-inference",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:e8ed30753a730563a0bdaedb9cd7247fe3175f3d2c4fbf79b310c2990f03a522",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/agent-platform-inference",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "It adds `version: 1.0.0` to the skill metadata and requires inference responses to report the model ID, SDK, project, region, and complete generated output."
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "It requires inference approvals to list all execution parameters, adds clarification rules for missing model/project/region details, specifies family-preferred SDKs and Python execution, and makes endpoint listings authoritative for active deployments."
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "It replaces virtual-environment setup with checking for required SDK imports and installing dependencies only if they are missing, and directs running scripts with plain `python3`."
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "It adds a live regional availability check for managed Gemini and a custom-endpoint section covering endpoint discovery, shared/dedicated routing, request examples, and related troubleshooting."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "It adds a frontmatter `metadata` block containing `category: AiAndMachineLearning`."
+          },
+          {
+            "sha": "ae1c6bd79fd7077fbcc2f4c03b80ad57c76280c7",
+            "date": "2026-06-17T09:33:04-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent-platform-inference",
+            "url": "https://github.com/google/skills/commit/ae1c6bd79fd7077fbcc2f4c03b80ad57c76280c7",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "It adds a Tier R policy requiring parameter-specific interactive approval before inference and prohibiting execution in the same turn as the confirmation prompt."
+          },
+          {
+            "sha": "40c2e586a24087a3cad0d6e456ddaff6a4edbb62",
+            "date": "2026-06-04T15:51:42-07:00",
+            "subject": "Add cloud agent-platform-inference skill",
+            "url": "https://github.com/google/skills/commit/40c2e586a24087a3cad0d6e456ddaff6a4edbb62",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "It creates the Agent Platform GenAI inference skill with setup and authentication guidance, Gemini and OpenMaaS SDK examples, model-availability references, and troubleshooting guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更在技能中繼資料加入 `version: 1.0.0`，並要求推論回覆列出模型 ID、SDK、專案、區域及完整生成內容。"
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更要求推論確認明列所有執行參數，新增缺少模型／專案／區域資訊時的澄清規則，指定各模型系列的首選 SDK 與 Python 執行方式，並將端點清單定為判斷有效部署的依據。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更以檢查必要 SDK 匯入並僅在缺少時安裝相依套件，取代虛擬環境設定，並改為直接使用 `python3` 執行腳本。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更為受管理的 Gemini 新增即時區域可用性檢查，並加入自訂端點章節，說明端點探索、共用／專用路由、請求範例及相關疑難排解。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更在 frontmatter 加入包含 `category: AiAndMachineLearning` 的 `metadata` 區塊。"
+          },
+          {
+            "sha": "ae1c6bd79fd7077fbcc2f4c03b80ad57c76280c7",
+            "date": "2026-06-17T09:33:04-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent-platform-inference",
+            "url": "https://github.com/google/skills/commit/ae1c6bd79fd7077fbcc2f4c03b80ad57c76280c7",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更新增 Tier R 規範，要求推論前取得列明參數的互動式確認，並禁止在提出確認提示的同一回合執行。"
+          },
+          {
+            "sha": "40c2e586a24087a3cad0d6e456ddaff6a4edbb62",
+            "date": "2026-06-04T15:51:42-07:00",
+            "subject": "Add cloud agent-platform-inference skill",
+            "url": "https://github.com/google/skills/commit/40c2e586a24087a3cad0d6e456ddaff6a4edbb62",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更新增 Agent Platform GenAI 推論技能，提供環境設定與身分驗證說明、Gemini 與 OpenMaaS SDK 範例、模型可用性參考及疑難排解指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更在技能中继数据加入 `version: 1.0.0`，并要求推论回复列出模型 ID、SDK、项目、区域及完整生成内容。"
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更要求推论确认明列所有运行参数，添加缺少模型／项目／区域信息时的澄清规则，指定各模型系列的首选 SDK 与 Python 运行方式，并将端点清单定为判断有效部署的依据。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更以检查必要 SDK 导入并仅在缺少时安装相依套件，取代虚拟环境设置，并改为直接使用 `python3` 运行脚本。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更为受管理的 Gemini 添加实时区域可用性检查，并加入自订端点章节，说明端点探索、共用／专用路由、请求范例及相关疑难排解。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更在 frontmatter 加入包含 `category: AiAndMachineLearning` 的 `metadata` 区块。"
+          },
+          {
+            "sha": "ae1c6bd79fd7077fbcc2f4c03b80ad57c76280c7",
+            "date": "2026-06-17T09:33:04-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent-platform-inference",
+            "url": "https://github.com/google/skills/commit/ae1c6bd79fd7077fbcc2f4c03b80ad57c76280c7",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更添加 Tier R 规范，要求推论前取得列明参数的交互式确认，并禁止在提出确认提示的同一回合运行。"
+          },
+          {
+            "sha": "40c2e586a24087a3cad0d6e456ddaff6a4edbb62",
+            "date": "2026-06-04T15:51:42-07:00",
+            "subject": "Add cloud agent-platform-inference skill",
+            "url": "https://github.com/google/skills/commit/40c2e586a24087a3cad0d6e456ddaff6a4edbb62",
+            "pathAtCommit": "skills/cloud/agent-platform-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更添加 Agent Platform GenAI 推论技能，提供环境设置与身分验证说明、Gemini 与 OpenMaaS SDK 范例、模型可用性参考及疑难排解指引。"
+          }
+        ]
+      }
+    }
+  }
+}

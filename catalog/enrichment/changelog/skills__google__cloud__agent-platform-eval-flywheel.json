@@ -1,0 +1,342 @@
+{
+  "path": "skills/google/cloud/agent-platform-eval-flywheel",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c178b7d75e06a32f3668be9e0cc885db1ab037333cadef16eefe8e52f3a8aae0",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/agent-platform-eval-flywheel",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill was bumped to version 1.0.2 and gained stricter per-run approval safeguards, required project/location and scenario inputs, metric and judge-model guidance, and a revised evaluation workflow."
+          },
+          {
+            "sha": "aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "date": "2026-09-24T10:01:41-07:00",
+            "subject": "Sync two agent-platform skill descriptions and regenerate the skill index.",
+            "url": "https://github.com/google/skills/commit/aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill gained version 1.0.1 metadata, and its description now includes synthetic user-scenario generation."
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "A same-turn restriction was added so the skill must wait for explicit approval after presenting an evaluation confirmation prompt."
+          },
+          {
+            "sha": "39b8be68e2b5c1599b7aefa543d4c3d190f4dc33",
+            "date": "2026-08-11T10:33:17-07:00",
+            "subject": "feat: Add Managed Agents evaluation pattern to agent-platform-eval-flywheel skill.",
+            "url": "https://github.com/google/skills/commit/39b8be68e2b5c1599b7aefa543d4c3d190f4dc33",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill added guidance and an example for evaluating Managed Agents with conversation-scenario generation, inference, and result display."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill was updated for the newer Agent Platform SDK, revising setup and guidance for typed datasets, scenario generation, judge models, result serialization, and evaluation examples."
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The setup instructions now probe for existing dependencies, avoid creating a virtual environment, and install only missing packages with quoted version requirements."
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The quick reference now recommends DataFrame-based datasets and demonstrates typed EvalCase content, while much of the remaining patch reflows prose and reformats tables."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill's front matter now nests the AiAndMachineLearning category under a new metadata field."
+          },
+          {
+            "sha": "a41621523e543b005eebf8f871a02c88f047b996",
+            "date": "2026-06-17T10:46:33-07:00",
+            "subject": "feat: Add deploy + endpoint-evaluation workflow to agent-platform-eval-flywheel skill",
+            "url": "https://github.com/google/skills/commit/a41621523e543b005eebf8f871a02c88f047b996",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now covers evaluating Agent Platform endpoints and MaaS models, adds their deployment and evaluation guidance and scripts, and updates its description to include these workflows."
+          },
+          {
+            "sha": "643f3b5433183afb1f21d2928b942c4d12c12820",
+            "date": "2026-06-17T09:33:26-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent platform eval flywheel skill",
+            "url": "https://github.com/google/skills/commit/643f3b5433183afb1f21d2928b942c4d12c12820",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill introduced safety tiers that exempt listed read-only helpers from confirmation and require interactive approval for remote evaluation operations with compute costs."
+          },
+          {
+            "sha": "08fb09df35787ef6d2ad0fbbd273c6beafd6742e",
+            "date": "2026-06-02T10:05:33-07:00",
+            "subject": "feat: Publish agent-platform-eval-flywheel skill to google/skills",
+            "url": "https://github.com/google/skills/commit/08fb09df35787ef6d2ad0fbbd273c6beafd6742e",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The patch introduced the Agent Platform Eval Flywheel skill with guidance for preparing datasets, running inference and evaluations, analyzing failures, iterating on quality, persisting results, and using bundled scripts."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能升至 1.0.2 版，並新增更嚴格的每次執行核准要求、專案／位置與情境輸入規定、指標及評審模型指引，以及修訂後的評估流程。"
+          },
+          {
+            "sha": "aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "date": "2026-09-24T10:01:41-07:00",
+            "subject": "Sync two agent-platform skill descriptions and regenerate the skill index.",
+            "url": "https://github.com/google/skills/commit/aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能新增 1.0.1 版中繼資料，並在描述中納入合成使用者情境的生成。"
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能新增同回合限制，要求在提出評估確認提示後等待明確核准。"
+          },
+          {
+            "sha": "39b8be68e2b5c1599b7aefa543d4c3d190f4dc33",
+            "date": "2026-08-11T10:33:17-07:00",
+            "subject": "feat: Add Managed Agents evaluation pattern to agent-platform-eval-flywheel skill.",
+            "url": "https://github.com/google/skills/commit/39b8be68e2b5c1599b7aefa543d4c3d190f4dc33",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能新增使用對話情境生成、推論及結果顯示來評估 Managed Agents 的指引與範例。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能配合較新版 Agent Platform SDK 更新，修訂了安裝設定，以及型別化資料集、情境生成、評審模型、結果序列化和評估範例的指引。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "安裝指引現在會先檢查現有相依套件、避免建立虛擬環境，並僅安裝缺少的套件且將版本需求加上引號。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "快速參考現在建議使用 DataFrame 資料集並示範 EvalCase 的型別化內容，而其餘大部分變更則是重排文字和表格格式。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的前置中繼資料現在將 AiAndMachineLearning 類別置於新增的 metadata 欄位之下。"
+          },
+          {
+            "sha": "a41621523e543b005eebf8f871a02c88f047b996",
+            "date": "2026-06-17T10:46:33-07:00",
+            "subject": "feat: Add deploy + endpoint-evaluation workflow to agent-platform-eval-flywheel skill",
+            "url": "https://github.com/google/skills/commit/a41621523e543b005eebf8f871a02c88f047b996",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現在涵蓋 Agent Platform 端點與 MaaS 模型的評估，新增相應的部署與評估指引及腳本，並更新描述以納入這些流程。"
+          },
+          {
+            "sha": "643f3b5433183afb1f21d2928b942c4d12c12820",
+            "date": "2026-06-17T09:33:26-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent platform eval flywheel skill",
+            "url": "https://github.com/google/skills/commit/643f3b5433183afb1f21d2928b942c4d12c12820",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能新增安全分級，列出的唯讀輔助工具無須確認，而會產生運算成本的遠端評估操作則須互動式核准。"
+          },
+          {
+            "sha": "08fb09df35787ef6d2ad0fbbd273c6beafd6742e",
+            "date": "2026-06-02T10:05:33-07:00",
+            "subject": "feat: Publish agent-platform-eval-flywheel skill to google/skills",
+            "url": "https://github.com/google/skills/commit/08fb09df35787ef6d2ad0fbbd273c6beafd6742e",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更新增 Agent Platform Eval Flywheel 技能，提供準備資料集、執行推論與評估、分析失敗、反覆改善品質、保存結果及使用內附腳本的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能升至 1.0.2 版，并添加更严格的每次运行核准要求、项目／位置与情境输入规定、指针及评审模型指引，以及修订后的评估流程。"
+          },
+          {
+            "sha": "aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "date": "2026-09-24T10:01:41-07:00",
+            "subject": "Sync two agent-platform skill descriptions and regenerate the skill index.",
+            "url": "https://github.com/google/skills/commit/aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能添加 1.0.1 版中继数据，并在描述中纳入合成用户情境的生成。"
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能添加同回合限制，要求在提出评估确认提示后等待明确核准。"
+          },
+          {
+            "sha": "39b8be68e2b5c1599b7aefa543d4c3d190f4dc33",
+            "date": "2026-08-11T10:33:17-07:00",
+            "subject": "feat: Add Managed Agents evaluation pattern to agent-platform-eval-flywheel skill.",
+            "url": "https://github.com/google/skills/commit/39b8be68e2b5c1599b7aefa543d4c3d190f4dc33",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能添加使用对话情境生成、推论及结果显示来评估 Managed Agents 的指引与范例。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能配合较新版 Agent Platform SDK 更新，修订了安装设置，以及类型化数据集、情境生成、评审模型、结果串行化和评估范例的指引。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "安装指引现在会先检查现有相依套件、避免创建虚拟环境，并仅安装缺少的套件且将版本需求加上引号。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "快速参考现在建议使用 DataFrame 数据集并示范 EvalCase 的类型化内容，而其余大部分变更则是重排文字和表格格式。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的前置中继数据现在将 AiAndMachineLearning 类别置于添加的 metadata 字段之下。"
+          },
+          {
+            "sha": "a41621523e543b005eebf8f871a02c88f047b996",
+            "date": "2026-06-17T10:46:33-07:00",
+            "subject": "feat: Add deploy + endpoint-evaluation workflow to agent-platform-eval-flywheel skill",
+            "url": "https://github.com/google/skills/commit/a41621523e543b005eebf8f871a02c88f047b996",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现在涵盖 Agent Platform 端点与 MaaS 模型的评估，添加相应的部署与评估指引及脚本，并更新描述以纳入这些流程。"
+          },
+          {
+            "sha": "643f3b5433183afb1f21d2928b942c4d12c12820",
+            "date": "2026-06-17T09:33:26-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent platform eval flywheel skill",
+            "url": "https://github.com/google/skills/commit/643f3b5433183afb1f21d2928b942c4d12c12820",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能添加安全分级，列出的唯读辅助工具无须确认，而会产生运算成本的远程评估操作则须交互式核准。"
+          },
+          {
+            "sha": "08fb09df35787ef6d2ad0fbbd273c6beafd6742e",
+            "date": "2026-06-02T10:05:33-07:00",
+            "subject": "feat: Publish agent-platform-eval-flywheel skill to google/skills",
+            "url": "https://github.com/google/skills/commit/08fb09df35787ef6d2ad0fbbd273c6beafd6742e",
+            "pathAtCommit": "skills/cloud/agent-platform-eval-flywheel/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更添加 Agent Platform Eval Flywheel 技能，提供准备数据集、运行推论与评估、分析失败、反复改善品质、保存结果及使用内附脚本的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

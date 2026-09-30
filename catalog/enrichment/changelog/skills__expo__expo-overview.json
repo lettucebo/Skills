@@ -1,0 +1,207 @@
+{
+  "path": "skills/expo/expo-overview",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:abf4b79c6d755fc83f6ae670fd752358eac9ee239d8fe359b83ee9adf8044cbb",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-overview",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "date": "2026-09-10T17:11:15+02:00",
+            "subject": "Improve brownfield guidance and add runnable iOS fixtures (#184)",
+            "url": "https://github.com/expo/skills/commit/ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the expo-brownfield entry to cover embedding Expo/React Native screens in native SwiftUI/UIKit or Android apps, including isolated artifacts and integrated builds."
+          },
+          {
+            "sha": "85c7236254db761c3905f9078ce17393f3544ff8",
+            "date": "2026-09-09T16:33:04+02:00",
+            "subject": "Extend EAS skills to support native Swift iOS apps (#183)",
+            "url": "https://github.com/expo/skills/commit/85c7236254db761c3905f9078ce17393f3544ff8",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated expo-overview to route existing native apps using EAS for delivery to eas-app-stores and clarify that Expo scaffolding, SDK, and package-install rules do not apply."
+          },
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a routing example sending requests about generic or AI-generated-looking UI to expo-design-system, with expo-native-ui for platform idioms."
+          },
+          {
+            "sha": "170589a7ee8963156f63de8202fa96cf08a9e610",
+            "date": "2026-09-08T11:41:34+02:00",
+            "subject": "[expo] Correctness pass on design-surface skills (#176)",
+            "url": "https://github.com/expo/skills/commit/170589a7ee8963156f63de8202fa96cf08a9e610",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed animations from the expo-native-ui description and routed motion to expo-animation in the \"make it look native\" guidance."
+          },
+          {
+            "sha": "d0075ffa09928f1edb3e7ac4f5af07586d4b344d",
+            "date": "2026-09-03T15:34:56-04:00",
+            "subject": "[skills] Add EAS Update skill",
+            "url": "https://github.com/expo/skills/commit/d0075ffa09928f1edb3e7ac4f5af07586d4b344d",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added eas-update to the skill map for configuring, publishing, testing, and debugging compatible over-the-air updates."
+          },
+          {
+            "sha": "472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "date": "2026-08-20T12:32:05+08:00",
+            "subject": "add expo-overview skill (#107)",
+            "url": "https://github.com/expo/skills/commit/472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created the initial expo-overview router skill with a goal-based skill map and shared Expo setup rules."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "date": "2026-09-10T17:11:15+02:00",
+            "subject": "Improve brownfield guidance and add runnable iOS fixtures (#184)",
+            "url": "https://github.com/expo/skills/commit/ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充 expo-brownfield 項目，涵蓋在原生 SwiftUI/UIKit 或 Android 應用程式中嵌入 Expo/React Native 畫面，以及獨立產物和整合式建置。"
+          },
+          {
+            "sha": "85c7236254db761c3905f9078ce17393f3544ff8",
+            "date": "2026-09-09T16:33:04+02:00",
+            "subject": "Extend EAS skills to support native Swift iOS apps (#183)",
+            "url": "https://github.com/expo/skills/commit/85c7236254db761c3905f9078ce17393f3544ff8",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 expo-overview，將使用 EAS 發佈的既有原生應用程式導向 eas-app-stores，並說明 Expo 樣板建立、SDK 和套件安裝規則不適用。"
+          },
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增路由範例，將看起來通用或像 AI 生成的 UI 請求導向 expo-design-system，並以 expo-native-ui 處理平台慣例。"
+          },
+          {
+            "sha": "170589a7ee8963156f63de8202fa96cf08a9e610",
+            "date": "2026-09-08T11:41:34+02:00",
+            "subject": "[expo] Correctness pass on design-surface skills (#176)",
+            "url": "https://github.com/expo/skills/commit/170589a7ee8963156f63de8202fa96cf08a9e610",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "從 expo-native-ui 的說明中移除動畫，並在「讓它看起來原生」的指引中將動態效果導向 expo-animation。"
+          },
+          {
+            "sha": "d0075ffa09928f1edb3e7ac4f5af07586d4b344d",
+            "date": "2026-09-03T15:34:56-04:00",
+            "subject": "[skills] Add EAS Update skill",
+            "url": "https://github.com/expo/skills/commit/d0075ffa09928f1edb3e7ac4f5af07586d4b344d",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能對照表中新增 eas-update，用於設定、發布、測試及除錯相容的無線更新。"
+          },
+          {
+            "sha": "472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "date": "2026-08-20T12:32:05+08:00",
+            "subject": "add expo-overview skill (#107)",
+            "url": "https://github.com/expo/skills/commit/472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立初版 expo-overview 路由技能，提供依目標分類的技能對照表及共用 Expo 設定規則。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "date": "2026-09-10T17:11:15+02:00",
+            "subject": "Improve brownfield guidance and add runnable iOS fixtures (#184)",
+            "url": "https://github.com/expo/skills/commit/ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充 expo-brownfield 项目，涵盖在原生 SwiftUI/UIKit 或 Android 应用程序中嵌入 Expo/React Native 画面，以及独立产物和集成式建置。"
+          },
+          {
+            "sha": "85c7236254db761c3905f9078ce17393f3544ff8",
+            "date": "2026-09-09T16:33:04+02:00",
+            "subject": "Extend EAS skills to support native Swift iOS apps (#183)",
+            "url": "https://github.com/expo/skills/commit/85c7236254db761c3905f9078ce17393f3544ff8",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 expo-overview，将使用 EAS 发布的既有原生应用程序导向 eas-app-stores，并说明 Expo 样板创建、SDK 和套件安装规则不适用。"
+          },
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加路由范例，将看起来通用或像 AI 生成的 UI 请求导向 expo-design-system，并以 expo-native-ui 处理平台惯例。"
+          },
+          {
+            "sha": "170589a7ee8963156f63de8202fa96cf08a9e610",
+            "date": "2026-09-08T11:41:34+02:00",
+            "subject": "[expo] Correctness pass on design-surface skills (#176)",
+            "url": "https://github.com/expo/skills/commit/170589a7ee8963156f63de8202fa96cf08a9e610",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "从 expo-native-ui 的说明中移除动画，并在「让它看起来原生」的指引中将动态效果导向 expo-animation。"
+          },
+          {
+            "sha": "d0075ffa09928f1edb3e7ac4f5af07586d4b344d",
+            "date": "2026-09-03T15:34:56-04:00",
+            "subject": "[skills] Add EAS Update skill",
+            "url": "https://github.com/expo/skills/commit/d0075ffa09928f1edb3e7ac4f5af07586d4b344d",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能对照表中添加 eas-update，用于设置、发布、测试及调试兼容的无线更新。"
+          },
+          {
+            "sha": "472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "date": "2026-08-20T12:32:05+08:00",
+            "subject": "add expo-overview skill (#107)",
+            "url": "https://github.com/expo/skills/commit/472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "pathAtCommit": "plugins/expo/skills/expo-overview/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建初版 expo-overview 路由技能，提供依目标分类的技能对照表及共用 Expo 设置规则。"
+          }
+        ]
+      }
+    }
+  }
+}

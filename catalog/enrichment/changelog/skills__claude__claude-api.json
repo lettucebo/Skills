@@ -2,21 +2,48 @@
   "path": "skills/claude/claude-api",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:94c49cbd2b0b685cf1729fd4ba0973d09c933912dbca9f35eefb5d4e28b94df1",
+    "contentHash": "sha256:498ae139001467707fb94e9b1f823c05a61a60d21e580e15b8c50d52b290e1c9",
     "repository": "anthropics/skills",
     "reference": "refs/heads/main",
     "source": "skills/claude-api",
-    "pinnedCommit": "3b3fad96af16a10759d930941b4520ba0c40edae"
+    "pinnedCommit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4"
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+            "date": "2026-09-28T19:20:03-07:00",
+            "subject": "Update claude-api skill: Claude Opus 5.5 default, Claude Sonnet 5.5, build-eval and hillclimb guides (#1930)",
+            "url": "https://github.com/anthropics/skills/commit/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+            "pathAtCommit": "skills/claude-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the skill to default to Opus 5.5, document Sonnet 5.5, add eager tool-input streaming validation guidance, and route build-eval, hillclimb, and preserved-thinking migration tasks to their guides."
+          },
+          {
+            "sha": "34040c9c568585f6929bedeaad110ad08f079624",
+            "date": "2026-09-10T15:44:08-04:00",
+            "subject": "Update claude-api skill: Managed Agents `auto` permission policy and `ant beta:sessions connect` (#1750)",
+            "url": "https://github.com/anthropics/skills/commit/34040c9c568585f6929bedeaad110ad08f079624",
+            "pathAtCommit": "skills/claude-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added pointers to Managed Agents permission-policy guidance and the Anthropic CLI session-connect guide."
+          },
+          {
+            "sha": "53048666b05b4799081517d00e09e0a2dd688678",
+            "date": "2026-09-01T11:30:38-07:00",
+            "subject": "Update claude-api skill: Claude Fable 5.1 / Mythos 5.1, Managed Agents updates, cost-optimize (#1704)",
+            "url": "https://github.com/anthropics/skills/commit/53048666b05b4799081517d00e09e0a2dd688678",
+            "pathAtCommit": "skills/claude-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded Fable 5.1 and Mythos 5.1 model guidance, updated Managed Agents guidance, and added a cost-optimization subcommand."
+          },
           {
             "sha": "3b3fad96af16a10759d930941b4520ba0c40edae",
             "date": "2026-08-21T13:10:53-04:00",
@@ -24,7 +51,7 @@
             "url": "https://github.com/anthropics/skills/commit/3b3fad96af16a10759d930941b4520ba0c40edae",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added an `upgrade` subcommand and a quick-task reference entry for Anthropic SDK major-version upgrades via `sdk-upgrade.md`."
+            "summary": "Added an SDK-upgrade subcommand and quick-reference routing to the Python Anthropic SDK 0.x-to-1.x migration guide."
           },
           {
             "sha": "f6656c1256d5a8adfa37db9110046ef20bac644c",
@@ -33,7 +60,7 @@
             "url": "https://github.com/anthropics/skills/commit/f6656c1256d5a8adfa37db9110046ef20bac644c",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added a `prompt-audit` subcommand, updated `migrate` to include a prompt audit after model changes, and clarified that language detection is skipped for language-agnostic tasks."
+            "summary": "Added a prompt-audit subcommand and audit guidance, including a prompt audit after model migrations."
           },
           {
             "sha": "f17010c9bb483898c1d9c9f42dde2b3a98889434",
@@ -42,7 +69,7 @@
             "url": "https://github.com/anthropics/skills/commit/f17010c9bb483898c1d9c9f42dde2b3a98889434",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Expanded Managed Agents guidance with session-budget and multiagent notes and updated API caveats for stop details, prefill removal, `inference_geo`, and task-budget support."
+            "summary": "Clarified the distinction between token task budgets and Managed Agents dollar-denominated session budgets, and added multiagent and expanded stop-detail guidance."
           },
           {
             "sha": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
@@ -51,7 +78,7 @@
             "url": "https://github.com/anthropics/skills/commit/b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Claude Opus 5 as the default model and updated related guidance for Opus 5 thinking, fallbacks, fast mode, compaction, and operator instructions."
+            "summary": "Promoted Opus 5 to the default model and added its model, thinking, refusal-fallback, and related API guidance."
           },
           {
             "sha": "1f630fdf9259cec4a14913127dfd7c3b69ef72eb",
@@ -60,7 +87,7 @@
             "url": "https://github.com/anthropics/skills/commit/1f630fdf9259cec4a14913127dfd7c3b69ef72eb",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Reworked the agent-selection guidance to distinguish the manual loop, Tool Runner, Managed Agents, and Claude Agent SDK, while adding partner pricing and vault and scheduled-deployment notes."
+            "summary": "Reworked agent-selection guidance to distinguish the manual loop, Tool Runner, Managed Agents, and Claude Agent SDK, and added scheduled-deployment guidance."
           },
           {
             "sha": "9d2f1ae187231d8199c64b5b762e1bdf2244733d",
@@ -69,7 +96,7 @@
             "url": "https://github.com/anthropics/skills/commit/9d2f1ae187231d8199c64b5b762e1bdf2244733d",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Claude Sonnet 5 across the model and compatibility guidance and introduced an authentication quick reference for `ant` and OAuth credential resolution."
+            "summary": "Added Sonnet 5 to model and feature guidance, including its thinking, effort, task-budget, and provider-support details, and documented CLI authentication."
           },
           {
             "sha": "35414756ca55738e050562e272a6bbc6273aa926",
@@ -78,7 +105,7 @@
             "url": "https://github.com/anthropics/skills/commit/35414756ca55738e050562e272a6bbc6273aa926",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added an API-drift warning section, fallback guidance for failed WebFetch lookups, and new quick references for fast mode, provider clients, and updated platform guidance."
+            "summary": "Added quick-reference guidance for fast mode, task budgets, and provider-specific clients, and centralized platform feature-availability guidance."
           },
           {
             "sha": "57546260929473d4e0d1c1bb75297be2fdfa1949",
@@ -87,7 +114,7 @@
             "url": "https://github.com/anthropics/skills/commit/57546260929473d4e0d1c1bb75297be2fdfa1949",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added scheduled deployments to the Managed Agents beta headers and reading guide and linked scheduled runs to `shared/managed-agents-scheduled-deployments.md`."
+            "summary": "Extended Managed Agents beta-header coverage to deployments and deployment runs and added scheduled-deployment documentation routing."
           },
           {
             "sha": "5d25128289ff72bc9c7839ac3d245f4d57515447",
@@ -96,7 +123,7 @@
             "url": "https://github.com/anthropics/skills/commit/5d25128289ff72bc9c7839ac3d245f4d57515447",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Claude Fable 5 and Claude Mythos 5 model guidance, including defaults, thinking behavior, refusal handling, compaction support, and migration references."
+            "summary": "Added Fable 5 and Mythos 5 to the model reference and documented their model-specific thinking, tokenization, refusal, and migration guidance."
           },
           {
             "sha": "c30d329f5814647c1e2f071020c1e8c1c9893ef1",
@@ -105,7 +132,7 @@
             "url": "https://github.com/anthropics/skills/commit/c30d329f5814647c1e2f071020c1e8c1c9893ef1",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the skill into a broader Claude API reference by rewriting the description and triggers, adding a `migrate` subcommand, and updating auth, provider, token-counting, prompt-caching, and Managed Agents guidance."
+            "summary": "Expanded skill-trigger and migration guidance, clarified provider and C# Managed Agents support, and added token-counting and mid-conversation system-message references."
           },
           {
             "sha": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
@@ -114,7 +141,7 @@
             "url": "https://github.com/anthropics/skills/commit/da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated the default guidance from Opus 4.7 to Opus 4.8 and added Opus 4.8-specific model, thinking, compaction, migration, and pitfall notes."
+            "summary": "Updated the default and model reference to Opus 4.8 and extended model-specific guidance for thinking, effort, compaction, and migration."
           },
           {
             "sha": "d211d437443a7b2496a3dad9575e7dddd724c585",
@@ -123,7 +150,7 @@
             "url": "https://github.com/anthropics/skills/commit/d211d437443a7b2496a3dad9575e7dddd724c585",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the Managed Agents reading guide to include outcomes, multiagent, and webhooks documentation."
+            "summary": "Expanded the Managed Agents reading guide to include outcomes, multiagent, and webhook documentation."
           },
           {
             "sha": "5128e1865d670f5d6c9cef000e6dfc4e951fb5b9",
@@ -132,7 +159,7 @@
             "url": "https://github.com/anthropics/skills/commit/5128e1865d670f5d6c9cef000e6dfc4e951fb5b9",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added memory stores to the Managed Agents beta headers and reading guide."
+            "summary": "Added memory_stores to the Managed Agents beta-header guidance and the memory page to its reading guide."
           },
           {
             "sha": "2c7ec5e78b8e5d43ea02e90bb8826f6b9f147b0c",
@@ -141,7 +168,7 @@
             "url": "https://github.com/anthropics/skills/commit/2c7ec5e78b8e5d43ea02e90bb8826f6b9f147b0c",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated the skill to cover model migration, switch the default model to Opus 4.7, add Opus 4.7 thinking and task-budget and compaction guidance, and reference prompt-caching and migration docs."
+            "summary": "Set Opus 4.7 as the default, updated the model table, and added detailed migration guidance for newer models."
           },
           {
             "sha": "0f7c287eaf0d4fa511cb871bb55e2a7862251fbb",
@@ -150,7 +177,7 @@
             "url": "https://github.com/anthropics/skills/commit/0f7c287eaf0d4fa511cb871bb55e2a7862251fbb",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Quoted the YAML front-matter description line to fix rendering."
+            "summary": "Quoted the YAML front-matter description so it renders as a single string."
           },
           {
             "sha": "12ab35c2eb5668c95810e6a6066f40f4218adc39",
@@ -159,7 +186,7 @@
             "url": "https://github.com/anthropics/skills/commit/12ab35c2eb5668c95810e6a6066f40f4218adc39",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added YAML front matter with the skill name, description, and license to `SKILL.md`."
+            "summary": "Added YAML front matter naming the skill and specifying its description and license."
           },
           {
             "sha": "ca1e7dc13c0ab5e2dfaa6de71991cd951b8f1cf2",
@@ -168,7 +195,7 @@
             "url": "https://github.com/anthropics/skills/commit/ca1e7dc13c0ab5e2dfaa6de71991cd951b8f1cf2",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added preflight and output rules for Anthropic-specific implementations, a subcommand dispatch section, and a new Managed Agents guidance section with related reading references."
+            "summary": "Added provider-safety and SDK-selection rules and replaced the Agent SDK-focused guidance with Managed Agents documentation and selection guidance."
           },
           {
             "sha": "98669c11ca63e9c81c11501e1437e5c47b556621",
@@ -177,7 +204,7 @@
             "url": "https://github.com/anthropics/skills/commit/98669c11ca63e9c81c11501e1437e5c47b556621",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added PHP beta Tool Runner support plus a prompt-caching quick reference and related reading-guide entries."
+            "summary": "Added a prompt-caching quick reference and task routing, and marked PHP as supporting the beta Tool Runner."
           },
           {
             "sha": "887114fd09f8f24a7e6c907f9ee505348498ab6a",
@@ -186,7 +213,7 @@
             "url": "https://github.com/anthropics/skills/commit/887114fd09f8f24a7e6c907f9ee505348498ab6a",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Models API capability lookup guidance, expanded compaction to Sonnet 4.6, and clarified default `max_tokens` and 128K streaming guidance."
+            "summary": "Added Models API capability-discovery guidance, extended compaction support to Sonnet 4.6, and documented safer max_tokens defaults."
           },
           {
             "sha": "7029232b9212482c0476da354b83364bd28fab2f",
@@ -195,19 +222,46 @@
             "url": "https://github.com/anthropics/skills/commit/7029232b9212482c0476da354b83364bd28fab2f",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial `claude-api` skill with model defaults, language detection, surface-selection guidance, and Claude API reading references."
+            "summary": "Created the claude-api skill with language detection, API and model guidance, quick references, and links to language-specific documentation."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+            "date": "2026-09-28T19:20:03-07:00",
+            "subject": "Update claude-api skill: Claude Opus 5.5 default, Claude Sonnet 5.5, build-eval and hillclimb guides (#1930)",
+            "url": "https://github.com/anthropics/skills/commit/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+            "pathAtCommit": "skills/claude-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能以預設使用 Opus 5.5、記錄 Sonnet 5.5、加入 eager tool-input streaming 的輸入驗證指引，並將 build-eval、hillclimb 與 preserved-thinking migration 任務導向各自指南。"
+          },
+          {
+            "sha": "34040c9c568585f6929bedeaad110ad08f079624",
+            "date": "2026-09-10T15:44:08-04:00",
+            "subject": "Update claude-api skill: Managed Agents `auto` permission policy and `ant beta:sessions connect` (#1750)",
+            "url": "https://github.com/anthropics/skills/commit/34040c9c568585f6929bedeaad110ad08f079624",
+            "pathAtCommit": "skills/claude-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指向 Managed Agents 權限政策指引及 Anthropic CLI 工作階段連線指南的參照。"
+          },
+          {
+            "sha": "53048666b05b4799081517d00e09e0a2dd688678",
+            "date": "2026-09-01T11:30:38-07:00",
+            "subject": "Update claude-api skill: Claude Fable 5.1 / Mythos 5.1, Managed Agents updates, cost-optimize (#1704)",
+            "url": "https://github.com/anthropics/skills/commit/53048666b05b4799081517d00e09e0a2dd688678",
+            "pathAtCommit": "skills/claude-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充 Fable 5.1 與 Mythos 5.1 的模型指引、更新 Managed Agents 說明，並新增成本最佳化子命令。"
+          },
           {
             "sha": "3b3fad96af16a10759d930941b4520ba0c40edae",
             "date": "2026-08-21T13:10:53-04:00",
@@ -215,7 +269,7 @@
             "url": "https://github.com/anthropics/skills/commit/3b3fad96af16a10759d930941b4520ba0c40edae",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 `upgrade` 子指令與快速任務參考項目，指向透過 `sdk-upgrade.md` 進行 Anthropic SDK 主版本升級的指南。"
+            "summary": "新增 SDK 升級子命令，並在快速參考中加入導向 Python Anthropic SDK 0.x 升至 1.x 遷移指南的指引。"
           },
           {
             "sha": "f6656c1256d5a8adfa37db9110046ef20bac644c",
@@ -224,7 +278,7 @@
             "url": "https://github.com/anthropics/skills/commit/f6656c1256d5a8adfa37db9110046ef20bac644c",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 `prompt-audit` 子指令，將 `migrate` 更新為在模型變更後包含提示稽核，並釐清語言無關任務可略過語言判定。"
+            "summary": "新增 prompt-audit 子命令與稽核指引，並要求模型遷移後稽核提示內容。"
           },
           {
             "sha": "f17010c9bb483898c1d9c9f42dde2b3a98889434",
@@ -233,7 +287,7 @@
             "url": "https://github.com/anthropics/skills/commit/f17010c9bb483898c1d9c9f42dde2b3a98889434",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "擴充了 Managed Agents 指南，加入工作階段預算與多代理說明，並更新 stop details、prefill 移除、`inference_geo` 與 task budget 支援的 API 注意事項。"
+            "summary": "釐清以 token 計算的任務預算與 Managed Agents 以美元計價的工作階段預算之差異，並新增多代理人及擴充的停止詳細資訊指引。"
           },
           {
             "sha": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
@@ -242,7 +296,7 @@
             "url": "https://github.com/anthropics/skills/commit/b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 Claude Opus 5 作為預設模型，並更新與 Opus 5 的 thinking、fallback、fast mode、compaction 與操作指示相關的指南。"
+            "summary": "將 Opus 5 設為預設模型，並新增其模型、思考、拒絕回退及相關 API 指引。"
           },
           {
             "sha": "1f630fdf9259cec4a14913127dfd7c3b69ef72eb",
@@ -251,7 +305,7 @@
             "url": "https://github.com/anthropics/skills/commit/1f630fdf9259cec4a14913127dfd7c3b69ef72eb",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "重整了代理選型指南，以區分手動迴圈、Tool Runner、Managed Agents 與 Claude Agent SDK，並加入合作夥伴定價、vault 與排程部署說明。"
+            "summary": "重整代理人選擇指引，區分手動迴圈、Tool Runner、Managed Agents 與 Claude Agent SDK，並新增排程部署指引。"
           },
           {
             "sha": "9d2f1ae187231d8199c64b5b762e1bdf2244733d",
@@ -260,7 +314,7 @@
             "url": "https://github.com/anthropics/skills/commit/9d2f1ae187231d8199c64b5b762e1bdf2244733d",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在模型與相容性指南中加入 Claude Sonnet 5，並新增 `ant` 與 OAuth 憑證解析的驗證快速參考。"
+            "summary": "將 Sonnet 5 納入模型與功能指引，補充其思考、effort、任務預算及供應商支援資訊，並記錄 CLI 驗證方式。"
           },
           {
             "sha": "35414756ca55738e050562e272a6bbc6273aa926",
@@ -269,7 +323,7 @@
             "url": "https://github.com/anthropics/skills/commit/35414756ca55738e050562e272a6bbc6273aa926",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 API 漂移警告區段、WebFetch 查詢失敗時的替代指引，以及 fast mode、雲端供應商用戶端與更新後平台指南的快速參考。"
+            "summary": "新增 fast mode、任務預算及供應商專用用戶端的快速參考指引，並集中整理平台功能可用性說明。"
           },
           {
             "sha": "57546260929473d4e0d1c1bb75297be2fdfa1949",
@@ -278,7 +332,7 @@
             "url": "https://github.com/anthropics/skills/commit/57546260929473d4e0d1c1bb75297be2fdfa1949",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將 scheduled deployments 加入 Managed Agents 的 beta 標頭與閱讀指南，並把排程執行連結到 `shared/managed-agents-scheduled-deployments.md`。"
+            "summary": "擴充 Managed Agents beta 標頭涵蓋範圍至 deployments 與 deployment runs，並新增排程部署文件的導引。"
           },
           {
             "sha": "5d25128289ff72bc9c7839ac3d245f4d57515447",
@@ -287,7 +341,7 @@
             "url": "https://github.com/anthropics/skills/commit/5d25128289ff72bc9c7839ac3d245f4d57515447",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 Claude Fable 5 與 Claude Mythos 5 的模型指南，包括預設值、thinking 行為、refusal 處理、compaction 支援與遷移參考。"
+            "summary": "將 Fable 5 與 Mythos 5 加入模型參考資料，並記錄其專屬的思考、分詞、拒絕處理及遷移指引。"
           },
           {
             "sha": "c30d329f5814647c1e2f071020c1e8c1c9893ef1",
@@ -296,7 +350,7 @@
             "url": "https://github.com/anthropics/skills/commit/c30d329f5814647c1e2f071020c1e8c1c9893ef1",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "透過改寫描述與觸發條件、加入 `migrate` 子指令，以及更新驗證、供應商、token 計數、prompt caching 與 Managed Agents 指南，將此技能擴充為更完整的 Claude API 參考。"
+            "summary": "擴充技能觸發條件與遷移指引、釐清供應商及 C# Managed Agents 支援情況，並新增 token 計數與對話中系統訊息的參考。"
           },
           {
             "sha": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
@@ -305,7 +359,7 @@
             "url": "https://github.com/anthropics/skills/commit/da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將預設指南從 Opus 4.7 更新為 Opus 4.8，並新增 Opus 4.8 專屬的模型、thinking、compaction、遷移與注意事項說明。"
+            "summary": "將預設模型與模型參考更新為 Opus 4.8，並擴充其思考、effort、上下文精簡及遷移指引。"
           },
           {
             "sha": "d211d437443a7b2496a3dad9575e7dddd724c585",
@@ -314,7 +368,7 @@
             "url": "https://github.com/anthropics/skills/commit/d211d437443a7b2496a3dad9575e7dddd724c585",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "擴充了 Managed Agents 的閱讀指南，納入 outcomes、multiagent 與 webhooks 文件。"
+            "summary": "擴充 Managed Agents 閱讀指南，納入 outcomes、多代理人及 webhook 文件。"
           },
           {
             "sha": "5128e1865d670f5d6c9cef000e6dfc4e951fb5b9",
@@ -323,7 +377,7 @@
             "url": "https://github.com/anthropics/skills/commit/5128e1865d670f5d6c9cef000e6dfc4e951fb5b9",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將 memory stores 加入 Managed Agents 的 beta 標頭與閱讀指南。"
+            "summary": "在 Managed Agents beta 標頭指引中加入 memory_stores，並將 memory 頁面納入閱讀指南。"
           },
           {
             "sha": "2c7ec5e78b8e5d43ea02e90bb8826f6b9f147b0c",
@@ -332,7 +386,7 @@
             "url": "https://github.com/anthropics/skills/commit/2c7ec5e78b8e5d43ea02e90bb8826f6b9f147b0c",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新此技能以涵蓋模型遷移、將預設模型改為 Opus 4.7、加入 Opus 4.7 的 thinking、task budget 與 compaction 指南，並補上 prompt caching 與遷移文件參考。"
+            "summary": "將 Opus 4.7 設為預設模型、更新模型表格，並新增較新模型的詳細遷移指引。"
           },
           {
             "sha": "0f7c287eaf0d4fa511cb871bb55e2a7862251fbb",
@@ -341,7 +395,7 @@
             "url": "https://github.com/anthropics/skills/commit/0f7c287eaf0d4fa511cb871bb55e2a7862251fbb",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "為了修正渲染問題，將 YAML front matter 的 description 行加上引號。"
+            "summary": "為 YAML 前置資料中的 description 加上引號，使其呈現為單一字串。"
           },
           {
             "sha": "12ab35c2eb5668c95810e6a6066f40f4218adc39",
@@ -350,7 +404,7 @@
             "url": "https://github.com/anthropics/skills/commit/12ab35c2eb5668c95810e6a6066f40f4218adc39",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在 `SKILL.md` 中新增了包含技能名稱、描述與授權資訊的 YAML front matter。"
+            "summary": "新增 YAML 前置資料，指定技能名稱、描述與授權。"
           },
           {
             "sha": "ca1e7dc13c0ab5e2dfaa6de71991cd951b8f1cf2",
@@ -359,7 +413,7 @@
             "url": "https://github.com/anthropics/skills/commit/ca1e7dc13c0ab5e2dfaa6de71991cd951b8f1cf2",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 Anthropic 專用實作的前置檢查與輸出規則、子指令派發區段，以及附帶相關閱讀參考的新 Managed Agents 指南區段。"
+            "summary": "新增供應商安全檢查與 SDK 選用規則，並以 Managed Agents 文件及選擇指引取代以 Agent SDK 為主的說明。"
           },
           {
             "sha": "98669c11ca63e9c81c11501e1437e5c47b556621",
@@ -368,7 +422,7 @@
             "url": "https://github.com/anthropics/skills/commit/98669c11ca63e9c81c11501e1437e5c47b556621",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 PHP beta Tool Runner 支援，以及 prompt caching 的快速參考與相關閱讀指南項目。"
+            "summary": "新增 prompt caching 快速參考與任務導引，並標示 PHP 支援 beta Tool Runner。"
           },
           {
             "sha": "887114fd09f8f24a7e6c907f9ee505348498ab6a",
@@ -377,7 +431,7 @@
             "url": "https://github.com/anthropics/skills/commit/887114fd09f8f24a7e6c907f9ee505348498ab6a",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 Models API 能力查詢指南，將 compaction 擴及 Sonnet 4.6，並釐清預設 `max_tokens` 與 128K 串流指南。"
+            "summary": "新增透過 Models API 探索功能的指引、將上下文精簡支援擴及 Sonnet 4.6，並記錄較安全的 max_tokens 預設值。"
           },
           {
             "sha": "7029232b9212482c0476da354b83364bd28fab2f",
@@ -386,26 +440,53 @@
             "url": "https://github.com/anthropics/skills/commit/7029232b9212482c0476da354b83364bd28fab2f",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了初始的 `claude-api` 技能，包含模型預設值、語言判定、介面選型指南與 Claude API 閱讀參考。"
+            "summary": "建立 claude-api 技能，包含語言偵測、API 與模型指引、快速參考，以及語言專屬文件連結。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
         "commits": [
           {
+            "sha": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+            "date": "2026-09-28T19:20:03-07:00",
+            "subject": "Update claude-api skill: Claude Opus 5.5 default, Claude Sonnet 5.5, build-eval and hillclimb guides (#1930)",
+            "url": "https://github.com/anthropics/skills/commit/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+            "pathAtCommit": "skills/claude-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能以预设使用 Opus 5.5、记录 Sonnet 5.5、加入 eager tool-input streaming 的输入验证指引，并将 build-eval、hillclimb 与 preserved-thinking migration 任务导向各自指南。"
+          },
+          {
+            "sha": "34040c9c568585f6929bedeaad110ad08f079624",
+            "date": "2026-09-10T15:44:08-04:00",
+            "subject": "Update claude-api skill: Managed Agents `auto` permission policy and `ant beta:sessions connect` (#1750)",
+            "url": "https://github.com/anthropics/skills/commit/34040c9c568585f6929bedeaad110ad08f079624",
+            "pathAtCommit": "skills/claude-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指向 Managed Agents 权限政策指引及 Anthropic CLI 工作阶段连接指南的参照。"
+          },
+          {
+            "sha": "53048666b05b4799081517d00e09e0a2dd688678",
+            "date": "2026-09-01T11:30:38-07:00",
+            "subject": "Update claude-api skill: Claude Fable 5.1 / Mythos 5.1, Managed Agents updates, cost-optimize (#1704)",
+            "url": "https://github.com/anthropics/skills/commit/53048666b05b4799081517d00e09e0a2dd688678",
+            "pathAtCommit": "skills/claude-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充 Fable 5.1 与 Mythos 5.1 的模型指引、更新 Managed Agents 说明，并添加成本优化子命令。"
+          },
+          {
             "sha": "3b3fad96af16a10759d930941b4520ba0c40edae",
             "date": "2026-08-21T13:10:53-04:00",
             "subject": "Update claude-api skill: Python SDK 0.x -> 1.x upgrade guide (#1623)",
             "url": "https://github.com/anthropics/skills/commit/3b3fad96af16a10759d930941b4520ba0c40edae",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 `upgrade` 子指令与快速任务参考项目，指向透过 `sdk-upgrade.md` 进行 Anthropic SDK 主版本升级的指南。"
+            "summary": "添加 SDK 升级子命令，并在快速参考中加入导向 Python Anthropic SDK 0.x 升至 1.x 迁移指南的指引。"
           },
           {
             "sha": "f6656c1256d5a8adfa37db9110046ef20bac644c",
@@ -414,7 +495,7 @@
             "url": "https://github.com/anthropics/skills/commit/f6656c1256d5a8adfa37db9110046ef20bac644c",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 `prompt-audit` 子指令，将 `migrate` 更新为在模型变更后包含提示审核，并厘清语言无关任务可略过语言判定。"
+            "summary": "添加 prompt-audit 子命令与审核指引，并要求模型迁移后审核提示内容。"
           },
           {
             "sha": "f17010c9bb483898c1d9c9f42dde2b3a98889434",
@@ -423,7 +504,7 @@
             "url": "https://github.com/anthropics/skills/commit/f17010c9bb483898c1d9c9f42dde2b3a98889434",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "扩充了 Managed Agents 指南，加入工作阶段预算与多代理说明，并更新 stop details、prefill 移除、`inference_geo` 与 task budget 支持的 API 注意事项。"
+            "summary": "厘清以 token 计算的任务预算与 Managed Agents 以美元计价的工作阶段预算之差异，并添加多代理人及扩充的停止详细信息指引。"
           },
           {
             "sha": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
@@ -432,7 +513,7 @@
             "url": "https://github.com/anthropics/skills/commit/b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 Claude Opus 5 作为预设模型，并更新与 Opus 5 的 thinking、fallback、fast mode、compaction 与操作指示相关的指南。"
+            "summary": "将 Opus 5 设为预设模型，并添加其模型、思考、拒绝回退及相关 API 指引。"
           },
           {
             "sha": "1f630fdf9259cec4a14913127dfd7c3b69ef72eb",
@@ -441,7 +522,7 @@
             "url": "https://github.com/anthropics/skills/commit/1f630fdf9259cec4a14913127dfd7c3b69ef72eb",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "重整了代理选型指南，以区分手动循环、Tool Runner、Managed Agents 与 Claude Agent SDK，并加入合作伙伴定价、vault 与调度部署说明。"
+            "summary": "重整代理人选择指引，区分手动循环、Tool Runner、Managed Agents 与 Claude Agent SDK，并添加调度部署指引。"
           },
           {
             "sha": "9d2f1ae187231d8199c64b5b762e1bdf2244733d",
@@ -450,7 +531,7 @@
             "url": "https://github.com/anthropics/skills/commit/9d2f1ae187231d8199c64b5b762e1bdf2244733d",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在模型与兼容性指南中加入 Claude Sonnet 5，并添加 `ant` 与 OAuth 凭证解析的验证快速参考。"
+            "summary": "将 Sonnet 5 纳入模型与功能指引，补充其思考、effort、任务预算及供应商支持信息，并记录 CLI 验证方式。"
           },
           {
             "sha": "35414756ca55738e050562e272a6bbc6273aa926",
@@ -459,7 +540,7 @@
             "url": "https://github.com/anthropics/skills/commit/35414756ca55738e050562e272a6bbc6273aa926",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 API 漂移警告区段、WebFetch 查找失败时的替代指引，以及 fast mode、云端供应商用户端与更新后平台指南的快速参考。"
+            "summary": "添加 fast mode、任务预算及供应商专用用户端的快速参考指引，并集中整理平台功能可用性说明。"
           },
           {
             "sha": "57546260929473d4e0d1c1bb75297be2fdfa1949",
@@ -468,7 +549,7 @@
             "url": "https://github.com/anthropics/skills/commit/57546260929473d4e0d1c1bb75297be2fdfa1949",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将 scheduled deployments 加入 Managed Agents 的 beta 标头与阅读指南，并把调度运行链接到 `shared/managed-agents-scheduled-deployments.md`。"
+            "summary": "扩充 Managed Agents beta 标头涵盖范围至 deployments 与 deployment runs，并添加调度部署文档的导引。"
           },
           {
             "sha": "5d25128289ff72bc9c7839ac3d245f4d57515447",
@@ -477,7 +558,7 @@
             "url": "https://github.com/anthropics/skills/commit/5d25128289ff72bc9c7839ac3d245f4d57515447",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 Claude Fable 5 与 Claude Mythos 5 的模型指南，包括默认值、thinking 行为、refusal 处理、compaction 支持与迁移参考。"
+            "summary": "将 Fable 5 与 Mythos 5 加入模型参考资料，并记录其专属的思考、分词、拒绝处理及迁移指引。"
           },
           {
             "sha": "c30d329f5814647c1e2f071020c1e8c1c9893ef1",
@@ -486,7 +567,7 @@
             "url": "https://github.com/anthropics/skills/commit/c30d329f5814647c1e2f071020c1e8c1c9893ef1",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "透过改写描述与触发条件、加入 `migrate` 子指令，以及更新验证、供应商、token 计数、prompt caching 与 Managed Agents 指南，将此技能扩充为更完整的 Claude API 参考。"
+            "summary": "扩充技能触发条件与迁移指引、厘清供应商及 C# Managed Agents 支持情况，并添加 token 计数与对话中系统消息的参考。"
           },
           {
             "sha": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
@@ -495,7 +576,7 @@
             "url": "https://github.com/anthropics/skills/commit/da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将预设指南从 Opus 4.7 更新为 Opus 4.8，并添加 Opus 4.8 专属的模型、thinking、compaction、迁移与注意事项说明。"
+            "summary": "将预设模型与模型参考更新为 Opus 4.8，并扩充其思考、effort、上下文精简及迁移指引。"
           },
           {
             "sha": "d211d437443a7b2496a3dad9575e7dddd724c585",
@@ -504,7 +585,7 @@
             "url": "https://github.com/anthropics/skills/commit/d211d437443a7b2496a3dad9575e7dddd724c585",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "扩充了 Managed Agents 的阅读指南，纳入 outcomes、multiagent 与 webhooks 文档。"
+            "summary": "扩充 Managed Agents 阅读指南，纳入 outcomes、多代理人及 webhook 文档。"
           },
           {
             "sha": "5128e1865d670f5d6c9cef000e6dfc4e951fb5b9",
@@ -513,7 +594,7 @@
             "url": "https://github.com/anthropics/skills/commit/5128e1865d670f5d6c9cef000e6dfc4e951fb5b9",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将 memory stores 加入 Managed Agents 的 beta 标头与阅读指南。"
+            "summary": "在 Managed Agents beta 标头指引中加入 memory_stores，并将 memory 页面纳入阅读指南。"
           },
           {
             "sha": "2c7ec5e78b8e5d43ea02e90bb8826f6b9f147b0c",
@@ -522,7 +603,7 @@
             "url": "https://github.com/anthropics/skills/commit/2c7ec5e78b8e5d43ea02e90bb8826f6b9f147b0c",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新此技能以涵盖模型迁移、将预设模型改为 Opus 4.7、加入 Opus 4.7 的 thinking、task budget 与 compaction 指南，并补上 prompt caching 与迁移文档参考。"
+            "summary": "将 Opus 4.7 设为预设模型、更新模型表格，并添加较新模型的详细迁移指引。"
           },
           {
             "sha": "0f7c287eaf0d4fa511cb871bb55e2a7862251fbb",
@@ -531,7 +612,7 @@
             "url": "https://github.com/anthropics/skills/commit/0f7c287eaf0d4fa511cb871bb55e2a7862251fbb",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "为了修正渲染问题，将 YAML front matter 的 description 行加上引号。"
+            "summary": "为 YAML 前置数据中的 description 加上引号，使其呈现为单一字符串。"
           },
           {
             "sha": "12ab35c2eb5668c95810e6a6066f40f4218adc39",
@@ -540,7 +621,7 @@
             "url": "https://github.com/anthropics/skills/commit/12ab35c2eb5668c95810e6a6066f40f4218adc39",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在 `SKILL.md` 中添加了包含技能名称、描述与授权信息的 YAML front matter。"
+            "summary": "添加 YAML 前置数据，指定技能名称、描述与授权。"
           },
           {
             "sha": "ca1e7dc13c0ab5e2dfaa6de71991cd951b8f1cf2",
@@ -549,7 +630,7 @@
             "url": "https://github.com/anthropics/skills/commit/ca1e7dc13c0ab5e2dfaa6de71991cd951b8f1cf2",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 Anthropic 专用实作的前置检查与输出规则、子指令派发区段，以及附带相关阅读参考的新 Managed Agents 指南区段。"
+            "summary": "添加供应商安全检查与 SDK 选用规则，并以 Managed Agents 文档及选择指引取代以 Agent SDK 为主的说明。"
           },
           {
             "sha": "98669c11ca63e9c81c11501e1437e5c47b556621",
@@ -558,7 +639,7 @@
             "url": "https://github.com/anthropics/skills/commit/98669c11ca63e9c81c11501e1437e5c47b556621",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 PHP beta Tool Runner 支持，以及 prompt caching 的快速参考与相关阅读指南项目。"
+            "summary": "添加 prompt caching 快速参考与任务导引，并标示 PHP 支持 beta Tool Runner。"
           },
           {
             "sha": "887114fd09f8f24a7e6c907f9ee505348498ab6a",
@@ -567,7 +648,7 @@
             "url": "https://github.com/anthropics/skills/commit/887114fd09f8f24a7e6c907f9ee505348498ab6a",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 Models API 能力查找指南，将 compaction 扩及 Sonnet 4.6，并厘清预设 `max_tokens` 与 128K 串流指南。"
+            "summary": "添加透过 Models API 探索功能的指引、将上下文精简支持扩及 Sonnet 4.6，并记录较安全的 max_tokens 默认值。"
           },
           {
             "sha": "7029232b9212482c0476da354b83364bd28fab2f",
@@ -576,7 +657,7 @@
             "url": "https://github.com/anthropics/skills/commit/7029232b9212482c0476da354b83364bd28fab2f",
             "pathAtCommit": "skills/claude-api/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了初始的 `claude-api` 技能，包含模型默认值、语言判定、界面选型指南与 Claude API 阅读参考。"
+            "summary": "创建 claude-api 技能，包含语言侦测、API 与模型指引、快速参考，以及语言专属文档链接。"
           }
         ]
       }

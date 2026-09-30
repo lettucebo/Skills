@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-filestore-autoscale",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4152c2e7447152eb1390a8a6ecd6ee7a6aa397a9de73c8c4d752f01b5f2d922f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Assesses Filestore capacity and utilization to recommend resizing that balances available headroom with storage costs.",
+        "whenToUse": "Use for routine capacity reviews or when planning a response to low free space or excess provisioned capacity on Filestore instances.",
+        "outputs": "Reports each instance's tier, provisioned and used capacity, free-space percentage, and scaling verdict, with a proposed target and update command when resizing is warranted; changes require confirmation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "評估 Filestore 的容量與使用情況，並提出兼顧可用空間與儲存成本的調整建議。",
+        "whenToUse": "適合用於定期檢視 Filestore 容量，或在執行個體可用空間不足、配置容量過多時規劃調整。",
+        "outputs": "列出各執行個體的層級、配置與已用容量、可用空間百分比及擴縮判定，並在需要調整時提供目標容量與更新指令；變更前須取得確認。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "评估 Filestore 的容量与使用情况，并提出兼顾可用空间与保存成本的调整建议。",
+        "whenToUse": "适合用于定期查看 Filestore 容量，或在运行个体可用空间不足、配置容量过多时规划调整。",
+        "outputs": "列出各运行个体的层级、配置与已用容量、可用空间百分比及扩缩判定，并在需要调整时提供目标容量与更新指令；变更前须取得确认。"
+      }
+    }
+  }
+}

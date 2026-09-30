@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4f1edd591ae480cb55646715ece602abd1567ecdccc6fa747e022a346c69a3fa"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides a phased path from workload requirements to an approved, deployment-ready analytics solution.",
+        "whenToUse": "Use when a team needs to clarify requirements, iteratively approve design decisions, and carry an analytics solution through deployment planning and validation.",
+        "outputs": "Produces a component decomposition, product recommendations, Mermaid architecture diagram, design and deployment guidance, validation steps, and a consolidated solution guide."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "引導團隊循序從工作負載需求走到經核准且可供部署的分析解決方案。",
+        "whenToUse": "當團隊需要釐清需求、逐步核准設計決策，並將分析解決方案推進至部署規劃與驗證時使用。",
+        "outputs": "產出元件分解、產品建議、Mermaid 架構圖、設計與部署指引、驗證步驟，以及整合後的解決方案指南。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "引导团队循序从工作负载需求走到经核准且可供部署的分析解决方案。",
+        "whenToUse": "当团队需要厘清需求、逐步核准设计决策，并将分析解决方案推进至部署规划与验证时使用。",
+        "outputs": "产出组件分解、产品建议、Mermaid 架构图、设计与部署指引、验证步骤，以及集成后的解决方案指南。"
+      }
+    }
+  }
+}

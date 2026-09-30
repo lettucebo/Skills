@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-cost-optimization",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f79542e41516c1327b7f69549cd503032dc1eb771ba4b39c789401659d121e1a"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Reduce GKE spending while maintaining a secure and reliable cluster posture by right-sizing workloads and choosing cost-effective capacity and commitments.",
+        "whenToUse": "Use when measured GKE utilization or billing points to waste or a steady baseline and you need to translate it into workload or tenant limits, Spot eligibility, commitment coverage, or cluster-pool changes.",
+        "outputs": "Provides actionable recommendations and example configurations for VPA/MPA rightsizing, quotas, Spot workloads, machine-family choice, steady-state CUD coverage, and cluster or tenant cost controls."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過調整工作負載資源配置並選擇具成本效益的容量與承諾方案，在維持 GKE 叢集安全與可靠性的同時降低支出。",
+        "whenToUse": "當 GKE 使用率或帳單資料顯示浪費或穩定基線，且需要據此制定工作負載或租戶資源限制、評估 Spot 適用性、承諾涵蓋範圍或調整叢集節點集區時使用。",
+        "outputs": "提供 VPA／MPA 資源調整、資源配額、Spot 工作負載、機器系列選擇、穩定基線承諾使用折扣涵蓋範圍，以及叢集或租戶成本控管的可執行建議與設定範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过调整工作负载资源配置并选择具成本效益的容量与承诺方案，在维持 GKE 集群安全与可靠性的同时降低支出。",
+        "whenToUse": "当 GKE 使用率或帐单数据显示浪费或稳定基线，且需要据此制定工作负载或租户资源限制、评估 Spot 适用性、承诺涵盖范围或调整集群节点集区时使用。",
+        "outputs": "提供 VPA／MPA 资源调整、资源配额、Spot 工作负载、机器系列选择、稳定基线承诺使用折扣涵盖范围，以及集群或租户成本控管的可运行建议与设置范例。"
+      }
+    }
+  }
+}

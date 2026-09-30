@@ -1,0 +1,426 @@
+{
+  "path": "skills/google/cloud/google-cloud-recipe-onboarding",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:e8a78613fe51aaa6436cd60108503bccf8fa29c5f351239c84e1f680ea253d9f",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-recipe-onboarding",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds version `1.0.0` to the skill's YAML metadata."
+          },
+          {
+            "sha": "569cb1d55ac388c2d1939104a4c52bc594fbb162",
+            "date": "2026-09-16T12:25:14-07:00",
+            "subject": "Update documentation links and references",
+            "url": "https://github.com/google/skills/commit/569cb1d55ac388c2d1939104a4c52bc594fbb162",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Revises the missing-gcloud guidance, updates several documentation URLs, and adds a Google Cloud advanced-production resource link."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moves `category` into a `metadata` block and adds blank lines before multiple command code blocks."
+          },
+          {
+            "sha": "872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "date": "2026-06-20T00:26:41-07:00",
+            "subject": "Refactor BQ skills",
+            "url": "https://github.com/google/skills/commit/872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reformats the project-ID collision guidance and the billing-spend-control and workload-deployment section."
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changes several Google Cloud documentation URLs in the onboarding instructions and resource list to `.md.txt` versions."
+          },
+          {
+            "sha": "fc4af872e9ce7fba5d4f9502081f027419fff5bd",
+            "date": "2026-06-05T08:00:26-07:00",
+            "subject": "Optimize the Google Cloud onboarding recipe skill.",
+            "url": "https://github.com/google/skills/commit/fc4af872e9ce7fba5d4f9502081f027419fff5bd",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworks the guide into an agent workflow with preflight, single-question, and consent rules plus gcloud-based authentication, project and billing checks, and validation."
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds `--quiet` to the gcloud command shown for deploying a Cloud Run service."
+          },
+          {
+            "sha": "e629495a9cc8e632c31276b9d76eb3daf93069d5",
+            "date": "2026-05-04T08:27:24-07:00",
+            "subject": "Updated BQ MCP tool names and fixed markdown links & formatting.",
+            "url": "https://github.com/google/skills/commit/e629495a9cc8e632c31276b9d76eb3daf93069d5",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reformats the first-resource options as a readable list and cleans up the fenced Cloud Run command example."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-recipe-onboarding/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md"
+            },
+            "summary": "Renames the unchanged skill file to `skills/cloud/google-cloud-recipe-onboarding/SKILL.md`."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+              "destinationPath": "cloud/google-cloud-recipe-onboarding/SKILL.md"
+            },
+            "summary": "Moves the skill file from `cloud/recipes/google-cloud-recipe-onboarding/SKILL.md` to `cloud/google-cloud-recipe-onboarding/SKILL.md` without content changes."
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reformats the Cloud Run deployment example from inline code into a fenced, multiline bash block."
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adjusts Markdown spacing, list indentation, and line wrapping in the project, API, and resource-deployment sections."
+          },
+          {
+            "sha": "f158dab237da295c79ff146f9881150954bab93e",
+            "date": "2026-04-15T12:12:46-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/f158dab237da295c79ff146f9881150954bab93e",
+            "pathAtCommit": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the initial onboarding guide covering account and free-credit setup, projects and billing, CLI and APIs, resource deployment, and validation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML 中繼資料中新增版本 `1.0.0`。"
+          },
+          {
+            "sha": "569cb1d55ac388c2d1939104a4c52bc594fbb162",
+            "date": "2026-09-16T12:25:14-07:00",
+            "subject": "Update documentation links and references",
+            "url": "https://github.com/google/skills/commit/569cb1d55ac388c2d1939104a4c52bc594fbb162",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修訂缺少 gcloud 時的指引、更新多個文件網址，並新增 Google Cloud 進階正式環境資源連結。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 `category` 移入 `metadata` 區塊，並在多個命令程式碼區塊前加入空行。"
+          },
+          {
+            "sha": "872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "date": "2026-06-20T00:26:41-07:00",
+            "subject": "Refactor BQ skills",
+            "url": "https://github.com/google/skills/commit/872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新排版專案 ID 衝突處理指引，以及帳單支出控管與工作負載部署章節。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將入門指引與資源清單中的多個 Google Cloud 文件網址改為 `.md.txt` 版本。"
+          },
+          {
+            "sha": "fc4af872e9ce7fba5d4f9502081f027419fff5bd",
+            "date": "2026-06-05T08:00:26-07:00",
+            "subject": "Optimize the Google Cloud onboarding recipe skill.",
+            "url": "https://github.com/google/skills/commit/fc4af872e9ce7fba5d4f9502081f027419fff5bd",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將指南改寫為代理程式工作流程，加入執行前檢查、單一問題與同意規則，以及以 gcloud 執行的驗證、專案與帳單檢查和結果確認。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在部署 Cloud Run 服務的 gcloud 命令範例中加入 `--quiet`。"
+          },
+          {
+            "sha": "e629495a9cc8e632c31276b9d76eb3daf93069d5",
+            "date": "2026-05-04T08:27:24-07:00",
+            "subject": "Updated BQ MCP tool names and fixed markdown links & formatting.",
+            "url": "https://github.com/google/skills/commit/e629495a9cc8e632c31276b9d76eb3daf93069d5",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將首次部署資源的選項重新排版為易讀清單，並整理 fenced 格式的 Cloud Run 命令範例。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-recipe-onboarding/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md"
+            },
+            "summary": "將未變更內容的技能檔重新命名至 `skills/cloud/google-cloud-recipe-onboarding/SKILL.md`。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+              "destinationPath": "cloud/google-cloud-recipe-onboarding/SKILL.md"
+            },
+            "summary": "在未變更檔案內容的情況下，將技能檔從 `cloud/recipes/google-cloud-recipe-onboarding/SKILL.md` 移至 `cloud/google-cloud-recipe-onboarding/SKILL.md`。"
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Cloud Run 部署範例從行內程式碼改排為 fenced 多行 bash 程式碼區塊。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "調整專案、API 與資源部署章節中的 Markdown 間距、清單縮排和換行。"
+          },
+          {
+            "sha": "f158dab237da295c79ff146f9881150954bab93e",
+            "date": "2026-04-15T12:12:46-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/f158dab237da295c79ff146f9881150954bab93e",
+            "pathAtCommit": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版入門指南，涵蓋帳戶與免費額度設定、專案與帳單、CLI 與 API、資源部署及驗證。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML 中继数据中添加版本 `1.0.0`。"
+          },
+          {
+            "sha": "569cb1d55ac388c2d1939104a4c52bc594fbb162",
+            "date": "2026-09-16T12:25:14-07:00",
+            "subject": "Update documentation links and references",
+            "url": "https://github.com/google/skills/commit/569cb1d55ac388c2d1939104a4c52bc594fbb162",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修订缺少 gcloud 时的指引、更新多个文档网址，并添加 Google Cloud 高级正式环境资源链接。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 `category` 移入 `metadata` 区块，并在多个命令代码区块前加入空行。"
+          },
+          {
+            "sha": "872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "date": "2026-06-20T00:26:41-07:00",
+            "subject": "Refactor BQ skills",
+            "url": "https://github.com/google/skills/commit/872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新排版项目 ID 冲突处理指引，以及帐单支出控管与工作负载部署章节。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将入门指引与资源清单中的多个 Google Cloud 文档网址改为 `.md.txt` 版本。"
+          },
+          {
+            "sha": "fc4af872e9ce7fba5d4f9502081f027419fff5bd",
+            "date": "2026-06-05T08:00:26-07:00",
+            "subject": "Optimize the Google Cloud onboarding recipe skill.",
+            "url": "https://github.com/google/skills/commit/fc4af872e9ce7fba5d4f9502081f027419fff5bd",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将指南改写为代理程序工作流程，加入运行前检查、单一问题与同意规则，以及以 gcloud 运行的验证、项目与帐单检查和结果确认。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在部署 Cloud Run 服务的 gcloud 命令范例中加入 `--quiet`。"
+          },
+          {
+            "sha": "e629495a9cc8e632c31276b9d76eb3daf93069d5",
+            "date": "2026-05-04T08:27:24-07:00",
+            "subject": "Updated BQ MCP tool names and fixed markdown links & formatting.",
+            "url": "https://github.com/google/skills/commit/e629495a9cc8e632c31276b9d76eb3daf93069d5",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将首次部署资源的选项重新排版为易读清单，并整理 fenced 格式的 Cloud Run 命令范例。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-recipe-onboarding/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md"
+            },
+            "summary": "将未变更内容的技能档重命名至 `skills/cloud/google-cloud-recipe-onboarding/SKILL.md`。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+              "destinationPath": "cloud/google-cloud-recipe-onboarding/SKILL.md"
+            },
+            "summary": "在未变更文件内容的情况下，将技能档从 `cloud/recipes/google-cloud-recipe-onboarding/SKILL.md` 移至 `cloud/google-cloud-recipe-onboarding/SKILL.md`。"
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Cloud Run 部署范例从行内代码改排为 fenced 多行 bash 代码区块。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "调整项目、API 与资源部署章节中的 Markdown 间距、清单缩进和换行。"
+          },
+          {
+            "sha": "f158dab237da295c79ff146f9881150954bab93e",
+            "date": "2026-04-15T12:12:46-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/f158dab237da295c79ff146f9881150954bab93e",
+            "pathAtCommit": "cloud/recipes/google-cloud-recipe-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版入门指南，涵盖帐户与免费额度设置、项目与帐单、CLI 与 API、资源部署及验证。"
+          }
+        ]
+      }
+    }
+  }
+}

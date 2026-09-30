@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/ima-sdk-client-side",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:912fcdd8b7812695460ec19896522d7e1b0a2e1ce0bc65dd51788562db849e4e"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It helps integrate Google's IMA SDK to request and manage in-stream video and audio ads in digital products.",
+        "whenToUse": "Use it when implementing client-side ad requests with VAST or VMAP for web, app, TV, or other platforms; it is not for DAI, SSAI, or SGAI.",
+        "outputs": "It provides a general workflow for SDK setup, ad requests, load and playback event and error handling, and AdsManager cleanup, plus platform-specific guides for implementation details."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它協助在數位產品中整合 Google IMA SDK，以請求並管理串流影片與音訊廣告。",
+        "whenToUse": "在網站、應用程式、電視或其他平台透過 VAST 或 VMAP 實作用戶端廣告請求時使用；不適用於 DAI、SSAI 或 SGAI。",
+        "outputs": "它提供涵蓋 SDK 設定、廣告請求、載入與播放事件及錯誤處理，以及 AdsManager 清理的一般流程，並提供平台專屬指南供實作參考。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它协助在数字产品中集成 Google IMA SDK，以请求并管理串流视频与音频广告。",
+        "whenToUse": "在网站、应用程序、电视或其他平台透过 VAST 或 VMAP 实作用户端广告请求时使用；不适用于 DAI、SSAI 或 SGAI。",
+        "outputs": "它提供涵盖 SDK 设置、广告请求、加载与播放事件及错误处理，以及 AdsManager 清理的一般流程，并提供平台专属指南供实作参考。"
+      }
+    }
+  }
+}

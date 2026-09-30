@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/firebase-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:53857b3810a93538e6b61fc43810b1c7f9abfa4e826f600ca7fe523d6801222d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It prepares Firebase CLI access and project context for app setup.",
+        "whenToUse": "Use it at the start of a Firebase setup workflow when you need to verify CLI readiness, establish project access, or obtain Android or iOS app configuration.",
+        "outputs": "It provides CLI steps for checking the version and login, selecting or creating a project, and retrieving Android or iOS configuration files."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "此技能協助建立應用程式設定所需的 Firebase CLI 使用條件與專案脈絡。",
+        "whenToUse": "在 Firebase 設定流程開始時，若需確認 CLI 可用、建立專案存取權，或取得 Android 或 iOS 應用程式設定，請使用此技能。",
+        "outputs": "它提供檢查 CLI 版本與登入、選擇或建立專案，以及擷取 Android 或 iOS 設定檔的操作步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "此技能协助创建应用程序设置所需的 Firebase CLI 使用条件与项目脉络。",
+        "whenToUse": "在 Firebase 设置流程开始时，若需确认 CLI 可用、创建项目访问权，或取得 Android 或 iOS 应用程序设置，请使用此技能。",
+        "outputs": "它提供检查 CLI 版本与登录、选择或创建项目，以及截取 Android 或 iOS 设置档的操作步骤。"
+      }
+    }
+  }
+}

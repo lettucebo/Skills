@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/workload-manager-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c9f922e19d6797bff20385b69d47914bd54129a28d369d36129df094bf875af9",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/workload-manager-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/workload-manager-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a `version: \"1.0.0\"` field under the skill's metadata in `SKILL.md`."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/workload-manager-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.category` set to `CloudObservabilityAndMonitoring` in `SKILL.md`."
+          },
+          {
+            "sha": "a9462f422a7d56a62d7fe7904a0baca1fb0f8146",
+            "date": "2026-06-12T17:11:35-07:00",
+            "subject": "Add Workload Manager basics skill",
+            "url": "https://github.com/google/skills/commit/a9462f422a7d56a62d7fe7904a0baca1fb0f8146",
+            "pathAtCommit": "skills/cloud/workload-manager-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `SKILL.md` describing Workload Manager basics, including evaluation workflows, API constraints, setup, examples, and references."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/workload-manager-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 `SKILL.md` 的技能 metadata 中新增 `version: \"1.0.0\"` 欄位。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/workload-manager-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 `SKILL.md` 中新增 `metadata.category`，並設為 `CloudObservabilityAndMonitoring`。"
+          },
+          {
+            "sha": "a9462f422a7d56a62d7fe7904a0baca1fb0f8146",
+            "date": "2026-06-12T17:11:35-07:00",
+            "subject": "Add Workload Manager basics skill",
+            "url": "https://github.com/google/skills/commit/a9462f422a7d56a62d7fe7904a0baca1fb0f8146",
+            "pathAtCommit": "skills/cloud/workload-manager-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `SKILL.md`，說明 Workload Manager 基礎知識，包括評估流程、API 限制、設定、範例與參考資料。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/workload-manager-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 `SKILL.md` 的技能 metadata 中添加 `version: \"1.0.0\"` 字段。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/workload-manager-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 `SKILL.md` 中添加 `metadata.category`，并设为 `CloudObservabilityAndMonitoring`。"
+          },
+          {
+            "sha": "a9462f422a7d56a62d7fe7904a0baca1fb0f8146",
+            "date": "2026-06-12T17:11:35-07:00",
+            "subject": "Add Workload Manager basics skill",
+            "url": "https://github.com/google/skills/commit/a9462f422a7d56a62d7fe7904a0baca1fb0f8146",
+            "pathAtCommit": "skills/cloud/workload-manager-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `SKILL.md`，说明 Workload Manager 基础知识，包括评估流程、API 限制、设置、范例与参考资料。"
+          }
+        ]
+      }
+    }
+  }
+}

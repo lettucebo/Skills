@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/cloud/gemini-interactions-api",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8aec817939a3c9b7e11d2e80288b4016721b4c3ce2149b172e80b72060aa5645",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gemini-interactions-api",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.version: \"1.0.0\"` to the skill's YAML frontmatter."
+          },
+          {
+            "sha": "3a1fabc4adc639d140a2120644ab72029ac2a0c1",
+            "date": "2026-07-13T07:17:32-07:00",
+            "subject": "Update the Gemini Interactions API skill: fix function-calling, REST role/type, streaming, GEAP agent targeting, models (gemini-3.5-flash), SDK >= 2.3.0, and the output_text accessor; add a Data Model/Step Types reference. Apply the same REST role->type fix to the gemini-agents-api skill.",
+            "url": "https://github.com/google/skills/commit/3a1fabc4adc639d140a2120644ab72029ac2a0c1",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the SDK and model recommendations and GEAP agent-targeting guidance, revised Python/JavaScript examples for `output_text`, typed streaming events, and flat function-call/result steps, corrected REST step types, and added a data-model and step-types reference."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Restructured the YAML frontmatter to place `category` under `metadata` and inserted spacing around code fences and the REST response example."
+          },
+          {
+            "sha": "6560fd51227b1873c108e3e2b87120979bcc1443",
+            "date": "2026-06-10T07:33:50-07:00",
+            "subject": "Update agent skills for Gemini Interactions API",
+            "url": "https://github.com/google/skills/commit/6560fd51227b1873c108e3e2b87120979bcc1443",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added mandatory guidance to warn users that legacy SDKs are unsupported when discussing client setup or imports and that legacy Gemini models are deprecated and unsupported for Interactions."
+          },
+          {
+            "sha": "60c4e4b1263b278fb7801ef3d46024f63baf02e9",
+            "date": "2026-05-18T08:04:03-07:00",
+            "subject": "Create agent skills for Gemini Interactions API.",
+            "url": "https://github.com/google/skills/commit/60c4e4b1263b278fb7801ef3d46024f63baf02e9",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created the skill document with guidance on SDKs, models, and turn-scoped parameters, plus Python, JavaScript, and REST examples for setup, conversations, streaming, structured output, and function calling."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML 前置資料中新增 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "3a1fabc4adc639d140a2120644ab72029ac2a0c1",
+            "date": "2026-07-13T07:17:32-07:00",
+            "subject": "Update the Gemini Interactions API skill: fix function-calling, REST role/type, streaming, GEAP agent targeting, models (gemini-3.5-flash), SDK >= 2.3.0, and the output_text accessor; add a Data Model/Step Types reference. Apply the same REST role->type fix to the gemini-agents-api skill.",
+            "url": "https://github.com/google/skills/commit/3a1fabc4adc639d140a2120644ab72029ac2a0c1",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 SDK 與模型建議及 GEAP 代理程式指定方式，調整 Python／JavaScript 範例以使用 `output_text`、具型別的串流事件及扁平化函式呼叫／結果步驟，修正 REST 步驟型別，並新增資料模型與步驟型別參考。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整 YAML 前置資料，將 `category` 移至 `metadata` 下，並在程式碼區塊及 REST 回應範例周圍加入空行。"
+          },
+          {
+            "sha": "6560fd51227b1873c108e3e2b87120979bcc1443",
+            "date": "2026-06-10T07:33:50-07:00",
+            "subject": "Update agent skills for Gemini Interactions API",
+            "url": "https://github.com/google/skills/commit/6560fd51227b1873c108e3e2b87120979bcc1443",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增強制指引：討論用戶端設定或匯入方式時，須警告舊版 SDK 不受支援；並須說明舊版 Gemini 模型已棄用且不支援 Interactions。"
+          },
+          {
+            "sha": "60c4e4b1263b278fb7801ef3d46024f63baf02e9",
+            "date": "2026-05-18T08:04:03-07:00",
+            "subject": "Create agent skills for Gemini Interactions API.",
+            "url": "https://github.com/google/skills/commit/60c4e4b1263b278fb7801ef3d46024f63baf02e9",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立技能文件，提供 SDK、模型及每回合作用範圍參數的指引，並加入 Python、JavaScript 與 REST 範例，涵蓋設定、對話、串流、結構化輸出及函式呼叫。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML 前置数据中添加 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "3a1fabc4adc639d140a2120644ab72029ac2a0c1",
+            "date": "2026-07-13T07:17:32-07:00",
+            "subject": "Update the Gemini Interactions API skill: fix function-calling, REST role/type, streaming, GEAP agent targeting, models (gemini-3.5-flash), SDK >= 2.3.0, and the output_text accessor; add a Data Model/Step Types reference. Apply the same REST role->type fix to the gemini-agents-api skill.",
+            "url": "https://github.com/google/skills/commit/3a1fabc4adc639d140a2120644ab72029ac2a0c1",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 SDK 与模型建议及 GEAP 代理程序指定方式，调整 Python／JavaScript 范例以使用 `output_text`、具类型的串流事件及扁平化函数调用／结果步骤，修正 REST 步骤类型，并添加数据模型与步骤类型参考。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整 YAML 前置数据，将 `category` 移至 `metadata` 下，并在代码区块及 REST 回应范例周围加入空行。"
+          },
+          {
+            "sha": "6560fd51227b1873c108e3e2b87120979bcc1443",
+            "date": "2026-06-10T07:33:50-07:00",
+            "subject": "Update agent skills for Gemini Interactions API",
+            "url": "https://github.com/google/skills/commit/6560fd51227b1873c108e3e2b87120979bcc1443",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加强制指引：讨论用户端设置或导入方式时，须警告旧版 SDK 不受支持；并须说明旧版 Gemini 模型已弃用且不支持 Interactions。"
+          },
+          {
+            "sha": "60c4e4b1263b278fb7801ef3d46024f63baf02e9",
+            "date": "2026-05-18T08:04:03-07:00",
+            "subject": "Create agent skills for Gemini Interactions API.",
+            "url": "https://github.com/google/skills/commit/60c4e4b1263b278fb7801ef3d46024f63baf02e9",
+            "pathAtCommit": "skills/cloud/gemini-interactions-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建技能文档，提供 SDK、模型及每回合作用范围参数的指引，并加入 Python、JavaScript 与 REST 范例，涵盖设置、对话、串流、结构化输出及函数调用。"
+          }
+        ]
+      }
+    }
+  }
+}

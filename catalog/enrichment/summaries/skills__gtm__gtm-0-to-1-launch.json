@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps teams turn a new product or feature launch into a repeatable path to first customers by diagnosing weak traction, prioritizing direct outreach, and running fast experiments.",
-        "whenToUse": "Use it when you are launching something new, trying to win the first 10-50 customers, choosing between press and outreach, or figuring out why awareness is not becoming activation or conversion.",
-        "outputs": "Delivers a launch diagnosis, early-customer acquisition approaches, a 2-week experimentation playbook, partner-entry guidance, and product-market-fit checkpoints."
+        "purpose": "Helps teams turn early product launches into customer learning by finding first users, testing value quickly, and addressing the real causes of stalled adoption.",
+        "whenToUse": "Use it when early traction is uncertain and you need to determine whether positioning, onboarding, or team priorities are blocking customer progress.",
+        "outputs": "It provides a focused launch approach with target-customer acquisition guidance, a three-layer stall diagnosis, measurable two-week experiments, partner-led market-entry steps, and product-market-fit signals."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助團隊把新產品或新功能的上市，轉成能找到首批客戶的可重複路徑，包含診斷早期成長停滯、優先直接觸達，並快速迭代實驗。",
-        "whenToUse": "當你要推出新產品或像新產品一樣的重要功能、爭取前 10 到 50 位客戶、在媒體曝光與直接開發之間做選擇，或釐清為何有聲量卻沒有啟用與轉換時適用。",
-        "outputs": "產出包含上市停滯診斷、首批客戶取得方法、兩週實驗節奏、夥伴導入建議，以及產品市場契合度檢核重點的精簡指引。"
+        "purpose": "協助團隊透過尋找首批客戶、快速驗證產品價值並解決採用停滯的根本原因，將新產品上市過程轉化為持續的客戶學習。",
+        "whenToUse": "當早期成效不明朗，且需要判斷定位、導入體驗或團隊優先順序是否阻礙客戶進展時，可使用此指引。",
+        "outputs": "提供聚焦的上市方案，包括目標客戶開發建議、三層停滯診斷、可衡量的兩週實驗、合作夥伴市場拓展步驟，以及產品市場契合度訊號。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助团队把新产品或新功能的上市，转成能找到首批客户的可重复路径，包含诊断早期成长停滞、优先直接触达，并快速迭代实验。",
-        "whenToUse": "当你要推出新产品或像新产品一样的重要功能、争取前 10 到 50 位客户、在媒体曝光与直接开发之间做选择，或厘清为何有声量却没有激活与转换时适用。",
-        "outputs": "产出包含上市停滞诊断、首批客户取得方法、两周实验节奏、伙伴导入建议，以及产品市场契合度检核重点的精简指引。"
+        "purpose": "协助团队透过寻找首批客户、快速验证产品价值并解决采用停滞的根本原因，将新产品上市过程转化为持续的客户学习。",
+        "whenToUse": "当早期成效不明朗，且需要判断定位、导入体验或团队优先级是否阻碍客户进展时，可使用此指引。",
+        "outputs": "提供聚焦的上市方案，包括目标客户开发建议、三层停滞诊断、可衡量的两周实验、合作伙伴市场拓展步骤，以及产品市场契合度信号。"
       }
     }
   }

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0e88cfbb57e00067310fb993ec9fbb6f41145bf8d1eef764f8d4fc1b130431f0"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps interpret TPU slice conditions, identify provisioning problems, verify workload configuration, and guide safe cleanup or controller changes.",
+        "whenToUse": "Use it when a reported slice state needs explanation, placement requirements need checking, or a deletion or controller change carries operational risk.",
+        "outputs": "Provides a condition-based diagnosis, targeted checks for nodes, topology, reservations, and workload settings, and explicit risk and confirmation guidance for high-risk cleanup."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助解讀 TPU 切片狀態、找出佈建問題、驗證工作負載設定，並引導安全的清理或控制器變更。",
+        "whenToUse": "當切片回報狀態需要釐清、需要檢查工作負載配置要求，或刪除及控制器變更涉及作業風險時使用。",
+        "outputs": "提供依狀態條件整理的診斷、節點、拓撲、預留資源與工作負載設定的針對性檢查，以及高風險清理的明確風險與確認指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助解读 TPU 切片状态、找出布建问题、验证工作负载设置，并引导安全的清理或控制器变更。",
+        "whenToUse": "当切片回报状态需要厘清、需要检查工作负载配置要求，或删除及控制器变更涉及作业风险时使用。",
+        "outputs": "提供依状态条件整理的诊断、节点、拓扑、预留资源与工作负载设置的针对性检查，以及高风险清理的明确风险与确认指引。"
+      }
+    }
+  }
+}

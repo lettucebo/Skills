@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/iam-helper-for-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:acbb8a07ec5e1df12ff0e189c90836843f90c6476eee522ed40697bfa5b69887"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps diagnose Google Cloud IAM access denials and guide an appropriate requester or administrator resolution path.",
+        "whenToUse": "Use it when a Google Cloud user or workload is blocked from an operation by an access denial, or an escalated permission issue needs investigation.",
+        "outputs": "It provides diagnosis results and, as appropriate, self-service remediation guidance or escalation details, policy analysis, least-privilege role candidates, and PAM/IAM access provisioning."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助診斷 Google Cloud IAM 存取遭拒問題，並引導請求者或管理員採取合適的處理方式。",
+        "whenToUse": "當 Google Cloud 使用者或工作負載因存取遭拒而無法執行操作，或需要調查升級處理的權限問題時使用。",
+        "outputs": "會提供診斷結果，並視情況給出自助修復指引或升級案件資訊、政策分析、最小權限角色候選方案，以及 PAM/IAM 存取佈建。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助诊断 Google Cloud IAM 访问遭拒问题，并引导请求者或管理员采取合适的处理方式。",
+        "whenToUse": "当 Google Cloud 用户或工作负载因访问遭拒而无法运行操作，或需要调查升级处理的权限问题时使用。",
+        "outputs": "会提供诊断结果，并视情况给出自助修复指引或升级案件信息、政策分析、最小权限角色候选方案，以及 PAM/IAM 访问布建。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-upgrade",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9794c04c24d4105ebbb9b591f2df38a7696bb6c1539ce18a4d2574650483f426"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Organizes Expo SDK migrations around version-specific breaking changes, package replacements, and native-workflow differences.",
+        "whenToUse": "Use it when planning an SDK transition or investigating compatibility issues, especially when deprecations or native changes are involved.",
+        "outputs": "Step-by-step guidance for dependency updates, diagnostics, migration checks, and applicable native-project maintenance."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "依據各 SDK 版本的重大變更、套件替代方案與原生工作流程差異，整理 Expo SDK 遷移方式。",
+        "whenToUse": "規劃 SDK 遷移或排查相容性問題時使用，尤其是涉及套件棄用或原生變更的情況。",
+        "outputs": "提供逐步指引，涵蓋相依套件更新、診斷、遷移檢查，以及適用時的原生專案維護。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "依据各 SDK 版本的重大变更、套件替代方案与原生工作流程差异，整理 Expo SDK 迁移方式。",
+        "whenToUse": "规划 SDK 迁移或排查兼容性问题时使用，尤其是涉及套件弃用或原生变更的情况。",
+        "outputs": "提供逐步指引，涵盖相依套件更新、诊断、迁移检查，以及适用时的原生项目维护。"
+      }
+    }
+  }
+}

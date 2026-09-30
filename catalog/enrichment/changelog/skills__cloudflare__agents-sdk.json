@@ -2,21 +2,66 @@
   "path": "skills/cloudflare/agents-sdk",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:5a5fabaeca0c1abbbd9c6dcf9bc87116551b33ff02e98e66af127fa453c09b92",
+    "contentHash": "sha256:2338cd234ff946eeb95ebdabaf12fb5acd8b46c99dd8aed1d588aa7719c2d9e9",
     "repository": "cloudflare/skills",
     "reference": "refs/heads/main",
     "source": "skills/agents-sdk",
-    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+    "pinnedCommit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "2a3a0279815154211832d7bd3c80680d446481f4",
+            "date": "2026-09-05T12:05:03-07:00",
+            "subject": "Route Agents chat and client guidance to current docs",
+            "url": "https://github.com/cloudflare/skills/commit/2a3a0279815154211832d7bd3c80680d446481f4",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now links chat-agent, client SDK, and human-in-the-loop topics to updated documentation URLs and replaces its inline React example with reference links."
+          },
+          {
+            "sha": "e212edab57090b88ddef7a84fcae564ecaa2bb6b",
+            "date": "2026-09-05T11:53:03-07:00",
+            "subject": "Route MCP implementation details to developer documentation",
+            "url": "https://github.com/cloudflare/skills/commit/e212edab57090b88ddef7a84fcae564ecaa2bb6b",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The MCP client documentation link now points to the model-context-protocol client API page."
+          },
+          {
+            "sha": "464b12699bfc2e76c03058f9045d1b795dc31a84",
+            "date": "2026-09-05T11:46:19-07:00",
+            "subject": "Use SDK v2 handlers for new MCP servers",
+            "url": "https://github.com/cloudflare/skills/commit/464b12699bfc2e76c03058f9045d1b795dc31a84",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "MCP server guidance now points to the handler API and recommends `createMcpHandler` instead of `McpAgent`."
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description is narrowed to building, debugging, or reviewing Cloudflare Agents SDK applications that use the `agents` package."
+          },
+          {
+            "sha": "ba329cacbb50fa35df952bcc8d4129705c0f4540",
+            "date": "2026-06-27T10:54:20+09:00",
+            "subject": "fix(agents-sdk): update dead links to match restructured Cloudflare docs",
+            "url": "https://github.com/cloudflare/skills/commit/ba329cacbb50fa35df952bcc8d4129705c0f4540",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The reference table updates documentation links for client tools, autonomous responses, resumable streaming, MCP, webhook/auth topics, and AI SDK migration guides."
+          },
           {
             "sha": "e96fbc77bcedab03c5f00378103d6453ca8dafc0",
             "date": "2026-04-15T08:46:50+01:00",
@@ -24,7 +69,7 @@
             "url": "https://github.com/cloudflare/skills/commit/e96fbc77bcedab03c5f00378103d6453ca8dafc0",
             "pathAtCommit": "skills/agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the agents-sdk skill with current Cloudflare docs links, added chat setup and Wrangler gotchas, and documented more APIs including durable execution, queues, retries, voice, and browser tools."
+            "summary": "The skill replaces older quick-reference material with current Cloudflare documentation links and expanded setup, API, routing, workflow, and capability guidance."
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -33,7 +78,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added retrieval-first guidance to the agents-sdk skill description and retrieval section heading."
+            "summary": "The skill description and opening guidance now emphasize retrieving current Cloudflare documentation over relying on pretrained knowledge."
           },
           {
             "sha": "d141c2f9a1583c8b3626cf7b4205db3e2daf1e9e",
@@ -42,7 +87,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d141c2f9a1583c8b3626cf7b4205db3e2daf1e9e",
             "pathAtCommit": "skills/agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Reworked the agents-sdk skill to emphasize Cloudflare docs retrieval and added updated setup, capability, and reference guidance."
+            "summary": "The skill is rewritten with a Cloudflare documentation retrieval table, expanded setup and capability guidance, and Agent, routing, core API, and React client sections."
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -56,7 +101,7 @@
               "sourcePath": "agents-sdk/SKILL.md",
               "destinationPath": "skills/agents-sdk/SKILL.md"
             },
-            "summary": "Moved the agents-sdk skill file into skills/agents-sdk without changing its contents."
+            "summary": "The skill file is moved from `agents-sdk/SKILL.md` to `skills/agents-sdk/SKILL.md` without content changes."
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -65,19 +110,64 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial agents-sdk skill file with setup, API, chat agent, and reference guidance."
+            "summary": "The initial Agents SDK skill is added with installation and Wrangler setup instructions, Agent and chat examples, API references, and Code Mode guidance."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "2a3a0279815154211832d7bd3c80680d446481f4",
+            "date": "2026-09-05T12:05:03-07:00",
+            "subject": "Route Agents chat and client guidance to current docs",
+            "url": "https://github.com/cloudflare/skills/commit/2a3a0279815154211832d7bd3c80680d446481f4",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現將聊天代理、用戶端 SDK 與人機介入主題連結至更新後的文件網址，並以參考連結取代內嵌的 React 範例。"
+          },
+          {
+            "sha": "e212edab57090b88ddef7a84fcae564ecaa2bb6b",
+            "date": "2026-09-05T11:53:03-07:00",
+            "subject": "Route MCP implementation details to developer documentation",
+            "url": "https://github.com/cloudflare/skills/commit/e212edab57090b88ddef7a84fcae564ecaa2bb6b",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "MCP 用戶端文件連結現在指向 model-context-protocol 的用戶端 API 頁面。"
+          },
+          {
+            "sha": "464b12699bfc2e76c03058f9045d1b795dc31a84",
+            "date": "2026-09-05T11:46:19-07:00",
+            "subject": "Use SDK v2 handlers for new MCP servers",
+            "url": "https://github.com/cloudflare/skills/commit/464b12699bfc2e76c03058f9045d1b795dc31a84",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "MCP 伺服器指南現在指向 handler API，並改為建議使用 `createMcpHandler` 而非 `McpAgent`。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的描述縮限為使用 `agents` 套件建置、偵錯或審查 Cloudflare Agents SDK 應用程式。"
+          },
+          {
+            "sha": "ba329cacbb50fa35df952bcc8d4129705c0f4540",
+            "date": "2026-06-27T10:54:20+09:00",
+            "subject": "fix(agents-sdk): update dead links to match restructured Cloudflare docs",
+            "url": "https://github.com/cloudflare/skills/commit/ba329cacbb50fa35df952bcc8d4129705c0f4540",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "參考表更新了用戶端工具、自主回應、可恢復串流、MCP、webhook／驗證主題及 AI SDK 遷移指南的文件連結。"
+          },
           {
             "sha": "e96fbc77bcedab03c5f00378103d6453ca8dafc0",
             "date": "2026-04-15T08:46:50+01:00",
@@ -85,7 +175,7 @@
             "url": "https://github.com/cloudflare/skills/commit/e96fbc77bcedab03c5f00378103d6453ca8dafc0",
             "pathAtCommit": "skills/agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "擴充了 agents-sdk 技能，加入最新的 Cloudflare 文件連結、聊天設定與 Wrangler 注意事項，並補充 durable execution、佇列、重試、語音與瀏覽器工具等 API 說明。"
+            "summary": "此技能以目前的 Cloudflare 文件連結及擴充的設定、API、路由、工作流程與功能指南，取代舊有的快速參考資料。"
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -94,7 +184,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在 agents-sdk 技能的描述與檢索章節標題中加入了優先檢索的指引。"
+            "summary": "此技能的描述與開場指南現在強調檢索 Cloudflare 最新文件，而非依賴預訓練知識。"
           },
           {
             "sha": "d141c2f9a1583c8b3626cf7b4205db3e2daf1e9e",
@@ -103,7 +193,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d141c2f9a1583c8b3626cf7b4205db3e2daf1e9e",
             "pathAtCommit": "skills/agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "重新整理了 agents-sdk 技能，強調從 Cloudflare 文件進行檢索，並加入更新後的設定、能力與參考指引。"
+            "summary": "此技能經過重寫，加入 Cloudflare 文件檢索表、擴充的設定與功能指南，以及 Agent、路由、核心 API 和 React 用戶端章節。"
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -117,7 +207,7 @@
               "sourcePath": "agents-sdk/SKILL.md",
               "destinationPath": "skills/agents-sdk/SKILL.md"
             },
-            "summary": "將 agents-sdk 技能檔案移至 skills/agents-sdk，內容未變更。"
+            "summary": "技能檔案從 `agents-sdk/SKILL.md` 移至 `skills/agents-sdk/SKILL.md`，內容未變。"
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -126,26 +216,71 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了初始的 agents-sdk 技能檔案，包含設定、API、聊天代理與參考指引。"
+            "summary": "新增初版 Agents SDK 技能，包含安裝與 Wrangler 設定指示、Agent 與聊天範例、API 參考資料及 Code Mode 指南。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
         "commits": [
           {
+            "sha": "2a3a0279815154211832d7bd3c80680d446481f4",
+            "date": "2026-09-05T12:05:03-07:00",
+            "subject": "Route Agents chat and client guidance to current docs",
+            "url": "https://github.com/cloudflare/skills/commit/2a3a0279815154211832d7bd3c80680d446481f4",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现将聊天代理、用户端 SDK 与人机介入主题链接至更新后的文档网址，并以参考链接取代内嵌的 React 范例。"
+          },
+          {
+            "sha": "e212edab57090b88ddef7a84fcae564ecaa2bb6b",
+            "date": "2026-09-05T11:53:03-07:00",
+            "subject": "Route MCP implementation details to developer documentation",
+            "url": "https://github.com/cloudflare/skills/commit/e212edab57090b88ddef7a84fcae564ecaa2bb6b",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "MCP 用户端文档链接现在指向 model-context-protocol 的用户端 API 页面。"
+          },
+          {
+            "sha": "464b12699bfc2e76c03058f9045d1b795dc31a84",
+            "date": "2026-09-05T11:46:19-07:00",
+            "subject": "Use SDK v2 handlers for new MCP servers",
+            "url": "https://github.com/cloudflare/skills/commit/464b12699bfc2e76c03058f9045d1b795dc31a84",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "MCP 服务器指南现在指向 handler API，并改为建议使用 `createMcpHandler` 而非 `McpAgent`。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的描述缩限为使用 `agents` 套件建置、调试或审查 Cloudflare Agents SDK 应用程序。"
+          },
+          {
+            "sha": "ba329cacbb50fa35df952bcc8d4129705c0f4540",
+            "date": "2026-06-27T10:54:20+09:00",
+            "subject": "fix(agents-sdk): update dead links to match restructured Cloudflare docs",
+            "url": "https://github.com/cloudflare/skills/commit/ba329cacbb50fa35df952bcc8d4129705c0f4540",
+            "pathAtCommit": "skills/agents-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "参考表更新了用户端工具、自主回应、可恢复串流、MCP、webhook／验证主题及 AI SDK 迁移指南的文档链接。"
+          },
+          {
             "sha": "e96fbc77bcedab03c5f00378103d6453ca8dafc0",
             "date": "2026-04-15T08:46:50+01:00",
             "subject": "Revamp Agents SDK docs and command guidance",
             "url": "https://github.com/cloudflare/skills/commit/e96fbc77bcedab03c5f00378103d6453ca8dafc0",
             "pathAtCommit": "skills/agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "扩充了 agents-sdk 技能，加入最新的 Cloudflare 文档链接、聊天设置与 Wrangler 注意事项，并补充 durable execution、队列、重试、语音与浏览器工具等 API 说明。"
+            "summary": "此技能以目前的 Cloudflare 文档链接及扩充的设置、API、路由、工作流程与功能指南，取代旧有的快速参考资料。"
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -154,7 +289,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在 agents-sdk 技能的描述与检索章节标题中加入了优先检索的指引。"
+            "summary": "此技能的描述与开场指南现在强调检索 Cloudflare 最新文档，而非依赖预训练知识。"
           },
           {
             "sha": "d141c2f9a1583c8b3626cf7b4205db3e2daf1e9e",
@@ -163,7 +298,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d141c2f9a1583c8b3626cf7b4205db3e2daf1e9e",
             "pathAtCommit": "skills/agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "刷新了 agents-sdk 技能，强调从 Cloudflare 文档进行检索，并加入更新后的设置、能力与参考指引。"
+            "summary": "此技能经过重写，加入 Cloudflare 文档检索表、扩充的设置与功能指南，以及 Agent、路由、内核 API 和 React 用户端章节。"
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -177,7 +312,7 @@
               "sourcePath": "agents-sdk/SKILL.md",
               "destinationPath": "skills/agents-sdk/SKILL.md"
             },
-            "summary": "将 agents-sdk 技能文件移至 skills/agents-sdk，内容未变更。"
+            "summary": "技能文件从 `agents-sdk/SKILL.md` 移至 `skills/agents-sdk/SKILL.md`，内容未变。"
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -186,7 +321,7 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "agents-sdk/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了初始的 agents-sdk 技能文件，包含设置、API、聊天代理与参考指引。"
+            "summary": "添加初版 Agents SDK 技能，包含安装与 Wrangler 设置指示、Agent 与聊天范例、API 参考资料及 Code Mode 指南。"
           }
         ]
       }

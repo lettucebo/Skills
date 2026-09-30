@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/71c55d4e12cf0f05d473bd7b5fb3943f3e1ed112",
             "pathAtCommit": "skills/dependabot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The dependabot skill now lists `uv` as its own ecosystem with `uv.lock` support and says to prefer `uv` when `uv.lock` is present."
+            "summary": "Adds `uv` as a separate Dependabot ecosystem for `pyproject.toml` and `uv.lock`, preferring it when `uv.lock` exists and otherwise using `pip`."
           },
           {
             "sha": "cffceae26ce9dcede24b81485a17f2ea06553d6d",
@@ -33,7 +33,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/cffceae26ce9dcede24b81485a17f2ea06553d6d",
             "pathAtCommit": "skills/dependabot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The dependabot skill added guidance for pre-commit dependency vulnerability scanning via AI coding agents, including setup steps for the Advanced Security plugin and Dependabot toolset."
+            "summary": "Adds instructions for pre-commit dependency vulnerability scanning in AI coding agents using the GitHub MCP Server and Advanced Security plugin, including setup steps and an example prompt."
           },
           {
             "sha": "f601edcc8725f914d8b50041eadb1312dc39f232",
@@ -42,15 +42,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/f601edcc8725f914d8b50041eadb1312dc39f232",
             "pathAtCommit": "skills/dependabot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The dependabot skill was added with a comprehensive guide to configuring and managing Dependabot, including ecosystems, grouping, scheduling, and security updates."
+            "summary": "Creates the Dependabot skill with guidance on configuration and management, including ecosystem detection, monorepos, update grouping, scheduling, security updates, PR customization, and FAQs."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -62,7 +62,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/71c55d4e12cf0f05d473bd7b5fb3943f3e1ed112",
             "pathAtCommit": "skills/dependabot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "dependabot 技能現在將 `uv` 列為獨立生態系，支援 `uv.lock`，並說明在存在 `uv.lock` 時應優先使用 `uv`。"
+            "summary": "新增獨立的 `uv` Dependabot 生態系，對應 `pyproject.toml` 和 `uv.lock`；有 `uv.lock` 時優先使用 `uv`，否則使用 `pip`。"
           },
           {
             "sha": "cffceae26ce9dcede24b81485a17f2ea06553d6d",
@@ -71,7 +71,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/cffceae26ce9dcede24b81485a17f2ea06553d6d",
             "pathAtCommit": "skills/dependabot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "dependabot 技能新增了 AI 編碼代理在提交前進行相依性弱點掃描的指引，包括 Advanced Security 外掛與 Dependabot 工具集的設定步驟。"
+            "summary": "新增在 AI 程式設計代理中透過 GitHub MCP Server 與 Advanced Security 外掛進行提交前依賴漏洞掃描的指引，並提供設定步驟和範例提示。"
           },
           {
             "sha": "f601edcc8725f914d8b50041eadb1312dc39f232",
@@ -80,13 +80,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/f601edcc8725f914d8b50041eadb1312dc39f232",
             "pathAtCommit": "skills/dependabot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "已新增 dependabot 技能，提供設定與管理 Dependabot 的完整指南，涵蓋生態系、分組、排程與安全性更新。"
+            "summary": "新增 Dependabot 技能，提供設定與管理指引，涵蓋生態系偵測、單一儲存庫、更新分組、排程、安全性更新、PR 自訂及常見問題。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -99,7 +99,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/71c55d4e12cf0f05d473bd7b5fb3943f3e1ed112",
             "pathAtCommit": "skills/dependabot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "dependabot 技能现在将 `uv` 列为独立生态系，支持 `uv.lock`，并说明在存在 `uv.lock` 时应优先使用 `uv`。"
+            "summary": "添加独立的 `uv` Dependabot 生态系，对应 `pyproject.toml` 和 `uv.lock`；有 `uv.lock` 时优先使用 `uv`，否则使用 `pip`。"
           },
           {
             "sha": "cffceae26ce9dcede24b81485a17f2ea06553d6d",
@@ -108,7 +108,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/cffceae26ce9dcede24b81485a17f2ea06553d6d",
             "pathAtCommit": "skills/dependabot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "dependabot 技能添加了 AI 编码代理在提交前进行相依性弱点扫描的指引，包括 Advanced Security 插件与 Dependabot 工具集的设置步骤。"
+            "summary": "添加在 AI 编程代理中透过 GitHub MCP Server 与 Advanced Security 插件进行提交前依赖漏洞扫描的指引，并提供设置步骤和范例提示。"
           },
           {
             "sha": "f601edcc8725f914d8b50041eadb1312dc39f232",
@@ -117,7 +117,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/f601edcc8725f914d8b50041eadb1312dc39f232",
             "pathAtCommit": "skills/dependabot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "已添加 dependabot 技能，提供设置与管理 Dependabot 的完整指南，涵盖生态系、分组、调度与安全性更新。"
+            "summary": "添加 Dependabot 技能，提供设置与管理指引，涵盖生态系侦测、单一保存库、更新分组、调度、安全性更新、PR 自订及常见问题。"
           }
         ]
       }

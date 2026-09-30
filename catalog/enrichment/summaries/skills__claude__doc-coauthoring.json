@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps a user turn rough context into a well-structured document through guided drafting, revision, and reader-oriented review.",
-        "whenToUse": "Use this when someone needs help creating or refining substantial documentation such as a proposal, spec, decision record, or similar write-up.",
-        "outputs": "Produces a document outline or draft, revised section content, and feedback from checks aimed at improving clarity for readers."
+        "purpose": "It guides collaborative document creation through context gathering, section-by-section refinement, and reader testing.",
+        "whenToUse": "Use it for substantial documentation work when you want to clarify context, shape the document iteratively, and check whether it works for readers.",
+        "outputs": "It yields a structured document draft, iterative revisions, and a final review, with reader-testing findings or instructions depending on available tools."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "它協助使用者把零散背景整理成結構清楚的文件，並透過引導式起草、修訂與讀者導向檢查持續完善內容。",
-        "whenToUse": "當有人需要撰寫或修改較完整的文件，例如提案、規格、決策文件或類似說明時，就適合使用。",
-        "outputs": "它會產出文件大綱或草稿、修訂後的各段內容，以及用來提升讀者理解度的檢查回饋。"
+        "purpose": "此技能透過蒐集背景、逐節修訂與讀者測試，引導使用者協作撰寫文件。",
+        "whenToUse": "撰寫較完整的文件，且需要釐清背景、逐步修訂內容並檢查讀者是否容易理解時，適合使用此流程。",
+        "outputs": "產出包含逐節修訂內容的文件草稿與整體檢視，並依可用工具提供讀者測試結果或測試指引。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "它协助用户把零散背景整理成结构清楚的文档，并透过引导式起草、修订与读者导向检查持续完善内容。",
-        "whenToUse": "当有人需要撰写或修改较完整的文档，例如提案、规格、决策文档或类似说明时，就适合使用。",
-        "outputs": "它会产出文档大纲或草稿、修订后的各段内容，以及用来提升读者理解度的检查回馈。"
+        "purpose": "此技能透过搜集背景、逐节修订与读者测试，引导用户协作撰写文档。",
+        "whenToUse": "撰写较完整的文档，且需要厘清背景、逐步修订内容并检查读者是否容易理解时，适合使用此流程。",
+        "outputs": "产出包含逐节修订内容的文档草稿与整体查看，并依可用工具提供读者测试结果或测试指引。"
       }
     }
   }

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides a practical framework for authoring and maintaining AI agent skills, especially around Azure SDK and Microsoft Foundry workflows.",
-        "whenToUse": "Use this when you need to create or revise a skill and want guidance on structure, documentation checks, validation, testing, and categorization, particularly for Azure SDK work.",
-        "outputs": "It yields a well-structured skill package centered on SKILL.md, with any needed reference files, test scenarios, and catalog or link updates."
+        "purpose": "Provides a practical framework for designing, testing, and maintaining concise agent skills, including conventions for Azure SDK guidance.",
+        "whenToUse": "Consult it when shaping a skill's structure, deciding what to keep in references, documenting Azure SDK workflows, or checking coverage and tests.",
+        "outputs": "The workflow produces a focused SKILL.md, supporting references or resources as needed, acceptance criteria and test scenarios, and updated skill-catalog documentation."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供一套實用框架，用於撰寫與維護 AI 代理技能，特別聚焦 Azure SDK 與 Microsoft Foundry 工作流程。",
-        "whenToUse": "當你要建立或更新技能，並需要關於結構、文件查核、驗證、測試與分類方式的指引時，尤其適用於 Azure SDK 工作。",
-        "outputs": "它會產出以 SKILL.md 為核心的結構化技能套件，並視需要包含參考文件、測試情境與目錄或連結更新。"
+        "purpose": "提供設計、測試與維護精簡代理技能的實用架構，並涵蓋 Azure SDK 指引的慣例。",
+        "whenToUse": "在規劃技能結構、決定哪些內容應放入參考資料、撰寫 Azure SDK 工作流程，或檢查涵蓋範圍與測試時，可參考本指引。",
+        "outputs": "此流程會產出精簡的 SKILL.md、視需要提供的參考資料或資源、驗收條件與測試情境，以及更新後的技能目錄文件。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供一套实用框架，用于撰写与维护 AI 代理技能，特别聚焦 Azure SDK 与 Microsoft Foundry 工作流程。",
-        "whenToUse": "当你要创建或更新技能，并需要关于结构、文档查核、验证、测试与分类方式的指引时，尤其适用于 Azure SDK 工作。",
-        "outputs": "它会产出以 SKILL.md 为内核的结构化技能套件，并视需要包含参考文档、测试情境与目录或链接更新。"
+        "purpose": "提供设计、测试与维护精简代理技能的实用架构，并涵盖 Azure SDK 指引的惯例。",
+        "whenToUse": "在规划技能结构、决定哪些内容应放入参考资料、撰写 Azure SDK 工作流程，或检查涵盖范围与测试时，可参考本指引。",
+        "outputs": "此流程会产出精简的 SKILL.md、视需要提供的参考资料或资源、验收条件与测试情境，以及更新后的技能目录文档。"
       }
     }
   }

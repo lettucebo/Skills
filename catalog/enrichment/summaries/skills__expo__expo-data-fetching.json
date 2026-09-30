@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-data-fetching",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:43b9e30947482dbacb34c798ffc7b48d4170e650b15612fd69357e1f1d106703"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps build reliable, data-driven Expo features with robust request handling, clear interface states, and secure configuration.",
+        "whenToUse": "Use it when planning how data-backed screens handle initial loading, refreshes, failures, empty results, or save retries, and when configuring credentials or API settings.",
+        "outputs": "It provides fetch and query examples, screen and mutation-state patterns, and guidance on retries, offline support, cancellation, secure token storage, and environment variables."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助打造可靠的 Expo 資料驅動功能，兼顧穩健的請求處理、清楚的介面狀態與安全設定。",
+        "whenToUse": "在規劃資料畫面如何處理初次載入、重新整理、錯誤、空結果或儲存重試，或設定認證資訊與 API 組態時使用。",
+        "outputs": "提供 fetch 與查詢範例、畫面與資料變更狀態模式，以及重試、離線支援、取消請求、安全權杖儲存和環境變數的指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助打造可靠的 Expo 数据驱动功能，兼顾稳健的请求处理、清楚的界面状态与安全设置。",
+        "whenToUse": "在规划数据画面如何处理初次加载、刷新、错误、空结果或保存重试，或设置认证信息与 API 组态时使用。",
+        "outputs": "提供 fetch 与查找范例、画面与数据变更状态模式，以及重试、脱机支持、取消请求、安全权杖保存和环境变量的指引。"
+      }
+    }
+  }
+}

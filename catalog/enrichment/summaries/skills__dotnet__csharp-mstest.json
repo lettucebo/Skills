@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Summarizes current MSTest guidance for structuring, asserting, and organizing unit tests in modern .NET projects.",
-        "whenToUse": "Use this when you need help writing or reviewing MSTest 3.x or 4.x tests, including setup, lifecycle, assertions, and data-driven cases.",
-        "outputs": "Provides practical recommendations and examples for test setup, modern assertions, TestContext usage, advanced test attributes, and common mistakes to avoid."
+        "purpose": "Provides practical guidance for structuring MSTest 3.x/4.x unit tests, using current assertions, lifecycle hooks, and data-driven testing features.",
+        "whenToUse": "Use it when creating or improving C# unit tests that need guidance on MSTest setup, assertions, test data, TestContext, isolation, or execution.",
+        "outputs": "Offers MSTest patterns and examples for project setup, test organization and lifecycle, assertions, parameterized data, TestContext, and advanced features."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "彙整現代 .NET 專案中使用 MSTest 進行單元測試的結構、斷言與組織方式的最新指引。",
-        "whenToUse": "當你需要撰寫或審查 MSTest 3.x 或 4.x 測試，並涵蓋設定、生命週期、斷言與資料驅動案例時，可使用這份內容。",
-        "outputs": "提供測試設定、現代斷言、TestContext 用法、進階測試屬性與常見錯誤避坑的實用建議與範例。"
+        "purpose": "提供 MSTest 3.x/4.x 單元測試的實用指引，涵蓋測試結構、現代斷言、生命週期與資料驅動測試。",
+        "whenToUse": "在建立或改進 C# 單元測試，且需要 MSTest 設定、斷言、測試資料、TestContext、隔離或執行方式的指引時使用。",
+        "outputs": "提供專案設定、測試組織與生命週期、斷言、參數化資料、TestContext 和進階功能的 MSTest 範例與模式。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "汇整现代 .NET 项目中使用 MSTest 进行单元测试的结构、断言与组织方式的最新指引。",
-        "whenToUse": "当你需要撰写或审查 MSTest 3.x 或 4.x 测试，并涵盖设置、生命周期、断言与数据驱动案例时，可使用这份内容。",
-        "outputs": "提供测试设置、现代断言、TestContext 用法、高级测试属性与常见错误避坑的实用建议与范例。"
+        "purpose": "提供 MSTest 3.x/4.x 单元测试的实用指引，涵盖测试结构、现代断言、生命周期与数据驱动测试。",
+        "whenToUse": "在创建或改进 C# 单元测试，且需要 MSTest 设置、断言、测试数据、TestContext、隔离或运行方式的指引时使用。",
+        "outputs": "提供项目设置、测试组织与生命周期、断言、参数化数据、TestContext 和高级功能的 MSTest 范例与模式。"
       }
     }
   }

@@ -2,42 +2,42 @@
   "path": "skills/cloudflare/workers-best-practices",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:68eb3d7762fc723d835a5d383abaf863ba7c7acfe680e925398f5f14f0740a5e"
+    "contentHash": "sha256:5ea906efdbc430bb0d26b1f1dde3a975335246be2a7d550222dad347e48745f2"
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides production-oriented best-practice guidance for writing and reviewing Cloudflare Workers code and configuration.",
-        "whenToUse": "Use it when creating or reviewing a Worker, editing Wrangler JSONC configuration, or checking for common issues with streaming, promises, global state, secrets, bindings, and observability.",
-        "outputs": "It delivers Workers-focused review and implementation guidance covering types, configuration, code patterns, security, and references to relevant rules or documentation."
+        "purpose": "Guides production-oriented Worker development toward current platform contracts, secure runtime patterns, reliable observability, and configuration-aware validation.",
+        "whenToUse": "Consult it when checking bindings or handler types, compatibility settings, request and background-work lifetimes, security-sensitive code, or Worker-specific tests.",
+        "outputs": "It offers reference paths, concrete anti-pattern corrections, production configuration guidance, and checks appropriate to the affected behavior."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供以正式環境為導向的最佳實務指引，用於撰寫與審查 Cloudflare Workers 程式碼及設定。",
-        "whenToUse": "當你要建立或審查 Worker、編輯 Wrangler JSONC 設定，或檢查串流、Promise、全域狀態、密鑰、繫結與可觀測性等常見問題時使用。",
-        "outputs": "它會提供以 Workers 為核心的審查與實作指引，涵蓋型別、設定、程式碼模式、安全性，以及相關規則或文件的參考。"
+        "purpose": "提供以正式環境為導向的 Workers 開發指引，涵蓋符合目前平台契約的做法、安全的執行階段模式、可靠的可觀測性，以及考量設定的驗證。",
+        "whenToUse": "在檢查繫結或處理常式型別、相容性設定、請求與背景工作的生命週期、安全敏感程式碼，或 Workers 專屬測試時參考此指引。",
+        "outputs": "提供參考文件路徑、具體反模式與修正方式、正式環境設定建議，以及依受影響行為選擇的檢查項目。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供以正式环境为导向的最佳实务指引，用于撰写与审查 Cloudflare Workers 代码及设置。",
-        "whenToUse": "当你要创建或审查 Worker、编辑 Wrangler JSONC 设置，或检查串流、Promise、全域状态、密钥、绑定与可观测性等常见问题时使用。",
-        "outputs": "它会提供以 Workers 为内核的审查与实作指引，涵盖类型、设置、代码模式、安全性，以及相关规则或文档的参考。"
+        "purpose": "提供以正式环境为导向的 Workers 开发指引，涵盖符合目前平台契约的做法、安全的运行阶段模式、可靠的可观测性，以及考量设置的验证。",
+        "whenToUse": "在检查绑定或处理常式类型、兼容性设置、请求与背景工作的生命周期、安全敏感代码，或 Workers 专属测试时参考此指引。",
+        "outputs": "提供参考文档路径、具体反模式与修正方式、正式环境设置建议，以及依受影响行为选择的检查项目。"
       }
     }
   }

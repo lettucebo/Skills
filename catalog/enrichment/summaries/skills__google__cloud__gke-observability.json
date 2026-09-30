@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-observability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b614219a5a9af4914e43573d9c24efd959c7c23618d8aad29de2912955de668f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to configure and assess GKE logging, metrics, Managed Prometheus, and alerting, including their operational costs.",
+        "whenToUse": "Apply it when shaping cluster-wide telemetry coverage or tracing missing logs and metrics from collection through Cloud Monitoring or Grafana.",
+        "outputs": "Provides configuration examples, gcloud/kubectl diagnostics, and proposed fixes for data collection, querying, access, rules, and cost issues."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何設定與評估 GKE 記錄、指標、Managed Prometheus 和告警，並涵蓋相關營運成本。",
+        "whenToUse": "適用於規劃叢集遙測涵蓋範圍，或追查記錄與指標在收集、傳送及 Cloud Monitoring 或 Grafana 查詢流程中的缺失。",
+        "outputs": "提供設定範例、gcloud/kubectl 診斷方式，以及針對資料收集、查詢、權限、規則與成本問題的修正建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何设置与评估 GKE 记录、指针、Managed Prometheus 和告警，并涵盖相关营运成本。",
+        "whenToUse": "适用于规划集群遥测涵盖范围，或追查记录与指针在收集、发送及 Cloud Monitoring 或 Grafana 查找流程中的缺失。",
+        "outputs": "提供设置范例、gcloud/kubectl 诊断方式，以及针对数据收集、查找、权限、规则与成本问题的修正建议。"
+      }
+    }
+  }
+}

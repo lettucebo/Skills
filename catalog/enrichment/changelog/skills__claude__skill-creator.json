@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/anthropics/skills/commit/b0cbd3df1533b396d281a6886d5132f623393a9c",
             "pathAtCommit": "skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated the skill description and description-optimizer text, and added guidance for updating existing skills in the Claude.ai and Cowork sections."
+            "summary": "The skill description now includes editing existing skills; description optimization no longer specifies extended thinking, and guidance was added for preserving names, editing writable copies, and staging packages in `/tmp/`."
           },
           {
             "sha": "3d59511518591fa82e6cfcf0438d68dd5dad3e76",
@@ -33,7 +33,7 @@
             "url": "https://github.com/anthropics/skills/commit/3d59511518591fa82e6cfcf0438d68dd5dad3e76",
             "pathAtCommit": "skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Rewrote `SKILL.md` into a broader guide for creating, evaluating, iterating on, and optimizing skills, including user-communication and packaging guidance."
+            "summary": "The skill was substantially rewritten into a create-evaluate-iterate guide covering tests, benchmarking, description optimization, packaging, and Claude.ai/Cowork-specific workflows."
           },
           {
             "sha": "1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
@@ -42,7 +42,7 @@
             "url": "https://github.com/anthropics/skills/commit/1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
             "pathAtCommit": "skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added `compatibility` as an optional frontmatter field in the anatomy example and clarified the frontmatter description."
+            "summary": "The guide now documents `compatibility` as an optional SKILL.md frontmatter field and explains its purpose."
           },
           {
             "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
@@ -56,7 +56,7 @@
               "sourcePath": "skill-creator/SKILL.md",
               "destinationPath": "skills/skill-creator/SKILL.md"
             },
-            "summary": "Moved `SKILL.md` from `skill-creator/` to `skills/skill-creator/` without changing its contents."
+            "summary": "The skill file moved from `skill-creator/SKILL.md` to `skills/skill-creator/SKILL.md` with no content changes."
           },
           {
             "sha": "0f77e501e6506235956d953cd2d7a2a4aa9ba133",
@@ -65,7 +65,7 @@
             "url": "https://github.com/anthropics/skills/commit/0f77e501e6506235956d953cd2d7a2a4aa9ba133",
             "pathAtCommit": "skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Expanded `SKILL.md` with core design principles, progressive-disclosure patterns, packaging details, and a fuller testing and iteration workflow."
+            "summary": "The guide adds concise-writing and freedom-of-instruction principles, expands progressive-disclosure patterns, and reorganizes skill authoring and packaging guidance."
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -79,7 +79,7 @@
               "sourcePath": "examples/skill-creator/SKILL.md",
               "destinationPath": "skill-creator/SKILL.md"
             },
-            "summary": "Moved `SKILL.md` from `examples/skill-creator/` to `skill-creator/` without changing its contents."
+            "summary": "The skill file moved from `examples/skill-creator/SKILL.md` to `skill-creator/SKILL.md` with no content changes."
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -88,15 +88,15 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial `skill-creator` `SKILL.md` with guidance on skill structure, bundled resources, progressive disclosure, and the creation process."
+            "summary": "Added the initial `skill-creator` guide, covering skill structure and resources, creation and editing steps, packaging, and iteration."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -108,7 +108,7 @@
             "url": "https://github.com/anthropics/skills/commit/b0cbd3df1533b396d281a6886d5132f623393a9c",
             "pathAtCommit": "skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新了技能描述與描述最佳化器的文字，並在 Claude.ai 與 Cowork 章節加入更新既有技能的指引。"
+            "summary": "技能描述現已涵蓋編輯既有技能；描述最佳化不再指定使用延伸思考，並新增保留名稱、在可寫入副本中編輯及於 `/tmp/` 暫存套件的指引。"
           },
           {
             "sha": "3d59511518591fa82e6cfcf0438d68dd5dad3e76",
@@ -117,7 +117,7 @@
             "url": "https://github.com/anthropics/skills/commit/3d59511518591fa82e6cfcf0438d68dd5dad3e76",
             "pathAtCommit": "skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將 `SKILL.md` 改寫為更完整的指南，涵蓋技能的建立、評估、迭代與最佳化，並加入與使用者溝通及封裝的指引。"
+            "summary": "此技能指南大幅改寫為建立、評估與迭代的完整流程，涵蓋測試、基準評測、描述最佳化、打包，以及 Claude.ai／Cowork 專用流程。"
           },
           {
             "sha": "1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
@@ -126,7 +126,7 @@
             "url": "https://github.com/anthropics/skills/commit/1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
             "pathAtCommit": "skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在結構範例中加入可選的 `compatibility` frontmatter 欄位，並釐清 frontmatter 的說明。"
+            "summary": "指南現將 `compatibility` 列為 SKILL.md 前置資料中的選填欄位，並說明其用途。"
           },
           {
             "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
@@ -140,7 +140,7 @@
               "sourcePath": "skill-creator/SKILL.md",
               "destinationPath": "skills/skill-creator/SKILL.md"
             },
-            "summary": "將 `SKILL.md` 從 `skill-creator/` 移到 `skills/skill-creator/`，內容未變更。"
+            "summary": "技能檔案從 `skill-creator/SKILL.md` 移至 `skills/skill-creator/SKILL.md`，內容未變。"
           },
           {
             "sha": "0f77e501e6506235956d953cd2d7a2a4aa9ba133",
@@ -149,7 +149,7 @@
             "url": "https://github.com/anthropics/skills/commit/0f77e501e6506235956d953cd2d7a2a4aa9ba133",
             "pathAtCommit": "skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "擴充了 `SKILL.md`，加入核心設計原則、漸進式揭露模式、封裝細節，以及更完整的測試與迭代流程。"
+            "summary": "指南新增精簡撰寫與指令自由度原則、擴充漸進式揭露模式，並重整技能撰寫與打包指引。"
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -163,7 +163,7 @@
               "sourcePath": "examples/skill-creator/SKILL.md",
               "destinationPath": "skill-creator/SKILL.md"
             },
-            "summary": "將 `SKILL.md` 從 `examples/skill-creator/` 移到 `skill-creator/`，內容未變更。"
+            "summary": "技能檔案從 `examples/skill-creator/SKILL.md` 移至 `skill-creator/SKILL.md`，內容未變。"
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -172,13 +172,13 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了初始的 `skill-creator` `SKILL.md`，說明技能結構、內含資源、漸進式揭露與建立流程。"
+            "summary": "新增初版 `skill-creator` 指南，涵蓋技能結構與資源、建立及編輯步驟、打包和迭代。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -191,7 +191,7 @@
             "url": "https://github.com/anthropics/skills/commit/b0cbd3df1533b396d281a6886d5132f623393a9c",
             "pathAtCommit": "skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新了技能描述与描述优化器的文字，并在 Claude.ai 与 Cowork 章节加入更新既有技能的指引。"
+            "summary": "技能描述现已涵盖编辑既有技能；描述优化不再指定使用延伸思考，并添加保留名称、在可写入副本中编辑及于 `/tmp/` 暂存套件的指引。"
           },
           {
             "sha": "3d59511518591fa82e6cfcf0438d68dd5dad3e76",
@@ -200,7 +200,7 @@
             "url": "https://github.com/anthropics/skills/commit/3d59511518591fa82e6cfcf0438d68dd5dad3e76",
             "pathAtCommit": "skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将 `SKILL.md` 改写为更完整的指南，涵盖技能的创建、评估、迭代与优化，并加入与用户沟通及封装的指引。"
+            "summary": "此技能指南大幅改写为创建、评估与迭代的完整流程，涵盖测试、基准评测、描述优化、打包，以及 Claude.ai／Cowork 专用流程。"
           },
           {
             "sha": "1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
@@ -209,7 +209,7 @@
             "url": "https://github.com/anthropics/skills/commit/1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
             "pathAtCommit": "skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在结构范例中加入可选的 `compatibility` frontmatter 字段，并厘清 frontmatter 的说明。"
+            "summary": "指南现将 `compatibility` 列为 SKILL.md 前置数据中的选填字段，并说明其用途。"
           },
           {
             "sha": "ef740771ac901e03fbca3ce4e1c453a96010f30a",
@@ -223,7 +223,7 @@
               "sourcePath": "skill-creator/SKILL.md",
               "destinationPath": "skills/skill-creator/SKILL.md"
             },
-            "summary": "将 `SKILL.md` 从 `skill-creator/` 移到 `skills/skill-creator/`，内容未变更。"
+            "summary": "技能文件从 `skill-creator/SKILL.md` 移至 `skills/skill-creator/SKILL.md`，内容未变。"
           },
           {
             "sha": "0f77e501e6506235956d953cd2d7a2a4aa9ba133",
@@ -232,7 +232,7 @@
             "url": "https://github.com/anthropics/skills/commit/0f77e501e6506235956d953cd2d7a2a4aa9ba133",
             "pathAtCommit": "skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "扩充了 `SKILL.md`，加入内核设计原则、渐进式揭露模式、封装细节，以及更完整的测试与迭代流程。"
+            "summary": "指南添加精简撰写与指令自由度原则、扩充渐进式揭露模式，并重整技能撰写与打包指引。"
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -246,7 +246,7 @@
               "sourcePath": "examples/skill-creator/SKILL.md",
               "destinationPath": "skill-creator/SKILL.md"
             },
-            "summary": "将 `SKILL.md` 从 `examples/skill-creator/` 移到 `skill-creator/`，内容未变更。"
+            "summary": "技能文件从 `examples/skill-creator/SKILL.md` 移至 `skill-creator/SKILL.md`，内容未变。"
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -255,7 +255,7 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了初始的 `skill-creator` `SKILL.md`，说明技能结构、内含资源、渐进式揭露与创建流程。"
+            "summary": "添加初版 `skill-creator` 指南，涵盖技能结构与资源、创建及编辑步骤、打包和迭代。"
           }
         ]
       }

@@ -1,0 +1,210 @@
+{
+  "path": "skills/google/ads/ima-sdk-client-side",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:912fcdd8b7812695460ec19896522d7e1b0a2e1ce0bc65dd51788562db849e4e",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/ads/ima-sdk-client-side",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "a54d506fb1ae95870e10cbf5cf1660f3af0bdc8b",
+            "date": "2026-08-11T11:42:11-07:00",
+            "subject": "Fix broken relative links in ima-sdk-tvos-guide.md.",
+            "url": "https://github.com/google/skills/commit/a54d506fb1ae95870e10cbf5cf1660f3af0bdc8b",
+            "pathAtCommit": "skills/ads/ima-sdk-client-side/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the skill metadata version from 1.0.1 to 1.0.2 and removed the blank line before the heading."
+          },
+          {
+            "sha": "80513f494ec5d74dbcd8f54c0980a5e427e16ec1",
+            "date": "2026-08-11T11:38:12-07:00",
+            "subject": "Renames IMA SDK basics skill from ima-sdk-basics to ima-sdk-client-side.",
+            "url": "https://github.com/google/skills/commit/80513f494ec5d74dbcd8f54c0980a5e427e16ec1",
+            "pathAtCommit": "skills/ads/ima-sdk-client-side/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R084",
+              "sourcePath": "skills/ads/ima-sdk-basics/SKILL.md",
+              "destinationPath": "skills/ads/ima-sdk-client-side/SKILL.md"
+            },
+            "summary": "Renamed the skill to `ima-sdk-client-side`, revised its IMA client-side description, and bumped its metadata version from 1.0.0 to 1.0.1."
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/ima-sdk-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/interactive-media-ads/ima-sdk-basics/SKILL.md",
+              "destinationPath": "skills/ads/ima-sdk-basics/SKILL.md"
+            },
+            "summary": "Moved the skill file from the `interactive-media-ads` subdirectory to `skills/ads/ima-sdk-basics` without changing its contents."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/interactive-media-ads/ima-sdk-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `category: GoogleAds` under the skill metadata and removed the blank line before the heading."
+          },
+          {
+            "sha": "28d90a333c4d900bcc76e498363e0c835dc69a5c",
+            "date": "2026-06-24T08:46:08-07:00",
+            "subject": "Add new skill for Interactive Media Ads SDK basics.",
+            "url": "https://github.com/google/skills/commit/28d90a333c4d900bcc76e498363e0c835dc69a5c",
+            "pathAtCommit": "skills/ads/interactive-media-ads/ima-sdk-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added an `ima-sdk-basics` skill describing client-side IMA use, linking platform-specific guides, and outlining the general ad-integration workflow."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "a54d506fb1ae95870e10cbf5cf1660f3af0bdc8b",
+            "date": "2026-08-11T11:42:11-07:00",
+            "subject": "Fix broken relative links in ima-sdk-tvos-guide.md.",
+            "url": "https://github.com/google/skills/commit/a54d506fb1ae95870e10cbf5cf1660f3af0bdc8b",
+            "pathAtCommit": "skills/ads/ima-sdk-client-side/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能中繼資料版本從 1.0.1 更新至 1.0.2，並移除了標題前的空白行。"
+          },
+          {
+            "sha": "80513f494ec5d74dbcd8f54c0980a5e427e16ec1",
+            "date": "2026-08-11T11:38:12-07:00",
+            "subject": "Renames IMA SDK basics skill from ima-sdk-basics to ima-sdk-client-side.",
+            "url": "https://github.com/google/skills/commit/80513f494ec5d74dbcd8f54c0980a5e427e16ec1",
+            "pathAtCommit": "skills/ads/ima-sdk-client-side/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R084",
+              "sourcePath": "skills/ads/ima-sdk-basics/SKILL.md",
+              "destinationPath": "skills/ads/ima-sdk-client-side/SKILL.md"
+            },
+            "summary": "將技能重新命名為 `ima-sdk-client-side`，修訂其 IMA 用戶端說明，並將中繼資料版本從 1.0.0 升至 1.0.1。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/ima-sdk-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/interactive-media-ads/ima-sdk-basics/SKILL.md",
+              "destinationPath": "skills/ads/ima-sdk-basics/SKILL.md"
+            },
+            "summary": "將技能檔案從 `interactive-media-ads` 子目錄移至 `skills/ads/ima-sdk-basics`，未變更檔案內容。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/interactive-media-ads/ima-sdk-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料下新增 `category: GoogleAds`，並移除了標題前的空白行。"
+          },
+          {
+            "sha": "28d90a333c4d900bcc76e498363e0c835dc69a5c",
+            "date": "2026-06-24T08:46:08-07:00",
+            "subject": "Add new skill for Interactive Media Ads SDK basics.",
+            "url": "https://github.com/google/skills/commit/28d90a333c4d900bcc76e498363e0c835dc69a5c",
+            "pathAtCommit": "skills/ads/interactive-media-ads/ima-sdk-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `ima-sdk-basics` 技能，說明 IMA 用戶端的使用方式、連結各平台指南，並概述一般廣告整合流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "a54d506fb1ae95870e10cbf5cf1660f3af0bdc8b",
+            "date": "2026-08-11T11:42:11-07:00",
+            "subject": "Fix broken relative links in ima-sdk-tvos-guide.md.",
+            "url": "https://github.com/google/skills/commit/a54d506fb1ae95870e10cbf5cf1660f3af0bdc8b",
+            "pathAtCommit": "skills/ads/ima-sdk-client-side/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能中继数据版本从 1.0.1 更新至 1.0.2，并移除了标题前的空白行。"
+          },
+          {
+            "sha": "80513f494ec5d74dbcd8f54c0980a5e427e16ec1",
+            "date": "2026-08-11T11:38:12-07:00",
+            "subject": "Renames IMA SDK basics skill from ima-sdk-basics to ima-sdk-client-side.",
+            "url": "https://github.com/google/skills/commit/80513f494ec5d74dbcd8f54c0980a5e427e16ec1",
+            "pathAtCommit": "skills/ads/ima-sdk-client-side/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R084",
+              "sourcePath": "skills/ads/ima-sdk-basics/SKILL.md",
+              "destinationPath": "skills/ads/ima-sdk-client-side/SKILL.md"
+            },
+            "summary": "将技能重命名为 `ima-sdk-client-side`，修订其 IMA 用户端说明，并将中继数据版本从 1.0.0 升至 1.0.1。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/ima-sdk-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/interactive-media-ads/ima-sdk-basics/SKILL.md",
+              "destinationPath": "skills/ads/ima-sdk-basics/SKILL.md"
+            },
+            "summary": "将技能文件从 `interactive-media-ads` 子目录移至 `skills/ads/ima-sdk-basics`，未变更文件内容。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/interactive-media-ads/ima-sdk-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据下添加 `category: GoogleAds`，并移除了标题前的空白行。"
+          },
+          {
+            "sha": "28d90a333c4d900bcc76e498363e0c835dc69a5c",
+            "date": "2026-06-24T08:46:08-07:00",
+            "subject": "Add new skill for Interactive Media Ads SDK basics.",
+            "url": "https://github.com/google/skills/commit/28d90a333c4d900bcc76e498363e0c835dc69a5c",
+            "pathAtCommit": "skills/ads/interactive-media-ads/ima-sdk-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `ima-sdk-basics` 技能，说明 IMA 用户端的使用方式、链接各平台指南，并概述一般广告集成流程。"
+          }
+        ]
+      }
+    }
+  }
+}

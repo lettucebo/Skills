@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:02792a9bb7d5b4ed0ce94557b4ef6740f5ab8a2145083e181b93395d145ac249"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps determine whether Compute Engine host maintenance caused or may cause GPU/TPU node disruptions in GKE and identify ways to protect affected workloads.",
+        "whenToUse": "Use it to investigate a GPU/TPU node crash, restart, or interruption, check upcoming or active maintenance signals, or plan workload safeguards.",
+        "outputs": "A concise assessment from maintenance labels, interruption metrics, logs, and node taints, with conclusions and relevant workload-protection recommendations."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助判斷 Compute Engine 主機維護是否造成或可能造成 GKE GPU/TPU 節點中斷，並找出保護受影響工作負載的方法。",
+        "whenToUse": "當要調查 GPU/TPU 節點當機、重新啟動或中斷，檢查即將發生或正在進行的維護訊號，或規劃工作負載防護措施時使用。",
+        "outputs": "提供根據維護標籤、中斷指標、記錄與節點污點整理的精簡評估，並附上結論及相關工作負載防護建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助判断 Compute Engine 主机维护是否造成或可能造成 GKE GPU/TPU 节点中断，并找出保护受影响工作负载的方法。",
+        "whenToUse": "当要调查 GPU/TPU 节点当机、重新启动或中断，检查即将发生或正在进行的维护信号，或规划工作负载防护措施时使用。",
+        "outputs": "提供根据维护标签、中断指针、记录与节点污点整理的精简评估，并附上结论及相关工作负载防护建议。"
+      }
+    }
+  }
+}

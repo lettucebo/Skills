@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/analytics/google-analytics-data-api-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:e4d2aca7ac2d2c51d2f27d52702bfe68a6e8e7c7c8adfe662c76c893c4efb62b"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides setup and use of the v1beta Data API to enable access, run customized Google Analytics reports, and verify metric and dimension compatibility.",
+        "whenToUse": "Use it when setting up Data API access or building property reports, dashboards, or field-compatibility checks from Google Analytics metrics and dimensions.",
+        "outputs": "It supplies API enablement and authentication steps, client-library setup references, and examples for report queries and metric and dimension compatibility checks."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供透過 v1beta Data API 啟用存取、執行自訂 Google Analytics 報表，以及確認指標與維度相容性的設定與使用指引。",
+        "whenToUse": "當需要設定 Data API 存取，或使用 Google Analytics 指標與維度建立屬性報表、儀表板或欄位相容性檢查時適用。",
+        "outputs": "提供 API 啟用與驗證步驟、用戶端程式庫設定參考，以及報表查詢和指標與維度相容性檢查範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供透过 v1beta Data API 激活访问、运行自订 Google Analytics 报表，以及确认指针与维度兼容性的设置与使用指引。",
+        "whenToUse": "当需要设置 Data API 访问，或使用 Google Analytics 指针与维度创建属性报表、仪表板或字段兼容性检查时适用。",
+        "outputs": "提供 API 激活与验证步骤、用户端程序库设置参考，以及报表查找和指针与维度兼容性检查范例。"
+      }
+    }
+  }
+}

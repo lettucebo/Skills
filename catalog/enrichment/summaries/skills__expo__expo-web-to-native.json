@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-web-to-native",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6e4837e5e10fb3eeca43a74e0fb81e3460eb37042eb194325081ba83787ec31e"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It provides a staged plan for turning a web React application into a shippable Expo app, keeping screens in a DOM-backed shell initially and redesigning selected screens as native experiences over time.",
+        "whenToUse": "Use it after deciding to migrate an existing app, especially when sorting routes, prioritizing screens, adapting web-only dependencies, and validating behavior on device.",
+        "outputs": "It yields a route-by-route migration worklist, an Expo shell that can run the web UI early, progressively native screens, and guidance for data integration and store release."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它提供將 Web React 應用程式分階段遷移為可發布 Expo 應用程式的方法，先以 DOM 元件承載畫面，再逐步將優先畫面重新設計為原生體驗。",
+        "whenToUse": "在決定遷移既有應用程式後，當你需要安排路由盤點、優先改造原生畫面、調整僅限網頁的依賴，並在裝置上驗證行為時使用。",
+        "outputs": "它會產出逐路由的遷移工作清單、可先執行網頁介面的 Expo 外殼、逐步原生化的畫面，以及資料整合與商店發布的指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它提供将 Web React 应用程序分阶段迁移为可发布 Expo 应用程序的方法，先以 DOM 组件承载画面，再逐步将优先画面重新设计为原生体验。",
+        "whenToUse": "在决定迁移既有应用程序后，当你需要安排路由盘点、优先改造原生画面、调整仅限网页的依赖，并在设备上验证行为时使用。",
+        "outputs": "它会产出逐路由的迁移工作清单、可先运行网页界面的 Expo 外壳、逐步原生化的画面，以及数据集成与商店发布的指引。"
+      }
+    }
+  }
+}

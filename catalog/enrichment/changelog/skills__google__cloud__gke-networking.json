@@ -1,0 +1,207 @@
+{
+  "path": "skills/google/cloud/gke-networking",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2ac9cb978125aebc20ab2d6f3d05dc66c176cd56da1e8eba2906561096f904d1",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-networking",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the GKE networking skill's metadata."
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the Network Policy note to refer to `gke-workload-security` instead of `gke-security` for default-deny policy."
+          },
+          {
+            "sha": "48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "date": "2026-07-23T08:29:12-07:00",
+            "subject": "Rescope gke-networking and add gke-service-networking. Refined evaluation benchmarks for both skills.",
+            "url": "https://github.com/google/skills/commit/48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Rescoped the skill to core cluster networking, removing ingress and service-networking material while expanding VPC-native and egress guidance."
+          },
+          {
+            "sha": "4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "date": "2026-07-14T14:43:03-07:00",
+            "subject": "Update GKE skills to clarify Autopilot defaults, VPC-Native benefits, and Backup for GKE best practices: - gke-cluster-creation: Add warning and operational details when deviating to GKE Standard mode. - gke-networking: Document benefits of VPC-Native mode (scalability, direct VPC integration, avoiding IP exhaustion). - gke-golden-path: Update defaults table to include loggingConfig. - gke-backup-dr: Add best practices for stateful backups (quiescing, CSI snapshots, service terminology).",
+            "url": "https://github.com/google/skills/commit/4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a VPC-native mode benefits section covering scalability, direct VPC integration, and reduced IP-exhaustion risk."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the Networking category field into the skill frontmatter's `metadata` block."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a GKE networking skill document covering private-cluster defaults and access, VPC/IP planning, ingress and egress, network policy, Cloud Armor, SSL, and PSC."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 GKE 網路技能的中繼資料中新增了 1.0.0 版。"
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Network Policy 說明中有關預設拒絕原則的參照，從 `gke-security` 更新為 `gke-workload-security`。"
+          },
+          {
+            "sha": "48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "date": "2026-07-23T08:29:12-07:00",
+            "subject": "Rescope gke-networking and add gke-service-networking. Refined evaluation benchmarks for both skills.",
+            "url": "https://github.com/google/skills/commit/48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能重新聚焦於核心叢集網路，移除入口與服務網路相關內容，並擴充 VPC 原生模式及輸出流量說明。"
+          },
+          {
+            "sha": "4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "date": "2026-07-14T14:43:03-07:00",
+            "subject": "Update GKE skills to clarify Autopilot defaults, VPC-Native benefits, and Backup for GKE best practices: - gke-cluster-creation: Add warning and operational details when deviating to GKE Standard mode. - gke-networking: Document benefits of VPC-Native mode (scalability, direct VPC integration, avoiding IP exhaustion). - gke-golden-path: Update defaults table to include loggingConfig. - gke-backup-dr: Add best practices for stateful backups (quiescing, CSI snapshots, service terminology).",
+            "url": "https://github.com/google/skills/commit/4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 VPC 原生模式的效益章節，涵蓋擴充性、直接 VPC 整合及降低 IP 耗盡風險。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Networking 類別欄位移至技能 YAML 前置資料的 `metadata` 區塊中。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 網路技能文件，涵蓋私有叢集預設設定與存取、VPC/IP 規劃、入口與輸出流量、網路原則、Cloud Armor、SSL 及 PSC。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 GKE 网络技能的中继数据中添加了 1.0.0 版。"
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Network Policy 说明中有关预设拒绝原则的参照，从 `gke-security` 更新为 `gke-workload-security`。"
+          },
+          {
+            "sha": "48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "date": "2026-07-23T08:29:12-07:00",
+            "subject": "Rescope gke-networking and add gke-service-networking. Refined evaluation benchmarks for both skills.",
+            "url": "https://github.com/google/skills/commit/48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能重新聚焦于内核集群网络，移除入口与服务网络相关内容，并扩充 VPC 原生模式及输出流量说明。"
+          },
+          {
+            "sha": "4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "date": "2026-07-14T14:43:03-07:00",
+            "subject": "Update GKE skills to clarify Autopilot defaults, VPC-Native benefits, and Backup for GKE best practices: - gke-cluster-creation: Add warning and operational details when deviating to GKE Standard mode. - gke-networking: Document benefits of VPC-Native mode (scalability, direct VPC integration, avoiding IP exhaustion). - gke-golden-path: Update defaults table to include loggingConfig. - gke-backup-dr: Add best practices for stateful backups (quiescing, CSI snapshots, service terminology).",
+            "url": "https://github.com/google/skills/commit/4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 VPC 原生模式的效益章节，涵盖扩充性、直接 VPC 集成及降低 IP 耗尽风险。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Networking 类别字段移至技能 YAML 前置数据的 `metadata` 区块中。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-networking/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 网络技能文档，涵盖私有集群预设设置与访问、VPC/IP 规划、入口与输出流量、网络原则、Cloud Armor、SSL 及 PSC。"
+          }
+        ]
+      }
+    }
+  }
+}

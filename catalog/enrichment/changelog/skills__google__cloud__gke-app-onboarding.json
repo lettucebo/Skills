@@ -1,0 +1,333 @@
+{
+  "path": "skills/google/cloud/gke-app-onboarding",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:407d4cfc6c2899845332b6c32f38edb9b5ad44b6626e54f7166a84c6c6412f8a",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-app-onboarding",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the skill's `metadata.version` field with the value `1.0.0`."
+          },
+          {
+            "sha": "40d70a4187ced7d0f81a85568ccf10ff79af5bb1",
+            "date": "2026-08-22T13:47:56-07:00",
+            "subject": "Upgrade gke-app-onboarding skill.",
+            "url": "https://github.com/google/skills/commit/40d70a4187ced7d0f81a85568ccf10ff79af5bb1",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced inline container and manifest examples with references to worked examples, added a Node.js example and hardened-pod requirements, and introduced a production onboarding checklist."
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the next-step guidance to reference `gke-workload-scaling` and `gke-workload-security`."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a `metadata` block with `category: Containers` to the skill frontmatter."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R058",
+              "sourcePath": "skills/cloud/gke-basics/references/gke-app-onboarding.md",
+              "destinationPath": "skills/cloud/gke-app-onboarding/SKILL.md"
+            },
+            "summary": "Promoted the reference into a standalone `SKILL.md` with skill metadata and reformatted the onboarding guidance."
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "direct",
+            "summary": "Added `--quiet` to the Artifact Registry Docker-authentication and image-description examples."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/references/gke-app-onboarding.md",
+              "destinationPath": "skills/cloud/gke-basics/references/gke-app-onboarding.md"
+            },
+            "summary": "Moved the onboarding reference under `skills/cloud/gke-basics/references/` without changing its contents."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/references/gke-app-onboarding.md",
+              "destinationPath": "cloud/gke-basics/references/gke-app-onboarding.md"
+            },
+            "summary": "Moved the onboarding reference from `cloud/products/kubernetes-engine/gke-basics/references/` to `cloud/gke-basics/references/` without changing its contents."
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial GKE application-onboarding guide, covering app assessment, container and image workflows, Kubernetes manifests, deployment, and follow-up skills."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 `metadata` 中新增值為 `1.0.0` 的 `version` 欄位。"
+          },
+          {
+            "sha": "40d70a4187ced7d0f81a85568ccf10ff79af5bb1",
+            "date": "2026-08-22T13:47:56-07:00",
+            "subject": "Upgrade gke-app-onboarding skill.",
+            "url": "https://github.com/google/skills/commit/40d70a4187ced7d0f81a85568ccf10ff79af5bb1",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將內嵌的容器與清單範例改為連結至完整範例，新增 Node.js 範例與強化 Pod 的要求，並加入正式環境上線檢查清單。"
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新後續步驟指引，改為參照 `gke-workload-scaling` 與 `gke-workload-security`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 frontmatter 中新增含有 `category: Containers` 的 `metadata` 區塊。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R058",
+              "sourcePath": "skills/cloud/gke-basics/references/gke-app-onboarding.md",
+              "destinationPath": "skills/cloud/gke-app-onboarding/SKILL.md"
+            },
+            "summary": "將參考文件提升為獨立的 `SKILL.md`，加入技能中繼資料並重新排版上線指引。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "direct",
+            "summary": "在 Artifact Registry 的 Docker 驗證與映像描述範例中加入 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/references/gke-app-onboarding.md",
+              "destinationPath": "skills/cloud/gke-basics/references/gke-app-onboarding.md"
+            },
+            "summary": "將上線參考文件移至 `skills/cloud/gke-basics/references/`，內容維持不變。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/references/gke-app-onboarding.md",
+              "destinationPath": "cloud/gke-basics/references/gke-app-onboarding.md"
+            },
+            "summary": "將上線參考文件從 `cloud/products/kubernetes-engine/gke-basics/references/` 移至 `cloud/gke-basics/references/`，內容維持不變。"
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 應用程式上線指南，涵蓋應用程式評估、容器與映像工作流程、Kubernetes 資訊清單、部署及後續技能。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 `metadata` 中添加值为 `1.0.0` 的 `version` 字段。"
+          },
+          {
+            "sha": "40d70a4187ced7d0f81a85568ccf10ff79af5bb1",
+            "date": "2026-08-22T13:47:56-07:00",
+            "subject": "Upgrade gke-app-onboarding skill.",
+            "url": "https://github.com/google/skills/commit/40d70a4187ced7d0f81a85568ccf10ff79af5bb1",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将内嵌的容器与清单范例改为链接至完整范例，添加 Node.js 范例与强化 Pod 的要求，并加入正式环境上线检查清单。"
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新后续步骤指引，改为参照 `gke-workload-scaling` 与 `gke-workload-security`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 frontmatter 中添加含有 `category: Containers` 的 `metadata` 区块。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-app-onboarding/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R058",
+              "sourcePath": "skills/cloud/gke-basics/references/gke-app-onboarding.md",
+              "destinationPath": "skills/cloud/gke-app-onboarding/SKILL.md"
+            },
+            "summary": "将参考文档提升为独立的 `SKILL.md`，加入技能中继数据并重新排版上线指引。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "direct",
+            "summary": "在 Artifact Registry 的 Docker 验证与映像描述范例中加入 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/references/gke-app-onboarding.md",
+              "destinationPath": "skills/cloud/gke-basics/references/gke-app-onboarding.md"
+            },
+            "summary": "将上线参考文档移至 `skills/cloud/gke-basics/references/`，内容维持不变。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/references/gke-app-onboarding.md",
+              "destinationPath": "cloud/gke-basics/references/gke-app-onboarding.md"
+            },
+            "summary": "将上线参考文档从 `cloud/products/kubernetes-engine/gke-basics/references/` 移至 `cloud/gke-basics/references/`，内容维持不变。"
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/references/gke-app-onboarding.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 应用程序上线指南，涵盖应用程序评估、容器与映像工作流程、Kubernetes 信息清单、部署及后续技能。"
+          }
+        ]
+      }
+    }
+  }
+}

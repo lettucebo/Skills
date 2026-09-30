@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/google-ads-api-account-diagnostics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:dbd1790dc993c9261a6567b700b0de2d74f479d9db8ff2d23c2441e04d74c94e"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It helps diagnose Google Ads account performance by comparing campaign and ad group data and checking offline conversion uploads.",
+        "whenToUse": "Use it when you need to trace performance changes across time, devices, conversion actions, or recent account edits, or verify an offline upload pipeline.",
+        "outputs": "It summarizes relevant metric comparisons, plausible causes of traffic or conversion shifts, impression-share losses tied to rank or budget, account changes, and offline-upload health."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過比較廣告活動與廣告群組資料並檢查離線轉換上傳，協助診斷 Google Ads 帳戶成效。",
+        "whenToUse": "當需要依時間、裝置或轉換動作追查成效變化、檢視近期帳戶調整，或確認離線上傳流程時使用。",
+        "outputs": "結果摘要包含相關指標比較、流量或轉換變化的可能原因、因廣告評級或預算造成的搜尋曝光比重流失、帳戶變更及離線上傳狀況。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过比较广告活动与广告群组数据并检查脱机转换上传，协助诊断 Google Ads 帐户成效。",
+        "whenToUse": "当需要依时间、设备或转换动作追查成效变化、查看近期帐户调整，或确认脱机上传流程时使用。",
+        "outputs": "结果摘要包含相关指针比较、流量或转换变化的可能原因、因广告评级或预算造成的搜索曝光比重流失、帐户变更及脱机上传状况。"
+      }
+    }
+  }
+}

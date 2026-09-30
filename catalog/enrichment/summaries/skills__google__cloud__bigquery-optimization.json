@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/bigquery-optimization",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:702b9d071fb70f251d72752d4d7a43fa753d4833ec7dbe12e6dc4268f4a48f7e"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides efforts to improve BigQuery cost-efficiency through capacity planning, storage design and lifecycle choices, and SQL optimization.",
+        "whenToUse": "Use it when deciding how to size BigQuery editions or reservations, configure table storage and retention, or improve a query; use the observability or troubleshooting skills for raw usage reporting or diagnosing errors and slow jobs.",
+        "outputs": "Delivers capacity and edition assessments, storage and partitioning/clustering recommendations with DDL or migration templates, lifecycle guidance, and SQL rewrite suggestions."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過容量規劃、儲存設計與生命週期選擇，以及 SQL 最佳化，協助提升 BigQuery 的成本效益。",
+        "whenToUse": "當需要決定 BigQuery 版本方案或預留資源的規模、設定資料表儲存與保留期限，或改善查詢時使用；原始用量報表及錯誤或慢速工作診斷則交由觀測或疑難排解技能處理。",
+        "outputs": "提供容量與版本評估、儲存及分區／叢集建議（含 DDL 或遷移範本）、生命週期指引，以及 SQL 改寫建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过容量规划、保存设计与生命周期选择，以及 SQL 优化，协助提升 BigQuery 的成本效益。",
+        "whenToUse": "当需要决定 BigQuery 版本方案或预留资源的规模、设置数据表保存与保留期限，或改善查找时使用；原始用量报表及错误或慢速工作诊断则交由观测或疑难排解技能处理。",
+        "outputs": "提供容量与版本评估、保存及分区／集群建议（含 DDL 或迁移范本）、生命周期指引，以及 SQL 改写建议。"
+      }
+    }
+  }
+}

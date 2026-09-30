@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/csharp-tunit.prompt.md",
               "destinationPath": "skills/csharp-tunit/SKILL.md"
             },
-            "summary": "Added the csharp-tunit skill file with metadata and TUnit testing best-practice guidance, including data-driven tests."
+            "summary": "Added a csharp-tunit skill covering TUnit project setup, test structure, data-driven tests, assertions, advanced features, organization, performance, and xUnit migration."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the prompt frontmatter field `mode` to `agent`."
+            "summary": "Renamed the prompt frontmatter field from `mode` to `agent` while keeping its value `agent`."
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -47,7 +47,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Updated the prompt tools list to use the namespaced `search/codebase` entry instead of `codebase`."
+            "summary": "Updated the prompt's tool list to use `search/codebase` instead of `codebase`."
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -56,7 +56,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Changed the prompt tools list entry from `editFiles` to `edit/editFiles` and added a trailing newline."
+            "summary": "Updated the prompt's tool list from `editFiles` to `edit/editFiles` and added a final newline."
           },
           {
             "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
@@ -65,7 +65,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Removed the UTF-8 BOM from the start of the prompt file."
+            "summary": "Removed the byte-order mark before the prompt's YAML frontmatter."
           },
           {
             "sha": "05f68143388be78781a9c2137cecaadf00f44d9c",
@@ -74,15 +74,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/05f68143388be78781a9c2137cecaadf00f44d9c",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added the csharp-tunit prompt file with agent-mode frontmatter and TUnit testing best-practice guidance."
+            "summary": "Added the initial csharp-tunit prompt with TUnit guidance on setup, test structure, data-driven tests, assertions, advanced features, organization, performance, and xUnit migration."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -99,7 +99,7 @@
               "sourcePath": "prompts/csharp-tunit.prompt.md",
               "destinationPath": "skills/csharp-tunit/SKILL.md"
             },
-            "summary": "新增 csharp-tunit 技能檔案，包含中繼資料與 TUnit 測試最佳實務指引，其中也涵蓋資料驅動測試。"
+            "summary": "新增 csharp-tunit 技能，涵蓋 TUnit 專案設定、測試結構、資料驅動測試、斷言、進階功能、測試組織、效能及 xUnit 遷移。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -108,7 +108,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示檔前言中的 `mode` 欄位重新命名為 `agent`。"
+            "summary": "將提示前置資料中的欄位從 `mode` 改為 `agent`，並保留其值 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -117,7 +117,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新提示檔的工具清單，將 `codebase` 改為使用具命名空間的 `search/codebase` 項目。"
+            "summary": "將提示工具清單中的 `codebase` 改為 `search/codebase`。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -126,7 +126,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示檔工具清單中的 `editFiles` 改為 `edit/editFiles`，並補上檔尾換行。"
+            "summary": "將提示工具清單中的 `editFiles` 改為 `edit/editFiles`，並在檔案末尾新增換行。"
           },
           {
             "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
@@ -135,7 +135,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "移除了提示檔開頭的 UTF-8 BOM。"
+            "summary": "移除了提示 YAML 前置資料前的位元組順序標記。"
           },
           {
             "sha": "05f68143388be78781a9c2137cecaadf00f44d9c",
@@ -144,13 +144,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/05f68143388be78781a9c2137cecaadf00f44d9c",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增 csharp-tunit 提示檔，包含 agent 模式前言與 TUnit 測試最佳實務指引。"
+            "summary": "新增初始的 csharp-tunit 提示，提供 TUnit 的設定、測試結構、資料驅動測試、斷言、進階功能、測試組織、效能及 xUnit 遷移指南。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -168,7 +168,7 @@
               "sourcePath": "prompts/csharp-tunit.prompt.md",
               "destinationPath": "skills/csharp-tunit/SKILL.md"
             },
-            "summary": "添加 csharp-tunit 技能文件，包含中继数据与 TUnit 测试最佳实务指引，其中也涵盖数据驱动测试。"
+            "summary": "添加 csharp-tunit 技能，涵盖 TUnit 项目设置、测试结构、数据驱动测试、断言、高级功能、测试组织、性能及 xUnit 迁移。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -177,7 +177,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示档前言中的 `mode` 字段重命名为 `agent`。"
+            "summary": "将提示前置数据中的字段从 `mode` 改为 `agent`，并保留其值 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -186,7 +186,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新提示档的工具清单，将 `codebase` 改为使用具命名空间的 `search/codebase` 项目。"
+            "summary": "将提示工具清单中的 `codebase` 改为 `search/codebase`。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -195,7 +195,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示档工具清单中的 `editFiles` 改为 `edit/editFiles`，并补上档尾换行。"
+            "summary": "将提示工具清单中的 `editFiles` 改为 `edit/editFiles`，并在文件末尾添加换行。"
           },
           {
             "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
@@ -204,7 +204,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "移除了提示档开头的 UTF-8 BOM。"
+            "summary": "移除了提示 YAML 前置数据前的字节顺序标记。"
           },
           {
             "sha": "05f68143388be78781a9c2137cecaadf00f44d9c",
@@ -213,7 +213,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/05f68143388be78781a9c2137cecaadf00f44d9c",
             "pathAtCommit": "prompts/csharp-tunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加 csharp-tunit 提示档，包含 agent 模式前言与 TUnit 测试最佳实务指引。"
+            "summary": "添加初始的 csharp-tunit 提示，提供 TUnit 的设置、测试结构、数据驱动测试、断言、高级功能、测试组织、性能及 xUnit 迁移指南。"
           }
         ]
       }

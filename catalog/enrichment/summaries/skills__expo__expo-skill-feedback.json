@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-skill-feedback",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9b96fc94861d1f1ba7f71b285e5faf9bf5152489339c41049e7f8beb17c63196"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps users share actionable feedback about Expo and manage its separate, opt-in usage telemetry.",
+        "whenToUse": "Use it when you have concrete details about an Expo-related success or problem to report, when a repeated agent failure merits an eval candidate, or when you need to check or change telemetry preferences.",
+        "outputs": "It provides a feedback-submission command with optional category and subject, a structured template for eval reports, and commands to inspect or change telemetry settings."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助使用者提交對 Expo 的具體意見，並管理獨立且預設關閉的使用情況遙測。",
+        "whenToUse": "當您有具體的 Expo 使用心得或問題需要回報、持續的代理程式失敗值得整理為評測案例，或需要查詢或變更遙測偏好時使用。",
+        "outputs": "提供含可選分類與主旨的意見提交指令、評測案例回報格式，以及查詢或變更遙測設定的指令。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助用户提交对 Expo 的具体意见，并管理独立且预设关闭的使用情况遥测。",
+        "whenToUse": "当您有具体的 Expo 使用心得或问题需要回报、持续的代理程序失败值得整理为评测案例，或需要查找或变更遥测偏好时使用。",
+        "outputs": "提供含可选分类与主旨的意见提交指令、评测案例回报格式，以及查找或变更遥测设置的指令。"
+      }
+    }
+  }
+}

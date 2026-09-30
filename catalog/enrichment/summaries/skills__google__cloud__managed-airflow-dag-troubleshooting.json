@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/managed-airflow-dag-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:daeef18ac5e94d0086cc98fca001bf7d79ac49eab6d7012a42828b795ee42c82"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Diagnoses failed Managed Airflow DAG runs and task instances by correlating task metadata, logs, DAG source, and relevant environment signals.",
+        "whenToUse": "Apply it after a specific run or task failure is identified and its cause must be traced across execution state, logs, deployed code, and, for generated DAGs, pipeline definitions.",
+        "outputs": "A diagnosis naming the failing task instance and root cause, verbatim log or code evidence, and a targeted fix, along with relevant environment-level findings."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過交叉比對工作中繼資料、日誌、DAG 原始碼及相關環境訊號，診斷 Managed Airflow 中失敗的 DAG 執行與工作執行個體。",
+        "whenToUse": "在已確認特定 DAG 執行或工作失敗，且需要比對執行狀態、日誌、已部署程式碼，以及自動產生 DAG 的管線定義來追查原因時使用。",
+        "outputs": "提供指出失敗工作執行個體與根本原因的診斷、日誌或程式碼中的原文證據及具體修正建議，並列出相關環境層級問題。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过交叉比对工作中继数据、日志、DAG 源代码及相关环境信号，诊断 Managed Airflow 中失败的 DAG 运行与工作运行个体。",
+        "whenToUse": "在已确认特定 DAG 运行或工作失败，且需要比对运行状态、日志、已部署代码，以及自动产生 DAG 的管线定义来追查原因时使用。",
+        "outputs": "提供指出失败工作运行个体与根本原因的诊断、日志或代码中的原文证据及具体修正建议，并列出相关环境层级问题。"
+      }
+    }
+  }
+}

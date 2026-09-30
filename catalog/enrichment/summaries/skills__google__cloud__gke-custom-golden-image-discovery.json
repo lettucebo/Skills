@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-custom-golden-image-discovery",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:db41be5711f40d562221067d9a81b2730efa27bc836af601cd88bed1cbf3081b"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Maps a GKE version and node settings to the matching golden base image for a custom node image.",
+        "whenToUse": "Use it when a GKE version is available but node-image settings need to be inferred from OS, architecture, hardware, sandboxing, security, or cgroup clues.",
+        "outputs": "It provides the matching golden base image name or reports when the requested GKE version is unsupported."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "依據 GKE 版本與節點設定，找出適用於自訂節點映像檔的對應黃金基礎映像檔。",
+        "whenToUse": "當已有 GKE 版本，但仍需根據作業系統、架構、硬體、沙箱、安全性或 cgroup 線索推斷節點映像檔設定時使用。",
+        "outputs": "提供相符的黃金基礎映像檔名稱，或指出要求的 GKE 版本不受支援。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "依据 GKE 版本与节点设置，找出适用于自订节点映像档的对应黄金基础映像档。",
+        "whenToUse": "当已有 GKE 版本，但仍需根据操作系统、架构、硬件、沙箱、安全性或 cgroup 线索推断节点映像档设置时使用。",
+        "outputs": "提供相符的黄金基础映像文件名称，或指出要求的 GKE 版本不受支持。"
+      }
+    }
+  }
+}

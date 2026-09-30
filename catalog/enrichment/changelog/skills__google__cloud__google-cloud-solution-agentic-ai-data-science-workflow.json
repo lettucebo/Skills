@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-agentic-ai-data-science-workflow",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f68914a593bc3051cff2091d3b6e072fda66313325c227334b2a567acd353683",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a `1.0.0` version entry to the skill's metadata."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill's metadata category from `AiAndMachineLearning` to `MultiProductSolutions`."
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the `AiAndMachineLearning` category to the skill's metadata."
+          },
+          {
+            "sha": "5e1605659d0db9dfe793ebab14a25970bb49fd42",
+            "date": "2026-07-14T08:28:34-07:00",
+            "subject": "New agent skill for building a multi-agent system to automate data science workflows",
+            "url": "https://github.com/google/skills/commit/5e1605659d0db9dfe793ebab14a25970bb49fd42",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a skill file defining a Google Cloud agentic data science workflow with phases for requirements discovery, solution design, implementation planning, and solution validation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中繼資料中新增了 `1.0.0` 版本欄位。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將此技能中繼資料中的類別從 `AiAndMachineLearning` 改為 `MultiProductSolutions`。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中繼資料中新增 `AiAndMachineLearning` 類別。"
+          },
+          {
+            "sha": "5e1605659d0db9dfe793ebab14a25970bb49fd42",
+            "date": "2026-07-14T08:28:34-07:00",
+            "subject": "New agent skill for building a multi-agent system to automate data science workflows",
+            "url": "https://github.com/google/skills/commit/5e1605659d0db9dfe793ebab14a25970bb49fd42",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增技能檔案，定義 Google Cloud 代理式資料科學工作流程，涵蓋需求探索、解決方案設計、實作規劃與解決方案驗證階段。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中继数据中添加了 `1.0.0` 版本字段。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将此技能中继数据中的类别从 `AiAndMachineLearning` 改为 `MultiProductSolutions`。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中继数据中添加 `AiAndMachineLearning` 类别。"
+          },
+          {
+            "sha": "5e1605659d0db9dfe793ebab14a25970bb49fd42",
+            "date": "2026-07-14T08:28:34-07:00",
+            "subject": "New agent skill for building a multi-agent system to automate data science workflows",
+            "url": "https://github.com/google/skills/commit/5e1605659d0db9dfe793ebab14a25970bb49fd42",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加技能文件，定义 Google Cloud 代理式数据科学工作流程，涵盖需求探索、解决方案设计、实作规划与解决方案验证阶段。"
+          }
+        ]
+      }
+    }
+  }
+}

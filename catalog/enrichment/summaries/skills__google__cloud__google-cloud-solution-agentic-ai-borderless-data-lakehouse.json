@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-agentic-ai-borderless-data-lakehouse",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f2f8d62907bcaa283e9b9ffc56aeffbb0b1ed2647b54b6df4b8bfeb9daf031af"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides end-to-end planning, design, implementation, and validation for multi-cloud open data lakehouse solutions that combine distributed data with agentic AI.",
+        "whenToUse": "Use it when a workload must bring together data across cloud or on-premises environments and needs an analytics or AI-serving architecture plus a deployment path.",
+        "outputs": "It produces a requirements-based component decomposition, a Mermaid architecture, a solution architecture guide, infrastructure-as-code and deployment instructions, and validation checks and report."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助端到端規劃、設計、實作及驗證結合分散式資料與代理式 AI 的多雲開放式資料湖倉解決方案。",
+        "whenToUse": "當工作負載需要整合跨雲端或內部部署環境的資料，並需要分析或 AI 服務架構及部署方案時使用。",
+        "outputs": "產出以需求為依據的元件分解、Mermaid 架構圖、解決方案架構指南、基礎架構即程式碼與部署指引，以及驗證檢查和報告。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助端到端规划、设计、实作及验证结合分布式数据与代理式 AI 的多云开放式数据湖仓解决方案。",
+        "whenToUse": "当工作负载需要集成跨云端或内部部署环境的数据，并需要分析或 AI 服务架构及部署方案时使用。",
+        "outputs": "产出以需求为依据的组件分解、Mermaid 架构图、解决方案架构指南、基础架构即代码与部署指引，以及验证检查和报告。"
+      }
+    }
+  }
+}

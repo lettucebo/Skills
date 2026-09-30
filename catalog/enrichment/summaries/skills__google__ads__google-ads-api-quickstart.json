@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/google-ads-api-quickstart",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:071e5019c80fc3088332100bffab103e9a58bb2aaf243b5f76f201ed96efdb40"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It explains how to configure Google Ads API authentication and account routing so developers can safely make an initial campaign query.",
+        "whenToUse": "Use it when a manager-client account hierarchy causes access failures or a pending developer token must be used with test accounts.",
+        "outputs": "It provides credential and account-ID setup steps, links to language- and REST-specific guides, and remedies for permission and token-approval failures."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何設定 Google Ads API 驗證與帳戶路由，讓開發者能安全地執行首次廣告活動查詢。",
+        "whenToUse": "當管理員帳戶與客戶帳戶階層造成存取失敗，或待核准的開發者權杖必須搭配測試帳戶使用時，請參考此指南。",
+        "outputs": "提供憑證與帳戶 ID 的設定步驟、各語言及 REST 的專屬參考指南，並說明權限與權杖核准錯誤的處理方式。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何设置 Google Ads API 验证与帐户路由，让开发者能安全地运行首次广告活动查找。",
+        "whenToUse": "当管理员帐户与客户帐户阶层造成访问失败，或待核准的开发者权杖必须搭配测试帐户使用时，请参考此指南。",
+        "outputs": "提供凭证与帐户 ID 的设置步骤、各语言及 REST 的专属参考指南，并说明权限与权杖核准错误的处理方式。"
+      }
+    }
+  }
+}

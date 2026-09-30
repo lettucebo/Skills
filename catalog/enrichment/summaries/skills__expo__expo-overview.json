@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-overview",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:abf4b79c6d755fc83f6ae670fd752358eac9ee239d8fe359b83ee9adf8044cbb"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Classifies Expo and EAS goals, routes them to the appropriate specialist workflow, and provides guidance shared across those workflows.",
+        "whenToUse": "Use it after confirming a task is Expo/EAS-related to map the goal to a specialist workflow and apply shared setup rules, unless a specific specialist skill is explicitly named.",
+        "outputs": "It identifies a suitable Expo/EAS skill and the relevant setup steps, including SDK-specific documentation, package installation guidance, and EAS authentication or project linking when needed."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它會分類 Expo／EAS 需求、導向合適的專門工作流程，並提供各流程共用的指引。",
+        "whenToUse": "確認工作與 Expo／EAS 有關後，使用它將目標對應至專門工作流程並套用共用設定規則；若已明確指定某項專門技能則不使用。",
+        "outputs": "它會指出合適的 Expo／EAS 專門技能及相關設定步驟，包括依 SDK 版本查閱文件、安裝套件的指引，以及視需要進行 EAS 驗證或專案連結。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它会分类 Expo／EAS 需求、导向合适的专门工作流程，并提供各流程共用的指引。",
+        "whenToUse": "确认工作与 Expo／EAS 有关后，使用它将目标对应至专门工作流程并套用共用设置规则；若已明确指定某项专门技能则不使用。",
+        "outputs": "它会指出合适的 Expo／EAS 专门技能及相关设置步骤，包括依 SDK 版本查阅文档、安装套件的指引，以及视需要进行 EAS 验证或项目链接。"
+      }
+    }
+  }
+}

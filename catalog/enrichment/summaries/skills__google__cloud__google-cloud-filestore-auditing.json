@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-filestore-auditing",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c8f7ba16b0d6fcf6c77914dd54283707143dce7b3a7d4b1551d012a2dc7166d6"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It provides a consistent way to evaluate the resilience, access controls, and zone-isolation posture of Google Cloud Filestore fleets.",
+        "whenToUse": "Use it when you need to assess a specified GCP project's Filestore instances and backups and turn their configurations into actionable findings.",
+        "outputs": "It produces a posture grade and backup-protection rate, prioritized findings, an instance compliance inventory, and—when backups are missing—attributed creation commands that require confirmation before execution."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它提供一致的方法，評估 Google Cloud Filestore 資源群的復原能力、存取控管與實體區域隔離狀況。",
+        "whenToUse": "當您需要檢視指定 GCP 專案中的 Filestore 執行個體與備份，並將其設定轉化為可採取行動的發現事項時，請使用它。",
+        "outputs": "它會產生整體狀態等級與備份保護率、依優先順序排列的發現事項、執行個體合規清冊；若缺少備份，則提供執行前須經確認的備份建立指令。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它提供一致的方法，评估 Google Cloud Filestore 资源群的复原能力、访问控管与实体区域隔离状况。",
+        "whenToUse": "当您需要查看指定 GCP 项目中的 Filestore 运行个体与备份，并将其设置转化为可采取行动的发现事项时，请使用它。",
+        "outputs": "它会产生整体状态等级与备份保护率、依优先级排列的发现事项、运行个体合规清册；若缺少备份，则提供运行前须经确认的备份创建指令。"
+      }
+    }
+  }
+}

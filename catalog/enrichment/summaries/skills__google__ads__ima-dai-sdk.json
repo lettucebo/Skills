@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/ima-dai-sdk",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1291fe35270517ed44b86edfd9f7b3852e95fcc09930ef130daf6c579bf90d16"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps developers integrate Google Ad Manager's server-side ad insertion into video apps using its DAI SDK.",
+        "whenToUse": "Use it when building or adapting a player for an Ad Manager live or on-demand stream, following the guide for the target platform.",
+        "outputs": "It provides platform-specific integration references and a workflow covering SDK setup, event listeners, timed metadata, stream requests, and resource cleanup."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助開發者運用 DAI SDK，在影片應用程式中整合 Google Ad Manager 的伺服器端廣告插入功能。",
+        "whenToUse": "當您要為 Ad Manager 的直播或隨選影片串流建置或調整播放器時，可依目標平台參照相應的整合指南。",
+        "outputs": "內容提供各平台的整合參考資料，以及涵蓋 SDK 設定、事件監聽、定時中繼資料、串流請求與資源清理的一般流程。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助开发者运用 DAI SDK，在视频应用程序中集成 Google Ad Manager 的服务器端广告插入功能。",
+        "whenToUse": "当您要为 Ad Manager 的直播或随选视频串流建置或调整播放器时，可依目标平台参照相应的集成指南。",
+        "outputs": "内容提供各平台的集成参考资料，以及涵盖 SDK 设置、事件监听、定时中继数据、串流请求与资源清理的一般流程。"
+      }
+    }
+  }
+}

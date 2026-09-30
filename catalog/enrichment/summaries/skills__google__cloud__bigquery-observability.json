@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/bigquery-observability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:e732e70f14c65a1ecac16c8eed8910715f52dd108dd893c097e70c23cb093905"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps retrieve and interpret BigQuery operational telemetry and usage data by matching observability questions to appropriate sources, query patterns, and reference guidance.",
+        "whenToUse": "Use it once the telemetry question is defined to choose INFORMATION_SCHEMA, the REST API, or Cloud Monitoring and apply the relevant scope, permissions, filtering, and cost guardrails; start with bigquery-troubleshooting when the cause of a symptom is unknown.",
+        "outputs": "Provides source-selection advice, scoped INFORMATION_SCHEMA SQL and API or Monitoring retrieval guidance, plus reference queries and schema details for job performance, contention, capacity, billing, and storage."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助擷取並解讀 BigQuery 作業遙測與用量資料，依觀測需求選擇合適的資料來源、查詢模式及參考指引。",
+        "whenToUse": "在遙測需求已明確時，使用此指引選擇 INFORMATION_SCHEMA、REST API 或 Cloud Monitoring，並遵循適用的範圍、權限、篩選與成本限制；若症狀原因尚未明確，請先使用 bigquery-troubleshooting。",
+        "outputs": "提供資料來源選擇建議、具範圍限定的 INFORMATION_SCHEMA SQL、API 或 Monitoring 擷取指引，以及工作效能、資源競爭、容量、計費與儲存的參考查詢和結構描述資訊。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助截取并解读 BigQuery 作业遥测与用量数据，依观测需求选择合适的数据源、查找模式及参考指引。",
+        "whenToUse": "在遥测需求已明确时，使用此指引选择 INFORMATION_SCHEMA、REST API 或 Cloud Monitoring，并遵循适用的范围、权限、筛选与成本限制；若症状原因尚未明确，请先使用 bigquery-troubleshooting。",
+        "outputs": "提供数据源选择建议、具范围限定的 INFORMATION_SCHEMA SQL、API 或 Monitoring 截取指引，以及工作性能、资源竞争、容量、计费与保存的参考查找和结构描述信息。"
+      }
+    }
+  }
+}

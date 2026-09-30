@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-recipe-auth",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:641edb65dee61003d8ffdf739e853af1c6fa206f6cf6cef1cef3f3bc35fb5c60"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how Google Cloud principals authenticate and how IAM roles control their access to resources.",
+        "whenToUse": "Use it when diagnosing login or permission failures, configuring identities for development or production, or securing calls to private services.",
+        "outputs": "Recommendations for credentials or identity federation, least-privilege IAM roles, and checks for common setup pitfalls."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明 Google Cloud 主體如何進行驗證，以及 IAM 角色如何控管其對資源的存取。",
+        "whenToUse": "在排查登入或權限問題、設定開發或正式環境的身分，或保護對私有服務的呼叫時使用。",
+        "outputs": "提供憑證或身分聯合的建議、最小權限 IAM 角色建議，以及常見設定問題的檢查項目。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明 Google Cloud 主体如何进行验证，以及 IAM 角色如何控管其对资源的访问。",
+        "whenToUse": "在排查登录或权限问题、设置开发或正式环境的身分，或保护对私有服务的调用时使用。",
+        "outputs": "提供凭证或身分联合的建议、最小权限 IAM 角色建议，以及常见设置问题的检查项目。"
+      }
+    }
+  }
+}

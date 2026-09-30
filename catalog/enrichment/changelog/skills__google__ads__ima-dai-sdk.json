@@ -1,0 +1,72 @@
+{
+  "path": "skills/google/ads/ima-dai-sdk",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1291fe35270517ed44b86edfd9f7b3852e95fcc09930ef130daf6c579bf90d16",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/ads/ima-dai-sdk",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "8f57a0d9839ba9e33aa5367dfeb7ba37598175e3",
+            "date": "2026-08-14T12:18:46-07:00",
+            "subject": "Adds IMA DAI SDK skill with Web, Android, iOS/tvOS, Roku and ChromeCast guides.",
+            "url": "https://github.com/google/skills/commit/8f57a0d9839ba9e33aa5367dfeb7ba37598175e3",
+            "pathAtCommit": "skills/ads/ima-dai-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added an IMA DAI SDK skill that outlines livestream and VOD use cases, links platform-specific integration guides, lists prerequisites, and gives a six-step general workflow."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "8f57a0d9839ba9e33aa5367dfeb7ba37598175e3",
+            "date": "2026-08-14T12:18:46-07:00",
+            "subject": "Adds IMA DAI SDK skill with Web, Android, iOS/tvOS, Roku and ChromeCast guides.",
+            "url": "https://github.com/google/skills/commit/8f57a0d9839ba9e33aa5367dfeb7ba37598175e3",
+            "pathAtCommit": "skills/ads/ima-dai-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 IMA DAI SDK 技能，概述直播與隨選視訊用途、連結各平台整合指南、列出前置需求，並提供六步驟的一般工作流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "8f57a0d9839ba9e33aa5367dfeb7ba37598175e3",
+            "date": "2026-08-14T12:18:46-07:00",
+            "subject": "Adds IMA DAI SDK skill with Web, Android, iOS/tvOS, Roku and ChromeCast guides.",
+            "url": "https://github.com/google/skills/commit/8f57a0d9839ba9e33aa5367dfeb7ba37598175e3",
+            "pathAtCommit": "skills/ads/ima-dai-sdk/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 IMA DAI SDK 技能，概述直播与随选视频用途、链接各平台集成指南、列出前置需求，并提供六步骤的一般工作流程。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/analytics/google-analytics-data-api-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:e4d2aca7ac2d2c51d2f27d52702bfe68a6e8e7c7c8adfe662c76c893c4efb62b",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/analytics/google-analytics-data-api-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the skill's metadata version as 1.0.0."
+          },
+          {
+            "sha": "c4b195927e63176caba02e2e91df992858782b51",
+            "date": "2026-07-24T12:43:39-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c4b195927e63176caba02e2e91df992858782b51",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Extended the skill description with exclusions for Google Analytics Admin API operations and front-end tracking installation, and changed the compatibility example's e-commerce dimension from `itemDescription` to `itemName`."
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the `GoogleAnalytics` category to the skill metadata."
+          },
+          {
+            "sha": "07f876246ad9faa5c75e095c465cbc2aa6189bec",
+            "date": "2026-06-26T13:06:34-07:00",
+            "subject": "Add new skills for Google Analytics.",
+            "url": "https://github.com/google/skills/commit/07f876246ad9faa5c75e095c465cbc2aa6189bec",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Google Analytics Data API v1beta skill guide covering API setup, client-library references, report requests, and metrics/dimensions compatibility checks."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中繼資料中新增版本號 1.0.0。"
+          },
+          {
+            "sha": "c4b195927e63176caba02e2e91df992858782b51",
+            "date": "2026-07-24T12:43:39-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c4b195927e63176caba02e2e91df992858782b51",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能描述中新增 Google Analytics Admin API 操作與前端追蹤安裝的排除說明，並將相容性範例中的電子商務維度由 `itemDescription` 改為 `itemName`。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增 `GoogleAnalytics` 類別。"
+          },
+          {
+            "sha": "07f876246ad9faa5c75e095c465cbc2aa6189bec",
+            "date": "2026-06-26T13:06:34-07:00",
+            "subject": "Add new skills for Google Analytics.",
+            "url": "https://github.com/google/skills/commit/07f876246ad9faa5c75e095c465cbc2aa6189bec",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Google Analytics Data API v1beta 技能指南，涵蓋 API 設定、用戶端程式庫參考、報表請求，以及指標與維度相容性檢查。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中继数据中添加版本号 1.0.0。"
+          },
+          {
+            "sha": "c4b195927e63176caba02e2e91df992858782b51",
+            "date": "2026-07-24T12:43:39-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c4b195927e63176caba02e2e91df992858782b51",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能描述中添加 Google Analytics Admin API 操作与前端追踪安装的排除说明，并将兼容性范例中的电子商务维度由 `itemDescription` 改为 `itemName`。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加 `GoogleAnalytics` 类别。"
+          },
+          {
+            "sha": "07f876246ad9faa5c75e095c465cbc2aa6189bec",
+            "date": "2026-06-26T13:06:34-07:00",
+            "subject": "Add new skills for Google Analytics.",
+            "url": "https://github.com/google/skills/commit/07f876246ad9faa5c75e095c465cbc2aa6189bec",
+            "pathAtCommit": "skills/analytics/google-analytics-data-api-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Google Analytics Data API v1beta 技能指南，涵盖 API 设置、用户端程序库参考、报表请求，以及指针与维度兼容性检查。"
+          }
+        ]
+      }
+    }
+  }
+}

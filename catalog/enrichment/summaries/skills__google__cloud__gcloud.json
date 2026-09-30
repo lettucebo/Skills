@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gcloud",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7c56b7703339f54a1045a623e8e75479e62d1a728ae2e9187daf44a3de8a929d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It promotes safer, more reliable gcloud operations through command-specific syntax checks, explicit project and location scoping, data reduction, and safeguards for risky actions.",
+        "whenToUse": "Use it when a task requires inspecting or changing Google Cloud resources from the command line and needs careful targeting or operational risk controls.",
+        "outputs": "It provides command-level validation steps, scoped and data-reduced query patterns, and safeguards that identify actions requiring user authorization."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過逐一命令的語法驗證、明確的專案與位置範圍、資料精簡及高風險操作防護，提升 gcloud 作業的安全性與可靠性。",
+        "whenToUse": "當工作需要從命令列檢視或變更 Google Cloud 資源，且必須謹慎確認目標範圍或操作風險時使用。",
+        "outputs": "提供命令層級的驗證步驟、範圍明確且精簡資料的查詢模式，以及指出需取得使用者授權之操作的防護規則。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过逐一命令的语法验证、明确的项目与位置范围、数据精简及高风险操作防护，提升 gcloud 作业的安全性与可靠性。",
+        "whenToUse": "当工作需要从命令行查看或变更 Google Cloud 资源，且必须谨慎确认目标范围或操作风险时使用。",
+        "outputs": "提供命令层级的验证步骤、范围明确且精简数据的查找模式，以及指出需取得用户授权之操作的防护规则。"
+      }
+    }
+  }
+}

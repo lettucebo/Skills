@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-operational-excellence",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4e1e7a8bf8e9dbe54e9b49fec875d65080fa2a2bf93ecfba77c7eb1b310d81ce"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps evaluate a Google Cloud workload's operational practices against the Well-Architected Framework and identify practical improvements.",
+        "whenToUse": "Use when reviewing a workload's production readiness, service objectives, incident handling, deployment changes, resource use, or operational improvement practices.",
+        "outputs": "Provides focused assessment questions, a validation checklist, and actionable recommendations for readiness, monitoring, incident response, change automation, resource optimization, and continuous improvement."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助依據 Well-Architected Framework 評估 Google Cloud 工作負載的營運實務，並找出可行的改善方向。",
+        "whenToUse": "在檢視工作負載的正式環境就緒度、服務目標、事件處理、部署變更、資源使用或營運改善做法時使用。",
+        "outputs": "提供聚焦的評估問題、驗證清單，以及針對就緒度、監控、事件應變、變更自動化、資源最佳化與持續改善的可行建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助依据 Well-Architected Framework 评估 Google Cloud 工作负载的营运实务，并找出可行的改善方向。",
+        "whenToUse": "在查看工作负载的正式环境就绪度、服务目标、事件处理、部署变更、资源使用或营运改善做法时使用。",
+        "outputs": "提供聚焦的评估问题、验证清单，以及针对就绪度、监控、事件应变、变更自动化、资源优化与持续改善的可行建议。"
+      }
+    }
+  }
+}

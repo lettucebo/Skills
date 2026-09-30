@@ -2,42 +2,42 @@
   "path": "skills/claude/claude-api",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:94c49cbd2b0b685cf1729fd4ba0973d09c933912dbca9f35eefb5d4e28b94df1"
+    "contentHash": "sha256:498ae139001467707fb94e9b1f823c05a61a60d21e580e15b8c50d52b290e1c9"
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides a practical reference for building with the Claude API and Anthropic SDKs, including models, parameters, streaming, tool use, managed agents, caching, and migration guidance.",
-        "whenToUse": "Use it when a task involves Claude or Anthropic integration details, model selection or limits, or designing tool-driven and agent-style LLM workflows in a supported language.",
-        "outputs": "Returns Claude-focused implementation guidance and language-specific examples for requests, streaming, structured outputs, tools, files, batches, and managed agent patterns."
+        "purpose": "Guides developers in building Claude API applications, from choosing an API surface to integrating models, tools, and supporting features.",
+        "whenToUse": "Use it when implementing, adapting, or troubleshooting a Claude integration, or when an LLM task needs guidance specific to Anthropic's API.",
+        "outputs": "It provides task-relevant SDK or HTTP examples and guidance on model configuration, tool use, streaming, and platform-specific clients."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供使用 Claude API 與 Anthropic SDK 建置功能的實務參考，涵蓋模型、參數、串流、工具使用、受管代理、快取與遷移指引。",
-        "whenToUse": "當工作涉及 Claude 或 Anthropic 整合細節、模型選擇或限制，或需要在支援語言中設計工具驅動與代理式的 LLM 流程時使用。",
-        "outputs": "會提供以 Claude 為核心的實作指引，以及涵蓋請求、串流、結構化輸出、工具、檔案、批次與受管代理模式的語言範例。"
+        "purpose": "協助開發者打造 Claude API 應用，涵蓋 API 介面選擇、模型、工具及相關功能的整合。",
+        "whenToUse": "在實作、調整或排查 Claude 整合，或需要針對 Anthropic API 處理 LLM 任務時使用。",
+        "outputs": "依任務提供 SDK 或 HTTP 範例，以及模型設定、工具使用、串流和平台專用用戶端等 API 功能的指引。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供使用 Claude API 与 Anthropic SDK 建置功能的实务参考，涵盖模型、参数、串流、工具使用、受管代理、缓存与迁移指引。",
-        "whenToUse": "当工作涉及 Claude 或 Anthropic 集成细节、模型选择或限制，或需要在支持语言中设计工具驱动与代理式的 LLM 流程时使用。",
-        "outputs": "会提供以 Claude 为内核的实作指引，以及涵盖请求、串流、结构化输出、工具、文件、批量与受管代理模式的语言范例。"
+        "purpose": "协助开发者打造 Claude API 应用，涵盖 API 界面选择、模型、工具及相关功能的集成。",
+        "whenToUse": "在实作、调整或排查 Claude 集成，或需要针对 Anthropic API 处理 LLM 任务时使用。",
+        "outputs": "依任务提供 SDK 或 HTTP 范例，以及模型设置、工具使用、串流和平台专用用户端等 API 功能的指引。"
       }
     }
   }

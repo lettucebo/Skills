@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-architecture",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:218d3c20d3105bb67f99456164340d09a2d407012729497907a145c9d0933199"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides a workload from requirements discovery through a reviewed Google Cloud architecture, validation, and final presentation.",
+        "whenToUse": "Use it when you need to clarify assumptions and approve each design deliverable before moving from workload requirements to deployment guidance.",
+        "outputs": "It produces an approved component breakdown, service recommendations, a Mermaid architecture diagram, architecture and design guidance, deployment instructions, a validation plan, and a consolidated solution guide."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它會引導工作負載從需求探索，逐步形成經審核的 Google Cloud 架構、驗證計畫與最終方案文件。",
+        "whenToUse": "當您需要先釐清假設並逐項核准設計交付成果，再從工作負載需求推進到部署指引時，請使用此流程。",
+        "outputs": "它會產出經核准的元件拆解、服務建議、Mermaid 架構圖、架構與設計指引、部署說明、驗證計畫及整合後的方案指南。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它会引导工作负载从需求探索，逐步形成经审核的 Google Cloud 架构、验证计划与最终方案文档。",
+        "whenToUse": "当您需要先厘清假设并逐项核准设计交付成果，再从工作负载需求推进到部署指引时，请使用此流程。",
+        "outputs": "它会产出经核准的组件拆解、服务建议、Mermaid 架构图、架构与设计指引、部署说明、验证计划及集成后的方案指南。"
+      }
+    }
+  }
+}

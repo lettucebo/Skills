@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Build a workflow that turns text into podcast-style spoken audio through Azure OpenAI's Realtime API with streamed narration and transcript handling.",
-        "whenToUse": "Use this when you need a frontend and backend pattern for generating, converting, and playing AI narration from written content over WebSocket.",
-        "outputs": "It produces streamed PCM audio and transcript fragments that are converted into base64-encoded WAV audio for playback."
+        "purpose": "Explains how to turn text into spoken narratives with Azure OpenAI Realtime and prepare the audio for playback.",
+        "whenToUse": "Use it when a service needs to stream narration from text over a WebSocket and deliver playable audio to a web frontend.",
+        "outputs": "It collects 24 kHz, 16-bit mono PCM audio and transcript text, then converts the audio to WAV for Base64-encoded browser playback."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "建立一個流程，透過 Azure OpenAI 的 Realtime API 將文字轉成 Podcast 風格的語音內容，並處理串流旁白與逐字稿。",
-        "whenToUse": "當你需要以前後端整合的方式，透過 WebSocket 產生、轉換並播放由文字內容生成的 AI 語音旁白時使用。",
-        "outputs": "它會產生串流 PCM 音訊與逐字稿片段，並將音訊轉換為可播放的 base64 編碼 WAV。"
+        "purpose": "說明如何使用 Azure OpenAI Realtime 將文字轉為語音敘述，並準備供播放的音訊。",
+        "whenToUse": "當服務需要透過 WebSocket 將文字串流轉為旁白，並提供可在網頁前端播放的音訊時使用。",
+        "outputs": "會收集 24 kHz、16 位元、單聲道的 PCM 音訊與逐字稿文字，再將音訊轉為 WAV，供 Base64 編碼後在瀏覽器播放。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "创建一个流程，透过 Azure OpenAI 的 Realtime API 将文字转成 Podcast 风格的语音内容，并处理串流旁白与逐字稿。",
-        "whenToUse": "当你需要以前后端集成的方式，透过 WebSocket 产生、转换并播放由文字内容生成的 AI 语音旁白时使用。",
-        "outputs": "它会产生串流 PCM 音频与逐字稿片段，并将音频转换为可播放的 base64 编码 WAV。"
+        "purpose": "说明如何使用 Azure OpenAI Realtime 将文字转为语音叙述，并准备供播放的音频。",
+        "whenToUse": "当服务需要透过 WebSocket 将文字符串流转为旁白，并提供可在网页前端播放的音频时使用。",
+        "outputs": "会收集 24 kHz、16 比特、单声道的 PCM 音频与逐字稿文字，再将音频转为 WAV，供 Base64 编码后在浏览器播放。"
       }
     }
   }

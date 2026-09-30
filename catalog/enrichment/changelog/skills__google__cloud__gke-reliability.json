@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/gke-reliability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:89161506be45b634a3be78201cd144b7ce1296cad4393344524cedbf75830051",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-reliability",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The GKE reliability skill now routes Kubernetes YAML manifest generation to gke-manifest-generation, excludes disaster recovery and backups, and records version 1.0.1."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill's metadata now includes version 1.0.0."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill's category field is now nested under metadata and set to Containers."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The new GKE Reliability skill documents high-availability defaults and workload reliability guidance for PDBs, health probes, graceful shutdown, topology spreading, and replica counts."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "GKE reliability 技能現在將 Kubernetes YAML manifest 產生導向 gke-manifest-generation、排除災難復原與備份，並記錄版本 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中繼資料現在包含版本 1.0.0。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的 category 欄位現已移至 metadata 之下，並設為 Containers。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增的 GKE Reliability 技能文件說明高可用性預設值，以及有關 PDB、健康探測、平順關閉、拓撲分散與副本數量的工作負載可靠性指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "GKE reliability 技能现在将 Kubernetes YAML manifest 产生导向 gke-manifest-generation、排除灾难复原与备份，并记录版本 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中继数据现在包含版本 1.0.0。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的 category 字段现已移至 metadata 之下，并设为 Containers。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加的 GKE Reliability 技能文档说明高可用性默认值，以及有关 PDB、健康探测、平顺关闭、拓扑分散与副本数量的工作负载可靠性指引。"
+          }
+        ]
+      }
+    }
+  }
+}

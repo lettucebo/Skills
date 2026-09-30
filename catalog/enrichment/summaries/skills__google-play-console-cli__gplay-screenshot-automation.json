@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Organizes, validates, and uploads Google Play listing screenshots and graphics with gplay using the expected metadata directory structure.",
-        "whenToUse": "Use this when you already have PNG or JPEG store images prepared by locale and device type and need to validate them, import them in bulk, upload selected files, replace existing assets, or include them in a release.",
-        "outputs": "It produces validated screenshot status, updated Play Console image assets committed through an edit, and listing views that show what is live."
+        "purpose": "Organizes and validates existing Android store screenshots and graphics, preparing them for Google Play listing updates.",
+        "whenToUse": "Use it when prepared images need to be arranged by locale and device type, checked against Play's requirements, and uploaded through an edit or release.",
+        "outputs": "A locale-organized image set is uploaded to a Google Play edit or included in a release, with the edit validated before commit."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "使用 gplay 依照預期的 metadata 目錄結構整理、驗證並上傳 Google Play 商店列表的截圖與圖像資產。",
-        "whenToUse": "當你已備妥依語系與裝置類型分類的 PNG 或 JPEG 商店圖片，且需要驗證、批次匯入、上傳指定檔案、替換既有資產，或隨版本發布一併提交時使用。",
-        "outputs": "它會產生截圖驗證結果、透過 edit 提交後更新的 Play 商店圖像資產，以及可用來檢視目前上線內容的列表結果。"
+        "purpose": "協助整理並驗證現有的 Android 商店截圖與宣傳圖片，為更新 Google Play 商店頁面做好準備。",
+        "whenToUse": "當已備妥的圖片需要依語系和裝置類型整理、檢查是否符合 Play 規範，並透過編輯項目或發布流程上傳時使用。",
+        "outputs": "依語系整理的圖片會上傳至 Google Play 編輯項目或納入發布流程，且編輯項目會在提交前完成驗證。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "使用 gplay 依照预期的 metadata 目录结构整理、验证并上传 Google Play 商店列表的截屏与图像资产。",
-        "whenToUse": "当你已备妥依语系与设备类型分类的 PNG 或 JPEG 商店图片，且需要验证、批量导入、上传指定文件、替换既有资产，或随版本发布一并提交时使用。",
-        "outputs": "它会产生截屏验证结果、透过 edit 提交后更新的 Play 商店图像资产，以及可用来查看目前上线内容的列表结果。"
+        "purpose": "协助整理并验证现有的 Android 商店截屏与宣传图片，为更新 Google Play 商店页面做好准备。",
+        "whenToUse": "当已备妥的图片需要依语系和设备类型整理、检查是否符合 Play 规范，并透过编辑项目或发布流程上传时使用。",
+        "outputs": "依语系整理的图片会上传至 Google Play 编辑项目或纳入发布流程，且编辑项目会在提交前完成验证。"
       }
     }
   }

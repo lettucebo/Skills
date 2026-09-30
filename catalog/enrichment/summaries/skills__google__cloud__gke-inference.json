@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-inference",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ed5e4592a06965be92d839c4a06c2bb2795b9820a0ec5ae1b5c126bc19e27153"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a workflow for preparing, deploying, and tuning AI/ML inference workloads on Google Kubernetes Engine, including model-server manifests, accelerator choices, and scaling guidance.",
+        "whenToUse": "Use it when selecting hardware or serving and scaling an AI model on GKE, especially when generating or tuning an inference deployment.",
+        "outputs": "It provides model, server, and accelerator selection guidance, steps for generating and deploying a Kubernetes inference manifest, and recommendations for autoscaling and performance tuning."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供在 Google Kubernetes Engine 上準備、部署與調校 AI/ML 推論工作負載的流程，涵蓋推論伺服器資訊清單、加速器選擇與擴縮指引。",
+        "whenToUse": "當你要在 GKE 上為 AI 模型選擇硬體、提供推論服務或設定擴縮，尤其需要產生或調校推論部署時使用。",
+        "outputs": "提供模型、伺服器與加速器的選擇指引、Kubernetes 推論資訊清單的產生與部署步驟，以及自動擴縮和效能調校建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供在 Google Kubernetes Engine 上准备、部署与调校 AI/ML 推论工作负载的流程，涵盖推论服务器信息清单、加速器选择与扩缩指引。",
+        "whenToUse": "当你要在 GKE 上为 AI 模型选择硬件、提供推论服务或设置扩缩，尤其需要产生或调校推论部署时使用。",
+        "outputs": "提供模型、服务器与加速器的选择指引、Kubernetes 推论信息清单的产生与部署步骤，以及自动扩缩和性能调校建议。"
+      }
+    }
+  }
+}

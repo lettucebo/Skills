@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/developing-genkit-dart",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:bcaf84add7185a74cdd2329b6dbd6bfc9d197577fc389f59e1919f9999604388"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Help developers build Dart AI applications with Genkit's model, prompt, tool, flow, agent, and plugin capabilities.",
+        "whenToUse": "Use when implementing or debugging Genkit Dart details such as Dotprompt templates, persistent multi-turn agents, A2UI, plugin setup, schema mapping, or CLI traces.",
+        "outputs": "Provides Dart implementation guidance and code, along with relevant Genkit CLI commands and trace-based verification steps."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助開發者運用 Genkit 的模型、提示、工具、流程、代理與外掛功能建置 Dart AI 應用程式。",
+        "whenToUse": "在實作或除錯 Genkit Dart 的 Dotprompt 範本、持續型多輪代理、A2UI、外掛設定、結構描述映射或 CLI 追蹤時使用。",
+        "outputs": "提供 Dart 實作指引與程式碼，以及相關的 Genkit CLI 指令和以追蹤記錄驗證的步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助开发者运用 Genkit 的模型、提示、工具、流程、代理与插件功能建置 Dart AI 应用程序。",
+        "whenToUse": "在实作或调试 Genkit Dart 的 Dotprompt 范本、持续型多轮代理、A2UI、插件设置、结构描述映射或 CLI 追踪时使用。",
+        "outputs": "提供 Dart 实作指引与代码，以及相关的 Genkit CLI 指令和以追踪记录验证的步骤。"
+      }
+    }
+  }
+}

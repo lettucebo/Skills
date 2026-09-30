@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-storage-fuse",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1703ac040bbc2f256e2cbdc18a077884281d85711d2baf88318002625663bb3c"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps plan reliable, workload-appropriate access to Cloud Storage through FUSE, including deployment, performance tuning, write safety, and troubleshooting.",
+        "whenToUse": "Use when a workload must access Cloud Storage through POSIX paths or when mount behavior needs assessment; first consider native URI access or a shared mutable workload that requires POSIX locking.",
+        "outputs": "Provides a fit assessment and practical deployment and configuration guidance, with relevant cache tuning, write-semantics cautions, or metrics-based diagnosis."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助依工作負載規劃可靠且合適的 Cloud Storage FUSE 存取方式，涵蓋部署、效能調校、寫入安全性與疑難排解。",
+        "whenToUse": "當工作負載必須透過 POSIX 路徑存取 Cloud Storage，或需要評估掛載行為時使用；先考慮原生 URI 存取，或需要 POSIX 鎖定的共享可變工作負載是否更合適。",
+        "outputs": "依需求提供適用性評估與實用的部署及設定建議，並說明相關快取調校、寫入語意注意事項或以指標為依據的診斷。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助依工作负载规划可靠且合适的 Cloud Storage FUSE 访问方式，涵盖部署、性能调校、写入安全性与疑难排解。",
+        "whenToUse": "当工作负载必须透过 POSIX 路径访问 Cloud Storage，或需要评估挂载行为时使用；先考虑原生 URI 访问，或需要 POSIX 锁定的共享可变工作负载是否更合适。",
+        "outputs": "依需求提供适用性评估与实用的部署及设置建议，并说明相关缓存调校、写入语意注意事项或以指针为依据的诊断。"
+      }
+    }
+  }
+}

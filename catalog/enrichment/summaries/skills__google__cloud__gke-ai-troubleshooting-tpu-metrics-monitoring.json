@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4d943030e90bbb9d048b08153b6e626175af01e8f1faa9785b71b300c7dff89b"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps evaluate GKE TPU health and performance using Cloud Monitoring metrics and PromQL.",
+        "whenToUse": "Use it to inspect accelerator utilization and memory, node and pool health, or infrastructure interruptions and recovery patterns in GKE TPU environments.",
+        "outputs": "It provides configuration checks, metric references, and PromQL queries for TPU health, availability, interruptions, and seven-day recovery and interruption measures."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過 Cloud Monitoring 指標與 PromQL 協助評估 GKE TPU 的健康狀態與效能。",
+        "whenToUse": "在 GKE TPU 環境中檢查加速器使用率與記憶體、節點與節點集區健康狀態，或基礎架構中斷與復原情形時使用。",
+        "outputs": "提供設定檢查、指標參考資料及 PromQL 查詢，用於檢視 TPU 健康狀態、可用性、中斷，以及七天的復原與中斷指標。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过 Cloud Monitoring 指针与 PromQL 协助评估 GKE TPU 的健康状态与性能。",
+        "whenToUse": "在 GKE TPU 环境中检查加速器使用率与内存、节点与节点集区健康状态，或基础架构中断与复原情形时使用。",
+        "outputs": "提供设置检查、指针参考资料及 PromQL 查找，用于查看 TPU 健康状态、可用性、中断，以及七天的复原与中断指针。"
+      }
+    }
+  }
+}

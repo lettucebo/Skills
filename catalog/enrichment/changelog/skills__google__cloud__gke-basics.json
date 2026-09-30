@@ -1,0 +1,669 @@
+{
+  "path": "skills/google/cloud/gke-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b26272af0d10c2f7162e4ab7bd9b4a26dd1db9005b5da50826005ebe103935e7",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarifies gke-basics routing by sending Workload Identity setup to gke-workload-identity and adding pointers for security, upgrades, and manifest generation."
+          },
+          {
+            "sha": "29965301f3c774af19a39d441cbd6a167bf5a4a4",
+            "date": "2026-09-25T07:57:34-07:00",
+            "subject": "Update gke-basics mcp-usage.md with Developer Knowledge MCP server guidance and tool preference hierarchies",
+            "url": "https://github.com/google/skills/commit/29965301f3c774af19a39d441cbd6a167bf5a4a4",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Bumps the gke-basics skill metadata version from 1.0.0 to 1.1.0."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds version 1.0.0 to the gke-basics metadata."
+          },
+          {
+            "sha": "fdd89e4ac2c243e523bb840ecba279c425cb341d",
+            "date": "2026-07-30T10:59:21-07:00",
+            "subject": "Refactor gke-basics skill.",
+            "url": "https://github.com/google/skills/commit/fdd89e4ac2c243e523bb840ecba279c425cb341d",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Refactors gke-basics into guidance for cluster setup, Autopilot-versus-Standard selection, and core operational gotchas, with links to reference docs."
+          },
+          {
+            "sha": "4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "date": "2026-07-30T10:18:39-07:00",
+            "subject": "Migrate and validate the gke-workload-troubleshooting skill for GKE workload failure diagnostics.",
+            "url": "https://github.com/google/skills/commit/4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a Workload Troubleshooting routing row with pod-failure trigger examples."
+          },
+          {
+            "sha": "87bc9535896b6f19ea745f5eb2d3859e091f530a",
+            "date": "2026-07-30T08:28:25-07:00",
+            "subject": "Add gke-ai-troubleshooting-jobset-interruption skill",
+            "url": "https://github.com/google/skills/commit/87bc9535896b6f19ea745f5eb2d3859e091f530a",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a JobSet Interruption routing row with restart, Spot preemption, host error, and worker crash triggers."
+          },
+          {
+            "sha": "c8b32091ffadf19557e8092660518b97848c8069",
+            "date": "2026-07-29T15:16:45-07:00",
+            "subject": "Added gke-tpu-metrics-monitoring skill for Google Cloud GKE agents.",
+            "url": "https://github.com/google/skills/commit/c8b32091ffadf19557e8092660518b97848c8069",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a TPU Metrics routing row with metric and node-health trigger terms."
+          },
+          {
+            "sha": "f125f29dfce155973d6eac9dad915ae26f14f885",
+            "date": "2026-07-28T10:10:49-07:00",
+            "subject": "Migrate and validate the gke-manifest-generation skill for GKE YAML manifest creation and tuning.",
+            "url": "https://github.com/google/skills/commit/f125f29dfce155973d6eac9dad915ae26f14f885",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a Manifest Generation routing row for YAML, templates, probes, and resource limits."
+          },
+          {
+            "sha": "bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "date": "2026-07-24T11:36:59-07:00",
+            "subject": "Add gke-ai-troubleshooting-handle-disruption-gpu-tpu to equip the troubleshooting agent with the ability to diagnose and remediate unexpected node terminations affecting GPU and TPU workloads on GKE.",
+            "url": "https://github.com/google/skills/commit/bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a GPU/TPU Disruption routing row for termination, shutdown, and host-maintenance cases."
+          },
+          {
+            "sha": "90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "date": "2026-07-23T11:24:23-07:00",
+            "subject": "Migrate from kube-agents/agents/platform/skills/gke-productionize",
+            "url": "https://github.com/google/skills/commit/90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds production readiness, productionization, scoring, and cluster-audit triggers routing to gke-productionize."
+          },
+          {
+            "sha": "48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "date": "2026-07-23T08:29:12-07:00",
+            "subject": "Rescope gke-networking and add gke-service-networking. Refined evaluation benchmarks for both skills.",
+            "url": "https://github.com/google/skills/commit/48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changes the routing table to direct networking and ingress to gke-networking and gke-service-networking, security and IAM to gke-platform-security and gke-workload-security, and autoscaling to gke-workload-scaling."
+          },
+          {
+            "sha": "24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "date": "2026-07-22T10:42:50-07:00",
+            "subject": "Merged gke-cost into gke-cost-analysis skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a separate cost-analysis routing row for billing exports, budgets, and live monitoring, and narrows cost-optimization triggers to Spot VMs, rightsizing, and quotas."
+          },
+          {
+            "sha": "7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "date": "2026-07-22T10:29:42-07:00",
+            "subject": "Merged gke-cost into gke-cost-optimization skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changes the cost-optimization routing target from gke-cost to gke-cost-optimization."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moves the Containers category into the skill's metadata block."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworks gke-basics into a routing hub for individual GKE skills, replacing the broad overview and reference directory with a skill-routing table and conceptual-query guidance."
+          },
+          {
+            "sha": "5c249e804b697d9f9054ff6c6bad01260b64d26b",
+            "date": "2026-06-03T06:32:18-07:00",
+            "subject": "- Fixed CONTRIBUTING.md formatting - Removed metadata from gke-basics/SKILL.md for consistency with other skills",
+            "url": "https://github.com/google/skills/commit/5c249e804b697d9f9054ff6c6bad01260b64d26b",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removes the license, author, and version metadata fields from the gke-basics front matter."
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds --quiet to the three gcloud commands in the gke-basics quick-start example."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/SKILL.md",
+              "destinationPath": "skills/cloud/gke-basics/SKILL.md"
+            },
+            "summary": "Renames the skill file from cloud/gke-basics/SKILL.md to skills/cloud/gke-basics/SKILL.md without changing its contents."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+              "destinationPath": "cloud/gke-basics/SKILL.md"
+            },
+            "summary": "Moves the skill file from cloud/products/kubernetes-engine/gke-basics/SKILL.md to cloud/gke-basics/SKILL.md without changing its contents."
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changes the skill heading to Google Kubernetes Engine (GKE) Basics."
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Renames the skill's front-matter name from gke to gke-basics."
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Creates the initial GKE skill file with Autopilot setup and deployment commands plus a reference directory mapping common GKE topics to specialized docs."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "調整 gke-basics 的導流說明，將 Workload Identity 設定改由 gke-workload-identity 負責，並新增安全性、升級與產生 Manifest 的指引。"
+          },
+          {
+            "sha": "29965301f3c774af19a39d441cbd6a167bf5a4a4",
+            "date": "2026-09-25T07:57:34-07:00",
+            "subject": "Update gke-basics mcp-usage.md with Developer Knowledge MCP server guidance and tool preference hierarchies",
+            "url": "https://github.com/google/skills/commit/29965301f3c774af19a39d441cbd6a167bf5a4a4",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 gke-basics 技能中繼資料的版本從 1.0.0 升至 1.1.0。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 gke-basics 中繼資料中新增 1.0.0 版本號。"
+          },
+          {
+            "sha": "fdd89e4ac2c243e523bb840ecba279c425cb341d",
+            "date": "2026-07-30T10:59:21-07:00",
+            "subject": "Refactor gke-basics skill.",
+            "url": "https://github.com/google/skills/commit/fdd89e4ac2c243e523bb840ecba279c425cb341d",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 gke-basics 重整為叢集設定、Autopilot 與 Standard 選擇及核心操作注意事項的指引，並加入參考文件連結。"
+          },
+          {
+            "sha": "4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "date": "2026-07-30T10:18:39-07:00",
+            "subject": "Migrate and validate the gke-workload-troubleshooting skill for GKE workload failure diagnostics.",
+            "url": "https://github.com/google/skills/commit/4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Workload Troubleshooting 導流列，列出 Pod 故障的觸發範例。"
+          },
+          {
+            "sha": "87bc9535896b6f19ea745f5eb2d3859e091f530a",
+            "date": "2026-07-30T08:28:25-07:00",
+            "subject": "Add gke-ai-troubleshooting-jobset-interruption skill",
+            "url": "https://github.com/google/skills/commit/87bc9535896b6f19ea745f5eb2d3859e091f530a",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 JobSet Interruption 導流列，列出重新啟動、Spot 搶占、主機錯誤及工作者當機等觸發條件。"
+          },
+          {
+            "sha": "c8b32091ffadf19557e8092660518b97848c8069",
+            "date": "2026-07-29T15:16:45-07:00",
+            "subject": "Added gke-tpu-metrics-monitoring skill for Google Cloud GKE agents.",
+            "url": "https://github.com/google/skills/commit/c8b32091ffadf19557e8092660518b97848c8069",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 TPU Metrics 導流列，列出指標與節點健康狀況相關的觸發詞。"
+          },
+          {
+            "sha": "f125f29dfce155973d6eac9dad915ae26f14f885",
+            "date": "2026-07-28T10:10:49-07:00",
+            "subject": "Migrate and validate the gke-manifest-generation skill for GKE YAML manifest creation and tuning.",
+            "url": "https://github.com/google/skills/commit/f125f29dfce155973d6eac9dad915ae26f14f885",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Manifest Generation 導流列，涵蓋 YAML、範本、探測及資源限制。"
+          },
+          {
+            "sha": "bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "date": "2026-07-24T11:36:59-07:00",
+            "subject": "Add gke-ai-troubleshooting-handle-disruption-gpu-tpu to equip the troubleshooting agent with the ability to diagnose and remediate unexpected node terminations affecting GPU and TPU workloads on GKE.",
+            "url": "https://github.com/google/skills/commit/bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GPU/TPU Disruption 導流列，涵蓋終止、關機及主機維護情況。"
+          },
+          {
+            "sha": "90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "date": "2026-07-23T11:24:23-07:00",
+            "subject": "Migrate from kube-agents/agents/platform/skills/gke-productionize",
+            "url": "https://github.com/google/skills/commit/90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 production readiness、productionization、評分及叢集稽核等觸發條件，並導向 gke-productionize。"
+          },
+          {
+            "sha": "48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "date": "2026-07-23T08:29:12-07:00",
+            "subject": "Rescope gke-networking and add gke-service-networking. Refined evaluation benchmarks for both skills.",
+            "url": "https://github.com/google/skills/commit/48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新導流表，將網路與 Ingress 導向 gke-networking 和 gke-service-networking、安全性與 IAM 導向 gke-platform-security 和 gke-workload-security，並將自動擴縮導向 gke-workload-scaling。"
+          },
+          {
+            "sha": "24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "date": "2026-07-22T10:42:50-07:00",
+            "subject": "Merged gke-cost into gke-cost-analysis skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增帳單匯出、預算及即時監控的成本分析導流列，並將成本最佳化觸發條件調整為 Spot VM、資源規格調整及配額。"
+          },
+          {
+            "sha": "7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "date": "2026-07-22T10:29:42-07:00",
+            "subject": "Merged gke-cost into gke-cost-optimization skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將成本最佳化的導流目標從 gke-cost 改為 gke-cost-optimization。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Containers 分類移入技能的中繼資料區塊。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 gke-basics 重整為各 GKE 技能的導流中心，以技能導流表和概念性問題指引取代原本的廣泛概述與參考目錄。"
+          },
+          {
+            "sha": "5c249e804b697d9f9054ff6c6bad01260b64d26b",
+            "date": "2026-06-03T06:32:18-07:00",
+            "subject": "- Fixed CONTRIBUTING.md formatting - Removed metadata from gke-basics/SKILL.md for consistency with other skills",
+            "url": "https://github.com/google/skills/commit/5c249e804b697d9f9054ff6c6bad01260b64d26b",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除 gke-basics 前置中繼資料中的授權、作者及版本欄位。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 gke-basics 快速入門範例的三個 gcloud 指令中加入 --quiet。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/SKILL.md",
+              "destinationPath": "skills/cloud/gke-basics/SKILL.md"
+            },
+            "summary": "將技能檔案從 cloud/gke-basics/SKILL.md 重新命名為 skills/cloud/gke-basics/SKILL.md，內容未變。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+              "destinationPath": "cloud/gke-basics/SKILL.md"
+            },
+            "summary": "將技能檔案從 cloud/products/kubernetes-engine/gke-basics/SKILL.md 移至 cloud/gke-basics/SKILL.md，內容未變。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能標題改為 Google Kubernetes Engine (GKE) Basics。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能前置中繼資料中的名稱從 gke 改為 gke-basics。"
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立初始 GKE 技能檔案，加入 Autopilot 設定與部署指令，以及將常見 GKE 主題對應至專門文件的參考目錄。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "调整 gke-basics 的导流说明，将 Workload Identity 设置改由 gke-workload-identity 负责，并添加安全性、升级与产生 Manifest 的指引。"
+          },
+          {
+            "sha": "29965301f3c774af19a39d441cbd6a167bf5a4a4",
+            "date": "2026-09-25T07:57:34-07:00",
+            "subject": "Update gke-basics mcp-usage.md with Developer Knowledge MCP server guidance and tool preference hierarchies",
+            "url": "https://github.com/google/skills/commit/29965301f3c774af19a39d441cbd6a167bf5a4a4",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 gke-basics 技能中继数据的版本从 1.0.0 升至 1.1.0。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 gke-basics 中继数据中添加 1.0.0 版本号。"
+          },
+          {
+            "sha": "fdd89e4ac2c243e523bb840ecba279c425cb341d",
+            "date": "2026-07-30T10:59:21-07:00",
+            "subject": "Refactor gke-basics skill.",
+            "url": "https://github.com/google/skills/commit/fdd89e4ac2c243e523bb840ecba279c425cb341d",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 gke-basics 重整为集群设置、Autopilot 与 Standard 选择及内核操作注意事项的指引，并加入参考文档链接。"
+          },
+          {
+            "sha": "4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "date": "2026-07-30T10:18:39-07:00",
+            "subject": "Migrate and validate the gke-workload-troubleshooting skill for GKE workload failure diagnostics.",
+            "url": "https://github.com/google/skills/commit/4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Workload Troubleshooting 导流列，列出 Pod 故障的触发范例。"
+          },
+          {
+            "sha": "87bc9535896b6f19ea745f5eb2d3859e091f530a",
+            "date": "2026-07-30T08:28:25-07:00",
+            "subject": "Add gke-ai-troubleshooting-jobset-interruption skill",
+            "url": "https://github.com/google/skills/commit/87bc9535896b6f19ea745f5eb2d3859e091f530a",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 JobSet Interruption 导流列，列出重新启动、Spot 抢占、主机错误及工作者当机等触发条件。"
+          },
+          {
+            "sha": "c8b32091ffadf19557e8092660518b97848c8069",
+            "date": "2026-07-29T15:16:45-07:00",
+            "subject": "Added gke-tpu-metrics-monitoring skill for Google Cloud GKE agents.",
+            "url": "https://github.com/google/skills/commit/c8b32091ffadf19557e8092660518b97848c8069",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 TPU Metrics 导流列，列出指针与节点健康状况相关的触发词。"
+          },
+          {
+            "sha": "f125f29dfce155973d6eac9dad915ae26f14f885",
+            "date": "2026-07-28T10:10:49-07:00",
+            "subject": "Migrate and validate the gke-manifest-generation skill for GKE YAML manifest creation and tuning.",
+            "url": "https://github.com/google/skills/commit/f125f29dfce155973d6eac9dad915ae26f14f885",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Manifest Generation 导流列，涵盖 YAML、范本、探测及资源限制。"
+          },
+          {
+            "sha": "bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "date": "2026-07-24T11:36:59-07:00",
+            "subject": "Add gke-ai-troubleshooting-handle-disruption-gpu-tpu to equip the troubleshooting agent with the ability to diagnose and remediate unexpected node terminations affecting GPU and TPU workloads on GKE.",
+            "url": "https://github.com/google/skills/commit/bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GPU/TPU Disruption 导流列，涵盖终止、关机及主机维护情况。"
+          },
+          {
+            "sha": "90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "date": "2026-07-23T11:24:23-07:00",
+            "subject": "Migrate from kube-agents/agents/platform/skills/gke-productionize",
+            "url": "https://github.com/google/skills/commit/90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 production readiness、productionization、评分及集群审核等触发条件，并导向 gke-productionize。"
+          },
+          {
+            "sha": "48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "date": "2026-07-23T08:29:12-07:00",
+            "subject": "Rescope gke-networking and add gke-service-networking. Refined evaluation benchmarks for both skills.",
+            "url": "https://github.com/google/skills/commit/48378f5e7311f02d3c37fdf39563013bb688a4d4",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新导流表，将网络与 Ingress 导向 gke-networking 和 gke-service-networking、安全性与 IAM 导向 gke-platform-security 和 gke-workload-security，并将自动扩缩导向 gke-workload-scaling。"
+          },
+          {
+            "sha": "24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "date": "2026-07-22T10:42:50-07:00",
+            "subject": "Merged gke-cost into gke-cost-analysis skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加帐单导出、预算及实时监控的成本分析导流列，并将成本优化触发条件调整为 Spot VM、资源规格调整及配额。"
+          },
+          {
+            "sha": "7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "date": "2026-07-22T10:29:42-07:00",
+            "subject": "Merged gke-cost into gke-cost-optimization skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/7647820e25189de8aeb6be31e72e9394ec8f0d3b",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将成本优化的导流目标从 gke-cost 改为 gke-cost-optimization。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Containers 分类移入技能的中继数据区块。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 gke-basics 重整为各 GKE 技能的导流中心，以技能导流表和概念性问题指引取代原本的广泛概述与参考目录。"
+          },
+          {
+            "sha": "5c249e804b697d9f9054ff6c6bad01260b64d26b",
+            "date": "2026-06-03T06:32:18-07:00",
+            "subject": "- Fixed CONTRIBUTING.md formatting - Removed metadata from gke-basics/SKILL.md for consistency with other skills",
+            "url": "https://github.com/google/skills/commit/5c249e804b697d9f9054ff6c6bad01260b64d26b",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除 gke-basics 前置中继数据中的授权、作者及版本字段。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 gke-basics 快速入门范例的三个 gcloud 指令中加入 --quiet。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/SKILL.md",
+              "destinationPath": "skills/cloud/gke-basics/SKILL.md"
+            },
+            "summary": "将技能文件从 cloud/gke-basics/SKILL.md 重命名为 skills/cloud/gke-basics/SKILL.md，内容未变。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+              "destinationPath": "cloud/gke-basics/SKILL.md"
+            },
+            "summary": "将技能文件从 cloud/products/kubernetes-engine/gke-basics/SKILL.md 移至 cloud/gke-basics/SKILL.md，内容未变。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能标题改为 Google Kubernetes Engine (GKE) Basics。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能前置中继数据中的名称从 gke 改为 gke-basics。"
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建初始 GKE 技能文件，加入 Autopilot 设置与部署指令，以及将常见 GKE 主题对应至专门文档的参考目录。"
+          }
+        ]
+      }
+    }
+  }
+}

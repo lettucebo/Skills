@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-workload-scaling-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:732290b03e0088e9d3e81c29286731b9d6e2f93b1f348b400b45f940d9646760"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Diagnoses GKE HorizontalPodAutoscaler failures and identifies root causes through read-only investigation.",
+        "whenToUse": "Use this when an existing GKE workload's HorizontalPodAutoscaler behaves unexpectedly, including metric problems, scaling stalls, zero-replica issues, or delayed reactions.",
+        "outputs": "Provides diagnostic findings and proposed GitOps-ready changes or operator commands for review without applying changes to a live cluster."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "以唯讀方式診斷 GKE HorizontalPodAutoscaler 故障並找出根本原因。",
+        "whenToUse": "當現有 GKE 工作負載的 HorizontalPodAutoscaler 行為異常時使用，包括指標問題、擴縮停滯、零副本問題或反應延遲。",
+        "outputs": "提供診斷結果及可供 GitOps 審查的變更方案或操作員命令，不會直接套用至執行中的叢集。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "以唯读方式诊断 GKE HorizontalPodAutoscaler 故障并找出根本原因。",
+        "whenToUse": "当现有 GKE 工作负载的 HorizontalPodAutoscaler 行为异常时使用，包括指针问题、扩缩停滞、零副本问题或反应延迟。",
+        "outputs": "提供诊断结果及可供 GitOps 审查的变更方案或操作员命令，不会直接套用至运行中的集群。"
+      }
+    }
+  }
+}

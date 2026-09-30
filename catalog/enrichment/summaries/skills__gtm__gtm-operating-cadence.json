@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides an operating cadence for scaling companies by defining meeting layers, weekly metrics, quarterly planning, decision rights, and async communication practices.",
-        "whenToUse": "Use it when a company is growing and meetings, alignment, planning, or decision speed are breaking down across teams.",
-        "outputs": "It yields a structured cadence with meeting schedules, dashboard rules, planning steps, decision authority guidelines, and repeatable leadership update formats."
+        "purpose": "Establish a scalable operating rhythm that keeps teams aligned and improves reporting, planning, and decision speed as a company grows.",
+        "whenToUse": "Use when company growth has outpaced its existing ways of coordinating work and decisions across teams.",
+        "outputs": "Recommendations for meeting cadences, a consistent weekly metrics dashboard, quarterly planning and priorities, explicit decision ownership, async documentation, and a CEO weekly update."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供適合成長中公司的營運節奏設計，涵蓋會議分層、每週指標、季度規劃、決策權責與非同步溝通做法。",
-        "whenToUse": "當公司擴張後出現會議無法推進決策、跨部門對齊變差、規劃失靈或決策速度變慢時使用。",
-        "outputs": "它會產出一套結構化的節奏，包含會議安排、儀表板規則、規劃步驟、決策權責準則與固定的領導更新格式。"
+        "purpose": "建立一套可隨公司成長擴展的營運節奏，以維持團隊步調一致並改善回報、規劃與決策速度。",
+        "whenToUse": "當公司成長已超過既有跨團隊協調工作與決策的方式所能應付時使用。",
+        "outputs": "提供會議節奏、固定格式的每週指標儀表板、季度規劃與優先事項、明確的決策權責、非同步文件做法，以及 CEO 每週更新的建議。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供适合成长中公司的营运节奏设计，涵盖会议分层、每周指针、季度规划、决策权责与异步沟通做法。",
-        "whenToUse": "当公司扩张后出现会议无法推进决策、跨部门对齐变差、规划失灵或决策速度变慢时使用。",
-        "outputs": "它会产出一套结构化的节奏，包含会议安排、仪表板规则、规划步骤、决策权责准则与固定的领导更新格式。"
+        "purpose": "创建一套可随公司成长扩展的营运节奏，以维持团队步调一致并改善回报、规划与决策速度。",
+        "whenToUse": "当公司成长已超过既有跨团队协调工作与决策的方式所能应付时使用。",
+        "outputs": "提供会议节奏、固定格式的每周指针仪表板、季度规划与优先事项、明确的决策权责、异步文档做法，以及 CEO 每周更新的建议。"
       }
     }
   }

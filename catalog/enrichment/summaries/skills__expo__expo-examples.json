@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-examples",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f7c098e56f63b985248c959d2dfd74dd9798658c8ba536c03afcb8bc3f42eb49"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Offers Expo-maintained integration examples that show the dependencies, app configuration, and minimal code wiring for individual libraries or services.",
+        "whenToUse": "For an existing Expo app, consult a matching example to selectively adapt its integration without replacing the app's setup; for a new app, start from a suitable example project.",
+        "outputs": "The result is either an adapted integration with dependencies, required config plugins or permissions, code, and environment-variable requirements accounted for, or a new project scaffolded from the selected example."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供 Expo 維護的整合範例，展示單一函式庫或服務所需的相依套件、應用程式設定與精簡程式碼串接方式。",
+        "whenToUse": "既有 Expo 專案可參考相符範例，選擇性移植整合方式而不覆蓋原有設定；新專案則可從合適的範例專案開始。",
+        "outputs": "成果為已移植且已處理所需相依套件、設定外掛或權限、程式碼及環境變數需求的整合，或依選定範例建立的新專案。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供 Expo 维护的集成范例，展示单一函数库或服务所需的相依套件、应用程序设置与精简代码串接方式。",
+        "whenToUse": "既有 Expo 项目可参考相符范例，选择性移植集成方式而不覆盖原有设置；新项目则可从合适的范例项目开始。",
+        "outputs": "成果为已移植且已处理所需相依套件、设置插件或权限、代码及环境变量需求的集成，或依选定范例创建的新项目。"
+      }
+    }
+  }
+}

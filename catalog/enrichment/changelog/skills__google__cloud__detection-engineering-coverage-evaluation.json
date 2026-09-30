@@ -1,0 +1,276 @@
+{
+  "path": "skills/google/cloud/detection-engineering-coverage-evaluation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6b5b448e1a9fe4ad98bba3a6a8fd935b637b05e8cb8a75cc4c1bc3d0cc7200d4",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/detection-engineering-coverage-evaluation",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "d04f0a58cc612e552efd9ab973c2d5098d353610",
+            "date": "2026-09-29T06:37:14-07:00",
+            "subject": "Disambiguate detection-engineering-coverage-evaluation from standalone YARA-L 2.0 rule authoring in secops-detection-engineering.",
+            "url": "https://github.com/google/skills/commit/d04f0a58cc612e552efd9ab973c2d5098d353610",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified the skill's scope versus standalone YARA-L 2.0 rule authoring and tuning, added a routing note, and updated its version to 1.0.1."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added metadata setting the skill version to 1.0.0."
+          },
+          {
+            "sha": "6c7aeeb6a60fc7508052129ab5a30eee5c4a4bc4",
+            "date": "2026-08-10T08:08:18-07:00",
+            "subject": "Update skill to use new evaluate rule coverage flow",
+            "url": "https://github.com/google/skills/commit/6c7aeeb6a60fc7508052129ab5a30eee5c4a4bc4",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked coverage evaluation to use per-TDO long-running operations and polling, added a completion gate before follow-up steps, and updated rule-reporting guidance."
+          },
+          {
+            "sha": "eeae85a8260ee09dc1edbafc02bfad539383c849",
+            "date": "2026-07-28T10:56:35-07:00",
+            "subject": "Include more specific threat text extraction instructions in the detection-coverage skill",
+            "url": "https://github.com/google/skills/commit/eeae85a8260ee09dc1edbafc02bfad539383c849",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded threat-intelligence extraction guidance with HTML cleanup, prompt-injection checks, metadata retention, and support for direct raw-text input."
+          },
+          {
+            "sha": "fd8559058eecd3428a3bdcb4bc15ecd93521cc41",
+            "date": "2026-07-14T07:02:55-07:00",
+            "subject": "feat: add the create_rule MCP tool integration to the detection-coverage workflow.",
+            "url": "https://github.com/google/skills/commit/fd8559058eecd3428a3bdcb4bc15ecd93521cc41",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a user-approval step for creating generated rules in SecOps and documented the create_rule tool."
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Security category metadata to the skill."
+          },
+          {
+            "sha": "aabe37a010621dbabd33acfe55db645732c964f8",
+            "date": "2026-07-02T15:30:44-07:00",
+            "subject": "Rename detection engineering coverage evaluation folder for consistency",
+            "url": "https://github.com/google/skills/commit/aabe37a010621dbabd33acfe55db645732c964f8",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/cloud/detection_engineering_coverage_evaluation/SKILL.md",
+              "destinationPath": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md"
+            },
+            "summary": "Renamed the skill directory from detection_engineering_coverage_evaluation to detection-engineering-coverage-evaluation without changing file contents."
+          },
+          {
+            "sha": "cdbd650dfefa4f3cba7ccf05f9fa8f746ba47282",
+            "date": "2026-06-26T13:20:04-07:00",
+            "subject": "feat: Publish detection-coverage skill to google/skills",
+            "url": "https://github.com/google/skills/commit/cdbd650dfefa4f3cba7ccf05f9fa8f746ba47282",
+            "pathAtCommit": "skills/cloud/detection_engineering_coverage_evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial detection-coverage skill describing a Google SecOps workflow for threat-intelligence extraction, TDO generation, synthetic-event coverage evaluation, rule review, and gap mitigation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "d04f0a58cc612e552efd9ab973c2d5098d353610",
+            "date": "2026-09-29T06:37:14-07:00",
+            "subject": "Disambiguate detection-engineering-coverage-evaluation from standalone YARA-L 2.0 rule authoring in secops-detection-engineering.",
+            "url": "https://github.com/google/skills/commit/d04f0a58cc612e552efd9ab973c2d5098d353610",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "釐清此技能與獨立撰寫及調校 YARA-L 2.0 規則的適用範圍，新增路由提示，並將版本更新為 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增中繼資料，將技能版本設為 1.0.0。"
+          },
+          {
+            "sha": "6c7aeeb6a60fc7508052129ab5a30eee5c4a4bc4",
+            "date": "2026-08-10T08:08:18-07:00",
+            "subject": "Update skill to use new evaluate rule coverage flow",
+            "url": "https://github.com/google/skills/commit/6c7aeeb6a60fc7508052129ab5a30eee5c4a4bc4",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將覆蓋率評估改為針對每個 TDO 使用長時間作業並輪詢，新增後續步驟前的完成門檻，並更新規則回報指引。"
+          },
+          {
+            "sha": "eeae85a8260ee09dc1edbafc02bfad539383c849",
+            "date": "2026-07-28T10:56:35-07:00",
+            "subject": "Include more specific threat text extraction instructions in the detection-coverage skill",
+            "url": "https://github.com/google/skills/commit/eeae85a8260ee09dc1edbafc02bfad539383c849",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充威脅情報擷取指引，加入 HTML 清理、提示注入檢查、保留中繼資料，以及直接提供原始文字的支援。"
+          },
+          {
+            "sha": "fd8559058eecd3428a3bdcb4bc15ecd93521cc41",
+            "date": "2026-07-14T07:02:55-07:00",
+            "subject": "feat: add the create_rule MCP tool integration to the detection-coverage workflow.",
+            "url": "https://github.com/google/skills/commit/fd8559058eecd3428a3bdcb4bc15ecd93521cc41",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增經使用者核准後在 SecOps 建立產生規則的步驟，並說明 create_rule 工具。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "為技能新增 Security 類別中繼資料。"
+          },
+          {
+            "sha": "aabe37a010621dbabd33acfe55db645732c964f8",
+            "date": "2026-07-02T15:30:44-07:00",
+            "subject": "Rename detection engineering coverage evaluation folder for consistency",
+            "url": "https://github.com/google/skills/commit/aabe37a010621dbabd33acfe55db645732c964f8",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/cloud/detection_engineering_coverage_evaluation/SKILL.md",
+              "destinationPath": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md"
+            },
+            "summary": "將技能目錄從 detection_engineering_coverage_evaluation 重新命名為 detection-engineering-coverage-evaluation，且未變更檔案內容。"
+          },
+          {
+            "sha": "cdbd650dfefa4f3cba7ccf05f9fa8f746ba47282",
+            "date": "2026-06-26T13:20:04-07:00",
+            "subject": "feat: Publish detection-coverage skill to google/skills",
+            "url": "https://github.com/google/skills/commit/cdbd650dfefa4f3cba7ccf05f9fa8f746ba47282",
+            "pathAtCommit": "skills/cloud/detection_engineering_coverage_evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初始的偵測覆蓋率技能，說明 Google SecOps 工作流程，涵蓋威脅情報擷取、TDO 產生、合成事件覆蓋率評估、規則檢視與缺口補強。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "d04f0a58cc612e552efd9ab973c2d5098d353610",
+            "date": "2026-09-29T06:37:14-07:00",
+            "subject": "Disambiguate detection-engineering-coverage-evaluation from standalone YARA-L 2.0 rule authoring in secops-detection-engineering.",
+            "url": "https://github.com/google/skills/commit/d04f0a58cc612e552efd9ab973c2d5098d353610",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "厘清此技能与独立撰写及调校 YARA-L 2.0 规则的适用范围，添加路由提示，并将版本更新为 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加中继数据，将技能版本设为 1.0.0。"
+          },
+          {
+            "sha": "6c7aeeb6a60fc7508052129ab5a30eee5c4a4bc4",
+            "date": "2026-08-10T08:08:18-07:00",
+            "subject": "Update skill to use new evaluate rule coverage flow",
+            "url": "https://github.com/google/skills/commit/6c7aeeb6a60fc7508052129ab5a30eee5c4a4bc4",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将覆盖率评估改为针对每个 TDO 使用长时间作业并轮询，添加后续步骤前的完成门槛，并更新规则回报指引。"
+          },
+          {
+            "sha": "eeae85a8260ee09dc1edbafc02bfad539383c849",
+            "date": "2026-07-28T10:56:35-07:00",
+            "subject": "Include more specific threat text extraction instructions in the detection-coverage skill",
+            "url": "https://github.com/google/skills/commit/eeae85a8260ee09dc1edbafc02bfad539383c849",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充威胁情报截取指引，加入 HTML 清理、提示注入检查、保留中继数据，以及直接提供原始文字的支持。"
+          },
+          {
+            "sha": "fd8559058eecd3428a3bdcb4bc15ecd93521cc41",
+            "date": "2026-07-14T07:02:55-07:00",
+            "subject": "feat: add the create_rule MCP tool integration to the detection-coverage workflow.",
+            "url": "https://github.com/google/skills/commit/fd8559058eecd3428a3bdcb4bc15ecd93521cc41",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加经用户核准后在 SecOps 创建产生规则的步骤，并说明 create_rule 工具。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "为技能添加 Security 类别中继数据。"
+          },
+          {
+            "sha": "aabe37a010621dbabd33acfe55db645732c964f8",
+            "date": "2026-07-02T15:30:44-07:00",
+            "subject": "Rename detection engineering coverage evaluation folder for consistency",
+            "url": "https://github.com/google/skills/commit/aabe37a010621dbabd33acfe55db645732c964f8",
+            "pathAtCommit": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/cloud/detection_engineering_coverage_evaluation/SKILL.md",
+              "destinationPath": "skills/cloud/detection-engineering-coverage-evaluation/SKILL.md"
+            },
+            "summary": "将技能目录从 detection_engineering_coverage_evaluation 重命名为 detection-engineering-coverage-evaluation，且未变更文件内容。"
+          },
+          {
+            "sha": "cdbd650dfefa4f3cba7ccf05f9fa8f746ba47282",
+            "date": "2026-06-26T13:20:04-07:00",
+            "subject": "feat: Publish detection-coverage skill to google/skills",
+            "url": "https://github.com/google/skills/commit/cdbd650dfefa4f3cba7ccf05f9fa8f746ba47282",
+            "pathAtCommit": "skills/cloud/detection_engineering_coverage_evaluation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初始的侦测覆盖率技能，说明 Google SecOps 工作流程，涵盖威胁情报截取、TDO 产生、合成事件覆盖率评估、规则查看与缺口补强。"
+          }
+        ]
+      }
+    }
+  }
+}

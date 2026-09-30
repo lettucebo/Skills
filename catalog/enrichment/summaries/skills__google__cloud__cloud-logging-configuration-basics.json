@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-logging-configuration-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:582389ff6b6b6250dacbbdcc9c0e6c5b8f0c3e8b5001287161e2967765397b62"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It helps align a single Google Cloud project's log handling with operational, compliance, visibility, and cost goals.",
+        "whenToUse": "Use it when configuring or reviewing log retention, routing, analysis, or visibility for one Google Cloud project, not a multi-project setup.",
+        "outputs": "It provides gcloud command examples and verification steps for log storage, routing, views, metrics, access restrictions, and filtering."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助依據作業、合規、可見性與成本目標，規劃單一 Google Cloud 專案的日誌處理方式。",
+        "whenToUse": "當你要設定或檢視單一 Google Cloud 專案的日誌保存、路由、分析或可見性，而非多專案環境時使用。",
+        "outputs": "提供管理日誌儲存、路由、日誌檢視、指標、存取限制與篩選的 gcloud 指令範例及驗證步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助依据作业、合规、可见性与成本目标，规划单一 Google Cloud 项目的日志处理方式。",
+        "whenToUse": "当你要设置或查看单一 Google Cloud 项目的日志保存、路由、分析或可见性，而非多项目环境时使用。",
+        "outputs": "提供管理日志保存、路由、日志查看、指针、访问限制与筛选的 gcloud 指令范例及验证步骤。"
+      }
+    }
+  }
+}

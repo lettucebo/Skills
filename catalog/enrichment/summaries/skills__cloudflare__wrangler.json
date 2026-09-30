@@ -2,42 +2,42 @@
   "path": "skills/cloudflare/wrangler",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:572a54107e930cff92ad894f65e71dc7cd74ac415833b54a7621dcf9f2474a31"
+    "contentHash": "sha256:57bf974f0d2cf26e515816a19c64a88ab22ea104f84da9635e672bce2eda6fac"
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides current guidance for using the Cloudflare Wrangler CLI to configure, develop, deploy, and operate Workers and their attached platform services.",
-        "whenToUse": "Use this when you need accurate Wrangler commands, config patterns, or resource-management steps for Workers, storage, databases, AI, queues, containers, workflows, pipelines, secrets, Pages, logging, or testing.",
-        "outputs": "Delivers up-to-date Wrangler command examples, wrangler.jsonc configuration patterns, and service-specific binding and operational references."
+        "purpose": "Guides project-specific Wrangler workflows by checking the installed version and relevant documentation, applying configuration changes carefully, and validating results.",
+        "whenToUse": "Use it when a Worker task requires choosing the right environment, configuring bindings or secrets, preparing Previews, or safely deploying and checking changes.",
+        "outputs": "It provides project-aware commands or configuration guidance and relevant documentation references, and summarizes changes, the target environment, checks performed, and any unresolved validation gaps."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供 Cloudflare Wrangler CLI 的最新操作指引，協助設定、開發、部署與維運 Workers 及其綁定的平台服務。",
-        "whenToUse": "當你需要正確的 Wrangler 指令、設定模式，或用於 Workers、儲存體、資料庫、AI、佇列、容器、工作流程、管線、祕密、Pages、日誌與測試的資源管理步驟時使用。",
-        "outputs": "提供最新的 Wrangler 指令範例、wrangler.jsonc 設定模式，以及各項服務的綁定與操作參考。"
+        "purpose": "它會先確認專案使用的 Wrangler 版本與相關文件，再謹慎處理設定變更並驗證結果，協助完成符合專案情境的工作流程。",
+        "whenToUse": "當 Worker 任務需要選定目標環境、設定繫結或機密、準備預覽環境，或安全部署並檢查變更時，請使用它。",
+        "outputs": "它會提供符合專案情境的命令或設定建議及相關文件參考，並摘要變更、目標環境、已執行的檢查與尚未解決的驗證缺口。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供 Cloudflare Wrangler CLI 的最新操作指引，协助设置、开发、部署与维运 Workers 及其绑定的平台服务。",
-        "whenToUse": "当你需要正确的 Wrangler 指令、设置模式，或用于 Workers、保存体、数据库、AI、队列、容器、工作流程、管线、秘密、Pages、日志与测试的资源管理步骤时使用。",
-        "outputs": "提供最新的 Wrangler 指令范例、wrangler.jsonc 设置模式，以及各项服务的绑定与操作参考。"
+        "purpose": "它会先确认项目使用的 Wrangler 版本与相关文档，再谨慎处理设置变更并验证结果，协助完成符合项目情境的工作流程。",
+        "whenToUse": "当 Worker 任务需要选定目标环境、设置绑定或机密、准备预览环境，或安全部署并检查变更时，请使用它。",
+        "outputs": "它会提供符合项目情境的命令或设置建议及相关文档参考，并摘要变更、目标环境、已运行的检查与尚未解决的验证缺口。"
       }
     }
   }

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps improve Power BI DAX formulas by reviewing them for performance, readability, maintainability, and best-practice issues.",
-        "whenToUse": "Use it when you have a DAX calculation that needs tuning or explanation, especially if you can share its business context, model relationships, and current pain points.",
-        "outputs": "Returns an analysis of the current formula, an optimized DAX version, and a brief justification of the changes and expected impact."
+        "purpose": "Reviews DAX measures for costly patterns, clarity, correctness, and maintainability, then recommends practical improvements.",
+        "whenToUse": "Use it when you have an existing DAX formula to review or refine, especially if it is slow, hard to read, or needs safer handling of edge cases.",
+        "outputs": "It provides an issue analysis, an optimized DAX formula, and explanations of changes, trade-offs, and testing suggestions."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助檢視 Power BI DAX 公式的效能、可讀性、可維護性與最佳實務問題，並提出改進。",
-        "whenToUse": "當你有需要調校或說明的 DAX 計算，尤其能提供其業務情境、模型關聯與目前痛點時，就適合使用。",
-        "outputs": "會提供現有公式分析、優化後的 DAX 版本，以及變更理由與預期影響的簡要說明。"
+        "purpose": "檢視 DAX 度量值中的高成本模式、清晰度、正確性與可維護性，並提出實用的改進建議。",
+        "whenToUse": "當你有現成的 DAX 公式需要檢查或改寫時使用，尤其是公式執行緩慢、不易閱讀或需要更安全地處理邊界情況時。",
+        "outputs": "提供問題分析、最佳化後的 DAX 公式，以及修改原因、取捨和測試建議。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助查看 Power BI DAX 公式的性能、可读性、可维护性与最佳实务问题，并提出改进。",
-        "whenToUse": "当你有需要调校或说明的 DAX 计算，尤其能提供其业务情境、模型关联与目前痛点时，就适合使用。",
-        "outputs": "会提供现有公式分析、优化后的 DAX 版本，以及变更理由与预期影响的简要说明。"
+        "purpose": "查看 DAX 度量值中的高成本模式、清晰度、正确性与可维护性，并提出实用的改进建议。",
+        "whenToUse": "当你有现成的 DAX 公式需要检查或改写时使用，尤其是公式运行缓慢、不易阅读或需要更安全地处理边界情况时。",
+        "outputs": "提供问题分析、优化后的 DAX 公式，以及修改原因、取舍和测试建议。"
       }
     }
   }

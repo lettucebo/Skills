@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-global-frontend-configuration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8c33cf1586ca9c9fad1232cd3927051417ce424e0462e79e723e7f4812714dbe"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Turns workload and traffic requirements into a recommended design for a Google Cloud global external Application Load Balancer.",
+        "whenToUse": "Use it to define backend origins and routing, choose Cloud CDN and Cloud Armor settings, consider Service Extensions, or assess deployed configurations for drift.",
+        "outputs": "Produces a configuration summary and can generate Terraform HCL or gcloud CLI scripts, with deployment and drift-review guidance."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "將工作負載與流量需求轉化為 Google Cloud 全球外部 Application Load Balancer 的建議設計。",
+        "whenToUse": "適用於規劃後端來源與流量路由、選擇 Cloud CDN 和 Cloud Armor 設定、評估 Service Extensions，或檢查已部署設定是否有漂移。",
+        "outputs": "提供設定摘要，並可產生 Terraform HCL 或 gcloud CLI 指令碼，以及部署和設定漂移檢查的指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "将工作负载与流量需求转化为 Google Cloud 全球外部 Application Load Balancer 的建议设计。",
+        "whenToUse": "适用于规划后端来源与流量路由、选择 Cloud CDN 和 Cloud Armor 设置、评估 Service Extensions，或检查已部署设置是否有漂移。",
+        "outputs": "提供设置摘要，并可产生 Terraform HCL 或 gcloud CLI 脚本，以及部署和设置漂移检查的指引。"
+      }
+    }
+  }
+}

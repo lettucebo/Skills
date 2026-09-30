@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-endpoint-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:927f04397246ea039f4ed90fadbc23999281e4f94ea157ecf7fc641a4c8576cf"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how endpoint resources provide stable hosts for online predictions and how their lifecycle is managed.",
+        "whenToUse": "Use it when planning a region-scoped endpoint operation or diagnosing permission, quota, or resource-busy issues.",
+        "outputs": "It provides gcloud command examples, regional scope requirements, confirmation guidance, and troubleshooting advice."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明端點資源如何為線上預測提供穩定的服務主機，以及如何管理其生命週期。",
+        "whenToUse": "規劃限定區域的端點操作，或診斷權限、配額及資源忙碌問題時使用。",
+        "outputs": "提供 gcloud 指令範例、區域範圍要求、確認指引及疑難排解建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明端点资源如何为在线预测提供稳定的服务主机，以及如何管理其生命周期。",
+        "whenToUse": "规划限定区域的端点操作，或诊断权限、配额及资源忙碌问题时使用。",
+        "outputs": "提供 gcloud 指令范例、区域范围要求、确认指引及疑难排解建议。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-workload-identity",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8a438744574a70b378d8a0e1c14ec93a9ec0fbf3c223047b3a9bb216628d1f41"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Diagnoses how a GKE workload's Google Cloud identity is configured and where authentication is failing, based on available evidence.",
+        "whenToUse": "Use it when a GKE Pod's Google Cloud API calls fail or use an unexpected identity and you need to trace the issue across cluster, node-pool, binding, IAM, and metadata-server settings.",
+        "outputs": "It reports the most likely cause with supporting evidence, rules out alternatives, and proposes a specific fix for a human to apply without changing cluster or IAM state."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "根據可取得的證據，診斷 GKE 工作負載的 Google Cloud 身分設定及驗證失敗的位置。",
+        "whenToUse": "當 GKE Pod 呼叫 Google Cloud API 失敗或使用非預期的身分，且需要追查叢集、節點集區、身分綁定、IAM 與中繼資料伺服器設定時使用。",
+        "outputs": "提供最可能原因及佐證、排除其他可能原因，並提出由人員套用的具體修正方案，不會自行變更叢集或 IAM 狀態。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "根据可取得的证据，诊断 GKE 工作负载的 Google Cloud 身分设置及验证失败的位置。",
+        "whenToUse": "当 GKE Pod 调用 Google Cloud API 失败或使用非预期的身分，且需要追查集群、节点集区、身分绑定、IAM 与中继数据服务器设置时使用。",
+        "outputs": "提供最可能原因及佐证、排除其他可能原因，并提出由人员套用的具体修正方案，不会自行变更集群或 IAM 状态。"
+      }
+    }
+  }
+}

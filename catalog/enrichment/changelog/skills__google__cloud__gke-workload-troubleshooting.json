@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/gke-workload-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:db2f95153e48c6aa1ff71abe5b65f1bd4d6f49a15b228b8a0a9275d27b88adaa",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-workload-troubleshooting",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-workload-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a `metadata.version` value of `1.0.0` to the GKE workload troubleshooting skill."
+          },
+          {
+            "sha": "e435d61e174c0ef1f02d538fbdf54f0686b9baa0",
+            "date": "2026-09-17T12:31:38-07:00",
+            "subject": "Enhance the gke-workload-troubleshooting skill with deeper diagnostic guidance for three common workload failure modes, each mapped to public GKE troubleshooting documentation:",
+            "url": "https://github.com/google/skills/commit/e435d61e174c0ef1f02d538fbdf54f0686b9baa0",
+            "pathAtCommit": "skills/cloud/gke-workload-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the GKE workload troubleshooting guide with detailed CrashLoopBackOff, image-pull, OOM, and liveness-probe diagnostics, clarified that fixes are suggestions only, and added relevant GKE references."
+          },
+          {
+            "sha": "4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "date": "2026-07-30T10:18:39-07:00",
+            "subject": "Migrate and validate the gke-workload-troubleshooting skill for GKE workload failure diagnostics.",
+            "url": "https://github.com/google/skills/commit/4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "pathAtCommit": "skills/cloud/gke-workload-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a GKE workload troubleshooting skill with a read-only diagnostic workflow and guidance for proposing GitOps corrections."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-workload-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "為 GKE 工作負載疑難排解技能新增 `metadata.version` 值 `1.0.0`。"
+          },
+          {
+            "sha": "e435d61e174c0ef1f02d538fbdf54f0686b9baa0",
+            "date": "2026-09-17T12:31:38-07:00",
+            "subject": "Enhance the gke-workload-troubleshooting skill with deeper diagnostic guidance for three common workload failure modes, each mapped to public GKE troubleshooting documentation:",
+            "url": "https://github.com/google/skills/commit/e435d61e174c0ef1f02d538fbdf54f0686b9baa0",
+            "pathAtCommit": "skills/cloud/gke-workload-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充 GKE 工作負載疑難排解指南，加入 CrashLoopBackOff、映像檔提取、OOM 與存活探測的詳細診斷，明確說明修正僅供建議，並新增相關 GKE 參考資料。"
+          },
+          {
+            "sha": "4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "date": "2026-07-30T10:18:39-07:00",
+            "subject": "Migrate and validate the gke-workload-troubleshooting skill for GKE workload failure diagnostics.",
+            "url": "https://github.com/google/skills/commit/4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "pathAtCommit": "skills/cloud/gke-workload-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 工作負載疑難排解技能，提供唯讀診斷流程與提出 GitOps 修正方案的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-workload-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "为 GKE 工作负载疑难排解技能添加 `metadata.version` 值 `1.0.0`。"
+          },
+          {
+            "sha": "e435d61e174c0ef1f02d538fbdf54f0686b9baa0",
+            "date": "2026-09-17T12:31:38-07:00",
+            "subject": "Enhance the gke-workload-troubleshooting skill with deeper diagnostic guidance for three common workload failure modes, each mapped to public GKE troubleshooting documentation:",
+            "url": "https://github.com/google/skills/commit/e435d61e174c0ef1f02d538fbdf54f0686b9baa0",
+            "pathAtCommit": "skills/cloud/gke-workload-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充 GKE 工作负载疑难排解指南，加入 CrashLoopBackOff、映像档提取、OOM 与存活探测的详细诊断，明确说明修正仅供建议，并添加相关 GKE 参考资料。"
+          },
+          {
+            "sha": "4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "date": "2026-07-30T10:18:39-07:00",
+            "subject": "Migrate and validate the gke-workload-troubleshooting skill for GKE workload failure diagnostics.",
+            "url": "https://github.com/google/skills/commit/4b5a7c4ef1149d686b81bfd50c582c721be28eb4",
+            "pathAtCommit": "skills/cloud/gke-workload-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 工作负载疑难排解技能，提供唯读诊断流程与提出 GitOps 修正方案的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

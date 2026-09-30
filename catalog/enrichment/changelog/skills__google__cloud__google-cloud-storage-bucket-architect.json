@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/google-cloud-storage-bucket-architect",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f6ed4737883ca10cd6f4fc32e5a5ce693616c224b79310cea6e8c530a30a3104",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-storage-bucket-architect",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-bucket-architect/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill metadata version changed from `v1` to `1.0.0`."
+          },
+          {
+            "sha": "1776276d672b41e12aba7ead134d473af001d147",
+            "date": "2026-09-04T10:57:54-07:00",
+            "subject": "Add a bucket name availability check to the google-cloud-storage-bucket-architect skill.",
+            "url": "https://github.com/google/skills/commit/1776276d672b41e12aba7ead134d473af001d147",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-bucket-architect/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The phase table and workflow now include an attributed, read-only bucket-name availability check before planning, require resolving taken names before presenting the plan, and specify rechecking with a different name and regenerating output after a 409 or already-exists creation error."
+          },
+          {
+            "sha": "eba988fc13cd41f23912fc3e6692a661bffbf529",
+            "date": "2026-09-03T15:42:27-07:00",
+            "subject": "Add the google-cloud-storage-bucket-architect skill.",
+            "url": "https://github.com/google/skills/commit/eba988fc13cd41f23912fc3e6692a661bffbf529",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-bucket-architect/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The patch adds a Cloud Storage bucket-architect skill for use-case-based, secure-by-default bucket planning, with project checks, user-confirmed provisioning, and gcloud, API, Terraform, and SDK output guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-bucket-architect/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中繼資料版本由 `v1` 改為 `1.0.0`。"
+          },
+          {
+            "sha": "1776276d672b41e12aba7ead134d473af001d147",
+            "date": "2026-09-04T10:57:54-07:00",
+            "subject": "Add a bucket name availability check to the google-cloud-storage-bucket-architect skill.",
+            "url": "https://github.com/google/skills/commit/1776276d672b41e12aba7ead134d473af001d147",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-bucket-architect/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "階段表與工作流程現在都納入具歸屬標記的唯讀 bucket 名稱可用性檢查，要求在呈現計畫前先解決名稱已被占用的情況，並規定建立時遇到 409 或 already-exists 錯誤後改用其他名稱重新檢查並重新產生輸出。"
+          },
+          {
+            "sha": "eba988fc13cd41f23912fc3e6692a661bffbf529",
+            "date": "2026-09-03T15:42:27-07:00",
+            "subject": "Add the google-cloud-storage-bucket-architect skill.",
+            "url": "https://github.com/google/skills/commit/eba988fc13cd41f23912fc3e6692a661bffbf529",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-bucket-architect/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修補新增 Cloud Storage bucket 架構設計技能，依使用情境規劃安全預設的 bucket 建立方式，並提供專案檢查、經使用者確認後才執行的配置流程，以及 gcloud、API、Terraform 和 SDK 輸出指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-bucket-architect/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中继数据版本由 `v1` 改为 `1.0.0`。"
+          },
+          {
+            "sha": "1776276d672b41e12aba7ead134d473af001d147",
+            "date": "2026-09-04T10:57:54-07:00",
+            "subject": "Add a bucket name availability check to the google-cloud-storage-bucket-architect skill.",
+            "url": "https://github.com/google/skills/commit/1776276d672b41e12aba7ead134d473af001d147",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-bucket-architect/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "阶段表与工作流程现在都纳入具归属标记的唯读 bucket 名称可用性检查，要求在呈现计划前先解决名称已被占用的情况，并规定创建时遇到 409 或 already-exists 错误后改用其他名称重新检查并重新产生输出。"
+          },
+          {
+            "sha": "eba988fc13cd41f23912fc3e6692a661bffbf529",
+            "date": "2026-09-03T15:42:27-07:00",
+            "subject": "Add the google-cloud-storage-bucket-architect skill.",
+            "url": "https://github.com/google/skills/commit/eba988fc13cd41f23912fc3e6692a661bffbf529",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-bucket-architect/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此修补添加 Cloud Storage bucket 架构设计技能，依使用情境规划安全预设的 bucket 创建方式，并提供项目检查、经用户确认后才运行的配置流程，以及 gcloud、API、Terraform 和 SDK 输出指引。"
+          }
+        ]
+      }
+    }
+  }
+}

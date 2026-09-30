@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/bigquery-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:a9ea505407a85e391b97554999ecdeb268fe2d340e4f0a73447f9087e01da843"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides basic BigQuery setup and the use of SQL to analyze large datasets.",
+        "whenToUse": "Use it when you need examples for enabling the BigQuery API, creating a dataset or table, or running a SQL query.",
+        "outputs": "It provides setup commands, a sample table schema, and example SQL for querying data."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明 BigQuery 的基本設定方式，以及如何使用 SQL 分析大型資料集。",
+        "whenToUse": "需要啟用 BigQuery API、建立資料集或資料表，或執行 SQL 查詢的範例時使用。",
+        "outputs": "提供設定指令、資料表結構範例與查詢資料的 SQL 範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明 BigQuery 的基本设置方式，以及如何使用 SQL 分析大型数据集。",
+        "whenToUse": "需要激活 BigQuery API、创建数据集或数据表，或运行 SQL 查找的范例时使用。",
+        "outputs": "提供设置指令、数据表结构范例与查找数据的 SQL 范例。"
+      }
+    }
+  }
+}

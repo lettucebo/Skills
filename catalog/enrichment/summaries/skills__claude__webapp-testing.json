@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps you exercise local web apps with Playwright so you can inspect rendered pages, drive UI flows, and investigate frontend behavior.",
-        "whenToUse": "Use it when you need to test a static page or a running local web app, especially when you need selectors, screenshots, or browser logs from real page execution.",
-        "outputs": "It produces Playwright automation scripts and evidence such as discovered selectors, screenshots, DOM details, and console logs."
+        "purpose": "Automate browser checks of local web applications with Python Playwright scripts.",
+        "whenToUse": "Use it to inspect rendered pages before taking automated actions, following a static-HTML or dynamic-app workflow as appropriate.",
+        "outputs": "It produces Python Playwright scripts for UI checks and can capture screenshots or inspect browser logs when needed."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助你用 Playwright 操作與測試本機 Web 應用程式，以檢視已渲染頁面、執行 UI 流程並釐清前端行為。",
-        "whenToUse": "當你需要測試靜態頁面或正在執行的本機 Web 應用程式，特別是需要從實際頁面執行取得選擇器、截圖或瀏覽器日誌時，就適合使用。",
-        "outputs": "它會產出 Playwright 自動化腳本，以及像是已辨識的選擇器、截圖、DOM 細節與主控台日誌等佐證。"
+        "purpose": "使用 Python Playwright 腳本自動化檢查本機 Web 應用程式。",
+        "whenToUse": "需要在自動操作前檢查頁面呈現時使用，並依情況採用靜態 HTML 或動態應用程式的流程。",
+        "outputs": "產出用於 UI 檢查的 Python Playwright 腳本，並可視需要擷取畫面或檢視瀏覽器記錄。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助你用 Playwright 操作与测试本机 Web 应用程序，以查看已渲染页面、运行 UI 流程并厘清前端行为。",
-        "whenToUse": "当你需要测试静态页面或正在运行的本机 Web 应用程序，特别是需要从实际页面运行取得选择器、截屏或浏览器日志时，就适合使用。",
-        "outputs": "它会产出 Playwright 自动化脚本，以及像是已辨识的选择器、截屏、DOM 细节与主控台日志等佐证。"
+        "purpose": "使用 Python Playwright 脚本自动化检查本机 Web 应用程序。",
+        "whenToUse": "需要在自动操作前检查页面呈现时使用，并依情况采用静态 HTML 或动态应用程序的流程。",
+        "outputs": "产出用于 UI 检查的 Python Playwright 脚本，并可视需要截取画面或查看浏览器记录。"
       }
     }
   }

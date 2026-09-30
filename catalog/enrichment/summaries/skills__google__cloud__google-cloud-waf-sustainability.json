@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-sustainability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6b5076f15a83411d755824b56101c2cc7ec09d419eb65963c88ccf1b5a968567"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps teams reduce the environmental impact of cloud workloads by integrating sustainability into architecture and operations decisions.",
+        "whenToUse": "Use during sustainability planning or architecture reviews to find emissions hotspots, assess carbon-aware design choices, and prioritize improvements.",
+        "outputs": "Provides assessment questions, practical recommendations, relevant Google Cloud product examples, and a checklist for evaluating a workload's sustainability."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助團隊將永續考量融入雲端架構與營運決策，以降低工作負載對環境的影響。",
+        "whenToUse": "在永續規劃或架構審查中，需要找出排放熱點、評估考量碳排的設計選擇並排定改善優先順序時使用。",
+        "outputs": "提供評估問題、實用建議、相關 Google Cloud 產品範例，以及用於評估工作負載永續性的檢查清單。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助团队将永续考量融入云端架构与营运决策，以降低工作负载对环境的影响。",
+        "whenToUse": "在永续规划或架构审查中，需要找出排放热点、评估考量碳排的设计选择并排定改善优先级时使用。",
+        "outputs": "提供评估问题、实用建议、相关 Google Cloud 产品范例，以及用于评估工作负载持久性的检查清单。"
+      }
+    }
+  }
+}

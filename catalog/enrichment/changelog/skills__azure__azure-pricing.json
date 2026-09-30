@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,15 +24,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/0d4b3286bec3a0c795e70ed843f3ccad2fb5c6f5",
             "pathAtCommit": "skills/azure-pricing/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the Azure pricing skill guide with Azure Retail Prices API usage, filtering and estimation steps, and Copilot Studio pricing estimation details."
+            "summary": "Adds an Azure pricing skill that queries the public Retail Prices API with filtering guidance and estimates Copilot Studio credit usage and costs."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -44,13 +44,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/0d4b3286bec3a0c795e70ed843f3ccad2fb5c6f5",
             "pathAtCommit": "skills/azure-pricing/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 Azure 定價技能指南，包含 Azure Retail Prices API 的使用方式、篩選與估算步驟，以及 Copilot Studio 定價估算說明。"
+            "summary": "新增 Azure 定價技能，提供查詢公開 Retail Prices API 的篩選指引，並估算 Copilot Studio 點數用量與費用。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -63,7 +63,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/0d4b3286bec3a0c795e70ed843f3ccad2fb5c6f5",
             "pathAtCommit": "skills/azure-pricing/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 Azure 定价技能指南，包含 Azure Retail Prices API 的使用方式、筛选与估算步骤，以及 Copilot Studio 定价估算说明。"
+            "summary": "添加 Azure 定价技能，提供查找公开 Retail Prices API 的筛选指引，并估算 Copilot Studio 点数用量与费用。"
           }
         ]
       }

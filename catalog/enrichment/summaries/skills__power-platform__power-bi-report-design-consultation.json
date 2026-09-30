@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides consultation for designing clear, accessible Power BI reports with suitable visual choices and layouts.",
-        "whenToUse": "Use it when you need guidance on shaping a Power BI report around audience needs, data relationships, interactivity, mobile use, and accessibility.",
-        "outputs": "Returns design recommendations covering report structure, chart selection, interaction patterns, and implementation guidance."
+        "purpose": "Helps shape clear, accessible Power BI reports by matching visualizations, layout, and interactions to the audience, decisions, and data.",
+        "whenToUse": "Use when planning or reviewing a Power BI report and you need recommendations informed by its business goals, audience, data, technical constraints, or design challenges.",
+        "outputs": "Provides tailored chart and page-layout recommendations, interaction and navigation patterns, accessibility and mobile guidance, and implementation and validation suggestions."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供設計清晰、易用且無障礙的 Power BI 報表建議，並協助選擇合適的視覺化與版面配置。",
-        "whenToUse": "當你需要依據受眾需求、資料關係、互動方式、行動裝置使用情境與無障礙要求來規劃 Power BI 報表時可使用。",
-        "outputs": "會產出涵蓋報表架構、圖表選擇、互動模式與實作指引的設計建議。"
+        "purpose": "協助依據受眾、決策需求與資料特性，設計清晰、易用且易於存取的 Power BI 報表視覺呈現、版面與互動方式。",
+        "whenToUse": "在規劃或檢視 Power BI 報表，並需要根據業務目標、受眾、資料、技術限制或設計難題取得建議時使用。",
+        "outputs": "提供符合需求的圖表與頁面配置建議、互動和導覽模式、無障礙與行動裝置設計指引，以及實作和驗證建議。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供设计清晰、易用且无障碍的 Power BI 报表建议，并协助选择合适的可视化与版面配置。",
-        "whenToUse": "当你需要依据受众需求、数据关系、交互方式、行动设备使用情境与无障碍要求来规划 Power BI 报表时可使用。",
-        "outputs": "会产出涵盖报表架构、图表选择、交互模式与实作指引的设计建议。"
+        "purpose": "协助依据受众、决策需求与数据特性，设计清晰、易用且易于访问的 Power BI 报表视觉呈现、版面与交互方式。",
+        "whenToUse": "在规划或查看 Power BI 报表，并需要根据业务目标、受众、数据、技术限制或设计难题取得建议时使用。",
+        "outputs": "提供符合需求的图表与页面配置建议、交互和导览模式、无障碍与行动设备设计指引，以及实作和验证建议。"
       }
     }
   }

@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/azure-resource-health-diagnose.prompt.md",
               "destinationPath": "skills/azure-resource-health-diagnose/SKILL.md"
             },
-            "summary": "Added `skills/azure-resource-health-diagnose/SKILL.md`, introducing the Azure Resource Health & Issue Diagnosis skill workflow with prerequisites, diagnostic steps, remediation planning, and reporting guidance."
+            "summary": "Added an Azure resource health diagnosis skill covering resource discovery, health and telemetry analysis, issue classification, remediation planning, and reporting."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the frontmatter field from `mode` to `agent` in `prompts/azure-resource-health-diagnose.prompt.md`."
+            "summary": "Renamed the frontmatter key from `mode` to `agent`, leaving its value and the description unchanged."
           },
           {
             "sha": "ec7b16c56832ed084b1cbb60af08b34948a5e00e",
@@ -47,15 +47,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/ec7b16c56832ed084b1cbb60af08b34948a5e00e",
             "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added `prompts/azure-resource-health-diagnose.prompt.md`, defining the Azure Resource Health & Issue Diagnosis prompt workflow for assessing resource health, analyzing logs and telemetry, and planning remediation."
+            "summary": "Added an Azure resource health diagnosis prompt covering resource discovery, health and telemetry analysis, issue classification, remediation planning, and reporting."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -72,7 +72,7 @@
               "sourcePath": "prompts/azure-resource-health-diagnose.prompt.md",
               "destinationPath": "skills/azure-resource-health-diagnose/SKILL.md"
             },
-            "summary": "新增 `skills/azure-resource-health-diagnose/SKILL.md`，加入 Azure Resource Health & Issue Diagnosis 技能工作流程，包含先決條件、診斷步驟、補救規劃與報告指引。"
+            "summary": "新增 Azure 資源健康診斷技能，涵蓋資源探索、健康狀態與遙測分析、問題分類、修復規劃及報告。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -81,7 +81,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 `prompts/azure-resource-health-diagnose.prompt.md` 的 frontmatter 欄位由 `mode` 更名為 `agent`。"
+            "summary": "將 frontmatter 欄位名稱從 `mode` 改為 `agent`，並保留值 `agent` 與原描述不變。"
           },
           {
             "sha": "ec7b16c56832ed084b1cbb60af08b34948a5e00e",
@@ -90,13 +90,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/ec7b16c56832ed084b1cbb60af08b34948a5e00e",
             "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增 `prompts/azure-resource-health-diagnose.prompt.md`，定義 Azure Resource Health & Issue Diagnosis 提示工作流程，用於評估資源健康狀態、分析記錄與遙測，並規劃補救措施。"
+            "summary": "新增 Azure 資源健康診斷提示，涵蓋資源探索、健康狀態與遙測分析、問題分類、修復規劃及報告。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -114,7 +114,7 @@
               "sourcePath": "prompts/azure-resource-health-diagnose.prompt.md",
               "destinationPath": "skills/azure-resource-health-diagnose/SKILL.md"
             },
-            "summary": "添加 `skills/azure-resource-health-diagnose/SKILL.md`，加入 Azure Resource Health & Issue Diagnosis 技能工作流程，包含先决条件、诊断步骤、补救规划与报告指引。"
+            "summary": "添加 Azure 资源健康诊断技能，涵盖资源探索、健康状态与遥测分析、问题分类、修复规划及报告。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -123,7 +123,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 `prompts/azure-resource-health-diagnose.prompt.md` 的 frontmatter 字段由 `mode` 更名为 `agent`。"
+            "summary": "将 frontmatter 字段名称从 `mode` 改为 `agent`，并保留值 `agent` 与原描述不变。"
           },
           {
             "sha": "ec7b16c56832ed084b1cbb60af08b34948a5e00e",
@@ -132,7 +132,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/ec7b16c56832ed084b1cbb60af08b34948a5e00e",
             "pathAtCommit": "prompts/azure-resource-health-diagnose.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加 `prompts/azure-resource-health-diagnose.prompt.md`，定义 Azure Resource Health & Issue Diagnosis 提示工作流程，用于评估资源健康状态、分析记录与遥测，并规划补救措施。"
+            "summary": "添加 Azure 资源健康诊断提示，涵盖资源探索、健康状态与遥测分析、问题分类、修复规划及报告。"
           }
         ]
       }

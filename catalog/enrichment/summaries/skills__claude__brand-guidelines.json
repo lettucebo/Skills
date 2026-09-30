@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Applies Anthropic's official colors and typography to make documents or other artifacts match the company's visual identity.",
-        "whenToUse": "Use it when a deliverable needs brand-consistent styling, color choices, or typography aligned with Anthropic design standards.",
-        "outputs": "It produces content styled with the documented color palette, heading and body font choices, and system fallbacks when needed."
+        "purpose": "Applies Anthropic’s visual identity to artifacts with its color palette, typography, and consistent text hierarchy.",
+        "whenToUse": "Use it while preparing visual materials that need to remain consistent with Anthropic’s brand.",
+        "outputs": "Produces an artifact styled with Anthropic’s palette, Poppins and Lora typography (or Arial and Georgia fallbacks), and preserved text hierarchy."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "將 Anthropic 的官方色彩與字體套用到文件或其他成品上，使其符合公司的視覺識別。",
-        "whenToUse": "當交付內容需要符合 Anthropic 的設計規範、品牌風格、配色或字體時使用。",
-        "outputs": "它會產出套用指定色盤、標題與內文字體選擇，以及必要時系統後備字體的內容。"
+        "purpose": "運用 Anthropic 的色彩配置與字體規範，為素材套用一致的品牌視覺並維持文字層級。",
+        "whenToUse": "在製作或潤飾需要呈現 Anthropic 品牌風格的視覺素材時使用。",
+        "outputs": "產出套用 Anthropic 配色、Poppins 與 Lora 字體（或 Arial 與 Georgia 替代字體）並保留文字層級的素材。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "将 Anthropic 的官方色彩与字体套用到文档或其他成品上，使其符合公司的视觉识别。",
-        "whenToUse": "当交付内容需要符合 Anthropic 的设计规范、品牌风格、配色或字体时使用。",
-        "outputs": "它会产出套用指定色盘、标题与内文字体选择，以及必要时系统后备字体的内容。"
+        "purpose": "运用 Anthropic 的色彩配置与字体规范，为素材套用一致的品牌视觉并维持文字层级。",
+        "whenToUse": "在制作或润饰需要呈现 Anthropic 品牌风格的视觉素材时使用。",
+        "outputs": "产出套用 Anthropic 配色、Poppins 与 Lora 字体（或 Arial 与 Georgia 替代字体）并保留文字层级的素材。"
       }
     }
   }

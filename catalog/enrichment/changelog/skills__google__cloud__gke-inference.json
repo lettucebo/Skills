@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/gke-inference",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ed5e4592a06965be92d839c4a06c2bb2795b9820a0ec5ae1b5c126bc19e27153",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-inference",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description now excludes existing AI-workload migrations and GKE RAG with Cloud SQL or AlloyDB, adds routing notes to their dedicated skills, and bumps the version to 1.0.1."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds version 1.0.0 under the skill's metadata in the frontmatter."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moves the category: Containers field into a new metadata block in the skill frontmatter."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Introduces the gke-inference skill with guidance for deploying and optimizing GKE AI/ML inference, including model and accelerator selection, manifest generation, autoscaling, and troubleshooting."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的描述現在排除既有 AI 工作負載遷移及使用 Cloud SQL 或 AlloyDB 的 GKE RAG，新增導向各自專用技能的路由說明，並將版本升至 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 frontmatter 中，於 metadata 下新增版本號 1.0.0。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能 frontmatter 中的 category: Containers 欄位移入新的 metadata 區塊。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 gke-inference 技能，提供在 GKE 部署與最佳化 AI/ML 推論的指南，涵蓋模型與加速器選擇、資訊清單產生、自動擴縮及疑難排解。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的描述现在排除既有 AI 工作负载迁移及使用 Cloud SQL 或 AlloyDB 的 GKE RAG，添加导向各自专用技能的路由说明，并将版本升至 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 frontmatter 中，于 metadata 下添加版本号 1.0.0。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能 frontmatter 中的 category: Containers 字段移入新的 metadata 区块。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-inference/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 gke-inference 技能，提供在 GKE 部署与优化 AI/ML 推论的指南，涵盖模型与加速器选择、信息清单产生、自动扩缩及疑难排解。"
+          }
+        ]
+      }
+    }
+  }
+}

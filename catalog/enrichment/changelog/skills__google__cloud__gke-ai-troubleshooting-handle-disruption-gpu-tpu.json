@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:02792a9bb7d5b4ed0ce94557b4ef6740f5ab8a2145083e181b93395d145ac249",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the skill's metadata version field with value 1.0.0."
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the CloudObservabilityAndMonitoring category to the skill's metadata."
+          },
+          {
+            "sha": "bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "date": "2026-07-24T11:36:59-07:00",
+            "subject": "Add gke-ai-troubleshooting-handle-disruption-gpu-tpu to equip the troubleshooting agent with the ability to diagnose and remediate unexpected node terminations affecting GPU and TPU workloads on GKE.",
+            "url": "https://github.com/google/skills/commit/bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created a GKE GPU/TPU disruption troubleshooting skill covering context collection, maintenance and interruption checks, log and taint investigation, and workload mitigations."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "為此技能的中繼資料新增值為 1.0.0 的版本欄位。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增 CloudObservabilityAndMonitoring 類別。"
+          },
+          {
+            "sha": "bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "date": "2026-07-24T11:36:59-07:00",
+            "subject": "Add gke-ai-troubleshooting-handle-disruption-gpu-tpu to equip the troubleshooting agent with the ability to diagnose and remediate unexpected node terminations affecting GPU and TPU workloads on GKE.",
+            "url": "https://github.com/google/skills/commit/bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE GPU/TPU 中斷疑難排解技能，涵蓋背景資訊收集、維護與中斷檢查、記錄與污點調查，以及工作負載緩解措施。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "为此技能的中继数据添加值为 1.0.0 的版本字段。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加 CloudObservabilityAndMonitoring 类别。"
+          },
+          {
+            "sha": "bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "date": "2026-07-24T11:36:59-07:00",
+            "subject": "Add gke-ai-troubleshooting-handle-disruption-gpu-tpu to equip the troubleshooting agent with the ability to diagnose and remediate unexpected node terminations affecting GPU and TPU workloads on GKE.",
+            "url": "https://github.com/google/skills/commit/bc3054c822f0e913f2a33fd531aacf22a8690242",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE GPU/TPU 中断疑难排解技能，涵盖背景信息收集、维护与中断检查、记录与污点调查，以及工作负载缓解措施。"
+          }
+        ]
+      }
+    }
+  }
+}

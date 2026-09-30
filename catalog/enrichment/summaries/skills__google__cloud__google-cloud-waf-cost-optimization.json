@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-cost-optimization",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0d28d10fcd5d9cda4cc5d04f8178e8e5e115a1e8ac59157654ebc816b689af42"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps teams align Google Cloud spending with business value through cost visibility, efficient resource use, and ongoing governance.",
+        "whenToUse": "Use when reviewing billing visibility, resource sizing and idle capacity, discounts, storage lifecycle, network egress, or cost attribution and controls for a Google Cloud workload.",
+        "outputs": "Provides cost-optimization principles, relevant Google Cloud service and governance options, assessment questions, and a validation checklist."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助團隊透過成本可視性、資源使用效率與持續治理，使 Google Cloud 支出符合業務價值。",
+        "whenToUse": "在檢視 Google Cloud 工作負載的帳單可視性、資源規模與閒置容量、折扣、儲存生命週期、網路輸出流量或成本歸屬與控管時使用。",
+        "outputs": "提供成本最佳化原則、相關的 Google Cloud 服務與治理選項、評估問題及驗證檢查清單。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助团队透过成本可视性、资源使用效率与持续治理，使 Google Cloud 支出符合业务价值。",
+        "whenToUse": "在查看 Google Cloud 工作负载的帐单可视性、资源规模与闲置容量、折扣、保存生命周期、网络输出流量或成本归属与控管时使用。",
+        "outputs": "提供成本优化原则、相关的 Google Cloud 服务与治理选项、评估问题及验证检查清单。"
+      }
+    }
+  }
+}

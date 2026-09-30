@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-node-notready",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:005da04d1c1629890bbbc7341696247c7d4559ab2ace6d3d15c674b061decc04"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps diagnose why GKE nodes report NotReady or Unknown by correlating node conditions and events with kubelet, runtime, and monitoring evidence, then recommends safe remediation.",
+        "whenToUse": "Use it when a GKE node remains NotReady beyond expected provisioning or maintenance and you need to distinguish a node-level fault from a transient lifecycle condition.",
+        "outputs": "Provides evidence-based findings from node conditions, events, logs, and metrics, links to Cloud Logging or Monitoring, and remediation commands or GitOps changes for a human to apply without changing the cluster."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過比對節點狀況與事件、kubelet 和執行階段記錄及監控資料，協助診斷 GKE 節點為何回報 NotReady 或 Unknown，並提出安全的處置建議。",
+        "whenToUse": "當 GKE 節點的 NotReady 狀態在預期的佈建或維護期間之外仍持續，且需要判斷問題是節點層級故障還是暫時性的生命週期狀況時使用。",
+        "outputs": "提供根據節點狀況、事件、記錄與指標整理的診斷結果、Cloud Logging 或 Monitoring 連結，以及供人員執行的指令或 GitOps 變更建議，不會直接修改叢集。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过比对节点状况与事件、kubelet 和运行阶段记录及监控数据，协助诊断 GKE 节点为何回报 NotReady 或 Unknown，并提出安全的处置建议。",
+        "whenToUse": "当 GKE 节点的 NotReady 状态在预期的布建或维护期间之外仍持续，且需要判断问题是节点层级故障还是暂时性的生命周期状况时使用。",
+        "outputs": "提供根据节点状况、事件、记录与指针整理的诊断结果、Cloud Logging 或 Monitoring 链接，以及供人员运行的指令或 GitOps 变更建议，不会直接修改集群。"
+      }
+    }
+  }
+}

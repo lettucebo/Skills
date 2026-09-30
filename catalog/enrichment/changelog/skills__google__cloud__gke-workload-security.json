@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/cloud/gke-workload-security",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c5cf03aa1eb9f2b2f60ebb6af47bc836df5ff9d7ff1aab14ac998819525c7314",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-workload-security",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description now excludes Workload Identity, adds pod securityContext, and directs Workload Identity and cluster-level security routing to their respective skills."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill metadata now declares version 1.0.0."
+          },
+          {
+            "sha": "533b58115a35ac9e332f4fc8d3c40e0c97193ab9",
+            "date": "2026-09-02T07:25:58-07:00",
+            "subject": "Fix broken documentation links in gke-workload-security skill.",
+            "url": "https://github.com/google/skills/commit/533b58115a35ac9e332f4fc8d3c40e0c97193ab9",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The Pod Security Standards and Secret Manager CSI Driver resource links now point to updated documentation URLs."
+          },
+          {
+            "sha": "d0b2a664adf41f2f059a669b7cb5cd88a2c325b9",
+            "date": "2026-07-23T10:07:57-07:00",
+            "subject": "Fix gke-workload-security skill file paths to use relative paths",
+            "url": "https://github.com/google/skills/commit/d0b2a664adf41f2f059a669b7cb5cd88a2c325b9",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The audit script and asset references now use paths relative to the skill directory instead of the nested third_party path."
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the GKE Workload Security skill document with workflows for audits, Workload Identity, Network Policies, gVisor, Pod Security Standards, Secret Manager CSI, and network policy logging."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的描述現在排除 Workload Identity、加入 pod securityContext，並將 Workload Identity 與叢集層級安全性導向各自的專用技能。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的 metadata 現在宣告版本 1.0.0。"
+          },
+          {
+            "sha": "533b58115a35ac9e332f4fc8d3c40e0c97193ab9",
+            "date": "2026-09-02T07:25:58-07:00",
+            "subject": "Fix broken documentation links in gke-workload-security skill.",
+            "url": "https://github.com/google/skills/commit/533b58115a35ac9e332f4fc8d3c40e0c97193ab9",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Pod Security Standards 與 Secret Manager CSI Driver 的資源連結現在指向更新後的文件網址。"
+          },
+          {
+            "sha": "d0b2a664adf41f2f059a669b7cb5cd88a2c325b9",
+            "date": "2026-07-23T10:07:57-07:00",
+            "subject": "Fix gke-workload-security skill file paths to use relative paths",
+            "url": "https://github.com/google/skills/commit/d0b2a664adf41f2f059a669b7cb5cd88a2c325b9",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "稽核指令與資產引用現在使用相對於技能目錄的路徑，而非巢狀的 third_party 路徑。"
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE Workload Security 技能文件，包含稽核、Workload Identity、Network Policies、gVisor、Pod Security Standards、Secret Manager CSI 與網路政策記錄的工作流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的描述现在排除 Workload Identity、加入 pod securityContext，并将 Workload Identity 与集群层级安全性导向各自的专用技能。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的 metadata 现在声明版本 1.0.0。"
+          },
+          {
+            "sha": "533b58115a35ac9e332f4fc8d3c40e0c97193ab9",
+            "date": "2026-09-02T07:25:58-07:00",
+            "subject": "Fix broken documentation links in gke-workload-security skill.",
+            "url": "https://github.com/google/skills/commit/533b58115a35ac9e332f4fc8d3c40e0c97193ab9",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Pod Security Standards 与 Secret Manager CSI Driver 的资源链接现在指向更新后的文档网址。"
+          },
+          {
+            "sha": "d0b2a664adf41f2f059a669b7cb5cd88a2c325b9",
+            "date": "2026-07-23T10:07:57-07:00",
+            "subject": "Fix gke-workload-security skill file paths to use relative paths",
+            "url": "https://github.com/google/skills/commit/d0b2a664adf41f2f059a669b7cb5cd88a2c325b9",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "审核指令与资产引用现在使用相对于技能目录的路径，而非嵌套的 third_party 路径。"
+          },
+          {
+            "sha": "6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "date": "2026-07-23T09:06:58-07:00",
+            "subject": "Add gke-workload-security and rename gke-security to gke-platform-security",
+            "url": "https://github.com/google/skills/commit/6aa329d9cd7b63d48826307219a8b993fb3d4ddb",
+            "pathAtCommit": "skills/cloud/gke-workload-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE Workload Security 技能文档，包含审核、Workload Identity、Network Policies、gVisor、Pod Security Standards、Secret Manager CSI 与网络政策记录的工作流程。"
+          }
+        ]
+      }
+    }
+  }
+}

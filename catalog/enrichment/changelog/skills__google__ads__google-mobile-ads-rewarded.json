@@ -1,0 +1,195 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-rewarded",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2938c0b5cab866f764e693d194de1ae51ed4c6b04780e06de07047108aa00c4e",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/ads/google-mobile-ads-rewarded",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill metadata now quotes the version value as \"1.1.0\"."
+          },
+          {
+            "sha": "b276cc3e1cad59269eb7889bf8544c1766ef0db9",
+            "date": "2026-08-18T14:29:46-07:00",
+            "subject": "Add Unity support to google-mobile-ads-rewarded skill",
+            "url": "https://github.com/google/skills/commit/b276cc3e1cad59269eb7889bf8544c1766ef0db9",
+            "pathAtCommit": "skills/ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill adds Unity support and a Unity guide, updates its version to 1.1.0, removes the placement guidelines, and revises the rewarded-ad UI checklist."
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-rewarded/SKILL.md"
+            },
+            "summary": "The skill file was moved unchanged from `skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md` to `skills/ads/google-mobile-ads-rewarded/SKILL.md`."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The frontmatter now places `category: GoogleAds` under `metadata`, and the blank line after the frontmatter was removed."
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The patch adds the initial Google Mobile Ads rewarded-ads skill, with Android and iOS guidance and placement and implementation workflow steps."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能中繼資料現在將版本值標示為字串「1.1.0」。"
+          },
+          {
+            "sha": "b276cc3e1cad59269eb7889bf8544c1766ef0db9",
+            "date": "2026-08-18T14:29:46-07:00",
+            "subject": "Add Unity support to google-mobile-ads-rewarded skill",
+            "url": "https://github.com/google/skills/commit/b276cc3e1cad59269eb7889bf8544c1766ef0db9",
+            "pathAtCommit": "skills/ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能新增 Unity 支援及 Unity 指南，將版本更新至 1.1.0、移除廣告版位指引，並修訂獎勵廣告的介面檢查清單。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-rewarded/SKILL.md"
+            },
+            "summary": "此技能檔案內容未變，從 `skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md` 移至 `skills/ads/google-mobile-ads-rewarded/SKILL.md`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "前置中繼資料現在將 `category: GoogleAds` 放在 `metadata` 之下，並移除了前置中繼資料後的空白行。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更新增 Google Mobile Ads 獎勵廣告技能的初始版本，包含 Android 與 iOS 指引，以及廣告版位和實作流程步驟。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能中继数据现在将版本值标示为字符串「1.1.0」。"
+          },
+          {
+            "sha": "b276cc3e1cad59269eb7889bf8544c1766ef0db9",
+            "date": "2026-08-18T14:29:46-07:00",
+            "subject": "Add Unity support to google-mobile-ads-rewarded skill",
+            "url": "https://github.com/google/skills/commit/b276cc3e1cad59269eb7889bf8544c1766ef0db9",
+            "pathAtCommit": "skills/ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能添加 Unity 支持及 Unity 指南，将版本更新至 1.1.0、移除广告版位指引，并修订奖励广告的界面检查清单。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-rewarded/SKILL.md"
+            },
+            "summary": "此技能文件内容未变，从 `skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md` 移至 `skills/ads/google-mobile-ads-rewarded/SKILL.md`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "前置中继数据现在将 `category: GoogleAds` 放在 `metadata` 之下，并移除了前置中继数据后的空白行。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-rewarded/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更添加 Google Mobile Ads 奖励广告技能的初始版本，包含 Android 与 iOS 指引，以及广告版位和实作流程步骤。"
+          }
+        ]
+      }
+    }
+  }
+}

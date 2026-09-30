@@ -1,0 +1,195 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-banner",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4f65b32138bbaed42b2b6c37741fc41f5261528bcfe50531942240221d65bd71",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/ads/google-mobile-ads-banner",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Quoted the version value in the skill's YAML metadata."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill to cover Unity and replaced placement rules with banner-type guidance that defaults to large anchored adaptive, adding a Unity guide to the workflow."
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-banner/SKILL.md"
+            },
+            "summary": "Moved the unchanged skill file from `skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md` to `skills/ads/google-mobile-ads-banner/SKILL.md`."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `category: GoogleAds` under the skill's YAML `metadata` block."
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a banner ads skill with placement guidelines, an Android/iOS implementation workflow, and a reminder to replace the test ad unit ID."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能 YAML 中繼資料中的版本值改為加上引號的字串。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能範圍擴充至 Unity，並以預設大型錨定自適應橫幅的類型指引取代放置規則，同時在工作流程中加入 Unity 指南。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-banner/SKILL.md"
+            },
+            "summary": "將內容未變更的技能檔案從 `skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md` 移至 `skills/ads/google-mobile-ads-banner/SKILL.md`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML `metadata` 區塊中新增 `category: GoogleAds`。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增橫幅廣告技能，提供廣告放置指引、Android/iOS 實作工作流程，並提醒替換測試廣告單元 ID。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能 YAML 中继数据中的版本值改为加上引号的字符串。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能范围扩充至 Unity，并以预设大型锚定自适应横幅的类型指引取代放置规则，同时在工作流程中加入 Unity 指南。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-banner/SKILL.md"
+            },
+            "summary": "将内容未变更的技能文件从 `skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md` 移至 `skills/ads/google-mobile-ads-banner/SKILL.md`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML `metadata` 区块中添加 `category: GoogleAds`。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-banner/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加横幅广告技能，提供广告放置指引、Android/iOS 实作工作流程，并提醒替换测试广告单元 ID。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "path": "skills/google/cloud/gke-compute-classes",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:aae2bfb7fc5de313a28ee5ee72ed84552ee164ef27962849d2a20561921891f1",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-compute-classes",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.version: \"1.0.0\"` to the GKE ComputeClasses skill frontmatter."
+          },
+          {
+            "sha": "831cfa129dd6a0527c5e9bf43e0687dfb751e329",
+            "date": "2026-09-10T07:52:49-07:00",
+            "subject": "Update gke-compute-classes skill.",
+            "url": "https://github.com/google/skills/commit/831cfa129dd6a0527c5e9bf43e0687dfb751e329",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill with guidance on CapacityQuota-based CUD spillover, nuanced Spot handling, zonal stockout fallbacks, migration and PDB rollouts, and ComputeClass governance."
+          },
+          {
+            "sha": "3e9cfe3744226e78f289f827f53d4943fb6bf16e",
+            "date": "2026-08-20T11:08:10-07:00",
+            "subject": "Add a few best practice about priority rule.",
+            "url": "https://github.com/google/skills/commit/3e9cfe3744226e78f289f827f53d4943fb6bf16e",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added recommendations to prefer `machineFamily` over a specific `machineType` as a final fallback and to order priorities from less to more obtainable."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the `category: Containers` field under a new `metadata` block in the skill frontmatter."
+          },
+          {
+            "sha": "362d44056bff37deb165facce81847f9edb3fcdb",
+            "date": "2026-06-23T11:42:28-07:00",
+            "subject": "Add advanced GKE ComputeClasses skill.",
+            "url": "https://github.com/google/skills/commit/362d44056bff37deb165facce81847f9edb3fcdb",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked the skill from a concise ComputeClasses overview into detailed configuration guidance, examples, workload usage, warnings, and links to specialized references."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created the initial `gke-compute-classes` skill with basic ComputeClass concepts, CRD and priority fields, common examples, workload selector usage, and warnings."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 GKE ComputeClasses 技能的 frontmatter 中新增 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "831cfa129dd6a0527c5e9bf43e0687dfb751e329",
+            "date": "2026-09-10T07:52:49-07:00",
+            "subject": "Update gke-compute-classes skill.",
+            "url": "https://github.com/google/skills/commit/831cfa129dd6a0527c5e9bf43e0687dfb751e329",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充技能內容，加入以 CapacityQuota 實現 CUD 溢出、依情境處理 Spot、區域性資源耗盡時的備援、遷移與 PDB 部署，以及 ComputeClass 治理的指引。"
+          },
+          {
+            "sha": "3e9cfe3744226e78f289f827f53d4943fb6bf16e",
+            "date": "2026-08-20T11:08:10-07:00",
+            "subject": "Add a few best practice about priority rule.",
+            "url": "https://github.com/google/skills/commit/3e9cfe3744226e78f289f827f53d4943fb6bf16e",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增建議，指出應以 `machineFamily` 而非特定 `machineType` 作為最後備援，並依資源取得難易度由低至高排列優先順序。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能 frontmatter 中的 `category: Containers` 欄位移至新的 `metadata` 區塊下。"
+          },
+          {
+            "sha": "362d44056bff37deb165facce81847f9edb3fcdb",
+            "date": "2026-06-23T11:42:28-07:00",
+            "subject": "Add advanced GKE ComputeClasses skill.",
+            "url": "https://github.com/google/skills/commit/362d44056bff37deb165facce81847f9edb3fcdb",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能從精簡的 ComputeClasses 概述改寫為詳細的設定指引、範例、工作負載用法、注意事項，以及專門參考資料的連結。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立初版 `gke-compute-classes` 技能，介紹 ComputeClass 基本概念、CRD 與優先順序欄位、常見範例、工作負載選擇器用法及注意事項。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 GKE ComputeClasses 技能的 frontmatter 中添加 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "831cfa129dd6a0527c5e9bf43e0687dfb751e329",
+            "date": "2026-09-10T07:52:49-07:00",
+            "subject": "Update gke-compute-classes skill.",
+            "url": "https://github.com/google/skills/commit/831cfa129dd6a0527c5e9bf43e0687dfb751e329",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充技能内容，加入以 CapacityQuota 实现 CUD 溢出、依情境处理 Spot、局部资源耗尽时的备援、迁移与 PDB 部署，以及 ComputeClass 治理的指引。"
+          },
+          {
+            "sha": "3e9cfe3744226e78f289f827f53d4943fb6bf16e",
+            "date": "2026-08-20T11:08:10-07:00",
+            "subject": "Add a few best practice about priority rule.",
+            "url": "https://github.com/google/skills/commit/3e9cfe3744226e78f289f827f53d4943fb6bf16e",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加建议，指出应以 `machineFamily` 而非特定 `machineType` 作为最后备援，并依资源取得难易度由低至高排列优先级。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能 frontmatter 中的 `category: Containers` 字段移至新的 `metadata` 区块下。"
+          },
+          {
+            "sha": "362d44056bff37deb165facce81847f9edb3fcdb",
+            "date": "2026-06-23T11:42:28-07:00",
+            "subject": "Add advanced GKE ComputeClasses skill.",
+            "url": "https://github.com/google/skills/commit/362d44056bff37deb165facce81847f9edb3fcdb",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能从精简的 ComputeClasses 概述改写为详细的设置指引、范例、工作负载用法、注意事项，以及专门参考资料的链接。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-compute-classes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建初版 `gke-compute-classes` 技能，介绍 ComputeClass 基本概念、CRD 与优先级字段、常见范例、工作负载选择器用法及注意事项。"
+          }
+        ]
+      }
+    }
+  }
+}

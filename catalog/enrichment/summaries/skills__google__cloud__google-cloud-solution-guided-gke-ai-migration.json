@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-guided-gke-ai-migration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:fc83cf3b8d098eb5ba79ce82f74d5eacea606112311175b8c51d338148c133b2"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides an architect-guided path for replacing an existing AI inference setup with self-hosted inference on GKE.",
+        "whenToUse": "Use it to work through architecture decisions, implementation, validation, or traffic-cutover questions during an ongoing migration.",
+        "outputs": "Produces migration guidance covering discovery, hardware and storage planning, Kubernetes manifests and CLI steps, deployment checks, and traffic-cutover recommendations."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供由架構師引導的途徑，將既有 AI 推論部署改為由 GKE 自行託管推論。",
+        "whenToUse": "當遷移已在進行中，並需要處理架構決策、實作、驗證或流量切換問題時使用。",
+        "outputs": "提供涵蓋需求探索、硬體與儲存規劃、Kubernetes 資訊清單與 CLI 步驟、部署檢查及流量切換建議的遷移指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供由架构师引导的途径，将既有 AI 推论部署改为由 GKE 自行托管推论。",
+        "whenToUse": "当迁移已在进行中，并需要处理架构决策、实作、验证或流量切换问题时使用。",
+        "outputs": "提供涵盖需求探索、硬件与保存规划、Kubernetes 信息清单与 CLI 步骤、部署检查及流量切换建议的迁移指引。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-build-deploy-agents",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:36c76ca2af5b6d3570cec1bb7072c15fe3065fe7be9d62a47f98fdb86b4ef52b"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It provides a structured process for turning an agent workload's requirements into a Google Cloud design, implementation plan, and validation approach.",
+        "whenToUse": "Use it when an agent workload needs an end-to-end, reviewable path from requirements discovery through architecture and deployment validation.",
+        "outputs": "It produces a solution architecture, implementation instructions with infrastructure as code and deployment steps, and a validation plan."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它提供一套有步驟的流程，將代理工作負載的需求轉化為 Google Cloud 設計、實作計畫與驗證方式。",
+        "whenToUse": "當代理工作負載需要一條可審查的端到端流程，從需求探索一路到架構設計與部署驗證時，請使用它。",
+        "outputs": "它會產出解決方案架構、包含基礎架構即程式碼與部署步驟的實作指引，以及驗證計畫。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它提供一套有步骤的流程，将代理工作负载的需求转化为 Google Cloud 设计、实作计划与验证方式。",
+        "whenToUse": "当代理工作负载需要一条可审查的端到端流程，从需求探索一路到架构设计与部署验证时，请使用它。",
+        "outputs": "它会产出解决方案架构、包含基础架构即代码与部署步骤的实作指引，以及验证计划。"
+      }
+    }
+  }
+}

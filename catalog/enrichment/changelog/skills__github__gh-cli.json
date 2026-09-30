@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "pending/github/gh-cli/SKILL.md",
               "destinationPath": "skills/github/gh-cli/SKILL.md"
             },
-            "summary": "Renamed pending/github/gh-cli/SKILL.md to skills/github/gh-cli/SKILL.md without content changes."
+            "summary": "The gh-cli skill document was moved from pending/github/gh-cli/SKILL.md to skills/github/gh-cli/SKILL.md without content changes."
           },
           {
             "sha": "a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
@@ -38,15 +38,15 @@
             "url": "https://github.com/aiskillstore/marketplace/commit/a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
             "pathAtCommit": "pending/github/gh-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added pending/github/gh-cli/SKILL.md with a comprehensive GitHub CLI reference covering authentication, repositories, issues, pull requests, Actions, and related commands."
+            "summary": "The new gh-cli skill document adds a comprehensive GitHub CLI reference covering installation, authentication and configuration, plus commands for managing repositories, issues, pull requests, Actions, projects, releases, and related features."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -63,7 +63,7 @@
               "sourcePath": "pending/github/gh-cli/SKILL.md",
               "destinationPath": "skills/github/gh-cli/SKILL.md"
             },
-            "summary": "將 pending/github/gh-cli/SKILL.md 重新命名為 skills/github/gh-cli/SKILL.md，內容未變更。"
+            "summary": "gh-cli 技能文件從 pending/github/gh-cli/SKILL.md 移至 skills/github/gh-cli/SKILL.md，內容未變更。"
           },
           {
             "sha": "a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
@@ -72,13 +72,13 @@
             "url": "https://github.com/aiskillstore/marketplace/commit/a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
             "pathAtCommit": "pending/github/gh-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 pending/github/gh-cli/SKILL.md，提供涵蓋驗證、儲存庫、議題、拉取請求、Actions 與相關指令的 GitHub CLI 完整參考。"
+            "summary": "新增的 gh-cli 技能文件加入 GitHub CLI 綜合參考，涵蓋安裝、驗證與設定，以及管理儲存庫、議題、提取要求、Actions、專案、發行版本和相關功能的命令。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -96,7 +96,7 @@
               "sourcePath": "pending/github/gh-cli/SKILL.md",
               "destinationPath": "skills/github/gh-cli/SKILL.md"
             },
-            "summary": "将 pending/github/gh-cli/SKILL.md 重命名为 skills/github/gh-cli/SKILL.md，内容未变更。"
+            "summary": "gh-cli 技能文档从 pending/github/gh-cli/SKILL.md 移至 skills/github/gh-cli/SKILL.md，内容未变更。"
           },
           {
             "sha": "a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
@@ -105,7 +105,7 @@
             "url": "https://github.com/aiskillstore/marketplace/commit/a29d11dfe0bb91ffdf0e5b51e93fa6d8de8448fb",
             "pathAtCommit": "pending/github/gh-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 pending/github/gh-cli/SKILL.md，提供涵盖验证、保存库、议题、拉取请求、Actions 与相关指令的 GitHub CLI 完整参考。"
+            "summary": "添加的 gh-cli 技能文档加入 GitHub CLI 综合参考，涵盖安装、验证与设置，以及管理保存库、议题、提取要求、Actions、项目、发行版本和相关功能的命令。"
           }
         ]
       }

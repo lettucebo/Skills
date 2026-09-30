@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-banner",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4f65b32138bbaed42b2b6c37741fc41f5261528bcfe50531942240221d65bd71"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to place persistent, automatically refreshing rectangular ads in an app layout with the Google Mobile Ads SDK.",
+        "whenToUse": "Use when choosing or implementing a banner format for an Android, iOS, or Unity project; determine the platform first and default to a large anchored adaptive banner when no format is specified.",
+        "outputs": "Platform-specific implementation guidance for defining and sizing the ad view, registering load events, loading and verifying the banner, and reminding the user to replace the test ad unit ID."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何透過 Google Mobile Ads SDK 在應用程式版面中放置持續顯示且可自動重新整理的矩形廣告。",
+        "whenToUse": "在為 Android、iOS 或 Unity 專案選擇或實作橫幅廣告格式時使用；先確認平台，若未指定格式則預設採用大型錨定自適應橫幅。",
+        "outputs": "提供依平台而異的實作指引，包括定義廣告檢視區並設定大小、註冊載入事件、載入並驗證橫幅廣告，以及提醒使用者以自己的廣告單元 ID 取代測試 ID。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何透过 Google Mobile Ads SDK 在应用程序版面中放置持续显示且可自动刷新的矩形广告。",
+        "whenToUse": "在为 Android、iOS 或 Unity 项目选择或实作横幅广告格式时使用；先确认平台，若未指定格式则预设采用大型锚定自适应横幅。",
+        "outputs": "提供依平台而异的实作指引，包括定义广告查看区并设置大小、注册加载事件、加载并验证横幅广告，以及提醒用户以自己的广告单元 ID 取代测试 ID。"
+      }
+    }
+  }
+}

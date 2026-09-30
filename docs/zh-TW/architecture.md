@@ -128,6 +128,10 @@ skill 完全相等、每個 artifact 都是最新狀態，且 changelog locale s
 `skills/azure/az-cost-optimize` 在對應種類目錄中會成為
 `skills__azure__az-cost-optimize.json`。共用結構凍結在 schema version 1：
 
+LLM 產生流程在 CLI contract version 2 固定使用 `gpt-6-luna` 與
+`--reasoning-effort max`。契約納入新鮮度簽章；變更時必須重新產生，
+不能只替現有 artifact 換上新模型標籤。
+
 ```json
 {
   "path": "skills/azure/az-cost-optimize",
@@ -143,7 +147,7 @@ skill 完全相等、每個 artifact 都是最新狀態，且 changelog locale s
     "en": {
       "signature": "sha256:...",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:...",
       "generatorVersion": 1,
       "content": {}
@@ -151,7 +155,7 @@ skill 完全相等、每個 artifact 都是最新狀態，且 changelog locale s
     "zh-tw": {
       "signature": "sha256:...",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:...",
       "generatorVersion": 1,
       "content": {}

@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "slack-gif-creator/SKILL.md",
               "destinationPath": "skills/slack-gif-creator/SKILL.md"
             },
-            "summary": "Renamed `slack-gif-creator/SKILL.md` to `skills/slack-gif-creator/SKILL.md` without content changes."
+            "summary": "The skill file was moved from `slack-gif-creator/SKILL.md` to `skills/slack-gif-creator/SKILL.md` without content changes."
           },
           {
             "sha": "0f77e501e6506235956d953cd2d7a2a4aa9ba133",
@@ -38,7 +38,7 @@
             "url": "https://github.com/anthropics/skills/commit/0f77e501e6506235956d953cd2d7a2a4aa9ba133",
             "pathAtCommit": "slack-gif-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Shortened and reorganized `slack-gif-creator/SKILL.md` into a more concise guide covering workflow, drawing guidance, utilities, and animation concepts."
+            "summary": "The guide was substantially rewritten, revising Slack recommendations and replacing preset animation recipes with a PIL-based workflow, drawing guidance, utility references, animation concepts, and optimization advice."
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -52,7 +52,7 @@
               "sourcePath": "examples/slack-gif-creator/SKILL.md",
               "destinationPath": "slack-gif-creator/SKILL.md"
             },
-            "summary": "Renamed `examples/slack-gif-creator/SKILL.md` to `slack-gif-creator/SKILL.md` without content changes."
+            "summary": "The skill file was moved from `examples/slack-gif-creator/SKILL.md` to `slack-gif-creator/SKILL.md` without content changes."
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -61,15 +61,15 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/slack-gif-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added `examples/slack-gif-creator/SKILL.md` with the initial Slack GIF creator skill guide."
+            "summary": "A new skill guide was added with Slack GIF constraints, validation and builder utilities, animation templates and composition examples, optimization advice, and dependencies."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -86,7 +86,7 @@
               "sourcePath": "slack-gif-creator/SKILL.md",
               "destinationPath": "skills/slack-gif-creator/SKILL.md"
             },
-            "summary": "將 `slack-gif-creator/SKILL.md` 重新命名為 `skills/slack-gif-creator/SKILL.md`，內容未變更。"
+            "summary": "技能檔案從 `slack-gif-creator/SKILL.md` 移至 `skills/slack-gif-creator/SKILL.md`，內容未變更。"
           },
           {
             "sha": "0f77e501e6506235956d953cd2d7a2a4aa9ba133",
@@ -95,7 +95,7 @@
             "url": "https://github.com/anthropics/skills/commit/0f77e501e6506235956d953cd2d7a2a4aa9ba133",
             "pathAtCommit": "slack-gif-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將 `slack-gif-creator/SKILL.md` 縮短並重新整理為較精簡的指南，涵蓋工作流程、繪圖指引、工具與動畫概念。"
+            "summary": "指南經大幅改寫，更新 Slack 建議，並以 PIL 為基礎的工作流程、繪圖指引、工具參考、動畫概念與最佳化建議取代預設動畫範例。"
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -109,7 +109,7 @@
               "sourcePath": "examples/slack-gif-creator/SKILL.md",
               "destinationPath": "slack-gif-creator/SKILL.md"
             },
-            "summary": "將 `examples/slack-gif-creator/SKILL.md` 重新命名為 `slack-gif-creator/SKILL.md`，內容未變更。"
+            "summary": "技能檔案從 `examples/slack-gif-creator/SKILL.md` 移至 `slack-gif-creator/SKILL.md`，內容未變更。"
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -118,13 +118,13 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/slack-gif-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 `examples/slack-gif-creator/SKILL.md`，其中包含 Slack GIF creator 技能的初始指南。"
+            "summary": "新增技能指南，內容涵蓋 Slack GIF 限制、驗證與 GIF 建立工具、動畫範本與組合範例、最佳化建議及相依套件。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -142,7 +142,7 @@
               "sourcePath": "slack-gif-creator/SKILL.md",
               "destinationPath": "skills/slack-gif-creator/SKILL.md"
             },
-            "summary": "将 `slack-gif-creator/SKILL.md` 重命名为 `skills/slack-gif-creator/SKILL.md`，内容未变更。"
+            "summary": "技能文件从 `slack-gif-creator/SKILL.md` 移至 `skills/slack-gif-creator/SKILL.md`，内容未变更。"
           },
           {
             "sha": "0f77e501e6506235956d953cd2d7a2a4aa9ba133",
@@ -151,7 +151,7 @@
             "url": "https://github.com/anthropics/skills/commit/0f77e501e6506235956d953cd2d7a2a4aa9ba133",
             "pathAtCommit": "slack-gif-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将 `slack-gif-creator/SKILL.md` 缩短并刷新为较精简的指南，涵盖工作流程、绘图指引、工具与动画概念。"
+            "summary": "指南经大幅改写，更新 Slack 建议，并以 PIL 为基础的工作流程、绘图指引、工具参考、动画概念与优化建议取代预设动画范例。"
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -165,7 +165,7 @@
               "sourcePath": "examples/slack-gif-creator/SKILL.md",
               "destinationPath": "slack-gif-creator/SKILL.md"
             },
-            "summary": "将 `examples/slack-gif-creator/SKILL.md` 重命名为 `slack-gif-creator/SKILL.md`，内容未变更。"
+            "summary": "技能文件从 `examples/slack-gif-creator/SKILL.md` 移至 `slack-gif-creator/SKILL.md`，内容未变更。"
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -174,7 +174,7 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/slack-gif-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 `examples/slack-gif-creator/SKILL.md`，其中包含 Slack GIF creator 技能的初始指南。"
+            "summary": "添加技能指南，内容涵盖 Slack GIF 限制、验证与 GIF 创建工具、动画范本与组合范例、优化建议及相依套件。"
           }
         ]
       }

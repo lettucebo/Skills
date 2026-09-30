@@ -1,0 +1,168 @@
+{
+  "path": "skills/expo/expo-app-clip",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:09c2083cda6aff26f63ed67e8dfd74f8eec76eebd28b22876d0a7b213e7022f5",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-app-clip",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-app-clip/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now directs agents to use the expo-skill-feedback eval-candidate flow after repeated agent failure or user takeover, rather than the general feedback command."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-app-clip/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill adds a feedback-submission section with the Expo feedback CLI command and guidance to submit only specific, actionable reports with relevant context."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-app-clip/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R092",
+              "sourcePath": "plugins/expo/skills/add-app-clip/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-app-clip/SKILL.md"
+            },
+            "summary": "The skill is renamed from add-app-clip to expo-app-clip, its metadata is updated, and a requirements note clarifies App Clip shipping and hosting prerequisites and EAS build-minute use."
+          },
+          {
+            "sha": "10b526b7097f9ec56f9357649699b8d32bc524a4",
+            "date": "2026-05-21T09:23:47-07:00",
+            "subject": "Add add-app-clip skill (#61)",
+            "url": "https://github.com/expo/skills/commit/10b526b7097f9ec56f9357649699b8d32bc524a4",
+            "pathAtCommit": "plugins/expo/skills/add-app-clip/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The new skill documents an Expo iOS App Clip setup workflow, covering target and bundle-ID configuration, associated domains and AASA hosting, Smart App Banner, deployment, permissions, TestFlight builds, App Store Clip metadata, and optional native detection."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-app-clip/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能現在指出，若 AI 代理反覆失敗或使用者必須接手 Expo 任務，應載入 expo-skill-feedback 技能並依照其 eval-candidate 流程，而非重用一般回饋指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-app-clip/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能新增回饋提交章節，提供 Expo 回饋 CLI 指令，並建議僅提交具體、可採取行動且附有相關背景資訊的回饋。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-app-clip/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R092",
+              "sourcePath": "plugins/expo/skills/add-app-clip/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-app-clip/SKILL.md"
+            },
+            "summary": "此技能由 add-app-clip 更名為 expo-app-clip、更新中繼資料，並新增說明，指出發布 App Clip 需要 Apple Developer Program 會員資格與 App Store 審核、AASA 檔案必須透過 HTTPS 提供，且 EAS 建置會使用方案的建置分鐘數。"
+          },
+          {
+            "sha": "10b526b7097f9ec56f9357649699b8d32bc524a4",
+            "date": "2026-05-21T09:23:47-07:00",
+            "subject": "Add add-app-clip skill (#61)",
+            "url": "https://github.com/expo/skills/commit/10b526b7097f9ec56f9357649699b8d32bc524a4",
+            "pathAtCommit": "plugins/expo/skills/add-app-clip/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增的技能文件說明 Expo iOS App Clip 的設定流程，涵蓋目標與 Bundle ID 設定、關聯網域與 AASA 託管、Smart App Banner、部署、權限、TestFlight 建置、App Store Clip 中繼資料及可選的原生偵測。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-app-clip/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能现在指出，若 AI 代理反复失败或用户必须接手 Expo 任务，应加载 expo-skill-feedback 技能并依照其 eval-candidate 流程，而非重用一般回馈指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-app-clip/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能添加回馈提交章节，提供 Expo 回馈 CLI 指令，并建议仅提交具体、可采取行动且附有相关背景信息的回馈。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-app-clip/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R092",
+              "sourcePath": "plugins/expo/skills/add-app-clip/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-app-clip/SKILL.md"
+            },
+            "summary": "此技能由 add-app-clip 更名为 expo-app-clip、更新中继数据，并添加说明，指出发布 App Clip 需要 Apple Developer Program 会员资格与 App Store 审核、AASA 文件必须透过 HTTPS 提供，且 EAS 建置会使用方案的建置分钟数。"
+          },
+          {
+            "sha": "10b526b7097f9ec56f9357649699b8d32bc524a4",
+            "date": "2026-05-21T09:23:47-07:00",
+            "subject": "Add add-app-clip skill (#61)",
+            "url": "https://github.com/expo/skills/commit/10b526b7097f9ec56f9357649699b8d32bc524a4",
+            "pathAtCommit": "plugins/expo/skills/add-app-clip/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加的技能文档说明 Expo iOS App Clip 的设置流程，涵盖目标与 Bundle ID 设置、关联网域与 AASA 托管、Smart App Banner、部署、权限、TestFlight 建置、App Store Clip 中继数据及可选的原生侦测。"
+          }
+        ]
+      }
+    }
+  }
+}

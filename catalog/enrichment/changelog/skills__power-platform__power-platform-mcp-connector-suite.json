@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/power-platform-mcp-connector-suite.prompt.md",
               "destinationPath": "skills/power-platform-mcp-connector-suite/SKILL.md"
             },
-            "summary": "Added the Power Platform MCP Connector Suite skill file with guidance for generating and validating Power Platform custom connectors with MCP integration."
+            "summary": "Added the Power Platform MCP Connector Suite skill with guidance for building, validating, troubleshooting, and securing Copilot Studio MCP connectors."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/power-platform-mcp-connector-suite.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the prompt front matter field from `mode` to `agent`."
+            "summary": "Changed the prompt metadata from `mode: agent` to `agent: agent`."
           },
           {
             "sha": "aa38e38a95ec16f7904b1316c2af70510fe08241",
@@ -47,15 +47,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/aa38e38a95ec16f7904b1316c2af70510fe08241",
             "pathAtCommit": "prompts/power-platform-mcp-connector-suite.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added the Power Platform MCP Connector Suite prompt file for generating and validating Power Platform custom connectors with MCP integration."
+            "summary": "Added a Power Platform MCP connector prompt covering connector generation, Copilot Studio schema validation, troubleshooting, and security."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -72,7 +72,7 @@
               "sourcePath": "prompts/power-platform-mcp-connector-suite.prompt.md",
               "destinationPath": "skills/power-platform-mcp-connector-suite/SKILL.md"
             },
-            "summary": "新增 Power Platform MCP Connector Suite 技能檔案，提供產生與驗證具 MCP 整合的 Power Platform 自訂連接器指引。"
+            "summary": "新增 Power Platform MCP Connector Suite 技能，提供建置、驗證、疑難排解及強化 Copilot Studio MCP 連接器安全性的指引。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -81,7 +81,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/power-platform-mcp-connector-suite.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示檔前置中繼資料欄位從 `mode` 更名為 `agent`。"
+            "summary": "將提示檔中繼資料的 `mode: agent` 改為 `agent: agent`。"
           },
           {
             "sha": "aa38e38a95ec16f7904b1316c2af70510fe08241",
@@ -90,13 +90,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/aa38e38a95ec16f7904b1316c2af70510fe08241",
             "pathAtCommit": "prompts/power-platform-mcp-connector-suite.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增 Power Platform MCP Connector Suite 提示檔，用於產生與驗證具 MCP 整合的 Power Platform 自訂連接器。"
+            "summary": "新增 Power Platform MCP 連接器提示，涵蓋連接器產生、Copilot Studio 結構描述驗證、疑難排解及安全性。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -114,7 +114,7 @@
               "sourcePath": "prompts/power-platform-mcp-connector-suite.prompt.md",
               "destinationPath": "skills/power-platform-mcp-connector-suite/SKILL.md"
             },
-            "summary": "添加 Power Platform MCP Connector Suite 技能文件，提供产生与验证具 MCP 集成的 Power Platform 自订连接器指引。"
+            "summary": "添加 Power Platform MCP Connector Suite 技能，提供建置、验证、疑难排解及强化 Copilot Studio MCP 连接器安全性的指引。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -123,7 +123,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/power-platform-mcp-connector-suite.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示档前置中继数据字段从 `mode` 更名为 `agent`。"
+            "summary": "将提示档中继数据的 `mode: agent` 改为 `agent: agent`。"
           },
           {
             "sha": "aa38e38a95ec16f7904b1316c2af70510fe08241",
@@ -132,7 +132,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/aa38e38a95ec16f7904b1316c2af70510fe08241",
             "pathAtCommit": "prompts/power-platform-mcp-connector-suite.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加 Power Platform MCP Connector Suite 提示档，用于产生与验证具 MCP 集成的 Power Platform 自订连接器。"
+            "summary": "添加 Power Platform MCP 连接器提示，涵盖连接器产生、Copilot Studio 结构描述验证、疑难排解及安全性。"
           }
         ]
       }

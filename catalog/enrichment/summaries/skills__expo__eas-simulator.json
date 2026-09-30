@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/eas-simulator",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:15e4cd71e1a2a23a711929499b1cbcb4da324a6d7486a477ccc7005d37f782b0"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It lets you run and interact with an Expo app on an EAS-hosted iOS simulator or Android emulator.",
+        "whenToUse": "Use it when a remote, shareable, or agent-driven simulator is needed, or when the requested simulator cannot run locally; use a local simulator for ordinary local runs.",
+        "outputs": "It creates a remote simulator session with connection details and a browser-preview URL, and a controller can install, launch, interact with, and capture screenshots of the app."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它可讓你在 EAS 託管的 iOS 模擬器或 Android 模擬器上執行並操作 Expo 應用程式。",
+        "whenToUse": "需要遠端、可分享或由代理操作的模擬器，或所需模擬器無法在本機執行時使用；一般本機執行則使用本機模擬器。",
+        "outputs": "它會建立遠端模擬器工作階段並提供連線資訊與瀏覽器預覽網址，控制工具可用來安裝、啟動及操作應用程式並擷取螢幕截圖。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它可让你在 EAS 托管的 iOS 模拟器或 Android 模拟器上运行并操作 Expo 应用程序。",
+        "whenToUse": "需要远程、可分享或由代理操作的模拟器，或所需模拟器无法在本机运行时使用；一般本机运行则使用本机模拟器。",
+        "outputs": "它会创建远程模拟器工作阶段并提供连接信息与浏览器预览网址，控制工具可用来安装、启动及操作应用程序并截取屏幕截屏。"
+      }
+    }
+  }
+}

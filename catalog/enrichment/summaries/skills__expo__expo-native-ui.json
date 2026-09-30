@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-native-ui",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b7f76ed7ab6b15d309b70dc9848b5f460fdc7670396fcd5aa3901a28797a4a75"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides platform-appropriate Expo interface implementation, emphasizing screen structure, semantic styling, native UI choices, responsiveness, and reliable behavior.",
+        "whenToUse": "Use it when implementing or refining Expo screen layouts, platform-specific styling, safe areas, scrolling, keyboard behavior, or loading and error states.",
+        "outputs": "It provides practical conventions for colors, spacing, typography, controls, accessibility, data states, and final screen checks."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供符合各平台慣例的 Expo 介面實作指引，著重於畫面結構、語意化樣式、原生 UI 選擇、回應式設計與可靠行為。",
+        "whenToUse": "在實作或調整 Expo 畫面版面、平台專屬樣式、安全區、捲動、鍵盤行為或載入與錯誤狀態時使用。",
+        "outputs": "提供色彩、間距、文字樣式、控制項、無障礙、資料狀態與畫面完成檢查的實用慣例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供符合各平台惯例的 Expo 界面实作指引，着重于画面结构、语意化样式、原生 UI 选择、回应式设计与可靠行为。",
+        "whenToUse": "在实作或调整 Expo 画面版面、平台专属样式、安全区、卷动、键盘行为或加载与错误状态时使用。",
+        "outputs": "提供色彩、间距、文字样式、控制项、无障碍、数据状态与画面完成检查的实用惯例。"
+      }
+    }
+  }
+}

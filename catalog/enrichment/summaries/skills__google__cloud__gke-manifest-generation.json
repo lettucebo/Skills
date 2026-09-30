@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-manifest-generation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2321a0907c2ffd6c2cf7a0c84e8e06eec98a16d4cd5780dbdbc71dabc206667d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It turns application requirements into consistent deployment configuration that supports secure, reliable, and cost-aware operation on GKE.",
+        "whenToUse": "Use it during declarative configuration changes that need GKE-specific security, scheduling, storage, or availability decisions, not for live cluster operations, workload troubleshooting, or infrastructure provisioning.",
+        "outputs": "It produces or revises Kubernetes YAML for workloads and supporting resources, with applicable security contexts, resource requests and limits, health probes, routing, storage, and availability controls."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它將應用程式需求轉化為一致的部署設定，協助 GKE 工作負載兼顧安全性、可靠性與成本效益。",
+        "whenToUse": "當宣告式設定變更需要考量 GKE 特有的安全性、排程、儲存或可用性決策時，可在撰寫或修改時使用；不適用於即時叢集操作、工作負載疑難排解或基礎架構佈建。",
+        "outputs": "它會產生或修改工作負載及其支援資源的 Kubernetes YAML，並視需求加入安全性設定、資源 requests 與 limits、健康探測、路由、儲存和可用性控制。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它将应用程序需求转化为一致的部署设置，协助 GKE 工作负载兼顾安全性、可靠性与成本效益。",
+        "whenToUse": "当声明式设置变更需要考量 GKE 特有的安全性、调度、保存或可用性决策时，可在撰写或修改时使用；不适用于实时集群操作、工作负载疑难排解或基础架构布建。",
+        "outputs": "它会产生或修改工作负载及其支持资源的 Kubernetes YAML，并视需求加入安全性设置、资源 requests 与 limits、健康探测、路由、保存和可用性控制。"
+      }
+    }
+  }
+}

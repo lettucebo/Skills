@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-scc-query",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:105693e7cf2b4bfcc0a06f820783af5953beb24dd0cd92ba8a0e9d2aa49a4bae"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides read-only queries of Google Cloud Security Command Center findings and summarizes risk details in their data.",
+        "whenToUse": "Use it when the parent resource scope is known and you need a full report for one finding, a filtered list of active findings, or findings grouped for an overview.",
+        "outputs": "Returns filtered finding summaries or a full JSON payload for one finding, and can return grouped counts without changing cloud resources."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "以唯讀方式查詢 Google Cloud Security Command Center 的安全發現項目，並摘要其資料中的風險細節。",
+        "whenToUse": "當父資源範圍已知，且需要取得單一發現項目的完整報告、篩選作用中的發現項目清單，或依欄位分組掌握概況時使用。",
+        "outputs": "回傳篩選後的發現項目摘要或單一項目的完整 JSON 資料，也可提供分組計數，且不會修改雲端資源。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "以唯读方式查找 Google Cloud Security Command Center 的安全发现项目，并摘要其数据中的风险细节。",
+        "whenToUse": "当父资源范围已知，且需要取得单一发现项目的完整报告、筛选作用中的发现项目清单，或依字段分组掌握概况时使用。",
+        "outputs": "回传筛选后的发现项目摘要或单一项目的完整 JSON 数据，也可提供分组计数，且不会修改云端资源。"
+      }
+    }
+  }
+}

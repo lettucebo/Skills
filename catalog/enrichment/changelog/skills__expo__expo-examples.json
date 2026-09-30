@@ -1,0 +1,207 @@
+{
+  "path": "skills/expo/expo-examples",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f7c098e56f63b985248c959d2dfd74dd9798658c8ba536c03afcb8bc3f42eb49",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-examples",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "date": "2026-08-31T17:27:35+02:00",
+            "subject": "[expo] remove NativeWind skill (#151)",
+            "url": "https://github.com/expo/skills/commit/a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed the Tailwind/NativeWind styling entry from the related-skills list."
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance to use the expo-skill-feedback eval-candidate flow after repeated agent failures or user takeover, instead of the existing command."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a feedback-submission section with an Expo feedback command and guidance to report only specific, actionable issues with relevant context."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Prefixed the description with “Framework (OSS)” and updated related-skill links for native UI, styling, and SDK upgrades."
+          },
+          {
+            "sha": "06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "date": "2026-07-06T12:17:23+02:00",
+            "subject": "Split building-native-ui into building-native-ui + expo-router (#99)",
+            "url": "https://github.com/expo/skills/commit/06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added an expo-router link for navigation and routing to the related-skills list."
+          },
+          {
+            "sha": "b553ae4e1755bec11eac21517fe63040c7e07f2c",
+            "date": "2026-06-18T14:30:11+02:00",
+            "subject": "Add expo-examples skill (#84)",
+            "url": "https://github.com/expo/skills/commit/b553ae4e1755bec11eac21517fe63040c7e07f2c",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the expo-examples skill, covering discovery, inspection, adaptation, and scaffolding of Expo integration examples, plus related guidance and references."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "date": "2026-08-31T17:27:35+02:00",
+            "subject": "[expo] remove NativeWind skill (#151)",
+            "url": "https://github.com/expo/skills/commit/a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "從相關技能清單中移除了 Tailwind／NativeWind 樣式項目。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若 AI 代理程式反覆失敗，或使用者必須接手 Expo 任務，應改用 expo-skill-feedback 的 eval-candidate 流程，而非沿用既有指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增回饋提交章節，提供 Expo 回饋指令，並指引僅回報具體、可採取行動且附有相關脈絡的問題。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在描述開頭加上「Framework (OSS)」，並更新原生 UI、樣式與 SDK 升級的相關技能連結。"
+          },
+          {
+            "sha": "06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "date": "2026-07-06T12:17:23+02:00",
+            "subject": "Split building-native-ui into building-native-ui + expo-router (#99)",
+            "url": "https://github.com/expo/skills/commit/06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在相關技能清單中新增指向 expo-router 的導覽與路由連結。"
+          },
+          {
+            "sha": "b553ae4e1755bec11eac21517fe63040c7e07f2c",
+            "date": "2026-06-18T14:30:11+02:00",
+            "subject": "Add expo-examples skill (#84)",
+            "url": "https://github.com/expo/skills/commit/b553ae4e1755bec11eac21517fe63040c7e07f2c",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 expo-examples 技能，說明如何尋找、檢視、改造或以範例建立 Expo 專案，並提供相關指引與參考資料。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "date": "2026-08-31T17:27:35+02:00",
+            "subject": "[expo] remove NativeWind skill (#151)",
+            "url": "https://github.com/expo/skills/commit/a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "从相关技能清单中移除了 Tailwind／NativeWind 样式项目。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若 AI 代理程序反复失败，或用户必须接手 Expo 任务，应改用 expo-skill-feedback 的 eval-candidate 流程，而非沿用既有指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加回馈提交章节，提供 Expo 回馈指令，并指引仅回报具体、可采取行动且附有相关脉络的问题。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在描述开头加上「Framework (OSS)」，并更新原生 UI、样式与 SDK 升级的相关技能链接。"
+          },
+          {
+            "sha": "06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "date": "2026-07-06T12:17:23+02:00",
+            "subject": "Split building-native-ui into building-native-ui + expo-router (#99)",
+            "url": "https://github.com/expo/skills/commit/06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在相关技能清单中添加指向 expo-router 的导览与路由链接。"
+          },
+          {
+            "sha": "b553ae4e1755bec11eac21517fe63040c7e07f2c",
+            "date": "2026-06-18T14:30:11+02:00",
+            "subject": "Add expo-examples skill (#84)",
+            "url": "https://github.com/expo/skills/commit/b553ae4e1755bec11eac21517fe63040c7e07f2c",
+            "pathAtCommit": "plugins/expo/skills/expo-examples/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 expo-examples 技能，说明如何寻找、查看、改造或以范例创建 Expo 项目，并提供相关指引与参考资料。"
+          }
+        ]
+      }
+    }
+  }
+}

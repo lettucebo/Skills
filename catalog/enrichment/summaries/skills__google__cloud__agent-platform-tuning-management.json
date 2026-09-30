@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-tuning-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:992190695d8fed131785fb49ef15c30789da04072de52a325c8243d638be419a"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides Python SDK workflows for reviewing tuning-job progress and requesting cancellation of a running job.",
+        "whenToUse": "Use it to find or inspect tuning jobs, or stop a long-running run when you know the Google Cloud project and region.",
+        "outputs": "Shows job names, base models, and states; a job lookup also shows its tuned-model display name, while cancellation reports that a request was sent."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過 Python SDK 檢視調校工作的進度，並提出取消執行中工作的要求。",
+        "whenToUse": "已知 Google Cloud 專案與區域，且需要尋找或檢查調校工作，或停止執行過久的工作時使用。",
+        "outputs": "顯示工作名稱、基礎模型與狀態；查詢單一工作時也會顯示調校後模型的顯示名稱，取消時則回報已提出取消要求。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过 Python SDK 查看调校工作的进度，并提出取消运行中工作的要求。",
+        "whenToUse": "已知 Google Cloud 项目与区域，且需要寻找或检查调校工作，或停止运行过久的工作时使用。",
+        "outputs": "显示工作名称、基础模型与状态；查找单一工作时也会显示调校后模型的显示名称，取消时则回报已提出取消要求。"
+      }
+    }
+  }
+}

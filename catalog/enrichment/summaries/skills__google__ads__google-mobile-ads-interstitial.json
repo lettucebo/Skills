@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-interstitial",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c34cfca32349e4598c8ad607a6c7f9ffedbe5c9ce18350c9c6dde8409f11611e"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides the full-screen ad lifecycle and placement at natural transitions between app content.",
+        "whenToUse": "Use it when a mobile app needs platform-specific steps for loading an interstitial, handling ad callbacks, showing it, and verifying the integration.",
+        "outputs": "It provides an ordered implementation checklist and links to Android, iOS, and Unity guides."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它說明全螢幕插頁式廣告的生命週期，以及如何將廣告安排在應用程式內容之間的自然轉場點。",
+        "whenToUse": "當行動應用程式需要平台專屬的載入插頁式廣告、處理廣告回呼、顯示廣告及驗證整合步驟時，請使用此指南。",
+        "outputs": "它提供依序執行的實作檢查清單，以及 Android、iOS 和 Unity 的平台指南連結。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它说明全屏幕插页式广告的生命周期，以及如何将广告安排在应用程序内容之间的自然转场点。",
+        "whenToUse": "当行动应用程序需要平台专属的加载插页式广告、处理广告回呼、显示广告及验证集成步骤时，请使用此指南。",
+        "outputs": "它提供依序运行的实作检查清单，以及 Android、iOS 和 Unity 的平台指南链接。"
+      }
+    }
+  }
+}

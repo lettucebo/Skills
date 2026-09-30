@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/developing-genkit-go",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:177b4d22fd1a26409c29f0683f44256deff900f110bfdb24c094f94a0a7b6541"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides implementation guidance for composing model generation, structured results, streaming, prompts, tools, and observable workflows in Go across model providers.",
+        "whenToUse": "Use it when implementing or troubleshooting the Go-side setup, configuration, execution, HTTP serving, tracing, or persistence of Genkit workflows and agents.",
+        "outputs": "Supports Go implementations of model-backed workflows and agents, including structured generation, streaming, tool use, HTTP handlers, and traceable runs."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供在 Go 中組合模型生成、結構化結果、串流、提示、工具與可觀測工作流程的實作指引，並支援多種模型供應商。",
+        "whenToUse": "當需要實作或排查 Genkit 工作流程與代理程式的 Go 端初始化、設定、執行、HTTP 服務、追蹤或持久化時使用。",
+        "outputs": "協助產出以 Go 實作的模型工作流程與代理程式，包括結構化生成、串流、工具呼叫、HTTP 處理器及可追蹤的執行結果。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供在 Go 中组合模型生成、结构化结果、串流、提示、工具与可观测工作流程的实作指引，并支持多种模型供应商。",
+        "whenToUse": "当需要实作或排查 Genkit 工作流程与代理程序的 Go 端初始化、设置、运行、HTTP 服务、追踪或持久化时使用。",
+        "outputs": "协助产出以 Go 实作的模型工作流程与代理程序，包括结构化生成、串流、工具调用、HTTP 处理器及可追踪的运行结果。"
+      }
+    }
+  }
+}

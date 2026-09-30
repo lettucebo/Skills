@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-prompt-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ac840819b44f5fd2b5402911a2dde8a6714fe82ca8aedfc0131970beef4e7158"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides workflows for inspecting managed prompt details, retrieving specific versions, and filling stored templates with input values.",
+        "whenToUse": "Use it when you need prompt details or assembled template content, or want to create or delete a prompt with the required confirmations.",
+        "outputs": "It shows prompt names and IDs or assembled template content, and can create or delete managed prompt resources after confirmation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供檢視受管理提示詳細資料、取得指定版本，以及以輸入值填入已儲存範本的工作流程。",
+        "whenToUse": "當需要提示詳細資料或組合後的範本內容，或要在完成必要確認後建立或刪除提示時使用。",
+        "outputs": "會顯示提示名稱與 ID 或組合後的範本內容，並可在確認後建立或刪除受管理提示。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供查看受管理提示详细数据、取得指定版本，以及以输入值填入已保存范本的工作流程。",
+        "whenToUse": "当需要提示详细数据或组合后的范本内容，或要在完成必要确认后创建或删除提示时使用。",
+        "outputs": "会显示提示名称与 ID 或组合后的范本内容，并可在确认后创建或删除受管理提示。"
+      }
+    }
+  }
+}

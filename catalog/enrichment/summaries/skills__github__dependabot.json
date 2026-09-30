@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides practical guidance for configuring Dependabot and managing version, security, and alert-related dependency update workflows in GitHub.",
-        "whenToUse": "Use it when you need to set up or refine .github/dependabot.yml, organize updates across ecosystems or monorepos, handle Dependabot pull requests, or understand dependency vulnerability scanning options tied to GitHub.",
-        "outputs": "Returns concise configuration and workflow guidance covering supported ecosystems, scheduling, grouping, ignore and allow rules, PR behaviors, and plugin-based pre-commit dependency scanning."
+        "purpose": "Explains how to configure Dependabot to keep dependencies current and address known vulnerabilities across repository ecosystems.",
+        "whenToUse": "Consult it when planning repository coverage or deciding how update cadence, grouping, security settings, and pull request behavior should work.",
+        "outputs": "It provides configuration patterns and guidance for ecosystem entries, directories, schedules, grouping, security handling, pull request customization, and dependency rules."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供在 GitHub 中設定 Dependabot，並管理版本更新、安全更新與警示相關相依性流程的實務指引。",
-        "whenToUse": "當你需要建立或調整 .github/dependabot.yml、在多生態系或 monorepo 中整理更新、處理 Dependabot PR，或了解與 GitHub 相關的相依性弱點掃描選項時使用。",
-        "outputs": "會回傳涵蓋支援生態系、排程、分組、忽略與允許規則、PR 行為，以及外掛式提交前相依性掃描的精簡設定與流程說明。"
+        "purpose": "說明如何設定 Dependabot，讓儲存庫各套件生態系中的相依項目保持更新並處理已知安全漏洞。",
+        "whenToUse": "在規劃儲存庫的相依項目涵蓋範圍，或決定更新頻率、分組、安全性設定與提取要求行為時，可參考此指南。",
+        "outputs": "指南提供套件生態系項目、目錄、排程、分組、安全性處理、提取要求自訂與相依項目規則的設定範例和說明。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供在 GitHub 中设置 Dependabot，并管理版本更新、安全更新与警示相关相依性流程的实务指引。",
-        "whenToUse": "当你需要创建或调整 .github/dependabot.yml、在多生态系或 monorepo 中整理更新、处理 Dependabot PR，或了解与 GitHub 相关的相依性弱点扫描选项时使用。",
-        "outputs": "会回传涵盖支持生态系、调度、分组、忽略与允许规则、PR 行为，以及插件式提交前相依性扫描的精简设置与流程说明。"
+        "purpose": "说明如何设置 Dependabot，让保存库各套件生态系中的相依项目保持更新并处理已知安全漏洞。",
+        "whenToUse": "在规划保存库的相依项目涵盖范围，或决定更新频率、分组、安全性设置与提取要求行为时，可参考此指南。",
+        "outputs": "指南提供套件生态系项目、目录、调度、分组、安全性处理、提取要求自订与相依项目规则的设置范例和说明。"
       }
     }
   }

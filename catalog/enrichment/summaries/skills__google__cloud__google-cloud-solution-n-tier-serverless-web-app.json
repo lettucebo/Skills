@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-n-tier-serverless-web-app",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:de52cb4db79de746789dee7c5be8b12ff52dd23313d8cd16de79a13f83dc1fdd"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Designs secure serverless applications on Google Cloud by connecting isolated compute tiers to private data services.",
+        "whenToUse": "Use it when planning multi-tier Cloud Run systems that need private service-to-service communication, regional data residency controls, or deployment and security guidance.",
+        "outputs": "It produces a workload-specific architecture and security plan, Terraform and deployment guidance, and verification steps."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助在 Google Cloud 上設計安全的無伺服器應用程式，將彼此隔離的運算層連接至私有資料服務。",
+        "whenToUse": "適用於規劃需要私有服務間通訊、區域資料駐留控管，或部署與安全指引的多層 Cloud Run 系統。",
+        "outputs": "可依工作負載產出架構與安全計畫、Terraform 和部署指引，以及驗證步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助在 Google Cloud 上设计安全的无服务器应用程序，将彼此隔离的运算层连接至私有数据服务。",
+        "whenToUse": "适用于规划需要私有服务间通信、区域数据驻留控管，或部署与安全指引的多层 Cloud Run 系统。",
+        "outputs": "可依工作负载产出架构与安全计划、Terraform 和部署指引，以及验证步骤。"
+      }
+    }
+  }
+}

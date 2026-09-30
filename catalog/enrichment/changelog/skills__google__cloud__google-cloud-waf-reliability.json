@@ -1,0 +1,318 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-reliability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:08747ea0e0dc3df9eaca86e0c1f552cefe3271e89ab9b09ffb1ea0196374aec4",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-waf-reliability",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill metadata."
+          },
+          {
+            "sha": "534b4980c409c8f049a27f0e09a08369b5c0d702",
+            "date": "2026-07-23T16:33:56-07:00",
+            "subject": "Improvements to the Well-Architected Framework (WAF) Reliability skill.",
+            "url": "https://github.com/google/skills/commit/534b4980c409c8f049a27f0e09a08369b5c0d702",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill description and added reliability guidance on SLOs, capacity planning, golden-signal monitoring, and graceful-degradation techniques."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the `category` field under the `metadata` block in the skill front matter."
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the skill's reliability-reference URLs to use the `.md.txt` format."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-waf-reliability/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-waf-reliability/SKILL.md"
+            },
+            "summary": "Renamed the skill file from `cloud/google-cloud-waf-reliability/SKILL.md` to `skills/cloud/google-cloud-waf-reliability/SKILL.md` with no content changes."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+              "destinationPath": "cloud/google-cloud-waf-reliability/SKILL.md"
+            },
+            "summary": "Moved the skill file from `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md` to `cloud/google-cloud-waf-reliability/SKILL.md` with no content changes."
+          },
+          {
+            "sha": "1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "date": "2026-04-15T14:26:43-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md` with Google Cloud Reliability-pillar guidance, core principles, product examples, assessment questions, and a validation checklist."
+          },
+          {
+            "sha": "3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "date": "2026-04-15T12:17:19-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Deleted `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md`."
+          },
+          {
+            "sha": "5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "date": "2026-04-13T11:46:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md` with Google Cloud Reliability-pillar guidance, core principles, product examples, assessment questions, and a validation checklist."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增版本 1.0.0。"
+          },
+          {
+            "sha": "534b4980c409c8f049a27f0e09a08369b5c0d702",
+            "date": "2026-07-23T16:33:56-07:00",
+            "subject": "Improvements to the Well-Architected Framework (WAF) Reliability skill.",
+            "url": "https://github.com/google/skills/commit/534b4980c409c8f049a27f0e09a08369b5c0d702",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充技能說明，並新增有關 SLO、容量規劃、黃金訊號監控及優雅降級技術的可靠性指引。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能 YAML 前置資料中的 `category` 欄位移至 `metadata` 區塊下。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能中的可靠性參考文件網址更新為 `.md.txt` 格式。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-waf-reliability/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-waf-reliability/SKILL.md"
+            },
+            "summary": "將技能檔案從 `cloud/google-cloud-waf-reliability/SKILL.md` 重新命名為 `skills/cloud/google-cloud-waf-reliability/SKILL.md`，內容未變更。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+              "destinationPath": "cloud/google-cloud-waf-reliability/SKILL.md"
+            },
+            "summary": "將技能檔案從 `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md` 移至 `cloud/google-cloud-waf-reliability/SKILL.md`，內容未變更。"
+          },
+          {
+            "sha": "1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "date": "2026-04-15T14:26:43-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md`，提供 Google Cloud 可靠性支柱指引、核心原則、產品範例、評估問題及驗證清單。"
+          },
+          {
+            "sha": "3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "date": "2026-04-15T12:17:19-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "刪除 `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md`。"
+          },
+          {
+            "sha": "5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "date": "2026-04-13T11:46:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md`，提供 Google Cloud 可靠性支柱指引、核心原則、產品範例、評估問題及驗證清單。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加版本 1.0.0。"
+          },
+          {
+            "sha": "534b4980c409c8f049a27f0e09a08369b5c0d702",
+            "date": "2026-07-23T16:33:56-07:00",
+            "subject": "Improvements to the Well-Architected Framework (WAF) Reliability skill.",
+            "url": "https://github.com/google/skills/commit/534b4980c409c8f049a27f0e09a08369b5c0d702",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充技能说明，并添加有关 SLO、容量规划、黄金信号监控及优雅降级技术的可靠性指引。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能 YAML 前置数据中的 `category` 字段移至 `metadata` 区块下。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能中的可靠性参考文档网址更新为 `.md.txt` 格式。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-waf-reliability/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-waf-reliability/SKILL.md"
+            },
+            "summary": "将技能文件从 `cloud/google-cloud-waf-reliability/SKILL.md` 重命名为 `skills/cloud/google-cloud-waf-reliability/SKILL.md`，内容未变更。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+              "destinationPath": "cloud/google-cloud-waf-reliability/SKILL.md"
+            },
+            "summary": "将技能文件从 `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md` 移至 `cloud/google-cloud-waf-reliability/SKILL.md`，内容未变更。"
+          },
+          {
+            "sha": "1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "date": "2026-04-15T14:26:43-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md`，提供 Google Cloud 可靠性支柱指引、内核原则、产品范例、评估问题及验证清单。"
+          },
+          {
+            "sha": "3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "date": "2026-04-15T12:17:19-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "删除 `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md`。"
+          },
+          {
+            "sha": "5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "date": "2026-04-13T11:46:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `cloud/well-architected-framework/google-cloud-waf-reliability/SKILL.md`，提供 Google Cloud 可靠性支柱指引、内核原则、产品范例、评估问题及验证清单。"
+          }
+        ]
+      }
+    }
+  }
+}

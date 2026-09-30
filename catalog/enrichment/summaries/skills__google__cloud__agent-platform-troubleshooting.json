@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:62b37f5d029b6bc625d9f7e0921ee2425edd7383d77e0d3b1ff11ad6ee3dbaa1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It investigates configuration, authorization, and runtime failures across Agent Gateway, Agent Registry, Agent Identity, policies, IAP-delegated authorization, and service extensions, then reports findings and recommended fixes without applying changes.",
+        "whenToUse": "Use it when Agent Platform calls are denied, Agent Runtime requests fail, registered agents, MCP servers, or endpoints misbehave, or gateway, identity, policy, registry, or monitoring behavior needs investigation; it is not for general IAM or unrelated networking issues.",
+        "outputs": "It produces a diagnostic report with findings and recommended fixes, but does not apply those fixes."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它會調查 Agent Gateway、Agent Registry、Agent Identity、政策、IAP 委派授權及服務擴充功能中的設定、授權與執行階段故障，並提出診斷結果和修正建議，但不會套用變更。",
+        "whenToUse": "當 Agent Platform 呼叫遭拒、Agent Runtime 請求失敗、已註冊的代理程式、MCP 伺服器或端點異常，或需要調查閘道、身分、政策、登錄或監控行為時使用；一般 IAM 或無關的網路問題則不適用。",
+        "outputs": "輸出包含診斷發現與修正建議的報告，但不會套用這些修正。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它会调查 Agent Gateway、Agent Registry、Agent Identity、政策、IAP 委派授权及服务扩充功能中的设置、授权与运行阶段故障，并提出诊断结果和修正建议，但不会套用变更。",
+        "whenToUse": "当 Agent Platform 调用遭拒、Agent Runtime 请求失败、已注册的代理程序、MCP 服务器或端点异常，或需要调查闸道、身分、政策、登录或监控行为时使用；一般 IAM 或无关的网络问题则不适用。",
+        "outputs": "输出包含诊断发现与修正建议的报告，但不会套用这些修正。"
+      }
+    }
+  }
+}

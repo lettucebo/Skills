@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-hybrid-search-alloydb",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0f9a8a9533ce3fe9b04fa0b3741726c34f8ec5d1910ff8c5312cdaea11d14ba8",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-solution-hybrid-search-alloydb",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-hybrid-search-alloydb/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a `1.0.0` version field to the skill's metadata."
+          },
+          {
+            "sha": "eff85cf49ca2ef4309a82df624d7deebccaac749",
+            "date": "2026-08-31T13:29:54-07:00",
+            "subject": "Metadata update",
+            "url": "https://github.com/google/skills/commit/eff85cf49ca2ef4309a82df624d7deebccaac749",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-hybrid-search-alloydb/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changes the skill's metadata category from `Databases` to `MultiProductSolutions`."
+          },
+          {
+            "sha": "446fbdb9dc53d2d24dd862724b76f2b3dc7cc664",
+            "date": "2026-08-28T08:43:33-07:00",
+            "subject": "New agent skill for building and deploying a dynamic hybrid search system using AlloyDB.",
+            "url": "https://github.com/google/skills/commit/446fbdb9dc53d2d24dd862724b76f2b3dc7cc664",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-hybrid-search-alloydb/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a skill guide covering the design and deployment workflow for Google Cloud hybrid-search solutions using AlloyDB."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-hybrid-search-alloydb/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在該技能的中繼資料中新增 `1.0.0` 版本欄位。"
+          },
+          {
+            "sha": "eff85cf49ca2ef4309a82df624d7deebccaac749",
+            "date": "2026-08-31T13:29:54-07:00",
+            "subject": "Metadata update",
+            "url": "https://github.com/google/skills/commit/eff85cf49ca2ef4309a82df624d7deebccaac749",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-hybrid-search-alloydb/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將該技能的中繼資料類別從 `Databases` 變更為 `MultiProductSolutions`。"
+          },
+          {
+            "sha": "446fbdb9dc53d2d24dd862724b76f2b3dc7cc664",
+            "date": "2026-08-28T08:43:33-07:00",
+            "subject": "New agent skill for building and deploying a dynamic hybrid search system using AlloyDB.",
+            "url": "https://github.com/google/skills/commit/446fbdb9dc53d2d24dd862724b76f2b3dc7cc664",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-hybrid-search-alloydb/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增一份技能指南，說明如何使用 AlloyDB 設計及部署 Google Cloud 混合式搜尋解決方案。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-hybrid-search-alloydb/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在该技能的中继数据中添加 `1.0.0` 版本字段。"
+          },
+          {
+            "sha": "eff85cf49ca2ef4309a82df624d7deebccaac749",
+            "date": "2026-08-31T13:29:54-07:00",
+            "subject": "Metadata update",
+            "url": "https://github.com/google/skills/commit/eff85cf49ca2ef4309a82df624d7deebccaac749",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-hybrid-search-alloydb/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将该技能的中继数据类别从 `Databases` 变更为 `MultiProductSolutions`。"
+          },
+          {
+            "sha": "446fbdb9dc53d2d24dd862724b76f2b3dc7cc664",
+            "date": "2026-08-28T08:43:33-07:00",
+            "subject": "New agent skill for building and deploying a dynamic hybrid search system using AlloyDB.",
+            "url": "https://github.com/google/skills/commit/446fbdb9dc53d2d24dd862724b76f2b3dc7cc664",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-hybrid-search-alloydb/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加一份技能指南，说明如何使用 AlloyDB 设计及部署 Google Cloud 混合式搜索解决方案。"
+          }
+        ]
+      }
+    }
+  }
+}

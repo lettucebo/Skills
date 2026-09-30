@@ -2,21 +2,48 @@
   "path": "skills/cloudflare/web-perf",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:6ae8cb7d20fddbc4e39b16dc611cc4c271b007d8486d4a5bfec26291729db707",
+    "contentHash": "sha256:8f96cf1dd7d77f844c8547f0c0932e423d470a937911bedd291d7d7dff13be45",
     "repository": "cloudflare/skills",
     "reference": "refs/heads/main",
     "source": "skills/web-perf",
-    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+    "pinnedCommit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "3af2c77450c91af61384887def098fbfd247bbad",
+            "date": "2026-09-05T11:53:36-07:00",
+            "subject": "Keep latest Chrome DevTools MCP in setup guidance",
+            "url": "https://github.com/cloudflare/skills/commit/3af2c77450c91af61384887def098fbfd247bbad",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changes the Chrome DevTools MCP setup example from pinned version 1.8.0 to the latest package version."
+          },
+          {
+            "sha": "edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "date": "2026-09-05T11:46:29-07:00",
+            "subject": "Fix skill frontmatter and optional web-perf setup",
+            "url": "https://github.com/cloudflare/skills/commit/edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaces the mandatory MCP check with tool-discovery and continued-analysis guidance, and makes version-pinned setup instructions conditional on user request and authorized scope."
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Shortens the skill description to focus on auditing, diagnosing, or optimizing website loading and interaction performance, Core Web Vitals, and Lighthouse performance scores."
+          },
           {
             "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
             "date": "2026-04-01T16:54:14+01:00",
@@ -24,7 +51,7 @@
             "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
             "pathAtCommit": "skills/web-perf/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The skill description was updated to list LCP, INP, and CLS as Core Web Vitals and FCP, TBT, and Speed Index as supplementary metrics."
+            "summary": "Revises the description to identify LCP, INP, and CLS as Core Web Vitals, with FCP, TBT, and Speed Index as supplementary metrics."
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -33,7 +60,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/web-perf/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The skill description and introduction were updated to add retrieval-bias guidance and links to current web performance documentation sources."
+            "summary": "Adds a preference for retrieval over pretraining and a source table covering current metrics, tooling APIs, and Lighthouse scoring."
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -47,7 +74,7 @@
               "sourcePath": "web-perf/SKILL.md",
               "destinationPath": "skills/web-perf/SKILL.md"
             },
-            "summary": "The skill file was moved from web-perf/SKILL.md to skills/web-perf/SKILL.md."
+            "summary": "Renames the skill file from web-perf/SKILL.md to skills/web-perf/SKILL.md without changing its contents."
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -56,19 +83,46 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "web-perf/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "A new web-perf skill file was added with Chrome DevTools MCP auditing guidance, workflow, and output instructions."
+            "summary": "Adds the initial web-perf skill, defining a Chrome DevTools-based workflow for Core Web Vitals, network performance, accessibility, and codebase analysis."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "3af2c77450c91af61384887def098fbfd247bbad",
+            "date": "2026-09-05T11:53:36-07:00",
+            "subject": "Keep latest Chrome DevTools MCP in setup guidance",
+            "url": "https://github.com/cloudflare/skills/commit/3af2c77450c91af61384887def098fbfd247bbad",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Chrome DevTools MCP 設定範例從固定的 1.8.0 版改為使用最新套件版本。"
+          },
+          {
+            "sha": "edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "date": "2026-09-05T11:46:29-07:00",
+            "subject": "Fix skill frontmatter and optional web-perf setup",
+            "url": "https://github.com/cloudflare/skills/commit/edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以工具探索與持續分析指引取代強制 MCP 檢查，並將明確指定版本的設定指引限定於使用者提出需求且變更在授權範圍內的情況。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能描述精簡為聚焦於網站載入與互動效能、Core Web Vitals 和 Lighthouse 效能分數的稽核、診斷或最佳化。"
+          },
           {
             "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
             "date": "2026-04-01T16:54:14+01:00",
@@ -76,7 +130,7 @@
             "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
             "pathAtCommit": "skills/web-perf/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能描述已更新，將 LCP、INP 和 CLS 列為 Core Web Vitals，並將 FCP、TBT 和 Speed Index 列為補充指標。"
+            "summary": "修訂描述，將 LCP、INP 和 CLS 列為 Core Web Vitals，並將 FCP、TBT 和 Speed Index 列為補充指標。"
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -85,7 +139,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/web-perf/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能的描述與簡介已更新，加入偏向查閱資料的指引，以及目前網站效能文件來源的連結。"
+            "summary": "新增優先檢索而非依賴預訓練知識的指引，以及涵蓋最新指標、工具 API 和 Lighthouse 評分的來源表。"
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -99,7 +153,7 @@
               "sourcePath": "web-perf/SKILL.md",
               "destinationPath": "skills/web-perf/SKILL.md"
             },
-            "summary": "此技能檔案已從 web-perf/SKILL.md 移動到 skills/web-perf/SKILL.md。"
+            "summary": "將技能檔案從 web-perf/SKILL.md 移至 skills/web-perf/SKILL.md，內容未變。"
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -108,26 +162,53 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "web-perf/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "已新增 web-perf 技能檔案，包含 Chrome DevTools MCP 的稽核指引、流程與輸出說明。"
+            "summary": "新增 web-perf 技能初版，定義以 Chrome DevTools 為基礎的工作流程，涵蓋 Core Web Vitals、網路效能、無障礙檢查與程式碼庫分析。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
         "commits": [
           {
+            "sha": "3af2c77450c91af61384887def098fbfd247bbad",
+            "date": "2026-09-05T11:53:36-07:00",
+            "subject": "Keep latest Chrome DevTools MCP in setup guidance",
+            "url": "https://github.com/cloudflare/skills/commit/3af2c77450c91af61384887def098fbfd247bbad",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Chrome DevTools MCP 设置范例从固定的 1.8.0 版改为使用最新套件版本。"
+          },
+          {
+            "sha": "edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "date": "2026-09-05T11:46:29-07:00",
+            "subject": "Fix skill frontmatter and optional web-perf setup",
+            "url": "https://github.com/cloudflare/skills/commit/edcab9de680f43a1a5321fa8c8bba3b011c4170b",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以工具探索与持续分析指引取代强制 MCP 检查，并将明确指定版本的设置指引限定于用户提出需求且变更在授权范围内的情况。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/web-perf/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能描述精简为聚焦于网站加载与交互性能、Core Web Vitals 和 Lighthouse 性能分数的审核、诊断或优化。"
+          },
+          {
             "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
             "date": "2026-04-01T16:54:14+01:00",
             "subject": "Fix 18 factual errors: pricing, CPU limits, API names, sandbox docs, CLI syntax (#35)",
             "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
             "pathAtCommit": "skills/web-perf/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能描述已更新，将 LCP、INP 和 CLS 列为 Core Web Vitals，并将 FCP、TBT 和 Speed Index 列为补充指针。"
+            "summary": "修订描述，将 LCP、INP 和 CLS 列为 Core Web Vitals，并将 FCP、TBT 和 Speed Index 列为补充指针。"
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -136,7 +217,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/web-perf/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能的描述与简介已更新，加入偏向查阅数据的指引，以及目前网站性能文档来源的链接。"
+            "summary": "添加优先检索而非依赖预训练知识的指引，以及涵盖最新指针、工具 API 和 Lighthouse 评分的来源表。"
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -150,7 +231,7 @@
               "sourcePath": "web-perf/SKILL.md",
               "destinationPath": "skills/web-perf/SKILL.md"
             },
-            "summary": "此技能文件已从 web-perf/SKILL.md 移动到 skills/web-perf/SKILL.md。"
+            "summary": "将技能文件从 web-perf/SKILL.md 移至 skills/web-perf/SKILL.md，内容未变。"
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -159,7 +240,7 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "web-perf/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "已添加 web-perf 技能文件，包含 Chrome DevTools MCP 的审核指引、流程与输出说明。"
+            "summary": "添加 web-perf 技能初版，定义以 Chrome DevTools 为基础的工作流程，涵盖 Core Web Vitals、网络性能、无障碍检查与代码库分析。"
           }
         ]
       }

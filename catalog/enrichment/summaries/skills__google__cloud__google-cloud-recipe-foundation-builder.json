@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-recipe-foundation-builder",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:e85371e0041f207980f7f951221a3916f81f1d8ba8864943d9170ed804fabb41"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Establish a secure Google Cloud landing-zone foundation with baseline security controls, an organized resource hierarchy, and centralized logging and monitoring.",
+        "whenToUse": "Use when setting up a new Google Cloud organization or establishing a secure enterprise landing zone, not for onboarding an individual project.",
+        "outputs": "It applies 17 baseline organization policies, creates four folders and corresponding billed projects with APIs enabled, and configures a centralized log bucket with 30-day retention, an organization-wide audit log sink, and a cross-project metrics scope."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "為 Google Cloud 建立安全的登陸區基礎，涵蓋基準安全控管、組織化的資源階層，以及集中式記錄與監控。",
+        "whenToUse": "適用於設定新的 Google Cloud 組織或建立安全的企業級登陸區，不適用於個別專案的導入。",
+        "outputs": "套用 17 項基準組織政策、建立四個資料夾與對應的計費專案並啟用 API，並設定保留 30 天的集中式記錄儲存區、組織層級稽核記錄接收器及跨專案指標範圍。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "为 Google Cloud 创建安全的登陆区基础，涵盖基准安全控管、组织化的资源阶层，以及集中式记录与监控。",
+        "whenToUse": "适用于设置新的 Google Cloud 组织或创建安全的企业级登陆区，不适用于个别项目的导入。",
+        "outputs": "套用 17 项基准组织政策、创建四个文件夹与对应的计费项目并激活 API，并设置保留 30 天的集中式记录保存区、组织层级审核记录接收器及跨项目指针范围。"
+      }
+    }
+  }
+}

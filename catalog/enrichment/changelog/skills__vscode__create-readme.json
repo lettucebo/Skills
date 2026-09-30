@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/create-readme.prompt.md",
               "destinationPath": "skills/create-readme/SKILL.md"
             },
-            "summary": "Added the create-readme skill file with frontmatter and instructions for writing a project README."
+            "summary": "Adds a `create-readme` skill with guidance for producing a concise, well-structured project README, including example references and formatting requirements."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/create-readme.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the create-readme prompt frontmatter key from `mode` to `agent`."
+            "summary": "Renames the prompt front-matter field from `mode` to `agent`."
           },
           {
             "sha": "dda354e33fe0b98f81c68327e625f75cd68cfeba",
@@ -47,15 +47,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/dda354e33fe0b98f81c68327e625f75cd68cfeba",
             "pathAtCommit": "prompts/create-readme.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added the create-readme prompt file with frontmatter and instructions for writing a project README."
+            "summary": "Adds a prompt for creating a comprehensive, concise project README, with example references, formatting guidance, excluded sections, and logo guidance."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -72,7 +72,7 @@
               "sourcePath": "prompts/create-readme.prompt.md",
               "destinationPath": "skills/create-readme/SKILL.md"
             },
-            "summary": "新增 create-readme 技能檔案，包含前置中繼資料與撰寫專案 README 的指示。"
+            "summary": "新增 `create-readme` 技能，提供撰寫精簡、結構完善的專案 README 指引，包括範例參考與格式要求。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -81,7 +81,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/create-readme.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 create-readme 提示檔前置區塊的鍵名由 `mode` 改為 `agent`。"
+            "summary": "將提示詞前置中繼資料欄位從 `mode` 更名為 `agent`。"
           },
           {
             "sha": "dda354e33fe0b98f81c68327e625f75cd68cfeba",
@@ -90,13 +90,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/dda354e33fe0b98f81c68327e625f75cd68cfeba",
             "pathAtCommit": "prompts/create-readme.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增 create-readme 提示檔，包含前置中繼資料與撰寫專案 README 的指示。"
+            "summary": "新增建立完整且精簡專案 README 的提示詞，並提供範例參考、格式指引、應排除的章節及標誌使用指引。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -114,7 +114,7 @@
               "sourcePath": "prompts/create-readme.prompt.md",
               "destinationPath": "skills/create-readme/SKILL.md"
             },
-            "summary": "添加 create-readme 技能文件，包含前置中继数据与撰写项目 README 的指示。"
+            "summary": "添加 `create-readme` 技能，提供撰写精简、结构完善的项目 README 指引，包括范例参考与格式要求。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -123,7 +123,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/create-readme.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 create-readme 提示档前置区块的键名由 `mode` 改为 `agent`。"
+            "summary": "将提示词前置中继数据字段从 `mode` 更名为 `agent`。"
           },
           {
             "sha": "dda354e33fe0b98f81c68327e625f75cd68cfeba",
@@ -132,7 +132,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/dda354e33fe0b98f81c68327e625f75cd68cfeba",
             "pathAtCommit": "prompts/create-readme.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加 create-readme 提示档，包含前置中继数据与撰写项目 README 的指示。"
+            "summary": "添加创建完整且精简项目 README 的提示词，并提供范例参考、格式指引、应排除的章节及标志使用指引。"
           }
         ]
       }

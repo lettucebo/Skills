@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides practical guidance for creating and troubleshooting browser userscripts that modify pages, automate routine interactions, and enhance site behavior.",
-        "whenToUse": "Use this when someone needs help with Tampermonkey-style userscripts, page-injected JavaScript or CSS, site tweaks, data extraction, request handling, or related browser-side scripting tasks.",
-        "outputs": "Delivers concise advice, implementation patterns, and complete userscript-oriented solutions including headers, permissions, compatibility notes, and customization guidance."
+        "purpose": "Provides practical guidance for configuring userscript metadata and permissions, choosing Tampermonkey APIs, and implementing reliable browser-side behavior.",
+        "whenToUse": "Use it when a script needs careful injection timing, dynamic-page handling, persistent settings, cross-origin requests, TypeScript setup, or security and compatibility checks.",
+        "outputs": "For script requests, it supplies a complete userscript with an explanation, installation steps, customization points, permission rationale, and browser-support notes."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供實用指引，協助建立與除錯可修改網頁、自动化例行互動並增強網站行為的瀏覽器使用者腳本。",
-        "whenToUse": "當有人需要 Tampermonkey 類型的使用者腳本、注入頁面的 JavaScript 或 CSS、網站調整、資料擷取、請求處理或相關瀏覽器端腳本協助時使用。",
-        "outputs": "提供精簡建議、實作模式與完整的使用者腳本導向解決方案，包含標頭、權限、相容性說明與可自訂指引。"
+        "purpose": "提供設定使用者腳本中繼資料與權限、選擇 Tampermonkey API，以及實作可靠瀏覽器端行為的實用指引。",
+        "whenToUse": "當腳本需要妥善處理注入時機、動態頁面、持久化設定、跨來源請求、TypeScript 設定，或安全性與相容性檢查時使用。",
+        "outputs": "撰寫腳本時，會提供完整使用者腳本、功能說明、安裝步驟、自訂項目、權限用途，以及瀏覽器支援資訊。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供实用指引，协助创建与调试可修改网页、自动化例行交互并增强网站行为的浏览器用户脚本。",
-        "whenToUse": "当有人需要 Tampermonkey 类型的用户脚本、注入页面的 JavaScript 或 CSS、网站调整、数据截取、请求处理或相关浏览器端脚本协助时使用。",
-        "outputs": "提供精简建议、实作模式与完整的用户脚本导向解决方案，包含标头、权限、兼容性说明与可自订指引。"
+        "purpose": "提供设置用户脚本中继数据与权限、选择 Tampermonkey API，以及实作可靠浏览器端行为的实用指引。",
+        "whenToUse": "当脚本需要妥善处理注入时机、动态页面、持久化设置、跨来源请求、TypeScript 设置，或安全性与兼容性检查时使用。",
+        "outputs": "撰写脚本时，会提供完整用户脚本、功能说明、安装步骤、自订项目、权限用途，以及浏览器支持信息。"
       }
     }
   }

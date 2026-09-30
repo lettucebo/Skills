@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/secops-triage",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:bba761fa2d89cdc98630cccd8b58663fb86c3fafce92ec0688469e382fc54dda"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a repeatable workflow for reviewing Google SecOps alerts and cases, evaluating evidence and entity risk, and documenting a disposition.",
+        "whenToUse": "Use when an alert or case needs contextual review against related telemetry, asset criticality, and threat intelligence to determine appropriate handling.",
+        "outputs": "Produces a classification and risk assessment with severity guidance, plus closure rationale or an escalation summary and investigation handoff."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供可重複的流程，用於檢視 Google SecOps 警示與案件、評估證據和實體風險，並記錄處置結果。",
+        "whenToUse": "當警示或案件需要結合相關遙測資料、資產重要性與威脅情報進行脈絡審查，以判斷適當處置方式時使用。",
+        "outputs": "產生分類與風險評估及嚴重性調整建議，並提供結案理由或升級摘要與調查移交資訊。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供可重复的流程，用于查看 Google SecOps 警示与案件、评估证据和实体风险，并记录处置结果。",
+        "whenToUse": "当警示或案件需要结合相关遥测数据、资产重要性与威胁情报进行脉络审查，以判断适当处置方式时使用。",
+        "outputs": "产生分类与风险评估及严重性调整建议，并提供结案理由或升级摘要与调查移交信息。"
+      }
+    }
+  }
+}

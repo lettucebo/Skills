@@ -25,7 +25,7 @@ const HOME = BASE;
  * A visible card must link to the current locale's skill detail page.
  * The localized homepage and source pages do not match.
  */
-const SKILL_DETAIL_PATH_RE = /^\/en\/skills\/[^/]+\/[^/]+\/$/;
+const SKILL_DETAIL_PATH_RE = /^\/en\/skills\/[^/]+\/(?:[^/]+\/)+$/;
 
 /**
  * A query with no match at all. Pagefind does fuzzy/partial word matching, so

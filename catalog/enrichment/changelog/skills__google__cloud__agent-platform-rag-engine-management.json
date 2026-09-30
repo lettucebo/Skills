@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/agent-platform-rag-engine-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d498c6a569aaf0fac006b9801b0bf1f98fb92cce3f77597719197234d5893014",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/agent-platform-rag-engine-management",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added skill version metadata and revised setup guidance to use existing packages instead of creating a virtual environment."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the skill's category field into a metadata block in the front matter and adjusted spacing in the setup examples."
+          },
+          {
+            "sha": "70bf4640668024daee96c4522631069ec869c02b",
+            "date": "2026-06-17T09:32:48-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent-platform-rag-engine-management",
+            "url": "https://github.com/google/skills/commit/70bf4640668024daee96c4522631069ec869c02b",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added safety tiers for read-only and compute-consuming RAG operations, including explicit confirmation requirements before content generation."
+          },
+          {
+            "sha": "fff935ff7129f7c6d4d475b8a12446458f4c664b",
+            "date": "2026-05-26T10:14:24-07:00",
+            "subject": "Add cloud agent-platform-rag-engine-management skill",
+            "url": "https://github.com/google/skills/commit/fff935ff7129f7c6d4d475b8a12446458f4c664b",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Agent Platform RAG Engine skill with Python SDK guidance for setup, corpus and file discovery, inspection, retrieval, and grounded answer generation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增技能版本中繼資料，並修訂環境設定指引，改為使用現有套件而非建立虛擬環境。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能的 category 欄位移至前置資料中的 metadata 區塊，並調整設定範例的間距。"
+          },
+          {
+            "sha": "70bf4640668024daee96c4522631069ec869c02b",
+            "date": "2026-06-17T09:32:48-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent-platform-rag-engine-management",
+            "url": "https://github.com/google/skills/commit/70bf4640668024daee96c4522631069ec869c02b",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增唯讀與耗用運算資源之 RAG 操作安全分級，並要求在產生內容前明確取得確認。"
+          },
+          {
+            "sha": "fff935ff7129f7c6d4d475b8a12446458f4c664b",
+            "date": "2026-05-26T10:14:24-07:00",
+            "subject": "Add cloud agent-platform-rag-engine-management skill",
+            "url": "https://github.com/google/skills/commit/fff935ff7129f7c6d4d475b8a12446458f4c664b",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Agent Platform RAG Engine 技能，提供 Python SDK 的環境設定、語料庫與檔案探索、檢視、檢索及依據資料生成回答的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加技能版本中继数据，并修订环境设置指引，改为使用现有套件而非创建虚拟环境。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能的 category 字段移至前置数据中的 metadata 区块，并调整设置范例的间距。"
+          },
+          {
+            "sha": "70bf4640668024daee96c4522631069ec869c02b",
+            "date": "2026-06-17T09:32:48-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent-platform-rag-engine-management",
+            "url": "https://github.com/google/skills/commit/70bf4640668024daee96c4522631069ec869c02b",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加唯读与耗用运算资源之 RAG 操作安全分级，并要求在产生内容前明确取得确认。"
+          },
+          {
+            "sha": "fff935ff7129f7c6d4d475b8a12446458f4c664b",
+            "date": "2026-05-26T10:14:24-07:00",
+            "subject": "Add cloud agent-platform-rag-engine-management skill",
+            "url": "https://github.com/google/skills/commit/fff935ff7129f7c6d4d475b8a12446458f4c664b",
+            "pathAtCommit": "skills/cloud/agent-platform-rag-engine-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Agent Platform RAG Engine 技能，提供 Python SDK 的环境设置、语料库与文件探索、查看、检索及依据数据生成回答的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

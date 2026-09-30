@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Synchronize Google Play Store listing metadata, localizations, and listing images through CLI commands and Fastlane-style directories.",
-        "whenToUse": "Use it when you need to export, compare, validate, import, or manually update Play Store text, screenshots, or contact details across locales.",
-        "outputs": "It produces local metadata and image files, diff or validation results, and updated Google Play listing, image, or app detail data."
+        "purpose": "It helps maintain Google Play listing text, localized metadata, and store images through validation, comparison, bulk sync, and targeted edits.",
+        "whenToUse": "Use it to prepare or review locale-specific listings and images in a Fastlane-style directory, or to update listing fields and screenshots directly.",
+        "outputs": "It exports or imports locale-specific listing text and image assets, validates listing limits, and shows local-versus-remote listing differences."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "透過 CLI 指令與 Fastlane 風格目錄同步 Google Play 商店的上架文案、本地化內容與圖片素材。",
-        "whenToUse": "當你需要跨語系匯出、比對、驗證、匯入或手動更新 Play 商店文字、截圖或聯絡資訊時使用。",
-        "outputs": "它會產生本機的中繼資料與圖片檔案、差異或驗證結果，以及更新後的 Google Play 上架、圖片或應用程式詳細資料。"
+        "purpose": "它可透過驗證、比對、批次同步與個別編輯，協助維護 Google Play 商店文案、本地化中繼資料及圖片。",
+        "whenToUse": "當您要在 Fastlane 格式的目錄中準備或檢視各語系的商店資訊與圖片，或直接更新商店資訊欄位和螢幕截圖時使用。",
+        "outputs": "它可匯出或匯入各語系的商店資訊文字與圖片素材、驗證文案長度限制，並顯示本機與遠端商店資訊的差異。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "透过 CLI 指令与 Fastlane 风格目录同步 Google Play 商店的上架文案、本地化内容与图片素材。",
-        "whenToUse": "当你需要跨语系导出、比对、验证、导入或手动更新 Play 商店文字、截屏或联系信息时使用。",
-        "outputs": "它会产生本机的中继数据与图片文件、差异或验证结果，以及更新后的 Google Play 上架、图片或应用程序详细数据。"
+        "purpose": "它可透过验证、比对、批量同步与个别编辑，协助维护 Google Play 商店文案、本地化中继数据及图片。",
+        "whenToUse": "当您要在 Fastlane 格式的目录中准备或查看各语系的商店信息与图片，或直接更新商店信息字段和屏幕截屏时使用。",
+        "outputs": "它可导出或导入各语系的商店信息文字与图片素材、验证文案长度限制，并显示本机与远程商店信息的差异。"
       }
     }
   }

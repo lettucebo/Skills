@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-ui",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:3016f97fa109e45d0b11f7cd1858dc2d283f5b026e4071be9cc74d786022967c"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Build React interfaces rendered with native SwiftUI on iOS and Jetpack Compose on Android, using universal, platform-specific, or migration components as needed.",
+        "whenToUse": "Use it for Expo screens that benefit from native controls or grouped rows; start with the universal API on SDK 56 or later, and use platform-specific APIs only when a component or behavior is missing.",
+        "outputs": "It produces @expo/ui component trees wrapped in Host, with separate iOS and Android implementations or drop-in community-library replacements when needed."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "使用通用、平台專屬或遷移替代元件，建立由 iOS SwiftUI 與 Android Jetpack Compose 原生呈現的 React 介面。",
+        "whenToUse": "在 Expo 畫面需要原生控制項或群組列時使用；SDK 56 以上先採用通用 API，只有缺少元件或需要特定平台行為時才使用平台專屬 API。",
+        "outputs": "產出以 Host 包覆的 @expo/ui 元件樹，必要時提供分開的 iOS 與 Android 實作，或社群 UI 套件的直接替代元件。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "使用通用、平台专属或迁移替代组件，创建由 iOS SwiftUI 与 Android Jetpack Compose 原生呈现的 React 界面。",
+        "whenToUse": "在 Expo 画面需要原生控制项或群组列时使用；SDK 56 以上先采用通用 API，只有缺少组件或需要特定平台行为时才使用平台专属 API。",
+        "outputs": "产出以 Host 包覆的 @expo/ui 组件树，必要时提供分开的 iOS 与 Android 实作，或社区 UI 套件的直接替代组件。"
+      }
+    }
+  }
+}

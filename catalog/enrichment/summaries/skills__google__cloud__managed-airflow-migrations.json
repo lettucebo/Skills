@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/managed-airflow-migrations",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:447b35fdc7c85fba2522e528c13b11b5565e3b353b42d3cc512c1f931a24051b"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps adapt existing Managed Service for Apache Airflow DAGs to be compatible with Airflow 2.11.1 or Airflow 3.",
+        "whenToUse": "Use when migrating DAG code to either target version and assessing version-specific provider or Airflow 3 changes, not when investigating DAG run failures unrelated to code migration.",
+        "outputs": "Provides version-specific compatibility checks and remediation guidance for dependencies and DAG code, with deployment and verification steps only when requested."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助調整現有 Managed Service for Apache Airflow DAG，使其相容於 Airflow 2.11.1 或 Airflow 3。",
+        "whenToUse": "當需遷移 DAG 程式碼至任一目標版本並評估版本相依的提供者套件或 Airflow 3 變更時使用；不適用於排查與程式碼遷移無關的 DAG 執行失敗。",
+        "outputs": "提供依版本整理的相容性檢查與相依套件及 DAG 程式碼修正指引；僅在明確要求時提供部署與驗證步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助调整现有 Managed Service for Apache Airflow DAG，使其兼容于 Airflow 2.11.1 或 Airflow 3。",
+        "whenToUse": "当需迁移 DAG 代码至任一目标版本并评估版本相依的提供者套件或 Airflow 3 变更时使用；不适用于排查与代码迁移无关的 DAG 运行失败。",
+        "outputs": "提供依版本整理的兼容性检查与相依套件及 DAG 代码修正指引；仅在明确要求时提供部署与验证步骤。"
+      }
+    }
+  }
+}

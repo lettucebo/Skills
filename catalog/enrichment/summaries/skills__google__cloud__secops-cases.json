@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/secops-cases",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:315419307f32656d11bd02f3f8b9074b01a5a66eea1f8bee0d9f0ff326e4bf03"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It helps maintain a coherent, auditable incident record by managing case details, investigation notes, priority, status, and closure.",
+        "whenToUse": "Use it when an incident response task needs case-level triage, alert correlation, investigation documentation, or lifecycle updates, not for UDM searches or detection-rule authoring.",
+        "outputs": "It provides case lists and detailed context, and can record comments, update case metadata or workflow state, review linked alerts and evidence, and close cases with a documented root cause."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它協助維護一致且可稽核的事件紀錄，涵蓋案件資訊、調查註記、優先級、狀態與結案。",
+        "whenToUse": "當事件應變工作需要案件層級的分流、警示關聯、調查紀錄或生命週期更新時使用；它不適用於 UDM 搜尋或偵測規則撰寫。",
+        "outputs": "它可提供案件清單與詳細脈絡，並記錄註解、更新案件中繼資料或流程狀態、檢視關聯警示與證據，以及記錄根因後結案。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它协助维护一致且可审核的事件纪录，涵盖案件信息、调查注记、优先级、状态与结案。",
+        "whenToUse": "当事件应变工作需要案件层级的分流、警示关联、调查纪录或生命周期更新时使用；它不适用于 UDM 搜索或侦测规则撰写。",
+        "outputs": "它可提供案件清单与详细脉络，并记录注解、更新案件中继数据或流程状态、查看关联警示与证据，以及记录根因后结案。"
+      }
+    }
+  }
+}

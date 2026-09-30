@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-rag-engine-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d498c6a569aaf0fac006b9801b0bf1f98fb92cce3f77597719197234d5893014"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a Python workflow for exploring corpus contents and grounding answers in retrieved material.",
+        "whenToUse": "Use it to inspect what an Agent Platform RAG Engine corpus contains or to find supporting context before answering a question.",
+        "outputs": "It returns corpus and file metadata, relevant context with source identifiers, or an answer grounded in the corpus."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供以 Python 探索語料庫內容，並以檢索資料作為回答依據的工作流程。",
+        "whenToUse": "當需要檢查 Agent Platform RAG Engine 語料庫內容，或在回答問題前尋找佐證資料時使用。",
+        "outputs": "輸出語料庫與檔案中繼資料、附有來源資訊的相關內容，或以語料庫為依據的回答。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供以 Python 探索语料库内容，并以检索数据作为回答依据的工作流程。",
+        "whenToUse": "当需要检查 Agent Platform RAG Engine 语料库内容，或在回答问题前寻找佐证数据时使用。",
+        "outputs": "输出语料库与文件中继数据、附有来源信息的相关内容，或以语料库为依据的回答。"
+      }
+    }
+  }
+}

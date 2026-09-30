@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-slo-alert-configuration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:34a825a67efb969a33485ac79dd83c048a87cf0c43390c3c94b94f67df947361"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Turns service reliability goals and indicators into PromQL-based SLO alerting configuration for Google Cloud.",
+        "whenToUse": "Use it when you need to define SLO alerts for a Google Cloud service or resource identified through App Hub or directly.",
+        "outputs": "It produces Terraform configuration for Google Cloud Monitoring alert policies with PromQL SLO conditions, tracking labels, and an alert strategy; notification channels are included only when supplied."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "將服務可靠度目標與指標轉換為 Google Cloud 的 PromQL 型 SLO 告警設定。",
+        "whenToUse": "當您需要為透過 App Hub 識別或直接指定的 Google Cloud 服務或資源設定 SLO 告警時使用。",
+        "outputs": "產生含 PromQL SLO 條件、追蹤標籤與告警策略的 Google Cloud Monitoring 告警政策 Terraform 設定；僅在提供通知管道時才會加入。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "将服务可靠度目标与指针转换为 Google Cloud 的 PromQL 型 SLO 告警设置。",
+        "whenToUse": "当您需要为透过 App Hub 识别或直接指定的 Google Cloud 服务或资源设置 SLO 告警时使用。",
+        "outputs": "产生含 PromQL SLO 条件、追踪标签与告警策略的 Google Cloud Monitoring 告警政策 Terraform 设置；仅在提供通知管道时才会加入。"
+      }
+    }
+  }
+}

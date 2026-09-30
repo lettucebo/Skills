@@ -1,0 +1,207 @@
+{
+  "path": "skills/google/cloud/cloud-monitoring-metric-selection",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8dc68e84c1be7d1cbf39b0f41a3eb60a26213a59afda62c1f32b4d2a1016589f",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/cloud-monitoring-metric-selection",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill's metadata."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added project-ID/resource checks and fallback-reporting requirements, reorganized request analysis, and removed the instruction to request clarification after unrecoverable failures."
+          },
+          {
+            "sha": "564725c972140d6291e657a37daa09e1d276818f",
+            "date": "2026-08-03T11:14:36-07:00",
+            "subject": "Remove `allowed-tools` from cloud-monitoring-metric-selection skill to ask for an explicit approval from user on running a tool.",
+            "url": "https://github.com/google/skills/commit/564725c972140d6291e657a37daa09e1d276818f",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed the `allowed-tools` metadata listing `list_metric_descriptors` and `search_web`."
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `CloudObservabilityAndMonitoring` as the skill's metadata category."
+          },
+          {
+            "sha": "647d98bfcb12f0421aec3f88ac5e544a6bfb046d",
+            "date": "2026-07-22T14:11:37-07:00",
+            "subject": "Add \"Unit\" to the output table",
+            "url": "https://github.com/google/skills/commit/647d98bfcb12f0421aec3f88ac5e544a6bfb046d",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a `Unit` column to the output table specification and example, mapped to the metric descriptor's `unit` field."
+          },
+          {
+            "sha": "377fd1092fa3f5ddc51c0b2a8b540b22b30ed821",
+            "date": "2026-07-16T09:55:27-07:00",
+            "subject": "Introduce the cloud-monitoring-metric-selection skill",
+            "url": "https://github.com/google/skills/commit/377fd1092fa3f5ddc51c0b2a8b540b22b30ed821",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Introduced the Cloud Monitoring metric-selection skill with guidance for retrieving, filtering, and presenting metric descriptors."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中新增版本號 1.0.0。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增專案 ID／資源檢查與備援回報要求、重整請求分析步驟，並移除在不可恢復失敗後要求使用者補充說明的指示。"
+          },
+          {
+            "sha": "564725c972140d6291e657a37daa09e1d276818f",
+            "date": "2026-08-03T11:14:36-07:00",
+            "subject": "Remove `allowed-tools` from cloud-monitoring-metric-selection skill to ask for an explicit approval from user on running a tool.",
+            "url": "https://github.com/google/skills/commit/564725c972140d6291e657a37daa09e1d276818f",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了列出 `list_metric_descriptors` 與 `search_web` 的 `allowed-tools` metadata。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 `CloudObservabilityAndMonitoring` 新增為此技能的 metadata 類別。"
+          },
+          {
+            "sha": "647d98bfcb12f0421aec3f88ac5e544a6bfb046d",
+            "date": "2026-07-22T14:11:37-07:00",
+            "subject": "Add \"Unit\" to the output table",
+            "url": "https://github.com/google/skills/commit/647d98bfcb12f0421aec3f88ac5e544a6bfb046d",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在輸出表格規格與範例中新增 `Unit` 欄，並將其對應至 metric descriptor 的 `unit` 欄位。"
+          },
+          {
+            "sha": "377fd1092fa3f5ddc51c0b2a8b540b22b30ed821",
+            "date": "2026-07-16T09:55:27-07:00",
+            "subject": "Introduce the cloud-monitoring-metric-selection skill",
+            "url": "https://github.com/google/skills/commit/377fd1092fa3f5ddc51c0b2a8b540b22b30ed821",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Cloud Monitoring 指標選擇技能，並提供擷取、篩選及呈現指標描述項的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中添加版本号 1.0.0。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加项目 ID／资源检查与备援回报要求、重整请求分析步骤，并移除在不可恢复失败后要求用户补充说明的指示。"
+          },
+          {
+            "sha": "564725c972140d6291e657a37daa09e1d276818f",
+            "date": "2026-08-03T11:14:36-07:00",
+            "subject": "Remove `allowed-tools` from cloud-monitoring-metric-selection skill to ask for an explicit approval from user on running a tool.",
+            "url": "https://github.com/google/skills/commit/564725c972140d6291e657a37daa09e1d276818f",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了列出 `list_metric_descriptors` 与 `search_web` 的 `allowed-tools` metadata。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 `CloudObservabilityAndMonitoring` 添加为此技能的 metadata 类别。"
+          },
+          {
+            "sha": "647d98bfcb12f0421aec3f88ac5e544a6bfb046d",
+            "date": "2026-07-22T14:11:37-07:00",
+            "subject": "Add \"Unit\" to the output table",
+            "url": "https://github.com/google/skills/commit/647d98bfcb12f0421aec3f88ac5e544a6bfb046d",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在输出表格规格与范例中添加 `Unit` 栏，并将其对应至 metric descriptor 的 `unit` 字段。"
+          },
+          {
+            "sha": "377fd1092fa3f5ddc51c0b2a8b540b22b30ed821",
+            "date": "2026-07-16T09:55:27-07:00",
+            "subject": "Introduce the cloud-monitoring-metric-selection skill",
+            "url": "https://github.com/google/skills/commit/377fd1092fa3f5ddc51c0b2a8b540b22b30ed821",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-metric-selection/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Cloud Monitoring 指针选择技能，并提供截取、筛选及呈现指针描述项的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

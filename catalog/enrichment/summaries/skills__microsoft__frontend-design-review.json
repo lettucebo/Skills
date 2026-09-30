@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps assess and shape frontend interfaces so they are polished, distinctive, accessible, and aligned with design system standards.",
-        "whenToUse": "Use it when reviewing or creating UI work, including PRs, design reviews, accessibility checks, component behavior, responsive layouts, and theme quality.",
-        "outputs": "It produces either a focused frontend review with prioritized findings and recommendations or a clear visual direction for building a production-ready interface."
+        "purpose": "It evaluates existing interfaces against design-system, usability, accessibility, and visual-quality standards, or creates distinctive, production-grade frontend experiences.",
+        "whenToUse": "Use it to assess a frontend component, page, or flow for usability, design-system fit, and accessibility, or to build a distinctive interface from scratch.",
+        "outputs": "It produces either a prioritized UI review with design-system, accessibility, and usability findings and recommendations, or a distinctive, production-grade frontend implementation."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助評估與打造前端介面，使其兼具精緻度、辨識度、可及性，並符合設計系統標準。",
-        "whenToUse": "當你要審查或建立 UI 工作時可使用，例如 PR 審查、設計審查、無障礙檢查、元件行為、響應式版面與主題品質。",
-        "outputs": "它會產出聚焦的前端評估結果與依優先順序整理的建議，或提供可用於打造正式介面的明確視覺方向。"
+        "purpose": "它會依據設計系統、可用性、無障礙與視覺品質標準評估既有介面，或打造獨特且可投入正式環境的前端體驗。",
+        "whenToUse": "當需要評估前端元件、頁面或流程的可用性、設計系統契合度與無障礙性，或從頭打造獨特介面時使用。",
+        "outputs": "它會產出按優先順序整理、涵蓋設計系統、無障礙與可用性問題及建議的介面審查，或獨特且可投入正式環境的前端實作。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助评估与打造前端界面，使其兼具精致度、辨识度、可及性，并符合设计系统标准。",
-        "whenToUse": "当你要审查或创建 UI 工作时可使用，例如 PR 审查、设计审查、无障碍检查、组件行为、响应式版面与主题品质。",
-        "outputs": "它会产出聚焦的前端评估结果与依优先级整理的建议，或提供可用于打造正式界面的明确视觉方向。"
+        "purpose": "它会依据设计系统、可用性、无障碍与视觉品质标准评估既有界面，或打造独特且可投入正式环境的前端体验。",
+        "whenToUse": "当需要评估前端组件、页面或流程的可用性、设计系统契合度与无障碍性，或从头打造独特界面时使用。",
+        "outputs": "它会产出按优先级整理、涵盖设计系统、无障碍与可用性问题及建议的界面审查，或独特且可投入正式环境的前端实作。"
       }
     }
   }

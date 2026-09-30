@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/developers/finding-google-skills",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7c064639c8bb18588c39e173aabbd9c146f23d25669a9056eed22158a0b91653",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/developers/finding-google-skills",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "99137a4b3297e3ddcce25e9f5d6242c16fc0ff7e",
+            "date": "2026-09-28T17:37:54-07:00",
+            "subject": "Replace the `finding-google-skills` description. The skill must now match requests about choosing or setting up a stack. This includes requests that do not name a Google product.",
+            "url": "https://github.com/google/skills/commit/99137a4b3297e3ddcce25e9f5d6242c16fc0ff7e",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill version increased to 1.1.0, and its description now covers platform-selection and setup requests where a Google product may be relevant even if none is named."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the metadata version field with value 1.0.0."
+          },
+          {
+            "sha": "d2128dd163c9baf81c42dd80a4b79434fb44516f",
+            "date": "2026-09-10T08:36:24-07:00",
+            "subject": "Update curl commands to follow redirects in SKILL.md",
+            "url": "https://github.com/google/skills/commit/d2128dd163c9baf81c42dd80a4b79434fb44516f",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the documented curl invocations to use -L so redirects are followed for catalog retrieval, file downloads, retries, and repository-tree lookup."
+          },
+          {
+            "sha": "564583939d1603c4f4239d26c730d81b33a7829c",
+            "date": "2026-08-28T12:25:37-07:00",
+            "subject": "Fix defects in finding-google-skills, and correct the google-cloud-developer homepage",
+            "url": "https://github.com/google/skills/commit/564583939d1603c4f4239d26c730d81b33a7829c",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded catalog-retrieval guidance with filtering and temporary chunked local reading, made certificate failures final without verification bypasses, and clarified that catalogs may be kept only as request-scoped working copies."
+          },
+          {
+            "sha": "7faf00e6fef879b94e660ac73b448b5a95232411",
+            "date": "2026-08-28T10:36:05-07:00",
+            "subject": "Add a skill finder and a generated index of published skills",
+            "url": "https://github.com/google/skills/commit/7faf00e6fef879b94e660ac73b448b5a95232411",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a skill finder that fetches the Google skills catalog on demand, selects and fetches up to three matching skills, and defines retrieval verification and failure handling."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "99137a4b3297e3ddcce25e9f5d6242c16fc0ff7e",
+            "date": "2026-09-28T17:37:54-07:00",
+            "subject": "Replace the `finding-google-skills` description. The skill must now match requests about choosing or setting up a stack. This includes requests that do not name a Google product.",
+            "url": "https://github.com/google/skills/commit/99137a4b3297e3ddcce25e9f5d6242c16fc0ff7e",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能版本升至 1.1.0，描述也改為涵蓋平台選擇與設定需求，即使未指明 Google 產品，只要 Google 產品可能合適也適用。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在中繼資料中新增值為 1.0.0 的版本欄位。"
+          },
+          {
+            "sha": "d2128dd163c9baf81c42dd80a4b79434fb44516f",
+            "date": "2026-09-10T08:36:24-07:00",
+            "subject": "Update curl commands to follow redirects in SKILL.md",
+            "url": "https://github.com/google/skills/commit/d2128dd163c9baf81c42dd80a4b79434fb44516f",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將文件中的 curl 呼叫改為使用 -L，以便在擷取目錄、下載檔案、重試及查詢儲存庫樹狀清單時跟隨重新導向。"
+          },
+          {
+            "sha": "564583939d1603c4f4239d26c730d81b33a7829c",
+            "date": "2026-08-28T12:25:37-07:00",
+            "subject": "Fix defects in finding-google-skills, and correct the google-cloud-developer homepage",
+            "url": "https://github.com/google/skills/commit/564583939d1603c4f4239d26c730d81b33a7829c",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充目錄擷取指引，加入篩選與暫存分段讀取方式；明定憑證失敗不可繞過驗證重試，並澄清目錄僅可作為該次請求的暫存工作副本。"
+          },
+          {
+            "sha": "7faf00e6fef879b94e660ac73b448b5a95232411",
+            "date": "2026-08-28T10:36:05-07:00",
+            "subject": "Add a skill finder and a generated index of published skills",
+            "url": "https://github.com/google/skills/commit/7faf00e6fef879b94e660ac73b448b5a95232411",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增隨需擷取 Google 技能目錄的技能尋找器，會選取並擷取最多三個相符技能，並定義擷取驗證與失敗處理方式。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "99137a4b3297e3ddcce25e9f5d6242c16fc0ff7e",
+            "date": "2026-09-28T17:37:54-07:00",
+            "subject": "Replace the `finding-google-skills` description. The skill must now match requests about choosing or setting up a stack. This includes requests that do not name a Google product.",
+            "url": "https://github.com/google/skills/commit/99137a4b3297e3ddcce25e9f5d6242c16fc0ff7e",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能版本升至 1.1.0，描述也改为涵盖平台选择与设置需求，即使未指明 Google 产品，只要 Google 产品可能合适也适用。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在中继数据中添加值为 1.0.0 的版本字段。"
+          },
+          {
+            "sha": "d2128dd163c9baf81c42dd80a4b79434fb44516f",
+            "date": "2026-09-10T08:36:24-07:00",
+            "subject": "Update curl commands to follow redirects in SKILL.md",
+            "url": "https://github.com/google/skills/commit/d2128dd163c9baf81c42dd80a4b79434fb44516f",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将文档中的 curl 调用改为使用 -L，以便在截取目录、下载文件、重试及查找保存库树状清单时跟随重新导向。"
+          },
+          {
+            "sha": "564583939d1603c4f4239d26c730d81b33a7829c",
+            "date": "2026-08-28T12:25:37-07:00",
+            "subject": "Fix defects in finding-google-skills, and correct the google-cloud-developer homepage",
+            "url": "https://github.com/google/skills/commit/564583939d1603c4f4239d26c730d81b33a7829c",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充目录截取指引，加入筛选与暂存分段读取方式；明定凭证失败不可绕过验证重试，并澄清目录仅可作为该次请求的暂存工作副本。"
+          },
+          {
+            "sha": "7faf00e6fef879b94e660ac73b448b5a95232411",
+            "date": "2026-08-28T10:36:05-07:00",
+            "subject": "Add a skill finder and a generated index of published skills",
+            "url": "https://github.com/google/skills/commit/7faf00e6fef879b94e660ac73b448b5a95232411",
+            "pathAtCommit": "skills/developers/finding-google-skills/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加随需截取 Google 技能目录的技能寻找器，会选取并截取最多三个相符技能，并定义截取验证与失败处理方式。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-alert-configuration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:be3a459ca6c05d6b4cacfbf30b91693deea717af145d7d4b900dcb0f666670be"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides teams in designing high-signal monitoring for GKE's four golden signals and cluster health while minimizing alert noise.",
+        "whenToUse": "Use it when deciding how to group and evaluate GKE signals so alerts remain actionable across workloads and environments.",
+        "outputs": "It provides reusable Terraform alert-policy patterns with PromQL conditions and guidance on coverage, thresholds, durations, and what triggers mean."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它指引團隊為 GKE 的四大黃金訊號與叢集健康狀況設計高訊號且低雜訊的監控。",
+        "whenToUse": "當你需要決定如何分組及評估 GKE 訊號，讓警示在不同工作負載與環境中保持可行動性時，請使用此指引。",
+        "outputs": "它提供可重用的 Terraform 警示政策範本與 PromQL 條件，並說明涵蓋範圍、門檻、持續時間及觸發意義。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它指引团队为 GKE 的四大黄金信号与集群健康状况设计高信号且低杂讯的监控。",
+        "whenToUse": "当你需要决定如何分组及评估 GKE 信号，让警示在不同工作负载与环境中保持可行动性时，请使用此指引。",
+        "outputs": "它提供可重用的 Terraform 警示政策范本与 PromQL 条件，并说明涵盖范围、门槛、持续时间及触发意义。"
+      }
+    }
+  }
+}

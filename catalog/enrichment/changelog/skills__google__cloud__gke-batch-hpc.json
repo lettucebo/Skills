@@ -1,0 +1,279 @@
+{
+  "path": "skills/google/cloud/gke-batch-hpc",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6bf6165e44ac9d6d5153c233109fd489467ef1b2474b63e46c93dc9e41a4a5e8",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-batch-hpc",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-batch-hpc/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.version: \"1.0.0\"` to the skill's front matter."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-batch-hpc/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.category: Containers` to the skill's front matter."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-batch-hpc/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R054",
+              "sourcePath": "skills/cloud/gke-basics/references/gke-batch-hpc.md",
+              "destinationPath": "skills/cloud/gke-batch-hpc/SKILL.md"
+            },
+            "summary": "Converted the batch/HPC reference into a standalone skill with a name and description, expanded MPI resource settings, and broader production guidance."
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "direct",
+            "summary": "Added `--quiet` to the `gcloud container node-pools create` example."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/references/gke-batch-hpc.md",
+              "destinationPath": "skills/cloud/gke-basics/references/gke-batch-hpc.md"
+            },
+            "summary": "Moved the unchanged GKE batch/HPC reference under `skills/cloud/gke-basics/references/`."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/references/gke-batch-hpc.md",
+              "destinationPath": "cloud/gke-basics/references/gke-batch-hpc.md"
+            },
+            "summary": "Moved the unchanged GKE batch/HPC reference to `cloud/gke-basics/references/`."
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "direct",
+            "summary": "Added a GKE batch/HPC guide with Kubernetes Job, JobSet, and Kueue examples, compact-placement and MPI instructions, and cost and best-practice guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-batch-hpc/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 front matter 中新增 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-batch-hpc/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 front matter 中新增 `metadata.category: Containers`。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-batch-hpc/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R054",
+              "sourcePath": "skills/cloud/gke-basics/references/gke-batch-hpc.md",
+              "destinationPath": "skills/cloud/gke-batch-hpc/SKILL.md"
+            },
+            "summary": "將批次處理／HPC 參考文件改為獨立技能，新增名稱與描述、擴充 MPI 資源設定及正式環境指引。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "direct",
+            "summary": "在 `gcloud container node-pools create` 範例中加入 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/references/gke-batch-hpc.md",
+              "destinationPath": "skills/cloud/gke-basics/references/gke-batch-hpc.md"
+            },
+            "summary": "將未變更的 GKE 批次處理／HPC 參考文件移至 `skills/cloud/gke-basics/references/`。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/references/gke-batch-hpc.md",
+              "destinationPath": "cloud/gke-basics/references/gke-batch-hpc.md"
+            },
+            "summary": "將未變更的 GKE 批次處理／HPC 參考文件移至 `cloud/gke-basics/references/`。"
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 批次處理／HPC 指南，包含 Kubernetes Job、JobSet 與 Kueue 範例、緊密配置與 MPI 操作說明，以及成本最佳化和最佳實務指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-batch-hpc/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 front matter 中添加 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-batch-hpc/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 front matter 中添加 `metadata.category: Containers`。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-batch-hpc/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R054",
+              "sourcePath": "skills/cloud/gke-basics/references/gke-batch-hpc.md",
+              "destinationPath": "skills/cloud/gke-batch-hpc/SKILL.md"
+            },
+            "summary": "将批量处理／HPC 参考文档改为独立技能，添加名称与描述、扩充 MPI 资源设置及正式环境指引。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "direct",
+            "summary": "在 `gcloud container node-pools create` 范例中加入 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/references/gke-batch-hpc.md",
+              "destinationPath": "skills/cloud/gke-basics/references/gke-batch-hpc.md"
+            },
+            "summary": "将未变更的 GKE 批量处理／HPC 参考文档移至 `skills/cloud/gke-basics/references/`。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/references/gke-batch-hpc.md",
+              "destinationPath": "cloud/gke-basics/references/gke-batch-hpc.md"
+            },
+            "summary": "将未变更的 GKE 批量处理／HPC 参考文档移至 `cloud/gke-basics/references/`。"
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/references/gke-batch-hpc.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 批量处理／HPC 指南，包含 Kubernetes Job、JobSet 与 Kueue 范例、紧密配置与 MPI 操作说明，以及成本优化和最佳实务指引。"
+          }
+        ]
+      }
+    }
+  }
+}

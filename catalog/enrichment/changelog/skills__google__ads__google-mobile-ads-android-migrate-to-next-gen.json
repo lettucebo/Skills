@@ -1,0 +1,195 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-android-migrate-to-next-gen",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f7612ca05845457276a382f1330d3a6fdb2fd500977f15d8d91f27f43683a6f9",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/ads/google-mobile-ads-android-migrate-to-next-gen",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Stores metadata version 1.1.0 as a quoted string instead of an unquoted value."
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md"
+            },
+            "summary": "Moves the skill file from the nested `skills/ads/google-mobile-ads/` directory to `skills/ads/` without changing its content."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds `category: GoogleAds` under the `metadata` block and removes a blank line before the heading."
+          },
+          {
+            "sha": "bb8b3e0b053640ee9ac782a817fe48e7ae2761af",
+            "date": "2026-06-24T13:21:27-07:00",
+            "subject": "Added instructions for fetching the latest version of the GMA Next-Gen SDK",
+            "url": "https://github.com/google/skills/commit/bb8b3e0b053640ee9ac782a817fe48e7ae2761af",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updates the skill version to 1.1.0, adds a curl command to look up the latest SDK version when Maven is inaccessible, removes the separate SDK-version rule, and strengthens the warning to wrap UI operations in SDK callbacks for main-thread execution."
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the initial Android migration skill with setup and build guidance plus API and method mappings from the legacy Google Mobile Ads SDK to the Next-Gen SDK."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將中繼資料中的版本值 1.1.0 改為帶引號的字串。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md"
+            },
+            "summary": "將技能檔案從巢狀的 `skills/ads/google-mobile-ads/` 目錄移至 `skills/ads/`，內容不變。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 `metadata` 區塊下新增 `category: GoogleAds`，並移除標題前的一個空白行。"
+          },
+          {
+            "sha": "bb8b3e0b053640ee9ac782a817fe48e7ae2761af",
+            "date": "2026-06-24T13:21:27-07:00",
+            "subject": "Added instructions for fetching the latest version of the GMA Next-Gen SDK",
+            "url": "https://github.com/google/skills/commit/bb8b3e0b053640ee9ac782a817fe48e7ae2761af",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能版本更新為 1.1.0，新增在無法存取 Maven 時查詢最新 SDK 版本的 curl 指令、移除獨立的 SDK 版本規則，並強調 SDK 回呼中的 UI 操作必須包裝為在主執行緒執行。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Android 遷移技能初始版本，提供設定與建置指引，以及從舊版 Google Mobile Ads SDK 遷移至 Next-Gen SDK 的 API 和方法對照。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将中继数据中的版本值 1.1.0 改为带引号的字符串。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md"
+            },
+            "summary": "将技能文件从嵌套的 `skills/ads/google-mobile-ads/` 目录移至 `skills/ads/`，内容不变。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 `metadata` 区块下添加 `category: GoogleAds`，并移除标题前的一个空白行。"
+          },
+          {
+            "sha": "bb8b3e0b053640ee9ac782a817fe48e7ae2761af",
+            "date": "2026-06-24T13:21:27-07:00",
+            "subject": "Added instructions for fetching the latest version of the GMA Next-Gen SDK",
+            "url": "https://github.com/google/skills/commit/bb8b3e0b053640ee9ac782a817fe48e7ae2761af",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能版本更新为 1.1.0，添加在无法访问 Maven 时查找最新 SDK 版本的 curl 指令、移除独立的 SDK 版本规则，并强调 SDK 回呼中的 UI 操作必须包装为在主线程运行。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Android 迁移技能初始版本，提供设置与建置指引，以及从旧版 Google Mobile Ads SDK 迁移至 Next-Gen SDK 的 API 和方法对照。"
+          }
+        ]
+      }
+    }
+  }
+}

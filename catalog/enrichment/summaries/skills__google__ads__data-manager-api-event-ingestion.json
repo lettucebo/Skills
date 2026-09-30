@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/data-manager-api-event-ingestion",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:732fb7b2c777fab6d48d51d81971b821f3e8e004ee3d7a18e45728a20c86f662"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It helps developers build and troubleshoot event-ingestion integrations for Google Ads, Google Analytics, and Floodlight using the Data Manager API.",
+        "whenToUse": "Use it to implement or migrate an event-ingestion workflow, format its data and destinations, validate a request, or diagnose ingestion status, errors, and warnings.",
+        "outputs": "It provides destination-specific implementation steps, sample and migration-guide references, data-formatting and payload guidance, and request-status troubleshooting."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助開發者使用 Data Manager API 建置及排查 Google Ads、Google Analytics 與 Floodlight 的事件匯入整合。",
+        "whenToUse": "在實作或遷移事件匯入流程、格式化資料與目的地、驗證請求，或診斷匯入狀態、錯誤及警告時使用。",
+        "outputs": "提供依目的地區分的實作步驟、程式範例與遷移指南參考、資料格式和請求內容指引，以及請求狀態疑難排解。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助开发者使用 Data Manager API 建置及排查 Google Ads、Google Analytics 与 Floodlight 的事件导入集成。",
+        "whenToUse": "在实作或迁移事件导入流程、格式化数据与目的地、验证请求，或诊断导入状态、错误及警告时使用。",
+        "outputs": "提供依目的地区分的实作步骤、程序范例与迁移指南参考、数据格式和请求内容指引，以及请求状态疑难排解。"
+      }
+    }
+  }
+}

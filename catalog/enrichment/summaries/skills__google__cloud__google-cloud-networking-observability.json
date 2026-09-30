@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-networking-observability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8f820dc70e5068f800072011f5d0194cceea11d8f5824fb197bec3a62a3224df"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Turns Google Cloud network logs and telemetry into findings about traffic patterns, security events, performance, and connectivity.",
+        "whenToUse": "Use it to investigate traffic volume or endpoints, check firewall decisions and NAT activity, estimate VPC Flow Logs costs, track latency or throughput, or diagnose reachability between endpoints.",
+        "outputs": "Reports findings from relevant logs, metrics, or Connectivity Tests, shows any BigQuery SQL before execution, and includes a Flow Analyzer link."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "將 Google Cloud 網路記錄與遙測資料整理為流量模式、安全事件、效能及連線狀況的分析結果。",
+        "whenToUse": "當需要調查流量規模或端點、檢查防火牆判定與 NAT 活動、估算 VPC Flow Logs 成本、追蹤延遲或吞吐量，或診斷端點間的連通性時使用。",
+        "outputs": "提供相關記錄、指標或連線測試的分析結果，在執行前列出任何 BigQuery SQL，並附上 Flow Analyzer 連結。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "将 Google Cloud 网络记录与遥测数据整理为流量模式、安全事件、性能及连接状况的分析结果。",
+        "whenToUse": "当需要调查流量规模或端点、检查防火墙判定与 NAT 活动、估算 VPC Flow Logs 成本、追踪延迟或吞吐量，或诊断端点间的连通性时使用。",
+        "outputs": "提供相关记录、指针或连接测试的分析结果，在运行前列出任何 BigQuery SQL，并附上 Flow Analyzer 链接。"
+      }
+    }
+  }
+}

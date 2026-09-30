@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-animation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:869d56ae317c884407c95370cb1cac66262bfea4c81c05bb134c0752bef53d30"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides the design and implementation of responsive React Native animations that remain smooth, accessible, and appropriate to the interaction.",
+        "whenToUse": "Use it when designing or troubleshooting motion in React Native, especially when deciding whether an interaction should animate and how to keep it smooth and accessible.",
+        "outputs": "It provides animation code and a brief explanation of the motion decision, implementation choices, and device checks for gestures, velocity handoff, and haptics."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它指引用 React Native 設計並實作流暢、易於存取且符合互動情境的動畫。",
+        "whenToUse": "當需要為 React Native 動效做設計或疑難排解，尤其要判斷互動是否該加入動畫，以及如何兼顧流暢度與無障礙需求時使用。",
+        "outputs": "它會提供動畫程式碼，並簡要說明動效決策、實作選擇，以及手勢、速度交接與觸覺回饋的裝置檢查重點。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它指引用 React Native 设计并实作流畅、易于访问且符合交互情境的动画。",
+        "whenToUse": "当需要为 React Native 动效做设计或疑难排解，尤其要判断交互是否该加入动画，以及如何兼顾流畅度与无障碍需求时使用。",
+        "outputs": "它会提供动画代码，并简要说明动效决策、实作选择，以及手势、速度交接与触觉回馈的设备检查重点。"
+      }
+    }
+  }
+}

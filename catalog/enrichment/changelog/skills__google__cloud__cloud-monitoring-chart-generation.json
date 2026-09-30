@@ -1,0 +1,207 @@
+{
+  "path": "skills/google/cloud/cloud-monitoring-chart-generation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9a39d302a73d178f9d1033c2617193c6a4abb315420dbe1cfe07636cf29ad9e0",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/cloud-monitoring-chart-generation",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill metadata."
+          },
+          {
+            "sha": "accb3dea790d0ed8f961ef681ea5da0a95675d52",
+            "date": "2026-08-12T09:45:26-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/accb3dea790d0ed8f961ef681ea5da0a95675d52",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added ListTimeSeries-first guidance, mutual exclusion and exact passthrough for queries, and per-chart validation of query and unit expectations."
+          },
+          {
+            "sha": "c170f9a47ab51be0fd311b9784ad53e891665440",
+            "date": "2026-08-11T09:02:56-07:00",
+            "subject": "cloud-monitoring-chart-generation: Add full support for parsing and emitting ListTimeSeries JSON payloads into SDUI time_series_filter structures.",
+            "url": "https://github.com/google/skills/commit/c170f9a47ab51be0fd311b9784ad53e891665440",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Extended the workflow to handle ListTimeSeries JSON alongside PromQL, including label and unit handling and `time_series_filter` assembly."
+          },
+          {
+            "sha": "95c536f6d8baf5e155342b705d1ff0345ac02488",
+            "date": "2026-08-11T09:02:01-07:00",
+            "subject": "Switch chart generation output to use UUID-based filenames to prevent parallel execution collisions.",
+            "url": "https://github.com/google/skills/commit/95c536f6d8baf5e155342b705d1ff0345ac02488",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed chart outputs to unique UUID-based filenames and instructed the workflow to read the emitted path for validation."
+          },
+          {
+            "sha": "f89bec077b678b8a984954a13b1e17a31e5e0a4c",
+            "date": "2026-08-04T08:17:30-07:00",
+            "subject": "Simplify cloud-monitoring-chart-generation output logic",
+            "url": "https://github.com/google/skills/commit/f89bec077b678b8a984954a13b1e17a31e5e0a4c",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Simplified output instructions to rely on automatically assigned sequential filenames rather than explicit `--output` values."
+          },
+          {
+            "sha": "746cafa523f6aa9ba5f18e8c4197d12bd541af48",
+            "date": "2026-07-31T13:27:40-07:00",
+            "subject": "Add cloud-monitoring-chart-generation agent skill.",
+            "url": "https://github.com/google/skills/commit/746cafa523f6aa9ba5f18e8c4197d12bd541af48",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the cloud-monitoring-chart-generation skill with a PromQL workflow for generating and validating Cloud Monitoring widget textprotos."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增版本 1.0.0。"
+          },
+          {
+            "sha": "accb3dea790d0ed8f961ef681ea5da0a95675d52",
+            "date": "2026-08-12T09:45:26-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/accb3dea790d0ed8f961ef681ea5da0a95675d52",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增優先使用 ListTimeSeries 的指引、查詢互斥與原樣傳遞規則，以及逐張圖表驗證查詢與單位預期值的檢查。"
+          },
+          {
+            "sha": "c170f9a47ab51be0fd311b9784ad53e891665440",
+            "date": "2026-08-11T09:02:56-07:00",
+            "subject": "cloud-monitoring-chart-generation: Add full support for parsing and emitting ListTimeSeries JSON payloads into SDUI time_series_filter structures.",
+            "url": "https://github.com/google/skills/commit/c170f9a47ab51be0fd311b9784ad53e891665440",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充流程，使其除 PromQL 外也能處理 ListTimeSeries JSON，並涵蓋標籤與單位處理及 `time_series_filter` 組裝。"
+          },
+          {
+            "sha": "95c536f6d8baf5e155342b705d1ff0345ac02488",
+            "date": "2026-08-11T09:02:01-07:00",
+            "subject": "Switch chart generation output to use UUID-based filenames to prevent parallel execution collisions.",
+            "url": "https://github.com/google/skills/commit/95c536f6d8baf5e155342b705d1ff0345ac02488",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將圖表輸出改為唯一的 UUID 檔名，並指示流程讀取輸出的路徑以進行驗證。"
+          },
+          {
+            "sha": "f89bec077b678b8a984954a13b1e17a31e5e0a4c",
+            "date": "2026-08-04T08:17:30-07:00",
+            "subject": "Simplify cloud-monitoring-chart-generation output logic",
+            "url": "https://github.com/google/skills/commit/f89bec077b678b8a984954a13b1e17a31e5e0a4c",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "簡化輸出說明，改為依賴自動指派的連續檔名，而非明確指定 `--output` 值。"
+          },
+          {
+            "sha": "746cafa523f6aa9ba5f18e8c4197d12bd541af48",
+            "date": "2026-07-31T13:27:40-07:00",
+            "subject": "Add cloud-monitoring-chart-generation agent skill.",
+            "url": "https://github.com/google/skills/commit/746cafa523f6aa9ba5f18e8c4197d12bd541af48",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `cloud-monitoring-chart-generation` 技能，提供以 PromQL 產生並驗證 Cloud Monitoring Widget textproto 的流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加版本 1.0.0。"
+          },
+          {
+            "sha": "accb3dea790d0ed8f961ef681ea5da0a95675d52",
+            "date": "2026-08-12T09:45:26-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/accb3dea790d0ed8f961ef681ea5da0a95675d52",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加优先使用 ListTimeSeries 的指引、查找互斥与原样传递规则，以及逐张图表验证查找与单位预期值的检查。"
+          },
+          {
+            "sha": "c170f9a47ab51be0fd311b9784ad53e891665440",
+            "date": "2026-08-11T09:02:56-07:00",
+            "subject": "cloud-monitoring-chart-generation: Add full support for parsing and emitting ListTimeSeries JSON payloads into SDUI time_series_filter structures.",
+            "url": "https://github.com/google/skills/commit/c170f9a47ab51be0fd311b9784ad53e891665440",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充流程，使其除 PromQL 外也能处理 ListTimeSeries JSON，并涵盖标签与单位处理及 `time_series_filter` 组装。"
+          },
+          {
+            "sha": "95c536f6d8baf5e155342b705d1ff0345ac02488",
+            "date": "2026-08-11T09:02:01-07:00",
+            "subject": "Switch chart generation output to use UUID-based filenames to prevent parallel execution collisions.",
+            "url": "https://github.com/google/skills/commit/95c536f6d8baf5e155342b705d1ff0345ac02488",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将图表输出改为唯一的 UUID 文件名，并指示流程读取输出的路径以进行验证。"
+          },
+          {
+            "sha": "f89bec077b678b8a984954a13b1e17a31e5e0a4c",
+            "date": "2026-08-04T08:17:30-07:00",
+            "subject": "Simplify cloud-monitoring-chart-generation output logic",
+            "url": "https://github.com/google/skills/commit/f89bec077b678b8a984954a13b1e17a31e5e0a4c",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "简化输出说明，改为依赖自动指派的连续文件名，而非明确指定 `--output` 值。"
+          },
+          {
+            "sha": "746cafa523f6aa9ba5f18e8c4197d12bd541af48",
+            "date": "2026-07-31T13:27:40-07:00",
+            "subject": "Add cloud-monitoring-chart-generation agent skill.",
+            "url": "https://github.com/google/skills/commit/746cafa523f6aa9ba5f18e8c4197d12bd541af48",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-chart-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `cloud-monitoring-chart-generation` 技能，提供以 PromQL 产生并验证 Cloud Monitoring Widget textproto 的流程。"
+          }
+        ]
+      }
+    }
+  }
+}

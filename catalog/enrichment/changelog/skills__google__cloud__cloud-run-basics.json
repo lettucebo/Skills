@@ -1,0 +1,399 @@
+{
+  "path": "skills/google/cloud/cloud-run-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9592e01f9164a443eab576bee92167794247759786c2837d80bdf37ef45a5ea9",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/cloud-run-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.version: \"1.0.0\"` to the skill's YAML front matter."
+          },
+          {
+            "sha": "927b7458492fb67921bfca78aabb04e26637d7c4",
+            "date": "2026-07-15T17:11:45-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/927b7458492fb67921bfca78aabb04e26637d7c4",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Networking Best Practices & Cost Optimization reference link covering cost optimization, Direct VPC egress, IP/port exhaustion, throughput tuning, and MTU settings."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the `category: Serverless` field under a new `metadata` block in the YAML front matter."
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the linked Google Cloud documentation URLs to their `.md.txt` endpoints."
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `--quiet` to the documented `gcloud` API-enablement, IAM-binding, service deployment, job creation/deployment/execution, and worker-pool deployment commands."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/cloud-run-basics/SKILL.md",
+              "destinationPath": "skills/cloud/cloud-run-basics/SKILL.md"
+            },
+            "summary": "Renamed the skill file from `cloud/cloud-run-basics/SKILL.md` to `skills/cloud/cloud-run-basics/SKILL.md` without changing its content."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+              "destinationPath": "cloud/cloud-run-basics/SKILL.md"
+            },
+            "summary": "Moved the skill file from `cloud/products/cloud-run/cloud-run-basics/SKILL.md` to `cloud/cloud-run-basics/SKILL.md` without changing its content."
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adjusted the indentation of the code fence for the Dockerfile deployment example."
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the document heading from `Cloud Run Guide` to `Cloud Run Basics`."
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the front matter skill name from `cloud-run` to `cloud-run-basics`."
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the domain-restriction documentation URL and changed the skill's reference links from `../references/...` to `references/...`."
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Cloud Run guide with service, job, and worker-pool concepts and deployment instructions, plus prerequisites, troubleshooting, and a reference directory."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML front matter 中新增 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "927b7458492fb67921bfca78aabb04e26637d7c4",
+            "date": "2026-07-15T17:11:45-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/927b7458492fb67921bfca78aabb04e26637d7c4",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增「Networking Best Practices & Cost Optimization」參考文件連結，涵蓋成本最佳化、Direct VPC egress、IP／連接埠耗盡、吞吐量調校及 MTU 設定。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 YAML front matter 中新增 `metadata` 區塊，並將 `category: Serverless` 移至其中。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將連結中的 Google Cloud 文件網址改為 `.md.txt` 端點。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在文件列出的 gcloud API 啟用、IAM 綁定、服務部署、工作 (job) 建立／部署／執行及 worker pool 部署命令中加入 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/cloud-run-basics/SKILL.md",
+              "destinationPath": "skills/cloud/cloud-run-basics/SKILL.md"
+            },
+            "summary": "將技能檔案從 `cloud/cloud-run-basics/SKILL.md` 重新命名為 `skills/cloud/cloud-run-basics/SKILL.md`，內容未變。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+              "destinationPath": "cloud/cloud-run-basics/SKILL.md"
+            },
+            "summary": "將技能檔案從 `cloud/products/cloud-run/cloud-run-basics/SKILL.md` 移至 `cloud/cloud-run-basics/SKILL.md`，內容未變。"
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "調整了 Dockerfile 部署範例中 Markdown 程式碼區塊圍欄的縮排。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將文件標題從 `Cloud Run Guide` 改為 `Cloud Run Basics`。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 front matter 中的技能名稱從 `cloud-run` 改為 `cloud-run-basics`。"
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新網域限制文件網址，並將技能中的參考連結由 `../references/...` 改為 `references/...`。"
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Cloud Run 入門指南，內容包含服務、工作及 worker pool 概念與部署說明，以及先決條件、疑難排解和參考資料目錄。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML front matter 中添加 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "927b7458492fb67921bfca78aabb04e26637d7c4",
+            "date": "2026-07-15T17:11:45-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/927b7458492fb67921bfca78aabb04e26637d7c4",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加「Networking Best Practices & Cost Optimization」参考文档链接，涵盖成本优化、Direct VPC egress、IP／连接端口耗尽、吞吐量调校及 MTU 设置。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 YAML front matter 中添加 `metadata` 区块，并将 `category: Serverless` 移至其中。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将链接中的 Google Cloud 文档网址改为 `.md.txt` 端点。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在文档列出的 gcloud API 激活、IAM 绑定、服务部署、工作 (job) 创建／部署／运行及 worker pool 部署命令中加入 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/cloud-run-basics/SKILL.md",
+              "destinationPath": "skills/cloud/cloud-run-basics/SKILL.md"
+            },
+            "summary": "将技能文件从 `cloud/cloud-run-basics/SKILL.md` 重命名为 `skills/cloud/cloud-run-basics/SKILL.md`，内容未变。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/cloud-run-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+              "destinationPath": "cloud/cloud-run-basics/SKILL.md"
+            },
+            "summary": "将技能文件从 `cloud/products/cloud-run/cloud-run-basics/SKILL.md` 移至 `cloud/cloud-run-basics/SKILL.md`，内容未变。"
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "调整了 Dockerfile 部署范例中 Markdown 代码区块围栏的缩进。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将文档标题从 `Cloud Run Guide` 改为 `Cloud Run Basics`。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 front matter 中的技能名称从 `cloud-run` 改为 `cloud-run-basics`。"
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新网域限制文档网址，并将技能中的参考链接由 `../references/...` 改为 `references/...`。"
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/cloud-run/cloud-run-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Cloud Run 入门指南，内容包含服务、工作及 worker pool 概念与部署说明，以及先决条件、疑难排解和参考资料目录。"
+          }
+        ]
+      }
+    }
+  }
+}

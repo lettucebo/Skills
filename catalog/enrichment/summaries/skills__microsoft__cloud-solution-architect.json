@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides Azure-focused architecture guidance for designing production-grade cloud systems with design principles, architecture styles, patterns, technology choices, and Well-Architected tradeoffs.",
-        "whenToUse": "Use it when designing or reviewing cloud systems, choosing Azure services and architecture styles, or evaluating a solution against reliability, security, cost, operations, and performance concerns.",
-        "outputs": "Delivers architecture guidance such as design and review workflows, pattern recommendations, service selection criteria, best practices, and common antipatterns to avoid."
+        "purpose": "Guides production-grade Azure system design with practices for resilience, scalability, security, operations, performance, and cost.",
+        "whenToUse": "Use it for new or evolving Azure workloads when balancing requirements against service choices, reliability and recovery targets, and Well-Architected trade-offs.",
+        "outputs": "It produces a requirements-driven design that maps an architecture style and Azure services to relevant patterns and cross-cutting concerns, with Well-Architected trade-offs and architecture decisions documented."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供以 Azure 為核心的架構指引，協助以設計原則、架構風格、模式、技術選型與 Well-Architected 取捨來設計可投入生產的雲端系統。",
-        "whenToUse": "適用於設計或審查雲端系統、選擇 Azure 服務與架構風格，或依可靠性、安全性、成本、營運與效能面向評估方案時。",
-        "outputs": "會產出架構指引，例如設計與審查流程、模式建議、服務選型準則、最佳做法，以及應避免的常見反模式。"
+        "purpose": "以韌性、擴展性、安全性、營運、效能與成本方面的實務，指引符合正式環境需求的 Azure 系統設計。",
+        "whenToUse": "新建或演進 Azure 工作負載，且需要在需求、服務選擇、可靠性與復原目標，以及 Well-Architected Framework 各面向的取捨之間取得平衡時使用。",
+        "outputs": "產出以需求為導向的設計，將架構風格與 Azure 服務對應至相關模式及跨領域考量，並記錄 Well-Architected Framework 的取捨與架構決策。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供以 Azure 为内核的架构指引，协助以设计原则、架构风格、模式、技术选型与 Well-Architected 取舍来设计可投入生产的云端系统。",
-        "whenToUse": "适用于设计或审查云端系统、选择 Azure 服务与架构风格，或依可靠性、安全性、成本、营运与性能面向评估方案时。",
-        "outputs": "会产出架构指引，例如设计与审查流程、模式建议、服务选型准则、最佳做法，以及应避免的常见反模式。"
+        "purpose": "以韧性、扩展性、安全性、营运、性能与成本方面的实务，指引符合正式环境需求的 Azure 系统设计。",
+        "whenToUse": "新建或演进 Azure 工作负载，且需要在需求、服务选择、可靠性与复原目标，以及 Well-Architected Framework 各面向的取舍之间取得平衡时使用。",
+        "outputs": "产出以需求为导向的设计，将架构风格与 Azure 服务对应至相关模式及跨领域考量，并记录 Well-Architected Framework 的取舍与架构决策。"
       }
     }
   }

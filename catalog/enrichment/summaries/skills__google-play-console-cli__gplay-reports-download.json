@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides access to Google Play Console financial and app statistics reports stored in Google Cloud Storage, including listing available files and downloading them.",
-        "whenToUse": "Use it when you need earnings, sales, payouts, installs, ratings, crashes, store performance, or subscription report files from the Play Console reporting bucket.",
-        "outputs": "It returns either a bucket-scoped list of report files with names, sizes, and update times, or download details including the selected range, destination directory, and saved file paths."
+        "purpose": "Lists and downloads Google Play Console financial and app-statistics reports stored in Google Cloud Storage.",
+        "whenToUse": "Use it to find reports by bucket, type, package, or month, or save selected reports to a local directory.",
+        "outputs": "Lists available report files or downloads them locally, with file names, paths, and sizes."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "用於存取儲存在 Google Cloud Storage 的 Google Play Console 財務與應用統計報表，可列出可用檔案並下載。",
-        "whenToUse": "當你需要從 Play Console 報表 bucket 取得收益、銷售、付款、安裝、評分、當機、商店成效或訂閱報表檔案時使用。",
-        "outputs": "它會回傳以 bucket 為範圍的報表檔案清單（含名稱、大小與更新時間），或回傳下載結果（含選定區間、目的目錄與已儲存檔案路徑）。"
+        "purpose": "列出並下載儲存在 Google Cloud Storage 中的 Google Play Console 財務與應用程式統計報表。",
+        "whenToUse": "需要依儲存桶、類型、套件名稱或月份尋找報表，或將選取的報表存入本機目錄時使用。",
+        "outputs": "列出可用的報表檔案，或將其下載至本機，並提供檔名、路徑與大小。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "用于访问保存在 Google Cloud Storage 的 Google Play Console 财务与应用统计报表，可列出可用文件并下载。",
-        "whenToUse": "当你需要从 Play Console 报表 bucket 取得收益、销售、付款、安装、评分、当机、商店成效或订阅报表文件时使用。",
-        "outputs": "它会回传以 bucket 为范围的报表文件清单（含名称、大小与更新时间），或回传下载结果（含选定区间、目的目录与已保存文件路径）。"
+        "purpose": "列出并下载保存在 Google Cloud Storage 中的 Google Play Console 财务与应用程序统计报表。",
+        "whenToUse": "需要依保存桶、类型、套件名称或月份寻找报表，或将选取的报表存入本机目录时使用。",
+        "outputs": "列出可用的报表文件，或将其下载至本机，并提供文件名、路径与大小。"
       }
     }
   }

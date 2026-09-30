@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Improve existing code in small, behavior-preserving steps so it is easier to read, maintain, and extend.",
-        "whenToUse": "Use this when working code has grown hard to understand, is burdened by duplication or oversized functions and classes, or makes routine changes harder than they should be.",
-        "outputs": "It produces focused code revisions such as extracted methods, clearer names, simpler control flow, stronger types, and reduced code smells without changing external behavior."
+        "purpose": "Guides incremental restructuring of existing code to improve clarity and maintainability while preserving external behavior.",
+        "whenToUse": "Use it when code is difficult to understand or maintain, or its structure makes routine changes difficult.",
+        "outputs": "Provides focused refactoring guidance, a safe small-step process, and checks for code quality, structure, types, and tests."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "以不改變外部行為的小步驟改善既有程式碼，讓它更容易閱讀、維護與擴充。",
-        "whenToUse": "當可運作的程式碼變得難以理解、充滿重複或過大的函式與類別，或讓日常修改變得不必要地困難時，適合使用。",
-        "outputs": "它會產出聚焦的程式碼調整，例如萃取方法、更清楚的命名、更簡單的控制流程、更強的型別安全，以及更少的程式碼異味，同時不改變外部行為。"
+        "purpose": "引導以漸進方式重整既有程式碼，提升清晰度與可維護性，同時維持外部行為不變。",
+        "whenToUse": "當程式碼難以理解或維護，或其結構使日常修改變得困難時使用。",
+        "outputs": "提供聚焦的重構指引、安全的循序步驟，以及檢查程式品質、結構、型別與測試的方法。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "以不改变外部行为的小步骤改善既有代码，让它更容易阅读、维护与扩充。",
-        "whenToUse": "当可运作的代码变得难以理解、充满重复或过大的函数与类别，或让日常修改变得不必要地困难时，适合使用。",
-        "outputs": "它会产出聚焦的代码调整，例如萃取方法、更清楚的命名、更简单的控制流程、更强的类型安全，以及更少的代码异味，同时不改变外部行为。"
+        "purpose": "引导以渐进方式重整既有代码，提升清晰度与可维护性，同时维持外部行为不变。",
+        "whenToUse": "当代码难以理解或维护，或其结构使日常修改变得困难时使用。",
+        "outputs": "提供聚焦的重构指引、安全的循序步骤，以及检查程序品质、结构、类型与测试的方法。"
       }
     }
   }

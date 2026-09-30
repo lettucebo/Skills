@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/d3983dd3e9ee794654c7739892f121321e049724",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The skill docs added `play_balance` and `wht_statements` financial report types and changed the subscriptions stats path to `financial-stats/subscriptions/`."
+            "summary": "Added Play balance and withholding tax report types and corrected the subscriptions statistics prefix to `financial-stats/subscriptions/`."
           },
           {
             "sha": "70ffaee243db87c71b41bd35bf89f1d522401516",
@@ -33,7 +33,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/70ffaee243db87c71b41bd35bf89f1d522401516",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The skill docs updated the bucket naming guidance to allow either `pubsite_prod_rev_<id>` or `pubsite_prod_<id>` and simplified the JSON output examples to use `bucket`."
+            "summary": "Documented both supported GCS bucket naming prefixes and changed the sample JSON output to show the bucket name instead of a separate bucket ID."
           },
           {
             "sha": "c5079338f016332eb42389b29bd60505f8c7d69f",
@@ -42,7 +42,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/c5079338f016332eb42389b29bd60505f8c7d69f",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The skill docs renamed the report bucket argument from `--developer` to `--bucket-id` and updated the guidance and examples to use the GCS bucket ID or URI."
+            "summary": "Renamed the reports flag and documentation from developer ID to GCS bucket ID, and clarified that callers can provide a full GCS URI."
           },
           {
             "sha": "f15b67ee7b8fbf9f4fd7fe02a2121f20d95398df",
@@ -51,7 +51,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/f15b67ee7b8fbf9f4fd7fe02a2121f20d95398df",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The skill docs clarified that reports use the GCS developer ID from the Download reports Cloud Storage URI, not the Play Console URL ID."
+            "summary": "Clarified that the GCS developer ID used for reports differs from the Play Console URL ID and documented how to find it in the Cloud Storage URI."
           },
           {
             "sha": "d531a455daad0b089616f982f3e2cc10482d12f6",
@@ -60,15 +60,15 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/d531a455daad0b089616f982f3e2cc10482d12f6",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The patch added the `gplay-reports-download` skill documentation for listing and downloading Google Play financial and statistics reports from GCS buckets."
+            "summary": "Added a skill document explaining how to list and download Google Play Console financial and statistics reports from GCS."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -80,7 +80,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/d3983dd3e9ee794654c7739892f121321e049724",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能文件新增了 `play_balance` 與 `wht_statements` 財務報表類型，並將訂閱統計的路徑改為 `financial-stats/subscriptions/`。"
+            "summary": "新增 Play 餘額與預扣稅報表類型，並將訂閱統計報表前綴修正為 `financial-stats/subscriptions/`。"
           },
           {
             "sha": "70ffaee243db87c71b41bd35bf89f1d522401516",
@@ -89,7 +89,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/70ffaee243db87c71b41bd35bf89f1d522401516",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能文件更新了儲存桶命名說明，允許使用 `pubsite_prod_rev_<id>` 或 `pubsite_prod_<id>`，並將 JSON 輸出範例簡化為使用 `bucket`。"
+            "summary": "文件說明 GCS 儲存桶名稱支援兩種前綴，並將範例 JSON 輸出改為顯示儲存桶名稱，而非另外列出儲存桶 ID。"
           },
           {
             "sha": "c5079338f016332eb42389b29bd60505f8c7d69f",
@@ -98,7 +98,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/c5079338f016332eb42389b29bd60505f8c7d69f",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能文件將報表儲存桶參數從 `--developer` 改名為 `--bucket-id`，並更新說明與範例以使用 GCS 儲存桶 ID 或 URI。"
+            "summary": "將報表旗標與文件中的 developer ID 改為 GCS bucket ID，並說明可提供完整的 GCS URI。"
           },
           {
             "sha": "f15b67ee7b8fbf9f4fd7fe02a2121f20d95398df",
@@ -107,7 +107,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/f15b67ee7b8fbf9f4fd7fe02a2121f20d95398df",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能文件澄清報表使用的是「下載報表」頁面 Cloud Storage URI 中的 GCS 開發者 ID，而不是 Play Console URL 中的 ID。"
+            "summary": "說明報表使用的 GCS 開發者 ID 與 Play Console 網址中的 ID 不同，並記載如何從 Cloud Storage URI 找到該 ID。"
           },
           {
             "sha": "d531a455daad0b089616f982f3e2cc10482d12f6",
@@ -116,13 +116,13 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/d531a455daad0b089616f982f3e2cc10482d12f6",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此修補新增了 `gplay-reports-download` 技能文件，說明如何從 GCS 儲存桶列出並下載 Google Play 的財務與統計報表。"
+            "summary": "新增技能文件，說明如何透過 GCS 列出及下載 Google Play Console 的財務與統計報表。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -135,7 +135,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/d3983dd3e9ee794654c7739892f121321e049724",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能文档添加了 `play_balance` 与 `wht_statements` 财务报表类型，并将订阅统计的路径改为 `financial-stats/subscriptions/`。"
+            "summary": "添加 Play 余额与预扣税报表类型，并将订阅统计报表前缀修正为 `financial-stats/subscriptions/`。"
           },
           {
             "sha": "70ffaee243db87c71b41bd35bf89f1d522401516",
@@ -144,7 +144,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/70ffaee243db87c71b41bd35bf89f1d522401516",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能文档更新了保存桶命名说明，允许使用 `pubsite_prod_rev_<id>` 或 `pubsite_prod_<id>`，并将 JSON 输出范例简化为使用 `bucket`。"
+            "summary": "文档说明 GCS 保存桶名称支持两种前缀，并将范例 JSON 输出改为显示保存桶名称，而非另外列出保存桶 ID。"
           },
           {
             "sha": "c5079338f016332eb42389b29bd60505f8c7d69f",
@@ -153,7 +153,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/c5079338f016332eb42389b29bd60505f8c7d69f",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能文档将报表保存桶参数从 `--developer` 改名为 `--bucket-id`，并更新说明与范例以使用 GCS 保存桶 ID 或 URI。"
+            "summary": "将报表旗标与文档中的 developer ID 改为 GCS bucket ID，并说明可提供完整的 GCS URI。"
           },
           {
             "sha": "f15b67ee7b8fbf9f4fd7fe02a2121f20d95398df",
@@ -162,7 +162,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/f15b67ee7b8fbf9f4fd7fe02a2121f20d95398df",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能文档澄清报表使用的是「下载报表」页面 Cloud Storage URI 中的 GCS 开发者 ID，而不是 Play Console URL 中的 ID。"
+            "summary": "说明报表使用的 GCS 开发者 ID 与 Play Console 网址中的 ID 不同，并记载如何从 Cloud Storage URI 找到该 ID。"
           },
           {
             "sha": "d531a455daad0b089616f982f3e2cc10482d12f6",
@@ -171,7 +171,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/d531a455daad0b089616f982f3e2cc10482d12f6",
             "pathAtCommit": "skills/gplay-reports-download/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此修补添加了 `gplay-reports-download` 技能文档，说明如何从 GCS 保存桶列出并下载 Google Play 的财务与统计报表。"
+            "summary": "添加技能文档，说明如何透过 GCS 列出及下载 Google Play Console 的财务与统计报表。"
           }
         ]
       }

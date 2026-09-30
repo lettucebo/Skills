@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-module",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6e96a21d88eb49511b9cc1a7bef2dbd039c25c363f1fae52a51916bce6657593"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides the design and implementation of Expo native modules and views across Swift, Kotlin, and TypeScript.",
+        "whenToUse": "Use it to choose a scaffold, add module features or platform support, or configure native integration, plugins, and lifecycle hooks.",
+        "outputs": "It provides scaffold guidance and examples for module APIs, native views, TypeScript bindings, autolinking, configuration, and lifecycle integration."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何使用 Swift、Kotlin 與 TypeScript 設計及實作 Expo 原生模組和原生視圖。",
+        "whenToUse": "在選擇模組範本、加入模組功能或平台支援，或設定原生整合、設定外掛程式與生命週期掛鉤時使用。",
+        "outputs": "內容提供範本建立指引，以及模組 API、原生視圖、TypeScript 綁定、自動連結、設定與生命週期整合範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何使用 Swift、Kotlin 与 TypeScript 设计及实作 Expo 原生模块和原生视图。",
+        "whenToUse": "在选择模块范本、加入模块功能或平台支持，或设置原生集成、设置插件程序与生命周期挂钩时使用。",
+        "outputs": "内容提供范本创建指引，以及模块 API、原生视图、TypeScript 绑定、自动链接、设置与生命周期集成范例。"
+      }
+    }
+  }
+}

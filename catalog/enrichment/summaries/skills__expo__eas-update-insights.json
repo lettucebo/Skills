@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/eas-update-insights",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:179ff63bd52170d6681c489eba4ad2ec327266336504fa8ec04a00f4a63d59d0"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides aggregate analytics for published EAS Updates, including health, adoption, and payload information.",
+        "whenToUse": "Use it after publishing to monitor rollout health, investigate changes in installs or failures, compare channel adoption, or prepare a release summary.",
+        "outputs": "Returns per-platform installs, failures, crash rates, unique users, payload metrics, and daily trends, plus channel-level embedded-versus-OTA users, popular updates, and time series as human-readable tables or JSON."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過 EAS CLI 提供已發布 EAS Update 的整體健康狀況、採用情形與負載資訊。",
+        "whenToUse": "適合在發布後監控推出狀況、調查安裝數或失敗數的變化、比較頻道採用情形，或準備發布摘要時使用。",
+        "outputs": "提供各平台的安裝數、失敗數、當機率、不重複使用者數、負載指標與每日趨勢，以及頻道層級的內嵌版與 OTA 使用者數、熱門更新和時間序列，並支援易讀表格或 JSON 格式。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过 EAS CLI 提供已发布 EAS Update 的整体健康状况、采用情形与负载信息。",
+        "whenToUse": "适合在发布后监控推出状况、调查安装数或失败数的变化、比较频道采用情形，或准备发布摘要时使用。",
+        "outputs": "提供各平台的安装数、失败数、当概率、不重复用户数、负载指针与每日趋势，以及频道层级的内嵌版与 OTA 用户数、热门更新和时间串行，并支持易读表格或 JSON 格式。"
+      }
+    }
+  }
+}

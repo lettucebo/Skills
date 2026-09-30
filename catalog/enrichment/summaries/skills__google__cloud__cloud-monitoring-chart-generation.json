@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-monitoring-chart-generation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9a39d302a73d178f9d1033c2617193c6a4abb315420dbe1cfe07636cf29ad9e0"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Transforms PromQL or ListTimeSeries request data and metric metadata into a Cloud Monitoring dashboard chart widget.",
+        "whenToUse": "Use when a resolved query and its metric metadata need clear chart labels, a plot style, and unit handling for a dashboard.",
+        "outputs": "Produces a Cloud Monitoring dashboard Widget protobuf textproto with a title, y-axis label, plot type, and unit override."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "將 PromQL 或 ListTimeSeries 請求資料與指標中繼資料轉換為 Cloud Monitoring 資訊主頁圖表小工具。",
+        "whenToUse": "當已解析的查詢及其指標中繼資料需要用於資訊主頁圖表，並需設定清楚的圖表標籤、繪圖樣式與單位時使用。",
+        "outputs": "產生含有標題、Y 軸標籤、繪圖類型及單位覆寫值的 Cloud Monitoring 資訊主頁 Widget Protocol Buffer 文字原型。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "将 PromQL 或 ListTimeSeries 请求数据与指针中继数据转换为 Cloud Monitoring 信息主页图表小工具。",
+        "whenToUse": "当已解析的查找及其指针中继数据需要用于信息主页图表，并需设置清楚的图表标签、绘图样式与单位时使用。",
+        "outputs": "产生含有标题、Y 轴标签、绘图类型及单位覆写值的 Cloud Monitoring 信息主页 Widget Protocol Buffer 文字原型。"
+      }
+    }
+  }
+}

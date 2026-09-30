@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Explains how to create, configure, test locally, and deploy Azure Static Web Apps, including optional Azure Functions APIs, with the SWA CLI.",
-        "whenToUse": "Use it when you need help setting up local SWA development, configuring runtime behavior, connecting an API, or shipping a static site to Azure through CLI or GitHub Actions.",
-        "outputs": "Returns concise guidance on the relevant SWA commands, configuration files, deployment flow, and common troubleshooting points for this workflow."
+        "purpose": "It explains how to configure and deploy static frontends on Azure, with local emulation and optional serverless APIs.",
+        "whenToUse": "Use it when preparing an existing app for local SWA testing or Azure release, connecting a Functions API, or troubleshooting routes, authentication, and deployment.",
+        "outputs": "It provides workflows and configuration guidance for the local emulator, routing and authentication, API runtimes, database connections, and Azure or GitHub Actions deployment."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "說明如何使用 SWA CLI 建立、設定、本機測試與部署 Azure Static Web Apps，包含可選的 Azure Functions API。",
-        "whenToUse": "當你需要設定 SWA 本機開發、調整執行階段行為、串接 API，或透過 CLI 或 GitHub Actions 將靜態網站部署到 Azure 時可使用。",
-        "outputs": "會提供這類流程所需的 SWA 指令、設定檔、部署步驟與常見疑難排解重點的精簡說明。"
+        "purpose": "本指南說明如何在 Azure 設定及部署靜態前端，並使用本機模擬器及選用的無伺服器 API。",
+        "whenToUse": "當你要準備現有應用程式進行 SWA 本機測試或部署至 Azure、連接 Functions API，或排查路由、驗證與部署問題時使用。",
+        "outputs": "內容提供本機模擬器、路由與驗證、API 執行階段、資料庫連線，以及 Azure 或 GitHub Actions 部署的工作流程與設定指引。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "说明如何使用 SWA CLI 创建、设置、本机测试与部署 Azure Static Web Apps，包含可选的 Azure Functions API。",
-        "whenToUse": "当你需要设置 SWA 本机开发、调整运行阶段行为、串接 API，或透过 CLI 或 GitHub Actions 将静态网站部署到 Azure 时可使用。",
-        "outputs": "会提供这类流程所需的 SWA 指令、设置档、部署步骤与常见疑难排解重点的精简说明。"
+        "purpose": "本指南说明如何在 Azure 设置及部署静态前端，并使用本机模拟器及选用的无服务器 API。",
+        "whenToUse": "当你要准备现有应用程序进行 SWA 本机测试或部署至 Azure、连接 Functions API，或排查路由、验证与部署问题时使用。",
+        "outputs": "内容提供本机模拟器、路由与验证、API 运行阶段、数据库连接，以及 Azure 或 GitHub Actions 部署的工作流程与设置指引。"
       }
     }
   }

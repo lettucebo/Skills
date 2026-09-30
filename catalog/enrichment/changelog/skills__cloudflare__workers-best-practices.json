@@ -2,21 +2,138 @@
   "path": "skills/cloudflare/workers-best-practices",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:68eb3d7762fc723d835a5d383abaf863ba7c7acfe680e925398f5f14f0740a5e",
+    "contentHash": "sha256:5ea906efdbc430bb0d26b1f1dde3a975335246be2a7d550222dad347e48745f2",
     "repository": "cloudflare/skills",
     "reference": "refs/heads/main",
     "source": "skills/workers-best-practices",
-    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+    "pinnedCommit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "8afcf8a2f67ddb0bac6adfe1f6ac1a2662b35816",
+            "date": "2026-09-05T11:35:30-07:00",
+            "subject": "Restore explicit retrieval-first Workers guidance",
+            "url": "https://github.com/cloudflare/skills/commit/8afcf8a2f67ddb0bac6adfe1f6ac1a2662b35816",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now explicitly prioritizes retrieving current Cloudflare documentation to verify Workers API, configuration, runtime, and limit claims."
+          },
+          {
+            "sha": "3cc7ee960063f79c9c9441de120531d2814ac2ae",
+            "date": "2026-09-05T11:35:00-07:00",
+            "subject": "Simplify Workers skill description",
+            "url": "https://github.com/cloudflare/skills/commit/3cc7ee960063f79c9c9441de120531d2814ac2ae",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description was shortened to cover production Workers best practices for writing, reviewing, or configuring Workers."
+          },
+          {
+            "sha": "a31c2c41e644166058a7a630306a2d38100bd5d7",
+            "date": "2026-09-05T11:30:10-07:00",
+            "subject": "Organize Workers guidance into focused reference files",
+            "url": "https://github.com/cloudflare/skills/commit/a31c2c41e644166058a7a630306a2d38100bd5d7",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill reorganizes its references into configuration, runtime-pattern, and platform-API files, updates related links, and adds compatibility-date guidance."
+          },
+          {
+            "sha": "755a121362633e28b1d2116e8ebf73ce340c2581",
+            "date": "2026-09-05T11:26:16-07:00",
+            "subject": "Restore descriptive Workers triggers and link product directory",
+            "url": "https://github.com/cloudflare/skills/commit/755a121362633e28b1d2116e8ebf73ce340c2581",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The description now lists production-focused authoring, review, Wrangler configuration, and common Workers anti-pattern checks as skill triggers."
+          },
+          {
+            "sha": "42839d0d791a58bcccb1fa44b201a4468ba6ab10",
+            "date": "2026-09-05T11:24:00-07:00",
+            "subject": "Restore concrete Workers anti-patterns in skill entrypoint",
+            "url": "https://github.com/cloudflare/skills/commit/42839d0d791a58bcccb1fa44b201a4468ba6ab10",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill replaces its brief pitfalls table with a broader anti-pattern table covering secrets, cryptography, promises, bindings, types, and platform-class usage."
+          },
+          {
+            "sha": "59b74b9f5362052f0d21ae47614b83b4021cd9af",
+            "date": "2026-09-05T11:21:54-07:00",
+            "subject": "Keep logs and traces enablement prominent in Workers skill",
+            "url": "https://github.com/cloudflare/skills/commit/59b74b9f5362052f0d21ae47614b83b4021cd9af",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The entrypoint adds a prominent section requiring Workers Logs and Traces, structured JSON logging, and workload-appropriate sampling."
+          },
+          {
+            "sha": "08e05de433ab363fcabccb03214575e1c6b5bff1",
+            "date": "2026-09-05T11:01:20-07:00",
+            "subject": "Consolidate Workers checks and correct serialization guidance",
+            "url": "https://github.com/cloudflare/skills/commit/08e05de433ab363fcabccb03214575e1c6b5bff1",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill replaces detailed categorized quick-reference tables with a compact pitfalls table for streaming, request lifetime, global state, bindings and types, and serialization."
+          },
+          {
+            "sha": "defd1121cf3e3df84470bf407bb4927c9af7caf1",
+            "date": "2026-09-05T10:58:28-07:00",
+            "subject": "Trim generic review procedure from Workers guidance",
+            "url": "https://github.com/cloudflare/skills/commit/defd1121cf3e3df84470bf407bb4927c9af7caf1",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill renames its review workflow to validation, narrows checks to affected Workers behavior, and removes its principles list."
+          },
+          {
+            "sha": "dd7a30058f35941ff4b334415e028dc71657a060",
+            "date": "2026-09-05T10:12:07-07:00",
+            "subject": "Apply Workers retrieval review feedback",
+            "url": "https://github.com/cloudflare/skills/commit/dd7a30058f35941ff4b334415e028dc71657a060",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The description now calls for current-documentation retrieval when affected APIs, configuration, runtime behavior, or limits need verification, and clarifies the Workers-types reference."
+          },
+          {
+            "sha": "f77752eacae813dd20fb1781e7514a92bbdd10a5",
+            "date": "2026-09-05T09:52:30-07:00",
+            "subject": "Scope Workers retrieval and validation to the affected task",
+            "url": "https://github.com/cloudflare/skills/commit/f77752eacae813dd20fb1781e7514a92bbdd10a5",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill scopes retrieval and validation to the task, uses configured project types and Wrangler settings as the baseline, and removes mandatory latest-reference fetching."
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The description narrows the trigger to Workers runtime authoring and review for production reliability, directing Wrangler CLI and deployment-configuration work to the Wrangler skill."
+          },
+          {
+            "sha": "d3fe7a15c73c9d5b2ab89e58e6aa35bb58a3bbcc",
+            "date": "2026-09-04T13:12:07-07:00",
+            "subject": "docs: move Zod guidance to detailed Workers rules",
+            "url": "https://github.com/cloudflare/skills/commit/d3fe7a15c73c9d5b2ab89e58e6aa35bb58a3bbcc",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The quick-reference table no longer recommends Zod 4.5.0 or later for Workers projects or OOM investigations."
+          },
+          {
+            "sha": "eb63f9bfeb1edd6f6ed84ee77393b2629d6249cb",
+            "date": "2026-09-04T12:55:56-07:00",
+            "subject": "docs: recommend Zod 4.5.0 for Workers",
+            "url": "https://github.com/cloudflare/skills/commit/eb63f9bfeb1edd6f6ed84ee77393b2629d6249cb",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The quick-reference table adds a recommendation to use Zod 4.5.0 or later and check the installed version when investigating high memory use or OOMs."
+          },
           {
             "sha": "426c3b406b3d3ef2ad3ca9bc2d3f41dd5be32ba0",
             "date": "2026-02-12T15:50:56-05:00",
@@ -24,19 +141,136 @@
             "url": "https://github.com/cloudflare/skills/commit/426c3b406b3d3ef2ad3ca9bc2d3f41dd5be32ba0",
             "pathAtCommit": "skills/workers-best-practices/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the workers-best-practices skill document with Cloudflare Workers best-practice guidance, reference retrieval steps, and review rules."
+            "summary": "The commit creates the Workers best-practices skill with retrieval guidance, production rules and anti-patterns, review steps, and scope references."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "8afcf8a2f67ddb0bac6adfe1f6ac1a2662b35816",
+            "date": "2026-09-05T11:35:30-07:00",
+            "subject": "Restore explicit retrieval-first Workers guidance",
+            "url": "https://github.com/cloudflare/skills/commit/8afcf8a2f67ddb0bac6adfe1f6ac1a2662b35816",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現在明確優先檢索最新的 Cloudflare 文件，以驗證 Workers API、設定、執行階段與限制相關說法。"
+          },
+          {
+            "sha": "3cc7ee960063f79c9c9441de120531d2814ac2ae",
+            "date": "2026-09-05T11:35:00-07:00",
+            "subject": "Simplify Workers skill description",
+            "url": "https://github.com/cloudflare/skills/commit/3cc7ee960063f79c9c9441de120531d2814ac2ae",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能描述已精簡為涵蓋撰寫、審查或設定 Workers 時的正式環境最佳實務。"
+          },
+          {
+            "sha": "a31c2c41e644166058a7a630306a2d38100bd5d7",
+            "date": "2026-09-05T11:30:10-07:00",
+            "subject": "Organize Workers guidance into focused reference files",
+            "url": "https://github.com/cloudflare/skills/commit/a31c2c41e644166058a7a630306a2d38100bd5d7",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能將參考資料重整為設定、執行階段模式與平台 API 檔案，更新相關連結，並新增相容日期指引。"
+          },
+          {
+            "sha": "755a121362633e28b1d2116e8ebf73ce340c2581",
+            "date": "2026-09-05T11:26:16-07:00",
+            "subject": "Restore descriptive Workers triggers and link product directory",
+            "url": "https://github.com/cloudflare/skills/commit/755a121362633e28b1d2116e8ebf73ce340c2581",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "描述現在將以正式環境為導向的撰寫、審查、Wrangler 設定及常見 Workers 反模式檢查列為技能觸發情境。"
+          },
+          {
+            "sha": "42839d0d791a58bcccb1fa44b201a4468ba6ab10",
+            "date": "2026-09-05T11:24:00-07:00",
+            "subject": "Restore concrete Workers anti-patterns in skill entrypoint",
+            "url": "https://github.com/cloudflare/skills/commit/42839d0d791a58bcccb1fa44b201a4468ba6ab10",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能以涵蓋機密、密碼學、Promise、繫結、型別及平台類別用法的較完整反模式表，取代原有的簡短陷阱表。"
+          },
+          {
+            "sha": "59b74b9f5362052f0d21ae47614b83b4021cd9af",
+            "date": "2026-09-05T11:21:54-07:00",
+            "subject": "Keep logs and traces enablement prominent in Workers skill",
+            "url": "https://github.com/cloudflare/skills/commit/59b74b9f5362052f0d21ae47614b83b4021cd9af",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能入口新增醒目章節，要求啟用 Workers Logs 與 Traces、使用結構化 JSON 記錄，並依工作負載設定取樣。"
+          },
+          {
+            "sha": "08e05de433ab363fcabccb03214575e1c6b5bff1",
+            "date": "2026-09-05T11:01:20-07:00",
+            "subject": "Consolidate Workers checks and correct serialization guidance",
+            "url": "https://github.com/cloudflare/skills/commit/08e05de433ab363fcabccb03214575e1c6b5bff1",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能以精簡的陷阱表取代詳細分類的速查表，涵蓋串流、請求生命週期、全域狀態、繫結與型別，以及序列化。"
+          },
+          {
+            "sha": "defd1121cf3e3df84470bf407bb4927c9af7caf1",
+            "date": "2026-09-05T10:58:28-07:00",
+            "subject": "Trim generic review procedure from Workers guidance",
+            "url": "https://github.com/cloudflare/skills/commit/defd1121cf3e3df84470bf407bb4927c9af7caf1",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能將審查流程改名為驗證，將檢查範圍限於受影響的 Workers 行為，並移除原則清單。"
+          },
+          {
+            "sha": "dd7a30058f35941ff4b334415e028dc71657a060",
+            "date": "2026-09-05T10:12:07-07:00",
+            "subject": "Apply Workers retrieval review feedback",
+            "url": "https://github.com/cloudflare/skills/commit/dd7a30058f35941ff4b334415e028dc71657a060",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "描述現在指出，當受影響的 API、設定、執行階段行為或限制需要驗證時應檢索最新文件，並釐清 Workers 型別參考資料。"
+          },
+          {
+            "sha": "f77752eacae813dd20fb1781e7514a92bbdd10a5",
+            "date": "2026-09-05T09:52:30-07:00",
+            "subject": "Scope Workers retrieval and validation to the affected task",
+            "url": "https://github.com/cloudflare/skills/commit/f77752eacae813dd20fb1781e7514a92bbdd10a5",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能將檢索與驗證範圍限於當前任務，以專案已設定的型別與 Wrangler 設定為基準，並移除必須擷取最新參考資料的要求。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "描述將觸發範圍縮小為以正式環境可靠性為目標的 Workers 執行階段撰寫與審查，並將 Wrangler CLI 與部署設定工作指向 Wrangler 技能。"
+          },
+          {
+            "sha": "d3fe7a15c73c9d5b2ab89e58e6aa35bb58a3bbcc",
+            "date": "2026-09-04T13:12:07-07:00",
+            "subject": "docs: move Zod guidance to detailed Workers rules",
+            "url": "https://github.com/cloudflare/skills/commit/d3fe7a15c73c9d5b2ab89e58e6aa35bb58a3bbcc",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "速查表不再建議 Workers 專案使用 Zod 4.5.0 以上版本，或在調查記憶體不足問題時檢查該版本。"
+          },
+          {
+            "sha": "eb63f9bfeb1edd6f6ed84ee77393b2629d6249cb",
+            "date": "2026-09-04T12:55:56-07:00",
+            "subject": "docs: recommend Zod 4.5.0 for Workers",
+            "url": "https://github.com/cloudflare/skills/commit/eb63f9bfeb1edd6f6ed84ee77393b2629d6249cb",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "速查表新增建議使用 Zod 4.5.0 以上版本，並在調查高記憶體用量或記憶體不足問題時檢查已安裝的版本。"
+          },
           {
             "sha": "426c3b406b3d3ef2ad3ca9bc2d3f41dd5be32ba0",
             "date": "2026-02-12T15:50:56-05:00",
@@ -44,26 +278,143 @@
             "url": "https://github.com/cloudflare/skills/commit/426c3b406b3d3ef2ad3ca9bc2d3f41dd5be32ba0",
             "pathAtCommit": "skills/workers-best-practices/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 workers-best-practices 技能文件，包含 Cloudflare Workers 最佳實務指引、參考資料擷取步驟與審查規則。"
+            "summary": "此提交新增 Workers 最佳實務技能，包含檢索指引、正式環境規則與反模式、審查步驟及適用範圍參考資料。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
         "commits": [
           {
+            "sha": "8afcf8a2f67ddb0bac6adfe1f6ac1a2662b35816",
+            "date": "2026-09-05T11:35:30-07:00",
+            "subject": "Restore explicit retrieval-first Workers guidance",
+            "url": "https://github.com/cloudflare/skills/commit/8afcf8a2f67ddb0bac6adfe1f6ac1a2662b35816",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现在明确优先检索最新的 Cloudflare 文档，以验证 Workers API、设置、运行阶段与限制相关说法。"
+          },
+          {
+            "sha": "3cc7ee960063f79c9c9441de120531d2814ac2ae",
+            "date": "2026-09-05T11:35:00-07:00",
+            "subject": "Simplify Workers skill description",
+            "url": "https://github.com/cloudflare/skills/commit/3cc7ee960063f79c9c9441de120531d2814ac2ae",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能描述已精简为涵盖撰写、审查或设置 Workers 时的正式环境最佳实务。"
+          },
+          {
+            "sha": "a31c2c41e644166058a7a630306a2d38100bd5d7",
+            "date": "2026-09-05T11:30:10-07:00",
+            "subject": "Organize Workers guidance into focused reference files",
+            "url": "https://github.com/cloudflare/skills/commit/a31c2c41e644166058a7a630306a2d38100bd5d7",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能将参考资料重整为设置、运行阶段模式与平台 API 文件，更新相关链接，并添加兼容日期指引。"
+          },
+          {
+            "sha": "755a121362633e28b1d2116e8ebf73ce340c2581",
+            "date": "2026-09-05T11:26:16-07:00",
+            "subject": "Restore descriptive Workers triggers and link product directory",
+            "url": "https://github.com/cloudflare/skills/commit/755a121362633e28b1d2116e8ebf73ce340c2581",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "描述现在将以正式环境为导向的撰写、审查、Wrangler 设置及常见 Workers 反模式检查列为技能触发情境。"
+          },
+          {
+            "sha": "42839d0d791a58bcccb1fa44b201a4468ba6ab10",
+            "date": "2026-09-05T11:24:00-07:00",
+            "subject": "Restore concrete Workers anti-patterns in skill entrypoint",
+            "url": "https://github.com/cloudflare/skills/commit/42839d0d791a58bcccb1fa44b201a4468ba6ab10",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能以涵盖机密、密码学、Promise、绑定、类型及平台类别用法的较完整反模式表，取代原有的简短陷阱表。"
+          },
+          {
+            "sha": "59b74b9f5362052f0d21ae47614b83b4021cd9af",
+            "date": "2026-09-05T11:21:54-07:00",
+            "subject": "Keep logs and traces enablement prominent in Workers skill",
+            "url": "https://github.com/cloudflare/skills/commit/59b74b9f5362052f0d21ae47614b83b4021cd9af",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能入口添加醒目章节，要求激活 Workers Logs 与 Traces、使用结构化 JSON 记录，并依工作负载设置采样。"
+          },
+          {
+            "sha": "08e05de433ab363fcabccb03214575e1c6b5bff1",
+            "date": "2026-09-05T11:01:20-07:00",
+            "subject": "Consolidate Workers checks and correct serialization guidance",
+            "url": "https://github.com/cloudflare/skills/commit/08e05de433ab363fcabccb03214575e1c6b5bff1",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能以精简的陷阱表取代详细分类的速查表，涵盖串流、请求生命周期、全域状态、绑定与类型，以及串行化。"
+          },
+          {
+            "sha": "defd1121cf3e3df84470bf407bb4927c9af7caf1",
+            "date": "2026-09-05T10:58:28-07:00",
+            "subject": "Trim generic review procedure from Workers guidance",
+            "url": "https://github.com/cloudflare/skills/commit/defd1121cf3e3df84470bf407bb4927c9af7caf1",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能将审查流程改名为验证，将检查范围限于受影响的 Workers 行为，并移除原则清单。"
+          },
+          {
+            "sha": "dd7a30058f35941ff4b334415e028dc71657a060",
+            "date": "2026-09-05T10:12:07-07:00",
+            "subject": "Apply Workers retrieval review feedback",
+            "url": "https://github.com/cloudflare/skills/commit/dd7a30058f35941ff4b334415e028dc71657a060",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "描述现在指出，当受影响的 API、设置、运行阶段行为或限制需要验证时应检索最新文档，并厘清 Workers 类型参考资料。"
+          },
+          {
+            "sha": "f77752eacae813dd20fb1781e7514a92bbdd10a5",
+            "date": "2026-09-05T09:52:30-07:00",
+            "subject": "Scope Workers retrieval and validation to the affected task",
+            "url": "https://github.com/cloudflare/skills/commit/f77752eacae813dd20fb1781e7514a92bbdd10a5",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能将检索与验证范围限于当前任务，以项目已设置的类型与 Wrangler 设置为基准，并移除必须截取最新参考资料的要求。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "描述将触发范围缩小为以正式环境可靠性为目标的 Workers 运行阶段撰写与审查，并将 Wrangler CLI 与部署设置工作指向 Wrangler 技能。"
+          },
+          {
+            "sha": "d3fe7a15c73c9d5b2ab89e58e6aa35bb58a3bbcc",
+            "date": "2026-09-04T13:12:07-07:00",
+            "subject": "docs: move Zod guidance to detailed Workers rules",
+            "url": "https://github.com/cloudflare/skills/commit/d3fe7a15c73c9d5b2ab89e58e6aa35bb58a3bbcc",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "速查表不再建议 Workers 项目使用 Zod 4.5.0 以上版本，或在调查内存不足问题时检查该版本。"
+          },
+          {
+            "sha": "eb63f9bfeb1edd6f6ed84ee77393b2629d6249cb",
+            "date": "2026-09-04T12:55:56-07:00",
+            "subject": "docs: recommend Zod 4.5.0 for Workers",
+            "url": "https://github.com/cloudflare/skills/commit/eb63f9bfeb1edd6f6ed84ee77393b2629d6249cb",
+            "pathAtCommit": "skills/workers-best-practices/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "速查表添加建议使用 Zod 4.5.0 以上版本，并在调查高内存用量或内存不足问题时检查已安装的版本。"
+          },
+          {
             "sha": "426c3b406b3d3ef2ad3ca9bc2d3f41dd5be32ba0",
             "date": "2026-02-12T15:50:56-05:00",
             "subject": "add workers-best-practices skill (#19)",
             "url": "https://github.com/cloudflare/skills/commit/426c3b406b3d3ef2ad3ca9bc2d3f41dd5be32ba0",
             "pathAtCommit": "skills/workers-best-practices/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 workers-best-practices 技能文档，包含 Cloudflare Workers 最佳实务指引、参考资料截取步骤与审查规则。"
+            "summary": "此提交添加 Workers 最佳实务技能，包含检索指引、正式环境规则与反模式、审查步骤及适用范围参考资料。"
           }
         ]
       }

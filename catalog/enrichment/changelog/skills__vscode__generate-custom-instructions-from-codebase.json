@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/generate-custom-instructions-from-codebase.prompt.md",
               "destinationPath": "skills/generate-custom-instructions-from-codebase/SKILL.md"
             },
-            "summary": "Added `skills/generate-custom-instructions-from-codebase/SKILL.md` containing the migration and code evolution instructions generator."
+            "summary": "Added a SKILL.md with a configurable migration-analysis prompt and guidance for generating instructions, examples, and validation checks."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/generate-custom-instructions-from-codebase.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the prompt file frontmatter field from `mode` to `agent`."
+            "summary": "Renamed the prompt frontmatter field from `mode` to `agent`, keeping its value as `'agent'`."
           },
           {
             "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
@@ -47,7 +47,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
             "pathAtCommit": "prompts/generate-custom-instructions-from-codebase.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added `mode: 'agent'` to the prompt file frontmatter."
+            "summary": "Added `mode: 'agent'` to the prompt file's frontmatter."
           },
           {
             "sha": "53aa3b04c3969205e1e82ec0e95b673c7d686c99",
@@ -56,15 +56,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/53aa3b04c3969205e1e82ec0e95b673c7d686c99",
             "pathAtCommit": "prompts/generate-custom-instructions-from-codebase.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added the prompt file for generating custom migration and code evolution instructions from a codebase."
+            "summary": "Added the prompt file with configurable guidance for analyzing code evolution and generating migration rules, examples, and validation guidance."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -81,7 +81,7 @@
               "sourcePath": "prompts/generate-custom-instructions-from-codebase.prompt.md",
               "destinationPath": "skills/generate-custom-instructions-from-codebase/SKILL.md"
             },
-            "summary": "新增 `skills/generate-custom-instructions-from-codebase/SKILL.md`，內容為遷移與程式碼演進指令產生器。"
+            "summary": "新增 SKILL.md，其中包含可設定的遷移分析提示，以及產生指示、範例和驗證檢查的指引。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -90,7 +90,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/generate-custom-instructions-from-codebase.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示檔 frontmatter 欄位從 `mode` 更名為 `agent`。"
+            "summary": "將提示檔前置中繼資料欄位從 `mode` 改名為 `agent`，並保留 `'agent'` 值。"
           },
           {
             "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
@@ -99,7 +99,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
             "pathAtCommit": "prompts/generate-custom-instructions-from-codebase.prompt.md",
             "resolvedVia": "direct",
-            "summary": "在提示檔 frontmatter 中新增 `mode: 'agent'`。"
+            "summary": "在提示檔的前置中繼資料中新增 `mode: 'agent'`。"
           },
           {
             "sha": "53aa3b04c3969205e1e82ec0e95b673c7d686c99",
@@ -108,13 +108,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/53aa3b04c3969205e1e82ec0e95b673c7d686c99",
             "pathAtCommit": "prompts/generate-custom-instructions-from-codebase.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增了可從程式碼庫產生自訂遷移與程式碼演進指令的提示檔。"
+            "summary": "新增提示檔，其中包含可設定的程式碼演進分析指引，以及產生遷移規則、範例和驗證指引的內容。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -132,7 +132,7 @@
               "sourcePath": "prompts/generate-custom-instructions-from-codebase.prompt.md",
               "destinationPath": "skills/generate-custom-instructions-from-codebase/SKILL.md"
             },
-            "summary": "添加 `skills/generate-custom-instructions-from-codebase/SKILL.md`，内容为迁移与代码演进指令产生器。"
+            "summary": "添加 SKILL.md，其中包含可设置的迁移分析提示，以及产生指示、范例和验证检查的指引。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -141,7 +141,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/generate-custom-instructions-from-codebase.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示档 frontmatter 字段从 `mode` 更名为 `agent`。"
+            "summary": "将提示档前置中继数据字段从 `mode` 改名为 `agent`，并保留 `'agent'` 值。"
           },
           {
             "sha": "2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
@@ -150,7 +150,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f3264bfc6335bd61dd12ca595f6d46b4b234e3f",
             "pathAtCommit": "prompts/generate-custom-instructions-from-codebase.prompt.md",
             "resolvedVia": "direct",
-            "summary": "在提示档 frontmatter 中添加 `mode: 'agent'`。"
+            "summary": "在提示档的前置中继数据中添加 `mode: 'agent'`。"
           },
           {
             "sha": "53aa3b04c3969205e1e82ec0e95b673c7d686c99",
@@ -159,7 +159,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/53aa3b04c3969205e1e82ec0e95b673c7d686c99",
             "pathAtCommit": "prompts/generate-custom-instructions-from-codebase.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加了可从代码库产生自订迁移与代码演进指令的提示档。"
+            "summary": "添加提示档，其中包含可设置的代码演进分析指引，以及产生迁移规则、范例和验证指引的内容。"
           }
         ]
       }

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-workload-scaling",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:47f2426575524ce1e8cb55b2a8cece18a95711f8a3705493556338080c6c005d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It explains how to scale GKE workloads manually or with HPA and VPA, and how to right-size Pod resources.",
+        "whenToUse": "Use it to compare replica scaling with resource right-sizing and review operational trade-offs such as metric conflicts, stabilization delays, and VPA restarts.",
+        "outputs": "It provides kubectl commands, HPA and VPA YAML templates, configuration and verification steps, and a VPA-based right-sizing workflow."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本指南說明如何透過手動調整、HPA 與 VPA 擴縮 GKE 工作負載，並為 Pod 資源設定合適配置。",
+        "whenToUse": "當你需要比較副本擴縮與資源調校方式，或檢視指標衝突、穩定等待時間及 VPA 重啟等操作取捨時，可參考此指南。",
+        "outputs": "內容包含 kubectl 指令、HPA 與 VPA YAML 範本、設定與驗證步驟，以及以 VPA 建議值為基礎的資源調校流程。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本指南说明如何透过手动调整、HPA 与 VPA 扩缩 GKE 工作负载，并为 Pod 资源设置合适配置。",
+        "whenToUse": "当你需要比较副本扩缩与资源调校方式，或查看指针冲突、稳定等待时间及 VPA 重启等操作取舍时，可参考此指南。",
+        "outputs": "内容包含 kubectl 指令、HPA 与 VPA YAML 范本、设置与验证步骤，以及以 VPA 建议值为基础的资源调校流程。"
+      }
+    }
+  }
+}

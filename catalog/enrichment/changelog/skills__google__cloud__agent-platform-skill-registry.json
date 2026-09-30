@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/agent-platform-skill-registry",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ddd389c97ae55bddbfc12bff1652ed0112b2285d3234b29f6b7bd2274a52df8c",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/agent-platform-skill-registry",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "date": "2026-09-23T08:53:46-07:00",
+            "subject": "Add semantic versions to the hand-authored agent-platform-* skills.",
+            "url": "https://github.com/google/skills/commit/efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "pathAtCommit": "skills/cloud/agent-platform-skill-registry/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill's metadata."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-skill-registry/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill's frontmatter now places the AiAndMachineLearning category under a metadata block."
+          },
+          {
+            "sha": "ad8b9497d8ffba60581587c383a6eca3cccf163f",
+            "date": "2026-05-19T08:49:40-07:00",
+            "subject": "Introduce the Gemini Enterprise Agent Platform Skill Registry",
+            "url": "https://github.com/google/skills/commit/ad8b9497d8ffba60581587c383a6eca3cccf163f",
+            "pathAtCommit": "skills/cloud/agent-platform-skill-registry/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Agent Platform Skill Registry skill, documenting registry discovery and lifecycle operations, operation monitoring, skill generation, environment validation, prerequisites, and quickstart usage."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "date": "2026-09-23T08:53:46-07:00",
+            "subject": "Add semantic versions to the hand-authored agent-platform-* skills.",
+            "url": "https://github.com/google/skills/commit/efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "pathAtCommit": "skills/cloud/agent-platform-skill-registry/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中繼資料中新增 1.0.0 版本號。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-skill-registry/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的 frontmatter 現在將 AiAndMachineLearning 類別置於 metadata 區塊下。"
+          },
+          {
+            "sha": "ad8b9497d8ffba60581587c383a6eca3cccf163f",
+            "date": "2026-05-19T08:49:40-07:00",
+            "subject": "Introduce the Gemini Enterprise Agent Platform Skill Registry",
+            "url": "https://github.com/google/skills/commit/ad8b9497d8ffba60581587c383a6eca3cccf163f",
+            "pathAtCommit": "skills/cloud/agent-platform-skill-registry/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Agent Platform Skill Registry 技能，說明登錄檔探索與生命週期作業、作業監控、技能產生、環境驗證、先決條件及快速入門用法。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "date": "2026-09-23T08:53:46-07:00",
+            "subject": "Add semantic versions to the hand-authored agent-platform-* skills.",
+            "url": "https://github.com/google/skills/commit/efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "pathAtCommit": "skills/cloud/agent-platform-skill-registry/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中继数据中添加 1.0.0 版本号。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-skill-registry/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的 frontmatter 现在将 AiAndMachineLearning 类别置于 metadata 区块下。"
+          },
+          {
+            "sha": "ad8b9497d8ffba60581587c383a6eca3cccf163f",
+            "date": "2026-05-19T08:49:40-07:00",
+            "subject": "Introduce the Gemini Enterprise Agent Platform Skill Registry",
+            "url": "https://github.com/google/skills/commit/ad8b9497d8ffba60581587c383a6eca3cccf163f",
+            "pathAtCommit": "skills/cloud/agent-platform-skill-registry/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Agent Platform Skill Registry 技能，说明注册表探索与生命周期作业、作业监控、技能产生、环境验证、先决条件及快速入门用法。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "path": "skills/expo/eas-update-insights",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:179ff63bd52170d6681c489eba4ad2ec327266336504fa8ec04a00f4a63d59d0",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/eas-update-insights",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance to use the expo-skill-feedback eval-candidate flow after repeated agent failures or user takeover, instead of the existing feedback command."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a feedback section with a submission command and guidance to report actionable errors or outdated information."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Marked EAS Update as a paid service and added a pricing and usage-cost notice."
+          },
+          {
+            "sha": "510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "date": "2026-05-27T15:21:03+08:00",
+            "subject": "fine tune wordings (#69)",
+            "url": "https://github.com/expo/skills/commit/510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed a trailing blank line from the skill file."
+          },
+          {
+            "sha": "93751dadf0494110893a9f7a2091ca14833d8212",
+            "date": "2026-04-23T15:44:52+01:00",
+            "subject": "[eas-update-insights] improve formatting (#48)",
+            "url": "https://github.com/expo/skills/commit/93751dadf0494110893a9f7a2091ca14833d8212",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Revised the skill and channel-insights wording to specify the embedded-versus-OTA split, and removed CI health-gating from the listed use cases."
+          },
+          {
+            "sha": "18d41e26aac383cca35cd7d0facce0231562f904",
+            "date": "2026-04-23T15:03:40+01:00",
+            "subject": "Add an updates insights skill (#45)",
+            "url": "https://github.com/expo/skills/commit/18d41e26aac383cca35cd7d0facce0231562f904",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the EAS Update Insights skill, documenting CLI commands for update and channel metrics, JSON output, workflows, and limitations."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若代理程式反覆失敗或使用者必須接手，應改用 expo-skill-feedback 的 eval-candidate 流程，而非既有的回饋指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增回饋章節，提供提交指令，並說明應回報具體可行的錯誤或過時資訊。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 EAS Update 標示為付費服務，並新增定價與用量費用提醒。"
+          },
+          {
+            "sha": "510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "date": "2026-05-27T15:21:03+08:00",
+            "subject": "fine tune wordings (#69)",
+            "url": "https://github.com/expo/skills/commit/510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了技能檔案結尾的多餘空白行。"
+          },
+          {
+            "sha": "93751dadf0494110893a9f7a2091ca14833d8212",
+            "date": "2026-04-23T15:44:52+01:00",
+            "subject": "[eas-update-insights] improve formatting (#48)",
+            "url": "https://github.com/expo/skills/commit/93751dadf0494110893a9f7a2091ca14833d8212",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修訂技能說明與頻道洞察文案以明確指出內嵌版本與 OTA 的比例，並從適用情境中移除 CI 健康度門檻控管。"
+          },
+          {
+            "sha": "18d41e26aac383cca35cd7d0facce0231562f904",
+            "date": "2026-04-23T15:03:40+01:00",
+            "subject": "Add an updates insights skill (#45)",
+            "url": "https://github.com/expo/skills/commit/18d41e26aac383cca35cd7d0facce0231562f904",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 EAS Update Insights 技能，說明查詢更新與頻道指標的 CLI 指令、JSON 輸出、工作流程及限制。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若代理程序反复失败或用户必须接手，应改用 expo-skill-feedback 的 eval-candidate 流程，而非既有的回馈指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加回馈章节，提供提交指令，并说明应回报具体可行的错误或过时信息。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 EAS Update 标示为付费服务，并添加定价与用量费用提醒。"
+          },
+          {
+            "sha": "510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "date": "2026-05-27T15:21:03+08:00",
+            "subject": "fine tune wordings (#69)",
+            "url": "https://github.com/expo/skills/commit/510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了技能文件结尾的多余空白行。"
+          },
+          {
+            "sha": "93751dadf0494110893a9f7a2091ca14833d8212",
+            "date": "2026-04-23T15:44:52+01:00",
+            "subject": "[eas-update-insights] improve formatting (#48)",
+            "url": "https://github.com/expo/skills/commit/93751dadf0494110893a9f7a2091ca14833d8212",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修订技能说明与频道洞察文案以明确指出内嵌版本与 OTA 的比例，并从适用情境中移除 CI 健康度门槛控管。"
+          },
+          {
+            "sha": "18d41e26aac383cca35cd7d0facce0231562f904",
+            "date": "2026-04-23T15:03:40+01:00",
+            "subject": "Add an updates insights skill (#45)",
+            "url": "https://github.com/expo/skills/commit/18d41e26aac383cca35cd7d0facce0231562f904",
+            "pathAtCommit": "plugins/expo/skills/eas-update-insights/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 EAS Update Insights 技能，说明查找更新与频道指针的 CLI 指令、JSON 输出、工作流程及限制。"
+          }
+        ]
+      }
+    }
+  }
+}

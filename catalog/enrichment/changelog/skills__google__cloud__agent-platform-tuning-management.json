@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/cloud/agent-platform-tuning-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:992190695d8fed131785fb49ef15c30789da04072de52a325c8243d638be419a",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/agent-platform-tuning-management",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a 1.0.0 metadata version and requires a cancellation preview card with the target, exact command or script, and expected effect, followed by explicit confirmation in a later turn."
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removes virtual-environment setup, instructs users to check for the `vertexai` module before installing `google-cloud-aiplatform`, and runs snippets with plain `python3`."
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reformats the skill’s Markdown lists, notes, and code-block spacing without changing the described workflow."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moves `category: AiAndMachineLearning` under a new `metadata` frontmatter block and adds spacing around setup code blocks."
+          },
+          {
+            "sha": "82f379940f806dfda9b7faf173a23889902dca1c",
+            "date": "2026-05-26T10:11:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/82f379940f806dfda9b7faf173a23889902dca1c",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the initial Agent Platform Tuning Management skill with environment setup and Python SDK instructions for listing, inspecting, and canceling tuning jobs, including cancellation-confirmation guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 1.0.0 中繼資料版本，並要求取消前提供列出目標、確切命令或程式碼及預期效果的預覽卡，之後須在下一輪取得明確確認。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除虛擬環境的建立與啟用步驟，改為先檢查 `vertexai` 模組、缺少時才安裝 `google-cloud-aiplatform`，並以一般 `python3` 執行程式片段。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新整理技能文件的 Markdown 清單、註記與程式碼區塊間距，未更動所述工作流程。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 `category: AiAndMachineLearning` 移至新增的 `metadata` 前置中繼資料區塊，並在設定程式碼區塊周圍加入空行。"
+          },
+          {
+            "sha": "82f379940f806dfda9b7faf173a23889902dca1c",
+            "date": "2026-05-26T10:11:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/82f379940f806dfda9b7faf173a23889902dca1c",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Agent Platform Tuning Management 技能初版，提供環境設定及使用 Python SDK 列出、檢視與取消微調工作的方法，並包含取消前的確認指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 1.0.0 中继数据版本，并要求取消前提供列出目标、确切命令或代码及预期效果的预览卡，之后须在下一轮取得明确确认。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除虚拟环境的创建与激活步骤，改为先检查 `vertexai` 模块、缺少时才安装 `google-cloud-aiplatform`，并以一般 `python3` 运行程序片段。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "刷新技能文档的 Markdown 清单、注记与代码区块间距，未更动所述工作流程。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 `category: AiAndMachineLearning` 移至添加的 `metadata` 前置中继数据区块，并在设置代码区块周围加入空行。"
+          },
+          {
+            "sha": "82f379940f806dfda9b7faf173a23889902dca1c",
+            "date": "2026-05-26T10:11:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/82f379940f806dfda9b7faf173a23889902dca1c",
+            "pathAtCommit": "skills/cloud/agent-platform-tuning-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Agent Platform Tuning Management 技能初版，提供环境设置及使用 Python SDK 列出、查看与取消微调工作的方法，并包含取消前的确认指引。"
+          }
+        ]
+      }
+    }
+  }
+}

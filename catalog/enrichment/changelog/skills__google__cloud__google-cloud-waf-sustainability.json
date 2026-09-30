@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-sustainability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6b5076f15a83411d755824b56101c2cc7ec09d419eb65963c88ccf1b5a968567",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-waf-sustainability",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "2a1e4549d591688f3a605771cf101d05d43f8ae8",
+            "date": "2026-09-23T09:16:07-07:00",
+            "subject": "Updated description for google-cloud-waf-sustainability to help create more connections to keywords and concepts.",
+            "url": "https://github.com/google/skills/commit/2a1e4549d591688f3a605771cf101d05d43f8ae8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the skill version to 1.0.1 and rewrote its description to name sustainability use cases and distinguish related out-of-scope topics."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a 1.0.0 version field to the skill's metadata."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a metadata block with the WellArchitectedFramework category to the skill's frontmatter."
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the sustainability grounding-document links in the skill to their .md.txt versions."
+          },
+          {
+            "sha": "f0253cb4d1cabac751622153cb93be907b2eca88",
+            "date": "2026-05-21T09:27:24-07:00",
+            "subject": "Add agent skills for Well-Architected Framework pillars: Operational Excellence, Performance Optimization, and Sustainability.",
+            "url": "https://github.com/google/skills/commit/f0253cb4d1cabac751622153cb93be907b2eca88",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Google Cloud WAF Sustainability skill with guidance, relevant product examples, assessment questions, and a validation checklist."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "2a1e4549d591688f3a605771cf101d05d43f8ae8",
+            "date": "2026-09-23T09:16:07-07:00",
+            "subject": "Updated description for google-cloud-waf-sustainability to help create more connections to keywords and concepts.",
+            "url": "https://github.com/google/skills/commit/2a1e4549d591688f3a605771cf101d05d43f8ae8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能版本更新為 1.0.1，並改寫描述以列出永續性使用情境及區分相關但不適用的主題。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增 1.0.0 版本欄位。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能前置資料中新增中繼資料區塊，並加入 WellArchitectedFramework 類別。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能中的永續性參考文件連結更新為對應的 .md.txt 版本。"
+          },
+          {
+            "sha": "f0253cb4d1cabac751622153cb93be907b2eca88",
+            "date": "2026-05-21T09:27:24-07:00",
+            "subject": "Add agent skills for Well-Architected Framework pillars: Operational Excellence, Performance Optimization, and Sustainability.",
+            "url": "https://github.com/google/skills/commit/f0253cb4d1cabac751622153cb93be907b2eca88",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Google Cloud WAF 永續性技能，內容涵蓋指引、相關產品範例、評估問題及驗證清單。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "2a1e4549d591688f3a605771cf101d05d43f8ae8",
+            "date": "2026-09-23T09:16:07-07:00",
+            "subject": "Updated description for google-cloud-waf-sustainability to help create more connections to keywords and concepts.",
+            "url": "https://github.com/google/skills/commit/2a1e4549d591688f3a605771cf101d05d43f8ae8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能版本更新为 1.0.1，并改写描述以列出持久性使用情境及区分相关但不适用的主题。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加 1.0.0 版本字段。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能前置数据中添加中继数据区块，并加入 WellArchitectedFramework 类别。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能中的持久性参考文档链接更新为对应的 .md.txt 版本。"
+          },
+          {
+            "sha": "f0253cb4d1cabac751622153cb93be907b2eca88",
+            "date": "2026-05-21T09:27:24-07:00",
+            "subject": "Add agent skills for Well-Architected Framework pillars: Operational Excellence, Performance Optimization, and Sustainability.",
+            "url": "https://github.com/google/skills/commit/f0253cb4d1cabac751622153cb93be907b2eca88",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-sustainability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Google Cloud WAF 持久性技能，内容涵盖指引、相关产品范例、评估问题及验证清单。"
+          }
+        ]
+      }
+    }
+  }
+}

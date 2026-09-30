@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-monitoring-promql-query",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f5890c9d0c51e69f27ab3f6cfd8dc4b421182e1de50110f72ea5e563421eb058"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Translates Cloud Monitoring metric and resource descriptors into valid PromQL, with appropriate metric naming, filtering, and aggregation.",
+        "whenToUse": "Use it once the target metric is identified and its descriptor and resource details need to be translated into a properly scoped query rather than used to discover or select a metric.",
+        "outputs": "A validated, single-line PromQL query with normalized metric names, resource filters, and suitable aggregation, presented in a PromQL code fence."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "將 Cloud Monitoring 的指標與資源描述子轉換為有效的 PromQL 查詢，並採用合適的指標命名、篩選條件與彙總方式。",
+        "whenToUse": "在目標指標已確定，且需要將其描述子與資源資訊轉換為範圍明確的查詢，而非探索或選擇指標時使用。",
+        "outputs": "輸出經驗證的單行 PromQL 查詢，包含正規化的指標名稱、資源篩選條件與合適的彙總方式，並以 PromQL 程式碼區塊呈現。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "将 Cloud Monitoring 的指针与资源描述子转换为有效的 PromQL 查找，并采用合适的指针命名、筛选条件与汇总方式。",
+        "whenToUse": "在目标指针已确定，且需要将其描述子与资源信息转换为范围明确的查找，而非探索或选择指针时使用。",
+        "outputs": "输出经验证的单行 PromQL 查找，包含范式的指针名称、资源筛选条件与合适的汇总方式，并以 PromQL 代码区块呈现。"
+      }
+    }
+  }
+}

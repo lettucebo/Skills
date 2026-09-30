@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-cost-analysis",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9d5ff76acf009200ad447ed363da12b4f8365787b7671be5cca1f4d62353059f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It helps explain GKE billing by combining BigQuery export data, cost-allocation metadata, and live resource usage, including differences between Autopilot and Standard pricing.",
+        "whenToUse": "Use it to distinguish billing and allocation causes behind a charge or utilization anomaly, rather than to implement rightsizing or other cost changes.",
+        "outputs": "It provides a concise cost explanation with adaptable BigQuery queries and read-only gcloud or kubectl checks, and notes when allocation data or pricing-mode context is needed."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它結合 BigQuery 匯出的帳單資料、成本分配中繼資料與即時資源用量，協助解讀 GKE 費用，並說明 Autopilot 與 Standard 計價方式的差異。",
+        "whenToUse": "當你想釐清費用或用量異常背後的計價與成本分配因素，而非實際執行資源調整或其他成本變更時，請使用它。",
+        "outputs": "它會提供精簡的成本說明、可調整的 BigQuery 查詢，以及唯讀的 gcloud 或 kubectl 檢查方式，並指出何時需要成本分配資料或計價模式的背景資訊。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它结合 BigQuery 导出的帐单数据、成本分配中继数据与实时资源用量，协助解读 GKE 费用，并说明 Autopilot 与 Standard 计价方式的差异。",
+        "whenToUse": "当你想厘清费用或用量异常背后的计价与成本分配因素，而非实际运行资源调整或其他成本变更时，请使用它。",
+        "outputs": "它会提供精简的成本说明、可调整的 BigQuery 查找，以及唯读的 gcloud 或 kubectl 检查方式，并指出何时需要成本分配数据或计价模式的背景信息。"
+      }
+    }
+  }
+}

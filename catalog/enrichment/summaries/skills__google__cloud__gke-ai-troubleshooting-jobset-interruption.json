@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-ai-troubleshooting-jobset-interruption",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1c9b89a0177b7b27cfb0f00d0608e6ad0856480099a76fec08943ce127ad364f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Diagnoses why GKE JobSet training workloads are restarting by correlating JobSet metrics, node-pool events, node and host health, pod scheduling status, and worker logs.",
+        "whenToUse": "Use it to conduct a telemetry-led investigation of an existing GKE AI/ML JobSet; the cluster must expose JobSet metrics through kube-state-metrics and have Cloud Logging and Cloud Monitoring enabled.",
+        "outputs": "It summarizes restart and interruption evidence, identifies unhealthy nodes or hosts and pod or worker failure signals, and recommends suitable mitigations such as reserved or on-demand capacity, compact placement, or quarantining a repeatedly failing host."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過比對 JobSet 指標、節點集區事件、節點與主機健康狀況、Pod 排程狀態及工作者記錄，診斷 GKE 訓練工作負載重新啟動的原因。",
+        "whenToUse": "適用於需要依據遙測資料調查現有 GKE AI/ML JobSet 的情況；叢集必須透過 kube-state-metrics 提供 JobSet 指標，並啟用 Cloud Logging 和 Cloud Monitoring。",
+        "outputs": "它會彙整重新啟動與中斷的證據，指出不健康的節點或主機以及 Pod 或工作者故障跡象，並建議合適的緩解方式，例如採用保留或隨選運算資源、緊湊配置，或隔離反覆故障的主機。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过比对 JobSet 指针、节点集区事件、节点与主机健康状况、Pod 调度状态及工作者记录，诊断 GKE 训练工作负载重新启动的原因。",
+        "whenToUse": "适用于需要依据遥测数据调查现有 GKE AI/ML JobSet 的情况；集群必须透过 kube-state-metrics 提供 JobSet 指针，并激活 Cloud Logging 和 Cloud Monitoring。",
+        "outputs": "它会汇整重新启动与中断的证据，指出不健康的节点或主机以及 Pod 或工作者故障迹象，并建议合适的缓解方式，例如采用保留或随选运算资源、紧凑配置，或隔离反复故障的主机。"
+      }
+    }
+  }
+}

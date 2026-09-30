@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-backup-dr",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6e0d7e9f6ed67d8cb0929899e08b5657ac50e531ac8bb1d16d949f7966c977dd"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Configures Backup for GKE to protect Kubernetes resources and persistent volume data with scheduled or manual backups and controlled restores.",
+        "whenToUse": "Use when setting up backup plans, retention or encryption policies, and disaster-recovery restores for GKE workloads, not database-specific backups.",
+        "outputs": "Provides gcloud commands and configuration guidance for enabling the addon, creating backups and restore plans, and checking restore status."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "設定 Backup for GKE，透過排程或手動備份及受控還原來保護 Kubernetes 資源與持久磁碟區資料。",
+        "whenToUse": "在為 GKE 工作負載設定備份計畫、保留或加密政策，或執行災難復原還原時使用；不適用於資料庫專用備份。",
+        "outputs": "提供啟用附加元件、建立備份與還原計畫，以及檢查還原狀態的 gcloud 指令和設定指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "设置 Backup for GKE，透过调度或手动备份及受控还原来保护 Kubernetes 资源与持久磁盘区数据。",
+        "whenToUse": "在为 GKE 工作负载设置备份计划、保留或加密政策，或运行灾难复原还原时使用；不适用于数据库专用备份。",
+        "outputs": "提供激活附加组件、创建备份与还原计划，以及检查还原状态的 gcloud 指令和设置指引。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-rewarded",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2938c0b5cab866f764e693d194de1ae51ed4c6b04780e06de07047108aa00c4e"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Describes an opt-in, full-screen ad experience that grants an in-app reward when a user interacts with the ad.",
+        "whenToUse": "Use when an Android, iOS, or Unity app needs a consent-based ad-for-reward flow; rewarded interstitials require different guidance.",
+        "outputs": "Platform-specific guidance for loading the ad, handling event callbacks, offering an ad-view option, showing it, and verifying the implementation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何提供須由使用者主動選擇觀看的全螢幕廣告，並在使用者與廣告互動後給予應用程式內獎勵。",
+        "whenToUse": "當 Android、iOS 或 Unity 應用程式需要提供由使用者同意觀看並換取獎勵的廣告流程時使用；獎勵插頁式廣告需參考其他指南。",
+        "outputs": "提供各平台載入廣告、處理事件回呼、加入觀看入口、展示廣告及驗證實作的指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何提供须由用户主动选择观看的全屏幕广告，并在用户与广告交互后给予应用程序内奖励。",
+        "whenToUse": "当 Android、iOS 或 Unity 应用程序需要提供由用户同意观看并换取奖励的广告流程时使用；奖励插页式广告需参考其他指南。",
+        "outputs": "提供各平台加载广告、处理事件回呼、加入观看入口、展示广告及验证实作的指引。"
+      }
+    }
+  }
+}

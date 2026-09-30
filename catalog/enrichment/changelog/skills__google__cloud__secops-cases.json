@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/secops-cases",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:315419307f32656d11bd02f3f8b9074b01a5a66eea1f8bee0d9f0ff326e4bf03",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/secops-cases",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "945aafc62b4ef751f69b579f36656ccc0628fdfc",
+            "date": "2026-09-22T08:22:15-07:00",
+            "subject": "Replace legacy Chronicle product naming with Google SecOps in cloud security skills.",
+            "url": "https://github.com/google/skills/commit/945aafc62b4ef751f69b579f36656ccc0628fdfc",
+            "pathAtCommit": "skills/cloud/secops-cases/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the skill to version 1.1.1 and replaced Chronicle references with Google SecOps in its SOAR description, endpoint warning, and tenant-parameter labels."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/secops-cases/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Quoted the skill's 1.1.0 version value in the metadata."
+          },
+          {
+            "sha": "5fd3ca4827324bc400096a54a49f4811f084597f",
+            "date": "2026-09-15T20:36:57-07:00",
+            "subject": "Add Google SecOps agent plugin and skills for Triage, Investigation, Threat Hunting, Cases, and Detection Engineering.",
+            "url": "https://github.com/google/skills/commit/5fd3ca4827324bc400096a54a49f4811f084597f",
+            "pathAtCommit": "skills/cloud/secops-cases/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Google SecOps case-management skill defining MCP tool requirements and selection, tenant parameters, and workflows for managing cases, alerts, comments, and closure."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "945aafc62b4ef751f69b579f36656ccc0628fdfc",
+            "date": "2026-09-22T08:22:15-07:00",
+            "subject": "Replace legacy Chronicle product naming with Google SecOps in cloud security skills.",
+            "url": "https://github.com/google/skills/commit/945aafc62b4ef751f69b579f36656ccc0628fdfc",
+            "pathAtCommit": "skills/cloud/secops-cases/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能版本更新為 1.1.1，並在 SOAR 說明、端點警告及租戶參數標籤中將 Chronicle 改為 Google SecOps。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/secops-cases/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在中繼資料中為技能的 1.1.0 版本值加上引號。"
+          },
+          {
+            "sha": "5fd3ca4827324bc400096a54a49f4811f084597f",
+            "date": "2026-09-15T20:36:57-07:00",
+            "subject": "Add Google SecOps agent plugin and skills for Triage, Investigation, Threat Hunting, Cases, and Detection Engineering.",
+            "url": "https://github.com/google/skills/commit/5fd3ca4827324bc400096a54a49f4811f084597f",
+            "pathAtCommit": "skills/cloud/secops-cases/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Google SecOps 案件管理技能，規定 MCP 工具需求與選擇方式、租戶參數，以及管理案件、警示、註解和結案的工作流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "945aafc62b4ef751f69b579f36656ccc0628fdfc",
+            "date": "2026-09-22T08:22:15-07:00",
+            "subject": "Replace legacy Chronicle product naming with Google SecOps in cloud security skills.",
+            "url": "https://github.com/google/skills/commit/945aafc62b4ef751f69b579f36656ccc0628fdfc",
+            "pathAtCommit": "skills/cloud/secops-cases/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能版本更新为 1.1.1，并在 SOAR 说明、端点警告及租户参数标签中将 Chronicle 改为 Google SecOps。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/secops-cases/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在中继数据中为技能的 1.1.0 版本值加上引号。"
+          },
+          {
+            "sha": "5fd3ca4827324bc400096a54a49f4811f084597f",
+            "date": "2026-09-15T20:36:57-07:00",
+            "subject": "Add Google SecOps agent plugin and skills for Triage, Investigation, Threat Hunting, Cases, and Detection Engineering.",
+            "url": "https://github.com/google/skills/commit/5fd3ca4827324bc400096a54a49f4811f084597f",
+            "pathAtCommit": "skills/cloud/secops-cases/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Google SecOps 案件管理技能，规定 MCP 工具需求与选择方式、租户参数，以及管理案件、警示、注解和结案的工作流程。"
+          }
+        ]
+      }
+    }
+  }
+}

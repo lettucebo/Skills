@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-agentic-ai-data-science-workflow",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f68914a593bc3051cff2091d3b6e072fda66313325c227334b2a567acd353683"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides an end-to-end process for turning agentic data-science workload requirements into a tailored Google Cloud solution, from architecture through deployment and validation.",
+        "whenToUse": "Use it when an agent-based analytics or machine-learning workload needs decisions across multiple Google Cloud products and a reviewed path from requirements to validation.",
+        "outputs": "It produces a component decomposition, a solution architecture guide with product mappings, a Mermaid diagram and design recommendations, plus deployment guidance, infrastructure-as-code, and a validation report with checks and scripts."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它引導團隊將代理式資料科學工作負載的需求，逐步轉化為涵蓋架構、部署與驗證的量身打造 Google Cloud 解決方案。",
+        "whenToUse": "當代理式分析或機器學習工作負載需要跨多項 Google Cloud 產品進行規劃，並以審查流程從需求推進至驗證時，請使用此流程。",
+        "outputs": "它會產出元件分解、含產品對應、Mermaid 架構圖與設計建議的解決方案架構指南，以及部署指引、基礎架構即程式碼和包含檢查與腳本的驗證報告。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它引导团队将代理式数据科学工作负载的需求，逐步转化为涵盖架构、部署与验证的量身打造 Google Cloud 解决方案。",
+        "whenToUse": "当代理式分析或机器学习工作负载需要跨多项 Google Cloud 产品进行规划，并以审查流程从需求推进至验证时，请使用此流程。",
+        "outputs": "它会产出组件分解、含产品对应、Mermaid 架构图与设计建议的解决方案架构指南，以及部署指引、基础架构即代码和包含检查与脚本的验证报告。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-dom",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ca575472a77ee4315ed836ea63795894a99c2493a970b5f9c93aebf8c419c50a"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to structure web-dependent interface pieces as standalone Expo components and connect them to native app behavior.",
+        "whenToUse": "Use it for web-only libraries, complex HTML/CSS, embeds, or Canvas/WebGL, while keeping simple, performance-critical, or deeply native UI in React Native.",
+        "outputs": "Provides implementation guidance and examples for component structure, webview options, styling, routing, assets, and platform differences, including connecting native functions through serializable props and async callbacks."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何將依賴網頁環境的介面整理為獨立的 Expo 元件，並與原生應用程式功能銜接。",
+        "whenToUse": "當介面需要僅限網頁的函式庫、複雜 HTML/CSS、嵌入內容或 Canvas/WebGL 時使用；簡單、重視效能或深度整合原生功能的 UI 則應保留為 React Native 元件。",
+        "outputs": "提供元件結構、WebView 設定、樣式、路由、資產及平台差異的實作指引與範例，並說明如何透過可序列化的 props 和非同步回呼連接原生功能。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何将依赖网页环境的界面整理为独立的 Expo 组件，并与原生应用程序功能衔接。",
+        "whenToUse": "当界面需要仅限网页的函数库、复杂 HTML/CSS、嵌入内容或 Canvas/WebGL 时使用；简单、重视性能或深度集成原生功能的 UI 则应保留为 React Native 组件。",
+        "outputs": "提供组件结构、WebView 设置、样式、路由、资产及平台差异的实作指引与范例，并说明如何透过可串行化的 props 和异步回呼连接原生功能。"
+      }
+    }
+  }
+}

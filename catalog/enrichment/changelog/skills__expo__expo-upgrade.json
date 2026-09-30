@@ -1,0 +1,588 @@
+{
+  "path": "skills/expo/expo-upgrade",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9794c04c24d4105ebbb9b591f2df38a7696bb6c1539ce18a4d2574650483f426",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-upgrade",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "80090ccda0ce5973c1354743d1d02602664b15be",
+            "date": "2026-09-02T03:36:47-07:00",
+            "subject": "ENG-25791: keep expo-constants with Expo Router (#173)",
+            "url": "https://github.com/expo/skills/commit/80090ccda0ce5973c1354743d1d02602664b15be",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updates dependency cleanup guidance to retain required peers, keep expo-constants direct when expo-router is installed, and run expo-doctor after removals."
+          },
+          {
+            "sha": "37397230773699b32e0c7b472eb911d5dad4ad59",
+            "date": "2026-08-13T18:21:36+01:00",
+            "subject": "[expo-upgrade] Add Hermes v1 memory regression notes (#146)",
+            "url": "https://github.com/expo/skills/commit/37397230773699b32e0c7b472eb911d5dad4ad59",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds guidance to skip SDK 56 and upgrade directly to SDK 57.0.9 or later because of a Hermes V1 memory regression, and discourages overriding the SDK Hermes default or using Worklets Bundle Mode."
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds instructions to use the expo-skill-feedback eval-candidate flow after repeated AI failures or user takeover instead of the existing feedback command."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a feedback section with the submit-expo-feedback command and guidance to report only actionable issues with relevant context."
+          },
+          {
+            "sha": "dba2a34f0db6aeba1af440da0f93aff916c765bb",
+            "date": "2026-07-16T13:08:14+05:30",
+            "subject": "[expo-upgrade] Update versioned docs links in agent file (#104)",
+            "url": "https://github.com/expo/skills/commit/dba2a34f0db6aeba1af440da0f93aff916c765bb",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a housekeeping instruction to update versioned docs.expo.dev links in AGENTS.md files to match the target SDK."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R097",
+              "sourcePath": "plugins/expo/skills/upgrading-expo/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-upgrade/SKILL.md"
+            },
+            "summary": "Renames the skill metadata to expo-upgrade and adds a Framework (OSS) label to its description."
+          },
+          {
+            "sha": "786398d3574f33eb6714380f44ec09355819516e",
+            "date": "2026-05-05T20:25:48+02:00",
+            "subject": "[router] Add expo-router SDK 56 migration skill (#56)",
+            "url": "https://github.com/expo/skills/commit/786398d3574f33eb6714380f44ec09355819516e",
+            "pathAtCommit": "plugins/expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds an SDK 56 React Navigation-to-Expo Router migration reference and labels the expo-av audio/video migration references as SDK 55."
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+              "destinationPath": "plugins/expo/skills/upgrading-expo/SKILL.md"
+            },
+            "summary": "Moves the upgrading-expo skill file into plugins/expo/skills without changing its contents."
+          },
+          {
+            "sha": "991716e214d206384249322e9ef99a2fe059bb9b",
+            "date": "2026-03-09T08:53:57-05:00",
+            "subject": "[upgrading-expo] skip prebuild steps for CNG projects (#30)",
+            "url": "https://github.com/expo/skills/commit/991716e214d206384249322e9ef99a2fe059bb9b",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds guidance to skip prebuild and bare-workflow cache-clearing steps for CNG projects without ios/ or android/ directories."
+          },
+          {
+            "sha": "46fa1f8b93479046445706c528af4c70d270e727",
+            "date": "2026-03-03T09:06:20+01:00",
+            "subject": "Update SKILL.md with Hermes engine v1 details (#15)",
+            "url": "https://github.com/expo/skills/commit/46fa1f8b93479046445706c528af4c70d270e727",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds Hermes V1 guidance describing its SDK 55 opt-in, configuration through expo-build-properties, possible hermes-compiler version requirements, and planned SDK-default status."
+          },
+          {
+            "sha": "99db752f1eb34af26d966364bcbf78caedc48d12",
+            "date": "2026-01-24T11:47:02-08:00",
+            "subject": "Add native tabs migration guide for SDK 55 (#11)",
+            "url": "https://github.com/expo/skills/commit/99db752f1eb34af26d966364bcbf78caedc48d12",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the SDK 55 native-tabs migration reference to the upgrade skill."
+          },
+          {
+            "sha": "81c958c381021a57ebaeef2c3bc759b07d926fb7",
+            "date": "2026-01-24T11:42:02-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/81c958c381021a57ebaeef2c3bc759b07d926fb7",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expands the SDK 53 PostCSS guidance to remove autoprefixer from dependencies and the postcss.config.js or postcss.config.mjs plugins list."
+          },
+          {
+            "sha": "d08642d375dfb898ae19180d1e4e29df669bdfca",
+            "date": "2026-01-24T11:41:21-08:00",
+            "subject": "Add beta release info and expo.install.exclude documentation (#9)",
+            "url": "https://github.com/expo/skills/commit/d08642d375dfb898ae19180d1e4e29df669bdfca",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds beta/preview release installation guidance and a section explaining how to review expo.install.exclude package entries."
+          },
+          {
+            "sha": "3f5a5b3abdd7658056945002265f9a2eb2356001",
+            "date": "2026-01-24T11:32:22-08:00",
+            "subject": "Add expo-av migration guides for audio and video (#13)",
+            "url": "https://github.com/expo/skills/commit/3f5a5b3abdd7658056945002265f9a2eb2356001",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds expo-av audio/video migration references and instructs updating code before package removal, including replacements for Sound, Recording, and Video APIs."
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds version 1.0.0 and MIT license metadata to the skill."
+          },
+          {
+            "sha": "d1580886a2a608eb0b8057479f8275870673ce26",
+            "date": "2026-01-14T10:17:37-08:00",
+            "subject": "Add references for upgrading Expo SDK and React 19 changes",
+            "url": "https://github.com/expo/skills/commit/d1580886a2a608eb0b8057479f8275870673ce26",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds migration references for architecture, React 19, and React Compiler, and recommends enabling React Compiler for SDK 54+."
+          },
+          {
+            "sha": "4e9388fd7ccd0b44880feb6d6807d4cacd73e967",
+            "date": "2026-01-14T10:01:21-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/4e9388fd7ccd0b44880feb6d6807d4cacd73e967",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds Metro migration notes that CJS/MJS extensions are supported by SDK 50+ and Expo Webpack is deprecated in favor of Expo Router and Metro web."
+          },
+          {
+            "sha": "4a48064c71a16cc6ef85c78bb0b815bb3d63bc5b",
+            "date": "2026-01-14T09:57:09-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/4a48064c71a16cc6ef85c78bb0b815bb3d63bc5b",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworks the upgrade flow around Expo install/fix, diagnostics, and cache clearing, and reorganizes the guide's breaking-change, prebuild, housekeeping, deprecation, PostCSS, Metro, and architecture guidance."
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Creates the initial Expo SDK upgrade skill with upgrade, dependency, diagnostics, cache, prebuild, troubleshooting, compatibility, and deprecated-package guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "80090ccda0ce5973c1354743d1d02602664b15be",
+            "date": "2026-09-02T03:36:47-07:00",
+            "subject": "ENG-25791: keep expo-constants with Expo Router (#173)",
+            "url": "https://github.com/expo/skills/commit/80090ccda0ce5973c1354743d1d02602664b15be",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新依賴清理指引，要求保留必要的 peer 依賴、安裝 expo-router 時將 expo-constants 保留為直接依賴，並在移除套件後執行 expo-doctor。"
+          },
+          {
+            "sha": "37397230773699b32e0c7b472eb911d5dad4ad59",
+            "date": "2026-08-13T18:21:36+01:00",
+            "subject": "[expo-upgrade] Add Hermes v1 memory regression notes (#146)",
+            "url": "https://github.com/expo/skills/commit/37397230773699b32e0c7b472eb911d5dad4ad59",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增因 Hermes V1 記憶體回歸而略過 SDK 56、直接升級至 SDK 57.0.9 或更新版本的指引，並不建議覆寫 SDK 的 Hermes 預設值或使用 Worklets Bundle Mode。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若 AI 反覆失敗或使用者必須接手，應改用 expo-skill-feedback 的 eval-candidate 流程，而非既有的回饋指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增回饋章節，提供 submit-expo-feedback 指令，並指引僅回報具體可處理且附有相關背景的問題。"
+          },
+          {
+            "sha": "dba2a34f0db6aeba1af440da0f93aff916c765bb",
+            "date": "2026-07-16T13:08:14+05:30",
+            "subject": "[expo-upgrade] Update versioned docs links in agent file (#104)",
+            "url": "https://github.com/expo/skills/commit/dba2a34f0db6aeba1af440da0f93aff916c765bb",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增維護指引，要求更新 AGENTS.md 檔案中的 docs.expo.dev 版本連結，使其符合目標 SDK。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R097",
+              "sourcePath": "plugins/expo/skills/upgrading-expo/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-upgrade/SKILL.md"
+            },
+            "summary": "將技能中繼資料名稱改為 expo-upgrade，並在描述中加入 Framework (OSS) 標籤。"
+          },
+          {
+            "sha": "786398d3574f33eb6714380f44ec09355819516e",
+            "date": "2026-05-05T20:25:48+02:00",
+            "subject": "[router] Add expo-router SDK 56 migration skill (#56)",
+            "url": "https://github.com/expo/skills/commit/786398d3574f33eb6714380f44ec09355819516e",
+            "pathAtCommit": "plugins/expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 SDK 56 的 React Navigation 至 Expo Router 遷移參考資料，並將 expo-av 音訊與影片遷移參考資料標示為 SDK 55。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+              "destinationPath": "plugins/expo/skills/upgrading-expo/SKILL.md"
+            },
+            "summary": "將 upgrading-expo 技能檔案移至 plugins/expo/skills，內容保持不變。"
+          },
+          {
+            "sha": "991716e214d206384249322e9ef99a2fe059bb9b",
+            "date": "2026-03-09T08:53:57-05:00",
+            "subject": "[upgrading-expo] skip prebuild steps for CNG projects (#30)",
+            "url": "https://github.com/expo/skills/commit/991716e214d206384249322e9ef99a2fe059bb9b",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：沒有 ios/ 或 android/ 目錄的 CNG 專案應略過 prebuild 與 bare workflow 快取清理步驟。"
+          },
+          {
+            "sha": "46fa1f8b93479046445706c528af4c70d270e727",
+            "date": "2026-03-03T09:06:20+01:00",
+            "subject": "Update SKILL.md with Hermes engine v1 details (#15)",
+            "url": "https://github.com/expo/skills/commit/46fa1f8b93479046445706c528af4c70d270e727",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Hermes V1 指引，說明 SDK 55 的啟用方式、透過 expo-build-properties 設定、可能需要的 hermes-compiler 版本，以及未來成為 SDK 預設值的計畫。"
+          },
+          {
+            "sha": "99db752f1eb34af26d966364bcbf78caedc48d12",
+            "date": "2026-01-24T11:47:02-08:00",
+            "subject": "Add native tabs migration guide for SDK 55 (#11)",
+            "url": "https://github.com/expo/skills/commit/99db752f1eb34af26d966364bcbf78caedc48d12",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在升級技能中新增 SDK 55 的 native-tabs 遷移參考資料。"
+          },
+          {
+            "sha": "81c958c381021a57ebaeef2c3bc759b07d926fb7",
+            "date": "2026-01-24T11:42:02-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/81c958c381021a57ebaeef2c3bc759b07d926fb7",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充 SDK 53 的 PostCSS 指引，要求從依賴項目及 postcss.config.js 或 postcss.config.mjs 的 plugins 清單中移除 autoprefixer。"
+          },
+          {
+            "sha": "d08642d375dfb898ae19180d1e4e29df669bdfca",
+            "date": "2026-01-24T11:41:21-08:00",
+            "subject": "Add beta release info and expo.install.exclude documentation (#9)",
+            "url": "https://github.com/expo/skills/commit/d08642d375dfb898ae19180d1e4e29df669bdfca",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 beta/preview 版本安裝指引，以及說明如何檢查 expo.install.exclude 套件項目的章節。"
+          },
+          {
+            "sha": "3f5a5b3abdd7658056945002265f9a2eb2356001",
+            "date": "2026-01-24T11:32:22-08:00",
+            "subject": "Add expo-av migration guides for audio and video (#13)",
+            "url": "https://github.com/expo/skills/commit/3f5a5b3abdd7658056945002265f9a2eb2356001",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 expo-av 音訊與影片遷移參考資料，並指示先更新程式碼再移除套件，包括替換 Sound、Recording 和 Video API。"
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中新增 1.0.0 版號與 MIT 授權中繼資料。"
+          },
+          {
+            "sha": "d1580886a2a608eb0b8057479f8275870673ce26",
+            "date": "2026-01-14T10:17:37-08:00",
+            "subject": "Add references for upgrading Expo SDK and React 19 changes",
+            "url": "https://github.com/expo/skills/commit/d1580886a2a608eb0b8057479f8275870673ce26",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增架構、React 19 與 React Compiler 的遷移參考資料，並建議在 SDK 54 以上啟用 React Compiler。"
+          },
+          {
+            "sha": "4e9388fd7ccd0b44880feb6d6807d4cacd73e967",
+            "date": "2026-01-14T10:01:21-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/4e9388fd7ccd0b44880feb6d6807d4cacd73e967",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Metro 遷移說明，指出 SDK 50 以上預設支援 CJS/MJS 副檔名，且 Expo Webpack 已棄用，應改用 Expo Router 與 Metro web。"
+          },
+          {
+            "sha": "4a48064c71a16cc6ef85c78bb0b815bb3d63bc5b",
+            "date": "2026-01-14T09:57:09-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/4a48064c71a16cc6ef85c78bb0b815bb3d63bc5b",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新整理升級流程，以 Expo 安裝與修正、診斷及快取清理為核心，並重整指南中的重大變更、prebuild、維護、棄用套件、PostCSS、Metro 與架構指引。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立初版 Expo SDK 升級技能，涵蓋升級、依賴、診斷、快取、prebuild、疑難排解、相容性及棄用套件指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "80090ccda0ce5973c1354743d1d02602664b15be",
+            "date": "2026-09-02T03:36:47-07:00",
+            "subject": "ENG-25791: keep expo-constants with Expo Router (#173)",
+            "url": "https://github.com/expo/skills/commit/80090ccda0ce5973c1354743d1d02602664b15be",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新依赖清理指引，要求保留必要的 peer 依赖、安装 expo-router 时将 expo-constants 保留为直接依赖，并在移除套件后运行 expo-doctor。"
+          },
+          {
+            "sha": "37397230773699b32e0c7b472eb911d5dad4ad59",
+            "date": "2026-08-13T18:21:36+01:00",
+            "subject": "[expo-upgrade] Add Hermes v1 memory regression notes (#146)",
+            "url": "https://github.com/expo/skills/commit/37397230773699b32e0c7b472eb911d5dad4ad59",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加因 Hermes V1 内存回归而略过 SDK 56、直接升级至 SDK 57.0.9 或更新版本的指引，并不建议覆写 SDK 的 Hermes 默认值或使用 Worklets Bundle Mode。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若 AI 反复失败或用户必须接手，应改用 expo-skill-feedback 的 eval-candidate 流程，而非既有的回馈指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加回馈章节，提供 submit-expo-feedback 指令，并指引仅回报具体可处理且附有相关背景的问题。"
+          },
+          {
+            "sha": "dba2a34f0db6aeba1af440da0f93aff916c765bb",
+            "date": "2026-07-16T13:08:14+05:30",
+            "subject": "[expo-upgrade] Update versioned docs links in agent file (#104)",
+            "url": "https://github.com/expo/skills/commit/dba2a34f0db6aeba1af440da0f93aff916c765bb",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加维护指引，要求更新 AGENTS.md 文件中的 docs.expo.dev 版本链接，使其符合目标 SDK。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-upgrade/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R097",
+              "sourcePath": "plugins/expo/skills/upgrading-expo/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-upgrade/SKILL.md"
+            },
+            "summary": "将技能中继数据名称改为 expo-upgrade，并在描述中加入 Framework (OSS) 标签。"
+          },
+          {
+            "sha": "786398d3574f33eb6714380f44ec09355819516e",
+            "date": "2026-05-05T20:25:48+02:00",
+            "subject": "[router] Add expo-router SDK 56 migration skill (#56)",
+            "url": "https://github.com/expo/skills/commit/786398d3574f33eb6714380f44ec09355819516e",
+            "pathAtCommit": "plugins/expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 SDK 56 的 React Navigation 至 Expo Router 迁移参考资料，并将 expo-av 音频与视频迁移参考资料标示为 SDK 55。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+              "destinationPath": "plugins/expo/skills/upgrading-expo/SKILL.md"
+            },
+            "summary": "将 upgrading-expo 技能文件移至 plugins/expo/skills，内容保持不变。"
+          },
+          {
+            "sha": "991716e214d206384249322e9ef99a2fe059bb9b",
+            "date": "2026-03-09T08:53:57-05:00",
+            "subject": "[upgrading-expo] skip prebuild steps for CNG projects (#30)",
+            "url": "https://github.com/expo/skills/commit/991716e214d206384249322e9ef99a2fe059bb9b",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：没有 ios/ 或 android/ 目录的 CNG 项目应略过 prebuild 与 bare workflow 缓存清理步骤。"
+          },
+          {
+            "sha": "46fa1f8b93479046445706c528af4c70d270e727",
+            "date": "2026-03-03T09:06:20+01:00",
+            "subject": "Update SKILL.md with Hermes engine v1 details (#15)",
+            "url": "https://github.com/expo/skills/commit/46fa1f8b93479046445706c528af4c70d270e727",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Hermes V1 指引，说明 SDK 55 的激活方式、透过 expo-build-properties 设置、可能需要的 hermes-compiler 版本，以及未来成为 SDK 默认值的计划。"
+          },
+          {
+            "sha": "99db752f1eb34af26d966364bcbf78caedc48d12",
+            "date": "2026-01-24T11:47:02-08:00",
+            "subject": "Add native tabs migration guide for SDK 55 (#11)",
+            "url": "https://github.com/expo/skills/commit/99db752f1eb34af26d966364bcbf78caedc48d12",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在升级技能中添加 SDK 55 的 native-tabs 迁移参考资料。"
+          },
+          {
+            "sha": "81c958c381021a57ebaeef2c3bc759b07d926fb7",
+            "date": "2026-01-24T11:42:02-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/81c958c381021a57ebaeef2c3bc759b07d926fb7",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充 SDK 53 的 PostCSS 指引，要求从依赖项目及 postcss.config.js 或 postcss.config.mjs 的 plugins 清单中移除 autoprefixer。"
+          },
+          {
+            "sha": "d08642d375dfb898ae19180d1e4e29df669bdfca",
+            "date": "2026-01-24T11:41:21-08:00",
+            "subject": "Add beta release info and expo.install.exclude documentation (#9)",
+            "url": "https://github.com/expo/skills/commit/d08642d375dfb898ae19180d1e4e29df669bdfca",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 beta/preview 版本安装指引，以及说明如何检查 expo.install.exclude 套件项目的章节。"
+          },
+          {
+            "sha": "3f5a5b3abdd7658056945002265f9a2eb2356001",
+            "date": "2026-01-24T11:32:22-08:00",
+            "subject": "Add expo-av migration guides for audio and video (#13)",
+            "url": "https://github.com/expo/skills/commit/3f5a5b3abdd7658056945002265f9a2eb2356001",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 expo-av 音频与视频迁移参考资料，并指示先更新代码再移除套件，包括替换 Sound、Recording 和 Video API。"
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中添加 1.0.0 版号与 MIT 授权中继数据。"
+          },
+          {
+            "sha": "d1580886a2a608eb0b8057479f8275870673ce26",
+            "date": "2026-01-14T10:17:37-08:00",
+            "subject": "Add references for upgrading Expo SDK and React 19 changes",
+            "url": "https://github.com/expo/skills/commit/d1580886a2a608eb0b8057479f8275870673ce26",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加架构、React 19 与 React Compiler 的迁移参考资料，并建议在 SDK 54 以上激活 React Compiler。"
+          },
+          {
+            "sha": "4e9388fd7ccd0b44880feb6d6807d4cacd73e967",
+            "date": "2026-01-14T10:01:21-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/4e9388fd7ccd0b44880feb6d6807d4cacd73e967",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Metro 迁移说明，指出 SDK 50 以上预设支持 CJS/MJS 扩展名，且 Expo Webpack 已弃用，应改用 Expo Router 与 Metro web。"
+          },
+          {
+            "sha": "4a48064c71a16cc6ef85c78bb0b815bb3d63bc5b",
+            "date": "2026-01-14T09:57:09-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/4a48064c71a16cc6ef85c78bb0b815bb3d63bc5b",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "刷新升级流程，以 Expo 安装与修正、诊断及缓存清理为内核，并重整指南中的重大变更、prebuild、维护、弃用套件、PostCSS、Metro 与架构指引。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/upgrading-expo/skills/upgrading-expo/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建初版 Expo SDK 升级技能，涵盖升级、依赖、诊断、缓存、prebuild、疑难排解、兼容性及弃用套件指引。"
+          }
+        ]
+      }
+    }
+  }
+}

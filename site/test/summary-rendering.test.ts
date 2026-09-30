@@ -4,6 +4,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { escapeHTML } from 'astro/runtime/server/escape.js';
 
 import {
   loadEnrichmentLocale,
@@ -243,8 +244,8 @@ test('built detail and canonical card render the fresh generated summary', {
   const { purpose, whenToUse, outputs } = artifactValue.locales.en.content;
 
   assert.match(detail, /class="skill-summary"/);
-  assert.ok(detail.includes(purpose));
-  assert.ok(detail.includes(whenToUse));
-  assert.ok(detail.includes(outputs));
-  assert.ok(index.includes(purpose));
+  assert.ok(detail.includes(escapeHTML(purpose)));
+  assert.ok(detail.includes(escapeHTML(whenToUse)));
+  assert.ok(detail.includes(escapeHTML(outputs)));
+  assert.ok(index.includes(escapeHTML(purpose)));
 });

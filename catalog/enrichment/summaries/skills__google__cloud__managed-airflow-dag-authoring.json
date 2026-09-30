@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/managed-airflow-dag-authoring",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:919ffc505e8a414238c1f900863ffe464c75932fa0acd2f55a385c4219951880"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides authoring and validating Apache Airflow DAGs for Google Managed Service for Apache Airflow, with attention to environment constraints, version compatibility, and best practices.",
+        "whenToUse": "Use it when a DAG needs to match a Managed Airflow environment and its available development or validation path, whether working offline or with authorized cloud access.",
+        "outputs": "A DAG aligned with the target Airflow constraints and best practices, together with local validation results and, when authorized, deployment and target-environment verification."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "引導撰寫與驗證 Google 代管 Apache Airflow 服務的 DAG，並兼顧環境限制、版本相容性及最佳實務。",
+        "whenToUse": "當 DAG 需要配合代管 Airflow 環境及其可用的開發或驗證方式，無論離線作業或具備授權的雲端存取時使用。",
+        "outputs": "產出符合目標 Airflow 限制與最佳實務的 DAG，並附上本機驗證結果，以及在獲授權時的部署與目標環境驗證結果。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "引导撰写与验证 Google 代管 Apache Airflow 服务的 DAG，并兼顾环境限制、版本兼容性及最佳实务。",
+        "whenToUse": "当 DAG 需要配合代管 Airflow 环境及其可用的开发或验证方式，无论脱机作业或具备授权的云端访问时使用。",
+        "outputs": "产出符合目标 Airflow 限制与最佳实务的 DAG，并附上本机验证结果，以及在获授权时的部署与目标环境验证结果。"
+      }
+    }
+  }
+}

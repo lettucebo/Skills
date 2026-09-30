@@ -1,0 +1,333 @@
+{
+  "path": "skills/google/cloud/gke-cluster-creation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2b5ac1074cb1272685d6b469fee73b8549a679d1c4a2f404e9aa9a79b37d7775",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-cluster-creation",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.version: \"1.0.0\"` to the GKE cluster-creation skill's frontmatter."
+          },
+          {
+            "sha": "13247c700ac1823a7ba3a3471ded0396b9d0d52c",
+            "date": "2026-07-16T10:09:01-07:00",
+            "subject": "merge with kube-agents/agents/platform/skills/gke-cluster-creator",
+            "url": "https://github.com/google/skills/commit/13247c700ac1823a7ba3a3471ded0396b9d0d52c",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill with mode-selection guidance, security, cost, and availability best practices, Autopilot, Standard, GPU, and AI templates, MCP examples, and creation-confirmation and cost/quota warnings."
+          },
+          {
+            "sha": "4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "date": "2026-07-14T14:43:03-07:00",
+            "subject": "Update GKE skills to clarify Autopilot defaults, VPC-Native benefits, and Backup for GKE best practices: - gke-cluster-creation: Add warning and operational details when deviating to GKE Standard mode. - gke-networking: Document benefits of VPC-Native mode (scalability, direct VPC integration, avoiding IP exhaustion). - gke-golden-path: Update defaults table to include loggingConfig. - gke-backup-dr: Add best practices for stateful backups (quiescing, CSI snapshots, service terminology).",
+            "url": "https://github.com/google/skills/commit/4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added instructions to warn that GKE Standard deviates from the golden path and adds manual node-pool, upgrade, and autoscaling overhead."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved `category: Containers` under the `metadata` block in the YAML frontmatter."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R052",
+              "sourcePath": "skills/cloud/gke-basics/references/gke-cluster-creation.md",
+              "destinationPath": "skills/cloud/gke-cluster-creation/SKILL.md"
+            },
+            "summary": "Moved the reference into a standalone `gke-cluster-creation` skill, adding frontmatter and revising and formatting its workflow, mode table, template references, and instructions."
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "direct",
+            "summary": "Added `--quiet` to the skill's gcloud cluster-creation and AI manifest commands."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/references/gke-cluster-creation.md",
+              "destinationPath": "skills/cloud/gke-basics/references/gke-cluster-creation.md"
+            },
+            "summary": "Moved the cluster-creation reference unchanged from `cloud/gke-basics/references/` to `skills/cloud/gke-basics/references/`."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/references/gke-cluster-creation.md",
+              "destinationPath": "cloud/gke-basics/references/gke-cluster-creation.md"
+            },
+            "summary": "Moved the cluster-creation reference unchanged from `cloud/products/kubernetes-engine/gke-basics/references/` to `cloud/gke-basics/references/`."
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial cluster-creation reference with a workflow, Autopilot, Standard, and GPU template examples, and usage instructions."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 GKE 叢集建立技能的前置資訊中新增 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "13247c700ac1823a7ba3a3471ded0396b9d0d52c",
+            "date": "2026-07-16T10:09:01-07:00",
+            "subject": "merge with kube-agents/agents/platform/skills/gke-cluster-creator",
+            "url": "https://github.com/google/skills/commit/13247c700ac1823a7ba3a3471ded0396b9d0d52c",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充此技能，加入模式選擇指引、安全性、成本與可用性最佳實務、Autopilot、Standard、GPU 與 AI 範本、MCP 範例，以及建立前確認與成本／配額警告。"
+          },
+          {
+            "sha": "4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "date": "2026-07-14T14:43:03-07:00",
+            "subject": "Update GKE skills to clarify Autopilot defaults, VPC-Native benefits, and Backup for GKE best practices: - gke-cluster-creation: Add warning and operational details when deviating to GKE Standard mode. - gke-networking: Document benefits of VPC-Native mode (scalability, direct VPC integration, avoiding IP exhaustion). - gke-golden-path: Update defaults table to include loggingConfig. - gke-backup-dr: Add best practices for stateful backups (quiescing, CSI snapshots, service terminology).",
+            "url": "https://github.com/google/skills/commit/4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指示，要求提醒使用者 GKE Standard 偏離 golden path，且會增加手動管理節點集區、升級與自動調度的負擔。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 `category: Containers` 移至 YAML 前置資訊的 `metadata` 區塊下。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R052",
+              "sourcePath": "skills/cloud/gke-basics/references/gke-cluster-creation.md",
+              "destinationPath": "skills/cloud/gke-cluster-creation/SKILL.md"
+            },
+            "summary": "將此參考文件改為獨立的 `gke-cluster-creation` 技能，新增前置資訊，並修訂及整理工作流程、模式表、範本參照與指示。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 gcloud 叢集建立命令與 AI 資訊清單命令中加入 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/references/gke-cluster-creation.md",
+              "destinationPath": "skills/cloud/gke-basics/references/gke-cluster-creation.md"
+            },
+            "summary": "將叢集建立參考文件原封不動地從 `cloud/gke-basics/references/` 移至 `skills/cloud/gke-basics/references/`。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/references/gke-cluster-creation.md",
+              "destinationPath": "cloud/gke-basics/references/gke-cluster-creation.md"
+            },
+            "summary": "將叢集建立參考文件原封不動地從 `cloud/products/kubernetes-engine/gke-basics/references/` 移至 `cloud/gke-basics/references/`。"
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "direct",
+            "summary": "新增叢集建立參考文件，內容包含工作流程、Autopilot、Standard 與 GPU 範本範例及使用指示。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 GKE 集群创建技能的前置信息中添加 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "13247c700ac1823a7ba3a3471ded0396b9d0d52c",
+            "date": "2026-07-16T10:09:01-07:00",
+            "subject": "merge with kube-agents/agents/platform/skills/gke-cluster-creator",
+            "url": "https://github.com/google/skills/commit/13247c700ac1823a7ba3a3471ded0396b9d0d52c",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充此技能，加入模式选择指引、安全性、成本与可用性最佳实务、Autopilot、Standard、GPU 与 AI 范本、MCP 范例，以及创建前确认与成本／配额警告。"
+          },
+          {
+            "sha": "4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "date": "2026-07-14T14:43:03-07:00",
+            "subject": "Update GKE skills to clarify Autopilot defaults, VPC-Native benefits, and Backup for GKE best practices: - gke-cluster-creation: Add warning and operational details when deviating to GKE Standard mode. - gke-networking: Document benefits of VPC-Native mode (scalability, direct VPC integration, avoiding IP exhaustion). - gke-golden-path: Update defaults table to include loggingConfig. - gke-backup-dr: Add best practices for stateful backups (quiescing, CSI snapshots, service terminology).",
+            "url": "https://github.com/google/skills/commit/4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指示，要求提醒用户 GKE Standard 偏离 golden path，且会增加手动管理节点集区、升级与自动调度的负担。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 `category: Containers` 移至 YAML 前置信息的 `metadata` 区块下。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-cluster-creation/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R052",
+              "sourcePath": "skills/cloud/gke-basics/references/gke-cluster-creation.md",
+              "destinationPath": "skills/cloud/gke-cluster-creation/SKILL.md"
+            },
+            "summary": "将此参考文档改为独立的 `gke-cluster-creation` 技能，添加前置信息，并修订及整理工作流程、模式表、范本参照与指示。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 gcloud 集群创建命令与 AI 信息清单命令中加入 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gke-basics/references/gke-cluster-creation.md",
+              "destinationPath": "skills/cloud/gke-basics/references/gke-cluster-creation.md"
+            },
+            "summary": "将集群创建参考文档原封不动地从 `cloud/gke-basics/references/` 移至 `skills/cloud/gke-basics/references/`。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/kubernetes-engine/gke-basics/references/gke-cluster-creation.md",
+              "destinationPath": "cloud/gke-basics/references/gke-cluster-creation.md"
+            },
+            "summary": "将集群创建参考文档原封不动地从 `cloud/products/kubernetes-engine/gke-basics/references/` 移至 `cloud/gke-basics/references/`。"
+          },
+          {
+            "sha": "d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "date": "2026-04-15T08:14:16-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/d3e3bab8738b693ea81e058b0a8cd257e38826ba",
+            "pathAtCommit": "cloud/products/kubernetes-engine/gke-basics/references/gke-cluster-creation.md",
+            "resolvedVia": "direct",
+            "summary": "添加集群创建参考文档，内容包含工作流程、Autopilot、Standard 与 GPU 范本范例及使用指示。"
+          }
+        ]
+      }
+    }
+  }
+}

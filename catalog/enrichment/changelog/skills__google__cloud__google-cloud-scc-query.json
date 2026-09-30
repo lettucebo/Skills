@@ -1,0 +1,99 @@
+{
+  "path": "skills/google/cloud/google-cloud-scc-query",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:105693e7cf2b4bfcc0a06f820783af5953beb24dd0cd92ba8a0e9d2aa49a4bae",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-scc-query",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-scc-query/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill metadata."
+          },
+          {
+            "sha": "cd0b5629c0715cba7a44eb226011b7d6231db9ef",
+            "date": "2026-08-24T16:48:12-07:00",
+            "subject": "Migrate google-cloud-scc-query skill to 1P standards, add Data Residency (DRZ) support, and address review feedback.",
+            "url": "https://github.com/google/skills/commit/cd0b5629c0715cba7a44eb226011b7d6231db9ef",
+            "pathAtCommit": "skills/cloud/google-cloud-scc-query/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Google Cloud Security Command Center query skill with read-only finding retrieval guidance covering scope and location handling, query patterns, and payload handoff."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-scc-query/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增版本 1.0.0。"
+          },
+          {
+            "sha": "cd0b5629c0715cba7a44eb226011b7d6231db9ef",
+            "date": "2026-08-24T16:48:12-07:00",
+            "subject": "Migrate google-cloud-scc-query skill to 1P standards, add Data Residency (DRZ) support, and address review feedback.",
+            "url": "https://github.com/google/skills/commit/cd0b5629c0715cba7a44eb226011b7d6231db9ef",
+            "pathAtCommit": "skills/cloud/google-cloud-scc-query/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Google Cloud Security Command Center 查詢技能，提供唯讀發現項目擷取指引，涵蓋範圍與地區處理、查詢模式及資料交接。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-scc-query/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加版本 1.0.0。"
+          },
+          {
+            "sha": "cd0b5629c0715cba7a44eb226011b7d6231db9ef",
+            "date": "2026-08-24T16:48:12-07:00",
+            "subject": "Migrate google-cloud-scc-query skill to 1P standards, add Data Residency (DRZ) support, and address review feedback.",
+            "url": "https://github.com/google/skills/commit/cd0b5629c0715cba7a44eb226011b7d6231db9ef",
+            "pathAtCommit": "skills/cloud/google-cloud-scc-query/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Google Cloud Security Command Center 查找技能，提供唯读发现项目截取指引，涵盖范围与地区处理、查找模式及数据交接。"
+          }
+        ]
+      }
+    }
+  }
+}

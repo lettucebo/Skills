@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/iam-helper-for-privileged-access-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:855b44d9c547b86234fe53e5f8d89f14d790f3a7dc093eb1efcdfffbf26ea1ad",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/iam-helper-for-privileged-access-management",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/iam-helper-for-privileged-access-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the skill's metadata version field with value 1.0.0."
+          },
+          {
+            "sha": "e1b6f35d3459e7c4848ddecddf732102f2dfaadc",
+            "date": "2026-08-17T22:16:51-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/e1b6f35d3459e7c4848ddecddf732102f2dfaadc",
+            "pathAtCommit": "skills/cloud/iam-helper-for-privileged-access-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed the troubleshooting skill reference from the PAM skill's description."
+          },
+          {
+            "sha": "cdca572d24dbc6fa5b7bfd1af57585209556c849",
+            "date": "2026-08-17T10:03:27-07:00",
+            "subject": "Add iam-helper-for-privileged-access-management skill to Google Cloud skills.",
+            "url": "https://github.com/google/skills/commit/cdca572d24dbc6fa5b7bfd1af57585209556c849",
+            "pathAtCommit": "skills/cloud/iam-helper-for-privileged-access-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Privileged Access Manager skill covering entitlement management, temporary access requests, and approval workflows."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/iam-helper-for-privileged-access-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的中繼資料中新增版本欄位，值為 1.0.0。"
+          },
+          {
+            "sha": "e1b6f35d3459e7c4848ddecddf732102f2dfaadc",
+            "date": "2026-08-17T22:16:51-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/e1b6f35d3459e7c4848ddecddf732102f2dfaadc",
+            "pathAtCommit": "skills/cloud/iam-helper-for-privileged-access-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "從 PAM 技能的描述中移除了疑難排解技能的引用。"
+          },
+          {
+            "sha": "cdca572d24dbc6fa5b7bfd1af57585209556c849",
+            "date": "2026-08-17T10:03:27-07:00",
+            "subject": "Add iam-helper-for-privileged-access-management skill to Google Cloud skills.",
+            "url": "https://github.com/google/skills/commit/cdca572d24dbc6fa5b7bfd1af57585209556c849",
+            "pathAtCommit": "skills/cloud/iam-helper-for-privileged-access-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Privileged Access Manager 技能，涵蓋權限項目管理、臨時存取申請與核准流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/iam-helper-for-privileged-access-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的中继数据中添加版本字段，值为 1.0.0。"
+          },
+          {
+            "sha": "e1b6f35d3459e7c4848ddecddf732102f2dfaadc",
+            "date": "2026-08-17T22:16:51-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/e1b6f35d3459e7c4848ddecddf732102f2dfaadc",
+            "pathAtCommit": "skills/cloud/iam-helper-for-privileged-access-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "从 PAM 技能的描述中移除了疑难排解技能的引用。"
+          },
+          {
+            "sha": "cdca572d24dbc6fa5b7bfd1af57585209556c849",
+            "date": "2026-08-17T10:03:27-07:00",
+            "subject": "Add iam-helper-for-privileged-access-management skill to Google Cloud skills.",
+            "url": "https://github.com/google/skills/commit/cdca572d24dbc6fa5b7bfd1af57585209556c849",
+            "pathAtCommit": "skills/cloud/iam-helper-for-privileged-access-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Privileged Access Manager 技能，涵盖权限项目管理、临时访问申请与核准流程。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/bigquery-bigframes",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1f5d0bee433b90abbd256c395d108c9004c0c07b163a1d1237ba33dd760afbbd"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides guidance for carrying out data preparation, analysis, visualization, and machine learning with BigQuery-backed DataFrame operations.",
+        "whenToUse": "Use it to transform, analyze, or visualize BigQuery data in Python or train BigQuery ML models; use bigquery-basics for SQL-first work or the google-cloud-bigquery client library.",
+        "outputs": "Produces Python code for BigFrames operations and BigQuery ML workflows, with guidance on checking schemas and previewing results."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供以 BigQuery 支援的 DataFrame 操作執行資料整理、分析、視覺化與機器學習的指引。",
+        "whenToUse": "當您要用 Python 轉換、分析或視覺化 BigQuery 資料，或訓練 BigQuery ML 模型時使用；若工作以 SQL 為主或使用 google-cloud-bigquery 用戶端程式庫，請改用 bigquery-basics。",
+        "outputs": "產生 BigFrames 操作與 BigQuery ML 工作流程的 Python 程式碼，並提供檢查結構描述和預覽結果的建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供以 BigQuery 支持的 DataFrame 操作运行数据整理、分析、可视化与机器学习的指引。",
+        "whenToUse": "当您要用 Python 转换、分析或可视化 BigQuery 数据，或训练 BigQuery ML 模型时使用；若工作以 SQL 为主或使用 google-cloud-bigquery 用户端程序库，请改用 bigquery-basics。",
+        "outputs": "产生 BigFrames 操作与 BigQuery ML 工作流程的 Python 代码，并提供检查结构描述和预览结果的建议。"
+      }
+    }
+  }
+}

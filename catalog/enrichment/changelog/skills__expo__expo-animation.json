@@ -1,0 +1,126 @@
+{
+  "path": "skills/expo/expo-animation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:869d56ae317c884407c95370cb1cac66262bfea4c81c05bb134c0752bef53d30",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-animation",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "be95528712e3709b786d573edae90d14c67949a8",
+            "date": "2026-09-11T16:43:01+02:00",
+            "subject": "fixes Reanimated CSS easing in expo-animation (#179)",
+            "url": "https://github.com/expo/skills/commit/be95528712e3709b786d573edae90d14c67949a8",
+            "pathAtCommit": "plugins/expo/skills/expo-animation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The animation guide now uses `cubicBezier(...)` for Reanimated CSS timing functions, keeps `Easing.bezier(...)` for `withTiming` and `.easing(...)`, and warns that raw `cubic-bezier(...)` strings are rejected."
+          },
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-animation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The press-feedback rule now reserves 0.97 scaling for button-like pressables and directs full-width list rows to highlight their background instead."
+          },
+          {
+            "sha": "d1c68a21ec6a9249cfd2e3885364bb47b243adb2",
+            "date": "2026-08-19T00:03:31+02:00",
+            "subject": "[skills] add expo animation skill and upstream sync (#155)",
+            "url": "https://github.com/expo/skills/commit/d1c68a21ec6a9249cfd2e3885364bb47b243adb2",
+            "pathAtCommit": "plugins/expo/skills/expo-animation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The patch adds the Expo animation skill, a React Native guide covering motion decisions, Reanimated implementation, gestures, accessibility, performance, and device validation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "be95528712e3709b786d573edae90d14c67949a8",
+            "date": "2026-09-11T16:43:01+02:00",
+            "subject": "fixes Reanimated CSS easing in expo-animation (#179)",
+            "url": "https://github.com/expo/skills/commit/be95528712e3709b786d573edae90d14c67949a8",
+            "pathAtCommit": "plugins/expo/skills/expo-animation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "動畫指南現在指定 Reanimated CSS 時間函式使用 `cubicBezier(...)`、`withTiming` 與 `.easing(...)` 使用 `Easing.bezier(...)`，並指出原始的 `cubic-bezier(...)` 字串會遭拒。"
+          },
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-animation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "按壓回饋規則現在將 0.97 縮放限定於類似按鈕的可按元件，並指示全寬列表列改為高亮背景。"
+          },
+          {
+            "sha": "d1c68a21ec6a9249cfd2e3885364bb47b243adb2",
+            "date": "2026-08-19T00:03:31+02:00",
+            "subject": "[skills] add expo animation skill and upstream sync (#155)",
+            "url": "https://github.com/expo/skills/commit/d1c68a21ec6a9249cfd2e3885364bb47b243adb2",
+            "pathAtCommit": "plugins/expo/skills/expo-animation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更新增 Expo 動畫技能，這是一份涵蓋動畫決策、Reanimated 實作、手勢、無障礙支援、效能與裝置驗證的 React Native 指南。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "be95528712e3709b786d573edae90d14c67949a8",
+            "date": "2026-09-11T16:43:01+02:00",
+            "subject": "fixes Reanimated CSS easing in expo-animation (#179)",
+            "url": "https://github.com/expo/skills/commit/be95528712e3709b786d573edae90d14c67949a8",
+            "pathAtCommit": "plugins/expo/skills/expo-animation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "动画指南现在指定 Reanimated CSS 时间函数使用 `cubicBezier(...)`、`withTiming` 与 `.easing(...)` 使用 `Easing.bezier(...)`，并指出原始的 `cubic-bezier(...)` 字符串会遭拒。"
+          },
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-animation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "按压回馈规则现在将 0.97 缩放限定于类似按钮的可按组件，并指示全宽列表列改为高亮背景。"
+          },
+          {
+            "sha": "d1c68a21ec6a9249cfd2e3885364bb47b243adb2",
+            "date": "2026-08-19T00:03:31+02:00",
+            "subject": "[skills] add expo animation skill and upstream sync (#155)",
+            "url": "https://github.com/expo/skills/commit/d1c68a21ec6a9249cfd2e3885364bb47b243adb2",
+            "pathAtCommit": "plugins/expo/skills/expo-animation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更添加 Expo 动画技能，这是一份涵盖动画决策、Reanimated 实作、手势、无障碍支持、性能与设备验证的 React Native 指南。"
+          }
+        ]
+      }
+    }
+  }
+}

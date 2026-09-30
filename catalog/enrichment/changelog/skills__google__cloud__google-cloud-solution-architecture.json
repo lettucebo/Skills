@@ -1,0 +1,315 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-architecture",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:218d3c20d3105bb67f99456164340d09a2d407012729497907a145c9d0933199",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-solution-architecture",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "6359c7ca1247547ca43b0d3fa0d917971bc3e0e2",
+            "date": "2026-09-25T11:59:33-07:00",
+            "subject": "Enhancements to the references in google-cloud-solution-architecture skill",
+            "url": "https://github.com/google/skills/commit/6359c7ca1247547ca43b0d3fa0d917971bc3e0e2",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated design-recommendation guidance to use relevant best-practices guides and Well-Architected Framework pillar skills, and bumped the version to 1.0.2."
+          },
+          {
+            "sha": "6e3838f1152fafc05a36a9a3a4995ec15c07ef33",
+            "date": "2026-09-21T12:00:23-07:00",
+            "subject": "Added links to additional best-practices guides across multiple products including Cloud Run, Cloud SQL, GKE, Security, Spanner, & VPC Service Controls.",
+            "url": "https://github.com/google/skills/commit/6e3838f1152fafc05a36a9a3a4995ec15c07ef33",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Bumped the skill version from 1.0.0 to 1.0.1."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a 1.0.0 version field to the skill metadata."
+          },
+          {
+            "sha": "81a31a6e4300425598a69fd96c8e843c947ae308",
+            "date": "2026-09-03T08:15:22-07:00",
+            "subject": "Metadata updates to improve triggering reliability",
+            "url": "https://github.com/google/skills/commit/81a31a6e4300425598a69fd96c8e843c947ae308",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Revised the skill description to target end-to-end Google Cloud design and migrations while excluding single-product tasks, onboarding or authentication, WAF reviews, and specialized solution skills."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reclassified the skill as MultiProductSolutions and revised its workflow with explicit requirements and approval gates, safeguards against autonomous code execution, and separate pre-deployment and runtime validation."
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added GettingStarted as the skill's category metadata."
+          },
+          {
+            "sha": "615f761c4f8498007ee8d62b49973a574a15516b",
+            "date": "2026-07-20T20:27:38-07:00",
+            "subject": "Updated the `google-cloud-solution-architecture` skill to improve triggering the behavior, optimize the workflow instructions, and reinforce workflow guardrails.",
+            "url": "https://github.com/google/skills/commit/615f761c4f8498007ee8d62b49973a574a15516b",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked the workflow with stricter requirements and approval gates, expanded architecture and deployment guidance, and separate pre-deployment dry-run and post-deployment runtime validation."
+          },
+          {
+            "sha": "b1287583ccfaa32e65b34f274e62ebdab4cb35eb",
+            "date": "2026-07-10T12:57:30-07:00",
+            "subject": "Added a solution-validation phase to the workflow in the google-cloud-solution-architecture skill",
+            "url": "https://github.com/google/skills/commit/b1287583ccfaa32e65b34f274e62ebdab4cb35eb",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a solution-validation phase with a validation plan and user-permission-gated checks, then moved packaging to Phase 4."
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added GettingStarted as the skill's category metadata."
+          },
+          {
+            "sha": "b15f3274bcd76d2e05ba8c13c426b8794e844fc4",
+            "date": "2026-07-08T12:23:39-07:00",
+            "subject": "Skill to generate multi-product solution architecture guidance",
+            "url": "https://github.com/google/skills/commit/b15f3274bcd76d2e05ba8c13c426b8794e844fc4",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created the skill as a requirements-to-presentation workflow for multi-product Google Cloud architectures, covering product selection, architecture diagrams, design recommendations, deployment guidance, and packaging."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "6359c7ca1247547ca43b0d3fa0d917971bc3e0e2",
+            "date": "2026-09-25T11:59:33-07:00",
+            "subject": "Enhancements to the references in google-cloud-solution-architecture skill",
+            "url": "https://github.com/google/skills/commit/6359c7ca1247547ca43b0d3fa0d917971bc3e0e2",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新設計建議指引，改用相關最佳實務指南與 Well-Architected Framework 各支柱技能，並將版本升至 1.0.2。"
+          },
+          {
+            "sha": "6e3838f1152fafc05a36a9a3a4995ec15c07ef33",
+            "date": "2026-09-21T12:00:23-07:00",
+            "subject": "Added links to additional best-practices guides across multiple products including Cloud Run, Cloud SQL, GKE, Security, Spanner, & VPC Service Controls.",
+            "url": "https://github.com/google/skills/commit/6e3838f1152fafc05a36a9a3a4995ec15c07ef33",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能版本從 1.0.0 升至 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增 1.0.0 版本欄位。"
+          },
+          {
+            "sha": "81a31a6e4300425598a69fd96c8e843c947ae308",
+            "date": "2026-09-03T08:15:22-07:00",
+            "subject": "Metadata updates to improve triggering reliability",
+            "url": "https://github.com/google/skills/commit/81a31a6e4300425598a69fd96c8e843c947ae308",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修訂技能描述，將其定位於端到端 Google Cloud 解決方案設計與遷移，並排除單一產品任務、初始導入或身分驗證、WAF 審查及專門解決方案技能涵蓋的工作。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能重新分類為 MultiProductSolutions，並修訂工作流程，加入明確的需求與核准關卡、防止自動執行程式碼的防護措施，以及分開的部署前與執行階段驗證。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GettingStarted 作為此技能的類別中繼資料。"
+          },
+          {
+            "sha": "615f761c4f8498007ee8d62b49973a574a15516b",
+            "date": "2026-07-20T20:27:38-07:00",
+            "subject": "Updated the `google-cloud-solution-architecture` skill to improve triggering the behavior, optimize the workflow instructions, and reinforce workflow guardrails.",
+            "url": "https://github.com/google/skills/commit/615f761c4f8498007ee8d62b49973a574a15516b",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整工作流程，強化需求與核准關卡、擴充架構與部署指引，並分開部署前試運行與部署後執行階段驗證。"
+          },
+          {
+            "sha": "b1287583ccfaa32e65b34f274e62ebdab4cb35eb",
+            "date": "2026-07-10T12:57:30-07:00",
+            "subject": "Added a solution-validation phase to the workflow in the google-cloud-solution-architecture skill",
+            "url": "https://github.com/google/skills/commit/b1287583ccfaa32e65b34f274e62ebdab4cb35eb",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增包含驗證計畫及需使用者授權之檢查的解決方案驗證階段，並將封裝移至第 4 階段。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GettingStarted 作為此技能的類別中繼資料。"
+          },
+          {
+            "sha": "b15f3274bcd76d2e05ba8c13c426b8794e844fc4",
+            "date": "2026-07-08T12:23:39-07:00",
+            "subject": "Skill to generate multi-product solution architecture guidance",
+            "url": "https://github.com/google/skills/commit/b15f3274bcd76d2e05ba8c13c426b8794e844fc4",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立此技能，提供多產品 Google Cloud 架構從需求探索到成果呈現的工作流程，涵蓋產品選擇、架構圖、設計建議、部署指引與封裝。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "6359c7ca1247547ca43b0d3fa0d917971bc3e0e2",
+            "date": "2026-09-25T11:59:33-07:00",
+            "subject": "Enhancements to the references in google-cloud-solution-architecture skill",
+            "url": "https://github.com/google/skills/commit/6359c7ca1247547ca43b0d3fa0d917971bc3e0e2",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新设计建议指引，改用相关最佳实务指南与 Well-Architected Framework 各支柱技能，并将版本升至 1.0.2。"
+          },
+          {
+            "sha": "6e3838f1152fafc05a36a9a3a4995ec15c07ef33",
+            "date": "2026-09-21T12:00:23-07:00",
+            "subject": "Added links to additional best-practices guides across multiple products including Cloud Run, Cloud SQL, GKE, Security, Spanner, & VPC Service Controls.",
+            "url": "https://github.com/google/skills/commit/6e3838f1152fafc05a36a9a3a4995ec15c07ef33",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能版本从 1.0.0 升至 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加 1.0.0 版本字段。"
+          },
+          {
+            "sha": "81a31a6e4300425598a69fd96c8e843c947ae308",
+            "date": "2026-09-03T08:15:22-07:00",
+            "subject": "Metadata updates to improve triggering reliability",
+            "url": "https://github.com/google/skills/commit/81a31a6e4300425598a69fd96c8e843c947ae308",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修订技能描述，将其定位于端到端 Google Cloud 解决方案设计与迁移，并排除单一产品任务、初始导入或身分验证、WAF 审查及专门解决方案技能涵盖的工作。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能重新分类为 MultiProductSolutions，并修订工作流程，加入明确的需求与核准关卡、防止自动运行代码的防护措施，以及分开的部署前与运行阶段验证。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GettingStarted 作为此技能的类别中继数据。"
+          },
+          {
+            "sha": "615f761c4f8498007ee8d62b49973a574a15516b",
+            "date": "2026-07-20T20:27:38-07:00",
+            "subject": "Updated the `google-cloud-solution-architecture` skill to improve triggering the behavior, optimize the workflow instructions, and reinforce workflow guardrails.",
+            "url": "https://github.com/google/skills/commit/615f761c4f8498007ee8d62b49973a574a15516b",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整工作流程，强化需求与核准关卡、扩充架构与部署指引，并分开部署前试运行与部署后运行阶段验证。"
+          },
+          {
+            "sha": "b1287583ccfaa32e65b34f274e62ebdab4cb35eb",
+            "date": "2026-07-10T12:57:30-07:00",
+            "subject": "Added a solution-validation phase to the workflow in the google-cloud-solution-architecture skill",
+            "url": "https://github.com/google/skills/commit/b1287583ccfaa32e65b34f274e62ebdab4cb35eb",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加包含验证计划及需用户授权之检查的解决方案验证阶段，并将封装移至第 4 阶段。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GettingStarted 作为此技能的类别中继数据。"
+          },
+          {
+            "sha": "b15f3274bcd76d2e05ba8c13c426b8794e844fc4",
+            "date": "2026-07-08T12:23:39-07:00",
+            "subject": "Skill to generate multi-product solution architecture guidance",
+            "url": "https://github.com/google/skills/commit/b15f3274bcd76d2e05ba8c13c426b8794e844fc4",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建此技能，提供多产品 Google Cloud 架构从需求探索到成果呈现的工作流程，涵盖产品选择、架构图、设计建议、部署指引与封装。"
+          }
+        ]
+      }
+    }
+  }
+}

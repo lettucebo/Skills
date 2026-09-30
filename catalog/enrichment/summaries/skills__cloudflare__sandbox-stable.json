@@ -2,42 +2,42 @@
   "path": "skills/cloudflare/sandbox-stable",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:051141ce004cf8060023f3bfbcaad33b987e3913fa1303f332acf8baa4e95f80"
+    "contentHash": "sha256:63fd52bf420b3b04db65badbe158c30f79c520847c589dc65f6d9a8fee088b01"
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Summarizes how to work with Cloudflare Sandbox apps that remain on the current stable package and should rely on stable documentation and types instead of preview APIs.",
-        "whenToUse": "Use this for building, updating, or cleaning up stable-line Sandbox apps, including commands, sessions, files, ports, tunnels, terminals, bridge setups, production deployment, and deprecated stable APIs, but not @next or 1.0 migration work.",
-        "outputs": "Provides stable-focused guidance and doc targets for implementation areas such as command execution, persistent sessions, file and storage handling, networking, terminals, lifecycle, security, and deprecation cleanup."
+        "purpose": "Provides the stable SDK contract and a task-oriented documentation map, prioritizing installed stable types over assumptions.",
+        "whenToUse": "Use for stable API work or deprecated-API cleanup once the Worker dependency and container image are confirmed to match the stable line.",
+        "outputs": "Task-specific stable implementation guidance grounded in official documentation and installed stable types."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "說明如何在目前穩定版套件上處理 Cloudflare Sandbox 應用，並以穩定版文件與型別為準，而不是預覽 API。",
-        "whenToUse": "適用於建置、更新或清理仍停留在穩定線的 Sandbox 應用，包括指令、工作階段、檔案、連接埠、通道、終端機、Bridge、正式部署與已棄用穩定 API，但不適用於 @next 或 1.0 遷移。",
-        "outputs": "提供偏向穩定版的實作指引與文件指向，涵蓋指令執行、持久工作階段、檔案與儲存、網路、終端機、生命週期、安全性與棄用項目清理。"
+        "purpose": "提供穩定版 SDK 契約與依任務分類的文件索引，並以已安裝的穩定版型別為準，而非依賴假設。",
+        "whenToUse": "確認 Worker 依賴與容器映像皆符合穩定版後，於穩定版 API 工作或清理已棄用 API 時使用。",
+        "outputs": "依據官方文件與已安裝穩定版型別提供任務所需的穩定版實作指引。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "说明如何在目前稳定版套件上处理 Cloudflare Sandbox 应用，并以稳定版文档与类型为准，而不是预览 API。",
-        "whenToUse": "适用于建置、更新或清理仍停留在稳定线的 Sandbox 应用，包括指令、工作阶段、文件、连接端口、通道、终端机、Bridge、正式部署与已弃用稳定 API，但不适用于 @next 或 1.0 迁移。",
-        "outputs": "提供偏向稳定版的实作指引与文档指向，涵盖指令运行、持久工作阶段、文件与保存、网络、终端机、生命周期、安全性与弃用项目清理。"
+        "purpose": "提供稳定版 SDK 契约与依任务分类的文档索引，并以已安装的稳定版类型为准，而非依赖假设。",
+        "whenToUse": "确认 Worker 依赖与容器映像皆符合稳定版后，于稳定版 API 工作或清理已弃用 API 时使用。",
+        "outputs": "依据官方文档与已安装稳定版类型提供任务所需的稳定版实作指引。"
       }
     }
   }

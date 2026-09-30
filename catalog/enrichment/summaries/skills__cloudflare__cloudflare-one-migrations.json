@@ -2,42 +2,42 @@
   "path": "skills/cloudflare/cloudflare-one-migrations",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:a1e47294c3f6b972e87c55e888aa03db40e15e6817c7b5ca19b4aabeea14081c"
+    "contentHash": "sha256:fecdb1efad93b71de47b49f90253cf361706884488e734f0848b22ef210736ca"
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides a structured migration assessment for moving security access services from platforms like Zscaler, Palo Alto, or legacy VPN stacks into Cloudflare One.",
-        "whenToUse": "Use it when you need to inventory source policies and dependencies, identify gaps or manual decisions, and plan a staged Cloudflare One rollout.",
-        "outputs": "It produces a mapping and rollout assessment covering prerequisites, unsupported or partial translations, validation gates, rollback planning, and rule-by-rule accounting."
+        "purpose": "Helps assess and plan a Cloudflare One migration by accounting for source rules, dependencies, coverage gaps, rollout, and validation.",
+        "whenToUse": "Use it when reviewing structured exports and logs from Zscaler, Palo Alto/Prisma, or legacy VPN/SWG environments and deciding how to map, stage, and validate their policies and connectivity.",
+        "outputs": "Produces a source-rule inventory and mapping plan with target resources, confidence, prerequisites, partial or unmapped items, risks, rollout, validation, and rollback steps."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供結構化的遷移評估，協助將 Zscaler、Palo Alto 或傳統 VPN 等安全存取服務移轉到 Cloudflare One。",
-        "whenToUse": "當你需要盤點來源策略與相依項、找出缺口或人工決策點，並規劃分階段的 Cloudflare One 導入時使用。",
-        "outputs": "它會產出涵蓋前置條件、不支援或部分對應項、驗證關卡、回復計畫與逐條規則對帳的對應與推行評估。"
+        "purpose": "協助盤點並規劃遷移至 Cloudflare One，涵蓋來源規則、相依項目、覆蓋缺口、推出與驗證。",
+        "whenToUse": "在檢視 Zscaler、Palo Alto／Prisma 或傳統 VPN／SWG 環境的結構化匯出資料與記錄，並決定如何對應、分階段推出及驗證政策與連線時使用。",
+        "outputs": "產出來源規則清冊與對應計畫，列明目標資源、信心程度、前置條件、部分或未對應項目、風險、推出、驗證及回復步驟。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供结构化的迁移评估，协助将 Zscaler、Palo Alto 或传统 VPN 等安全访问服务移转到 Cloudflare One。",
-        "whenToUse": "当你需要盘点来源策略与相依项、找出缺口或人工决策点，并规划分阶段的 Cloudflare One 导入时使用。",
-        "outputs": "它会产出涵盖前置条件、不支持或部分对应项、验证关卡、回复计划与逐条规则对帐的对应与推行评估。"
+        "purpose": "协助盘点并规划迁移至 Cloudflare One，涵盖来源规则、相依项目、覆盖缺口、推出与验证。",
+        "whenToUse": "在查看 Zscaler、Palo Alto／Prisma 或传统 VPN／SWG 环境的结构化导出数据与记录，并决定如何对应、分阶段推出及验证政策与连接时使用。",
+        "outputs": "产出来源规则清册与对应计划，列明目标资源、信心程度、前置条件、部分或未对应项目、风险、推出、验证及回复步骤。"
       }
     }
   }
