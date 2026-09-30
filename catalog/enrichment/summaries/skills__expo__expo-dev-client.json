@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-dev-client",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:bf83eeb1c232e30c78fb11c0e5761d79d33491019aa32ea73584469d1684fc4d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Build a custom Expo development app to test native changes and connect to the Metro bundler.",
+        "whenToUse": "Use it when an app has custom native code or modules, Apple app targets, config plugins, or needs testing for remote push notifications or app and universal links.",
+        "outputs": "It produces an installable iOS (.ipa) or Android (.apk/.aab) development build locally or with EAS Build; iOS builds can also be submitted to TestFlight for internal testing."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "建立自訂 Expo 開發應用程式，以測試原生程式碼變更並連接 Metro 打包伺服器。",
+        "whenToUse": "當應用程式包含自訂原生程式碼或模組、Apple 應用程式目標、設定外掛，或需要測試遠端推播通知、應用程式連結與通用連結時使用。",
+        "outputs": "可在本機或透過 EAS Build 產生可安裝的 iOS（.ipa）或 Android（.apk/.aab）開發版本；iOS 版本也可提交至 TestFlight 供內部測試。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "创建自订 Expo 开发应用程序，以测试原生代码变更并连接 Metro 打包服务器。",
+        "whenToUse": "当应用程序包含自订原生代码或模块、Apple 应用程序目标、设置插件，或需要测试远程推播通知、应用程序链接与通用链接时使用。",
+        "outputs": "可在本机或透过 EAS Build 产生可安装的 iOS（.ipa）或 Android（.apk/.aab）开发版本；iOS 版本也可提交至 TestFlight 供内部测试。"
+      }
+    }
+  }
+}

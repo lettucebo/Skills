@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/az-cost-optimize.prompt.md",
               "destinationPath": "skills/az-cost-optimize/SKILL.md"
             },
-            "summary": "Added a new `skills/az-cost-optimize/SKILL.md` file containing the full Azure cost optimization workflow."
+            "summary": "Added a skill document describing an Azure cost-optimization workflow from infrastructure discovery through recommendations and GitHub issue creation."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the prompt frontmatter field from `mode` to `agent`."
+            "summary": "Renamed the prompt front-matter key from `mode` to `agent`."
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -47,7 +47,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Quoted the prompt frontmatter values, changed the top heading to `# Azure Cost Optimize`, and added a trailing newline."
+            "summary": "Quoted the front-matter values, replaced the Overview heading with an Azure Cost Optimize title, and added a final newline."
           },
           {
             "sha": "7128f5b8373de9aefb6769d431b266bdd29e2962",
@@ -56,7 +56,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/7128f5b8373de9aefb6769d431b266bdd29e2962",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Reworded the best-practices guidance and IaC-only rule, and added an instruction to stop when no IaC files are found."
+            "summary": "Expanded the best-practice guidance and clarified IaC-only analysis by adding a rule to stop and report when no IaC files are found."
           },
           {
             "sha": "fdca96c3c92d3da410298c75d60a1bfb5016ac69",
@@ -65,15 +65,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/fdca96c3c92d3da410298c75d60a1bfb5016ac69",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added a new Azure cost optimization prompt file with the full workflow, issue templates, error handling, and success criteria."
+            "summary": "Added the Azure cost-optimization prompt with resource discovery, usage and cost analysis, recommendations, user confirmation, and GitHub issue creation steps."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -90,7 +90,7 @@
               "sourcePath": "prompts/az-cost-optimize.prompt.md",
               "destinationPath": "skills/az-cost-optimize/SKILL.md"
             },
-            "summary": "新增 `skills/az-cost-optimize/SKILL.md` 檔案，內容包含完整的 Azure 成本最佳化工作流程。"
+            "summary": "新增技能文件，描述從基礎設施探索、提出建議到建立 GitHub issue 的 Azure 成本最佳化流程。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -99,7 +99,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示檔前言區塊中的欄位名稱由 `mode` 改為 `agent`。"
+            "summary": "將提示檔前置資訊中的 `mode` 欄位重新命名為 `agent`。"
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -108,7 +108,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示檔前言區塊的值改為加上引號、把頂層標題改成 `# Azure Cost Optimize`，並補上結尾換行。"
+            "summary": "為前置資訊值加上引號，將 Overview 標題改為 Azure Cost Optimize，並在檔案末尾新增換行。"
           },
           {
             "sha": "7128f5b8373de9aefb6769d431b266bdd29e2962",
@@ -117,7 +117,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/7128f5b8373de9aefb6769d431b266bdd29e2962",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "調整最佳實務指引與僅限 IaC 的規則措辭，並新增找不到 IaC 檔案時必須停止的指示。"
+            "summary": "擴充最佳實務指引，並釐清僅分析 IaC 檔案的規則，新增找不到 IaC 檔案時停止並回報的要求。"
           },
           {
             "sha": "fdca96c3c92d3da410298c75d60a1bfb5016ac69",
@@ -126,13 +126,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/fdca96c3c92d3da410298c75d60a1bfb5016ac69",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增 Azure 成本最佳化提示檔，包含完整工作流程、議題範本、錯誤處理與成功條件。"
+            "summary": "新增 Azure 成本最佳化提示，涵蓋資源探索、使用量與成本分析、建議、使用者確認及 GitHub issue 建立步驟。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -150,7 +150,7 @@
               "sourcePath": "prompts/az-cost-optimize.prompt.md",
               "destinationPath": "skills/az-cost-optimize/SKILL.md"
             },
-            "summary": "添加 `skills/az-cost-optimize/SKILL.md` 文件，内容包含完整的 Azure 成本优化工作流程。"
+            "summary": "添加技能文档，描述从基础设施探索、提出建议到创建 GitHub issue 的 Azure 成本优化流程。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -159,7 +159,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示档前言区块中的字段名称由 `mode` 改为 `agent`。"
+            "summary": "将提示档前置信息中的 `mode` 字段重命名为 `agent`。"
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -168,7 +168,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示档前言区块的值改为加上引号、把顶层标题改成 `# Azure Cost Optimize`，并补上结尾换行。"
+            "summary": "为前置信息值加上引号，将 Overview 标题改为 Azure Cost Optimize，并在文件末尾添加换行。"
           },
           {
             "sha": "7128f5b8373de9aefb6769d431b266bdd29e2962",
@@ -177,7 +177,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/7128f5b8373de9aefb6769d431b266bdd29e2962",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "调整最佳实务指引与仅限 IaC 的规则措辞，并添加找不到 IaC 文件时必须停止的指示。"
+            "summary": "扩充最佳实务指引，并厘清仅分析 IaC 文件的规则，添加找不到 IaC 文件时停止并回报的要求。"
           },
           {
             "sha": "fdca96c3c92d3da410298c75d60a1bfb5016ac69",
@@ -186,7 +186,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/fdca96c3c92d3da410298c75d60a1bfb5016ac69",
             "pathAtCommit": "prompts/az-cost-optimize.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加 Azure 成本优化提示档，包含完整工作流程、议题范本、错误处理与成功条件。"
+            "summary": "添加 Azure 成本优化提示，涵盖资源探索、使用量与成本分析、建议、用户确认及 GitHub issue 创建步骤。"
           }
         ]
       }

@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
             "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The skill docs now recommend the subscriptions v2 API, add RTDN setup and decode command examples, and note that order refunds require `--confirm`."
+            "summary": "The skill now recommends subscription v2 endpoints, adds RTDN setup and payload-decoding commands, and documents that order refunds require `--confirm`."
           },
           {
             "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
@@ -33,15 +33,15 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
             "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The skill was added with Google Play purchase verification instructions, backend examples, subscription event handling, and order and refund workflows."
+            "summary": "The patch adds the initial skill guide for server-side Google Play purchase verification, covering product and subscription checks, event handling, and purchase/order management."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -53,7 +53,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
             "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能文件現在建議使用 subscriptions v2 API、加入 RTDN 設定與解碼指令範例，並註明訂單退款需要 `--confirm`。"
+            "summary": "此技能現在建議使用訂閱 v2 端點，新增 RTDN 設定與通知資料解碼指令，並說明訂單退款必須使用 `--confirm`。"
           },
           {
             "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
@@ -62,13 +62,13 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
             "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能新增了 Google Play 購買驗證說明、後端範例、訂閱事件處理，以及訂單與退款流程。"
+            "summary": "此修補新增 Google Play 伺服器端購買驗證的初始技能指南，涵蓋商品與訂閱驗證、事件處理，以及購買與訂單管理。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -81,7 +81,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
             "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能文档现在建议使用 subscriptions v2 API、加入 RTDN 设置与解码指令范例，并注明订单退款需要 `--confirm`。"
+            "summary": "此技能现在建议使用订阅 v2 端点，添加 RTDN 设置与通知数据解码指令，并说明订单退款必须使用 `--confirm`。"
           },
           {
             "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
@@ -90,7 +90,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
             "pathAtCommit": "skills/gplay-purchase-verification/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能添加了 Google Play 购买验证说明、后端范例、订阅事件处理，以及订单与退款流程。"
+            "summary": "此修补添加 Google Play 服务器端购买验证的初始技能指南，涵盖商品与订阅验证、事件处理，以及购买与订单管理。"
           }
         ]
       }

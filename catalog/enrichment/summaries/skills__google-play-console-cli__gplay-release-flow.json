@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides a practical CLI guide for releasing Android app builds to Google Play tracks, including promotions and staged rollouts.",
-        "whenToUse": "Use it when you need to upload an AAB or APK, move a release between internal, beta, and production tracks, or manage rollout progress.",
-        "outputs": "It returns example gplay commands, release-note and metadata options, manual edit steps, rollout actions, and pre-release checklists."
+        "purpose": "Coordinates app releases, track promotions, and staged rollouts on Google Play through the gplay CLI.",
+        "whenToUse": "Use it to prepare a release for a specific testing or production track, promote a tested release, or adjust its staged rollout.",
+        "outputs": "Uploads an AAB or APK to a selected Play track and can sync release notes, listings, and screenshots, or change an existing release's track or rollout state."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供以 CLI 將 Android 應用程式版本發布到 Google Play 各軌道的實務指引，包含升軌與分階段發布。",
-        "whenToUse": "當你需要上傳 AAB 或 APK、在 internal、beta 與 production 軌道間推進版本，或管理發布比例時使用。",
-        "outputs": "它會提供 gplay 指令範例、版本說明與中繼資料選項、手動編輯流程、發布比例操作，以及發布前檢查清單。"
+        "purpose": "透過 gplay CLI 協調 Google Play 上的應用程式發布、測試軌道升級與分階段推出。",
+        "whenToUse": "當需要為特定測試或正式版軌道準備版本、升級已測試版本，或調整分階段推出比例時使用。",
+        "outputs": "將 AAB 或 APK 上傳至指定的 Play 軌道，並可同步版本說明、商店資訊與螢幕截圖，或變更既有版本的軌道或推出狀態。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供以 CLI 将 Android 应用程序版本发布到 Google Play 各轨道的实务指引，包含升轨与分阶段发布。",
-        "whenToUse": "当你需要上传 AAB 或 APK、在 internal、beta 与 production 轨道间推进版本，或管理发布比例时使用。",
-        "outputs": "它会提供 gplay 指令范例、版本说明与中继数据选项、手动编辑流程、发布比例操作，以及发布前检查清单。"
+        "purpose": "透过 gplay CLI 协调 Google Play 上的应用程序发布、测试轨道升级与分阶段推出。",
+        "whenToUse": "当需要为特定测试或正式版轨道准备版本、升级已测试版本，或调整分阶段推出比例时使用。",
+        "outputs": "将 AAB 或 APK 上传至指定的 Play 轨道，并可同步版本说明、商店信息与屏幕截屏，或变更既有版本的轨道或推出状态。"
       }
     }
   }

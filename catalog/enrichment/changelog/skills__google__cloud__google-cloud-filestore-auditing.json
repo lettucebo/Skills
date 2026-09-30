@@ -1,0 +1,99 @@
+{
+  "path": "skills/google/cloud/google-cloud-filestore-auditing",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c8f7ba16b0d6fcf6c77914dd54283707143dce7b3a7d4b1551d012a2dc7166d6",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-filestore-auditing",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-auditing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the skill's metadata version field with the value 1.0.0."
+          },
+          {
+            "sha": "4b40feb8ca0dd89df8cfeb7e387bda7340c27b8e",
+            "date": "2026-09-08T18:07:33-07:00",
+            "subject": "Add google-cloud-filestore-auditing skill for fleet disaster recovery, security access governance, and architectural reliability audits of GCP Filestore instances.",
+            "url": "https://github.com/google/skills/commit/4b40feb8ca0dd89df8cfeb7e387bda7340c27b8e",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-auditing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Google Cloud Filestore auditing skill covering backup protection, NFS export security, zone isolation, and audit reporting."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-auditing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增版本欄位，值為 1.0.0。"
+          },
+          {
+            "sha": "4b40feb8ca0dd89df8cfeb7e387bda7340c27b8e",
+            "date": "2026-09-08T18:07:33-07:00",
+            "subject": "Add google-cloud-filestore-auditing skill for fleet disaster recovery, security access governance, and architectural reliability audits of GCP Filestore instances.",
+            "url": "https://github.com/google/skills/commit/4b40feb8ca0dd89df8cfeb7e387bda7340c27b8e",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-auditing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Google Cloud Filestore 稽核技能，涵蓋備份保護、NFS 匯出安全性、區域隔離與稽核報告。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-auditing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加版本字段，值为 1.0.0。"
+          },
+          {
+            "sha": "4b40feb8ca0dd89df8cfeb7e387bda7340c27b8e",
+            "date": "2026-09-08T18:07:33-07:00",
+            "subject": "Add google-cloud-filestore-auditing skill for fleet disaster recovery, security access governance, and architectural reliability audits of GCP Filestore instances.",
+            "url": "https://github.com/google/skills/commit/4b40feb8ca0dd89df8cfeb7e387bda7340c27b8e",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-auditing/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Google Cloud Filestore 审核技能，涵盖备份保护、NFS 导出安全性、区域隔离与审核报告。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/google-agents-cli-onboarding",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:a0bada613ded7f360eac9a15e1f3337202faf6a0b2ed6f83981b95f63c4781a6",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-agents-cli-onboarding",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Sets the skill metadata version to 1.0.0 in its front matter."
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a DevOps category to the metadata and a `Google Agents CLI Onboarding` heading to the skill."
+          },
+          {
+            "sha": "4f2b58c848e15b371ecc5079869a8381d9249fc9",
+            "date": "2026-06-27T06:06:18-07:00",
+            "subject": "Fix google-agents-cli-onboarding tables",
+            "url": "https://github.com/google/skills/commit/4f2b58c848e15b371ecc5079869a8381d9249fc9",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Renames the lifecycle section to The Agent Development Lifecycle, changes the sample reference from ADK samples to agent samples, and reformats the lifecycle and CLI command tables."
+          },
+          {
+            "sha": "94826ed354fad9e703428f6f2e3075cff4181b9f",
+            "date": "2026-06-27T02:13:37-07:00",
+            "subject": "Add google-agents-cli-onboarding skill",
+            "url": "https://github.com/google/skills/commit/94826ed354fad9e703428f6f2e3075cff4181b9f",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the onboarding skill with setup instructions, an agents-cli overview, lifecycle and command tables, next steps, issue reporting, and supporting links."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 front matter 中將中繼資料版本設為 1.0.0。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料新增 DevOps 類別，並加入 `Google Agents CLI Onboarding` 標題。"
+          },
+          {
+            "sha": "4f2b58c848e15b371ecc5079869a8381d9249fc9",
+            "date": "2026-06-27T06:06:18-07:00",
+            "subject": "Fix google-agents-cli-onboarding tables",
+            "url": "https://github.com/google/skills/commit/4f2b58c848e15b371ecc5079869a8381d9249fc9",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將生命週期章節改名為 The Agent Development Lifecycle，將範例描述中的 ADK 範例改為代理程式範例，並重新排版生命週期與 CLI 指令表格。"
+          },
+          {
+            "sha": "94826ed354fad9e703428f6f2e3075cff4181b9f",
+            "date": "2026-06-27T02:13:37-07:00",
+            "subject": "Add google-agents-cli-onboarding skill",
+            "url": "https://github.com/google/skills/commit/94826ed354fad9e703428f6f2e3075cff4181b9f",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增此入門技能，提供 agents-cli 設定說明、概覽、生命週期與指令表格、後續步驟、問題回報資訊及支援連結。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 front matter 中将中继数据版本设为 1.0.0。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据添加 DevOps 类别，并加入 `Google Agents CLI Onboarding` 标题。"
+          },
+          {
+            "sha": "4f2b58c848e15b371ecc5079869a8381d9249fc9",
+            "date": "2026-06-27T06:06:18-07:00",
+            "subject": "Fix google-agents-cli-onboarding tables",
+            "url": "https://github.com/google/skills/commit/4f2b58c848e15b371ecc5079869a8381d9249fc9",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将生命周期章节改名为 The Agent Development Lifecycle，将范例描述中的 ADK 范例改为代理程序范例，并重新排版生命周期与 CLI 指令表格。"
+          },
+          {
+            "sha": "94826ed354fad9e703428f6f2e3075cff4181b9f",
+            "date": "2026-06-27T02:13:37-07:00",
+            "subject": "Add google-agents-cli-onboarding skill",
+            "url": "https://github.com/google/skills/commit/94826ed354fad9e703428f6f2e3075cff4181b9f",
+            "pathAtCommit": "skills/cloud/google-agents-cli-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加此入门技能，提供 agents-cli 设置说明、概览、生命周期与指令表格、后续步骤、问题回报信息及支持链接。"
+          }
+        ]
+      }
+    }
+  }
+}

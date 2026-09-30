@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/detection-engineering-coverage-evaluation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6b5b448e1a9fe4ad98bba3a6a8fd935b637b05e8cb8a75cc4c1bc3d0cc7200d4"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It traces threat behaviors through simulated UDM events to show which existing Google SecOps rules detect them and where coverage is missing.",
+        "whenToUse": "Use it when you have threat intelligence in an article or raw text and need an evidence-based coverage check before deciding whether new detections are needed.",
+        "outputs": "The final summary lists each threat opportunity, matching-rule details, any coverage gaps, generated-rule summaries, and errors; a rule is reported as created only after approval and successful creation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它透過模擬的 UDM 事件追蹤威脅行為，指出哪些既有 Google SecOps 規則能偵測到這些行為，以及哪些地方仍有涵蓋缺口。",
+        "whenToUse": "當你有文章或原始文字形式的威脅情報，並需要以證據檢視偵測涵蓋情形，再判斷是否需要新增偵測時，請使用此流程。",
+        "outputs": "最終摘要會列出各項威脅偵測機會、命中規則的詳情、任何涵蓋缺口、新產生規則的摘要及錯誤；只有在獲得核准並成功建立後，規則才會列為已建立。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它透过模拟的 UDM 事件追踪威胁行为，指出哪些既有 Google SecOps 规则能侦测到这些行为，以及哪些地方仍有涵盖缺口。",
+        "whenToUse": "当你有文章或原始文字形式的威胁情报，并需要以证据查看侦测涵盖情形，再判断是否需要添加侦测时，请使用此流程。",
+        "outputs": "最终摘要会列出各项威胁侦测机会、命中规则的详情、任何涵盖缺口、新产生规则的摘要及错误；只有在获得核准并成功创建后，规则才会列为已创建。"
+      }
+    }
+  }
+}

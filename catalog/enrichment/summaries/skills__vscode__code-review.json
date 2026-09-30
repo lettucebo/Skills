@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps reviewers evaluate code changes for correctness, security, performance, maintainability, and feedback quality across several major languages and frameworks.",
-        "whenToUse": "Use it when reviewing pull requests, setting team review standards, mentoring through reviews, or examining architecture, security, and code quality concerns.",
-        "outputs": "It produces structured review feedback with prioritized comments, key concerns, strengths, and a clear approve, comment, or request-changes recommendation."
+        "purpose": "It turns code review into collaborative learning through a structured process, prioritized feedback, and a focus on actionable improvements.",
+        "whenToUse": "Use it to guide a review from understanding a change's context and design through detailed checks to a clear decision to approve, comment, or request changes.",
+        "outputs": "It produces prioritized, actionable review comments, a summary of key concerns and strengths, and a clear review decision."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助審查者從正確性、安全性、效能、可維護性與回饋品質等面向，評估多種主流程式語言與框架的程式碼變更。",
-        "whenToUse": "適合用於審查拉取請求、建立團隊審查標準、透過審查指導成員，或檢視架構、安全與程式碼品質議題。",
-        "outputs": "它會產出具結構的審查回饋，包含已排序優先級的意見、主要疑慮、做得好的地方，以及明確的核准、留言或要求修改建議。"
+        "purpose": "透過有架構的流程、分級回饋與聚焦可行改進，讓程式碼審查成為共同學習的過程。",
+        "whenToUse": "可用於引導審查從理解變更背景與設計，進入詳細檢查，並明確決定核准、留言或要求修改。",
+        "outputs": "產出具優先順序且可採取行動的審查意見、重點疑慮與優點摘要，以及明確的審查決定。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助审查者从正确性、安全性、性能、可维护性与回馈品质等面向，评估多种主流编程语言与框架的代码变更。",
-        "whenToUse": "适合用于审查拉取请求、创建团队审查标准、透过审查指导成员，或查看架构、安全与代码品质议题。",
-        "outputs": "它会产出具结构的审查回馈，包含已排序优先级的意见、主要疑虑、做得好的地方，以及明确的核准、留言或要求修改建议。"
+        "purpose": "透过有架构的流程、分级回馈与聚焦可行改进，让代码审查成为共同学习的过程。",
+        "whenToUse": "可用于引导审查从理解变更背景与设计，进入详细检查，并明确决定核准、留言或要求修改。",
+        "outputs": "产出具优先级且可采取行动的审查意见、重点疑虑与优点摘要，以及明确的审查决定。"
       }
     }
   }

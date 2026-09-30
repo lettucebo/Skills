@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/cloud/gke-backup-dr",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6e0d7e9f6ed67d8cb0929899e08b5657ac50e531ac8bb1d16d949f7966c977dd",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-backup-dr",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `version: \"1.0.0\"` to the skill's metadata."
+          },
+          {
+            "sha": "950241de4b613d3b6a0fb245e7a01bc7af989c53",
+            "date": "2026-08-22T13:47:50-07:00",
+            "subject": "Upgrade gke-backup-dr skill.",
+            "url": "https://github.com/google/skills/commit/950241de4b613d3b6a0fb245e7a01bc7af989c53",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked the skill's Backup for GKE guidance with updated beta CLI commands, explicit volume-data and secret inclusion, restore-safety warnings, CMEK and scope recommendations, and new cross-project, pricing, scheduling, and Hyperdisk notes."
+          },
+          {
+            "sha": "4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "date": "2026-07-14T14:43:03-07:00",
+            "subject": "Update GKE skills to clarify Autopilot defaults, VPC-Native benefits, and Backup for GKE best practices: - gke-cluster-creation: Add warning and operational details when deviating to GKE Standard mode. - gke-networking: Document benefits of VPC-Native mode (scalability, direct VPC integration, avoiding IP exhaustion). - gke-golden-path: Update defaults table to include loggingConfig. - gke-backup-dr: Add best practices for stateful backups (quiescing, CSI snapshots, service terminology).",
+            "url": "https://github.com/google/skills/commit/4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded backup coverage details, added a restore-status command, and added best practices for quiescing writes, CSI volume snapshots, and service terminology."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the `category: Storage` field under the `metadata` block in the skill's YAML frontmatter."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the GKE backup and disaster recovery skill with Backup for GKE CLI examples, CMEK and namespace-scope recommendations, and guidance not to wait synchronously for addon activation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 metadata 中新增 `version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "950241de4b613d3b6a0fb245e7a01bc7af989c53",
+            "date": "2026-08-22T13:47:50-07:00",
+            "subject": "Upgrade gke-backup-dr skill.",
+            "url": "https://github.com/google/skills/commit/950241de4b613d3b6a0fb245e7a01bc7af989c53",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 Backup for GKE 指引，改用 beta CLI 指令，明確啟用磁碟區資料與 Secret 備份，補上還原安全警告、CMEK 與範圍建議，以及跨專案、定價、排程和 Hyperdisk 說明。"
+          },
+          {
+            "sha": "4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "date": "2026-07-14T14:43:03-07:00",
+            "subject": "Update GKE skills to clarify Autopilot defaults, VPC-Native benefits, and Backup for GKE best practices: - gke-cluster-creation: Add warning and operational details when deviating to GKE Standard mode. - gke-networking: Document benefits of VPC-Native mode (scalability, direct VPC integration, avoiding IP exhaustion). - gke-golden-path: Update defaults table to include loggingConfig. - gke-backup-dr: Add best practices for stateful backups (quiescing, CSI snapshots, service terminology).",
+            "url": "https://github.com/google/skills/commit/4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充備份涵蓋內容的說明，新增還原狀態查詢指令，並加入暫停寫入、CSI 磁碟區快照及服務稱呼的最佳實務。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能 YAML 前置資料中的 `category: Storage` 欄位移至 `metadata` 區塊之下。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 備份與災難復原技能，提供 Backup for GKE CLI 範例、CMEK 與命名空間範圍建議，並說明啟用附加元件時不要同步等待。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 metadata 中添加 `version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "950241de4b613d3b6a0fb245e7a01bc7af989c53",
+            "date": "2026-08-22T13:47:50-07:00",
+            "subject": "Upgrade gke-backup-dr skill.",
+            "url": "https://github.com/google/skills/commit/950241de4b613d3b6a0fb245e7a01bc7af989c53",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 Backup for GKE 指引，改用 beta CLI 指令，明确激活磁盘区数据与 Secret 备份，补上还原安全警告、CMEK 与范围建议，以及跨项目、定价、调度和 Hyperdisk 说明。"
+          },
+          {
+            "sha": "4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "date": "2026-07-14T14:43:03-07:00",
+            "subject": "Update GKE skills to clarify Autopilot defaults, VPC-Native benefits, and Backup for GKE best practices: - gke-cluster-creation: Add warning and operational details when deviating to GKE Standard mode. - gke-networking: Document benefits of VPC-Native mode (scalability, direct VPC integration, avoiding IP exhaustion). - gke-golden-path: Update defaults table to include loggingConfig. - gke-backup-dr: Add best practices for stateful backups (quiescing, CSI snapshots, service terminology).",
+            "url": "https://github.com/google/skills/commit/4ce85f5cd2b1b5b17add0836a669d1119f4745d6",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充备份涵盖内容的说明，添加还原状态查找指令，并加入暂停写入、CSI 磁盘区快照及服务称呼的最佳实务。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能 YAML 前置数据中的 `category: Storage` 字段移至 `metadata` 区块之下。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-backup-dr/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 备份与灾难复原技能，提供 Backup for GKE CLI 范例、CMEK 与命名空间范围建议，并说明激活附加组件时不要同步等待。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8839d09631ebaf90d730e878c7ff7fb92b18ef8c5696c94d931cff17cfd6c103"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps design a tailored Google Cloud architecture for live, bidirectional multimodal AI workloads and develop deployment and validation guidance.",
+        "whenToUse": "Use it when planning real-time streaming systems that combine audio, video, or text with multi-agent AI, especially when they need grounded technical guidance or safety monitoring.",
+        "outputs": "It produces a requirements-based component decomposition, Google Cloud architecture and product mapping, deployment and infrastructure-as-code guidance, and validation checks."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助為即時、雙向的多模態 AI 工作負載設計量身打造的 Google Cloud 架構，並制定部署與驗證指引。",
+        "whenToUse": "當規劃結合音訊、視訊或文字與多代理 AI 的即時串流系統，尤其需要有依據的技術指引或安全監控時使用。",
+        "outputs": "產出依需求制定的元件分解、Google Cloud 架構與產品對應、部署及基礎架構即程式碼指引，以及驗證檢查。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助为实时、双向的多模态 AI 工作负载设计量身打造的 Google Cloud 架构，并制定部署与验证指引。",
+        "whenToUse": "当规划结合音频、视频或文字与多代理 AI 的实时串流系统，尤其需要有依据的技术指引或安全监控时使用。",
+        "outputs": "产出依需求制定的组件分解、Google Cloud 架构与产品对应、部署及基础架构即代码指引，以及验证检查。"
+      }
+    }
+  }
+}

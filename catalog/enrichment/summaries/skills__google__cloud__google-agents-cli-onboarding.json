@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-agents-cli-onboarding",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:a0bada613ded7f360eac9a15e1f3337202faf6a0b2ed6f83981b95f63c4781a6"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides initial setup of Google's agents-cli and directs agent development on Gemini Enterprise Agent Platform to the right lifecycle workflow.",
+        "whenToUse": "Use it to set up or verify the CLI, select a workflow for the current development phase, or define an agent's requirements before implementation.",
+        "outputs": "It provides setup and verification steps, phase-specific workflow guidance, and instructions for recording requirements in .agents-cli-spec.md before coding."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它引導使用者完成 Google agents-cli 的初始設定，並為 Gemini Enterprise Agent Platform 上的代理程式開發指向合適的生命週期流程。",
+        "whenToUse": "在設定或驗證 CLI、選擇目前開發階段的工作流程，或開始定義代理程式需求時使用。",
+        "outputs": "它提供設定與驗證步驟、各階段的工作流程指引，以及在編寫程式碼前將需求記錄於 .agents-cli-spec.md 的說明。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它引导用户完成 Google agents-cli 的初始设置，并为 Gemini Enterprise Agent Platform 上的代理程序开发指向合适的生命周期流程。",
+        "whenToUse": "在设置或验证 CLI、选择目前开发阶段的工作流程，或开始定义代理程序需求时使用。",
+        "outputs": "它提供设置与验证步骤、各阶段的工作流程指引，以及在编写代码前将需求记录于 .agents-cli-spec.md 的说明。"
+      }
+    }
+  }
+}

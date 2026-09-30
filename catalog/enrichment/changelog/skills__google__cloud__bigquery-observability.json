@@ -1,0 +1,72 @@
+{
+  "path": "skills/google/cloud/bigquery-observability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:e732e70f14c65a1ecac16c8eed8910715f52dd108dd893c097e70c23cb093905",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/bigquery-observability",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "79125c2ccebbc1d021ba4cab773110e50e643a30",
+            "date": "2026-09-17T13:30:19-07:00",
+            "subject": "Add BigQuery observability agent skill (`bigquery-observability`) for telemetry retrieval, INFORMATION_SCHEMA system table queries, and Cloud Monitoring / REST API metrics.",
+            "url": "https://github.com/google/skills/commit/79125c2ccebbc1d021ba4cab773110e50e643a30",
+            "pathAtCommit": "skills/cloud/bigquery-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a BigQuery observability skill covering telemetry tool selection, setup, INFORMATION_SCHEMA query practices, and domain-specific query references."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "79125c2ccebbc1d021ba4cab773110e50e643a30",
+            "date": "2026-09-17T13:30:19-07:00",
+            "subject": "Add BigQuery observability agent skill (`bigquery-observability`) for telemetry retrieval, INFORMATION_SCHEMA system table queries, and Cloud Monitoring / REST API metrics.",
+            "url": "https://github.com/google/skills/commit/79125c2ccebbc1d021ba4cab773110e50e643a30",
+            "pathAtCommit": "skills/cloud/bigquery-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 BigQuery 可觀測性技能，涵蓋遙測工具選擇、環境設定、INFORMATION_SCHEMA 查詢實務及領域專用查詢參考資料。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "79125c2ccebbc1d021ba4cab773110e50e643a30",
+            "date": "2026-09-17T13:30:19-07:00",
+            "subject": "Add BigQuery observability agent skill (`bigquery-observability`) for telemetry retrieval, INFORMATION_SCHEMA system table queries, and Cloud Monitoring / REST API metrics.",
+            "url": "https://github.com/google/skills/commit/79125c2ccebbc1d021ba4cab773110e50e643a30",
+            "pathAtCommit": "skills/cloud/bigquery-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 BigQuery 可观测性技能，涵盖遥测工具选择、环境设置、INFORMATION_SCHEMA 查找实务及领域专用查找参考资料。"
+          }
+        ]
+      }
+    }
+  }
+}

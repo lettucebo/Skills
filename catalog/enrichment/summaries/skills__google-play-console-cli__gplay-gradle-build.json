@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Explains how to prepare Android release builds with Gradle, covering signing, versioning, build variants, optimization, and CI-oriented packaging.",
-        "whenToUse": "Use it when you need concrete Gradle commands or configuration patterns to produce a Play-ready release build or adjust the release build pipeline.",
-        "outputs": "Produces a release AAB or APK and can also generate a release mapping file for deobfuscation uploads."
+        "purpose": "It guides Gradle-based Android release builds, covering signing, version management, optimization, and Play Console preparation.",
+        "whenToUse": "Use it when configuring a repeatable Android release, choosing AAB or APK output, or troubleshooting signing and versioning.",
+        "outputs": "A configured release build produces an AAB or APK and, when R8 or ProGuard is enabled, a mapping file for crash symbolication."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "說明如何用 Gradle 準備 Android 發行版建置，涵蓋簽章、版本管理、建置變體、最佳化與 CI 導向的封裝流程。",
-        "whenToUse": "當你需要具體的 Gradle 指令或設定範例來產生可供 Play 發佈的發行版，或調整發行建置流程時可使用。",
-        "outputs": "可產生發行版 AAB 或 APK，並且也能產生供反混淆上傳使用的 release mapping 檔案。"
+        "purpose": "它說明如何透過 Gradle 建置 Android 發行版本，涵蓋簽署、版本管理、程式碼最佳化及 Play Console 準備工作。",
+        "whenToUse": "當您需要設定可重複執行的 Android 發行建置、選擇 AAB 或 APK 輸出，或排查簽署與版本問題時使用。",
+        "outputs": "完成設定的發行建置會產生 AAB 或 APK；啟用 R8 或 ProGuard 時，也會產生供當機符號還原使用的 mapping 檔案。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "说明如何用 Gradle 准备 Android 发行版建置，涵盖签章、版本管理、建置变体、优化与 CI 导向的封装流程。",
-        "whenToUse": "当你需要具体的 Gradle 指令或设置范例来产生可供 Play 发布的发行版，或调整发行建置流程时可使用。",
-        "outputs": "可产生发行版 AAB 或 APK，并且也能产生供反混淆上传使用的 release mapping 文件。"
+        "purpose": "它说明如何透过 Gradle 建置 Android 发行版本，涵盖签署、版本管理、代码优化及 Play Console 准备工作。",
+        "whenToUse": "当您需要设置可重复运行的 Android 发行建置、选择 AAB 或 APK 输出，或排查签署与版本问题时使用。",
+        "outputs": "完成设置的发行建置会产生 AAB 或 APK；激活 R8 或 ProGuard 时，也会产生供当机符号还原使用的 mapping 文件。"
       }
     }
   }

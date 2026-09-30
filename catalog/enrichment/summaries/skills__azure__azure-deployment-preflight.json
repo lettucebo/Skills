@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Validates a planned Azure Bicep deployment by checking template syntax, previewing infrastructure changes, and surfacing permission-related risks before execution.",
-        "whenToUse": "Use it before deploying to Azure or when reviewing Bicep files, running what-if, checking deployment access, or preparing for azd provision or similar deployment commands.",
-        "outputs": "Produces a preflight report in the project root that summarizes validation status, commands used, issues found, what-if results, and recommended next steps."
+        "purpose": "Validates Bicep deployments before execution by checking template syntax, previewing Azure resource changes, and assessing deployment permissions.",
+        "whenToUse": "Use before applying a Bicep-based Azure infrastructure change when you need to catch validation issues and understand its expected impact.",
+        "outputs": "Creates a project-root preflight-report.md summarizing validation status, tools run, issues, what-if resource changes, and recommendations."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "此技能會在執行前驗證 Azure Bicep 部署，檢查範本語法、預覽基礎結構變更，並指出與權限相關的風險。",
-        "whenToUse": "適合在部署到 Azure 前使用，或在檢閱 Bicep 檔案、執行 what-if、確認部署權限，或準備執行 azd provision 等部署命令時使用。",
-        "outputs": "它會在專案根目錄產生預檢報告，摘要說明驗證狀態、執行過的命令、發現的問題、what-if 結果，以及建議的後續步驟。"
+        "purpose": "在執行前檢查 Bicep 部署，包括驗證範本語法、預覽 Azure 資源變更及評估部署權限。",
+        "whenToUse": "在套用以 Bicep 定義的 Azure 基礎架構變更前，若需找出驗證問題並了解預期影響，請使用此功能。",
+        "outputs": "在專案根目錄建立 preflight-report.md，彙整驗證狀態、執行的工具、問題、what-if 預覽中的資源變更及建議。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "此技能会在运行前验证 Azure Bicep 部署，检查范本语法、预览基础结构变更，并指出与权限相关的风险。",
-        "whenToUse": "适合在部署到 Azure 前使用，或在检阅 Bicep 文件、运行 what-if、确认部署权限，或准备运行 azd provision 等部署命令时使用。",
-        "outputs": "它会在项目根目录产生预检报告，摘要说明验证状态、运行过的命令、发现的问题、what-if 结果，以及建议的后续步骤。"
+        "purpose": "在运行前检查 Bicep 部署，包括验证范本语法、预览 Azure 资源变更及评估部署权限。",
+        "whenToUse": "在套用以 Bicep 定义的 Azure 基础架构变更前，若需找出验证问题并了解预期影响，请使用此功能。",
+        "outputs": "在项目根目录创建 preflight-report.md，汇整验证状态、运行的工具、问题、what-if 预览中的资源变更及建议。"
       }
     }
   }

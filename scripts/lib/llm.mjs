@@ -7,10 +7,12 @@ import Ajv from 'ajv';
 
 export const DEFAULT_LLM_CONCURRENCY = 4;
 export const COPILOT_CLI_CONTRACT = Object.freeze({
-  version: 1,
-  model: 'gpt-5.4',
+  version: 2,
+  model: 'gpt-6-luna',
+  reasoningEffort: 'max',
   flags: Object.freeze([
     '--model <pinned>',
+    '--reasoning-effort <pinned>',
     '--no-custom-instructions',
     '--disable-builtin-mcps',
     '--silent',
@@ -196,6 +198,8 @@ export function createCopilotRunner({
               ...executableArgs,
               '--model',
               COPILOT_CLI_CONTRACT.model,
+              '--reasoning-effort',
+              COPILOT_CLI_CONTRACT.reasoningEffort,
               '--no-custom-instructions',
               '--disable-builtin-mcps',
               '--silent',

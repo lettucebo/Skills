@@ -105,7 +105,7 @@ test('artifact builder creates signed en and zh-tw locales plus deterministic zh
 
   assert.equal(value.path, 'skills/demo/alpha');
   assert.equal(value.freshnessKey.pinnedCommit, SHA_A);
-  assert.equal(value.locales.en.model, 'gpt-5.4');
+  assert.equal(value.locales.en.model, 'gpt-6-luna');
   assert.equal(value.locales.en.promptHash, CHANGELOG_PROMPT_HASH);
   assert.equal(value.locales.en.generatorVersion, CHANGELOG_GENERATOR_VERSION);
   assert.equal(value.locales['zh-tw'].content.commits[0].summary, '新增 alpha 軟體 skill。');
@@ -228,7 +228,7 @@ test('changelog cache rejects zh-cn content that is not derived from zh-tw', () 
 });
 
 test('changelog Copilot calls allow large path-scoped multi-commit payloads to finish', () => {
-  assert.equal(CHANGELOG_LLM_TIMEOUT_MS, 300_000);
+  assert.equal(CHANGELOG_LLM_TIMEOUT_MS, 900_000);
 });
 
 test('full upstream clone uses one no-checkout single-branch clone without shallow history', async () => {
@@ -409,7 +409,7 @@ test('generation clones each upstream once, reuses it for skills, then skips ful
       skippedUpstreams: 0,
       runnerCalls: 3,
     });
-    assert.equal(first.model, 'gpt-5.4');
+    assert.equal(first.model, 'gpt-6-luna');
     assert.equal(typeof first.cloneBytes, 'number');
     assert.equal(typeof first.cloneTimeMs, 'number');
     assert.equal(typeof first.copilotTimeMs, 'number');

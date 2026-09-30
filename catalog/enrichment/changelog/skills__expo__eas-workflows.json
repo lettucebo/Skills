@@ -1,0 +1,456 @@
+{
+  "path": "skills/expo/eas-workflows",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:353fa7820b1168c689e8fb6493490ff814015bae74dfeb66d9cbabe4e314a0e8",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/eas-workflows",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "425685447a56d40f53a288b3ef3f20d1cec40f18",
+            "date": "2026-08-14T10:28:24-04:00",
+            "subject": "[skills][eas-workflows] remove script in favor for EAS CLI for validation (#149)",
+            "url": "https://github.com/expo/skills/commit/425685447a56d40f53a288b3ef3f20d1cec40f18",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now directs users to fetch references for editing and syntax questions and validate each changed workflow with `eas-cli workflow:validate`, treating the schema as structural guidance and EAS CLI as the final validator."
+          },
+          {
+            "sha": "ea6f1492f4e69e5b530c3fb8162728a1b0d982eb",
+            "date": "2026-08-06T17:17:09-07:00",
+            "subject": "[eas-workflows] document workflow file size limit (#115)",
+            "url": "https://github.com/expo/skills/commit/ea6f1492f4e69e5b530c3fb8162728a1b0d982eb",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now states that each `.eas/workflows/*.yml` or `.yaml` file must be no larger than 16 KiB."
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now directs agents to use the `expo-skill-feedback` eval-candidate flow after repeated failures or user takeover, instead of its standard feedback command."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now documents a command for submitting actionable feedback about errors or outdated guidance to Expo."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R083",
+              "sourcePath": "plugins/expo/skills/expo-cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo/skills/eas-workflows/SKILL.md"
+            },
+            "summary": "The skill was renamed to `eas-workflows`, its description labels EAS as a paid service, and it adds a notice about pricing and costs."
+          },
+          {
+            "sha": "1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "date": "2026-06-10T23:03:26+08:00",
+            "subject": "sync openai-curated plugin (#74)",
+            "url": "https://github.com/expo/skills/commit/1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "pathAtCommit": "plugins/expo/skills/expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now uses `<skill-dir>` paths and Node.js to run its fetch and validation scripts, and instructs users to resolve the skill directory before fetching references."
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-deployment/skills/expo-cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-cicd-workflows/SKILL.md"
+            },
+            "summary": "The skill file moved from `plugins/expo-deployment/skills/` to `plugins/expo/skills/` with no content changes."
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-deployment/skills/expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-deployment/skills/cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo-deployment/skills/expo-cicd-workflows/SKILL.md"
+            },
+            "summary": "The skill file was renamed from `cicd-workflows` to `expo-cicd-workflows`, with the frontmatter `name` updated accordingly."
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-deployment/skills/cicd-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "expo-cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo-deployment/skills/cicd-workflows/SKILL.md"
+            },
+            "summary": "The skill file moved into `plugins/expo-deployment/skills/`, and its frontmatter name changed from `Expo CI/CD Workflows` to `cicd-workflows`."
+          },
+          {
+            "sha": "5d20bc6adc140b1001993c41a6aea063620c7775",
+            "date": "2025-12-09T12:02:11-08:00",
+            "subject": "Improve CI/CD skill invocation for reading workflows and common terms",
+            "url": "https://github.com/expo/skills/commit/5d20bc6adc140b1001993c41a6aea063620c7775",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description now covers understanding as well as writing workflows and mentions Expo/EAS CI/CD questions, `.eas/workflows/`, build pipelines, and deployment automation."
+          },
+          {
+            "sha": "b302446476c8b46b1bde6de793b1e7c5c22c2d87",
+            "date": "2025-12-01T12:54:59-08:00",
+            "subject": "Fix up package-lock.json paths",
+            "url": "https://github.com/expo/skills/commit/b302446476c8b46b1bde6de793b1e7c5c22c2d87",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The frontmatter name changed from `EAS CI/CD Workflows` to `Expo CI/CD Workflows`."
+          },
+          {
+            "sha": "19309c5580e70885709c7ad7cebb9dbe45c4961e",
+            "date": "2025-11-29T20:06:45-08:00",
+            "subject": "Rename scripts to .js and update SKILL.md references",
+            "url": "https://github.com/expo/skills/commit/19309c5580e70885709c7ad7cebb9dbe45c4961e",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill's fetch and validation examples now invoke `.js` scripts with Node.js, and the allowed-tool list no longer includes npm or WebFetch."
+          },
+          {
+            "sha": "d7fe1332e4f3b3be41ccf3598b05da7c0ad4384d",
+            "date": "2025-11-29T19:59:47-08:00",
+            "subject": "Add EAS CI/CD Workflows skill",
+            "url": "https://github.com/expo/skills/commit/d7fe1332e4f3b3be41ccf3598b05da7c0ad4384d",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The new skill introduces EAS workflow authoring guidance, including reference resources, workflow structure and expressions, generation checks, schema validation, and schema-based answers to questions."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "425685447a56d40f53a288b3ef3f20d1cec40f18",
+            "date": "2026-08-14T10:28:24-04:00",
+            "subject": "[skills][eas-workflows] remove script in favor for EAS CLI for validation (#149)",
+            "url": "https://github.com/expo/skills/commit/425685447a56d40f53a288b3ef3f20d1cec40f18",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現在要求在編輯工作流程或回答語法問題時擷取參考資料，並對每個變更的工作流程使用 `eas-cli workflow:validate` 驗證，將結構描述視為結構指引、EAS CLI 視為最終驗證工具。"
+          },
+          {
+            "sha": "ea6f1492f4e69e5b530c3fb8162728a1b0d982eb",
+            "date": "2026-08-06T17:17:09-07:00",
+            "subject": "[eas-workflows] document workflow file size limit (#115)",
+            "url": "https://github.com/expo/skills/commit/ea6f1492f4e69e5b530c3fb8162728a1b0d982eb",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現在說明每個 `.eas/workflows/*.yml` 或 `.yaml` 檔案不得超過 16 KiB。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現在指示代理程式在屢次失敗或使用者接手 Expo 任務後，改用 `expo-skill-feedback` 的 eval-candidate 流程，而非一般回饋指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現在記錄了一個指令，可向 Expo 提交有關錯誤或過時指引的具體可行回饋。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R083",
+              "sourcePath": "plugins/expo/skills/expo-cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo/skills/eas-workflows/SKILL.md"
+            },
+            "summary": "此技能更名為 `eas-workflows`，描述標明 EAS 為付費服務，並新增價格與費用提醒。"
+          },
+          {
+            "sha": "1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "date": "2026-06-10T23:03:26+08:00",
+            "subject": "sync openai-curated plugin (#74)",
+            "url": "https://github.com/expo/skills/commit/1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "pathAtCommit": "plugins/expo/skills/expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現在使用 `<skill-dir>` 路徑並透過 Node.js 執行擷取與驗證腳本，且指示使用者在擷取參考資料前先解析技能目錄。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-deployment/skills/expo-cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-cicd-workflows/SKILL.md"
+            },
+            "summary": "此技能檔案從 `plugins/expo-deployment/skills/` 移至 `plugins/expo/skills/`，內容未變更。"
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-deployment/skills/expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-deployment/skills/cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo-deployment/skills/expo-cicd-workflows/SKILL.md"
+            },
+            "summary": "此技能檔案從 `cicd-workflows` 更名為 `expo-cicd-workflows`，並相應更新 frontmatter 的 `name`。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-deployment/skills/cicd-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "expo-cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo-deployment/skills/cicd-workflows/SKILL.md"
+            },
+            "summary": "此技能檔案移至 `plugins/expo-deployment/skills/`，且 frontmatter 名稱從 `Expo CI/CD Workflows` 改為 `cicd-workflows`。"
+          },
+          {
+            "sha": "5d20bc6adc140b1001993c41a6aea063620c7775",
+            "date": "2025-12-09T12:02:11-08:00",
+            "subject": "Improve CI/CD skill invocation for reading workflows and common terms",
+            "url": "https://github.com/expo/skills/commit/5d20bc6adc140b1001993c41a6aea063620c7775",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能描述現在涵蓋理解與撰寫工作流程，並提及 Expo/EAS CI/CD 問題、`.eas/workflows/`、建置管線及部署自動化。"
+          },
+          {
+            "sha": "b302446476c8b46b1bde6de793b1e7c5c22c2d87",
+            "date": "2025-12-01T12:54:59-08:00",
+            "subject": "Fix up package-lock.json paths",
+            "url": "https://github.com/expo/skills/commit/b302446476c8b46b1bde6de793b1e7c5c22c2d87",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "frontmatter 名稱從 `EAS CI/CD Workflows` 改為 `Expo CI/CD Workflows`。"
+          },
+          {
+            "sha": "19309c5580e70885709c7ad7cebb9dbe45c4961e",
+            "date": "2025-11-29T20:06:45-08:00",
+            "subject": "Rename scripts to .js and update SKILL.md references",
+            "url": "https://github.com/expo/skills/commit/19309c5580e70885709c7ad7cebb9dbe45c4961e",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的擷取與驗證範例現在透過 Node.js 執行 `.js` 腳本，且允許工具清單不再包含 npm 或 WebFetch。"
+          },
+          {
+            "sha": "d7fe1332e4f3b3be41ccf3598b05da7c0ad4384d",
+            "date": "2025-11-29T19:59:47-08:00",
+            "subject": "Add EAS CI/CD Workflows skill",
+            "url": "https://github.com/expo/skills/commit/d7fe1332e4f3b3be41ccf3598b05da7c0ad4384d",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新技能提供 EAS 工作流程撰寫指引，涵蓋參考資料、工作流程結構與運算式、產生檢查、結構描述驗證，以及依據結構描述回答問題。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "425685447a56d40f53a288b3ef3f20d1cec40f18",
+            "date": "2026-08-14T10:28:24-04:00",
+            "subject": "[skills][eas-workflows] remove script in favor for EAS CLI for validation (#149)",
+            "url": "https://github.com/expo/skills/commit/425685447a56d40f53a288b3ef3f20d1cec40f18",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现在要求在编辑工作流程或回答语法问题时截取参考资料，并对每个变更的工作流程使用 `eas-cli workflow:validate` 验证，将结构描述视为结构指引、EAS CLI 视为最终验证工具。"
+          },
+          {
+            "sha": "ea6f1492f4e69e5b530c3fb8162728a1b0d982eb",
+            "date": "2026-08-06T17:17:09-07:00",
+            "subject": "[eas-workflows] document workflow file size limit (#115)",
+            "url": "https://github.com/expo/skills/commit/ea6f1492f4e69e5b530c3fb8162728a1b0d982eb",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现在说明每个 `.eas/workflows/*.yml` 或 `.yaml` 文件不得超过 16 KiB。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现在指示代理程序在屡次失败或用户接手 Expo 任务后，改用 `expo-skill-feedback` 的 eval-candidate 流程，而非一般回馈指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现在记录了一个指令，可向 Expo 提交有关错误或过时指引的具体可行回馈。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R083",
+              "sourcePath": "plugins/expo/skills/expo-cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo/skills/eas-workflows/SKILL.md"
+            },
+            "summary": "此技能更名为 `eas-workflows`，描述标明 EAS 为付费服务，并添加价格与费用提醒。"
+          },
+          {
+            "sha": "1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "date": "2026-06-10T23:03:26+08:00",
+            "subject": "sync openai-curated plugin (#74)",
+            "url": "https://github.com/expo/skills/commit/1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "pathAtCommit": "plugins/expo/skills/expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现在使用 `<skill-dir>` 路径并透过 Node.js 运行截取与验证脚本，且指示用户在截取参考资料前先解析技能目录。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-deployment/skills/expo-cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-cicd-workflows/SKILL.md"
+            },
+            "summary": "此技能文件从 `plugins/expo-deployment/skills/` 移至 `plugins/expo/skills/`，内容未变更。"
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-deployment/skills/expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-deployment/skills/cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo-deployment/skills/expo-cicd-workflows/SKILL.md"
+            },
+            "summary": "此技能文件从 `cicd-workflows` 更名为 `expo-cicd-workflows`，并相应更新 frontmatter 的 `name`。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-deployment/skills/cicd-workflows/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "expo-cicd-workflows/SKILL.md",
+              "destinationPath": "plugins/expo-deployment/skills/cicd-workflows/SKILL.md"
+            },
+            "summary": "此技能文件移至 `plugins/expo-deployment/skills/`，且 frontmatter 名称从 `Expo CI/CD Workflows` 改为 `cicd-workflows`。"
+          },
+          {
+            "sha": "5d20bc6adc140b1001993c41a6aea063620c7775",
+            "date": "2025-12-09T12:02:11-08:00",
+            "subject": "Improve CI/CD skill invocation for reading workflows and common terms",
+            "url": "https://github.com/expo/skills/commit/5d20bc6adc140b1001993c41a6aea063620c7775",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能描述现在涵盖理解与撰写工作流程，并提及 Expo/EAS CI/CD 问题、`.eas/workflows/`、建置管线及部署自动化。"
+          },
+          {
+            "sha": "b302446476c8b46b1bde6de793b1e7c5c22c2d87",
+            "date": "2025-12-01T12:54:59-08:00",
+            "subject": "Fix up package-lock.json paths",
+            "url": "https://github.com/expo/skills/commit/b302446476c8b46b1bde6de793b1e7c5c22c2d87",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "frontmatter 名称从 `EAS CI/CD Workflows` 改为 `Expo CI/CD Workflows`。"
+          },
+          {
+            "sha": "19309c5580e70885709c7ad7cebb9dbe45c4961e",
+            "date": "2025-11-29T20:06:45-08:00",
+            "subject": "Rename scripts to .js and update SKILL.md references",
+            "url": "https://github.com/expo/skills/commit/19309c5580e70885709c7ad7cebb9dbe45c4961e",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的截取与验证范例现在透过 Node.js 运行 `.js` 脚本，且允许工具清单不再包含 npm 或 WebFetch。"
+          },
+          {
+            "sha": "d7fe1332e4f3b3be41ccf3598b05da7c0ad4384d",
+            "date": "2025-11-29T19:59:47-08:00",
+            "subject": "Add EAS CI/CD Workflows skill",
+            "url": "https://github.com/expo/skills/commit/d7fe1332e4f3b3be41ccf3598b05da7c0ad4384d",
+            "pathAtCommit": "expo-cicd-workflows/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新技能提供 EAS 工作流程撰写指引，涵盖参考资料、工作流程结构与表达式、产生检查、结构描述验证，以及依据结构描述回答问题。"
+          }
+        ]
+      }
+    }
+  }
+}

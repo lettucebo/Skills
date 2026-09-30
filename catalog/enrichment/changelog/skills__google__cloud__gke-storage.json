@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/cloud/gke-storage",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:a1012782814aafb588e376e097db0cfdeeec58d79347b2ca2d291780593946a7",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-storage",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified that the skill covers PVCs and Filestore, routes GCS FUSE mounts and the GKE GCS FUSE CSI driver to google-cloud-storage-fuse, and updates the metadata version to 1.0.1."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added metadata version 1.0.0 to the GKE storage skill."
+          },
+          {
+            "sha": "8134835591c4f00384099ae9086124263ae7b9c2",
+            "date": "2026-09-18T10:24:37-07:00",
+            "subject": "Add a new gke-storage-troubleshooting skill that diagnoses GKE persistent-storage failures, mapped to the public GKE storage troubleshooting documentation:",
+            "url": "https://github.com/google/skills/commit/8134835591c4f00384099ae9086124263ae7b9c2",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the description to direct storage failures such as volume attach or mount errors, disk performance or node storage pressure, and Cloud Storage FUSE OOM to gke-storage-troubleshooting."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a metadata block and set the skill category to Storage."
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the GKE storage skill with guidance on storage defaults, StorageClasses, block and shared-storage PVCs, GCS bucket mounts, volume expansion, and best practices."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "明確界定此技能涵蓋 PVC 與 Filestore，並將 GCS FUSE 掛載和 GKE GCS FUSE CSI 驅動程式導向 google-cloud-storage-fuse；中繼資料版本更新為 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 GKE 儲存技能的中繼資料中新增版本 1.0.0。"
+          },
+          {
+            "sha": "8134835591c4f00384099ae9086124263ae7b9c2",
+            "date": "2026-09-18T10:24:37-07:00",
+            "subject": "Add a new gke-storage-troubleshooting skill that diagnoses GKE persistent-storage failures, mapped to the public GKE storage troubleshooting documentation:",
+            "url": "https://github.com/google/skills/commit/8134835591c4f00384099ae9086124263ae7b9c2",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新描述，將磁碟區附加或掛載錯誤、磁碟效能或節點儲存壓力，以及 Cloud Storage FUSE OOM 等儲存故障導向 gke-storage-troubleshooting。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增中繼資料區塊，並將技能類別設為 Storage。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 儲存技能，說明儲存預設值、StorageClass、區塊與共享儲存 PVC、GCS bucket 掛載、磁碟區擴充及最佳實務。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "date": "2026-09-29T06:29:52-07:00",
+            "subject": "Disambiguate GKE skill routing boundaries across gke-basics, gke-storage, gke-inference, gke-reliability, and the GKE security skills (gke-platform-security, gke-workload-security, gke-workload-identity).",
+            "url": "https://github.com/google/skills/commit/9ad3d2b28976d6ddfacb8f7830c5e4bfde0a0020",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "明确界定此技能涵盖 PVC 与 Filestore，并将 GCS FUSE 挂载和 GKE GCS FUSE CSI 驱动程序导向 google-cloud-storage-fuse；中继数据版本更新为 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 GKE 保存技能的中继数据中添加版本 1.0.0。"
+          },
+          {
+            "sha": "8134835591c4f00384099ae9086124263ae7b9c2",
+            "date": "2026-09-18T10:24:37-07:00",
+            "subject": "Add a new gke-storage-troubleshooting skill that diagnoses GKE persistent-storage failures, mapped to the public GKE storage troubleshooting documentation:",
+            "url": "https://github.com/google/skills/commit/8134835591c4f00384099ae9086124263ae7b9c2",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新描述，将磁盘区附加或挂载错误、磁盘性能或节点保存压力，以及 Cloud Storage FUSE OOM 等保存故障导向 gke-storage-troubleshooting。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加中继数据区块，并将技能类别设为 Storage。"
+          },
+          {
+            "sha": "5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "date": "2026-06-23T02:06:41-07:00",
+            "subject": "    Refactor GKE basic skill into individual skills",
+            "url": "https://github.com/google/skills/commit/5d9d054b7620bea98c7574862b748df7ceaf63a3",
+            "pathAtCommit": "skills/cloud/gke-storage/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 保存技能，说明保存默认值、StorageClass、区块与共享保存 PVC、GCS bucket 挂载、磁盘区扩充及最佳实务。"
+          }
+        ]
+      }
+    }
+  }
+}

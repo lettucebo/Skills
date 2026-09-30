@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Turns rough bug notes, error logs, voice dictation, or screenshots into a clear, actionable GitHub issue draft.",
-        "whenToUse": "Use it when someone has informal problem details or visual evidence and wants them organized into a structured GitHub issue.",
-        "outputs": "Produces a GitHub-flavored markdown issue file for the repository's /issues/ folder, typically named with a date and short description."
+        "purpose": "Turns scattered problem details into concise, actionable GitHub issue reports.",
+        "whenToUse": "Use it when issue details need to be organized for triage, with reproduction steps, expected and actual behavior, impact, and relevant context clearly presented.",
+        "outputs": "Creates a structured GitHub-flavored Markdown issue and saves it in the repository-root /issues/ directory as YYYY-MM-DD-short-description.md."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "將零散的錯誤筆記、錯誤記錄、語音口述或截圖整理成清楚且可採取行動的 GitHub issue 草稿。",
-        "whenToUse": "當有人只有非正式的問題描述或視覺證據，並希望把內容整理成結構化的 GitHub issue 時，就適合使用它。",
-        "outputs": "它會產出一份 GitHub Flavored Markdown issue 檔案，放在儲存庫的 /issues/ 資料夾中，通常以日期加簡短描述命名。"
+        "purpose": "將零散的問題資訊整理成精簡且可採取行動的 GitHub issue 報告。",
+        "whenToUse": "當問題細節需要整理成便於分類處理的報告，並清楚呈現重現步驟、預期與實際行為、影響及相關背景時使用。",
+        "outputs": "產生包含結構化章節的 GitHub Flavored Markdown issue，並以 YYYY-MM-DD-short-description.md 命名後儲存於儲存庫根目錄的 /issues/ 資料夾。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "将零散的错误笔记、错误记录、语音口述或截屏整理成清楚且可采取行动的 GitHub issue 草稿。",
-        "whenToUse": "当有人只有非正式的问题描述或视觉证据，并希望把内容整理成结构化的 GitHub issue 时，就适合使用它。",
-        "outputs": "它会产出一份 GitHub Flavored Markdown issue 文件，放在保存库的 /issues/ 文件夹中，通常以日期加简短描述命名。"
+        "purpose": "将零散的问题信息整理成精简且可采取行动的 GitHub issue 报告。",
+        "whenToUse": "当问题细节需要整理成便于分类处理的报告，并清楚呈现重现步骤、预期与实际行为、影响及相关背景时使用。",
+        "outputs": "产生包含结构化章节的 GitHub Flavored Markdown issue，并以 YYYY-MM-DD-short-description.md 命名后保存于保存库根目录的 /issues/ 文件夹。"
       }
     }
   }

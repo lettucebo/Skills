@@ -2,21 +2,39 @@
   "path": "skills/cloudflare/sandbox-next",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:21e796cab41735e9adb716d10e4041707299f023f03fabd55c869bee9720d0fb",
+    "contentHash": "sha256:cfe4b80db77d0156ebc240d44a4bddbd656384d6bfb4ae7c18e32d9ef4fe47c4",
     "repository": "cloudflare/skills",
     "reference": "refs/heads/main",
     "source": "skills/sandbox-next",
-    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+    "pinnedCommit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "cfbd759d464bb5e03ccbdb3e584d74315e97dbab",
+            "date": "2026-09-05T12:58:15-07:00",
+            "subject": "Replace Sandbox preview API cheatsheet with task documentation routes",
+            "url": "https://github.com/cloudflare/skills/commit/cfbd759d464bb5e03ccbdb3e584d74315e97dbab",
+            "pathAtCommit": "skills/sandbox-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reframed the API quick-reference link as task-specific API documentation and moved the examples index onto its own line."
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/sandbox-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Narrowed the skill description to building or maintaining `@cloudflare/sandbox@next` apps and directs stable-app porting to `sandbox-migrate-to-next`."
+          },
           {
             "sha": "f96bff754e428838818017f75817f0f9428acd48",
             "date": "2026-08-07T23:14:33+05:30",
@@ -24,19 +42,37 @@
             "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
             "pathAtCommit": "skills/sandbox-next/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added a new `sandbox-next` skill guide covering Cloudflare Sandbox SDK 1.0 preview usage, guardrails, reference links, and pre-ship checks."
+            "summary": "Added the initial `sandbox-next` guide for the `@next` preview, defining package-line checks and core usage constraints with links to task-specific documentation."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "cfbd759d464bb5e03ccbdb3e584d74315e97dbab",
+            "date": "2026-09-05T12:58:15-07:00",
+            "subject": "Replace Sandbox preview API cheatsheet with task documentation routes",
+            "url": "https://github.com/cloudflare/skills/commit/cfbd759d464bb5e03ccbdb3e584d74315e97dbab",
+            "pathAtCommit": "skills/sandbox-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 API 快速參考連結改述為依任務分類的 API 文件，並將範例索引移至獨立一行。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/sandbox-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能描述限縮為建置或維護 `@cloudflare/sandbox@next` 應用程式，並指示將 stable 應用程式移植至 `@next` 時使用 `sandbox-migrate-to-next`。"
+          },
           {
             "sha": "f96bff754e428838818017f75817f0f9428acd48",
             "date": "2026-08-07T23:14:33+05:30",
@@ -44,26 +80,44 @@
             "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
             "pathAtCommit": "skills/sandbox-next/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 `sandbox-next` 技能指南，涵蓋 Cloudflare Sandbox SDK 1.0 預覽版的使用方式、使用界線、參考連結與發佈前檢查。"
+            "summary": "新增 `sandbox-next` 的初始指南，介紹 `@next` 預覽版的套件版本檢查與核心使用限制，並提供依任務分類的文件連結。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
         "commits": [
           {
+            "sha": "cfbd759d464bb5e03ccbdb3e584d74315e97dbab",
+            "date": "2026-09-05T12:58:15-07:00",
+            "subject": "Replace Sandbox preview API cheatsheet with task documentation routes",
+            "url": "https://github.com/cloudflare/skills/commit/cfbd759d464bb5e03ccbdb3e584d74315e97dbab",
+            "pathAtCommit": "skills/sandbox-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 API 快速参考链接改述为依任务分类的 API 文档，并将范例索引移至独立一行。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/sandbox-next/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能描述限缩为建置或维护 `@cloudflare/sandbox@next` 应用程序，并指示将 stable 应用程序移植至 `@next` 时使用 `sandbox-migrate-to-next`。"
+          },
+          {
             "sha": "f96bff754e428838818017f75817f0f9428acd48",
             "date": "2026-08-07T23:14:33+05:30",
             "subject": "Add stable and @next Sandbox agent skills (#92)",
             "url": "https://github.com/cloudflare/skills/commit/f96bff754e428838818017f75817f0f9428acd48",
             "pathAtCommit": "skills/sandbox-next/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 `sandbox-next` 技能指南，涵盖 Cloudflare Sandbox SDK 1.0 预览版的使用方式、使用界线、参考链接与发布前检查。"
+            "summary": "添加 `sandbox-next` 的初始指南，介绍 `@next` 预览版的套件版本检查与内核使用限制，并提供依任务分类的文档链接。"
           }
         ]
       }

@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/agent-platform-migrate-from-ai-studio",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2b0010a7df836732027412e2e0ad15a70003f0076541890aaceb00be8f114242",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/agent-platform-migrate-from-ai-studio",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "date": "2026-09-23T08:53:46-07:00",
+            "subject": "Add semantic versions to the hand-authored agent-platform-* skills.",
+            "url": "https://github.com/google/skills/commit/efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version \"1.0.0\" under the skill's metadata in the SKILL.md frontmatter."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the skill's AiAndMachineLearning category into the metadata block in the SKILL.md frontmatter."
+          },
+          {
+            "sha": "844160f8fbf0b285b1387d582a78f798f6a54c50",
+            "date": "2026-06-12T08:29:46-07:00",
+            "subject": "Add Service Account Key creation role requirements to Migrate to Agent Platform skill",
+            "url": "https://github.com/google/skills/commit/844160f8fbf0b285b1387d582a78f798f6a54c50",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated project ID placeholders and Compute Engine/OpenClaw instructions, corrected ADK step numbering, and added an organization-policy warning."
+          },
+          {
+            "sha": "3d8012d80c66cdf85dfc2350adb5e05f722e91ac",
+            "date": "2026-06-04T10:43:51-07:00",
+            "subject": "Adds skill - agent-platform-migrate-from-ai-studio",
+            "url": "https://github.com/google/skills/commit/3d8012d80c66cdf85dfc2350adb5e05f722e91ac",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial skill guide for migrating Gemini API applications from Google AI Studio to Agent Platform, covering setup, authentication, SDK/ADK, Antigravity CLI, and OpenClaw."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "date": "2026-09-23T08:53:46-07:00",
+            "subject": "Add semantic versions to the hand-authored agent-platform-* skills.",
+            "url": "https://github.com/google/skills/commit/efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 SKILL.md 前置資料的 metadata 區塊中新增版本「1.0.0」。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能的 AiAndMachineLearning 類別移入 SKILL.md 前置資料的 metadata 區塊。"
+          },
+          {
+            "sha": "844160f8fbf0b285b1387d582a78f798f6a54c50",
+            "date": "2026-06-12T08:29:46-07:00",
+            "subject": "Add Service Account Key creation role requirements to Migrate to Agent Platform skill",
+            "url": "https://github.com/google/skills/commit/844160f8fbf0b285b1387d582a78f798f6a54c50",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新專案 ID 佔位符及 Compute Engine／OpenClaw 指引、修正 ADK 步驟編號，並新增組織政策警告。"
+          },
+          {
+            "sha": "3d8012d80c66cdf85dfc2350adb5e05f722e91ac",
+            "date": "2026-06-04T10:43:51-07:00",
+            "subject": "Adds skill - agent-platform-migrate-from-ai-studio",
+            "url": "https://github.com/google/skills/commit/3d8012d80c66cdf85dfc2350adb5e05f722e91ac",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增將 Gemini API 應用程式從 Google AI Studio 遷移至 Agent Platform 的技能指南，涵蓋設定、驗證、SDK／ADK、Antigravity CLI 與 OpenClaw。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "date": "2026-09-23T08:53:46-07:00",
+            "subject": "Add semantic versions to the hand-authored agent-platform-* skills.",
+            "url": "https://github.com/google/skills/commit/efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 SKILL.md 前置数据的 metadata 区块中添加版本「1.0.0」。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能的 AiAndMachineLearning 类别移入 SKILL.md 前置数据的 metadata 区块。"
+          },
+          {
+            "sha": "844160f8fbf0b285b1387d582a78f798f6a54c50",
+            "date": "2026-06-12T08:29:46-07:00",
+            "subject": "Add Service Account Key creation role requirements to Migrate to Agent Platform skill",
+            "url": "https://github.com/google/skills/commit/844160f8fbf0b285b1387d582a78f798f6a54c50",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新项目 ID 占位符及 Compute Engine／OpenClaw 指引、修正 ADK 步骤编号，并添加组织政策警告。"
+          },
+          {
+            "sha": "3d8012d80c66cdf85dfc2350adb5e05f722e91ac",
+            "date": "2026-06-04T10:43:51-07:00",
+            "subject": "Adds skill - agent-platform-migrate-from-ai-studio",
+            "url": "https://github.com/google/skills/commit/3d8012d80c66cdf85dfc2350adb5e05f722e91ac",
+            "pathAtCommit": "skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加将 Gemini API 应用程序从 Google AI Studio 迁移至 Agent Platform 的技能指南，涵盖设置、验证、SDK／ADK、Antigravity CLI 与 OpenClaw。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/datalineage-bigquery-asset-impact-analysis",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1ac0dcdc98b51008040171fff7e156edbcd0842512aeb01d25f1c184c31731e7"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Shows how a BigQuery asset issue or planned change can affect dependent data assets downstream.",
+        "whenToUse": "Use it when investigating a reported BigQuery asset problem or planning maintenance that could affect downstream assets.",
+        "outputs": "It summarizes affected downstream assets and transformation processes, distinguishes direct from indirect impacts, and reports impact depth and search scope."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "呈現 BigQuery 資產發生問題或計畫變更時，可能對下游相依資料資產造成的影響。",
+        "whenToUse": "在調查已回報的 BigQuery 資產問題，或規劃可能影響下游資產的維護作業時使用。",
+        "outputs": "它會彙整受影響的下游資產與轉換程序，區分直接與間接影響，並列出影響深度及搜尋範圍。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "呈现 BigQuery 资产发生问题或计划变更时，可能对下游相依数据资产造成的影响。",
+        "whenToUse": "在调查已回报的 BigQuery 资产问题，或规划可能影响下游资产的维护作业时使用。",
+        "outputs": "它会汇整受影响的下游资产与转换进程，区分直接与间接影响，并列出影响深度及搜索范围。"
+      }
+    }
+  }
+}

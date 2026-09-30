@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gemini-interactions-api",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8aec817939a3c9b7e11d2e80288b4016721b4c3ce2149b172e80b72060aa5645"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to use the Interactions API on Gemini Enterprise Agent Platform to build agent conversations and tool-assisted workflows.",
+        "whenToUse": "Use it when implementing authentication and client setup, continuing stored conversations, interpreting typed interaction steps, or returning function-call results to the API.",
+        "outputs": "Provides Python, JavaScript/TypeScript, and REST examples for initializing clients, creating interactions, reading text or typed steps, streaming events, requesting schema-shaped JSON, continuing turns, and submitting function results."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何在 Gemini Enterprise Agent Platform 上使用 Interactions API，建立代理程式對話與工具輔助工作流程。",
+        "whenToUse": "在實作驗證與用戶端設定、延續已儲存的對話、解讀具型別的互動步驟，或將函式呼叫結果傳回 API 時使用。",
+        "outputs": "提供 Python、JavaScript/TypeScript 與 REST 範例，示範初始化用戶端、建立互動、讀取文字或具型別步驟、串流事件、要求符合結構描述的 JSON、延續對話及提交函式結果。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何在 Gemini Enterprise Agent Platform 上使用 Interactions API，创建代理程序对话与工具辅助工作流程。",
+        "whenToUse": "在实作验证与用户端设置、延续已保存的对话、解读具类型的交互步骤，或将函数调用结果传回 API 时使用。",
+        "outputs": "提供 Python、JavaScript/TypeScript 与 REST 范例，示范初始化用户端、创建交互、读取文字或具类型步骤、串流事件、要求符合结构描述的 JSON、延续对话及提交函数结果。"
+      }
+    }
+  }
+}

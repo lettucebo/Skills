@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/bigquery-bigframes",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1f5d0bee433b90abbd256c395d108c9004c0c07b163a1d1237ba33dd760afbbd",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/bigquery-bigframes",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "725ed06b83558f337908bd85e47b920746b716d5",
+            "date": "2026-09-22T10:52:52-07:00",
+            "subject": "Define BigFrames as the default Python library in the description in all skill copies.",
+            "url": "https://github.com/google/skills/commit/725ed06b83558f337908bd85e47b920746b716d5",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the skill description to recommend BigFrames by default for Python BigQuery tasks, bumped its version to 2.0.0, and reformatted the partial-ordering guidance."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version metadata set to 1.0.0 to the skill front matter."
+          },
+          {
+            "sha": "c85acb35bfdf06d4d16f15faf6986355d950e7a5",
+            "date": "2026-07-15T12:14:47-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c85acb35bfdf06d4d16f15faf6986355d950e7a5",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced the skill's development standards with a BigFrames basics guide covering DataFrame practices, BigQuery ML and references, and legacy `bigframes.ml` guidance."
+          },
+          {
+            "sha": "57a63b5bce807935508357300be3e0fefadd743c",
+            "date": "2026-06-29T14:11:25-07:00",
+            "subject": "Add bigquery-bigframes skills",
+            "url": "https://github.com/google/skills/commit/57a63b5bce807935508357300be3e0fefadd743c",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial BigFrames skill with Python/BigQuery usage guidance, DataFrame and ML practices, and model-development notes."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "725ed06b83558f337908bd85e47b920746b716d5",
+            "date": "2026-09-22T10:52:52-07:00",
+            "subject": "Define BigFrames as the default Python library in the description in all skill copies.",
+            "url": "https://github.com/google/skills/commit/725ed06b83558f337908bd85e47b920746b716d5",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能描述，將 BigFrames 列為 Python BigQuery 任務的預設選擇，將版本升至 2.0.0，並重新排版部分排序模式的指引。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的前置資料中新增設為 1.0.0 的版本欄位。"
+          },
+          {
+            "sha": "c85acb35bfdf06d4d16f15faf6986355d950e7a5",
+            "date": "2026-07-15T12:14:47-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c85acb35bfdf06d4d16f15faf6986355d950e7a5",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以 BigFrames 基礎指南取代技能的開發規範，內容涵蓋 DataFrame 實務、BigQuery ML 與參考資料，以及舊版 `bigframes.ml` 指引。"
+          },
+          {
+            "sha": "57a63b5bce807935508357300be3e0fefadd743c",
+            "date": "2026-06-29T14:11:25-07:00",
+            "subject": "Add bigquery-bigframes skills",
+            "url": "https://github.com/google/skills/commit/57a63b5bce807935508357300be3e0fefadd743c",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 BigFrames 技能初版，提供 Python/BigQuery 使用指引、DataFrame 與機器學習實務，以及模型開發說明。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "725ed06b83558f337908bd85e47b920746b716d5",
+            "date": "2026-09-22T10:52:52-07:00",
+            "subject": "Define BigFrames as the default Python library in the description in all skill copies.",
+            "url": "https://github.com/google/skills/commit/725ed06b83558f337908bd85e47b920746b716d5",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能描述，将 BigFrames 列为 Python BigQuery 任务的预设选择，将版本升至 2.0.0，并重新排版部分排序模式的指引。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的前置数据中添加设为 1.0.0 的版本字段。"
+          },
+          {
+            "sha": "c85acb35bfdf06d4d16f15faf6986355d950e7a5",
+            "date": "2026-07-15T12:14:47-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c85acb35bfdf06d4d16f15faf6986355d950e7a5",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以 BigFrames 基础指南取代技能的开发规范，内容涵盖 DataFrame 实务、BigQuery ML 与参考资料，以及旧版 `bigframes.ml` 指引。"
+          },
+          {
+            "sha": "57a63b5bce807935508357300be3e0fefadd743c",
+            "date": "2026-06-29T14:11:25-07:00",
+            "subject": "Add bigquery-bigframes skills",
+            "url": "https://github.com/google/skills/commit/57a63b5bce807935508357300be3e0fefadd743c",
+            "pathAtCommit": "skills/cloud/bigquery-bigframes/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 BigFrames 技能初版，提供 Python/BigQuery 使用指引、DataFrame 与机器学习实务，以及模型开发说明。"
+          }
+        ]
+      }
+    }
+  }
+}

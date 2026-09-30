@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-inference",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:e8ed30753a730563a0bdaedb9cd7247fe3175f3d2c4fbf79b310c2990f03a522"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Connects to Google Cloud Agent Platform and supports inference with Gemini, OpenMaaS, and custom-endpoint models.",
+        "whenToUse": "Use it when an inference integration needs SDK, authentication, or endpoint guidance, or when troubleshooting request errors; it does not cover model deployment or evaluation.",
+        "outputs": "It provides setup and troubleshooting guidance, along with Python SDK examples for Gemini, OpenMaaS, and custom-endpoint inference."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "連接 Google Cloud Agent Platform，並支援使用 Gemini、OpenMaaS 與自訂端點模型進行推論。",
+        "whenToUse": "當推論整合需要 SDK、驗證或端點設定指引，或需要排查請求錯誤時使用；此技能不涵蓋模型部署或評估。",
+        "outputs": "提供設定與疑難排解指引，以及 Gemini、OpenMaaS 和自訂端點推論的 Python SDK 範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "连接 Google Cloud Agent Platform，并支持使用 Gemini、OpenMaaS 与自订端点模型进行推论。",
+        "whenToUse": "当推论集成需要 SDK、验证或端点设置指引，或需要排查请求错误时使用；此技能不涵盖模型部署或评估。",
+        "outputs": "提供设置与疑难排解指引，以及 Gemini、OpenMaaS 和自订端点推论的 Python SDK 范例。"
+      }
+    }
+  }
+}

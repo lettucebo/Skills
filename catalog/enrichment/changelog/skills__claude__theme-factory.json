@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "theme-factory/SKILL.md",
               "destinationPath": "skills/theme-factory/SKILL.md"
             },
-            "summary": "Renamed `theme-factory/SKILL.md` to `skills/theme-factory/SKILL.md` with no content changes."
+            "summary": "Renamed the theme-factory skill file from `theme-factory/SKILL.md` to `skills/theme-factory/SKILL.md` without changing its contents."
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -43,7 +43,7 @@
               "sourcePath": "examples/theme-factory/SKILL.md",
               "destinationPath": "theme-factory/SKILL.md"
             },
-            "summary": "Renamed `examples/theme-factory/SKILL.md` to `theme-factory/SKILL.md` with no content changes."
+            "summary": "Renamed the theme-factory skill file from `examples/theme-factory/SKILL.md` to `theme-factory/SKILL.md` without changing its contents."
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -52,15 +52,15 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/theme-factory/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added `examples/theme-factory/SKILL.md` with Theme Factory skill metadata, ten preset themes, and instructions for applying or creating themes."
+            "summary": "Added `examples/theme-factory/SKILL.md` with guidance for applying themes and creating custom ones, alongside 10 preset themes."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -77,7 +77,7 @@
               "sourcePath": "theme-factory/SKILL.md",
               "destinationPath": "skills/theme-factory/SKILL.md"
             },
-            "summary": "將 `theme-factory/SKILL.md` 重新命名為 `skills/theme-factory/SKILL.md`，內容沒有變更。"
+            "summary": "將 theme-factory 技能檔從 `theme-factory/SKILL.md` 重新命名為 `skills/theme-factory/SKILL.md`，內容未變更。"
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -91,7 +91,7 @@
               "sourcePath": "examples/theme-factory/SKILL.md",
               "destinationPath": "theme-factory/SKILL.md"
             },
-            "summary": "將 `examples/theme-factory/SKILL.md` 重新命名為 `theme-factory/SKILL.md`，內容沒有變更。"
+            "summary": "將 theme-factory 技能檔從 `examples/theme-factory/SKILL.md` 重新命名為 `theme-factory/SKILL.md`，內容未變更。"
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -100,13 +100,13 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/theme-factory/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 `examples/theme-factory/SKILL.md`，包含 Theme Factory 技能中繼資料、十個預設主題，以及套用或建立主題的說明。"
+            "summary": "新增 `examples/theme-factory/SKILL.md`，提供套用主題及建立自訂主題的指引，並列出 10 種預設主題。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -124,7 +124,7 @@
               "sourcePath": "theme-factory/SKILL.md",
               "destinationPath": "skills/theme-factory/SKILL.md"
             },
-            "summary": "将 `theme-factory/SKILL.md` 重命名为 `skills/theme-factory/SKILL.md`，内容没有变更。"
+            "summary": "将 theme-factory 技能档从 `theme-factory/SKILL.md` 重命名为 `skills/theme-factory/SKILL.md`，内容未变更。"
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -138,7 +138,7 @@
               "sourcePath": "examples/theme-factory/SKILL.md",
               "destinationPath": "theme-factory/SKILL.md"
             },
-            "summary": "将 `examples/theme-factory/SKILL.md` 重命名为 `theme-factory/SKILL.md`，内容没有变更。"
+            "summary": "将 theme-factory 技能档从 `examples/theme-factory/SKILL.md` 重命名为 `theme-factory/SKILL.md`，内容未变更。"
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -147,7 +147,7 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/theme-factory/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 `examples/theme-factory/SKILL.md`，包含 Theme Factory 技能中继数据、十个预设主题，以及套用或创建主题的说明。"
+            "summary": "添加 `examples/theme-factory/SKILL.md`，提供套用主题及创建自订主题的指引，并列出 10 种预设主题。"
           }
         ]
       }

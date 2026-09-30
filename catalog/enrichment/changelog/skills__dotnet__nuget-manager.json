@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6e801aa978bef7a0a3c79884987e80eb31baded0",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added prerequisites, documented both jq and PowerShell options for version verification, and simplified the example verification step."
+            "summary": "Added .NET SDK and dotnet CLI prerequisites, documented jq and PowerShell version checks, and simplified the example verification step."
           },
           {
             "sha": "8d0adc69633e081b3043b7226eea86f291fdf067",
@@ -33,7 +33,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/8d0adc69633e081b3043b7226eea86f291fdf067",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Wrapped the SKILL.md frontmatter description value in single quotes."
+            "summary": "Quoted the skill's YAML description value with single quotes."
           },
           {
             "sha": "24f33dd9b68b6c5846bce07245f877afd37b310e",
@@ -42,7 +42,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/24f33dd9b68b6c5846bce07245f877afd37b310e",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Changed the SKILL.md heading from \"Nuget Manager\" to \"NuGet Manager\"."
+            "summary": "Corrected the heading capitalization from Nuget Manager to NuGet Manager."
           },
           {
             "sha": "920f66277130656d5e20443bb3c02977e1a02dc1",
@@ -51,7 +51,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/920f66277130656d5e20443bb3c02977e1a02dc1",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Removed the `> /dev/null` redirection from the jq-based version check command."
+            "summary": "Removed the > /dev/null redirection from the exact-version jq check command."
           },
           {
             "sha": "f515e3c872537ff19de276a22a763fc57c410064",
@@ -60,15 +60,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/f515e3c872537ff19de276a22a763fc57c410064",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the `skills/nuget-manager/SKILL.md` file with NuGet package management rules, workflows, and examples."
+            "summary": "Added NuGet Manager skill documentation defining package add, remove, and update workflows, including version checks and restore verification."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -80,7 +80,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6e801aa978bef7a0a3c79884987e80eb31baded0",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增先決條件，記錄使用 jq 與 PowerShell 驗證版本的兩種方式，並簡化範例中的版本驗證步驟。"
+            "summary": "新增 .NET SDK 與 dotnet CLI 的先決條件，記載 jq 和 PowerShell 的版本檢查方式，並簡化範例中的驗證步驟。"
           },
           {
             "sha": "8d0adc69633e081b3043b7226eea86f291fdf067",
@@ -89,7 +89,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/8d0adc69633e081b3043b7226eea86f291fdf067",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將 SKILL.md 前置資料中的 description 值改為以單引號包住。"
+            "summary": "以單引號括住技能的 YAML 描述值。"
           },
           {
             "sha": "24f33dd9b68b6c5846bce07245f877afd37b310e",
@@ -98,7 +98,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/24f33dd9b68b6c5846bce07245f877afd37b310e",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將 SKILL.md 標題從「Nuget Manager」改為「NuGet Manager」。"
+            "summary": "將標題中的 Nuget Manager 更正為 NuGet Manager。"
           },
           {
             "sha": "920f66277130656d5e20443bb3c02977e1a02dc1",
@@ -107,7 +107,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/920f66277130656d5e20443bb3c02977e1a02dc1",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "從以 jq 為基礎的版本檢查命令中移除了 `> /dev/null` 重新導向。"
+            "summary": "從精確版本的 jq 檢查指令中移除 > /dev/null 輸出重新導向。"
           },
           {
             "sha": "f515e3c872537ff19de276a22a763fc57c410064",
@@ -116,13 +116,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/f515e3c872537ff19de276a22a763fc57c410064",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 `skills/nuget-manager/SKILL.md` 檔案，內容包含 NuGet 套件管理規則、流程與範例。"
+            "summary": "新增 NuGet Manager 技能文件，說明套件新增、移除及更新流程，包括版本檢查與還原驗證。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -135,7 +135,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6e801aa978bef7a0a3c79884987e80eb31baded0",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加先决条件，记录使用 jq 与 PowerShell 验证版本的两种方式，并简化范例中的版本验证步骤。"
+            "summary": "添加 .NET SDK 与 dotnet CLI 的先决条件，记载 jq 和 PowerShell 的版本检查方式，并简化范例中的验证步骤。"
           },
           {
             "sha": "8d0adc69633e081b3043b7226eea86f291fdf067",
@@ -144,7 +144,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/8d0adc69633e081b3043b7226eea86f291fdf067",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将 SKILL.md 前置数据中的 description 值改为以单引号包住。"
+            "summary": "以单引号括住技能的 YAML 描述值。"
           },
           {
             "sha": "24f33dd9b68b6c5846bce07245f877afd37b310e",
@@ -153,7 +153,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/24f33dd9b68b6c5846bce07245f877afd37b310e",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将 SKILL.md 标题从「Nuget Manager」改为「NuGet Manager」。"
+            "summary": "将标题中的 Nuget Manager 更正为 NuGet Manager。"
           },
           {
             "sha": "920f66277130656d5e20443bb3c02977e1a02dc1",
@@ -162,7 +162,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/920f66277130656d5e20443bb3c02977e1a02dc1",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "从以 jq 为基础的版本检查命令中移除了 `> /dev/null` 重新导向。"
+            "summary": "从精确版本的 jq 检查指令中移除 > /dev/null 输出重新导向。"
           },
           {
             "sha": "f515e3c872537ff19de276a22a763fc57c410064",
@@ -171,7 +171,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/f515e3c872537ff19de276a22a763fc57c410064",
             "pathAtCommit": "skills/nuget-manager/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 `skills/nuget-manager/SKILL.md` 文件，内容包含 NuGet 套件管理规则、流程与范例。"
+            "summary": "添加 NuGet Manager 技能文档，说明套件添加、移除及更新流程，包括版本检查与还原验证。"
           }
         ]
       }

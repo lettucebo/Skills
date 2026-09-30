@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/data-manager-api-audience-ingestion",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9e4dc633718c1ff98053e7b6c3682738421cbc32a31c10a146945c90f0f7a73f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It organizes the steps for configuring and executing audience-member changes with the Data Manager API, then checking their processing results.",
+        "whenToUse": "Use it when implementing or troubleshooting additions, individual removals, or clearing and replacing supported Google Ads or Display & Video 360 Customer Match audiences; event and conversion uploads are outside its scope.",
+        "outputs": "It provides destination-aware guidance for account configuration, request construction, user-data formatting, validation, warnings, and asynchronous status diagnostics."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "此技能整理透過 Data Manager API 設定及執行受眾成員異動，並檢查處理結果的步驟。",
+        "whenToUse": "在實作或排查 Google Ads 或 Display & Video 360 Customer Match 受眾的新增成員、移除個別成員或清空及替換時使用；事件與轉換上傳不在此技能範圍內。",
+        "outputs": "提供依目的地而異的帳戶設定、請求建構、使用者資料格式處理、驗證、警告及非同步狀態診斷指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "此技能整理透过 Data Manager API 设置及运行受众成员异动，并检查处理结果的步骤。",
+        "whenToUse": "在实作或排查 Google Ads 或 Display & Video 360 Customer Match 受众的添加成员、移除个别成员或清空及替换时使用；事件与转换上传不在此技能范围内。",
+        "outputs": "提供依目的地而异的帐户设置、请求建构、用户数据格式处理、验证、警告及异步状态诊断指引。"
+      }
+    }
+  }
+}

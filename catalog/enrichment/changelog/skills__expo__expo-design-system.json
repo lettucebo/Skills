@@ -1,0 +1,126 @@
+{
+  "path": "skills/expo/expo-design-system",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:3f0daf63e81e72f07530fe2ad564c4b3ddf13578a3afc87e7e93f7ff581c70a1",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-design-system",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-design-system/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the expo-design-system guidance with Dynamic Type and accessible-control advice, named native-slop anti-patterns and a reference, and revised the post-screen review guidance."
+          },
+          {
+            "sha": "a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "date": "2026-08-31T17:27:35+02:00",
+            "subject": "[expo] remove NativeWind skill (#151)",
+            "url": "https://github.com/expo/skills/commit/a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "pathAtCommit": "plugins/expo/skills/expo-design-system/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the design-system skill to remove references to the separate Tailwind setup skill while retaining general guidance for Tailwind projects."
+          },
+          {
+            "sha": "92029dbd5216dd8b8386ac94ecdc62fd914c94e2",
+            "date": "2026-08-13T14:28:36-04:00",
+            "subject": "[expo-design] add Expo design systems skill (#143)",
+            "url": "https://github.com/expo/skills/commit/92029dbd5216dd8b8386ac94ecdc62fd914c94e2",
+            "pathAtCommit": "plugins/expo/skills/expo-design-system/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Expo design-systems skill, defining theme-token organization, reusable-component conventions, and rules for adoption, extraction, screen review, and auditing."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-design-system/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充 expo-design-system 指引，新增動態字級與無障礙控制項建議、具名的原生感反模式及其參考資料，並修訂畫面完成後的檢視指引。"
+          },
+          {
+            "sha": "a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "date": "2026-08-31T17:27:35+02:00",
+            "subject": "[expo] remove NativeWind skill (#151)",
+            "url": "https://github.com/expo/skills/commit/a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "pathAtCommit": "plugins/expo/skills/expo-design-system/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新設計系統技能，移除對獨立 Tailwind 設定技能的引用，同時保留 Tailwind 專案的一般指引。"
+          },
+          {
+            "sha": "92029dbd5216dd8b8386ac94ecdc62fd914c94e2",
+            "date": "2026-08-13T14:28:36-04:00",
+            "subject": "[expo-design] add Expo design systems skill (#143)",
+            "url": "https://github.com/expo/skills/commit/92029dbd5216dd8b8386ac94ecdc62fd914c94e2",
+            "pathAtCommit": "plugins/expo/skills/expo-design-system/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Expo 設計系統技能初版，說明主題設計權杖的組織方式、可重用元件慣例，以及採用、抽取、畫面檢視與稽核規則。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-design-system/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充 expo-design-system 指引，添加动态字级与无障碍控制项建议、具名的原生感反模式及其参考资料，并修订画面完成后的查看指引。"
+          },
+          {
+            "sha": "a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "date": "2026-08-31T17:27:35+02:00",
+            "subject": "[expo] remove NativeWind skill (#151)",
+            "url": "https://github.com/expo/skills/commit/a8f0b6c737fa915e4697f76ea6d9e427df9b19db",
+            "pathAtCommit": "plugins/expo/skills/expo-design-system/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新设计系统技能，移除对独立 Tailwind 设置技能的引用，同时保留 Tailwind 项目的一般指引。"
+          },
+          {
+            "sha": "92029dbd5216dd8b8386ac94ecdc62fd914c94e2",
+            "date": "2026-08-13T14:28:36-04:00",
+            "subject": "[expo-design] add Expo design systems skill (#143)",
+            "url": "https://github.com/expo/skills/commit/92029dbd5216dd8b8386ac94ecdc62fd914c94e2",
+            "pathAtCommit": "plugins/expo/skills/expo-design-system/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Expo 设计系统技能初版，说明主题设计权杖的组织方式、可重用组件惯例，以及采用、抽取、画面查看与审核规则。"
+          }
+        ]
+      }
+    }
+  }
+}

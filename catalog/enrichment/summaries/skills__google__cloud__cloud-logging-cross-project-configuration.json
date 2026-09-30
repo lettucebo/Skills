@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-logging-cross-project-configuration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:48d738bac6f941cfb1b72e826422d46c70abb5d0635a204b5c40e0ba1860af13"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to select between centralized storage and read-time aggregation and outlines the configuration and access controls for each.",
+        "whenToUse": "Use it when choosing how a multi-project environment should store and query logs, particularly when weighing aggregation suited to fewer than 375 projects against centralized storage that scales to thousands.",
+        "outputs": "A decision matrix and gcloud examples for creating buckets and sinks, configuring views or scopes, granting writer permissions, verifying routing, and troubleshooting common filter and permission issues."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何在集中式儲存與查詢時彙整之間選擇，並概述各方案的設定方式與存取控制。",
+        "whenToUse": "在決定多專案環境的日誌儲存與查詢方式時使用，尤其是在權衡適用於少於 375 個專案的查詢時彙整與可擴展至數千個專案的集中式儲存時。",
+        "outputs": "提供架構決策矩陣與 gcloud 範例，涵蓋建立日誌儲存桶與接收器、設定檢視或範圍、授予寫入權限、驗證路由，以及排查常見的篩選條件與權限問題。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何在集中式保存与查找时汇整之间选择，并概述各方案的设置方式与访问控制。",
+        "whenToUse": "在决定多项目环境的日志保存与查找方式时使用，尤其是在权衡适用于少于 375 个项目的查找时汇整与可扩展至数千个项目的集中式保存时。",
+        "outputs": "提供架构决策矩阵与 gcloud 范例，涵盖创建日志保存桶与接收器、设置查看或范围、授予写入权限、验证路由，以及排查常见的筛选条件与权限问题。"
+      }
+    }
+  }
+}

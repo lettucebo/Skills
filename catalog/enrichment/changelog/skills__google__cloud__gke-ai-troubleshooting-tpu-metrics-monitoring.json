@@ -1,0 +1,141 @@
+{
+  "path": "skills/google/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4d943030e90bbb9d048b08153b6e626175af01e8f1faa9785b71b300c7dff89b",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill metadata now includes version `1.0.0`."
+          },
+          {
+            "sha": "a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "date": "2026-08-21T10:49:48-07:00",
+            "subject": "Rename GKE TPU monitoring skills to gke-ai-troubleshooting prefix",
+            "url": "https://github.com/google/skills/commit/a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R090",
+              "sourcePath": "skills/cloud/gke-tpu-metrics-monitoring/SKILL.md",
+              "destinationPath": "skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md"
+            },
+            "summary": "The skill was renamed to `gke-ai-troubleshooting-tpu-metrics-monitoring`, and the runtime-metrics setup now explains why the port, JAX version, GKE version, and GKE System Metrics prerequisites are required."
+          },
+          {
+            "sha": "c8b32091ffadf19557e8092660518b97848c8069",
+            "date": "2026-07-29T15:16:45-07:00",
+            "subject": "Added gke-tpu-metrics-monitoring skill for Google Cloud GKE agents.",
+            "url": "https://github.com/google/skills/commit/c8b32091ffadf19557e8092660518b97848c8069",
+            "pathAtCommit": "skills/cloud/gke-tpu-metrics-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a GKE TPU monitoring guide with metric prerequisites and queries for TPU metrics, node and node-pool health, interruptions, MTTR, and MTBI."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中繼資料現在包含版本 `1.0.0`。"
+          },
+          {
+            "sha": "a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "date": "2026-08-21T10:49:48-07:00",
+            "subject": "Rename GKE TPU monitoring skills to gke-ai-troubleshooting prefix",
+            "url": "https://github.com/google/skills/commit/a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R090",
+              "sourcePath": "skills/cloud/gke-tpu-metrics-monitoring/SKILL.md",
+              "destinationPath": "skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md"
+            },
+            "summary": "此技能已更名為 `gke-ai-troubleshooting-tpu-metrics-monitoring`，且執行階段指標設定現在說明了連接埠、JAX 版本、GKE 版本及 GKE System Metrics 這些必要條件的原因。"
+          },
+          {
+            "sha": "c8b32091ffadf19557e8092660518b97848c8069",
+            "date": "2026-07-29T15:16:45-07:00",
+            "subject": "Added gke-tpu-metrics-monitoring skill for Google Cloud GKE agents.",
+            "url": "https://github.com/google/skills/commit/c8b32091ffadf19557e8092660518b97848c8069",
+            "pathAtCommit": "skills/cloud/gke-tpu-metrics-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE TPU 監控指南，涵蓋指標必要條件，以及 TPU 指標、節點與節點集區健康狀態、中斷、MTTR 和 MTBI 的查詢。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中继数据现在包含版本 `1.0.0`。"
+          },
+          {
+            "sha": "a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "date": "2026-08-21T10:49:48-07:00",
+            "subject": "Rename GKE TPU monitoring skills to gke-ai-troubleshooting prefix",
+            "url": "https://github.com/google/skills/commit/a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R090",
+              "sourcePath": "skills/cloud/gke-tpu-metrics-monitoring/SKILL.md",
+              "destinationPath": "skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md"
+            },
+            "summary": "此技能已更名为 `gke-ai-troubleshooting-tpu-metrics-monitoring`，且运行阶段指针设置现在说明了连接端口、JAX 版本、GKE 版本及 GKE System Metrics 这些必要条件的原因。"
+          },
+          {
+            "sha": "c8b32091ffadf19557e8092660518b97848c8069",
+            "date": "2026-07-29T15:16:45-07:00",
+            "subject": "Added gke-tpu-metrics-monitoring skill for Google Cloud GKE agents.",
+            "url": "https://github.com/google/skills/commit/c8b32091ffadf19557e8092660518b97848c8069",
+            "pathAtCommit": "skills/cloud/gke-tpu-metrics-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE TPU 监控指南，涵盖指针必要条件，以及 TPU 指针、节点与节点集区健康状态、中断、MTTR 和 MTBI 的查找。"
+          }
+        ]
+      }
+    }
+  }
+}

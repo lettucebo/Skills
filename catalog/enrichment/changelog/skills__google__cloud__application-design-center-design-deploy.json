@@ -1,0 +1,141 @@
+{
+  "path": "skills/google/cloud/application-design-center-design-deploy",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:fe2bce2ab45f853f19bf4d1bdaa9a6a1734bad6263185d3205afa6a7757cbc86",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/application-design-center-design-deploy",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/application-design-center-design-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill's metadata version changed from `v1` to `1.0.0`."
+          },
+          {
+            "sha": "00c3e741d9782e14dd28415cfee4e8adc165576f",
+            "date": "2026-08-18T10:50:46-07:00",
+            "subject": "Rename design-deploy skill to application-design-center-design-deploy.",
+            "url": "https://github.com/google/skills/commit/00c3e741d9782e14dd28415cfee4e8adc165576f",
+            "pathAtCommit": "skills/cloud/application-design-center-design-deploy/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R097",
+              "sourcePath": "skills/cloud/design-deploy/SKILL.md",
+              "destinationPath": "skills/cloud/application-design-center-design-deploy/SKILL.md"
+            },
+            "summary": "The skill was renamed to `application-design-center-design-deploy`; its description, title, and GCP/ADC boundaries were updated, and its design and troubleshooting links now point to guide files."
+          },
+          {
+            "sha": "3f26ddf33e4d158dbde0850ffafb4a29a977c321",
+            "date": "2026-08-10T11:53:47-07:00",
+            "subject": "Migrate design_deploy skill to third_party/skills for public export.",
+            "url": "https://github.com/google/skills/commit/3f26ddf33e4d158dbde0850ffafb4a29a977c321",
+            "pathAtCommit": "skills/cloud/design-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a GCP Application Design Center infrastructure design and deployment skill covering local Terraform validation and assessment, template import and deployment, troubleshooting, and verification."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/application-design-center-design-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中繼資料版本由 `v1` 改為 `1.0.0`。"
+          },
+          {
+            "sha": "00c3e741d9782e14dd28415cfee4e8adc165576f",
+            "date": "2026-08-18T10:50:46-07:00",
+            "subject": "Rename design-deploy skill to application-design-center-design-deploy.",
+            "url": "https://github.com/google/skills/commit/00c3e741d9782e14dd28415cfee4e8adc165576f",
+            "pathAtCommit": "skills/cloud/application-design-center-design-deploy/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R097",
+              "sourcePath": "skills/cloud/design-deploy/SKILL.md",
+              "destinationPath": "skills/cloud/application-design-center-design-deploy/SKILL.md"
+            },
+            "summary": "此技能更名為 `application-design-center-design-deploy`；其描述、標題及 GCP／ADC 使用界線已更新，設計與疑難排解連結也改為指向指南檔案。"
+          },
+          {
+            "sha": "3f26ddf33e4d158dbde0850ffafb4a29a977c321",
+            "date": "2026-08-10T11:53:47-07:00",
+            "subject": "Migrate design_deploy skill to third_party/skills for public export.",
+            "url": "https://github.com/google/skills/commit/3f26ddf33e4d158dbde0850ffafb4a29a977c321",
+            "pathAtCommit": "skills/cloud/design-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增一項 GCP Application Design Center 基礎架構設計與部署技能，涵蓋本機 Terraform 驗證與評估、範本匯入與部署、疑難排解及驗證。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/application-design-center-design-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中继数据版本由 `v1` 改为 `1.0.0`。"
+          },
+          {
+            "sha": "00c3e741d9782e14dd28415cfee4e8adc165576f",
+            "date": "2026-08-18T10:50:46-07:00",
+            "subject": "Rename design-deploy skill to application-design-center-design-deploy.",
+            "url": "https://github.com/google/skills/commit/00c3e741d9782e14dd28415cfee4e8adc165576f",
+            "pathAtCommit": "skills/cloud/application-design-center-design-deploy/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R097",
+              "sourcePath": "skills/cloud/design-deploy/SKILL.md",
+              "destinationPath": "skills/cloud/application-design-center-design-deploy/SKILL.md"
+            },
+            "summary": "此技能更名为 `application-design-center-design-deploy`；其描述、标题及 GCP／ADC 使用界线已更新，设计与疑难排解链接也改为指向指南文件。"
+          },
+          {
+            "sha": "3f26ddf33e4d158dbde0850ffafb4a29a977c321",
+            "date": "2026-08-10T11:53:47-07:00",
+            "subject": "Migrate design_deploy skill to third_party/skills for public export.",
+            "url": "https://github.com/google/skills/commit/3f26ddf33e4d158dbde0850ffafb4a29a977c321",
+            "pathAtCommit": "skills/cloud/design-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加一项 GCP Application Design Center 基础架构设计与部署技能，涵盖本机 Terraform 验证与评估、范本导入与部署、疑难排解及验证。"
+          }
+        ]
+      }
+    }
+  }
+}

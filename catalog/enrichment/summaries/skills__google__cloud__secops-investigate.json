@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/secops-investigate",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8ddb1ebd5dff383376a474ad8bdbcec63ff3a8e8a8ae3a546a725fc2855a110f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It structures the correlation of SecOps telemetry, entity context, and case evidence to reconstruct activity and assess incident scope.",
+        "whenToUse": "Use it when an alert or indicator warrants evidence-led follow-up across related events, systems, or identities.",
+        "outputs": "It supports time-bounded UDM searches and evidence extraction, timeline reconstruction, lateral-movement and severity assessments, and structured SOAR case documentation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它整合 SecOps 遙測資料、實體脈絡與案件證據，重建活動過程並評估事件範圍。",
+        "whenToUse": "當警示或指標需要跨相關事件、系統或身分進行證據導向的後續調查時使用。",
+        "outputs": "它支援具時間範圍的 UDM 搜尋與證據擷取、時間軸重建、橫向移動與嚴重度評估，以及結構化的 SOAR 案件文件。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它集成 SecOps 遥测数据、实体脉络与案件证据，重建活动过程并评估事件范围。",
+        "whenToUse": "当警示或指针需要跨相关事件、系统或身分进行证据导向的后续调查时使用。",
+        "outputs": "它支持具时间范围的 UDM 搜索与证据截取、时间轴重建、横向移动与严重度评估，以及结构化的 SOAR 案件文档。"
+      }
+    }
+  }
+}

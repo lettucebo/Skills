@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
             "pathAtCommit": "skills/gtm-product-led-growth/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added author and source metadata to the `skills/gtm-product-led-growth/SKILL.md` front matter."
+            "summary": "Adds author and source attribution fields to the skill's metadata."
           },
           {
             "sha": "3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
@@ -33,15 +33,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
             "pathAtCommit": "skills/gtm-product-led-growth/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the new `skills/gtm-product-led-growth/SKILL.md` skill document for product-led growth."
+            "summary": "Adds a Product-Led Growth skill covering motion selection, growth and channel economics, activation, sales handoffs, forecasting, and playbook documentation."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -53,7 +53,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
             "pathAtCommit": "skills/gtm-product-led-growth/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在 `skills/gtm-product-led-growth/SKILL.md` 的 front matter 中新增作者與來源中繼資料。"
+            "summary": "在技能的中繼資料中新增作者與來源歸屬欄位。"
           },
           {
             "sha": "3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
@@ -62,13 +62,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
             "pathAtCommit": "skills/gtm-product-led-growth/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 `skills/gtm-product-led-growth/SKILL.md` 的產品主導成長技能文件。"
+            "summary": "新增一項產品導向成長技能，涵蓋成長模式選擇、成長與通路經濟效益、啟用、銷售交接、預測及作戰手冊文件化。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -81,7 +81,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/aa7fc9eb55a1ca4002799f8fb95fe8add36cab95",
             "pathAtCommit": "skills/gtm-product-led-growth/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在 `skills/gtm-product-led-growth/SKILL.md` 的 front matter 中添加作者与来源中继数据。"
+            "summary": "在技能的中继数据中添加作者与来源归属字段。"
           },
           {
             "sha": "3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
@@ -90,7 +90,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/3f1cafafe91c16ec196a39d570ba2e4362fe8c73",
             "pathAtCommit": "skills/gtm-product-led-growth/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 `skills/gtm-product-led-growth/SKILL.md` 的产品主导成长技能文档。"
+            "summary": "添加一项产品导向成长技能，涵盖成长模式选择、成长与通路经济效益、激活、销售交接、预测及作战手册文档化。"
           }
         ]
       }

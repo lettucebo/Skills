@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/dbt-sf-to-bq-translator",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:51312a5bbd03fe7d9a113fdd57ad7648f25467dd937b412d7501b2380d5c5b66"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It streamlines Snowflake-to-BigQuery dbt migrations with deterministic preprocessing, translation, and postprocessing while preserving dbt constructs.",
+        "whenToUse": "Use it when a project migration needs Snowflake SQL translated through the BigQuery Migration Service and reconciled with dbt configuration and references, not for standalone BigQuery queries or other SQL dialects.",
+        "outputs": "It produces BigQuery-compatible dbt SQL models in migration_plan/[mig_prefix]/translated_models/ and copies YAML configuration files from the input directory to the output directory."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它透過確定性的前處理、翻譯與後處理，簡化 Snowflake 到 BigQuery 的 dbt 遷移並保留 dbt 語法。",
+        "whenToUse": "當專案遷移需要透過 BigQuery Migration Service 翻譯 Snowflake SQL，並配合 dbt 設定與參照時使用；不適用於獨立的 BigQuery 查詢或其他 SQL 方言的遷移。",
+        "outputs": "它會在 migration_plan/[mig_prefix]/translated_models/ 產生 BigQuery 相容的 dbt SQL 模型，並將輸入目錄中的 YAML 設定檔複製到輸出目錄。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它透过确定性的前处理、翻译与后处理，简化 Snowflake 到 BigQuery 的 dbt 迁移并保留 dbt 语法。",
+        "whenToUse": "当项目迁移需要透过 BigQuery Migration Service 翻译 Snowflake SQL，并配合 dbt 设置与参照时使用；不适用于独立的 BigQuery 查找或其他 SQL 方言的迁移。",
+        "outputs": "它会在 migration_plan/[mig_prefix]/translated_models/ 产生 BigQuery 兼容的 dbt SQL 模型，并将输入目录中的 YAML 设置档拷贝到输出目录。"
+      }
+    }
+  }
+}

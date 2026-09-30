@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-productionize",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f2bc6596d83bae68fc648790a1631a5a53cde0fcb5b78dab9830e4acfcb2d8a5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Coordinates a structured production-readiness review of GKE clusters and workloads across scalability, observability, reliability, security, backup and disaster recovery, ingress, cost, upgrades, and recommended defaults.",
+        "whenToUse": "Use when a cluster-wide or application-specific review is needed to identify production-readiness gaps and prioritize improvements.",
+        "outputs": "Produces a report with domain-specific checks and statuses, a weighted overall score, a readiness verdict, and prioritized remediation guidance."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "統籌評估 GKE 叢集與工作負載的正式上線準備程度，涵蓋擴充性、可觀測性、可靠性、安全性、備份與災難復原、對外流量入口、成本、升級及建議預設設定。",
+        "whenToUse": "當需要針對整個叢集或特定應用程式找出正式上線前的就緒度缺口，並排定改善優先順序時使用。",
+        "outputs": "產出就緒度報告，列出各領域的檢查項目與狀態、加權整體分數、就緒度判定及優先改善建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "统筹评估 GKE 集群与工作负载的正式上线准备程度，涵盖扩充性、可观测性、可靠性、安全性、备份与灾难复原、对外流量入口、成本、升级及建议预设设置。",
+        "whenToUse": "当需要针对整个集群或特定应用程序找出正式上线前的就绪度缺口，并排定改善优先级时使用。",
+        "outputs": "产出就绪度报告，列出各领域的检查项目与状态、加权整体分数、就绪度判定及优先改善建议。"
+      }
+    }
+  }
+}

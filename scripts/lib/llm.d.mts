@@ -3,8 +3,9 @@ export type JsonValue = JsonPrimitive | JsonValue[] | { [key: string]: JsonValue
 export type JsonSchema = Record<string, unknown>;
 
 export interface CopilotCliContract {
-  readonly version: 1;
-  readonly model: 'gpt-5.4';
+  readonly version: 2;
+  readonly model: 'gpt-6-luna';
+  readonly reasoningEffort: 'max';
   readonly flags: readonly string[];
 }
 

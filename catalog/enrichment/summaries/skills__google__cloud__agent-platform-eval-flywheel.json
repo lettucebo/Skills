@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-eval-flywheel",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c178b7d75e06a32f3668be9e0cc885db1ab037333cadef16eefe8e52f3a8aae0"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a metric-driven workflow for assessing and iteratively improving generative AI models and agents with Google Cloud's Agent Platform evaluation SDK.",
+        "whenToUse": "Use it when preparing evaluation data, choosing metrics, running or interpreting model or agent evaluations, diagnosing failures, or checking whether changes improved results without regressions.",
+        "outputs": "It can produce evaluation datasets and metric setups, scored results and reports, failure analyses, and before-and-after comparisons that guide targeted improvements."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供一套以指標為依據的流程，使用 Google Cloud Agent Platform 評估 SDK 評估並逐步改善生成式 AI 模型與 AI 代理。",
+        "whenToUse": "當您需要準備評估資料、選擇指標、執行或解讀模型或 AI 代理評估、診斷失敗原因，或確認變更是否改善結果且未造成退步時，請使用此流程。",
+        "outputs": "此流程可產生評估資料集與指標設定、評分結果與報告、失敗分析，以及協助制定針對性改善措施的前後比較。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供一套以指针为依据的流程，使用 Google Cloud Agent Platform 评估 SDK 评估并逐步改善生成式 AI 模型与 AI 代理。",
+        "whenToUse": "当您需要准备评估数据、选择指针、运行或解读模型或 AI 代理评估、诊断失败原因，或确认变更是否改善结果且未造成退步时，请使用此流程。",
+        "outputs": "此流程可产生评估数据集与指针设置、评分结果与报告、失败分析，以及协助制定针对性改善措施的前后比较。"
+      }
+    }
+  }
+}

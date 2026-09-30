@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/iam-helper-for-policy-simulator",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:aa5c43579486ab86155ea86a3ebad8dce96eecc49d44006d6284d39d95909587"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It compares a proposed IAM v1 allow policy with recent access history to identify changes that could disrupt workloads.",
+        "whenToUse": "Use it to check proposed allow-binding changes for a project, folder, or organization against historical access before rollout.",
+        "outputs": "It prepares a proposed policy and reports whether the simulation found potentially disrupted access, applying the change only after a safe result and user approval."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它會將提議的 IAM v1 允許政策與近期存取紀錄比對，以找出可能中斷工作負載的變更。",
+        "whenToUse": "在為專案、資料夾或組織調整允許角色綁定，且需要在套用前檢查歷史存取影響時使用。",
+        "outputs": "它會準備提議的政策並回報模擬是否發現可能受影響的存取；只有模擬結果安全且使用者同意後才會套用變更。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它会将提议的 IAM v1 允许政策与近期访问纪录比对，以找出可能中断工作负载的变更。",
+        "whenToUse": "在为项目、文件夹或组织调整允许角色绑定，且需要在套用前检查历史访问影响时使用。",
+        "outputs": "它会准备提议的政策并回报模拟是否发现可能受影响的访问；只有模拟结果安全且用户同意后才会套用变更。"
+      }
+    }
+  }
+}

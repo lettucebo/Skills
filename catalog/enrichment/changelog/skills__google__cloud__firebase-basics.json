@@ -1,0 +1,318 @@
+{
+  "path": "skills/google/cloud/firebase-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:53857b3810a93538e6b61fc43810b1c7f9abfa4e826f600ca7fe523d6801222d",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/firebase-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked Firebase Basics from a broad Firebase guide into a narrowly scoped CLI setup guide, adding environment, authentication, and project setup, CLI-based config retrieval, usage principles, and references while replacing the old mandatory setup flow."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a metadata block with the Serverless category to the skill's YAML frontmatter and removed an extra blank line."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/firebase-basics/SKILL.md",
+              "destinationPath": "skills/cloud/firebase-basics/SKILL.md"
+            },
+            "summary": "Moved the skill file from cloud/firebase-basics/SKILL.md to skills/cloud/firebase-basics/SKILL.md without changing its contents."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/firebase/firebase-basics/SKILL.md",
+              "destinationPath": "cloud/firebase-basics/SKILL.md"
+            },
+            "summary": "Moved the skill file from cloud/products/firebase/firebase-basics/SKILL.md to cloud/firebase-basics/SKILL.md without changing its contents."
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reordered the prerequisites so NPM verification comes before Firebase Agent Skills installation, and added a blank line before Quick start."
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Firebase Basics title and changed the mandatory-prerequisites heading from level two to level three."
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill's frontmatter name from firebase to firebase-basics."
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the reference links to use paths relative to the skill directory instead of its parent directory."
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Firebase Basics skill document with setup prerequisites, CLI login and active-project guidance, and reference links."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Firebase Basics 從廣泛的 Firebase 指南改寫為範圍較窄的 CLI 設定指南，新增環境、登入與專案設定、透過 CLI 取得設定檔、使用原則及參考資料，並取代舊的強制設定流程。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML 前置資料中新增含有 Serverless 分類的 metadata 區塊，並移除一個多餘的空行。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/firebase-basics/SKILL.md",
+              "destinationPath": "skills/cloud/firebase-basics/SKILL.md"
+            },
+            "summary": "將技能檔案從 cloud/firebase-basics/SKILL.md 移至 skills/cloud/firebase-basics/SKILL.md，內容未變更。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/firebase/firebase-basics/SKILL.md",
+              "destinationPath": "cloud/firebase-basics/SKILL.md"
+            },
+            "summary": "將技能檔案從 cloud/products/firebase/firebase-basics/SKILL.md 移至 cloud/firebase-basics/SKILL.md，內容未變更。"
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新排列先決條件，將 NPM 驗證移至安裝 Firebase Agent Skills 之前，並在 Quick start 前新增一個空行。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Firebase Basics 標題，並將強制先決條件標題從第二層改為第三層。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能前置資料中的名稱從 firebase 改為 firebase-basics。"
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新參考資料連結，改用相對於技能目錄的路徑，而非相對於其上層目錄的路徑。"
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版 Firebase Basics 技能文件，包含設定先決條件、CLI 登入與作用中專案指引，以及參考資料連結。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Firebase Basics 从广泛的 Firebase 指南改写为范围较窄的 CLI 设置指南，添加环境、登录与项目设置、透过 CLI 取得设置档、使用原则及参考资料，并取代旧的强制设置流程。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML 前置数据中添加含有 Serverless 分类的 metadata 区块，并移除一个多余的空行。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/firebase-basics/SKILL.md",
+              "destinationPath": "skills/cloud/firebase-basics/SKILL.md"
+            },
+            "summary": "将技能文件从 cloud/firebase-basics/SKILL.md 移至 skills/cloud/firebase-basics/SKILL.md，内容未变更。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/firebase-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/firebase/firebase-basics/SKILL.md",
+              "destinationPath": "cloud/firebase-basics/SKILL.md"
+            },
+            "summary": "将技能文件从 cloud/products/firebase/firebase-basics/SKILL.md 移至 cloud/firebase-basics/SKILL.md，内容未变更。"
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新排列先决条件，将 NPM 验证移至安装 Firebase Agent Skills 之前，并在 Quick start 前添加一个空行。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Firebase Basics 标题，并将强制先决条件标题从第二层改为第三层。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能前置数据中的名称从 firebase 改为 firebase-basics。"
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新参考资料链接，改用相对于技能目录的路径，而非相对于其上层目录的路径。"
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/firebase/firebase-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版 Firebase Basics 技能文档，包含设置先决条件、CLI 登录与作用中项目指引，以及参考资料链接。"
+          }
+        ]
+      }
+    }
+  }
+}

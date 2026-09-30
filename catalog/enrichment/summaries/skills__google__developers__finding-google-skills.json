@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/developers/finding-google-skills",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7c064639c8bb18588c39e173aabbd9c146f23d25669a9056eed22158a0b91653"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It routes applicable requests to relevant published Google skills by consulting the catalog on demand.",
+        "whenToUse": "Use it when current published guidance is needed for a relevant Google capability; skip it when there is no platform decision and no Google product is in scope.",
+        "outputs": "It fetches up to three relevant skill entrypoints, or reports that none applies or that catalog retrieval failed."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它會按需查詢技能目錄，將適用的請求導向相關的 Google 已發布技能。",
+        "whenToUse": "當需要查找與請求相關的 Google 功能之最新已發布指引時使用；若沒有平台選擇且未涉及 Google 產品，則不適用。",
+        "outputs": "它會擷取最多三個相關技能的入口文件；若沒有適用技能或目錄無法取得，則會如實說明。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它会按需查找技能目录，将适用的请求导向相关的 Google 已发布技能。",
+        "whenToUse": "当需要查找与请求相关的 Google 功能之最新已发布指引时使用；若没有平台选择且未涉及 Google 产品，则不适用。",
+        "outputs": "它会截取最多三个相关技能的入口文档；若没有适用技能或目录无法取得，则会如实说明。"
+      }
+    }
+  }
+}

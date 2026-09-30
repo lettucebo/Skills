@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/eas-update",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b07b74e19e1f87b1f391d62840f61bc7a1859df82842524c481190da80e5a9a3"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Deliver compatible JavaScript, styling, and asset changes to installed Expo apps over the air, and explain how EAS channels, branches, and runtime versions determine update delivery.",
+        "whenToUse": "Use it to decide whether JavaScript or asset changes can ship without a new native build, or to trace update configuration, compatibility, publication, and startup behavior.",
+        "outputs": "It provides project-aware setup and publishing guidance, compatibility checks, and troubleshooting steps for validating update delivery."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過無線更新，將相容的 JavaScript、樣式與資產變更送達已安裝的 Expo 應用程式，並說明 EAS 通道、分支與執行階段版本如何決定更新是否送達。",
+        "whenToUse": "當需要判斷 JavaScript 或資產變更能否不重新建置原生二進位檔就發布，或追查更新設定、相容性、發布與啟動行為時使用。",
+        "outputs": "提供符合專案狀況的設定與發布指引、相容性檢查，以及驗證更新遞送的疑難排解步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过无线更新，将兼容的 JavaScript、样式与资产变更送达已安装的 Expo 应用程序，并说明 EAS 通道、分支与运行阶段版本如何决定更新是否送达。",
+        "whenToUse": "当需要判断 JavaScript 或资产变更能否不重新建置原生二进位档就发布，或追查更新设置、兼容性、发布与启动行为时使用。",
+        "outputs": "提供符合项目状况的设置与发布指引、兼容性检查，以及验证更新递送的疑难排解步骤。"
+      }
+    }
+  }
+}

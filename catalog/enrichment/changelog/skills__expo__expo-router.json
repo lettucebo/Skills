@@ -1,0 +1,180 @@
+{
+  "path": "skills/expo/expo-router",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1dba9bc62ad5d6cb37e00c0802cd2cd21b941aacdd0c81e4c239334d606a306a",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-router",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "170589a7ee8963156f63de8202fa96cf08a9e610",
+            "date": "2026-09-08T11:41:34+02:00",
+            "subject": "[expo] Correctness pass on design-surface skills (#176)",
+            "url": "https://github.com/expo/skills/commit/170589a7ee8963156f63de8202fa96cf08a9e610",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The intro now directs motion and gestures to `expo-animation`, and the Stack example uses SDK 56+'s `headerLargeTitleEnabled` option while noting the older option is deprecated."
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance to use the `expo-skill-feedback` eval-candidate flow when an AI agent repeatedly fails or the user must take over an Expo task."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a feedback-submission section with a command for reporting specific, actionable problems in the skill and guidance to include relevant context."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated metadata to label the skill as Framework (OSS) and version 1.0.1, and changed its native-UI references from `building-native-ui` to `expo-native-ui`."
+          },
+          {
+            "sha": "06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "date": "2026-07-06T12:17:23+02:00",
+            "subject": "Split building-native-ui into building-native-ui + expo-router (#99)",
+            "url": "https://github.com/expo/skills/commit/06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial `expo-router` skill document with routing and navigation guidance and references `building-native-ui` for screen styling."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "170589a7ee8963156f63de8202fa96cf08a9e610",
+            "date": "2026-09-08T11:41:34+02:00",
+            "subject": "[expo] Correctness pass on design-surface skills (#176)",
+            "url": "https://github.com/expo/skills/commit/170589a7ee8963156f63de8202fa96cf08a9e610",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "簡介現在將動態效果與手勢導向 `expo-animation`，Stack 範例改用 SDK 56+ 的 `headerLargeTitleEnabled` 選項，並註明舊選項已遭棄用。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若 AI 代理反覆失敗，或使用者必須接手 Expo 任務，應改用 `expo-skill-feedback` 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增回饋提交章節，提供回報技能中具體且可採取行動之問題的指令，並建議附上相關背景資訊。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新中繼資料，將技能標示為 Framework (OSS) 並升至 1.0.1，且將原生 UI 的參照從 `building-native-ui` 改為 `expo-native-ui`。"
+          },
+          {
+            "sha": "06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "date": "2026-07-06T12:17:23+02:00",
+            "subject": "Split building-native-ui into building-native-ui + expo-router (#99)",
+            "url": "https://github.com/expo/skills/commit/06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初始的 `expo-router` 技能文件，提供路由與導覽指引，並將畫面樣式指引連結至 `building-native-ui`。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "170589a7ee8963156f63de8202fa96cf08a9e610",
+            "date": "2026-09-08T11:41:34+02:00",
+            "subject": "[expo] Correctness pass on design-surface skills (#176)",
+            "url": "https://github.com/expo/skills/commit/170589a7ee8963156f63de8202fa96cf08a9e610",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "简介现在将动态效果与手势导向 `expo-animation`，Stack 范例改用 SDK 56+ 的 `headerLargeTitleEnabled` 选项，并注明旧选项已遭弃用。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若 AI 代理反复失败，或用户必须接手 Expo 任务，应改用 `expo-skill-feedback` 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加回馈提交章节，提供回报技能中具体且可采取行动之问题的指令，并建议附上相关背景信息。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新中继数据，将技能标示为 Framework (OSS) 并升至 1.0.1，且将原生 UI 的参照从 `building-native-ui` 改为 `expo-native-ui`。"
+          },
+          {
+            "sha": "06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "date": "2026-07-06T12:17:23+02:00",
+            "subject": "Split building-native-ui into building-native-ui + expo-router (#99)",
+            "url": "https://github.com/expo/skills/commit/06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "pathAtCommit": "plugins/expo/skills/expo-router/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初始的 `expo-router` 技能文档，提供路由与导览指引，并将画面样式指引链接至 `building-native-ui`。"
+          }
+        ]
+      }
+    }
+  }
+}

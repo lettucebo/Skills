@@ -2,42 +2,42 @@
   "path": "skills/azure/azure-devops-cli",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:347118a6eb6908cb639dd3473823aa2a1004f3d86f225363d60f8fa397180a54"
+    "contentHash": "sha256:ffc0bdf8a261ce466bee93f5d3ae4ff71887dc88cec0ca70587fa3798043cb09"
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides Azure CLI guidance for managing Azure DevOps projects, repos, pipelines, builds, pull requests, work items, artifacts, teams, users, and service connections.",
-        "whenToUse": "Use this when you need az-based Azure DevOps automation or commands for repos, boards, pipelines, security, wikis, or related administration tasks.",
-        "outputs": "Returns relevant Azure DevOps CLI command patterns, examples, and domain-specific reference guidance for the task at hand."
+        "purpose": "Provides Azure CLI command guidance for managing Azure DevOps projects, repositories, pipelines, work items, and related services.",
+        "whenToUse": "Consult the relevant reference when a task needs Azure DevOps command syntax, such as configuring authentication or defaults, managing CI/CD, reviewing pull requests, or handling work items, security, or packages.",
+        "outputs": "Provides task-specific az commands and workflow guidance, with references for output formatting, scripting patterns, and error handling."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供使用 Azure CLI 管理 Azure DevOps 專案、儲存庫、管線、建置、提取要求、工作項目、成品、團隊、使用者與服務連線的指引。",
-        "whenToUse": "當你需要以 az 指令進行 Azure DevOps 自動化，或處理儲存庫、Boards、Pipelines、安全性、Wiki 與相關管理工作時使用。",
-        "outputs": "會依任務提供相關的 Azure DevOps CLI 指令模式、範例與對應領域的參考指引。"
+        "purpose": "提供 Azure CLI 命令指引，用於管理 Azure DevOps 專案、儲存庫、管線、工作項目及相關服務。",
+        "whenToUse": "當任務需要 Azure DevOps 命令語法時，請參閱相應參考資料，例如設定驗證或預設值、管理 CI/CD、審查提取要求，或處理工作項目、安全性與套件。",
+        "outputs": "提供依任務而定的 az 命令與流程指引，並附有輸出格式、指令碼模式及錯誤處理的參考資料。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供使用 Azure CLI 管理 Azure DevOps 项目、保存库、管线、建置、提取要求、工作项目、成品、团队、用户与服务连接的指引。",
-        "whenToUse": "当你需要以 az 指令进行 Azure DevOps 自动化，或处理保存库、Boards、Pipelines、安全性、Wiki 与相关管理工作时使用。",
-        "outputs": "会依任务提供相关的 Azure DevOps CLI 指令模式、范例与对应领域的参考指引。"
+        "purpose": "提供 Azure CLI 命令指引，用于管理 Azure DevOps 项目、保存库、管线、工作项目及相关服务。",
+        "whenToUse": "当任务需要 Azure DevOps 命令语法时，请参阅相应参考资料，例如设置验证或默认值、管理 CI/CD、审查提取要求，或处理工作项目、安全性与套件。",
+        "outputs": "提供依任务而定的 az 命令与流程指引，并附有输出格式、脚本模式及错误处理的参考资料。"
       }
     }
   }

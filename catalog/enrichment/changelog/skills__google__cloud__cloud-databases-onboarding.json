@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/cloud-databases-onboarding",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:92acd89eb080f4281309924c7dc7f2daf90ad0a17a5578a6564e2d89d7389c0d",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/cloud-databases-onboarding",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-databases-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds version 1.0.0 to the skill's metadata in SKILL.md."
+          },
+          {
+            "sha": "c248bda8623bd62f55c7456381e996b14c88099e",
+            "date": "2026-09-16T08:44:05-07:00",
+            "subject": "Enhance cloud-databases-onboarding skill with gcloud skill rules",
+            "url": "https://github.com/google/skills/commit/c248bda8623bd62f55c7456381e996b14c88099e",
+            "pathAtCommit": "skills/cloud/cloud-databases-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds gcloud CLI drafting rules requiring beta provisioning commands, leaf-command syntax validation, explicit project and location flags, preview flags and tags where supported, and prohibiting quiet flags and live writes; it also links the gcloud skill."
+          },
+          {
+            "sha": "f1b00f7cef899330df945b66c94e9c977b355f3b",
+            "date": "2026-08-26T00:11:25-07:00",
+            "subject": "Add Cloud databases onboarding skill and evaluation configs",
+            "url": "https://github.com/google/skills/commit/f1b00f7cef899330df945b66c94e9c977b355f3b",
+            "pathAtCommit": "skills/cloud/cloud-databases-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the cloud database onboarding skill with a three-phase discovery, recommendation, and draft-provisioning workflow, plus validation and supporting-resource guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-databases-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 SKILL.md 的中繼資料中新增版本號 1.0.0。"
+          },
+          {
+            "sha": "c248bda8623bd62f55c7456381e996b14c88099e",
+            "date": "2026-09-16T08:44:05-07:00",
+            "subject": "Enhance cloud-databases-onboarding skill with gcloud skill rules",
+            "url": "https://github.com/google/skills/commit/c248bda8623bd62f55c7456381e996b14c88099e",
+            "pathAtCommit": "skills/cloud/cloud-databases-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 gcloud CLI 指令草擬規範，要求使用 beta 佈建指令、驗證葉層指令語法、明確指定專案與位置旗標，並在支援時使用預覽旗標及標籤，同時禁止使用 quiet 旗標和執行即時寫入；另新增 gcloud 技能的連結。"
+          },
+          {
+            "sha": "f1b00f7cef899330df945b66c94e9c977b355f3b",
+            "date": "2026-08-26T00:11:25-07:00",
+            "subject": "Add Cloud databases onboarding skill and evaluation configs",
+            "url": "https://github.com/google/skills/commit/f1b00f7cef899330df945b66c94e9c977b355f3b",
+            "pathAtCommit": "skills/cloud/cloud-databases-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增雲端資料庫導入技能，包含需求探索、建議與草擬佈建的三階段工作流程，以及驗證和支援資源指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-databases-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 SKILL.md 的中继数据中添加版本号 1.0.0。"
+          },
+          {
+            "sha": "c248bda8623bd62f55c7456381e996b14c88099e",
+            "date": "2026-09-16T08:44:05-07:00",
+            "subject": "Enhance cloud-databases-onboarding skill with gcloud skill rules",
+            "url": "https://github.com/google/skills/commit/c248bda8623bd62f55c7456381e996b14c88099e",
+            "pathAtCommit": "skills/cloud/cloud-databases-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 gcloud CLI 指令草拟规范，要求使用 beta 布建指令、验证叶层指令语法、明确指定项目与位置旗标，并在支持时使用预览旗标及标签，同时禁止使用 quiet 旗标和运行实时写入；另添加 gcloud 技能的链接。"
+          },
+          {
+            "sha": "f1b00f7cef899330df945b66c94e9c977b355f3b",
+            "date": "2026-08-26T00:11:25-07:00",
+            "subject": "Add Cloud databases onboarding skill and evaluation configs",
+            "url": "https://github.com/google/skills/commit/f1b00f7cef899330df945b66c94e9c977b355f3b",
+            "pathAtCommit": "skills/cloud/cloud-databases-onboarding/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加云端数据库导入技能，包含需求探索、建议与草拟布建的三阶段工作流程，以及验证和支持资源指引。"
+          }
+        ]
+      }
+    }
+  }
+}

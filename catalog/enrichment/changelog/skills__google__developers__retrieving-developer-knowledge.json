@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/developers/retrieving-developer-knowledge",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:800458fe9c1544752187acd224d4d3bdf1cb31ab4d50d4af23b649b7f20cad5d",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/developers/retrieving-developer-knowledge",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a `1.0.0` version field to the skill metadata."
+          },
+          {
+            "sha": "150f8525e7e3329603b18d23a0f434aa29137eda",
+            "date": "2026-09-11T18:43:20-07:00",
+            "subject": "🐛 fix(skills): correct batchGet to GET with repeated names",
+            "url": "https://github.com/google/skills/commit/150f8525e7e3329603b18d23a0f434aa29137eda",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds API-key setup guidance for missing credentials and changes Batch Get to a GET request with repeated `names` parameters, up to 20 documents."
+          },
+          {
+            "sha": "7f90759725ef87302926413f999b0baf57cf48e7",
+            "date": "2026-09-10T12:25:38-07:00",
+            "subject": "Correct search_documents MCP tool signature in retrieving-developer-knowledge SKILL.md",
+            "url": "https://github.com/google/skills/commit/7f90759725ef87302926413f999b0baf57cf48e7",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changes `search_documents` usage to accept only `query`, removing the `page_size` argument."
+          },
+          {
+            "sha": "d9ed0bd5c4b76f31580f968285642e05552f03fd",
+            "date": "2026-09-01T18:05:24-07:00",
+            "subject": "Give the Developer Knowledge skill a transport that works, and make a failed lookup visible",
+            "url": "https://github.com/google/skills/commit/d9ed0bd5c4b76f31580f968285642e05552f03fd",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarifies when to use the REST fallback and how to handle failed lookups, and adds gcloud and ADC bearer-token authentication guidance."
+          },
+          {
+            "sha": "a3bf99773716d4563edcd92cd8248f0784d6c464",
+            "date": "2026-08-27T14:27:01-07:00",
+            "subject": "Add retrieving-developer-knowledge skill for Google developer documentation lookups and synthesis.",
+            "url": "https://github.com/google/skills/commit/a3bf99773716d4563edcd92cd8248f0784d6c464",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the skill's initial guidance for retrieving official Google developer documentation through MCP or REST and synthesizing results."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增 `1.0.0` 版本欄位。"
+          },
+          {
+            "sha": "150f8525e7e3329603b18d23a0f434aa29137eda",
+            "date": "2026-09-11T18:43:20-07:00",
+            "subject": "🐛 fix(skills): correct batchGet to GET with repeated names",
+            "url": "https://github.com/google/skills/commit/150f8525e7e3329603b18d23a0f434aa29137eda",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增缺少憑證時的 API 金鑰設定指引，並將 Batch Get 改為使用重複 `names` 參數的 GET 請求，每次最多 20 份文件。"
+          },
+          {
+            "sha": "7f90759725ef87302926413f999b0baf57cf48e7",
+            "date": "2026-09-10T12:25:38-07:00",
+            "subject": "Correct search_documents MCP tool signature in retrieving-developer-knowledge SKILL.md",
+            "url": "https://github.com/google/skills/commit/7f90759725ef87302926413f999b0baf57cf48e7",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 `search_documents` 的用法改為僅接受 `query`，移除 `page_size` 參數。"
+          },
+          {
+            "sha": "d9ed0bd5c4b76f31580f968285642e05552f03fd",
+            "date": "2026-09-01T18:05:24-07:00",
+            "subject": "Give the Developer Knowledge skill a transport that works, and make a failed lookup visible",
+            "url": "https://github.com/google/skills/commit/d9ed0bd5c4b76f31580f968285642e05552f03fd",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "補充何時使用 REST 備援及如何處理查詢失敗的指引，並新增 gcloud 與 ADC bearer token 驗證說明。"
+          },
+          {
+            "sha": "a3bf99773716d4563edcd92cd8248f0784d6c464",
+            "date": "2026-08-27T14:27:01-07:00",
+            "subject": "Add retrieving-developer-knowledge skill for Google developer documentation lookups and synthesis.",
+            "url": "https://github.com/google/skills/commit/a3bf99773716d4563edcd92cd8248f0784d6c464",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增此技能的初始指引，說明如何透過 MCP 或 REST 擷取 Google 官方開發者文件並綜整結果。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加 `1.0.0` 版本字段。"
+          },
+          {
+            "sha": "150f8525e7e3329603b18d23a0f434aa29137eda",
+            "date": "2026-09-11T18:43:20-07:00",
+            "subject": "🐛 fix(skills): correct batchGet to GET with repeated names",
+            "url": "https://github.com/google/skills/commit/150f8525e7e3329603b18d23a0f434aa29137eda",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加缺少凭证时的 API 密钥设置指引，并将 Batch Get 改为使用重复 `names` 参数的 GET 请求，每次最多 20 份文档。"
+          },
+          {
+            "sha": "7f90759725ef87302926413f999b0baf57cf48e7",
+            "date": "2026-09-10T12:25:38-07:00",
+            "subject": "Correct search_documents MCP tool signature in retrieving-developer-knowledge SKILL.md",
+            "url": "https://github.com/google/skills/commit/7f90759725ef87302926413f999b0baf57cf48e7",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 `search_documents` 的用法改为仅接受 `query`，移除 `page_size` 参数。"
+          },
+          {
+            "sha": "d9ed0bd5c4b76f31580f968285642e05552f03fd",
+            "date": "2026-09-01T18:05:24-07:00",
+            "subject": "Give the Developer Knowledge skill a transport that works, and make a failed lookup visible",
+            "url": "https://github.com/google/skills/commit/d9ed0bd5c4b76f31580f968285642e05552f03fd",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "补充何时使用 REST 备援及如何处理查找失败的指引，并添加 gcloud 与 ADC bearer token 验证说明。"
+          },
+          {
+            "sha": "a3bf99773716d4563edcd92cd8248f0784d6c464",
+            "date": "2026-08-27T14:27:01-07:00",
+            "subject": "Add retrieving-developer-knowledge skill for Google developer documentation lookups and synthesis.",
+            "url": "https://github.com/google/skills/commit/a3bf99773716d4563edcd92cd8248f0784d6c464",
+            "pathAtCommit": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加此技能的初始指引，说明如何透过 MCP 或 REST 截取 Google 官方开发者文档并综整结果。"
+          }
+        ]
+      }
+    }
+  }
+}

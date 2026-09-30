@@ -1,0 +1,99 @@
+{
+  "path": "skills/google/cloud/datalineage-summary",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d2d0b27f7c8bf2bcc8e660be2c4fd0a98cda794c7d42ac10a270def3780a99b5",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/datalineage-summary",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/datalineage-summary/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a `1.0.0` version field to the skill's metadata."
+          },
+          {
+            "sha": "cb5b5c69cb68fee2d5a1289a1b58cdbd0a7b5546",
+            "date": "2026-07-16T06:38:41-07:00",
+            "subject": "Add the new datalineage-summary 1p skill to automate data lineage summarization using the Lineage MCP server.",
+            "url": "https://github.com/google/skills/commit/cb5b5c69cb68fee2d5a1289a1b58cdbd0a7b5546",
+            "pathAtCommit": "skills/cloud/datalineage-summary/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a Data Lineage Summary skill that guides bidirectional lineage retrieval and structured Markdown summaries for table- and column-level lineage."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/datalineage-summary/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在該技能的中繼資料中新增 `1.0.0` 版本欄位。"
+          },
+          {
+            "sha": "cb5b5c69cb68fee2d5a1289a1b58cdbd0a7b5546",
+            "date": "2026-07-16T06:38:41-07:00",
+            "subject": "Add the new datalineage-summary 1p skill to automate data lineage summarization using the Lineage MCP server.",
+            "url": "https://github.com/google/skills/commit/cb5b5c69cb68fee2d5a1289a1b58cdbd0a7b5546",
+            "pathAtCommit": "skills/cloud/datalineage-summary/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Data Lineage Summary 技能，指引如何雙向擷取資料沿襲，並為資料表層級與欄位層級的沿襲撰寫結構化 Markdown 摘要。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/datalineage-summary/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在该技能的中继数据中添加 `1.0.0` 版本字段。"
+          },
+          {
+            "sha": "cb5b5c69cb68fee2d5a1289a1b58cdbd0a7b5546",
+            "date": "2026-07-16T06:38:41-07:00",
+            "subject": "Add the new datalineage-summary 1p skill to automate data lineage summarization using the Lineage MCP server.",
+            "url": "https://github.com/google/skills/commit/cb5b5c69cb68fee2d5a1289a1b58cdbd0a7b5546",
+            "pathAtCommit": "skills/cloud/datalineage-summary/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Data Lineage Summary 技能，指引如何双向截取数据沿袭，并为数据表层级与字段层级的沿袭撰写结构化 Markdown 摘要。"
+          }
+        ]
+      }
+    }
+  }
+}

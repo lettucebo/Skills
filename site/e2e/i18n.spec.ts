@@ -208,7 +208,7 @@ test.describe('full-route localization', () => {
 
   test('traditional Chinese search uses its language index and keeps localized links', async ({ page }) => {
     await page.goto(`${SITE_BASE}zh-tw/`);
-    await page.locator('#search-input').fill('成本最佳化');
+    await page.locator('#search-input').fill('節省成本');
     const rows = await waitForRenderedResults(page);
 
     expect(rows.length).toBeGreaterThan(0);

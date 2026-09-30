@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-get-started",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:90fc61742000392d37e19bd0248ba0f6553afbc64a7ca2c3f2db36ed2da1cea5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides a platform-specific setup of the Google Mobile Ads SDK, from adding it to confirming the integration.",
+        "whenToUse": "Use it once an Android, iOS, or Unity project is identified and its SDK installation needs to be completed in order.",
+        "outputs": "A verified setup with the SDK dependency, application identifier, and initialization in place, followed by a request to choose an ad format."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "引導開發者依平台設定 Google Mobile Ads SDK，從加入 SDK 到確認整合完成。",
+        "whenToUse": "在已確認 Android、iOS 或 Unity 專案的平台，且需要依序完成 SDK 安裝時使用。",
+        "outputs": "完成並驗證 SDK 相依套件、應用程式識別碼與初始化設定，接著請使用者選擇廣告格式。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "引导开发者依平台设置 Google Mobile Ads SDK，从加入 SDK 到确认集成完成。",
+        "whenToUse": "在已确认 Android、iOS 或 Unity 项目的平台，且需要依序完成 SDK 安装时使用。",
+        "outputs": "完成并验证 SDK 相依套件、应用程序识别码与初始化设置，接着请用户选择广告格式。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-batch-hpc",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6bf6165e44ac9d6d5153c233109fd489467ef1b2474b63e46c93dc9e41a4a5e8"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Supports running batch-processing and high-performance computing workloads on Google Kubernetes Engine (GKE).",
+        "whenToUse": "Use it for GKE batch pipelines, HPC simulations, large-scale parallel computation, machine-learning training, or CI/CD build farms.",
+        "outputs": "Provides example manifests and commands for Kubernetes Jobs, JobSets, Kueue queues, compact-placement node pools, and MPIJobs, along with guidance on resources, scaling, cost, and resilience."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助在 Google Kubernetes Engine（GKE）上執行批次處理與高效能運算工作負載。",
+        "whenToUse": "當您要在 GKE 上執行批次處理管線、HPC 模擬、大規模平行運算、機器學習訓練或 CI/CD 建置工作時使用。",
+        "outputs": "提供 Kubernetes Job、JobSet、Kueue 佇列、緊密放置節點集區與 MPIJob 的範例清單和指令，並附上資源、擴縮、成本及韌性方面的指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助在 Google Kubernetes Engine（GKE）上运行批量处理与高性能计算工作负载。",
+        "whenToUse": "当您要在 GKE 上运行批量处理管线、HPC 模拟、大规模平行运算、机器学习训练或 CI/CD 建置工作时使用。",
+        "outputs": "提供 Kubernetes Job、JobSet、Kueue 队列、紧密放置节点集区与 MPIJob 的范例清单和指令，并附上资源、扩缩、成本及韧性方面的指引。"
+      }
+    }
+  }
+}

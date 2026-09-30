@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides official Microsoft API references and working sample code to verify SDK usage, signatures, and package choices.",
-        "whenToUse": "Use it when you need to confirm a Microsoft method, class, overload, package, or authentication pattern, especially for unfamiliar APIs, version mismatches, or troubleshooting.",
-        "outputs": "Returns relevant documentation pages, full API reference details, and official code samples that you can compare against your implementation."
+        "purpose": "Checks Microsoft API and SDK usage against official documentation and working code examples.",
+        "whenToUse": "Use it to confirm an API's availability, signature, package, or version-specific pattern, or to investigate an SDK error.",
+        "outputs": "It provides relevant Microsoft reference details and code samples to guide a correct implementation."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供 Microsoft 官方 API 參考與可運作的程式範例，用來驗證 SDK 用法、方法簽章與套件選擇是否正確。",
-        "whenToUse": "當你需要確認 Microsoft 的方法、類別、多載、套件或驗證模式時使用，特別適合不熟悉的 API、版本混用或疑難排解情境。",
-        "outputs": "會回傳相關文件頁面、完整 API 參考細節，以及可用來對照實作的官方程式範例。"
+        "purpose": "依據官方文件與可運作的程式碼範例，確認 Microsoft API 與 SDK 的用法。",
+        "whenToUse": "需要確認 API 是否存在、方法簽章、套件或版本相符的用法，或排查 SDK 錯誤時使用。",
+        "outputs": "提供相關的 Microsoft 參考資料與程式碼範例，協助正確實作。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供 Microsoft 官方 API 参考与可运作的程序范例，用来验证 SDK 用法、方法签章与套件选择是否正确。",
-        "whenToUse": "当你需要确认 Microsoft 的方法、类别、多载、套件或验证模式时使用，特别适合不熟悉的 API、版本混用或疑难排解情境。",
-        "outputs": "会回传相关文档页面、完整 API 参考细节，以及可用来对照实作的官方程式范例。"
+        "purpose": "依据官方文档与可运作的代码范例，确认 Microsoft API 与 SDK 的用法。",
+        "whenToUse": "需要确认 API 是否存在、方法签章、套件或版本相符的用法，或排查 SDK 错误时使用。",
+        "outputs": "提供相关的 Microsoft 参考资料与代码范例，协助正确实作。"
       }
     }
   }

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-compute-classes",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:aae2bfb7fc5de313a28ee5ee72ed84552ee164ef27962849d2a20561921891f1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps translate workload and cost constraints into reliable GKE ComputeClass capacity and placement policies.",
+        "whenToUse": "Use it to align machine-family priorities with CUDs or reservations, tune zonal capacity, or investigate scheduling failures involving taints, storage, stockouts, or migration.",
+        "outputs": "Provides example manifests and focused guidance for capacity fallbacks, placement, and autoscaler or pod-scheduling troubleshooting."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助將工作負載與成本限制轉化為可靠的 GKE ComputeClass 容量與放置政策。",
+        "whenToUse": "當需依據 CUD 或預留資源調整機型優先順序、調校可用區容量，或排查與污點、儲存、資源耗盡或遷移相關的排程失敗時使用。",
+        "outputs": "提供範例資訊清單，以及容量備援、放置策略和自動調整器或 Pod 排程疑難排解的重點指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助将工作负载与成本限制转化为可靠的 GKE ComputeClass 容量与放置政策。",
+        "whenToUse": "当需依据 CUD 或预留资源调整机型优先级、调校可用区容量，或排查与污点、保存、资源耗尽或迁移相关的调度失败时使用。",
+        "outputs": "提供范例信息清单，以及容量备援、放置策略和自动调整器或 Pod 调度疑难排解的重点指引。"
+      }
+    }
+  }
+}

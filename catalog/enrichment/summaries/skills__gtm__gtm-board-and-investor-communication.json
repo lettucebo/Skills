@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps leaders turn board and investor communication into clear narratives, decision-focused meetings, and disciplined metric reporting.",
-        "whenToUse": "Use it when preparing board decks or pre-reads, sending investor updates, communicating a miss, or aligning the company around board-level strategy and metrics.",
-        "outputs": "Produces a board meeting structure, a monthly investor update format, bad-news communication patterns, and a stable metric hierarchy for reporting progress."
+        "purpose": "Help leaders communicate company performance, risks, decisions, and strategy to boards and investors in a candid, decision-oriented way.",
+        "whenToUse": "Use this when you need to turn company performance and risks into clear board or investor communication, prepare directors for a decision, or relay board-level priorities to the team.",
+        "outputs": "It produces a narrative-led board agenda and pre-read, consistent goal-based metric summaries, actionable investor updates, clear bad-news plans, and aligned internal communications."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助領導者把董事會與投資人溝通整理成清楚敘事、聚焦決策的會議，以及有紀律的指標報告。",
-        "whenToUse": "適用於準備董事會簡報或會前資料、發送投資人更新、說明未達標情況，或讓全公司對董事會層級的策略與指標保持一致時。",
-        "outputs": "會產出董事會會議架構、每月投資人更新格式、壞消息溝通做法，以及用來回報進度的穩定指標層級。"
+        "purpose": "協助領導者以坦誠且聚焦決策的方式，向董事會與投資人溝通公司績效、風險、決策及策略。",
+        "whenToUse": "當你需要將公司績效與風險整理成清楚的董事會或投資人溝通內容、讓董事為決策預作準備，或將董事會層級的優先事項傳達給團隊時使用。",
+        "outputs": "可產出以敘事為主的董事會議程與會前資料、一致且對照目標的指標摘要、可執行的投資人更新、明確的壞消息處理方案，以及內部策略溝通內容。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助领导者把董事会与投资人沟通整理成清楚叙事、聚焦决策的会议，以及有纪律的指针报告。",
-        "whenToUse": "适用于准备董事会演示文稿或会前数据、发送投资人更新、说明未达标情况，或让全公司对董事会层级的策略与指针保持一致时。",
-        "outputs": "会产出董事会会议架构、每月投资人更新格式、坏消息沟通做法，以及用来回报进度的稳定指针层级。"
+        "purpose": "协助领导者以坦诚且聚焦决策的方式，向董事会与投资人沟通公司绩效、风险、决策及策略。",
+        "whenToUse": "当你需要将公司绩效与风险整理成清楚的董事会或投资人沟通内容、让董事为决策预作准备，或将董事会层级的优先事项传达给团队时使用。",
+        "outputs": "可产出以叙事为主的董事会议程与会前数据、一致且对照目标的指针摘要、可运行的投资人更新、明确的坏消息处理方案，以及内部策略沟通内容。"
       }
     }
   }

@@ -1,0 +1,141 @@
+{
+  "path": "skills/google/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0e88cfbb57e00067310fb993ec9fbb6f41145bf8d1eef764f8d4fc1b130431f0",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the skill's metadata version field with the value 1.0.0."
+          },
+          {
+            "sha": "a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "date": "2026-08-21T10:49:48-07:00",
+            "subject": "Rename GKE TPU monitoring skills to gke-ai-troubleshooting prefix",
+            "url": "https://github.com/google/skills/commit/a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R065",
+              "sourcePath": "skills/cloud/gke-tpu-dynamic-slices-monitoring/SKILL.md",
+              "destinationPath": "skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md"
+            },
+            "summary": "Renamed the skill to the gke-ai-troubleshooting prefix and reformatted its lifecycle-state table without changing its guidance."
+          },
+          {
+            "sha": "426c0776b0adc0a8c873f4012fc166756c0a989a",
+            "date": "2026-08-07T10:20:39-07:00",
+            "subject": "Migrate and validate gke-tpu-dynamic-slices-monitoring skill",
+            "url": "https://github.com/google/skills/commit/426c0776b0adc0a8c873f4012fc166756c0a989a",
+            "pathAtCommit": "skills/cloud/gke-tpu-dynamic-slices-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a GKE TPU Dynamic Slices monitoring and management skill covering slice diagnosis, workload validation, and resolution and cleanup workflows."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中新增值為 1.0.0 的 version 欄位。"
+          },
+          {
+            "sha": "a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "date": "2026-08-21T10:49:48-07:00",
+            "subject": "Rename GKE TPU monitoring skills to gke-ai-troubleshooting prefix",
+            "url": "https://github.com/google/skills/commit/a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R065",
+              "sourcePath": "skills/cloud/gke-tpu-dynamic-slices-monitoring/SKILL.md",
+              "destinationPath": "skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md"
+            },
+            "summary": "將技能名稱改為 gke-ai-troubleshooting 前綴，並重新排版生命週期狀態表格，但未改變表格中的指引。"
+          },
+          {
+            "sha": "426c0776b0adc0a8c873f4012fc166756c0a989a",
+            "date": "2026-08-07T10:20:39-07:00",
+            "subject": "Migrate and validate gke-tpu-dynamic-slices-monitoring skill",
+            "url": "https://github.com/google/skills/commit/426c0776b0adc0a8c873f4012fc166756c0a989a",
+            "pathAtCommit": "skills/cloud/gke-tpu-dynamic-slices-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE TPU Dynamic Slices 監控與管理技能，涵蓋切片診斷、工作負載驗證，以及問題處理與清理流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中添加值为 1.0.0 的 version 字段。"
+          },
+          {
+            "sha": "a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "date": "2026-08-21T10:49:48-07:00",
+            "subject": "Rename GKE TPU monitoring skills to gke-ai-troubleshooting prefix",
+            "url": "https://github.com/google/skills/commit/a59e4d9d0589f0f19a5e94fa3f59f4073c50dc7c",
+            "pathAtCommit": "skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R065",
+              "sourcePath": "skills/cloud/gke-tpu-dynamic-slices-monitoring/SKILL.md",
+              "destinationPath": "skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md"
+            },
+            "summary": "将技能名称改为 gke-ai-troubleshooting 前缀，并重新排版生命周期状态表格，但未改变表格中的指引。"
+          },
+          {
+            "sha": "426c0776b0adc0a8c873f4012fc166756c0a989a",
+            "date": "2026-08-07T10:20:39-07:00",
+            "subject": "Migrate and validate gke-tpu-dynamic-slices-monitoring skill",
+            "url": "https://github.com/google/skills/commit/426c0776b0adc0a8c873f4012fc166756c0a989a",
+            "pathAtCommit": "skills/cloud/gke-tpu-dynamic-slices-monitoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE TPU Dynamic Slices 监控与管理技能，涵盖切片诊断、工作负载验证，以及问题处理与清理流程。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/gke-productionize",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f2bc6596d83bae68fc648790a1631a5a53cde0fcb5b78dab9830e4acfcb2d8a5",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-productionize",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill's metadata."
+          },
+          {
+            "sha": "0cd0ab71e3a70ba92be05650ddb53a6cf2ae5606",
+            "date": "2026-08-19T16:55:32-07:00",
+            "subject": "Upgrade gke-productionize skill.",
+            "url": "https://github.com/google/skills/commit/0cd0ab71e3a70ba92be05650ddb53a6cf2ae5606",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill to cover upgrade and maintenance posture and golden-path audits, and introduced a deterministic weighted readiness-scoring rubric."
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Containers category to the skill's metadata."
+          },
+          {
+            "sha": "90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "date": "2026-07-23T11:24:23-07:00",
+            "subject": "Migrate from kube-agents/agents/platform/skills/gke-productionize",
+            "url": "https://github.com/google/skills/commit/90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial GKE production-readiness skill, covering cluster and workload discovery and assessments delegated across specialized domains."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中新增 1.0.0 版本號。"
+          },
+          {
+            "sha": "0cd0ab71e3a70ba92be05650ddb53a6cf2ae5606",
+            "date": "2026-08-19T16:55:32-07:00",
+            "subject": "Upgrade gke-productionize skill.",
+            "url": "https://github.com/google/skills/commit/0cd0ab71e3a70ba92be05650ddb53a6cf2ae5606",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充此技能以涵蓋升級與維護方針及 Golden Path 稽核，並新增確定性的加權就緒度評分規則。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中新增 Containers 類別。"
+          },
+          {
+            "sha": "90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "date": "2026-07-23T11:24:23-07:00",
+            "subject": "Migrate from kube-agents/agents/platform/skills/gke-productionize",
+            "url": "https://github.com/google/skills/commit/90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 生產就緒技能初始文件，涵蓋叢集與工作負載探索，以及分由各專門領域處理的評估。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中添加 1.0.0 版本号。"
+          },
+          {
+            "sha": "0cd0ab71e3a70ba92be05650ddb53a6cf2ae5606",
+            "date": "2026-08-19T16:55:32-07:00",
+            "subject": "Upgrade gke-productionize skill.",
+            "url": "https://github.com/google/skills/commit/0cd0ab71e3a70ba92be05650ddb53a6cf2ae5606",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充此技能以涵盖升级与维护方针及 Golden Path 审核，并添加确定性的加权就绪度评分规则。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中添加 Containers 类别。"
+          },
+          {
+            "sha": "90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "date": "2026-07-23T11:24:23-07:00",
+            "subject": "Migrate from kube-agents/agents/platform/skills/gke-productionize",
+            "url": "https://github.com/google/skills/commit/90ac5bbb9f8006907b06f149f0bf56e2d77573af",
+            "pathAtCommit": "skills/cloud/gke-productionize/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 生产就绪技能初始文档，涵盖集群与工作负载探索，以及分由各专门领域处理的评估。"
+          }
+        ]
+      }
+    }
+  }
+}

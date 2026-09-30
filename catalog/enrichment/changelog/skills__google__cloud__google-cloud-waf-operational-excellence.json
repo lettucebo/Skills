@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-operational-excellence",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4e1e7a8bf8e9dbe54e9b49fec875d65080fa2a2bf93ecfba77c7eb1b310d81ce",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-waf-operational-excellence",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds version 1.0.0 to the skill's frontmatter metadata."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the WellArchitectedFramework category under a new metadata block in the skill's frontmatter."
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updates the five Operational Excellence grounding-document links to use .md.txt URLs."
+          },
+          {
+            "sha": "f0253cb4d1cabac751622153cb93be907b2eca88",
+            "date": "2026-05-21T09:27:24-07:00",
+            "subject": "Add agent skills for Well-Architected Framework pillars: Operational Excellence, Performance Optimization, and Sustainability.",
+            "url": "https://github.com/google/skills/commit/f0253cb4d1cabac751622153cb93be907b2eca88",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the initial Operational Excellence skill document, with an overview, core principles, product examples, assessment questions, and a validation checklist."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 frontmatter 中新增 1.0.0 版號中繼資料。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 frontmatter 中新增 metadata 區塊，並將 WellArchitectedFramework 類別置於其中。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將五個營運卓越依據文件連結更新為使用 .md.txt 網址。"
+          },
+          {
+            "sha": "f0253cb4d1cabac751622153cb93be907b2eca88",
+            "date": "2026-05-21T09:27:24-07:00",
+            "subject": "Add agent skills for Well-Architected Framework pillars: Operational Excellence, Performance Optimization, and Sustainability.",
+            "url": "https://github.com/google/skills/commit/f0253cb4d1cabac751622153cb93be907b2eca88",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初始的 Operational Excellence 技能文件，內容包含概述、核心原則、產品範例、評估問題及驗證清單。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 frontmatter 中添加 1.0.0 版号中继数据。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 frontmatter 中添加 metadata 区块，并将 WellArchitectedFramework 类别置于其中。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将五个营运卓越依据文档链接更新为使用 .md.txt 网址。"
+          },
+          {
+            "sha": "f0253cb4d1cabac751622153cb93be907b2eca88",
+            "date": "2026-05-21T09:27:24-07:00",
+            "subject": "Add agent skills for Well-Architected Framework pillars: Operational Excellence, Performance Optimization, and Sustainability.",
+            "url": "https://github.com/google/skills/commit/f0253cb4d1cabac751622153cb93be907b2eca88",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-operational-excellence/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初始的 Operational Excellence 技能文档，内容包含概述、内核原则、产品范例、评估问题及验证清单。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides practical guidance for organizing TUnit tests, using async fluent assertions, and applying lifecycle and parallel execution features effectively.",
-        "whenToUse": "Use it when you are writing or migrating .NET unit tests to TUnit and want sound patterns for both standard and data-driven cases.",
-        "outputs": "Returns concise recommendations for project setup, test structure, assertions, test data sources, advanced attributes, and migration from xUnit."
+        "purpose": "Helps build clear, reliable TUnit tests using consistent structure, lifecycle hooks, assertions, and data-driven patterns.",
+        "whenToUse": "Use when designing or maintaining .NET tests with TUnit, especially when organizing test setup, validating behavior, or covering multiple input cases.",
+        "outputs": "Provides practical guidance on TUnit project setup, test organization, assertions, data sources, lifecycle, migration, and execution features."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供實用指引，幫助你有效組織 TUnit 測試、使用非同步流暢斷言，並運用生命週期與平行執行功能。",
-        "whenToUse": "當你要撰寫或將 .NET 單元測試移轉到 TUnit，並需要標準測試與資料驅動測試的可靠做法時使用。",
-        "outputs": "回傳精簡建議，涵蓋專案設定、測試結構、斷言、測試資料來源、進階屬性，以及從 xUnit 移轉的重點。"
+        "purpose": "協助運用一致的結構、生命週期掛鉤、斷言與資料驅動模式，撰寫清晰可靠的 TUnit 測試。",
+        "whenToUse": "在設計或維護使用 TUnit 的 .NET 測試時使用，尤其是需要安排測試設定、驗證行為或涵蓋多種輸入案例時。",
+        "outputs": "提供 TUnit 專案設定、測試組織、斷言、資料來源、生命週期、遷移與執行功能的實用指引。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供实用指引，帮助你有效组织 TUnit 测试、使用异步流畅断言，并运用生命周期与平行运行功能。",
-        "whenToUse": "当你要撰写或将 .NET 单元测试移转到 TUnit，并需要标准测试与数据驱动测试的可靠做法时使用。",
-        "outputs": "回传精简建议，涵盖项目设置、测试结构、断言、测试数据源、高级属性，以及从 xUnit 移转的重点。"
+        "purpose": "协助运用一致的结构、生命周期挂钩、断言与数据驱动模式，撰写清晰可靠的 TUnit 测试。",
+        "whenToUse": "在设计或维护使用 TUnit 的 .NET 测试时使用，尤其是需要安排测试设置、验证行为或涵盖多种输入案例时。",
+        "outputs": "提供 TUnit 项目设置、测试组织、断言、数据源、生命周期、迁移与运行功能的实用指引。"
       }
     }
   }

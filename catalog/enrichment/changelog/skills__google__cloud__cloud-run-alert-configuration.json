@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/cloud-run-alert-configuration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d2de55f7d33a99bbc173992831c2f4c3c39d21e403c309a046c8c34cf307885e",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/cloud-run-alert-configuration",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-run-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the Cloud Run alert-configuration skill's metadata."
+          },
+          {
+            "sha": "19c95cb9d3c7c2fde3f6c45ac707c7167a361660",
+            "date": "2026-09-15T10:39:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/19c95cb9d3c7c2fde3f6c45ac707c7167a361660",
+            "pathAtCommit": "skills/cloud/cloud-run-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated resource-discovery and alert-generation instructions with a named-target fast path and requirements for parameterized Terraform alert policies and user labels."
+          },
+          {
+            "sha": "ca4cde022318d8de9488d0209c0025c5ca14e2e0",
+            "date": "2026-09-11T05:21:15-07:00",
+            "subject": "Onboard cloud-run-alert-configuration skill to third_party/skills/skills/cloud.",
+            "url": "https://github.com/google/skills/commit/ca4cde022318d8de9488d0209c0025c5ca14e2e0",
+            "pathAtCommit": "skills/cloud/cloud-run-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Cloud Run alert-configuration skill with discovery, workload-specific alerting, PromQL, and Terraform guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-run-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 Cloud Run 警示設定技能的中繼資料中新增了 1.0.0 版本。"
+          },
+          {
+            "sha": "19c95cb9d3c7c2fde3f6c45ac707c7167a361660",
+            "date": "2026-09-15T10:39:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/19c95cb9d3c7c2fde3f6c45ac707c7167a361660",
+            "pathAtCommit": "skills/cloud/cloud-run-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新資源探索與警示產生指引，新增具名目標的快速路徑，並要求 Terraform 警示政策採用參數化設定及使用者標籤。"
+          },
+          {
+            "sha": "ca4cde022318d8de9488d0209c0025c5ca14e2e0",
+            "date": "2026-09-11T05:21:15-07:00",
+            "subject": "Onboard cloud-run-alert-configuration skill to third_party/skills/skills/cloud.",
+            "url": "https://github.com/google/skills/commit/ca4cde022318d8de9488d0209c0025c5ca14e2e0",
+            "pathAtCommit": "skills/cloud/cloud-run-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Cloud Run 警示設定技能，提供資源探索、依工作負載分類的警示、PromQL 與 Terraform 指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-run-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 Cloud Run 警示设置技能的中继数据中添加了 1.0.0 版本。"
+          },
+          {
+            "sha": "19c95cb9d3c7c2fde3f6c45ac707c7167a361660",
+            "date": "2026-09-15T10:39:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/19c95cb9d3c7c2fde3f6c45ac707c7167a361660",
+            "pathAtCommit": "skills/cloud/cloud-run-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新资源探索与警示产生指引，添加具名目标的快速路径，并要求 Terraform 警示政策采用参数化设置及用户标签。"
+          },
+          {
+            "sha": "ca4cde022318d8de9488d0209c0025c5ca14e2e0",
+            "date": "2026-09-11T05:21:15-07:00",
+            "subject": "Onboard cloud-run-alert-configuration skill to third_party/skills/skills/cloud.",
+            "url": "https://github.com/google/skills/commit/ca4cde022318d8de9488d0209c0025c5ca14e2e0",
+            "pathAtCommit": "skills/cloud/cloud-run-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Cloud Run 警示设置技能，提供资源探索、依工作负载分类的警示、PromQL 与 Terraform 指引。"
+          }
+        ]
+      }
+    }
+  }
+}

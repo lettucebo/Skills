@@ -2,21 +2,48 @@
   "path": "skills/cloudflare/cloudflare-email-service",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:2fa7033322f461bda4508aea0a93294241d670d088afef8cbfbfbc1685393532",
+    "contentHash": "sha256:30b4819cadb357e1b488c0dbf1b4f3c2525545e904a222851386d3048b3ce285",
     "repository": "cloudflare/skills",
     "reference": "refs/heads/main",
     "source": "skills/cloudflare-email-service",
-    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+    "pinnedCommit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "36904a7dd696c7a03c59956705661bab9cf06a2c",
+            "date": "2026-09-05T15:21:16-07:00",
+            "subject": "docs(email): route sending integrations to developer docs",
+            "url": "https://github.com/cloudflare/skills/commit/36904a7dd696c7a03c59956705661bab9cf06a2c",
+            "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the Agents SDK docs link and reframed sending guidance around reference guides: it now points to Cloudflare's email-agent walkthrough, prefers the Workers binding, and directs REST users to the appropriate reference."
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Narrowed the skill description to implementing or troubleshooting Cloudflare Email Sending and Email Routing integrations and their delivery configuration."
+          },
+          {
+            "sha": "9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "date": "2026-09-02T11:50:53-04:00",
+            "subject": "Add installable Codex and Agent Plugins packaging (#99)",
+            "url": "https://github.com/cloudflare/skills/commit/9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the Cloudflare docs retrieval entry from the `cloudflare-docs` search tool to the Cloudflare MCP `docs` tool."
+          },
           {
             "sha": "70c9cb7a211b1b6922712142e0daad4fadf9022b",
             "date": "2026-04-15T15:04:01-04:00",
@@ -24,19 +51,46 @@
             "url": "https://github.com/cloudflare/skills/commit/70c9cb7a211b1b6922712142e0daad4fadf9022b",
             "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added a new `cloudflare-email-service` SKILL.md covering Cloudflare Email Service prerequisites, sending and routing workflows, common mistakes, and reference docs."
+            "summary": "Added the Cloudflare Email Service skill, including retrieval sources, setup checks, sending and routing workflows, and common implementation pitfalls."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "36904a7dd696c7a03c59956705661bab9cf06a2c",
+            "date": "2026-09-05T15:21:16-07:00",
+            "subject": "docs(email): route sending integrations to developer docs",
+            "url": "https://github.com/cloudflare/skills/commit/36904a7dd696c7a03c59956705661bab9cf06a2c",
+            "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 Agents SDK 文件連結並以參考指南重新整理寄送指引：改連至 Cloudflare 的電子郵件代理程式教學、優先使用 Workers 綁定，並引導 REST 使用者查閱相應參考文件。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能描述縮限為實作或疑難排解 Cloudflare Email Sending 與 Email Routing 整合及其寄送設定。"
+          },
+          {
+            "sha": "9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "date": "2026-09-02T11:50:53-04:00",
+            "subject": "Add installable Codex and Agent Plugins packaging (#99)",
+            "url": "https://github.com/cloudflare/skills/commit/9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Cloudflare 文件的取得方式從 `cloudflare-docs` 搜尋工具改為 Cloudflare MCP 的 `docs` 工具。"
+          },
           {
             "sha": "70c9cb7a211b1b6922712142e0daad4fadf9022b",
             "date": "2026-04-15T15:04:01-04:00",
@@ -44,26 +98,53 @@
             "url": "https://github.com/cloudflare/skills/commit/70c9cb7a211b1b6922712142e0daad4fadf9022b",
             "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 `cloudflare-email-service` 的 SKILL.md，涵蓋 Cloudflare Email Service 的先決條件、寄送與路由流程、常見錯誤及參考文件。"
+            "summary": "新增 Cloudflare Email Service 技能，內容包括資料來源、設定檢查、寄送與路由工作流程，以及常見實作錯誤。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
         "commits": [
           {
+            "sha": "36904a7dd696c7a03c59956705661bab9cf06a2c",
+            "date": "2026-09-05T15:21:16-07:00",
+            "subject": "docs(email): route sending integrations to developer docs",
+            "url": "https://github.com/cloudflare/skills/commit/36904a7dd696c7a03c59956705661bab9cf06a2c",
+            "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 Agents SDK 文档链接并以参考指南刷新寄送指引：改连至 Cloudflare 的电子邮件代理程序教学、优先使用 Workers 绑定，并引导 REST 用户查阅相应参考文档。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能描述缩限为实作或疑难排解 Cloudflare Email Sending 与 Email Routing 集成及其寄送设置。"
+          },
+          {
+            "sha": "9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "date": "2026-09-02T11:50:53-04:00",
+            "subject": "Add installable Codex and Agent Plugins packaging (#99)",
+            "url": "https://github.com/cloudflare/skills/commit/9177f9a0bafc1ab61a0dae8dca57a8eb4d9f636d",
+            "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Cloudflare 文档的取得方式从 `cloudflare-docs` 搜索工具改为 Cloudflare MCP 的 `docs` 工具。"
+          },
+          {
             "sha": "70c9cb7a211b1b6922712142e0daad4fadf9022b",
             "date": "2026-04-15T15:04:01-04:00",
             "subject": "Add cloudflare-email-service skill (#41)",
             "url": "https://github.com/cloudflare/skills/commit/70c9cb7a211b1b6922712142e0daad4fadf9022b",
             "pathAtCommit": "skills/cloudflare-email-service/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 `cloudflare-email-service` 的 SKILL.md，涵盖 Cloudflare Email Service 的先决条件、寄送与路由流程、常见错误及参考文档。"
+            "summary": "添加 Cloudflare Email Service 技能，内容包括数据源、设置检查、寄送与路由工作流程，以及常见实作错误。"
           }
         ]
       }

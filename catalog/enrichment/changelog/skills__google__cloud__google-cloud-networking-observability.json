@@ -1,0 +1,306 @@
+{
+  "path": "skills/google/cloud/google-cloud-networking-observability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8f820dc70e5068f800072011f5d0194cceea11d8f5824fb197bec3a62a3224df",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-networking-observability",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a `version: \"1.0.0\"` field under the skill's `metadata` in `SKILL.md`."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moves `category: Compute` under `metadata` and adds a blank line before the numbered schema-recovery steps."
+          },
+          {
+            "sha": "f072677e14e1b6449505e8377e584892b480acfe",
+            "date": "2026-06-11T06:41:14-07:00",
+            "subject": "Implement VPC Flow Logs Cost Estimation capability in google-cloud-networking-observability skill",
+            "url": "https://github.com/google/skills/commit/f072677e14e1b6449505e8377e584892b480acfe",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updates the description to include VPC Flow Logs cost estimation and exclude generic VM management and non-observability tasks, and adds a dedicated cost-estimation reference specified for cost estimates instead of VPC Flow Analysis."
+          },
+          {
+            "sha": "caeec93cc14812b7923bbe203ecd179f9aad4f3e",
+            "date": "2026-05-13T06:03:23-07:00",
+            "subject": "Update the networking observability skill metadata to match the folder name",
+            "url": "https://github.com/google/skills/commit/caeec93cc14812b7923bbe203ecd179f9aad4f3e",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Renames the skill's frontmatter `name` from `google-cloud-recipe-networking-observability` to `google-cloud-networking-observability`."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-networking-observability/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-networking-observability/SKILL.md"
+            },
+            "summary": "Moves `SKILL.md` from `cloud/google-cloud-networking-observability/` to `skills/cloud/google-cloud-networking-observability/` without changing its contents."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/recipes/google-cloud-networking-observability/SKILL.md",
+              "destinationPath": "cloud/google-cloud-networking-observability/SKILL.md"
+            },
+            "summary": "Moves `SKILL.md` from `cloud/recipes/google-cloud-networking-observability/` to `cloud/google-cloud-networking-observability/` without changing its contents."
+          },
+          {
+            "sha": "c8e849f8929707081847ddd443dd02ed1d8bde7e",
+            "date": "2026-04-17T15:23:52-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c8e849f8929707081847ddd443dd02ed1d8bde7e",
+            "pathAtCommit": "cloud/recipes/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/recipes/gcp_networking_observability/SKILL.md",
+              "destinationPath": "cloud/recipes/google-cloud-networking-observability/SKILL.md"
+            },
+            "summary": "Renames `cloud/recipes/gcp_networking_observability/SKILL.md` to `cloud/recipes/google-cloud-networking-observability/SKILL.md` without changing its contents."
+          },
+          {
+            "sha": "92ab8567c176f3ecf11bdf4d7c6183a8c56c54e6",
+            "date": "2026-04-17T14:50:47-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92ab8567c176f3ecf11bdf4d7c6183a8c56c54e6",
+            "pathAtCommit": "cloud/recipes/gcp_networking_observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the initial Google Cloud Networking Observability `SKILL.md`, defining the skill's scope and documenting log and telemetry coverage, procedures, analysis references, and operating boundaries."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 `SKILL.md` 的 `metadata` 下新增 `version: \"1.0.0\"` 欄位。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 `category: Compute` 移至 `metadata` 底下，並在編號的結構描述復原步驟前新增一個空行。"
+          },
+          {
+            "sha": "f072677e14e1b6449505e8377e584892b480acfe",
+            "date": "2026-06-11T06:41:14-07:00",
+            "subject": "Implement VPC Flow Logs Cost Estimation capability in google-cloud-networking-observability skill",
+            "url": "https://github.com/google/skills/commit/f072677e14e1b6449505e8377e584892b480acfe",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新描述，加入 VPC Flow Logs 費用估算並排除一般 VM 管理與非可觀測性任務；新增專用費用估算參考文件，並指定費用估算應使用該文件而非 VPC Flow Analysis。"
+          },
+          {
+            "sha": "caeec93cc14812b7923bbe203ecd179f9aad4f3e",
+            "date": "2026-05-13T06:03:23-07:00",
+            "subject": "Update the networking observability skill metadata to match the folder name",
+            "url": "https://github.com/google/skills/commit/caeec93cc14812b7923bbe203ecd179f9aad4f3e",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能 frontmatter 中的 `name` 從 `google-cloud-recipe-networking-observability` 改為 `google-cloud-networking-observability`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-networking-observability/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-networking-observability/SKILL.md"
+            },
+            "summary": "將 `SKILL.md` 從 `cloud/google-cloud-networking-observability/` 移至 `skills/cloud/google-cloud-networking-observability/`，且未變更檔案內容。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/recipes/google-cloud-networking-observability/SKILL.md",
+              "destinationPath": "cloud/google-cloud-networking-observability/SKILL.md"
+            },
+            "summary": "將 `SKILL.md` 從 `cloud/recipes/google-cloud-networking-observability/` 移至 `cloud/google-cloud-networking-observability/`，且未變更檔案內容。"
+          },
+          {
+            "sha": "c8e849f8929707081847ddd443dd02ed1d8bde7e",
+            "date": "2026-04-17T15:23:52-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c8e849f8929707081847ddd443dd02ed1d8bde7e",
+            "pathAtCommit": "cloud/recipes/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/recipes/gcp_networking_observability/SKILL.md",
+              "destinationPath": "cloud/recipes/google-cloud-networking-observability/SKILL.md"
+            },
+            "summary": "將 `cloud/recipes/gcp_networking_observability/SKILL.md` 更名為 `cloud/recipes/google-cloud-networking-observability/SKILL.md`，且未變更檔案內容。"
+          },
+          {
+            "sha": "92ab8567c176f3ecf11bdf4d7c6183a8c56c54e6",
+            "date": "2026-04-17T14:50:47-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92ab8567c176f3ecf11bdf4d7c6183a8c56c54e6",
+            "pathAtCommit": "cloud/recipes/gcp_networking_observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初始版 Google Cloud Networking Observability `SKILL.md`，界定技能範圍，並記錄日誌與遙測涵蓋內容、作業流程、分析參考資料及操作界限。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 `SKILL.md` 的 `metadata` 下添加 `version: \"1.0.0\"` 字段。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 `category: Compute` 移至 `metadata` 底下，并在编号的结构描述复原步骤前添加一个空行。"
+          },
+          {
+            "sha": "f072677e14e1b6449505e8377e584892b480acfe",
+            "date": "2026-06-11T06:41:14-07:00",
+            "subject": "Implement VPC Flow Logs Cost Estimation capability in google-cloud-networking-observability skill",
+            "url": "https://github.com/google/skills/commit/f072677e14e1b6449505e8377e584892b480acfe",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新描述，加入 VPC Flow Logs 费用估算并排除一般 VM 管理与非可观测性任务；添加专用费用估算参考文档，并指定费用估算应使用该文档而非 VPC Flow Analysis。"
+          },
+          {
+            "sha": "caeec93cc14812b7923bbe203ecd179f9aad4f3e",
+            "date": "2026-05-13T06:03:23-07:00",
+            "subject": "Update the networking observability skill metadata to match the folder name",
+            "url": "https://github.com/google/skills/commit/caeec93cc14812b7923bbe203ecd179f9aad4f3e",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能 frontmatter 中的 `name` 从 `google-cloud-recipe-networking-observability` 改为 `google-cloud-networking-observability`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-networking-observability/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-networking-observability/SKILL.md"
+            },
+            "summary": "将 `SKILL.md` 从 `cloud/google-cloud-networking-observability/` 移至 `skills/cloud/google-cloud-networking-observability/`，且未变更文件内容。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/recipes/google-cloud-networking-observability/SKILL.md",
+              "destinationPath": "cloud/google-cloud-networking-observability/SKILL.md"
+            },
+            "summary": "将 `SKILL.md` 从 `cloud/recipes/google-cloud-networking-observability/` 移至 `cloud/google-cloud-networking-observability/`，且未变更文件内容。"
+          },
+          {
+            "sha": "c8e849f8929707081847ddd443dd02ed1d8bde7e",
+            "date": "2026-04-17T15:23:52-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c8e849f8929707081847ddd443dd02ed1d8bde7e",
+            "pathAtCommit": "cloud/recipes/google-cloud-networking-observability/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/recipes/gcp_networking_observability/SKILL.md",
+              "destinationPath": "cloud/recipes/google-cloud-networking-observability/SKILL.md"
+            },
+            "summary": "将 `cloud/recipes/gcp_networking_observability/SKILL.md` 更名为 `cloud/recipes/google-cloud-networking-observability/SKILL.md`，且未变更文件内容。"
+          },
+          {
+            "sha": "92ab8567c176f3ecf11bdf4d7c6183a8c56c54e6",
+            "date": "2026-04-17T14:50:47-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92ab8567c176f3ecf11bdf4d7c6183a8c56c54e6",
+            "pathAtCommit": "cloud/recipes/gcp_networking_observability/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初始版 Google Cloud Networking Observability `SKILL.md`，界定技能范围，并记录日志与遥测涵盖内容、作业流程、分析参考资料及操作界限。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Clarify how to frame a product so buyers see a distinct, credible reason to choose it.",
-        "whenToUse": "Use it when messaging blends into the market, buyers see you as interchangeable, or you need to test a repositioning before a broader brand change.",
-        "outputs": "You get a defensible positioning direction, messaging experiments to validate it, and a phased rollout plan for sales and marketing."
+        "purpose": "It helps establish a clear, defensible market position based on current product strengths and customer resonance, then validate the message before scaling it.",
+        "whenToUse": "Use while shaping or revising a market narrative in a competitive category, especially when comparing alternatives, validating buyer language, and coordinating a phased rollout.",
+        "outputs": "It can produce a market context, positioning statement and narrative, testable headline variants, and a phased validation, alignment, and rollout plan with measurable criteria."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "釐清產品應如何被表述，讓買方看見明確且可信的選擇理由。",
-        "whenToUse": "當訊息與市場其他方案過於相似、買方覺得你可被替代，或你想在大規模品牌調整前先測試重新定位時使用。",
-        "outputs": "你會得到可防禦的市場定位方向、用來驗證訊息的實驗設計，以及供行銷與銷售採用的分階段推進計畫。"
+        "purpose": "協助根據現有產品優勢與客戶共鳴建立清晰且具防禦力的市場定位，並在擴大推行前先驗證訊息。",
+        "whenToUse": "在競爭激烈的市場規劃或調整市場敘事時使用，尤其需要比較替代方案、驗證買家用語並協調分階段推行時。",
+        "outputs": "可產出市場脈絡、定位陳述與敘事、可測試的標題版本，以及含衡量標準的分階段驗證、對齊與推行計畫。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "厘清产品应如何被表述，让买方看见明确且可信的选择理由。",
-        "whenToUse": "当消息与市场其他方案过于相似、买方觉得你可被替代，或你想在大规模品牌调整前先测试重新定位时使用。",
-        "outputs": "你会得到可防御的市场定位方向、用来验证消息的实验设计，以及供行销与销售采用的分阶段推进计划。"
+        "purpose": "协助根据现有产品优势与客户共鸣创建清晰且具防御力的市场定位，并在扩大推行前先验证消息。",
+        "whenToUse": "在竞争激烈的市场规划或调整市场叙事时使用，尤其需要比较替代方案、验证买家用语并协调分阶段推行时。",
+        "outputs": "可产出市场脉络、定位陈述与叙事、可测试的标题版本，以及含衡量标准的分阶段验证、对齐与推行计划。"
       }
     }
   }

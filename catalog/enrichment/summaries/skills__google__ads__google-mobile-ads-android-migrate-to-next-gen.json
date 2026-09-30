@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-android-migrate-to-next-gen",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f7612ca05845457276a382f1330d3a6fdb2fd500977f15d8d91f27f43683a6f9"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides a consistent SDK migration by aligning Gradle configuration, initialization, format-specific APIs, and callback behavior.",
+        "whenToUse": "Use it when an Android project needs its ads dependency, initialization flow, or banner, native, full-screen, rewarded, or preloading code updated for the Next-Gen SDK.",
+        "outputs": "It provides migration steps and class and method mappings, highlighting app ID, threading, mediation, and format-specific changes to verify."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過調整 Gradle 設定、初始化流程、各廣告格式 API 與回呼行為，指引一致的 SDK 遷移。",
+        "whenToUse": "當 Android 專案需要更新廣告相依套件、初始化流程，或橫幅、原生、全螢幕、獎勵式與預載程式碼以支援新一代 SDK 時使用。",
+        "outputs": "提供遷移步驟與類別、方法對照，並指出應檢查的應用程式 ID、執行緒、廣告中介及各格式專屬變更。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过调整 Gradle 设置、初始化流程、各广告格式 API 与回呼行为，指引一致的 SDK 迁移。",
+        "whenToUse": "当 Android 项目需要更新广告相依套件、初始化流程，或横幅、原生、全屏幕、奖励式与预载代码以支持新一代 SDK 时使用。",
+        "outputs": "提供迁移步骤与类别、方法对照，并指出应检查的应用程序 ID、线程、广告中介及各格式专属变更。"
+      }
+    }
+  }
+}

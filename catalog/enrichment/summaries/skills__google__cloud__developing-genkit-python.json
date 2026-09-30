@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/developing-genkit-python",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:3eb4661a6d59ba197ac8b39bb065545646180bf7020e3ece48ed8c210cb5426f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Build Python AI features with Genkit, including generation, streaming, tool use, flows, and multi-turn agents.",
+        "whenToUse": "Use this guidance to choose agent or flow patterns, configure a Python Genkit app, and run or inspect it with the Genkit CLI.",
+        "outputs": "It provides Python code patterns and practical setup, execution, and trace-debugging steps for Genkit apps."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "使用 Genkit 在 Python 中建構 AI 功能，涵蓋內容生成、串流、工具呼叫、流程與多輪代理。",
+        "whenToUse": "需要選擇代理或流程模式、設定 Python Genkit 應用程式，或透過 Genkit CLI 執行及檢視應用程式時，可使用這些指引。",
+        "outputs": "提供 Python 程式碼範例，以及 Genkit 應用程式的設定、執行與追蹤除錯步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "使用 Genkit 在 Python 中建构 AI 功能，涵盖内容生成、串流、工具调用、流程与多轮代理。",
+        "whenToUse": "需要选择代理或流程模式、设置 Python Genkit 应用程序，或透过 Genkit CLI 运行及查看应用程序时，可使用这些指引。",
+        "outputs": "提供 Python 代码范例，以及 Genkit 应用程序的设置、运行与追踪调试步骤。"
+      }
+    }
+  }
+}

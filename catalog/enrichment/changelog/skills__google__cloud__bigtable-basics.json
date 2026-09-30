@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/bigtable-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:467234eb690195dfac840e95e54add4d5ca277dd44c315aa393777de9d26a8b5",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/bigtable-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a version field with value 1.0.0 to the Bigtable Basics skill's YAML frontmatter."
+          },
+          {
+            "sha": "d56d145e512dca644a3b7ba8332da523c9a60e3c",
+            "date": "2026-09-06T11:51:14-07:00",
+            "subject": "Fix broken Bigtable SQL reference link in bigtable-basics skill.",
+            "url": "https://github.com/google/skills/commit/d56d145e512dca644a3b7ba8332da523c9a60e3c",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the Bigtable SQL Reference link to point to the GoogleSQL overview page."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the Databases category into the skill's metadata block."
+          },
+          {
+            "sha": "fb09ea35681a3dd7a6847cba012ed340df00b6b4",
+            "date": "2026-06-18T18:01:59-07:00",
+            "subject": "feat: Add Bigtable Basics skill to registry",
+            "url": "https://github.com/google/skills/commit/fb09ea35681a3dd7a6847cba012ed340df00b6b4",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Bigtable Basics skill with guidance on Bigtable administration and development, querying, schema and data workflows, references, and safety."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 Bigtable Basics 技能的 YAML 前置資料中新增值為 1.0.0 的版本欄位。"
+          },
+          {
+            "sha": "d56d145e512dca644a3b7ba8332da523c9a60e3c",
+            "date": "2026-09-06T11:51:14-07:00",
+            "subject": "Fix broken Bigtable SQL reference link in bigtable-basics skill.",
+            "url": "https://github.com/google/skills/commit/d56d145e512dca644a3b7ba8332da523c9a60e3c",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Bigtable SQL 參考資料連結更新為指向 GoogleSQL 概覽頁面。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Databases 分類移入技能的 metadata 區塊。"
+          },
+          {
+            "sha": "fb09ea35681a3dd7a6847cba012ed340df00b6b4",
+            "date": "2026-06-18T18:01:59-07:00",
+            "subject": "feat: Add Bigtable Basics skill to registry",
+            "url": "https://github.com/google/skills/commit/fb09ea35681a3dd7a6847cba012ed340df00b6b4",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Bigtable Basics 技能，內容涵蓋 Bigtable 管理與開發、查詢、結構描述與資料工作流程、參考資料及安全注意事項。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 Bigtable Basics 技能的 YAML 前置数据中添加值为 1.0.0 的版本字段。"
+          },
+          {
+            "sha": "d56d145e512dca644a3b7ba8332da523c9a60e3c",
+            "date": "2026-09-06T11:51:14-07:00",
+            "subject": "Fix broken Bigtable SQL reference link in bigtable-basics skill.",
+            "url": "https://github.com/google/skills/commit/d56d145e512dca644a3b7ba8332da523c9a60e3c",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Bigtable SQL 参考资料链接更新为指向 GoogleSQL 概览页面。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Databases 分类移入技能的 metadata 区块。"
+          },
+          {
+            "sha": "fb09ea35681a3dd7a6847cba012ed340df00b6b4",
+            "date": "2026-06-18T18:01:59-07:00",
+            "subject": "feat: Add Bigtable Basics skill to registry",
+            "url": "https://github.com/google/skills/commit/fb09ea35681a3dd7a6847cba012ed340df00b6b4",
+            "pathAtCommit": "skills/cloud/bigtable-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Bigtable Basics 技能，内容涵盖 Bigtable 管理与开发、查找、结构描述与数据工作流程、参考资料及安全注意事项。"
+          }
+        ]
+      }
+    }
+  }
+}

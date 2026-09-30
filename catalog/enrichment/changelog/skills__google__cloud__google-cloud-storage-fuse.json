@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/cloud/google-cloud-storage-fuse",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1703ac040bbc2f256e2cbdc18a077884281d85711d2baf88318002625663bb3c",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-storage-fuse",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f764ebcd0d823508508c4eee8af8939d42c3e9ea",
+            "date": "2026-09-28T15:48:14-07:00",
+            "subject": "Add --implicit-dirs mount flag cue and reciprocal gke-storage handoff to google-cloud-storage-fuse.",
+            "url": "https://github.com/google/skills/commit/f764ebcd0d823508508c4eee8af8939d42c3e9ea",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description now calls out the `--implicit-dirs` mount flag and directs fully POSIX-compliant shared-filesystem requests to `gke-storage`; the version is 1.0.1."
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill metadata version changed from `v1` to `1.0.0`."
+          },
+          {
+            "sha": "69821c7b3c3c7c92f8bf13b76bd8fcd477040a2c",
+            "date": "2026-08-19T21:40:35-07:00",
+            "subject": "Trim google-cloud-storage-fuse skill description to meet length limits while retaining all routing triggers.",
+            "url": "https://github.com/google/skills/commit/69821c7b3c3c7c92f8bf13b76bd8fcd477040a2c",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description was condensed and reworded, including its usage triggers and scope exclusions."
+          },
+          {
+            "sha": "41cc0ab6835de89b627f963458e370b661c7e598",
+            "date": "2026-08-19T17:02:45-07:00",
+            "subject": "Fix metadata tags format for GCS skills and re-enable in Cloud Skill Registry",
+            "url": "https://github.com/google/skills/commit/41cc0ab6835de89b627f963458e370b661c7e598",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The metadata indentation was normalized, tags changed from a YAML list to a comma-separated string, and `support_tier` was removed."
+          },
+          {
+            "sha": "4fcf030f6e60038df702ae2af71fad0abf5cfb74",
+            "date": "2026-08-18T16:54:54-07:00",
+            "subject": "Adds the google-cloud-storage-fuse skill",
+            "url": "https://github.com/google/skills/commit/4fcf030f6e60038df702ae2af71fad0abf5cfb74",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The initial skill file was added with attribution instructions, a mount-fit gate, workload-intent routing, and references for deployment, write safety, and performance diagnosis."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f764ebcd0d823508508c4eee8af8939d42c3e9ea",
+            "date": "2026-09-28T15:48:14-07:00",
+            "subject": "Add --implicit-dirs mount flag cue and reciprocal gke-storage handoff to google-cloud-storage-fuse.",
+            "url": "https://github.com/google/skills/commit/f764ebcd0d823508508c4eee8af8939d42c3e9ea",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能描述新增 `--implicit-dirs` 掛載旗標，並將完全符合 POSIX 的共享檔案系統需求導向 `gke-storage`；版本更新為 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能中繼資料的版本由 `v1` 改為 `1.0.0`。"
+          },
+          {
+            "sha": "69821c7b3c3c7c92f8bf13b76bd8fcd477040a2c",
+            "date": "2026-08-19T21:40:35-07:00",
+            "subject": "Trim google-cloud-storage-fuse skill description to meet length limits while retaining all routing triggers.",
+            "url": "https://github.com/google/skills/commit/69821c7b3c3c7c92f8bf13b76bd8fcd477040a2c",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能描述經過精簡與改寫，涵蓋其使用情境觸發條件與適用範圍排除項目。"
+          },
+          {
+            "sha": "41cc0ab6835de89b627f963458e370b661c7e598",
+            "date": "2026-08-19T17:02:45-07:00",
+            "subject": "Fix metadata tags format for GCS skills and re-enable in Cloud Skill Registry",
+            "url": "https://github.com/google/skills/commit/41cc0ab6835de89b627f963458e370b661c7e598",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "中繼資料縮排經過統一，標籤由 YAML 清單改為逗號分隔字串，並移除了 `support_tier`。"
+          },
+          {
+            "sha": "4fcf030f6e60038df702ae2af71fad0abf5cfb74",
+            "date": "2026-08-18T16:54:54-07:00",
+            "subject": "Adds the google-cloud-storage-fuse skill",
+            "url": "https://github.com/google/skills/commit/4fcf030f6e60038df702ae2af71fad0abf5cfb74",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初始技能檔案，內容包含歸因指示、掛載適用性關卡、工作負載意圖導覽，以及部署、寫入安全與效能診斷的參考資料。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f764ebcd0d823508508c4eee8af8939d42c3e9ea",
+            "date": "2026-09-28T15:48:14-07:00",
+            "subject": "Add --implicit-dirs mount flag cue and reciprocal gke-storage handoff to google-cloud-storage-fuse.",
+            "url": "https://github.com/google/skills/commit/f764ebcd0d823508508c4eee8af8939d42c3e9ea",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能描述添加 `--implicit-dirs` 挂载旗标，并将完全符合 POSIX 的共享文件系统需求导向 `gke-storage`；版本更新为 1.0.1。"
+          },
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能中继数据的版本由 `v1` 改为 `1.0.0`。"
+          },
+          {
+            "sha": "69821c7b3c3c7c92f8bf13b76bd8fcd477040a2c",
+            "date": "2026-08-19T21:40:35-07:00",
+            "subject": "Trim google-cloud-storage-fuse skill description to meet length limits while retaining all routing triggers.",
+            "url": "https://github.com/google/skills/commit/69821c7b3c3c7c92f8bf13b76bd8fcd477040a2c",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能描述经过精简与改写，涵盖其使用情境触发条件与适用范围排除项目。"
+          },
+          {
+            "sha": "41cc0ab6835de89b627f963458e370b661c7e598",
+            "date": "2026-08-19T17:02:45-07:00",
+            "subject": "Fix metadata tags format for GCS skills and re-enable in Cloud Skill Registry",
+            "url": "https://github.com/google/skills/commit/41cc0ab6835de89b627f963458e370b661c7e598",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "中继数据缩进经过统一，标签由 YAML 清单改为逗号分隔字符串，并移除了 `support_tier`。"
+          },
+          {
+            "sha": "4fcf030f6e60038df702ae2af71fad0abf5cfb74",
+            "date": "2026-08-18T16:54:54-07:00",
+            "subject": "Adds the google-cloud-storage-fuse skill",
+            "url": "https://github.com/google/skills/commit/4fcf030f6e60038df702ae2af71fad0abf5cfb74",
+            "pathAtCommit": "skills/cloud/google-cloud-storage-fuse/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初始技能文件，内容包含归因指示、挂载适用性关卡、工作负载意图导览，以及部署、写入安全与性能诊断的参考资料。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides accurate, official Microsoft documentation to explain products, features, and configuration details.",
-        "whenToUse": "Use it when someone needs tutorials, conceptual guidance, settings, limits, quotas, or best practices for Microsoft technologies such as Azure, .NET, Microsoft 365, Windows, or Power Platform.",
-        "outputs": "Returns relevant Microsoft Learn documentation results and, when deeper context is needed, full page content or specific sections."
+        "purpose": "Uses official Microsoft documentation to find or retrieve context for reliable technical explanations.",
+        "whenToUse": "Use it to research Microsoft concepts, learning guides, configuration choices, service limits, or recommended practices.",
+        "outputs": "Provides findings grounded in documentation search results or fetched pages, with the mslearn CLI as a fallback if the Learn MCP server is unavailable."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供準確且來自官方的 Microsoft 文件，用於說明產品、功能與設定細節。",
-        "whenToUse": "當使用者需要 Microsoft 技術（如 Azure、.NET、Microsoft 365、Windows 或 Power Platform）的教學、觀念說明、設定選項、限制、配額或最佳做法時使用。",
-        "outputs": "會回傳相關的 Microsoft Learn 文件結果，並在需要更完整脈絡時提供整頁內容或特定章節。"
+        "purpose": "透過官方 Microsoft 文件查找或擷取所需內容，以支援可靠的技術說明。",
+        "whenToUse": "當需要研究 Microsoft 概念、學習指南、設定選項、服務限制或建議做法時使用。",
+        "outputs": "提供根據文件搜尋結果或擷取頁面整理的資訊；若 Learn MCP 伺服器無法使用，則可改用 mslearn CLI。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供准确且来自官方的 Microsoft 文档，用于说明产品、功能与设置细节。",
-        "whenToUse": "当用户需要 Microsoft 技术（如 Azure、.NET、Microsoft 365、Windows 或 Power Platform）的教学、观念说明、设置选项、限制、配额或最佳做法时使用。",
-        "outputs": "会回传相关的 Microsoft Learn 文档结果，并在需要更完整脉络时提供整页内容或特定章节。"
+        "purpose": "透过官方 Microsoft 文档查找或截取所需内容，以支持可靠的技术说明。",
+        "whenToUse": "当需要研究 Microsoft 概念、学习指南、设置选项、服务限制或建议做法时使用。",
+        "outputs": "提供根据文档搜索结果或截取页面整理的信息；若 Learn MCP 服务器无法使用，则可改用 mslearn CLI。"
       }
     }
   }

@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/microsoft/skills/commit/a2003b6b95ead129e53dd5377a2229682ff75b1b",
             "pathAtCommit": ".github/skills/podcast-generation/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Removed the surrounding ```skill code fences from the podcast-generation SKILL.md file."
+            "summary": "Removed the opening and closing ```skill fences from the podcast-generation SKILL.md file."
           },
           {
             "sha": "14224cca15ade1e67fb926e8345bd66ad70ee014",
@@ -33,15 +33,15 @@
             "url": "https://github.com/microsoft/skills/commit/14224cca15ade1e67fb926e8345bd66ad70ee014",
             "pathAtCommit": ".github/skills/podcast-generation/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the podcast-generation SKILL.md file with Azure OpenAI Realtime setup instructions, code examples, voice options, and reference links."
+            "summary": "Added a podcast-generation skill covering Azure OpenAI GPT Realtime Mini WebSocket audio generation, PCM-to-WAV conversion, browser playback, voice options, and API events."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -53,7 +53,7 @@
             "url": "https://github.com/microsoft/skills/commit/a2003b6b95ead129e53dd5377a2229682ff75b1b",
             "pathAtCommit": ".github/skills/podcast-generation/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "移除了 podcast-generation SKILL.md 檔案外層的 ```skill 程式碼區塊標記。"
+            "summary": "移除了 podcast-generation 的 SKILL.md 檔案前後的 ```skill 圍欄。"
           },
           {
             "sha": "14224cca15ade1e67fb926e8345bd66ad70ee014",
@@ -62,13 +62,13 @@
             "url": "https://github.com/microsoft/skills/commit/14224cca15ade1e67fb926e8345bd66ad70ee014",
             "pathAtCommit": ".github/skills/podcast-generation/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 podcast-generation 的 SKILL.md 檔案，內容包含 Azure OpenAI Realtime 設定指引、程式碼範例、語音選項與參考連結。"
+            "summary": "新增 podcast-generation 技能，說明透過 Azure OpenAI GPT Realtime Mini WebSocket 產生音訊、PCM 轉 WAV、瀏覽器播放、語音選項與 API 事件。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -81,7 +81,7 @@
             "url": "https://github.com/microsoft/skills/commit/a2003b6b95ead129e53dd5377a2229682ff75b1b",
             "pathAtCommit": ".github/skills/podcast-generation/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "移除了 podcast-generation SKILL.md 文件外层的 ```skill 代码区块标记。"
+            "summary": "移除了 podcast-generation 的 SKILL.md 文件前后的 ```skill 围栏。"
           },
           {
             "sha": "14224cca15ade1e67fb926e8345bd66ad70ee014",
@@ -90,7 +90,7 @@
             "url": "https://github.com/microsoft/skills/commit/14224cca15ade1e67fb926e8345bd66ad70ee014",
             "pathAtCommit": ".github/skills/podcast-generation/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 podcast-generation 的 SKILL.md 文件，内容包含 Azure OpenAI Realtime 设置指引、代码范例、语音选项与参考链接。"
+            "summary": "添加 podcast-generation 技能，说明透过 Azure OpenAI GPT Realtime Mini WebSocket 产生音频、PCM 转 WAV、浏览器播放、语音选项与 API 事件。"
           }
         ]
       }

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps you create MCP servers that expose external services to language models through well-structured tools.",
-        "whenToUse": "Use it when researching, implementing, testing, or evaluating an MCP server in TypeScript or Python.",
-        "outputs": "Provides a practical development guide covering server design, tool implementation, quality review, and evaluation creation."
+        "purpose": "Guide the end-to-end design, implementation, review, testing, and evaluation of MCP servers that let LLMs interact with external services through well-designed tools.",
+        "whenToUse": "Use it to plan a server's workflow, research the protocol and target API, and carry the work through implementation, testing, and evaluations.",
+        "outputs": "The work results in a reviewed and tested MCP server with tools and supporting infrastructure, plus an XML file containing 10 verified evaluation question-and-answer pairs."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助你建立 MCP 伺服器，透過結構良好的工具讓語言模型能使用外部服務。",
-        "whenToUse": "當你要研究、實作、測試或評估以 TypeScript 或 Python 開發的 MCP 伺服器時使用。",
-        "outputs": "提供涵蓋伺服器設計、工具實作、品質檢查與評估建立的實務開發指引。"
+        "purpose": "指引 MCP 伺服器從設計、實作、審查、測試到評估的完整流程，讓大型語言模型能透過設計完善的工具與外部服務互動。",
+        "whenToUse": "在規劃伺服器開發流程、研究 MCP 協定與目標 API，並推進實作、測試及評估時使用。",
+        "outputs": "最終成果是經過審查與測試、具備工具及支援基礎設施的 MCP 伺服器，以及一份包含 10 組已驗證評估問答的 XML 檔案。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助你创建 MCP 服务器，透过结构良好的工具让语言模型能使用外部服务。",
-        "whenToUse": "当你要研究、实作、测试或评估以 TypeScript 或 Python 开发的 MCP 服务器时使用。",
-        "outputs": "提供涵盖服务器设计、工具实作、品质检查与评估创建的实务开发指引。"
+        "purpose": "指引 MCP 服务器从设计、实作、审查、测试到评估的完整流程，让大型语言模型能透过设计完善的工具与外部服务交互。",
+        "whenToUse": "在规划服务器开发流程、研究 MCP 协定与目标 API，并推进实作、测试及评估时使用。",
+        "outputs": "最终成果是经过审查与测试、具备工具及支持基础设施的 MCP 服务器，以及一份包含 10 组已验证评估问答的 XML 文件。"
       }
     }
   }

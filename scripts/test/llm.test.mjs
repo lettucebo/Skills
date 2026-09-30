@@ -106,6 +106,10 @@ test('Copilot runner keeps payload out of argv and pins the verified headless CL
     assert.doesNotMatch(joined, /payload-xxx/);
     assert.ok(joined.length < 4_000, `argv should contain paths and fixed instructions only: ${joined.length}`);
     assert.equal(args[args.indexOf('--model') + 1], COPILOT_CLI_CONTRACT.model);
+    assert.equal(COPILOT_CLI_CONTRACT.version, 2);
+    assert.equal(COPILOT_CLI_CONTRACT.model, 'gpt-6-luna');
+    assert.equal(COPILOT_CLI_CONTRACT.reasoningEffort, 'max');
+    assert.equal(args[args.indexOf('--reasoning-effort') + 1], 'max');
     for (const flag of [
       '--no-custom-instructions',
       '--disable-builtin-mcps',

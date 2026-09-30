@@ -1,0 +1,345 @@
+{
+  "path": "skills/google/cloud/alloydb-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:61f9ed9c9c4e7bb1d4a8162b4e7aa9a1f3b32f2ffb322fda1872feb8ac06d3b9",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/alloydb-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill's metadata."
+          },
+          {
+            "sha": "05679aa8ab10511186b035ca68e2d8dfd475e367",
+            "date": "2026-07-30T15:23:30-07:00",
+            "subject": "Update the alloydb-basics skill with task-oriented evaluation cases, improved directives, and updated reference documents for connecting to AlloyDB.",
+            "url": "https://github.com/google/skills/commit/05679aa8ab10511186b035ca68e2d8dfd475e367",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified the skill's scope and expanded its setup and usage guidance with a Google Cloud SDK prerequisite, security and connectivity directives, task-specific reference guidance, and supporting links."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the Databases category under the skill's metadata block."
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `--quiet` to the API-enabling, cluster-creation, and primary-instance `gcloud` examples."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/alloydb-basics/SKILL.md",
+              "destinationPath": "skills/cloud/alloydb-basics/SKILL.md"
+            },
+            "summary": "Moved the unchanged skill file from `cloud/alloydb-basics/SKILL.md` to `skills/cloud/alloydb-basics/SKILL.md`."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+              "destinationPath": "cloud/alloydb-basics/SKILL.md"
+            },
+            "summary": "Moved the unchanged skill file from `cloud/products/alloydb/alloydb-basics/SKILL.md` to `cloud/alloydb-basics/SKILL.md`."
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the skill document's heading from “AlloyDB Guide” to “AlloyDB Basics.”"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill's YAML frontmatter name from `alloydb` to `alloydb-basics`."
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the six supplementary-reference links to use `references/...` paths instead of `../references/...`."
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial AlloyDB skill document with a service overview, `gcloud` quick-start steps, IAM and password guidance, and supplementary-reference links."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中繼資料中新增了 1.0.0 版本。"
+          },
+          {
+            "sha": "05679aa8ab10511186b035ca68e2d8dfd475e367",
+            "date": "2026-07-30T15:23:30-07:00",
+            "subject": "Update the alloydb-basics skill with task-oriented evaluation cases, improved directives, and updated reference documents for connecting to AlloyDB.",
+            "url": "https://github.com/google/skills/commit/05679aa8ab10511186b035ca68e2d8dfd475e367",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "釐清此技能的適用範圍，並擴充設定與使用指引，加入 Google Cloud SDK 前置需求、安全性與連線規範、依任務分類的參考指引及補充連結。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Databases 類別移至此技能的中繼資料區塊內。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在啟用 API、建立叢集及建立主要執行個體的 `gcloud` 範例中加入 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/alloydb-basics/SKILL.md",
+              "destinationPath": "skills/cloud/alloydb-basics/SKILL.md"
+            },
+            "summary": "將未變更的技能檔案從 `cloud/alloydb-basics/SKILL.md` 移至 `skills/cloud/alloydb-basics/SKILL.md`。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+              "destinationPath": "cloud/alloydb-basics/SKILL.md"
+            },
+            "summary": "將未變更的技能檔案從 `cloud/products/alloydb/alloydb-basics/SKILL.md` 移至 `cloud/alloydb-basics/SKILL.md`。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能文件的標題從「AlloyDB Guide」改為「AlloyDB Basics」。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能 YAML 前置資訊中的名稱從 `alloydb` 改為 `alloydb-basics`。"
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將六個補充參考連結改為使用 `references/...` 路徑，而非 `../references/...`。"
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版 AlloyDB 技能文件，包含服務概述、`gcloud` 快速入門步驟、IAM 與密碼指引及補充參考連結。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中继数据中添加了 1.0.0 版本。"
+          },
+          {
+            "sha": "05679aa8ab10511186b035ca68e2d8dfd475e367",
+            "date": "2026-07-30T15:23:30-07:00",
+            "subject": "Update the alloydb-basics skill with task-oriented evaluation cases, improved directives, and updated reference documents for connecting to AlloyDB.",
+            "url": "https://github.com/google/skills/commit/05679aa8ab10511186b035ca68e2d8dfd475e367",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "厘清此技能的适用范围，并扩充设置与使用指引，加入 Google Cloud SDK 前置需求、安全性与连接规范、依任务分类的参考指引及补充链接。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Databases 类别移至此技能的中继数据区块内。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在激活 API、创建集群及创建主要运行个体的 `gcloud` 范例中加入 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/alloydb-basics/SKILL.md",
+              "destinationPath": "skills/cloud/alloydb-basics/SKILL.md"
+            },
+            "summary": "将未变更的技能文件从 `cloud/alloydb-basics/SKILL.md` 移至 `skills/cloud/alloydb-basics/SKILL.md`。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/alloydb-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+              "destinationPath": "cloud/alloydb-basics/SKILL.md"
+            },
+            "summary": "将未变更的技能文件从 `cloud/products/alloydb/alloydb-basics/SKILL.md` 移至 `cloud/alloydb-basics/SKILL.md`。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能文档的标题从「AlloyDB Guide」改为「AlloyDB Basics」。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能 YAML 前置信息中的名称从 `alloydb` 改为 `alloydb-basics`。"
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将六个补充参考链接改为使用 `references/...` 路径，而非 `../references/...`。"
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/alloydb/alloydb-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版 AlloyDB 技能文档，包含服务概述、`gcloud` 快速入门步骤、IAM 与密码指引及补充参考链接。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Analyzes current git changes to classify the work as a feature, release, or hotfix branch and produce a semantic Git Flow branch name.",
-        "whenToUse": "Use it when you want branch creation to follow Git Flow conventions based on the actual nature of the changes in your repository.",
-        "outputs": "It provides a change analysis, a branch-type decision, a proposed branch name and creation command, plus confirmation-oriented next-step guidance."
+        "purpose": "Classifies current Git changes under Git Flow and names a branch that reflects their purpose.",
+        "whenToUse": "Use it when you want current repository changes assessed as a feature, release, or hotfix branch.",
+        "outputs": "It creates and switches to a semantically named branch, then summarizes the analysis and suggests next steps."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "它會分析目前的 git 變更，將工作歸類為 feature、release 或 hotfix 分支，並產生符合語意的 Git Flow 分支名稱。",
-        "whenToUse": "當你想依據儲存庫中變更的實際性質，按照 Git Flow 慣例建立分支時，就適合使用它。",
-        "outputs": "它會提供變更分析、分支類型判斷、建議的分支名稱與建立指令，以及方便後續執行的下一步說明。"
+        "purpose": "依照 Git Flow 分析目前的 Git 變更，並命名符合變更目的的分支。",
+        "whenToUse": "當你希望將目前儲存庫中的變更判定為功能、發行或緊急修補分支時使用。",
+        "outputs": "它會建立並切換至語意清楚的分支，接著摘要分析結果並提供後續步驟。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "它会分析目前的 git 变更，将工作归类为 feature、release 或 hotfix 分支，并产生符合语意的 Git Flow 分支名称。",
-        "whenToUse": "当你想依据保存库中变更的实际性质，按照 Git Flow 惯例创建分支时，就适合使用它。",
-        "outputs": "它会提供变更分析、分支类型判断、建议的分支名称与创建指令，以及方便后续运行的下一步说明。"
+        "purpose": "依照 Git Flow 分析目前的 Git 变更，并命名符合变更目的的分支。",
+        "whenToUse": "当你希望将目前保存库中的变更判定为功能、发行或紧急修补分支时使用。",
+        "outputs": "它会创建并切换至语意清楚的分支，接着摘要分析结果并提供后续步骤。"
       }
     }
   }

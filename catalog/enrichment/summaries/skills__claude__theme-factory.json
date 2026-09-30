@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Apply a consistent visual style to artifacts by using curated color palettes and font pairings.",
-        "whenToUse": "Use this when styling slides, documents, reports, HTML pages, or similar artifacts with one of ten preset themes or a custom theme.",
-        "outputs": "A styled artifact, or a custom theme proposal for review, with coordinated colors and fonts applied consistently."
+        "purpose": "Helps create a coherent visual identity by applying coordinated colors and fonts to presentations and other artifacts.",
+        "whenToUse": "Use it when a slide deck or other artifact needs an existing theme, or when none of the available themes fits and a custom theme is needed.",
+        "outputs": "An artifact styled with consistent theme colors and fonts, with attention to contrast and readability."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "使用精選的配色與字體搭配，為各類成品套用一致的視覺風格。",
-        "whenToUse": "當你要為投影片、文件、報告、HTML 頁面或類似成品套用十種預設主題之一，或建立自訂主題時使用。",
-        "outputs": "已一致套用協調色彩與字體的成品，或供審閱的自訂主題提案。"
+        "purpose": "透過套用相互搭配的色彩與字型，為簡報及其他成品建立一致的視覺風格。",
+        "whenToUse": "當投影片簡報或其他成品需要套用現有主題，或現有主題都不合適而需要自訂主題時使用。",
+        "outputs": "產出色彩與字型一致，並兼顧對比與易讀性的主題化成品。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "使用精选的配色与字体搭配，为各类成品套用一致的视觉风格。",
-        "whenToUse": "当你要为投视频、文档、报告、HTML 页面或类似成品套用十种预设主题之一，或创建自订主题时使用。",
-        "outputs": "已一致套用协调色彩与字体的成品，或供审阅的自订主题提案。"
+        "purpose": "透过套用相互搭配的色彩与字体，为演示文稿及其他成品创建一致的视觉风格。",
+        "whenToUse": "当投视频演示文稿或其他成品需要套用现有主题，或现有主题都不合适而需要自订主题时使用。",
+        "outputs": "产出色彩与字体一致，并兼顾对比与易读性的主题化成品。"
       }
     }
   }

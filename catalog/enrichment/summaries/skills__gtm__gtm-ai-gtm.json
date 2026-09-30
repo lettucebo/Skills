@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps teams build go-to-market strategy for AI products, especially enterprise offerings that make decisions or take actions.",
-        "whenToUse": "Use it when you need to position an AI product, handle trust and accountability objections, choose framing such as copilot, agent, or teammate, or price AI with uneven usage.",
-        "outputs": "It provides messaging frameworks, pricing guidance, trust-building and demo tactics, buyer qualification criteria, and decision tools for enterprise AI sales."
+        "purpose": "Provides practical go-to-market guidance for positioning, pricing, and selling AI products, with particular attention to enterprise trust and operational readiness.",
+        "whenToUse": "Use it when shaping an AI product's launch or sales approach, especially when buyers need to understand human oversight, failure ownership, variable usage costs, or how the product fits their workflows.",
+        "outputs": "It offers frameworks and recommendations for product framing, pricing, enterprise trust and accountability, demos, competitive differentiation, and buyer qualification."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "這項技能協助團隊為 AI 產品制定上市策略，特別適用於會自行判斷或執行動作的企業型產品。",
-        "whenToUse": "當你需要為 AI 產品做市場定位、回應信任與責任歸屬疑慮、決定採用 copilot、agent 或 teammate 等說法，或替使用量差異很大的 AI 產品定價時，就適合使用它。",
-        "outputs": "它會提供訊息定位框架、定價建議、建立信任與設計展示的做法、買方資格判斷標準，以及企業 AI 銷售的決策工具。"
+        "purpose": "提供人工智慧產品的實用上市策略，涵蓋定位、定價與銷售，並特別著重企業信任與營運準備度。",
+        "whenToUse": "在規劃人工智慧產品的上市或銷售方式時使用，尤其當買方需要釐清人工監督、失敗責任、用量變動成本，或產品如何融入既有流程時。",
+        "outputs": "內容提供產品定位、定價、企業信任與責任、產品示範、競爭差異化及買方資格判斷的框架與建議。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "这项技能协助团队为 AI 产品制定上市策略，特别适用于会自行判断或运行动作的企业型产品。",
-        "whenToUse": "当你需要为 AI 产品做市场定位、回应信任与责任归属疑虑、决定采用 copilot、agent 或 teammate 等说法，或替使用量差异很大的 AI 产品定价时，就适合使用它。",
-        "outputs": "它会提供消息定位框架、定价建议、创建信任与设计展示的做法、买方资格判断标准，以及企业 AI 销售的决策工具。"
+        "purpose": "提供人工智能产品的实用上市策略，涵盖定位、定价与销售，并特别着重企业信任与营运准备度。",
+        "whenToUse": "在规划人工智能产品的上市或销售方式时使用，尤其当买方需要厘清人工监督、失败责任、用量变动成本，或产品如何融入既有流程时。",
+        "outputs": "内容提供产品定位、定价、企业信任与责任、产品示范、竞争差异化及买方资格判断的框架与建议。"
       }
     }
   }

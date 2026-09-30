@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-databases-onboarding",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:92acd89eb080f4281309924c7dc7f2daf90ad0a17a5578a6564e2d89d7389c0d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps translate database requirements into a suitable Google Cloud service choice.",
+        "whenToUse": "Use it when a workload's data model, usage pattern, and scale need to be evaluated to shape an initial database decision.",
+        "outputs": "It gathers requirements, recommends a Google Cloud database with reasoning, and drafts starter provisioning code for review."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助將資料庫需求轉化為合適的 Google Cloud 服務選擇。",
+        "whenToUse": "當需要評估工作負載的資料模型、使用模式和規模，以制定初步資料庫決策時使用。",
+        "outputs": "它會蒐集需求、說明推薦的 Google Cloud 資料庫，並草擬供審閱的初始佈建程式碼。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助将数据库需求转化为合适的 Google Cloud 服务选择。",
+        "whenToUse": "当需要评估工作负载的数据模型、使用模式和规模，以制定初步数据库决策时使用。",
+        "outputs": "它会搜集需求、说明推荐的 Google Cloud 数据库，并草拟供审阅的初始布建代码。"
+      }
+    }
+  }
+}

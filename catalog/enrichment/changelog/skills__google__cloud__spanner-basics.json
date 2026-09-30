@@ -1,0 +1,99 @@
+{
+  "path": "skills/google/cloud/spanner-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:bd5e502a34318face540c453ef56485bf1ccec2ad8ffe7bd843263a72a073731",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/spanner-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/spanner-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a `1.0.0` version field to the Spanner Basics skill metadata."
+          },
+          {
+            "sha": "f7daf30a65732453e1efbf91c2eb0102486a781b",
+            "date": "2026-07-29T13:55:39-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/f7daf30a65732453e1efbf91c2eb0102486a781b",
+            "pathAtCommit": "skills/cloud/spanner-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the Spanner Basics skill guide, covering core principles, database-change safety, common workflows, and related references."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/spanner-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 Spanner Basics 技能中繼資料中新增 `1.0.0` 版本欄位。"
+          },
+          {
+            "sha": "f7daf30a65732453e1efbf91c2eb0102486a781b",
+            "date": "2026-07-29T13:55:39-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/f7daf30a65732453e1efbf91c2eb0102486a781b",
+            "pathAtCommit": "skills/cloud/spanner-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Spanner Basics 技能指南，涵蓋核心原則、資料庫變更安全性、常見工作流程及相關參考資料。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/spanner-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 Spanner Basics 技能中继数据中添加 `1.0.0` 版本字段。"
+          },
+          {
+            "sha": "f7daf30a65732453e1efbf91c2eb0102486a781b",
+            "date": "2026-07-29T13:55:39-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/f7daf30a65732453e1efbf91c2eb0102486a781b",
+            "pathAtCommit": "skills/cloud/spanner-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Spanner Basics 技能指南，涵盖内核原则、数据库变更安全性、常见工作流程及相关参考资料。"
+          }
+        ]
+      }
+    }
+  }
+}

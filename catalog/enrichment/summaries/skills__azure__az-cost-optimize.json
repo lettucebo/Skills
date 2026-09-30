@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Analyze Azure infrastructure and related IaC to find practical cost optimization opportunities backed by current configuration and usage data.",
-        "whenToUse": "Use this when you want to assess Azure resources for savings opportunities and track follow-up work in GitHub.",
-        "outputs": "Evidence-based cost optimization recommendations, one GitHub issue for each opportunity, and one coordinating EPIC issue."
+        "purpose": "Analyzes Azure infrastructure and usage data to identify cost-saving opportunities and organize implementation through GitHub.",
+        "whenToUse": "Use it when a team needs a usage- and pricing-informed Azure cost review and wants to prioritize and track approved savings work.",
+        "outputs": "Provides evidence-based recommendations with estimated savings, risk, effort, and implementation guidance, then creates one GitHub issue per recommendation and a coordinating EPIC after approval."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "分析 Azure 基礎設施與相關 IaC，依據目前設定與使用資料找出可實施的成本最佳化機會。",
-        "whenToUse": "當你想評估 Azure 資源的節省空間，並在 GitHub 中追蹤後續工作時使用。",
-        "outputs": "產出具證據基礎的成本最佳化建議、每個機會各一則 GitHub issue，以及一則統籌的 EPIC issue。"
+        "purpose": "分析 Azure 基礎架構與使用資料，以找出節省成本的機會，並透過 GitHub 組織後續執行。",
+        "whenToUse": "當團隊需要根據使用量與定價檢視 Azure 成本，並希望排列節省措施的優先順序、追蹤已核准的工作時，使用此技能。",
+        "outputs": "提供有證據支持的優先建議，列出預估節省金額、風險、實作工時與指引，並在獲得核准後為每項建議建立一個 GitHub issue，另建統籌 EPIC issue。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "分析 Azure 基础设施与相关 IaC，依据目前设置与使用数据找出可实施的成本优化机会。",
-        "whenToUse": "当你想评估 Azure 资源的节省空间，并在 GitHub 中追踪后续工作时使用。",
-        "outputs": "产出具证据基础的成本优化建议、每个机会各一则 GitHub issue，以及一则统筹的 EPIC issue。"
+        "purpose": "分析 Azure 基础架构与使用数据，以找出节省成本的机会，并透过 GitHub 组织后续运行。",
+        "whenToUse": "当团队需要根据使用量与定价查看 Azure 成本，并希望排列节省措施的优先级、追踪已核准的工作时，使用此技能。",
+        "outputs": "提供有证据支持的优先建议，列出预估节省金额、风险、实作工时与指引，并在获得核准后为每项建议创建一个 GitHub issue，另建统筹 EPIC issue。"
       }
     }
   }

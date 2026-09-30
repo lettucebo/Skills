@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-alert-configuration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:a3a8d790efc306da6f2a84b41a3cfa236138a5ec4f56841e09125e7aa175ead1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It structures agent alerting around reliability, cost, safety, security, and Vertex AI evaluation quality.",
+        "whenToUse": "Use it when reliability, cost, safety, or security alerts must cover multiple agent runtimes, or when quality alerts are needed for a Vertex AI deployment using Online Monitors; the former depend on OTel metrics.",
+        "outputs": "It generates Terraform (.tf) alert-policy configurations for reliability, cost, safety, security, and Vertex AI quality, with dynamic agent grouping by default."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它以可靠性、成本、安全、資安及 Vertex AI 評估品質為核心，規劃代理的告警。",
+        "whenToUse": "當可靠性、成本、安全或資安告警需涵蓋多種代理執行環境，或需要為使用 Online Monitors 的 Vertex AI 部署設定品質告警時可使用；前者仰賴 OTel 指標。",
+        "outputs": "它會產生 Terraform（.tf）告警政策設定，涵蓋可靠性、成本、安全、資安與 Vertex AI 品質，並預設以動態方式彙整代理。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它以可靠性、成本、安全、资安及 Vertex AI 评估品质为内核，规划代理的告警。",
+        "whenToUse": "当可靠性、成本、安全或资安告警需涵盖多种代理运行环境，或需要为使用 Online Monitors 的 Vertex AI 部署设置品质告警时可使用；前者仰赖 OTel 指针。",
+        "outputs": "它会产生 Terraform（.tf）告警政策设置，涵盖可靠性、成本、安全、资安与 Vertex AI 品质，并预设以动态方式汇整代理。"
+      }
+    }
+  }
+}

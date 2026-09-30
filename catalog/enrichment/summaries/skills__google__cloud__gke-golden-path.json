@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-golden-path",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:27c81c6a8dfb7678d9e1bdd21c1db86850c04e0ece077e987398c239a1235d57"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a production-oriented GKE Autopilot baseline and guidance for recording configuration decisions.",
+        "whenToUse": "Use it to plan foundational cluster settings or assess an existing cluster against recommended defaults, rather than to tune workload autoscaling.",
+        "outputs": "It provides recommended defaults, required setup inputs, guidance on Day-0 and Day-1 trade-offs, and audit findings with severity and remediation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供以正式環境為導向的 GKE Autopilot 基準設定，並協助記錄設定決策。",
+        "whenToUse": "規劃叢集基礎設定或檢查現有叢集是否符合建議預設值時使用，而非用於調整工作負載自動擴縮。",
+        "outputs": "提供建議預設值、必要的設定輸入、Day-0 與 Day-1 取捨指引，以及包含嚴重程度與修正建議的稽核結果。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供以正式环境为导向的 GKE Autopilot 基准设置，并协助记录设置决策。",
+        "whenToUse": "规划集群基础设置或检查现有集群是否符合建议默认值时使用，而非用于调整工作负载自动扩缩。",
+        "outputs": "提供建议默认值、必要的设置输入、Day-0 与 Day-1 取舍指引，以及包含严重程度与修正建议的审核结果。"
+      }
+    }
+  }
+}

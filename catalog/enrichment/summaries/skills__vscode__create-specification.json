@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Summarizes the requirements, constraints, interfaces, and validation details for a solution in a self-contained Markdown specification designed to be easy for generative AI to parse.",
-        "whenToUse": "Use it when you need a standardized spec document for a schema, tool, data, infrastructure, process, architecture, or design topic before implementation or automation work begins.",
-        "outputs": "Produces a well-formed Markdown file under /spec/ with front matter, the prescribed sections, and a descriptive spec-[a-z0-9-]+.md filename."
+        "purpose": "Creates a clear, self-contained specification that defines a solution's requirements, constraints, and interfaces for generative AI use.",
+        "whenToUse": "Use when a solution needs a structured, AI-ready specification of its requirements, constraints, and interfaces.",
+        "outputs": "A well-formed Markdown specification saved in /spec/ with a descriptive, purpose-led spec-[a-z0-9-]+.md filename and the prescribed sections."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "將解決方案的需求、限制、介面與驗證細節整理成自成一體且便於生成式 AI 解析的 Markdown 規格文件。",
-        "whenToUse": "當你需要在實作或自動化工作開始前，為 schema、tool、data、infrastructure、process、architecture 或 design 主題建立標準化規格文件時使用。",
-        "outputs": "產出位於 /spec/ 目錄下、含 front matter 與指定章節，且檔名符合 spec-[a-z0-9-]+.md 規則的完整 Markdown 文件。"
+        "purpose": "建立清晰且完整的規格文件，定義供生成式 AI 使用的解決方案需求、限制與介面。",
+        "whenToUse": "當解決方案需要以結構化且適合 AI 使用的方式記錄其需求、限制與介面時使用。",
+        "outputs": "在 /spec/ 中產生格式正確的 Markdown 規格文件，使用具描述性、以用途開頭且符合 spec-[a-z0-9-]+.md 格式的檔名，並包含指定章節。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "将解决方案的需求、限制、界面与验证细节整理成自成一体且便于生成式 AI 解析的 Markdown 规格文档。",
-        "whenToUse": "当你需要在实作或自动化工作开始前，为 schema、tool、data、infrastructure、process、architecture 或 design 主题创建标准化规格文档时使用。",
-        "outputs": "产出位于 /spec/ 目录下、含 front matter 与指定章节，且文件名符合 spec-[a-z0-9-]+.md 规则的完整 Markdown 文档。"
+        "purpose": "创建清晰且完整的规格文档，定义供生成式 AI 使用的解决方案需求、限制与界面。",
+        "whenToUse": "当解决方案需要以结构化且适合 AI 使用的方式记录其需求、限制与界面时使用。",
+        "outputs": "在 /spec/ 中产生格式正确的 Markdown 规格文档，使用具描述性、以用途开头且符合 spec-[a-z0-9-]+.md 格式的文件名，并包含指定章节。"
       }
     }
   }

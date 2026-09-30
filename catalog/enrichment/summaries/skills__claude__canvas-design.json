@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Creates an original, design-led visual piece by first defining an aesthetic direction and then expressing it with minimal text.",
-        "whenToUse": "Use it for requests for posters, artwork, or other static visual designs where polished composition matters more than lengthy written content.",
-        "outputs": "It produces a design philosophy in Markdown and a final visual artifact as a PNG or PDF."
+        "purpose": "Shapes a visual philosophy and turns it into original, design-led artwork with minimal text.",
+        "whenToUse": "Use it when a static visual needs a distinctive aesthetic carried through from concept to finished art.",
+        "outputs": "It provides a design-philosophy .md file and a PNG or PDF artwork, with additional pages when requested."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "它會先定義美學方向，再以極少文字將其轉化為原創且以設計為主的視覺作品。",
-        "whenToUse": "當需求是海報、藝術作品或其他靜態視覺設計，且重點在精緻編排而非大量文字說明時適用。",
-        "outputs": "它會產出一份 Markdown 設計理念，以及一個 PNG 或 PDF 的最終視覺成品。"
+        "purpose": "建立視覺理念，並將其轉化為文字精簡的原創設計作品。",
+        "whenToUse": "當靜態視覺作品需要從概念到成品貫徹鮮明美學時使用。",
+        "outputs": "產出一份設計理念 .md 檔與 PNG 或 PDF 作品，並可依要求增加頁數。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "它会先定义美学方向，再以极少文字将其转化为原创且以设计为主的视觉作品。",
-        "whenToUse": "当需求是海报、艺术作品或其他静态视觉设计，且重点在精致编排而非大量文字说明时适用。",
-        "outputs": "它会产出一份 Markdown 设计理念，以及一个 PNG 或 PDF 的最终视觉成品。"
+        "purpose": "创建视觉理念，并将其转化为文字精简的原创设计作品。",
+        "whenToUse": "当静态视觉作品需要从概念到成品贯彻鲜明美学时使用。",
+        "outputs": "产出一份设计理念 .md 档与 PNG 或 PDF 作品，并可依要求增加页数。"
       }
     }
   }

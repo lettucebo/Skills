@@ -2,17 +2,17 @@
   "path": "skills/azure/azure-devops-cli",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:347118a6eb6908cb639dd3473823aa2a1004f3d86f225363d60f8fa397180a54",
+    "contentHash": "sha256:ffc0bdf8a261ce466bee93f5d3ae4ff71887dc88cec0ca70587fa3798043cb09",
     "repository": "github/awesome-copilot",
     "reference": "refs/heads/main",
     "source": "skills/azure-devops-cli",
-    "pinnedCommit": "4742f265959bf025882314564b364d9d7af6e2d5"
+    "pinnedCommit": "997e95a6e42869c350f8ca6ec4c066287697c9f0"
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/4e8726dd50652c9d469f018113a537e5862d2a11",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added a reference-table entry for a Windows long-comments guide covering command length limits and supported workarounds."
+            "summary": "Adds a reference-index row for the Windows long-comment guide, noting the affected options, command-length limit, and listed workarounds."
           },
           {
             "sha": "103dd7db553354106951d8e93353edc06fd9a177",
@@ -33,7 +33,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/103dd7db553354106951d8e93353edc06fd9a177",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added a note telling users to replace the legacy `https://{org}.visualstudio.com` URL with `https://dev.azure.com/{org}` in the defaults example."
+            "summary": "Adds a note that legacy `https://{org}.visualstudio.com` URLs should be replaced with `https://dev.azure.com/{org}`."
           },
           {
             "sha": "2f71741fb510911f31e65ac507fe5e29a4f10632",
@@ -42,7 +42,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f71741fb510911f31e65ac507fe5e29a4f10632",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Reworked `SKILL.md` into a shorter overview that keeps basic setup and authentication steps and replaces the long command catalog with reference-file links."
+            "summary": "Replaces the extensive inline command guide with a concise CLI overview, setup and authentication examples, and an index to domain-specific reference files."
           },
           {
             "sha": "e24be77e6f203409cf99ab7d5a67e1540cb386d3",
@@ -51,15 +51,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/e24be77e6f203409cf99ab7d5a67e1540cb386d3",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the `azure-devops-cli` skill file with Azure DevOps CLI guidance and command examples for projects, repos, pipelines, pull requests, work items, and artifacts."
+            "summary": "Adds the initial Azure DevOps CLI skill document, covering setup and authentication plus command examples for Azure DevOps resources."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -71,7 +71,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/4e8726dd50652c9d469f018113a537e5862d2a11",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增參考表格項目，連結說明 Windows 長留言問題的指南，涵蓋命令長度限制與可用的因應方式。"
+            "summary": "新增 Windows 長篇留言指南的參考索引列，說明受影響的選項、命令長度上限及列出的替代方法。"
           },
           {
             "sha": "103dd7db553354106951d8e93353edc06fd9a177",
@@ -80,7 +80,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/103dd7db553354106951d8e93353edc06fd9a177",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增註記，說明在預設值範例中應將舊版的 `https://{org}.visualstudio.com` URL 改為 `https://dev.azure.com/{org}`。"
+            "summary": "新增說明，指出舊版 `https://{org}.visualstudio.com` 網址應改用 `https://dev.azure.com/{org}`。"
           },
           {
             "sha": "2f71741fb510911f31e65ac507fe5e29a4f10632",
@@ -89,7 +89,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f71741fb510911f31e65ac507fe5e29a4f10632",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將 `SKILL.md` 改寫成較精簡的總覽，保留基本安裝與驗證步驟，並以參考檔案連結取代冗長的命令清單。"
+            "summary": "將大量內嵌命令指南改為精簡的 CLI 概覽、設定與驗證範例，以及各領域參考文件索引。"
           },
           {
             "sha": "e24be77e6f203409cf99ab7d5a67e1540cb386d3",
@@ -98,13 +98,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/e24be77e6f203409cf99ab7d5a67e1540cb386d3",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 `azure-devops-cli` 技能檔案，提供 Azure DevOps CLI 的說明與專案、存放庫、管線、提取要求、工作項目及成品等命令範例。"
+            "summary": "新增 Azure DevOps CLI 技能文件，涵蓋設定與驗證，以及管理 Azure DevOps 資源的命令範例。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -117,7 +117,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/4e8726dd50652c9d469f018113a537e5862d2a11",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加参考表格项目，链接说明 Windows 长留言问题的指南，涵盖命令长度限制与可用的因应方式。"
+            "summary": "添加 Windows 长篇留言指南的参考索引列，说明受影响的选项、命令长度上限及列出的替代方法。"
           },
           {
             "sha": "103dd7db553354106951d8e93353edc06fd9a177",
@@ -126,7 +126,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/103dd7db553354106951d8e93353edc06fd9a177",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加注记，说明在默认值范例中应将旧版的 `https://{org}.visualstudio.com` URL 改为 `https://dev.azure.com/{org}`。"
+            "summary": "添加说明，指出旧版 `https://{org}.visualstudio.com` 网址应改用 `https://dev.azure.com/{org}`。"
           },
           {
             "sha": "2f71741fb510911f31e65ac507fe5e29a4f10632",
@@ -135,7 +135,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f71741fb510911f31e65ac507fe5e29a4f10632",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将 `SKILL.md` 改写成较精简的总览，保留基本安装与验证步骤，并以参考文件链接取代冗长的命令清单。"
+            "summary": "将大量内嵌命令指南改为精简的 CLI 概览、设置与验证范例，以及各领域参考文档索引。"
           },
           {
             "sha": "e24be77e6f203409cf99ab7d5a67e1540cb386d3",
@@ -144,7 +144,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/e24be77e6f203409cf99ab7d5a67e1540cb386d3",
             "pathAtCommit": "skills/azure-devops-cli/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 `azure-devops-cli` 技能文件，提供 Azure DevOps CLI 的说明与项目、存放库、管线、提取要求、工作项目及成品等命令范例。"
+            "summary": "添加 Azure DevOps CLI 技能文档，涵盖设置与验证，以及管理 Azure DevOps 资源的命令范例。"
           }
         ]
       }

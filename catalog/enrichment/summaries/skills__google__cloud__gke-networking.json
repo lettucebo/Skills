@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-networking",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2ac9cb978125aebc20ab2d6f3d05dc66c176cd56da1e8eba2906561096f904d1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Establishes a private, VPC-native networking baseline for GKE and explains how cluster addressing, DNS, egress, and network policy fit together.",
+        "whenToUse": "Use it to compare private control-plane access options, plan pod and service address ranges, integrate an existing VPC or subnet, or design egress and in-cluster traffic controls.",
+        "outputs": "It provides recommended network settings, cluster access patterns and commands, IP range planning guidance, and configuration options for egress and network policy."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "為 GKE 建立以私有叢集和 VPC 原生模式為基礎的網路基準，並說明叢集位址配置、DNS、對外流量及網路政策如何配合。",
+        "whenToUse": "當你需要比較私有控制平面的存取方式、規劃 Pod 與 Service 位址範圍、整合既有 VPC 或子網路，或設計對外流量與叢集內流量控管時使用。",
+        "outputs": "提供建議的網路設定、叢集存取方式與指令、IP 範圍規劃指引，以及對外連線和網路政策的設定選項。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "为 GKE 创建以私有集群和 VPC 原生模式为基础的网络基准，并说明集群地址配置、DNS、对外流量及网络政策如何配合。",
+        "whenToUse": "当你需要比较私有控制平面的访问方式、规划 Pod 与 Service 地址范围、集成既有 VPC 或子网络，或设计对外流量与集群内流量控管时使用。",
+        "outputs": "提供建议的网络设置、集群访问方式与指令、IP 范围规划指引，以及对外连接和网络政策的设置选项。"
+      }
+    }
+  }
+}

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Identifies the least-privilege Azure role that satisfies a requested permission set and falls back to a custom role when no built-in role fits.",
-        "whenToUse": "Use this when you know what an identity needs to do and need to choose the right Azure role and assignment approach.",
-        "outputs": "Provides the recommended role, CLI commands to assign it, and a Bicep role-assignment snippet guided by best practices."
+        "purpose": "It maps requested Azure permissions to the least-privilege built-in role, or a custom role if no built-in role matches.",
+        "whenToUse": "Use it when you have an identity and specific Azure permissions in mind and need guidance on implementing the role assignment.",
+        "outputs": "It provides a matching built-in or custom role definition, Azure CLI commands to assign it, and a Bicep snippet for the role assignment."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "根據需求的權限範圍找出符合最小權限原則的 Azure 角色，若沒有合適的內建角色則改用自訂角色。",
-        "whenToUse": "當你已知某個身分需要執行的操作，並且需要選出合適的 Azure 角色與指派方式時使用。",
-        "outputs": "會提供建議角色、用於完成指派的 CLI 命令，以及依最佳實務撰寫的 Bicep 角色指派範例。"
+        "purpose": "它會將所需的 Azure 權限對應到符合最小權限原則的內建角色；若沒有合適的內建角色，則使用自訂角色。",
+        "whenToUse": "當你已明確指定身分識別與所需的 Azure 權限，並需要了解如何實作角色指派時，請使用它。",
+        "outputs": "它會提供相符的內建或自訂角色定義、用於指派角色的 Azure CLI 命令，以及角色指派的 Bicep 程式碼片段。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "根据需求的权限范围找出符合最小权限原则的 Azure 角色，若没有合适的内置角色则改用自订角色。",
-        "whenToUse": "当你已知某个身分需要运行的操作，并且需要选出合适的 Azure 角色与指派方式时使用。",
-        "outputs": "会提供建议角色、用于完成指派的 CLI 命令，以及依最佳实务撰写的 Bicep 角色指派范例。"
+        "purpose": "它会将所需的 Azure 权限对应到符合最小权限原则的内置角色；若没有合适的内置角色，则使用自订角色。",
+        "whenToUse": "当你已明确指定身分识别与所需的 Azure 权限，并需要了解如何实作角色指派时，请使用它。",
+        "outputs": "它会提供相符的内置或自订角色定义、用于指派角色的 Azure CLI 命令，以及角色指派的 Bicep 代码片段。"
       }
     }
   }

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provide a concrete, repository-specific plan for a multi-file refactor before any code changes begin.",
-        "whenToUse": "Use it when work spans multiple files and you need to investigate scope, sequence changes safely, and surface dependencies and risks before implementation.",
-        "outputs": "It produces a phased refactor plan covering current and target state, affected files, verification and rollback steps, and a prompt for approval before coding."
+        "purpose": "It structures refactoring work into a safe, dependency-aware path from investigation through validation.",
+        "whenToUse": "It is useful when a change has cross-file coupling or needs staged checks and recovery planning before implementation.",
+        "outputs": "It produces a repository-informed plan of the current and target states, affected files, ordered phases, verification, rollback, and risks, then waits for approval."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "在開始任何程式碼變更前，先為跨多個檔案的重構整理出具體且符合儲存庫現況的執行計畫。",
-        "whenToUse": "當工作會牽涉多個檔案，且你需要先釐清範圍、相依性、風險與安全的執行順序時使用。",
-        "outputs": "它會產出分階段的重構計畫，涵蓋目前與目標狀態、受影響檔案、驗證與回復步驟，並在動手前要求確認。"
+        "purpose": "它將重構工作整理成安全且考量相依性的流程，涵蓋從調查到驗證。",
+        "whenToUse": "當變更涉及跨檔案耦合，或需要在實作前安排分階段檢查與復原方式時，適合使用它。",
+        "outputs": "它會產出依據儲存庫現況的計畫，說明目前與目標狀態、受影響檔案、分階段步驟、驗證、復原與風險，並等待核准。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "在开始任何代码变更前，先为跨多个文件的重构整理出具体且符合保存库现况的运行计划。",
-        "whenToUse": "当工作会牵涉多个文件，且你需要先厘清范围、相依性、风险与安全的运行顺序时使用。",
-        "outputs": "它会产出分阶段的重构计划，涵盖目前与目标状态、受影响文件、验证与回复步骤，并在动手前要求确认。"
+        "purpose": "它将重构工作整理成安全且考量相依性的流程，涵盖从调查到验证。",
+        "whenToUse": "当变更涉及跨文件耦合，或需要在实作前安排分阶段检查与复原方式时，适合使用它。",
+        "outputs": "它会产出依据保存库现况的计划，说明目前与目标状态、受影响文件、分阶段步骤、验证、复原与风险，并等待核准。"
       }
     }
   }

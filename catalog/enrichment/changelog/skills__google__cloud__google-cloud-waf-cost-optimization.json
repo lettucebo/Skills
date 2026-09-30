@@ -1,0 +1,318 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-cost-optimization",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0d28d10fcd5d9cda4cc5d04f8178e8e5e115a1e8ac59157654ebc816b689af42",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-waf-cost-optimization",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a `1.0.0` version field under the skill's `metadata`."
+          },
+          {
+            "sha": "77df03eb2c40dfbaf85de7e5787e0bef5e95690b",
+            "date": "2026-07-24T08:20:14-07:00",
+            "subject": "\"refactor(skills) - enhance response determinism in cost optimization guidance\"",
+            "url": "https://github.com/google/skills/commit/77df03eb2c40dfbaf85de7e5787e0bef5e95690b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added FinOps lifecycle and response guidance, expanded service-specific cost recommendations, and updated the validation checklist."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Nested `category` under a new `metadata` block in the skill's YAML frontmatter."
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the four cost-optimization grounding links to use `.md.txt` URLs."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-waf-cost-optimization/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md"
+            },
+            "summary": "Moved the unchanged skill file from `cloud/google-cloud-waf-cost-optimization/` to `skills/cloud/google-cloud-waf-cost-optimization/`."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+              "destinationPath": "cloud/google-cloud-waf-cost-optimization/SKILL.md"
+            },
+            "summary": "Moved the unchanged skill file from `cloud/well-architected-framework/google-cloud-waf-cost-optimization/` to `cloud/google-cloud-waf-cost-optimization/`."
+          },
+          {
+            "sha": "1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "date": "2026-04-15T14:26:43-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Google Cloud WAF cost-optimization skill with core principles, product guidance, workload assessment questions, and a validation checklist."
+          },
+          {
+            "sha": "3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "date": "2026-04-15T12:17:19-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Deleted `cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md`."
+          },
+          {
+            "sha": "5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "date": "2026-04-13T11:46:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Google Cloud WAF cost-optimization skill document, including its core principles, product guidance, assessment questions, and validation checklist."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 `metadata` 區塊下新增 `1.0.0` 版本欄位。"
+          },
+          {
+            "sha": "77df03eb2c40dfbaf85de7e5787e0bef5e95690b",
+            "date": "2026-07-24T08:20:14-07:00",
+            "subject": "\"refactor(skills) - enhance response determinism in cost optimization guidance\"",
+            "url": "https://github.com/google/skills/commit/77df03eb2c40dfbaf85de7e5787e0bef5e95690b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 FinOps 生命週期與回覆指引、擴充服務專屬的成本建議，並更新驗證清單。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 `category` 欄位移至技能 YAML 前置資料中新增的 `metadata` 區塊下。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將四個成本最佳化原則的參考連結更新為 `.md.txt` 網址。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-waf-cost-optimization/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md"
+            },
+            "summary": "將內容未變更的技能檔案從 `cloud/google-cloud-waf-cost-optimization/` 移至 `skills/cloud/google-cloud-waf-cost-optimization/`。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+              "destinationPath": "cloud/google-cloud-waf-cost-optimization/SKILL.md"
+            },
+            "summary": "將內容未變更的技能檔案從 `cloud/well-architected-framework/google-cloud-waf-cost-optimization/` 移至 `cloud/google-cloud-waf-cost-optimization/`。"
+          },
+          {
+            "sha": "1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "date": "2026-04-15T14:26:43-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Google Cloud WAF 成本最佳化技能，涵蓋核心原則、產品指引、工作負載評估問題與驗證清單。"
+          },
+          {
+            "sha": "3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "date": "2026-04-15T12:17:19-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "刪除 `cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md`。"
+          },
+          {
+            "sha": "5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "date": "2026-04-13T11:46:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Google Cloud WAF 成本最佳化技能文件，內容包括核心原則、產品指引、評估問題與驗證清單。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 `metadata` 区块下添加 `1.0.0` 版本字段。"
+          },
+          {
+            "sha": "77df03eb2c40dfbaf85de7e5787e0bef5e95690b",
+            "date": "2026-07-24T08:20:14-07:00",
+            "subject": "\"refactor(skills) - enhance response determinism in cost optimization guidance\"",
+            "url": "https://github.com/google/skills/commit/77df03eb2c40dfbaf85de7e5787e0bef5e95690b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 FinOps 生命周期与回复指引、扩充服务专属的成本建议，并更新验证清单。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 `category` 字段移至技能 YAML 前置数据中添加的 `metadata` 区块下。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将四个成本优化原则的参考链接更新为 `.md.txt` 网址。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/google-cloud-waf-cost-optimization/SKILL.md",
+              "destinationPath": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md"
+            },
+            "summary": "将内容未变更的技能文件从 `cloud/google-cloud-waf-cost-optimization/` 移至 `skills/cloud/google-cloud-waf-cost-optimization/`。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+              "destinationPath": "cloud/google-cloud-waf-cost-optimization/SKILL.md"
+            },
+            "summary": "将内容未变更的技能文件从 `cloud/well-architected-framework/google-cloud-waf-cost-optimization/` 移至 `cloud/google-cloud-waf-cost-optimization/`。"
+          },
+          {
+            "sha": "1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "date": "2026-04-15T14:26:43-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1acc1ceaf6dac77a770b69517791b300b9454b78",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Google Cloud WAF 成本优化技能，涵盖内核原则、产品指引、工作负载评估问题与验证清单。"
+          },
+          {
+            "sha": "3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "date": "2026-04-15T12:17:19-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/3c805bea1ea7904ef1580162b3dcf37f93f0fb25",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "删除 `cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md`。"
+          },
+          {
+            "sha": "5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "date": "2026-04-13T11:46:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/5c92e75ab5e265cce688716cba1ef43dbfcea264",
+            "pathAtCommit": "cloud/well-architected-framework/google-cloud-waf-cost-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Google Cloud WAF 成本优化技能文档，内容包括内核原则、产品指引、评估问题与验证清单。"
+          }
+        ]
+      }
+    }
+  }
+}

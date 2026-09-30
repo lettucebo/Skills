@@ -1,0 +1,99 @@
+{
+  "path": "skills/google/cloud/secops-hunt",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7d25590185f8edabb25cecea273c1934e885623b5881b20bccba06fb759df3f9",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/secops-hunt",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/secops-hunt/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill's frontmatter `version` value changed from `1.1.0` to the quoted form `\"1.1.0\"`."
+          },
+          {
+            "sha": "5fd3ca4827324bc400096a54a49f4811f084597f",
+            "date": "2026-09-15T20:36:57-07:00",
+            "subject": "Add Google SecOps agent plugin and skills for Triage, Investigation, Threat Hunting, Cases, and Detection Engineering.",
+            "url": "https://github.com/google/skills/commit/5fd3ca4827324bc400096a54a49f4811f084597f",
+            "pathAtCommit": "skills/cloud/secops-hunt/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a `secops-hunt` skill document covering Google SecOps threat-hunting workflows for hypothesis-led hunts, IoC lookbacks, prevalence and anomaly analysis, and case escalation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/secops-hunt/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的前置中繼資料 `version` 值由 `1.1.0` 改為加上引號的形式 `\"1.1.0\"`。"
+          },
+          {
+            "sha": "5fd3ca4827324bc400096a54a49f4811f084597f",
+            "date": "2026-09-15T20:36:57-07:00",
+            "subject": "Add Google SecOps agent plugin and skills for Triage, Investigation, Threat Hunting, Cases, and Detection Engineering.",
+            "url": "https://github.com/google/skills/commit/5fd3ca4827324bc400096a54a49f4811f084597f",
+            "pathAtCommit": "skills/cloud/secops-hunt/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `secops-hunt` 技能文件，涵蓋 Google SecOps 威脅狩獵流程，包括假設導向狩獵、IoC 歷史回溯、普及度與異常分析，以及案件升級處理。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/secops-hunt/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的前置中继数据 `version` 值由 `1.1.0` 改为加上引号的形式 `\"1.1.0\"`。"
+          },
+          {
+            "sha": "5fd3ca4827324bc400096a54a49f4811f084597f",
+            "date": "2026-09-15T20:36:57-07:00",
+            "subject": "Add Google SecOps agent plugin and skills for Triage, Investigation, Threat Hunting, Cases, and Detection Engineering.",
+            "url": "https://github.com/google/skills/commit/5fd3ca4827324bc400096a54a49f4811f084597f",
+            "pathAtCommit": "skills/cloud/secops-hunt/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `secops-hunt` 技能文档，涵盖 Google SecOps 威胁狩猎流程，包括假设导向狩猎、IoC 历史回溯、普及度与异常分析，以及案件升级处理。"
+          }
+        ]
+      }
+    }
+  }
+}

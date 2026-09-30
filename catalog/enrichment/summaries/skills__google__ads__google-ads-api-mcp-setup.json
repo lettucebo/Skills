@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/google-ads-api-mcp-setup",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:41bde3db3c7393043ca459db7fe8d36c40f7995e84cd4736ed981c95a2ec9adc"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to prepare, install, configure, and connect the official Google Ads MCP Server, including local and Cloud Run deployment options.",
+        "whenToUse": "Use when setting up or troubleshooting a Google Ads MCP Server integration, choosing a supported client configuration, or deploying the server to Cloud Run.",
+        "outputs": "A guided setup covering Python 3.12+ and pipx, required Google Ads credentials, installation, environment variables, supported client configurations, verification steps, and optional Cloud Run deployment."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何準備、安裝、設定並連接官方 Google Ads MCP Server，涵蓋本機及 Cloud Run 部署方式。",
+        "whenToUse": "在設定或排解 Google Ads MCP Server 整合問題、選擇支援的用戶端設定，或將伺服器部署至 Cloud Run 時使用。",
+        "outputs": "提供逐步設定指引，涵蓋 Python 3.12+ 與 pipx、必要的 Google Ads 憑證、安裝、環境變數、支援的用戶端設定、驗證步驟及選用的 Cloud Run 部署。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何准备、安装、设置并连接官方 Google Ads MCP Server，涵盖本机及 Cloud Run 部署方式。",
+        "whenToUse": "在设置或排解 Google Ads MCP Server 集成问题、选择支持的用户端设置，或将服务器部署至 Cloud Run 时使用。",
+        "outputs": "提供逐步设置指引，涵盖 Python 3.12+ 与 pipx、必要的 Google Ads 凭证、安装、环境变量、支持的用户端设置、验证步骤及选用的 Cloud Run 部署。"
+      }
+    }
+  }
+}

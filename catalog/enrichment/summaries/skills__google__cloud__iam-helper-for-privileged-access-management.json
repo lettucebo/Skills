@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/iam-helper-for-privileged-access-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:855b44d9c547b86234fe53e5f8d89f14d790f3a7dc093eb1efcdfffbf26ea1ad"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides the design and operation of time-limited, auditable Google Cloud role elevations through Privileged Access Manager.",
+        "whenToUse": "Use it when privileged Google Cloud access needs a defined scope and end time, with approval workflows where required, instead of a standing role assignment.",
+        "outputs": "It provides entitlement configuration guidance and gcloud command sequences for access scopes, approval workflows, request-duration limits, and grant handling."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它指引如何透過 Privileged Access Manager 設計及管理具時限且可稽核的 Google Cloud 角色權限提升。",
+        "whenToUse": "適用於 Google Cloud 特權存取需要明確範圍與到期時間，並在必要時透過核准流程控管，而非採用常設角色指派的情境。",
+        "outputs": "它提供 PAM 授權項目的設定指引與 gcloud 指令流程，涵蓋存取範圍、核准工作流程、請求時限及授權申請處理。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它指引如何透过 Privileged Access Manager 设计及管理具时限且可审核的 Google Cloud 角色权限提升。",
+        "whenToUse": "适用于 Google Cloud 特权访问需要明确范围与到期时间，并在必要时透过核准流程控管，而非采用常设角色指派的情境。",
+        "outputs": "它提供 PAM 授权项目的设置指引与 gcloud 指令流程，涵盖访问范围、核准工作流程、请求时限及授权申请处理。"
+      }
+    }
+  }
+}

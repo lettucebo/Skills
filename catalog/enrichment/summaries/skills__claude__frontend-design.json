@@ -2,42 +2,42 @@
   "path": "skills/claude/frontend-design",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:665c585455decbcb02116bc928adf5148b9cd0f67b7eb4908c8c0d647c00f68a"
+    "contentHash": "sha256:7e9c2af00fd5b3144f49ce6fb1b16037b392ab9c2f049423b0b6114d99381ba2"
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides design guidance for creating a distinctive visual identity for a new interface or a substantial redesign.",
-        "whenToUse": "Use it when a UI needs deliberate choices in aesthetics, typography, layout, motion, and copy instead of generic default patterns.",
-        "outputs": "It produces a subject-grounded design direction with concrete decisions for color, type, structure, signature moments, and interface writing."
+        "purpose": "Develops an interface direction grounded in its subject, with deliberate visual hierarchy, typography, motion, and user-facing language.",
+        "whenToUse": "Apply when translating a brief into a page and its interactions, especially when generic patterns could obscure what makes the experience distinctive.",
+        "outputs": "A compact plan covering palette, type, alignment-aware layout, and design principles, followed by reviewed, responsive interface code with clear copy and accessible behavior."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供設計指引，協助為新介面或大幅改版建立鮮明而有辨識度的視覺風格。",
-        "whenToUse": "當 UI 需要在美感、字體、版面、動態與文案上做出明確選擇，而不是落入通用預設風格時使用。",
-        "outputs": "它會產出立基於主題的設計方向，並對色彩、字體、結構、標誌性亮點與介面文案給出具體決定。"
+        "purpose": "依據主題發展介面方向，透過明確的視覺層次、字體、動態效果與易懂的使用者文案呈現特色。",
+        "whenToUse": "將簡報轉化為頁面與互動設計時使用，尤其適合通用模式可能掩蓋體驗特色的情況。",
+        "outputs": "產出涵蓋色彩、字體、對齊方式明確的版面與設計原則的精簡計畫，並據此完成經檢視、具清晰文案且兼顧響應式設計與無障礙行為的介面程式碼。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供设计指引，协助为新界面或大幅改版创建鲜明而有辨识度的视觉风格。",
-        "whenToUse": "当 UI 需要在美感、字体、版面、动态与文案上做出明确选择，而不是落入通用预设风格时使用。",
-        "outputs": "它会产出立基于主题的设计方向，并对色彩、字体、结构、标志性亮点与界面文案给出具体决定。"
+        "purpose": "依据主题发展界面方向，透过明确的视觉层次、字体、动态效果与易懂的用户文案呈现特色。",
+        "whenToUse": "将演示文稿转化为页面与交互设计时使用，尤其适合通用模式可能掩盖体验特色的情况。",
+        "outputs": "产出涵盖色彩、字体、对齐方式明确的版面与设计原则的精简计划，并据此完成经查看、具清晰文案且兼顾响应式设计与无障碍行为的界面代码。"
       }
     }
   }

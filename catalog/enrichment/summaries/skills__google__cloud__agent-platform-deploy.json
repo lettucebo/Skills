@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-deploy",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:88fd09fe3ad0e48acb08e9e8102f2346cefc9cdff150a8444f7d27c1dc757fb2"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a workflow for deploying Model Garden open or tuned models to Agent Platform endpoints and managing the resulting resources.",
+        "whenToUse": "Use it to prepare or run deployments, track their asynchronous operations, troubleshoot deployment issues, or reclaim deployed resources, rather than inventory endpoints or evaluate models.",
+        "outputs": "It can return catalog and hardware-compatibility details, hourly cost estimates and deployment confirmation previews, operation and endpoint identifiers, status or error information, and cleanup guidance."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供將 Model Garden 開放權重或微調模型部署至 Agent Platform 端點，並管理相關資源的操作流程。",
+        "whenToUse": "適用於準備或執行部署、追蹤非同步作業、排解部署問題或回收已部署資源，而非盤點端點或評估模型。",
+        "outputs": "可提供模型目錄與硬體相容性資訊、每小時費用估算與部署確認預覽、作業和端點識別資訊、狀態或錯誤資訊，以及清理指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供将 Model Garden 开放权重或微调模型部署至 Agent Platform 端点，并管理相关资源的操作流程。",
+        "whenToUse": "适用于准备或运行部署、追踪异步作业、排解部署问题或回收已部署资源，而非盘点端点或评估模型。",
+        "outputs": "可提供模型目录与硬件兼容性信息、每小时费用估算与部署确认预览、作业和端点识别信息、状态或错误信息，以及清理指引。"
+      }
+    }
+  }
+}

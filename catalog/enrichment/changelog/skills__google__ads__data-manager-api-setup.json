@@ -1,0 +1,195 @@
+{
+  "path": "skills/google/ads/data-manager-api-setup",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6376dee3b68c1484f906cc77a5c905b8e163f6621673c792a29c43fdf3cc837b",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/ads/data-manager-api-setup",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "72ae9f96916a348858fc1a25ac235995ef224b29",
+            "date": "2026-09-25T10:37:54-07:00",
+            "subject": "Update utility library install steps to install from each package manager",
+            "url": "https://github.com/google/skills/commit/72ae9f96916a348858fc1a25ac235995ef224b29",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the skill's metadata version and corrected the Java and .NET utility package names."
+          },
+          {
+            "sha": "5401dca339b1bc54a2012d3dc34c7560747684a2",
+            "date": "2026-09-23T05:57:00-07:00",
+            "subject": "Update Data Manager API setup skill for @google-ads/datamanager-util npm release.",
+            "url": "https://github.com/google/skills/commit/5401dca339b1bc54a2012d3dc34c7560747684a2",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Bumped the skill metadata version and corrected the Node utility package name to `@google-ads/datamanager-util`."
+          },
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the metadata version from `1.0` to the quoted `1.0.0` format."
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/data-manager-api/data-manager-api-setup/SKILL.md",
+              "destinationPath": "skills/ads/data-manager-api-setup/SKILL.md"
+            },
+            "summary": "Moved the unchanged setup skill from `skills/ads/data-manager-api/data-manager-api-setup/SKILL.md` to `skills/ads/data-manager-api-setup/SKILL.md`."
+          },
+          {
+            "sha": "e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "date": "2026-06-30T07:12:42-07:00",
+            "subject": "feat: Introduce a new data-manager-api-setup skill for getting started, auth setup, and client/utility library installation feat: Add guidance to ingestion skills for retrieving diagnostics and using the validate_only flag",
+            "url": "https://github.com/google/skills/commit/e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Data Manager API setup skill with API access and ADC authentication guidance plus client and language-specific utility-library installation references."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "72ae9f96916a348858fc1a25ac235995ef224b29",
+            "date": "2026-09-25T10:37:54-07:00",
+            "subject": "Update utility library install steps to install from each package manager",
+            "url": "https://github.com/google/skills/commit/72ae9f96916a348858fc1a25ac235995ef224b29",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能的中繼資料版本，並修正 Java 與 .NET 公用程式套件名稱。"
+          },
+          {
+            "sha": "5401dca339b1bc54a2012d3dc34c7560747684a2",
+            "date": "2026-09-23T05:57:00-07:00",
+            "subject": "Update Data Manager API setup skill for @google-ads/datamanager-util npm release.",
+            "url": "https://github.com/google/skills/commit/5401dca339b1bc54a2012d3dc34c7560747684a2",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "提升技能中繼資料版本，並將 Node 公用程式套件名稱修正為 `@google-ads/datamanager-util`。"
+          },
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將中繼資料版本從 `1.0` 改為加上引號的 `1.0.0` 格式。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/data-manager-api/data-manager-api-setup/SKILL.md",
+              "destinationPath": "skills/ads/data-manager-api-setup/SKILL.md"
+            },
+            "summary": "將內容未變的設定技能從 `skills/ads/data-manager-api/data-manager-api-setup/SKILL.md` 移至 `skills/ads/data-manager-api-setup/SKILL.md`。"
+          },
+          {
+            "sha": "e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "date": "2026-06-30T07:12:42-07:00",
+            "subject": "feat: Introduce a new data-manager-api-setup skill for getting started, auth setup, and client/utility library installation feat: Add guidance to ingestion skills for retrieving diagnostics and using the validate_only flag",
+            "url": "https://github.com/google/skills/commit/e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Data Manager API 設定技能，提供 API 存取與 ADC 驗證指引，以及用戶端和各語言公用程式庫的安裝參考。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "72ae9f96916a348858fc1a25ac235995ef224b29",
+            "date": "2026-09-25T10:37:54-07:00",
+            "subject": "Update utility library install steps to install from each package manager",
+            "url": "https://github.com/google/skills/commit/72ae9f96916a348858fc1a25ac235995ef224b29",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能的中继数据版本，并修正 Java 与 .NET 公用程序套件名称。"
+          },
+          {
+            "sha": "5401dca339b1bc54a2012d3dc34c7560747684a2",
+            "date": "2026-09-23T05:57:00-07:00",
+            "subject": "Update Data Manager API setup skill for @google-ads/datamanager-util npm release.",
+            "url": "https://github.com/google/skills/commit/5401dca339b1bc54a2012d3dc34c7560747684a2",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "提升技能中继数据版本，并将 Node 公用程序套件名称修正为 `@google-ads/datamanager-util`。"
+          },
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将中继数据版本从 `1.0` 改为加上引号的 `1.0.0` 格式。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/data-manager-api/data-manager-api-setup/SKILL.md",
+              "destinationPath": "skills/ads/data-manager-api-setup/SKILL.md"
+            },
+            "summary": "将内容未变的设置技能从 `skills/ads/data-manager-api/data-manager-api-setup/SKILL.md` 移至 `skills/ads/data-manager-api-setup/SKILL.md`。"
+          },
+          {
+            "sha": "e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "date": "2026-06-30T07:12:42-07:00",
+            "subject": "feat: Introduce a new data-manager-api-setup skill for getting started, auth setup, and client/utility library installation feat: Add guidance to ingestion skills for retrieving diagnostics and using the validate_only flag",
+            "url": "https://github.com/google/skills/commit/e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-setup/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Data Manager API 设置技能，提供 API 访问与 ADC 验证指引，以及用户端和各语言公用程序库的安装参考。"
+          }
+        ]
+      }
+    }
+  }
+}

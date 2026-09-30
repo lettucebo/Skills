@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-reliability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:08747ea0e0dc3df9eaca86e0c1f552cefe3271e89ab9b09ffb1ea0196374aec4"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It helps align workload reliability with user-centered service objectives, redundancy, scaling, observability, graceful degradation, and tested recovery.",
+        "whenToUse": "Use it to examine architecture choices, reliability targets, operational readiness, and recovery plans against the framework's principles.",
+        "outputs": "It provides framework-based recommendations, workload assessment questions, and a validation checklist for reliability decisions."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "此指引協助依循以使用者為中心的服務目標、冗餘、擴充性、可觀測性、優雅降級及復原測試，提升工作負載可靠性。",
+        "whenToUse": "當你要依據架構框架檢視設計選擇、可靠性目標、營運準備度或復原計畫時，請使用此指引。",
+        "outputs": "它會提供以框架為基礎的建議、工作負載評估問題，以及協助判斷可靠性措施的檢核清單。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "此指引协助依循以用户为中心的服务目标、冗余、扩充性、可观测性、优雅降级及复原测试，提升工作负载可靠性。",
+        "whenToUse": "当你要依据架构框架查看设计选择、可靠性目标、营运准备度或复原计划时，请使用此指引。",
+        "outputs": "它会提供以框架为基础的建议、工作负载评估问题，以及协助判断可靠性措施的检核清单。"
+      }
+    }
+  }
+}

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Creates a complete Power Apps Code App starter project with PAC CLI setup, Power Apps SDK wiring, and connector-ready configuration.",
-        "whenToUse": "Use this when you need a code-first Power Apps web app scaffolded with Vite, React, TypeScript, and Power Platform integration.",
-        "outputs": "Provides the project structure, core configuration files, development scripts, a sample connector-based implementation, and setup documentation."
+        "purpose": "Helps developers build a code-first Power Platform app with Power Apps SDK integration and a connector example.",
+        "whenToUse": "Use it when a Power Platform app needs a React/TypeScript local development workflow or an example of integrating a supported connector before deployment.",
+        "outputs": "Provides a TypeScript starter project configured for the Power Apps SDK and PAC CLI, with a PowerProvider, Office 365 Users example, development and deployment scripts, and a README covering setup, connectors, and deployment."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "建立完整的 Power Apps Code App 起始專案，包含 PAC CLI 設定、Power Apps SDK 整合，以及可供連接器使用的組態。",
-        "whenToUse": "當你需要以 Vite、React、TypeScript 與 Power Platform 整合來快速建立程式碼優先的 Power Apps 網頁應用程式時使用。",
-        "outputs": "提供專案結構、核心設定檔、開發腳本、以連接器為基礎的範例實作，以及設定文件。"
+        "purpose": "協助開發者建置程式碼優先的 Power Platform 應用，整合 Power Apps SDK 並提供連接器範例。",
+        "whenToUse": "當 Power Platform 應用需要 React/TypeScript 本機開發流程，或需要在部署前參考支援連接器的整合範例時使用。",
+        "outputs": "提供已設定 Power Apps SDK 與 PAC CLI 的 TypeScript 起始專案，內含 PowerProvider、Office 365 使用者範例、開發與部署指令碼，以及涵蓋設定、連接器與部署的 README。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "创建完整的 Power Apps Code App 起始项目，包含 PAC CLI 设置、Power Apps SDK 集成，以及可供连接器使用的组态。",
-        "whenToUse": "当你需要以 Vite、React、TypeScript 与 Power Platform 集成来快速创建代码优先的 Power Apps 网页应用程序时使用。",
-        "outputs": "提供项目结构、内核设置档、开发脚本、以连接器为基础的范例实作，以及设置文档。"
+        "purpose": "协助开发者建置代码优先的 Power Platform 应用，集成 Power Apps SDK 并提供连接器范例。",
+        "whenToUse": "当 Power Platform 应用需要 React/TypeScript 本机开发流程，或需要在部署前参考支持连接器的集成范例时使用。",
+        "outputs": "提供已设置 Power Apps SDK 与 PAC CLI 的 TypeScript 起始项目，内含 PowerProvider、Office 365 用户范例、开发与部署脚本，以及涵盖设置、连接器与部署的 README。"
       }
     }
   }

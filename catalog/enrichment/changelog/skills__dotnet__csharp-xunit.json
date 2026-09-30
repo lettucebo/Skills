@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/csharp-xunit.prompt.md",
               "destinationPath": "skills/csharp-xunit/SKILL.md"
             },
-            "summary": "Added `skills/csharp-xunit/SKILL.md` with front matter and XUnit testing best-practice guidance."
+            "summary": "Adds a csharp-xunit skill document with guidance on project setup, test structure, data-driven tests, assertions, mocking, and test organization."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the front matter key from `mode` to `agent` in `prompts/csharp-xunit.prompt.md`."
+            "summary": "Renames the front-matter field `mode` to `agent`, keeping its value as `agent`."
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -47,7 +47,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Changed the tool list in `prompts/csharp-xunit.prompt.md` to use `search/codebase` instead of `codebase`."
+            "summary": "Updates the prompt's tools list to use `search/codebase` instead of `codebase`."
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -56,7 +56,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Updated the tool list in `prompts/csharp-xunit.prompt.md` to use `edit/editFiles` instead of `editFiles`."
+            "summary": "Updates the prompt's tools list to use `edit/editFiles` instead of `editFiles`."
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -65,7 +65,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Reformatted the front matter in `prompts/csharp-xunit.prompt.md` from double-quoted values to single-quoted values."
+            "summary": "Changes the front matter's `mode`, `tools`, and `description` values from double-quoted to single-quoted."
           },
           {
             "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
@@ -74,7 +74,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the tools list in `prompts/csharp-xunit.prompt.md` from `codebase` and `terminalCommand` to `changes`, `codebase`, `editFiles`, `problems`, and `search`."
+            "summary": "Replaces the prompt's tools list with `changes`, `codebase`, `editFiles`, `problems`, and `search`."
           },
           {
             "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
@@ -83,15 +83,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added `prompts/csharp-xunit.prompt.md` with front matter and XUnit best-practice guidance."
+            "summary": "Adds the initial csharp-xunit prompt with guidance on project setup, test structure, data-driven tests, assertions, mocking, and test organization."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -108,7 +108,7 @@
               "sourcePath": "prompts/csharp-xunit.prompt.md",
               "destinationPath": "skills/csharp-xunit/SKILL.md"
             },
-            "summary": "新增 `skills/csharp-xunit/SKILL.md`，包含前置中繼資料與 XUnit 測試最佳實務指引。"
+            "summary": "新增 csharp-xunit 技能文件，提供專案設定、測試結構、資料驅動測試、斷言、模擬與測試組織的指引。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -117,7 +117,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 `prompts/csharp-xunit.prompt.md` 的前置中繼資料鍵名由 `mode` 改為 `agent`。"
+            "summary": "將前置資料欄位 `mode` 改名為 `agent`，並保留值 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -126,7 +126,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 `prompts/csharp-xunit.prompt.md` 的工具清單從 `codebase` 改為使用 `search/codebase`。"
+            "summary": "更新提示檔的工具清單，將 `codebase` 改為 `search/codebase`。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -135,7 +135,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 `prompts/csharp-xunit.prompt.md` 的工具清單從 `editFiles` 更新為 `edit/editFiles`。"
+            "summary": "更新提示檔的工具清單，將 `editFiles` 改為 `edit/editFiles`。"
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -144,7 +144,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 `prompts/csharp-xunit.prompt.md` 的前置中繼資料由雙引號值格式改為單引號值格式。"
+            "summary": "將前置資料中 `mode`、`tools` 和 `description` 的值由雙引號改為單引號。"
           },
           {
             "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
@@ -153,7 +153,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 `prompts/csharp-xunit.prompt.md` 的工具清單從 `codebase` 與 `terminalCommand` 擴充為 `changes`、`codebase`、`editFiles`、`problems` 與 `search`。"
+            "summary": "將提示檔的工具清單替換為 `changes`、`codebase`、`editFiles`、`problems` 和 `search`。"
           },
           {
             "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
@@ -162,13 +162,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增 `prompts/csharp-xunit.prompt.md`，包含前置中繼資料與 XUnit 最佳實務指引。"
+            "summary": "新增初始的 csharp-xunit 提示檔，提供專案設定、測試結構、資料驅動測試、斷言、模擬與測試組織的指引。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -186,7 +186,7 @@
               "sourcePath": "prompts/csharp-xunit.prompt.md",
               "destinationPath": "skills/csharp-xunit/SKILL.md"
             },
-            "summary": "添加 `skills/csharp-xunit/SKILL.md`，包含前置中继数据与 XUnit 测试最佳实务指引。"
+            "summary": "添加 csharp-xunit 技能文档，提供项目设置、测试结构、数据驱动测试、断言、模拟与测试组织的指引。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -195,7 +195,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 `prompts/csharp-xunit.prompt.md` 的前置中继数据键名由 `mode` 改为 `agent`。"
+            "summary": "将前置数据字段 `mode` 改名为 `agent`，并保留值 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -204,7 +204,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 `prompts/csharp-xunit.prompt.md` 的工具清单从 `codebase` 改为使用 `search/codebase`。"
+            "summary": "更新提示档的工具清单，将 `codebase` 改为 `search/codebase`。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -213,7 +213,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 `prompts/csharp-xunit.prompt.md` 的工具清单从 `editFiles` 更新为 `edit/editFiles`。"
+            "summary": "更新提示档的工具清单，将 `editFiles` 改为 `edit/editFiles`。"
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -222,7 +222,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 `prompts/csharp-xunit.prompt.md` 的前置中继数据由双引号值格式改为单引号值格式。"
+            "summary": "将前置数据中 `mode`、`tools` 和 `description` 的值由双引号改为单引号。"
           },
           {
             "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
@@ -231,7 +231,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 `prompts/csharp-xunit.prompt.md` 的工具清单从 `codebase` 与 `terminalCommand` 扩充为 `changes`、`codebase`、`editFiles`、`problems` 与 `search`。"
+            "summary": "将提示档的工具清单替换为 `changes`、`codebase`、`editFiles`、`problems` 和 `search`。"
           },
           {
             "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
@@ -240,7 +240,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
             "pathAtCommit": "prompts/csharp-xunit.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加 `prompts/csharp-xunit.prompt.md`，包含前置中继数据与 XUnit 最佳实务指引。"
+            "summary": "添加初始的 csharp-xunit 提示档，提供项目设置、测试结构、数据驱动测试、断言、模拟与测试组织的指引。"
           }
         ]
       }

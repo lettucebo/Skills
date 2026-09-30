@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/microsoft/skills/commit/4a2873faffc1b101a33a0b59c24713d4ed78142f",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added a Rust best-practice item explaining how to future-proof `#[non_exhaustive]` SDK models and enums."
+            "summary": "Added Rust guidance for constructing forward-compatible non-exhaustive models and matching enums."
           },
           {
             "sha": "752edb9b01dd42aa731e22b3da891cc733d7bebe",
@@ -33,7 +33,7 @@
             "url": "https://github.com/microsoft/skills/commit/752edb9b01dd42aa731e22b3da891cc733d7bebe",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Expanded Azure SDK guidance with token budgets, reference extraction rules, core workflow discipline, anti-patterns, validation steps, and updated auth and reference guidance."
+            "summary": "Added Azure SDK token budgets, reference-extraction and core-workflow rules, plus anti-pattern and validation checklists."
           },
           {
             "sha": "178d9730909101c93949a2ea364058345a6fae9e",
@@ -42,7 +42,7 @@
             "url": "https://github.com/microsoft/skills/commit/178d9730909101c93949a2ea364058345a6fae9e",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Go authentication and naming examples, Go-specific SDK patterns, and Go guidance in skill creation and regeneration instructions."
+            "summary": "Added Go SDK guidance, including credential examples, language patterns, skill categorization, and source links."
           },
           {
             "sha": "21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
@@ -51,7 +51,7 @@
             "url": "https://github.com/microsoft/skills/commit/21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Adjusted markdown formatting and wording in API-key guidance, examples, anti-pattern tables, and checklist text."
+            "summary": "Adjusted the formatting of several Python examples and the anti-pattern table, and restyled the legacy API-key placement note."
           },
           {
             "sha": "c62ba68be03005ce17c0c00ee75bb7b8836d2352",
@@ -60,7 +60,7 @@
             "url": "https://github.com/microsoft/skills/commit/c62ba68be03005ce17c0c00ee75bb7b8836d2352",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Expanded Rust guidance with `cargo add` and `azure_core` dependency rules and added a workflow for regenerating existing skills from latest SDK sources."
+            "summary": "Expanded Rust best practices with cargo-managed dependencies and when to declare azure_core, while retaining credential, upload, and RBAC rules."
           },
           {
             "sha": "75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
@@ -69,7 +69,7 @@
             "url": "https://github.com/microsoft/skills/commit/75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Clarified separate defaults for domain versus SDK skills, revised structure and auth wording, added a crates.io version-check rule for Rust, and updated the checklist text."
+            "summary": "Reorganized guidance for domain versus SDK skills, clarified authentication and section structure, and added crates.io version checks."
           },
           {
             "sha": "df52e9a69b78c2759553efafe2f937fc53c1cbd1",
@@ -78,7 +78,7 @@
             "url": "https://github.com/microsoft/skills/commit/df52e9a69b78c2759553efafe2f937fc53c1cbd1",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added local-development and production sub-bullets under the Python `DefaultAzureCredential` callout."
+            "summary": "Added explicit local-development and production credential notes to both Python authentication callouts."
           },
           {
             "sha": "2104bf35d6f8117b323ba78906bf1259076195e8",
@@ -87,7 +87,7 @@
             "url": "https://github.com/microsoft/skills/commit/2104bf35d6f8117b323ba78906bf1259076195e8",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated the Python auth guidance to retain legacy API-key examples and related environment variables in a labeled fallback subsection."
+            "summary": "Directed authors to preserve supported API-key examples as labeled legacy alternatives, with environment-variable notes and service-specific caveats."
           },
           {
             "sha": "a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
@@ -96,7 +96,7 @@
             "url": "https://github.com/microsoft/skills/commit/a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Rust authentication and client examples and broadened required best-practice guidance to include non-Python languages and Rust-specific rules."
+            "summary": "Added Rust authentication examples and best practices, and extended the user-facing best-practice requirements across SDK languages."
           },
           {
             "sha": "d94f007962067bb6bfecb9c9ac523d71880f946c",
@@ -105,7 +105,7 @@
             "url": "https://github.com/microsoft/skills/commit/d94f007962067bb6bfecb9c9ac523d71880f946c",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the authentication section to Authentication and Lifecycle and added a required Python callout, context-manager examples, and stricter auth-pattern checks."
+            "summary": "Introduced a required Python Authentication & Lifecycle callout and updated examples to wrap clients in context managers."
           },
           {
             "sha": "e7ee58fc1fa669841e06f8d27359e0533d148394",
@@ -114,7 +114,7 @@
             "url": "https://github.com/microsoft/skills/commit/e7ee58fc1fa669841e06f8d27359e0533d148394",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated the C# and Java auth examples to show production env-var gating and optional managed identity alternatives."
+            "summary": "Updated C# and Java auth examples to constrain DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS and show direct managed-identity alternatives."
           },
           {
             "sha": "b0bfdccb5492229367f9f7327944773fa016b595",
@@ -123,7 +123,7 @@
             "url": "https://github.com/microsoft/skills/commit/b0bfdccb5492229367f9f7327944773fa016b595",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Rust language patterns and user-facing best practices, including credential, upload, and RBAC guidance."
+            "summary": "Added Rust best practices for local and production credentials, RequestContent uploads, and Entra ID RBAC roles."
           },
           {
             "sha": "ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
@@ -132,7 +132,7 @@
             "url": "https://github.com/microsoft/skills/commit/ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Scoped the sync and async best-practice requirements and related checklist items to Python skills only."
+            "summary": "Scoped the sync/async and client-lifecycle best-practice rules and checklist checks to Python skills only."
           },
           {
             "sha": "5b6627534c57cab4f3af955435abe302ab3630f3",
@@ -141,7 +141,7 @@
             "url": "https://github.com/microsoft/skills/commit/5b6627534c57cab4f3af955435abe302ab3630f3",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added a third best-practice rule telling users to use `DefaultAzureCredential` locally and specific token credentials in Azure."
+            "summary": "Added a required best-practice item recommending DefaultAzureCredential locally and a specific credential in Azure."
           },
           {
             "sha": "8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
@@ -150,7 +150,7 @@
             "url": "https://github.com/microsoft/skills/commit/8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Python sync and async consistency and context-manager best-practice requirements, enforcement notes, and related anti-pattern and checklist entries."
+            "summary": "Added required Python guidance to keep SDK skills consistently sync or async, use context managers, and enforce these practices in examples and checks."
           },
           {
             "sha": "dd908924bf8e636a667e4316f39cabfeffe689f4",
@@ -159,7 +159,7 @@
             "url": "https://github.com/microsoft/skills/commit/dd908924bf8e636a667e4316f39cabfeffe689f4",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added Rust-specific authentication guidance and a Rust client example to the skill."
+            "summary": "Added Rust credential recommendations and a BlobServiceClient example using DeveloperToolsCredential."
           },
           {
             "sha": "f1d18227b6b5b09e99f2fb15a4beb06336cab092",
@@ -168,7 +168,7 @@
             "url": "https://github.com/microsoft/skills/commit/f1d18227b6b5b09e99f2fb15a4beb06336cab092",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Clarified that environment variable sections should include inline comments explaining when each variable is required."
+            "summary": "Required environment-variable guidance to include inline comments explaining when each variable is needed."
           },
           {
             "sha": "ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
@@ -177,7 +177,7 @@
             "url": "https://github.com/microsoft/skills/commit/ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated Python auth examples to use `require_envvar=True`, mention `ManagedIdentityCredential`, and link to credential class docs."
+            "summary": "Updated Python authentication examples to require AZURE_TOKEN_CREDENTIALS in production and show ManagedIdentityCredential as an alternative."
           },
           {
             "sha": "338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
@@ -186,7 +186,7 @@
             "url": "https://github.com/microsoft/skills/commit/338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated TypeScript auth guidance to use `AZURE_TOKEN_CREDENTIALS` and credential docs, and reformatted related tables and examples."
+            "summary": "Added TypeScript credential guidance using AZURE_TOKEN_CREDENTIALS, a ManagedIdentityCredential documentation link, and related environment-variable examples."
           },
           {
             "sha": "bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
@@ -195,7 +195,7 @@
             "url": "https://github.com/microsoft/skills/commit/bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Shortened the TypeScript auth comments to a more concise local-development versus production explanation."
+            "summary": "Simplified the TypeScript authentication comments to distinguish local DefaultAzureCredential use from production configuration or a specific credential."
           },
           {
             "sha": "916419c985d968ec53ad5f27044020b415c74f83",
@@ -204,7 +204,7 @@
             "url": "https://github.com/microsoft/skills/commit/916419c985d968ec53ad5f27044020b415c74f83",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Changed the TypeScript auth guidance from always using `DefaultAzureCredential` to using specific production credentials or constrained `DefaultAzureCredential`."
+            "summary": "Revised TypeScript authentication guidance to recommend DefaultAzureCredential for local development and specific or constrained credentials for production."
           },
           {
             "sha": "e1b7de5b02a471ca66688b9c40de454760c69860",
@@ -213,7 +213,7 @@
             "url": "https://github.com/microsoft/skills/commit/e1b7de5b02a471ca66688b9c40de454760c69860",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added a section describing how skills should handle deprecated or rebranded Azure SDKs."
+            "summary": "Added a migration pattern for deprecated or rebranded SDKs, covering notices, legacy and replacement packages, and when to split or cross-reference skills."
           },
           {
             "sha": "e1f9cce11758d305e6c77683fe34ccc394586291",
@@ -222,7 +222,7 @@
             "url": "https://github.com/microsoft/skills/commit/e1f9cce11758d305e6c77683fe34ccc394586291",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Moved acceptance-criteria guidance into `tests/scenarios`, refreshed formatting, and updated documentation and checklist text."
+            "summary": "Moved acceptance-criteria and scenario guidance to tests/scenarios and updated the skill-creator testing checklist."
           },
           {
             "sha": "37e04218d562d661056e8f68a5e63424adfbd7e5",
@@ -231,7 +231,7 @@
             "url": "https://github.com/microsoft/skills/commit/37e04218d562d661056e8f68a5e63424adfbd7e5",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Replaced manual `docs/index.html` edits with regenerating docs-site data and build outputs in the post-creation documentation steps."
+            "summary": "Updated the post-creation checklist to refresh README counts and regenerate the documentation site from extracted skill data."
           },
           {
             "sha": "ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
@@ -240,7 +240,7 @@
             "url": "https://github.com/microsoft/skills/commit/ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the README and docs update instructions with specific count, placement, and skill-entry details."
+            "summary": "Added post-creation steps for updating README skill counts and manually adding skill entries to docs/index.html."
           },
           {
             "sha": "db15b411166276cbbe41daaa818aeac0d31fff27",
@@ -249,7 +249,7 @@
             "url": "https://github.com/microsoft/skills/commit/db15b411166276cbbe41daaa818aeac0d31fff27",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Reworked the skill creation process to require SDK context, add categorization and testing steps, and expand checklist and anti-pattern guidance."
+            "summary": "Expanded the creation workflow with required SDK context, product-area symlinks, acceptance criteria, and scenario-based testing."
           },
           {
             "sha": "2fc259b4c37f44afc3c95f14cd7e2113a108df71",
@@ -258,7 +258,7 @@
             "url": "https://github.com/microsoft/skills/commit/2fc259b4c37f44afc3c95f14cd7e2113a108df71",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated example YAML frontmatter snippets so their `name` fields use `skill-creator`."
+            "summary": "Changed the two sample YAML frontmatter names to skill-creator."
           },
           {
             "sha": "a2003b6b95ead129e53dd5377a2229682ff75b1b",
@@ -267,7 +267,7 @@
             "url": "https://github.com/microsoft/skills/commit/a2003b6b95ead129e53dd5377a2229682ff75b1b",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Removed the `license` field from the skill's YAML frontmatter."
+            "summary": "Removed the license field from the skill-creator frontmatter."
           },
           {
             "sha": "8f9af88f4feff407c86278e0aa627f72c8f08ddd",
@@ -276,7 +276,7 @@
             "url": "https://github.com/microsoft/skills/commit/8f9af88f4feff407c86278e0aa627f72c8f08ddd",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Changed the YAML frontmatter description from a multiline block to a single-line string."
+            "summary": "Converted the multi-line skill description in YAML frontmatter to a single line."
           },
           {
             "sha": "7b7ff68a658d95da75d9e319bce8140d302323f0",
@@ -285,7 +285,7 @@
             "url": "https://github.com/microsoft/skills/commit/7b7ff68a658d95da75d9e319bce8140d302323f0",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Rewrote the skill to focus on Azure SDK skill creation with new structure, auth patterns, examples, and process guidance."
+            "summary": "Reworked the skill creator as an Azure SDK-focused guide, adding SDK authentication examples and creation, testing, and documentation workflows."
           },
           {
             "sha": "14224cca15ade1e67fb926e8345bd66ad70ee014",
@@ -294,15 +294,15 @@
             "url": "https://github.com/microsoft/skills/commit/14224cca15ade1e67fb926e8345bd66ad70ee014",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial `skill-creator` skill file with guidance on creating, structuring, and packaging skills."
+            "summary": "Created the initial skill-creator guide, covering skill structure, progressive disclosure, creation and packaging steps, and iteration."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -314,7 +314,7 @@
             "url": "https://github.com/microsoft/skills/commit/4a2873faffc1b101a33a0b59c24713d4ed78142f",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增一條 Rust 最佳實務，說明如何讓 `#[non_exhaustive]` SDK 模型與列舉具備前瞻相容性。"
+            "summary": "新增 Rust 指引，說明如何建構可因應未來變更的 non-exhaustive 模型並比對列舉型別。"
           },
           {
             "sha": "752edb9b01dd42aa731e22b3da891cc733d7bebe",
@@ -323,7 +323,7 @@
             "url": "https://github.com/microsoft/skills/commit/752edb9b01dd42aa731e22b3da891cc733d7bebe",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "擴充了 Azure SDK 指南，加入 token 預算、參考內容抽離規則、核心工作流程準則、反模式、驗證步驟，以及更新後的驗證與參考指引。"
+            "summary": "新增 Azure SDK 的 token 預算、參考資料拆分與核心工作流程規則，以及反模式和驗證檢查清單。"
           },
           {
             "sha": "178d9730909101c93949a2ea364058345a6fae9e",
@@ -332,7 +332,7 @@
             "url": "https://github.com/microsoft/skills/commit/178d9730909101c93949a2ea364058345a6fae9e",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 Go 的驗證與命名範例、Go 專屬 SDK 模式，以及技能建立與重新產生說明中的 Go 指引。"
+            "summary": "新增 Go SDK 指引，涵蓋認證範例、語言模式、技能分類及原始資料連結。"
           },
           {
             "sha": "21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
@@ -341,7 +341,7 @@
             "url": "https://github.com/microsoft/skills/commit/21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "調整了 API 金鑰指引、範例、反模式表格與檢查清單文字的 Markdown 格式與措辭。"
+            "summary": "調整多個 Python 範例與反模式表格的格式，並變更舊版 API 金鑰放置說明的斜體樣式。"
           },
           {
             "sha": "c62ba68be03005ce17c0c00ee75bb7b8836d2352",
@@ -350,7 +350,7 @@
             "url": "https://github.com/microsoft/skills/commit/c62ba68be03005ce17c0c00ee75bb7b8836d2352",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "擴充了 Rust 指引，加入 `cargo add` 與 `azure_core` 相依規則，並新增從最新 SDK 來源重新產生既有技能的流程。"
+            "summary": "擴充 Rust 最佳實務，加入以 cargo 管理相依項目及宣告 azure_core 的時機，同時保留認證、上傳與 RBAC 規則。"
           },
           {
             "sha": "75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
@@ -359,7 +359,7 @@
             "url": "https://github.com/microsoft/skills/commit/75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "釐清了領域技能與 SDK 技能的不同預設做法，修訂了結構與驗證說明，為 Rust 新增 crates.io 版本檢查規則，並更新檢查清單文字。"
+            "summary": "重新整理領域技能與 SDK 技能的指引，釐清認證及章節結構，並新增 crates.io 版本檢查。"
           },
           {
             "sha": "df52e9a69b78c2759553efafe2f937fc53c1cbd1",
@@ -368,7 +368,7 @@
             "url": "https://github.com/microsoft/skills/commit/df52e9a69b78c2759553efafe2f937fc53c1cbd1",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在 Python `DefaultAzureCredential` 提示區塊下新增了本機開發與正式環境的子項說明。"
+            "summary": "在兩處 Python 認證提示中明確補上本機開發與正式環境的認證說明。"
           },
           {
             "sha": "2104bf35d6f8117b323ba78906bf1259076195e8",
@@ -377,7 +377,7 @@
             "url": "https://github.com/microsoft/skills/commit/2104bf35d6f8117b323ba78906bf1259076195e8",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新了 Python 驗證指引，在具名的替代小節中保留舊版 API 金鑰範例與相關環境變數。"
+            "summary": "指示作者保留仍受支援的 API 金鑰範例，並標示為舊版替代方案，同時補上環境變數說明及服務特定注意事項。"
           },
           {
             "sha": "a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
@@ -386,7 +386,7 @@
             "url": "https://github.com/microsoft/skills/commit/a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 Rust 的驗證與用戶端範例，並將必備最佳實務指引擴大到涵蓋非 Python 語言與 Rust 專屬規則。"
+            "summary": "新增 Rust 認證範例與最佳實務，並將面向使用者的最佳實務要求擴及各種 SDK 語言。"
           },
           {
             "sha": "d94f007962067bb6bfecb9c9ac523d71880f946c",
@@ -395,7 +395,7 @@
             "url": "https://github.com/microsoft/skills/commit/d94f007962067bb6bfecb9c9ac523d71880f946c",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將驗證章節改名為 Authentication and Lifecycle，並新增必備的 Python 提示區塊、內容管理器範例，以及更嚴格的驗證模式檢查。"
+            "summary": "新增必備的 Python Authentication & Lifecycle 提示，並更新範例以使用 context manager 包裝用戶端。"
           },
           {
             "sha": "e7ee58fc1fa669841e06f8d27359e0533d148394",
@@ -404,7 +404,7 @@
             "url": "https://github.com/microsoft/skills/commit/e7ee58fc1fa669841e06f8d27359e0533d148394",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新了 C# 與 Java 的驗證範例，示範正式環境的環境變數限制方式與可選的受控識別替代方案。"
+            "summary": "更新 C# 與 Java 認證範例，使用 AZURE_TOKEN_CREDENTIALS 限制 DefaultAzureCredential，並展示直接使用受控識別的替代方式。"
           },
           {
             "sha": "b0bfdccb5492229367f9f7327944773fa016b595",
@@ -413,7 +413,7 @@
             "url": "https://github.com/microsoft/skills/commit/b0bfdccb5492229367f9f7327944773fa016b595",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 Rust 語言模式與面向使用者的最佳實務，包含認證、上傳與 RBAC 指引。"
+            "summary": "新增 Rust 最佳實務，涵蓋本機與正式環境認證、RequestContent 上傳及 Entra ID RBAC 角色。"
           },
           {
             "sha": "ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
@@ -422,7 +422,7 @@
             "url": "https://github.com/microsoft/skills/commit/ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將同步與非同步最佳實務要求及其相關檢查清單項目限定為僅適用於 Python 技能。"
+            "summary": "將同步／非同步與用戶端生命週期最佳實務規則及檢查清單限定於 Python 技能。"
           },
           {
             "sha": "5b6627534c57cab4f3af955435abe302ab3630f3",
@@ -431,7 +431,7 @@
             "url": "https://github.com/microsoft/skills/commit/5b6627534c57cab4f3af955435abe302ab3630f3",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增第三條最佳實務規則，要求使用者在本機使用 `DefaultAzureCredential`，並在 Azure 中使用特定的權杖憑證。"
+            "summary": "新增必備最佳實務，建議在本機使用 DefaultAzureCredential，並在 Azure 中使用特定認證。"
           },
           {
             "sha": "8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
@@ -440,7 +440,7 @@
             "url": "https://github.com/microsoft/skills/commit/8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 Python 同步與非同步一致性及內容管理器的最佳實務要求、落實說明，以及相關反模式與檢查清單項目。"
+            "summary": "新增 Python 必備指引，要求 SDK 技能保持同步或非同步模式一致、使用 context manager，並在範例與檢查中落實這些做法。"
           },
           {
             "sha": "dd908924bf8e636a667e4316f39cabfeffe689f4",
@@ -449,7 +449,7 @@
             "url": "https://github.com/microsoft/skills/commit/dd908924bf8e636a667e4316f39cabfeffe689f4",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在此技能中新增 Rust 專屬的驗證指引與 Rust 用戶端範例。"
+            "summary": "新增 Rust 認證建議，以及使用 DeveloperToolsCredential 的 BlobServiceClient 範例。"
           },
           {
             "sha": "f1d18227b6b5b09e99f2fb15a4beb06336cab092",
@@ -458,7 +458,7 @@
             "url": "https://github.com/microsoft/skills/commit/f1d18227b6b5b09e99f2fb15a4beb06336cab092",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "釐清環境變數章節應加入行內註解，說明各變數何時為必填。"
+            "summary": "要求環境變數指引加入行內註解，說明各變數的必要時機。"
           },
           {
             "sha": "ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
@@ -467,7 +467,7 @@
             "url": "https://github.com/microsoft/skills/commit/ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新了 Python 驗證範例，改用 `require_envvar=True`、提到 `ManagedIdentityCredential`，並連結到憑證類別文件。"
+            "summary": "更新 Python 認證範例，要求正式環境設定 AZURE_TOKEN_CREDENTIALS，並展示 ManagedIdentityCredential 作為替代方式。"
           },
           {
             "sha": "338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
@@ -476,7 +476,7 @@
             "url": "https://github.com/microsoft/skills/commit/338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新 TypeScript 驗證指引以使用 `AZURE_TOKEN_CREDENTIALS` 與憑證文件，並重新格式化相關表格與範例。"
+            "summary": "新增 TypeScript 認證指引，使用 AZURE_TOKEN_CREDENTIALS、加入 ManagedIdentityCredential 文件連結，並補充相關環境變數範例。"
           },
           {
             "sha": "bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
@@ -485,7 +485,7 @@
             "url": "https://github.com/microsoft/skills/commit/bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將 TypeScript 的驗證註解縮短為更精簡的本機開發與正式環境說明。"
+            "summary": "簡化 TypeScript 認證註解，區分本機使用 DefaultAzureCredential 與正式環境設定或使用特定認證的方式。"
           },
           {
             "sha": "916419c985d968ec53ad5f27044020b415c74f83",
@@ -494,7 +494,7 @@
             "url": "https://github.com/microsoft/skills/commit/916419c985d968ec53ad5f27044020b415c74f83",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將 TypeScript 驗證指引從一律使用 `DefaultAzureCredential` 改為在正式環境使用特定憑證或受限制的 `DefaultAzureCredential`。"
+            "summary": "修訂 TypeScript 認證指引，建議本機開發使用 DefaultAzureCredential，正式環境則使用特定認證或受限制的認證鏈。"
           },
           {
             "sha": "e1b7de5b02a471ca66688b9c40de454760c69860",
@@ -503,7 +503,7 @@
             "url": "https://github.com/microsoft/skills/commit/e1b7de5b02a471ca66688b9c40de454760c69860",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增一節，說明技能應如何處理已棄用或重新命名的 Azure SDK。"
+            "summary": "新增已棄用或重新命名 SDK 的遷移模式，涵蓋通知、舊版與替代套件，以及拆分或交互參照技能的時機。"
           },
           {
             "sha": "e1f9cce11758d305e6c77683fe34ccc394586291",
@@ -512,7 +512,7 @@
             "url": "https://github.com/microsoft/skills/commit/e1f9cce11758d305e6c77683fe34ccc394586291",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將驗收條件指引移到 `tests/scenarios`，更新了格式，並修訂文件與檢查清單文字。"
+            "summary": "將驗收標準與情境指引移至 tests/scenarios，並更新 skill-creator 的測試檢查清單。"
           },
           {
             "sha": "37e04218d562d661056e8f68a5e63424adfbd7e5",
@@ -521,7 +521,7 @@
             "url": "https://github.com/microsoft/skills/commit/37e04218d562d661056e8f68a5e63424adfbd7e5",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在建立後的文件步驟中，以重新產生 docs-site 資料與建置輸出取代手動編輯 `docs/index.html`。"
+            "summary": "更新建立後檢查清單，要求更新 README 數量並從擷取的技能資料重新產生文件網站。"
           },
           {
             "sha": "ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
@@ -530,7 +530,7 @@
             "url": "https://github.com/microsoft/skills/commit/ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "擴充了 README 與文件更新指示，加入具體的數量、放置位置與技能條目細節。"
+            "summary": "新增建立後步驟，要求更新 README 技能數量並手動將技能項目加入 docs/index.html。"
           },
           {
             "sha": "db15b411166276cbbe41daaa818aeac0d31fff27",
@@ -539,7 +539,7 @@
             "url": "https://github.com/microsoft/skills/commit/db15b411166276cbbe41daaa818aeac0d31fff27",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "重整了技能建立流程，要求提供 SDK 背景資訊、加入分類與測試步驟，並擴充檢查清單與反模式指引。"
+            "summary": "擴充建立流程，加入必要的 SDK 背景資料、產品領域符號連結、驗收標準及情境式測試。"
           },
           {
             "sha": "2fc259b4c37f44afc3c95f14cd7e2113a108df71",
@@ -548,7 +548,7 @@
             "url": "https://github.com/microsoft/skills/commit/2fc259b4c37f44afc3c95f14cd7e2113a108df71",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新範例 YAML frontmatter 片段，讓其中的 `name` 欄位使用 `skill-creator`。"
+            "summary": "將兩個 YAML 前置資料範例的名稱改為 skill-creator。"
           },
           {
             "sha": "a2003b6b95ead129e53dd5377a2229682ff75b1b",
@@ -557,7 +557,7 @@
             "url": "https://github.com/microsoft/skills/commit/a2003b6b95ead129e53dd5377a2229682ff75b1b",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "從此技能的 YAML frontmatter 中移除了 `license` 欄位。"
+            "summary": "從 skill-creator 的前置資料中移除 license 欄位。"
           },
           {
             "sha": "8f9af88f4feff407c86278e0aa627f72c8f08ddd",
@@ -566,7 +566,7 @@
             "url": "https://github.com/microsoft/skills/commit/8f9af88f4feff407c86278e0aa627f72c8f08ddd",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將 YAML frontmatter 的描述從多行區塊改為單行字串。"
+            "summary": "將 YAML 前置資料中的多行技能描述改為單行。"
           },
           {
             "sha": "7b7ff68a658d95da75d9e319bce8140d302323f0",
@@ -575,7 +575,7 @@
             "url": "https://github.com/microsoft/skills/commit/7b7ff68a658d95da75d9e319bce8140d302323f0",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "重寫了此技能，使其聚焦於 Azure SDK 技能建立，並加入新的結構、驗證模式、範例與流程指引。"
+            "summary": "將 skill creator 改寫為著重 Azure SDK 的指南，新增 SDK 認證範例，以及建立、測試與文件工作流程。"
           },
           {
             "sha": "14224cca15ade1e67fb926e8345bd66ad70ee014",
@@ -584,13 +584,13 @@
             "url": "https://github.com/microsoft/skills/commit/14224cca15ade1e67fb926e8345bd66ad70ee014",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了初始的 `skill-creator` 技能檔案，提供建立、結構化與封裝技能的指引。"
+            "summary": "建立初版 skill-creator 指南，涵蓋技能結構、漸進式揭露、建立與封裝步驟及反覆改進。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -603,7 +603,7 @@
             "url": "https://github.com/microsoft/skills/commit/4a2873faffc1b101a33a0b59c24713d4ed78142f",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加一条 Rust 最佳实务，说明如何让 `#[non_exhaustive]` SDK 模型与枚举具备前瞻兼容性。"
+            "summary": "添加 Rust 指引，说明如何建构可因应未来变更的 non-exhaustive 模型并比对枚举类型。"
           },
           {
             "sha": "752edb9b01dd42aa731e22b3da891cc733d7bebe",
@@ -612,7 +612,7 @@
             "url": "https://github.com/microsoft/skills/commit/752edb9b01dd42aa731e22b3da891cc733d7bebe",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "扩充了 Azure SDK 指南，加入 token 预算、参考内容抽离规则、内核工作流程准则、反模式、验证步骤，以及更新后的验证与参考指引。"
+            "summary": "添加 Azure SDK 的 token 预算、参考资料拆分与内核工作流程规则，以及反模式和验证检查清单。"
           },
           {
             "sha": "178d9730909101c93949a2ea364058345a6fae9e",
@@ -621,7 +621,7 @@
             "url": "https://github.com/microsoft/skills/commit/178d9730909101c93949a2ea364058345a6fae9e",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 Go 的验证与命名范例、Go 专属 SDK 模式，以及技能创建与重新产生说明中的 Go 指引。"
+            "summary": "添加 Go SDK 指引，涵盖认证范例、语言模式、技能分类及原始数据链接。"
           },
           {
             "sha": "21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
@@ -630,7 +630,7 @@
             "url": "https://github.com/microsoft/skills/commit/21fa9f688db7f1e897ede4cc5dc54aaad74366a7",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "调整了 API 密钥指引、范例、反模式表格与检查清单文字的 Markdown 格式与措辞。"
+            "summary": "调整多个 Python 范例与反模式表格的格式，并变更旧版 API 密钥放置说明的斜体样式。"
           },
           {
             "sha": "c62ba68be03005ce17c0c00ee75bb7b8836d2352",
@@ -639,7 +639,7 @@
             "url": "https://github.com/microsoft/skills/commit/c62ba68be03005ce17c0c00ee75bb7b8836d2352",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "扩充了 Rust 指引，加入 `cargo add` 与 `azure_core` 相依规则，并添加从最新 SDK 来源重新产生既有技能的流程。"
+            "summary": "扩充 Rust 最佳实务，加入以 cargo 管理相依项目及声明 azure_core 的时机，同时保留认证、上传与 RBAC 规则。"
           },
           {
             "sha": "75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
@@ -648,7 +648,7 @@
             "url": "https://github.com/microsoft/skills/commit/75bc4a17ab5356800fd377b1512cc9fc7ebefad2",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "厘清了领域技能与 SDK 技能的不同预设做法，修订了结构与验证说明，为 Rust 添加 crates.io 版本检查规则，并更新检查清单文字。"
+            "summary": "刷新领域技能与 SDK 技能的指引，厘清认证及章节结构，并添加 crates.io 版本检查。"
           },
           {
             "sha": "df52e9a69b78c2759553efafe2f937fc53c1cbd1",
@@ -657,7 +657,7 @@
             "url": "https://github.com/microsoft/skills/commit/df52e9a69b78c2759553efafe2f937fc53c1cbd1",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在 Python `DefaultAzureCredential` 提示区块下添加了本机开发与正式环境的子项说明。"
+            "summary": "在两处 Python 认证提示中明确补上本机开发与正式环境的认证说明。"
           },
           {
             "sha": "2104bf35d6f8117b323ba78906bf1259076195e8",
@@ -666,7 +666,7 @@
             "url": "https://github.com/microsoft/skills/commit/2104bf35d6f8117b323ba78906bf1259076195e8",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新了 Python 验证指引，在具名的替代小节中保留旧版 API 密钥范例与相关环境变量。"
+            "summary": "指示作者保留仍受支持的 API 密钥范例，并标示为旧版替代方案，同时补上环境变量说明及服务特定注意事项。"
           },
           {
             "sha": "a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
@@ -675,7 +675,7 @@
             "url": "https://github.com/microsoft/skills/commit/a73b0b7cbbb517d0a8b78b90e5b2d992e24b1b3d",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 Rust 的验证与用户端范例，并将必备最佳实务指引扩大到涵盖非 Python 语言与 Rust 专属规则。"
+            "summary": "添加 Rust 认证范例与最佳实务，并将面向用户的最佳实务要求扩及各种 SDK 语言。"
           },
           {
             "sha": "d94f007962067bb6bfecb9c9ac523d71880f946c",
@@ -684,7 +684,7 @@
             "url": "https://github.com/microsoft/skills/commit/d94f007962067bb6bfecb9c9ac523d71880f946c",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将验证章节改名为 Authentication and Lifecycle，并添加必备的 Python 提示区块、内容管理器范例，以及更严格的验证模式检查。"
+            "summary": "添加必备的 Python Authentication & Lifecycle 提示，并更新范例以使用 context manager 包装用户端。"
           },
           {
             "sha": "e7ee58fc1fa669841e06f8d27359e0533d148394",
@@ -693,7 +693,7 @@
             "url": "https://github.com/microsoft/skills/commit/e7ee58fc1fa669841e06f8d27359e0533d148394",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新了 C# 与 Java 的验证范例，示范正式环境的环境变量限制方式与可选的受控识别替代方案。"
+            "summary": "更新 C# 与 Java 认证范例，使用 AZURE_TOKEN_CREDENTIALS 限制 DefaultAzureCredential，并展示直接使用受控识别的替代方式。"
           },
           {
             "sha": "b0bfdccb5492229367f9f7327944773fa016b595",
@@ -702,7 +702,7 @@
             "url": "https://github.com/microsoft/skills/commit/b0bfdccb5492229367f9f7327944773fa016b595",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 Rust 语言模式与面向用户的最佳实务，包含认证、上传与 RBAC 指引。"
+            "summary": "添加 Rust 最佳实务，涵盖本机与正式环境认证、RequestContent 上传及 Entra ID RBAC 角色。"
           },
           {
             "sha": "ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
@@ -711,7 +711,7 @@
             "url": "https://github.com/microsoft/skills/commit/ce05dbef664e4b48555a1fae5ac4f41924c9be0f",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将同步与异步最佳实务要求及其相关检查清单项目限定为仅适用于 Python 技能。"
+            "summary": "将同步／异步与用户端生命周期最佳实务规则及检查清单限定于 Python 技能。"
           },
           {
             "sha": "5b6627534c57cab4f3af955435abe302ab3630f3",
@@ -720,7 +720,7 @@
             "url": "https://github.com/microsoft/skills/commit/5b6627534c57cab4f3af955435abe302ab3630f3",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加第三条最佳实务规则，要求用户在本机使用 `DefaultAzureCredential`，并在 Azure 中使用特定的权杖凭证。"
+            "summary": "添加必备最佳实务，建议在本机使用 DefaultAzureCredential，并在 Azure 中使用特定认证。"
           },
           {
             "sha": "8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
@@ -729,7 +729,7 @@
             "url": "https://github.com/microsoft/skills/commit/8ae5031f98413bcb3a8e17d0a87c655e51c23b96",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 Python 同步与异步一致性及内容管理器的最佳实务要求、落实说明，以及相关反模式与检查清单项目。"
+            "summary": "添加 Python 必备指引，要求 SDK 技能保持同步或异步模式一致、使用 context manager，并在范例与检查中落实这些做法。"
           },
           {
             "sha": "dd908924bf8e636a667e4316f39cabfeffe689f4",
@@ -738,7 +738,7 @@
             "url": "https://github.com/microsoft/skills/commit/dd908924bf8e636a667e4316f39cabfeffe689f4",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在此技能中添加 Rust 专属的验证指引与 Rust 用户端范例。"
+            "summary": "添加 Rust 认证建议，以及使用 DeveloperToolsCredential 的 BlobServiceClient 范例。"
           },
           {
             "sha": "f1d18227b6b5b09e99f2fb15a4beb06336cab092",
@@ -747,7 +747,7 @@
             "url": "https://github.com/microsoft/skills/commit/f1d18227b6b5b09e99f2fb15a4beb06336cab092",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "厘清环境变量章节应加入行内注解，说明各变量何时为必填。"
+            "summary": "要求环境变量指引加入行内注解，说明各变量的必要时机。"
           },
           {
             "sha": "ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
@@ -756,7 +756,7 @@
             "url": "https://github.com/microsoft/skills/commit/ec72c1ebb6ebaaaef633ac5309f75a11f6a664b3",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新了 Python 验证范例，改用 `require_envvar=True`、提到 `ManagedIdentityCredential`，并链接到凭证类别文档。"
+            "summary": "更新 Python 认证范例，要求正式环境设置 AZURE_TOKEN_CREDENTIALS，并展示 ManagedIdentityCredential 作为替代方式。"
           },
           {
             "sha": "338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
@@ -765,7 +765,7 @@
             "url": "https://github.com/microsoft/skills/commit/338b73ff6b3a0d50fd8ee94e0112129a33fc3ee5",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新 TypeScript 验证指引以使用 `AZURE_TOKEN_CREDENTIALS` 与凭证文档，并重新格式化相关表格与范例。"
+            "summary": "添加 TypeScript 认证指引，使用 AZURE_TOKEN_CREDENTIALS、加入 ManagedIdentityCredential 文档链接，并补充相关环境变量范例。"
           },
           {
             "sha": "bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
@@ -774,7 +774,7 @@
             "url": "https://github.com/microsoft/skills/commit/bb5ba24c931f82be9b6d266f29947e4ed0dd1679",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将 TypeScript 的验证注解缩短为更精简的本机开发与正式环境说明。"
+            "summary": "简化 TypeScript 认证注解，区分本机使用 DefaultAzureCredential 与正式环境设置或使用特定认证的方式。"
           },
           {
             "sha": "916419c985d968ec53ad5f27044020b415c74f83",
@@ -783,7 +783,7 @@
             "url": "https://github.com/microsoft/skills/commit/916419c985d968ec53ad5f27044020b415c74f83",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将 TypeScript 验证指引从一律使用 `DefaultAzureCredential` 改为在正式环境使用特定凭证或受限制的 `DefaultAzureCredential`。"
+            "summary": "修订 TypeScript 认证指引，建议本机开发使用 DefaultAzureCredential，正式环境则使用特定认证或受限制的认证链。"
           },
           {
             "sha": "e1b7de5b02a471ca66688b9c40de454760c69860",
@@ -792,7 +792,7 @@
             "url": "https://github.com/microsoft/skills/commit/e1b7de5b02a471ca66688b9c40de454760c69860",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加一节，说明技能应如何处理已弃用或重命名的 Azure SDK。"
+            "summary": "添加已弃用或重命名 SDK 的迁移模式，涵盖通知、旧版与替代套件，以及拆分或交互参照技能的时机。"
           },
           {
             "sha": "e1f9cce11758d305e6c77683fe34ccc394586291",
@@ -801,7 +801,7 @@
             "url": "https://github.com/microsoft/skills/commit/e1f9cce11758d305e6c77683fe34ccc394586291",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将验收条件指引移到 `tests/scenarios`，更新了格式，并修订文档与检查清单文字。"
+            "summary": "将验收标准与情境指引移至 tests/scenarios，并更新 skill-creator 的测试检查清单。"
           },
           {
             "sha": "37e04218d562d661056e8f68a5e63424adfbd7e5",
@@ -810,7 +810,7 @@
             "url": "https://github.com/microsoft/skills/commit/37e04218d562d661056e8f68a5e63424adfbd7e5",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在创建后的文档步骤中，以重新产生 docs-site 数据与建置输出取代手动编辑 `docs/index.html`。"
+            "summary": "更新创建后检查清单，要求更新 README 数量并从截取的技能数据重新产生文档网站。"
           },
           {
             "sha": "ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
@@ -819,7 +819,7 @@
             "url": "https://github.com/microsoft/skills/commit/ca2d51d8c149e272fdd414a7dc42054bf6a7b6a6",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "扩充了 README 与文档更新指示，加入具体的数量、放置位置与技能条目细节。"
+            "summary": "添加创建后步骤，要求更新 README 技能数量并手动将技能项目加入 docs/index.html。"
           },
           {
             "sha": "db15b411166276cbbe41daaa818aeac0d31fff27",
@@ -828,7 +828,7 @@
             "url": "https://github.com/microsoft/skills/commit/db15b411166276cbbe41daaa818aeac0d31fff27",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "重整了技能创建流程，要求提供 SDK 背景信息、加入分类与测试步骤，并扩充检查清单与反模式指引。"
+            "summary": "扩充创建流程，加入必要的 SDK 背景数据、产品领域符号链接、验收标准及情境式测试。"
           },
           {
             "sha": "2fc259b4c37f44afc3c95f14cd7e2113a108df71",
@@ -837,7 +837,7 @@
             "url": "https://github.com/microsoft/skills/commit/2fc259b4c37f44afc3c95f14cd7e2113a108df71",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新范例 YAML frontmatter 片段，让其中的 `name` 字段使用 `skill-creator`。"
+            "summary": "将两个 YAML 前置数据范例的名称改为 skill-creator。"
           },
           {
             "sha": "a2003b6b95ead129e53dd5377a2229682ff75b1b",
@@ -846,7 +846,7 @@
             "url": "https://github.com/microsoft/skills/commit/a2003b6b95ead129e53dd5377a2229682ff75b1b",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "从此技能的 YAML frontmatter 中移除了 `license` 字段。"
+            "summary": "从 skill-creator 的前置数据中移除 license 字段。"
           },
           {
             "sha": "8f9af88f4feff407c86278e0aa627f72c8f08ddd",
@@ -855,7 +855,7 @@
             "url": "https://github.com/microsoft/skills/commit/8f9af88f4feff407c86278e0aa627f72c8f08ddd",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将 YAML frontmatter 的描述从多行区块改为单行字符串。"
+            "summary": "将 YAML 前置数据中的多行技能描述改为单行。"
           },
           {
             "sha": "7b7ff68a658d95da75d9e319bce8140d302323f0",
@@ -864,7 +864,7 @@
             "url": "https://github.com/microsoft/skills/commit/7b7ff68a658d95da75d9e319bce8140d302323f0",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "重写了此技能，使其聚焦于 Azure SDK 技能创建，并加入新的结构、验证模式、范例与流程指引。"
+            "summary": "将 skill creator 改写为着重 Azure SDK 的指南，添加 SDK 认证范例，以及创建、测试与文档工作流程。"
           },
           {
             "sha": "14224cca15ade1e67fb926e8345bd66ad70ee014",
@@ -873,7 +873,7 @@
             "url": "https://github.com/microsoft/skills/commit/14224cca15ade1e67fb926e8345bd66ad70ee014",
             "pathAtCommit": ".github/skills/skill-creator/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了初始的 `skill-creator` 技能文件，提供创建、结构化与封装技能的指引。"
+            "summary": "创建初版 skill-creator 指南，涵盖技能结构、渐进式揭露、创建与封装步骤及反复改进。"
           }
         ]
       }

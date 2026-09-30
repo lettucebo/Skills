@@ -1,0 +1,288 @@
+{
+  "path": "skills/google/cloud/agent-platform-prompt-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ac840819b44f5fd2b5402911a2dde8a6714fe82ca8aedfc0131970beef4e7158",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/agent-platform-prompt-management",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a `1.0.0` version field under the skill's frontmatter metadata."
+          },
+          {
+            "sha": "0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "date": "2026-09-02T09:45:34-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changes the guidance to execute Python operations with `run_command`, documents retrieved-prompt attributes, and clarifies typed deletion confirmation and post-deletion verification."
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Requires creation parameters, including the target model, to come from user-provided details and instructs asking when the model is unspecified instead of guessing."
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaces virtual-environment setup with import probing and conditional dependency installation, and directs running snippets with plain `python3`."
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reformats the skill's Markdown layout and labels the create, list, retrieve, and delete sections with their safety tiers."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds an `AiAndMachineLearning` category in the frontmatter metadata and adds an `Agent Platform Prompt Management` heading."
+          },
+          {
+            "sha": "9bc3d200fc589cb724e5ea01a273632b0077a650",
+            "date": "2026-06-17T09:33:22-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent-platform-prompt-management",
+            "url": "https://github.com/google/skills/commit/9bc3d200fc589cb724e5ea01a273632b0077a650",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds safety tiers for read-only, creation, and deletion operations, specifying their confirmation requirements and same-turn restrictions."
+          },
+          {
+            "sha": "fc6041ec3ae513b9e1af91f4455c6bee1c4d9a8f",
+            "date": "2026-06-03T12:22:27-07:00",
+            "subject": "Update prompt management skill to match current SDK",
+            "url": "https://github.com/google/skills/commit/fc6041ec3ae513b9e1af91f4455c6bee1c4d9a8f",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updates the list, get, and delete examples to initialize Vertex AI and use prompt IDs, and changes assembly to `assemble_contents`."
+          },
+          {
+            "sha": "e8bad80c0e78c26f57bc5d41647335188fc60c36",
+            "date": "2026-05-27T14:53:25-07:00",
+            "subject": "Add cloud agent-platform-prompt-management skill",
+            "url": "https://github.com/google/skills/commit/e8bad80c0e78c26f57bc5d41647335188fc60c36",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the Agent Platform prompt-management skill with environment setup guidance and Python examples for listing, retrieving, assembling, and deleting prompts."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 frontmatter metadata 下新增 `1.0.0` 版本欄位。"
+          },
+          {
+            "sha": "0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "date": "2026-09-02T09:45:34-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將操作指引改為透過 `run_command` 執行 Python，補充取得的提示物件屬性，並釐清刪除所需的文字確認及刪除後驗證方式。"
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "要求建立提示卡片中的參數（包括目標模型）均須來自使用者提供的資訊，並規定未指定模型時先詢問而非猜測。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以匯入檢查及僅在缺少時安裝相依套件，取代虛擬環境設定，並指示直接使用 `python3` 執行程式碼片段。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新整理技能的 Markdown 排版，並在建立、列出、擷取及刪除章節標示其安全層級。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 frontmatter metadata 中新增 `AiAndMachineLearning` 類別，並新增 `Agent Platform Prompt Management` 標題。"
+          },
+          {
+            "sha": "9bc3d200fc589cb724e5ea01a273632b0077a650",
+            "date": "2026-06-17T09:33:22-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent-platform-prompt-management",
+            "url": "https://github.com/google/skills/commit/9bc3d200fc589cb724e5ea01a273632b0077a650",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增唯讀、建立及刪除操作的安全層級，並說明各自的確認要求與同一回合限制。"
+          },
+          {
+            "sha": "fc6041ec3ae513b9e1af91f4455c6bee1c4d9a8f",
+            "date": "2026-06-03T12:22:27-07:00",
+            "subject": "Update prompt management skill to match current SDK",
+            "url": "https://github.com/google/skills/commit/fc6041ec3ae513b9e1af91f4455c6bee1c4d9a8f",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新列出、取得及刪除範例以初始化 Vertex AI 並使用提示 ID，且將組裝方法改為 `assemble_contents`。"
+          },
+          {
+            "sha": "e8bad80c0e78c26f57bc5d41647335188fc60c36",
+            "date": "2026-05-27T14:53:25-07:00",
+            "subject": "Add cloud agent-platform-prompt-management skill",
+            "url": "https://github.com/google/skills/commit/e8bad80c0e78c26f57bc5d41647335188fc60c36",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Agent Platform 提示管理技能，提供環境設定指引，以及列出、取得、組裝和刪除提示的 Python 範例。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 frontmatter metadata 下添加 `1.0.0` 版本字段。"
+          },
+          {
+            "sha": "0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "date": "2026-09-02T09:45:34-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将操作指引改为透过 `run_command` 运行 Python，补充取得的提示对象属性，并厘清删除所需的文字确认及删除后验证方式。"
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "要求创建提示卡片中的参数（包括目标模型）均须来自用户提供的信息，并规定未指定模型时先询问而非猜测。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "以导入检查及仅在缺少时安装相依套件，取代虚拟环境设置，并指示直接使用 `python3` 运行代码片段。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "刷新技能的 Markdown 排版，并在创建、列出、截取及删除章节标示其安全层级。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 frontmatter metadata 中添加 `AiAndMachineLearning` 类别，并添加 `Agent Platform Prompt Management` 标题。"
+          },
+          {
+            "sha": "9bc3d200fc589cb724e5ea01a273632b0077a650",
+            "date": "2026-06-17T09:33:22-07:00",
+            "subject": "feat: add safety and confirmation tiers for agent-platform-prompt-management",
+            "url": "https://github.com/google/skills/commit/9bc3d200fc589cb724e5ea01a273632b0077a650",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加唯读、创建及删除操作的安全层级，并说明各自的确认要求与同一回合限制。"
+          },
+          {
+            "sha": "fc6041ec3ae513b9e1af91f4455c6bee1c4d9a8f",
+            "date": "2026-06-03T12:22:27-07:00",
+            "subject": "Update prompt management skill to match current SDK",
+            "url": "https://github.com/google/skills/commit/fc6041ec3ae513b9e1af91f4455c6bee1c4d9a8f",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新列出、取得及删除范例以初始化 Vertex AI 并使用提示 ID，且将组装方法改为 `assemble_contents`。"
+          },
+          {
+            "sha": "e8bad80c0e78c26f57bc5d41647335188fc60c36",
+            "date": "2026-05-27T14:53:25-07:00",
+            "subject": "Add cloud agent-platform-prompt-management skill",
+            "url": "https://github.com/google/skills/commit/e8bad80c0e78c26f57bc5d41647335188fc60c36",
+            "pathAtCommit": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Agent Platform 提示管理技能，提供环境设置指引，以及列出、取得、组装和删除提示的 Python 范例。"
+          }
+        ]
+      }
+    }
+  }
+}

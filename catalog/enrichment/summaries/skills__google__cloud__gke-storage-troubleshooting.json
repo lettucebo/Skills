@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-storage-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f8f09ba6e84beb83f087f6d7fff392c40a12ef9879d838cf9de4245417873344"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It diagnoses persistent-storage failures affecting GKE workloads and prepares reviewable remediation without changing the live cluster.",
+        "whenToUse": "Use it when failure signals point to disk and node incompatibility, fsGroup-related mount timeouts, node storage pressure, storage-resource creation errors, an unreflected volume resize, or Cloud Storage FUSE out-of-memory events.",
+        "outputs": "It provides a symptom-based root-cause assessment, exact diagnostic commands when live access is unavailable, and a reviewable GitOps correction rather than a live change."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它可診斷影響 GKE 工作負載的持久性儲存故障，並提出可供審核的修正方案，而不變更執行中的叢集。",
+        "whenToUse": "當故障跡象指向磁碟與節點不相容、fsGroup 相關掛載逾時、節點儲存空間壓力、儲存資源建立錯誤、磁碟區擴容未反映，或 Cloud Storage FUSE 記憶體不足事件時使用。",
+        "outputs": "它會提供依症狀判斷的根因分析、無法連線時可直接執行的精確診斷指令，以及透過 GitOps 審核套用的修正方案，而不會直接變更叢集。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它可诊断影响 GKE 工作负载的持久性保存故障，并提出可供审核的修正方案，而不变更运行中的集群。",
+        "whenToUse": "当故障迹象指向磁盘与节点不兼容、fsGroup 相关挂载逾时、节点保存空间压力、保存资源创建错误、磁盘区扩容未反映，或 Cloud Storage FUSE 内存不足事件时使用。",
+        "outputs": "它会提供依症状判断的根因分析、无法连接时可直接运行的精确诊断指令，以及透过 GitOps 审核套用的修正方案，而不会直接变更集群。"
+      }
+    }
+  }
+}

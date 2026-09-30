@@ -1,0 +1,207 @@
+{
+  "path": "skills/google/cloud/gke-upgrades",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0257da1f8b97f69c905c8c9d73dabfb2fdc2523b959af8881d12de7354ad1b92",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-upgrades",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill's metadata."
+          },
+          {
+            "sha": "c8347b22b3d2166d82312359033a3dcd5f88b06d",
+            "date": "2026-09-02T09:36:06-07:00",
+            "subject": "Fix broken rollout sequencing link in gke-upgrades skill.",
+            "url": "https://github.com/google/skills/commit/c8347b22b3d2166d82312359033a3dcd5f88b06d",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the Configure Rollout Sequencing reference link to use the `manage-upgrades-with-rollout-sequencing` URL path."
+          },
+          {
+            "sha": "400e760473a1a2a081eee8e11e332b2f58da5a2e",
+            "date": "2026-08-19T16:21:54-07:00",
+            "subject": "Upgrade gke-upgrades skill and expand evaluation suite.",
+            "url": "https://github.com/google/skills/commit/400e760473a1a2a081eee8e11e332b2f58da5a2e",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill with current GKE capability guidance, revised maintenance-exclusion limits and availability requirements, clarified GPU/TPU upgrade guidance, and required runbooks to restore relaxed safety controls."
+          },
+          {
+            "sha": "513a7a51e85fc21878134c4ec0e506504c92d0a6",
+            "date": "2026-07-18T16:03:36-07:00",
+            "subject": "Fixed broken link",
+            "url": "https://github.com/google/skills/commit/513a7a51e85fc21878134c4ec0e506504c92d0a6",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the Rollout Sequencing Concepts reference link to the `about-rollout-sequencing` documentation URL."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved `category: Containers` under a new `metadata` block in the skill's frontmatter and added blank lines between several sections and lists."
+          },
+          {
+            "sha": "33de12bbb19c1da1e668a14fe156254931115dec",
+            "date": "2026-06-18T10:02:50-07:00",
+            "subject": "Add GKE Upgrades agent skill",
+            "url": "https://github.com/google/skills/commit/33de12bbb19c1da1e668a14fe156254931115dec",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a new GKE upgrades and maintenance skill covering planning, release channels, exclusions, checklists, runbooks, and troubleshooting for Standard and Autopilot clusters."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在該技能的中繼資料中新增版本 1.0.0。"
+          },
+          {
+            "sha": "c8347b22b3d2166d82312359033a3dcd5f88b06d",
+            "date": "2026-09-02T09:36:06-07:00",
+            "subject": "Fix broken rollout sequencing link in gke-upgrades skill.",
+            "url": "https://github.com/google/skills/commit/c8347b22b3d2166d82312359033a3dcd5f88b06d",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新「Configure Rollout Sequencing」參考連結，改用 `manage-upgrades-with-rollout-sequencing` 網址路徑。"
+          },
+          {
+            "sha": "400e760473a1a2a081eee8e11e332b2f58da5a2e",
+            "date": "2026-08-19T16:21:54-07:00",
+            "subject": "Upgrade gke-upgrades skill and expand evaluation suite.",
+            "url": "https://github.com/google/skills/commit/400e760473a1a2a081eee8e11e332b2f58da5a2e",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充技能的 GKE 最新功能指引、修訂維護排除限制與維護可用性要求、釐清 GPU/TPU 升級指引，並要求操作手冊恢復所放寬的安全控制。"
+          },
+          {
+            "sha": "513a7a51e85fc21878134c4ec0e506504c92d0a6",
+            "date": "2026-07-18T16:03:36-07:00",
+            "subject": "Fixed broken link",
+            "url": "https://github.com/google/skills/commit/513a7a51e85fc21878134c4ec0e506504c92d0a6",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將「Rollout Sequencing Concepts」參考連結改為 `about-rollout-sequencing` 文件網址。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 frontmatter 中新增 `metadata` 區塊並將 `category: Containers` 移入其中，同時在多個章節與清單間加入空行。"
+          },
+          {
+            "sha": "33de12bbb19c1da1e668a14fe156254931115dec",
+            "date": "2026-06-18T10:02:50-07:00",
+            "subject": "Add GKE Upgrades agent skill",
+            "url": "https://github.com/google/skills/commit/33de12bbb19c1da1e668a14fe156254931115dec",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 升級與維護技能，涵蓋 Standard 與 Autopilot 叢集的規劃、發布管道、維護排除、檢查清單、操作手冊及疑難排解。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在该技能的中继数据中添加版本 1.0.0。"
+          },
+          {
+            "sha": "c8347b22b3d2166d82312359033a3dcd5f88b06d",
+            "date": "2026-09-02T09:36:06-07:00",
+            "subject": "Fix broken rollout sequencing link in gke-upgrades skill.",
+            "url": "https://github.com/google/skills/commit/c8347b22b3d2166d82312359033a3dcd5f88b06d",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新「Configure Rollout Sequencing」参考链接，改用 `manage-upgrades-with-rollout-sequencing` 网址路径。"
+          },
+          {
+            "sha": "400e760473a1a2a081eee8e11e332b2f58da5a2e",
+            "date": "2026-08-19T16:21:54-07:00",
+            "subject": "Upgrade gke-upgrades skill and expand evaluation suite.",
+            "url": "https://github.com/google/skills/commit/400e760473a1a2a081eee8e11e332b2f58da5a2e",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充技能的 GKE 最新功能指引、修订维护排除限制与维护可用性要求、厘清 GPU/TPU 升级指引，并要求操作手册恢复所放宽的安全控制。"
+          },
+          {
+            "sha": "513a7a51e85fc21878134c4ec0e506504c92d0a6",
+            "date": "2026-07-18T16:03:36-07:00",
+            "subject": "Fixed broken link",
+            "url": "https://github.com/google/skills/commit/513a7a51e85fc21878134c4ec0e506504c92d0a6",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将「Rollout Sequencing Concepts」参考链接改为 `about-rollout-sequencing` 文档网址。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 frontmatter 中添加 `metadata` 区块并将 `category: Containers` 移入其中，同时在多个章节与清单间加入空行。"
+          },
+          {
+            "sha": "33de12bbb19c1da1e668a14fe156254931115dec",
+            "date": "2026-06-18T10:02:50-07:00",
+            "subject": "Add GKE Upgrades agent skill",
+            "url": "https://github.com/google/skills/commit/33de12bbb19c1da1e668a14fe156254931115dec",
+            "pathAtCommit": "skills/cloud/gke-upgrades/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 升级与维护技能，涵盖 Standard 与 Autopilot 集群的规划、发布管道、维护排除、检查清单、操作手册及疑难排解。"
+          }
+        ]
+      }
+    }
+  }
+}

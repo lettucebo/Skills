@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/developers/retrieving-developer-knowledge",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:800458fe9c1544752187acd224d4d3bdf1cb31ab4d50d4af23b649b7f20cad5d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides evidence-grounded technical guidance by consulting official Google developer documentation.",
+        "whenToUse": "Use it when a Google-related answer needs verification against authoritative documentation rather than general recollection.",
+        "outputs": "Concise, documentation-grounded answers with complete commands, configurations, or code where needed."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過查閱 Google 官方開發者文件，提供有依據的技術指引。",
+        "whenToUse": "當 Google 相關問題需要依據權威文件查證，而非僅憑一般記憶回答時使用。",
+        "outputs": "提供以查閱文件為依據的精簡解答，並在需要時附上完整指令、設定或程式碼。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过查阅 Google 官方开发者文档，提供有依据的技术指引。",
+        "whenToUse": "当 Google 相关问题需要依据权威文档查证，而非仅凭一般记忆回答时使用。",
+        "outputs": "提供以查阅文档为依据的精简解答，并在需要时附上完整指令、设置或代码。"
+      }
+    }
+  }
+}

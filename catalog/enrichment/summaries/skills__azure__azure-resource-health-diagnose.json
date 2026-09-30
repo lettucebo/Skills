@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Summarizes the current health of an Azure resource by examining status, logs, and telemetry to identify likely problems and next actions.",
-        "whenToUse": "Use it when you need to investigate a specific Azure resource that may be unavailable, degraded, or behaving unexpectedly.",
-        "outputs": "It produces a health assessment, issue and root-cause findings, and a prioritized remediation plan with monitoring recommendations."
+        "purpose": "Assess an Azure resource’s operational health, use its logs and telemetry to investigate issues, and recommend prioritized remediation.",
+        "whenToUse": "Use this when you need to review the health of a specific deployed Azure resource or diagnose availability, performance, or reliability concerns.",
+        "outputs": "A health report with resource status, categorized findings and root-cause analysis, prioritized remediation steps, and monitoring, validation, and rollback guidance."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "它會彙整 Azure 資源的目前健康狀態，檢視狀態、記錄與遙測資料，以找出可能問題與後續處置。",
-        "whenToUse": "當你需要調查某個可能停用、效能下降或行為異常的 Azure 資源時，可使用它。",
-        "outputs": "它會產生健康評估、問題與根因分析結果，以及含監控建議的優先修復計畫。"
+        "purpose": "評估 Azure 資源的運作健康狀況，運用記錄與遙測資料調查問題，並提出具優先順序的修復建議。",
+        "whenToUse": "當您需要檢視特定已部署 Azure 資源的健康狀況，或診斷可用性、效能或可靠性問題時使用。",
+        "outputs": "提供健康狀況報告，包含資源狀態、分類問題與根因分析、具優先順序的修復步驟，以及監控、驗證和回復指引。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "它会汇整 Azure 资源的目前健康状态，查看状态、记录与遥测数据，以找出可能问题与后续处置。",
-        "whenToUse": "当你需要调查某个可能禁用、性能下降或行为异常的 Azure 资源时，可使用它。",
-        "outputs": "它会产生健康评估、问题与根因分析结果，以及含监控建议的优先修复计划。"
+        "purpose": "评估 Azure 资源的运作健康状况，运用记录与遥测数据调查问题，并提出具优先级的修复建议。",
+        "whenToUse": "当您需要查看特定已部署 Azure 资源的健康状况，或诊断可用性、性能或可靠性问题时使用。",
+        "outputs": "提供健康状况报告，包含资源状态、分类问题与根因分析、具优先级的修复步骤，以及监控、验证和回复指引。"
       }
     }
   }

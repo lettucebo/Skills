@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/gke-cost-analysis",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9d5ff76acf009200ad447ed363da12b4f8365787b7671be5cca1f4d62353059f",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-cost-analysis",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds semantic version metadata set to 1.0.0 to the GKE cost-analysis skill."
+          },
+          {
+            "sha": "bf643de42937acea96a7bad69e20004b1fc86348",
+            "date": "2026-08-19T16:35:47-07:00",
+            "subject": "Upgrade gke-cost-analysis skill.",
+            "url": "https://github.com/google/skills/commit/bf643de42937acea96a7bad69e20004b1fc86348",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarifies that the cluster management fee applies to both GKE modes, flags cost-allocation enablement as a cluster mutation with no historical backfill, and links query templates in a reference file."
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds CloudObservabilityAndMonitoring as category metadata for the skill."
+          },
+          {
+            "sha": "24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "date": "2026-07-22T10:42:50-07:00",
+            "subject": "Merged gke-cost into gke-cost-analysis skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the initial GKE cost-analysis skill with guidance on billing exports, cost allocation, pricing drivers, utilization checks, and BigQuery query examples."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 GKE 成本分析技能中新增設為 1.0.0 的語意化版本中繼資料。"
+          },
+          {
+            "sha": "bf643de42937acea96a7bad69e20004b1fc86348",
+            "date": "2026-08-19T16:35:47-07:00",
+            "subject": "Upgrade gke-cost-analysis skill.",
+            "url": "https://github.com/google/skills/commit/bf643de42937acea96a7bad69e20004b1fc86348",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "釐清叢集管理費適用於兩種 GKE 模式，將啟用成本分配標示為會變更叢集且不回補歷史資料的操作，並連結至存放查詢範本的參考文件。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "為此技能新增 CloudObservabilityAndMonitoring 類別中繼資料。"
+          },
+          {
+            "sha": "24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "date": "2026-07-22T10:42:50-07:00",
+            "subject": "Merged gke-cost into gke-cost-analysis skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 成本分析技能初始版本，提供帳單匯出、成本分配、計價因素、使用率檢查及 BigQuery 查詢範例的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在 GKE 成本分析技能中添加设为 1.0.0 的语意化版本中继数据。"
+          },
+          {
+            "sha": "bf643de42937acea96a7bad69e20004b1fc86348",
+            "date": "2026-08-19T16:35:47-07:00",
+            "subject": "Upgrade gke-cost-analysis skill.",
+            "url": "https://github.com/google/skills/commit/bf643de42937acea96a7bad69e20004b1fc86348",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "厘清集群管理费适用于两种 GKE 模式，将激活成本分配标示为会变更集群且不回补历史数据的操作，并链接至存放查找范本的参考文档。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "为此技能添加 CloudObservabilityAndMonitoring 类别中继数据。"
+          },
+          {
+            "sha": "24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "date": "2026-07-22T10:42:50-07:00",
+            "subject": "Merged gke-cost into gke-cost-analysis skill and added 5-case evaluation suite.",
+            "url": "https://github.com/google/skills/commit/24de7ebf0a3a0dd9774f65d322fd55ce7ca09e32",
+            "pathAtCommit": "skills/cloud/gke-cost-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 成本分析技能初始版本，提供帐单导出、成本分配、计价因素、使用率检查及 BigQuery 查找范例的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

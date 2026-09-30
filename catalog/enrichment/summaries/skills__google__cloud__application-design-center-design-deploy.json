@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/application-design-center-design-deploy",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:fe2bce2ab45f853f19bf4d1bdaa9a6a1734bad6263185d3205afa6a7757cbc86"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides a local-first Terraform workflow for designing, validating, assessing, importing, deploying, and verifying Google Cloud infrastructure through Application Design Center.",
+        "whenToUse": "Use for Google Cloud infrastructure work in the Application Design Center context, including Terraform design or HCL validation, best-practice plan assessment, template import, deployment, and deployment troubleshooting.",
+        "outputs": "Produces validated Terraform configuration and plan-assessment findings, then an ADC template and deployment status with resource details, endpoints, and health-check results when those stages are completed."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "引導以本機 Terraform 為準的工作流程，透過 Application Design Center 設計、驗證、評估、匯入、部署及確認 Google Cloud 基礎架構。",
+        "whenToUse": "適用於 Application Design Center 情境中的 Google Cloud 基礎架構工作，包括 Terraform 設計或 HCL 驗證、最佳實務計畫評估、範本匯入、部署及部署故障排查。",
+        "outputs": "產出經驗證的 Terraform 設定與計畫評估結果，並在相關階段完成後提供 ADC 範本、部署狀態、資源詳細資料、端點及健康檢查結果。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "引导以本机 Terraform 为准的工作流程，透过 Application Design Center 设计、验证、评估、导入、部署及确认 Google Cloud 基础架构。",
+        "whenToUse": "适用于 Application Design Center 情境中的 Google Cloud 基础架构工作，包括 Terraform 设计或 HCL 验证、最佳实务计划评估、范本导入、部署及部署故障排查。",
+        "outputs": "产出经验证的 Terraform 设置与计划评估结果，并在相关阶段完成后提供 ADC 范本、部署状态、资源详细数据、端点及健康检查结果。"
+      }
+    }
+  }
+}

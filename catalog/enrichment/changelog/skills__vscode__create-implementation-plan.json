@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/df58232729375f0cc3c03756fc5b869470a9c2a9",
             "pathAtCommit": "skills/create-implementation-plan/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added rules and validation commands to ensure identifiers are declared uniquely in implementation plans."
+            "summary": "It adds a rule that each plan identifier must be declared exactly once, distinguishes declarations from references, and provides duplicate-identifier checks."
           },
           {
             "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
@@ -38,7 +38,7 @@
               "sourcePath": "prompts/create-implementation-plan.prompt.md",
               "destinationPath": "skills/create-implementation-plan/SKILL.md"
             },
-            "summary": "Added the create-implementation-plan skill file with instructions, a required plan template, and validation rules."
+            "summary": "It adds the create-implementation-plan skill file with its planning requirements and structured plan template."
           },
           {
             "sha": "531b5118864d33e848863e415cb326ab532f8c77",
@@ -47,7 +47,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/531b5118864d33e848863e415cb326ab532f8c77",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Replaced `fetch` with `web/fetch` in the prompt's tool list."
+            "summary": "It replaces `fetch` with `web/fetch` in the prompt's tool list."
           },
           {
             "sha": "5afc90e633da52f255abe1fa45da5d2797c8f896",
@@ -56,7 +56,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/5afc90e633da52f255abe1fa45da5d2797c8f896",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Replaced `web/fetch` with `fetch` in the prompt's tool list."
+            "summary": "It restores `fetch` in the prompt's tool list, replacing `web/fetch`."
           },
           {
             "sha": "ca790b171619f827da54e647dab9a2c4a8a5a1bb",
@@ -65,7 +65,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/ca790b171619f827da54e647dab9a2c4a8a5a1bb",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Replaced `fetch` with `web/fetch` in the prompt's tool list."
+            "summary": "It replaces `fetch` with `web/fetch` in the prompt's tool list."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -74,7 +74,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the prompt front matter field from `mode` to `agent`."
+            "summary": "It renames the prompt metadata field from `mode` to `agent`."
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -83,7 +83,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Updated several tool names in the prompt's tool list to their namespaced forms."
+            "summary": "It replaces the prompt tool names `codebase`, `searchResults`, `terminalLastCommand`, and `terminalSelection` with namespaced equivalents."
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -92,7 +92,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed `editFiles` to `edit/editFiles` in the prompt's tool list."
+            "summary": "It changes the prompt tool name `editFiles` to `edit/editFiles`."
           },
           {
             "sha": "647a2b43c393b975d1312be15965dfd0f5b8da98",
@@ -101,7 +101,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/647a2b43c393b975d1312be15965dfd0f5b8da98",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added status requirements, a status front matter field, and a status badge to the implementation plan template."
+            "summary": "It adds status guidance, a front-matter status field, and a status badge to the implementation-plan template."
           },
           {
             "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
@@ -110,15 +110,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added the create-implementation-plan prompt file with instructions and a full implementation plan template."
+            "summary": "It adds the create-implementation-plan prompt with planning requirements and a structured implementation-plan template."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -130,7 +130,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/df58232729375f0cc3c03756fc5b869470a9c2a9",
             "pathAtCommit": "skills/create-implementation-plan/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增規則與驗證指令，以確保實作計畫中的識別碼宣告具唯一性。"
+            "summary": "新增計畫識別碼必須各宣告一次的規則，區分宣告與引用，並提供重複識別碼檢查方式。"
           },
           {
             "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
@@ -144,7 +144,7 @@
               "sourcePath": "prompts/create-implementation-plan.prompt.md",
               "destinationPath": "skills/create-implementation-plan/SKILL.md"
             },
-            "summary": "新增 create-implementation-plan 技能檔案，包含說明、必要的計畫範本與驗證規則。"
+            "summary": "新增 create-implementation-plan 技能檔，內容包含規劃要求與結構化計畫範本。"
           },
           {
             "sha": "531b5118864d33e848863e415cb326ab532f8c77",
@@ -153,7 +153,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/531b5118864d33e848863e415cb326ab532f8c77",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單中的 `fetch` 改為 `web/fetch`。"
+            "summary": "將提示詞工具清單中的 `fetch` 替換為 `web/fetch`。"
           },
           {
             "sha": "5afc90e633da52f255abe1fa45da5d2797c8f896",
@@ -162,7 +162,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/5afc90e633da52f255abe1fa45da5d2797c8f896",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單中的 `web/fetch` 改回 `fetch`。"
+            "summary": "將提示詞工具清單中的 `web/fetch` 改回 `fetch`。"
           },
           {
             "sha": "ca790b171619f827da54e647dab9a2c4a8a5a1bb",
@@ -171,7 +171,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/ca790b171619f827da54e647dab9a2c4a8a5a1bb",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單中的 `fetch` 改為 `web/fetch`。"
+            "summary": "將提示詞工具清單中的 `fetch` 替換為 `web/fetch`。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -180,7 +180,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示前置資料欄位從 `mode` 更名為 `agent`。"
+            "summary": "將提示詞中繼資料欄位從 `mode` 改名為 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -189,7 +189,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單中的多個工具名稱更新為其命名空間版本。"
+            "summary": "將提示詞工具清單中的 `codebase`、`searchResults`、`terminalLastCommand` 和 `terminalSelection` 替換為命名空間版本。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -198,7 +198,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單中的 `editFiles` 更名為 `edit/editFiles`。"
+            "summary": "將提示詞工具名稱 `editFiles` 改為 `edit/editFiles`。"
           },
           {
             "sha": "647a2b43c393b975d1312be15965dfd0f5b8da98",
@@ -207,7 +207,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/647a2b43c393b975d1312be15965dfd0f5b8da98",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "在實作計畫範本中新增狀態需求、status 前置資料欄位與狀態徽章。"
+            "summary": "在實作計畫範本中新增狀態說明、前置中繼資料的狀態欄位，以及狀態徽章。"
           },
           {
             "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
@@ -216,13 +216,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增 create-implementation-plan 提示檔案，包含說明與完整的實作計畫範本。"
+            "summary": "新增 create-implementation-plan 提示詞，內含規劃要求與結構化的實作計畫範本。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -235,7 +235,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/df58232729375f0cc3c03756fc5b869470a9c2a9",
             "pathAtCommit": "skills/create-implementation-plan/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加规则与验证指令，以确保实作计划中的识别码声明具唯一性。"
+            "summary": "添加计划识别码必须各声明一次的规则，区分声明与引用，并提供重复识别码检查方式。"
           },
           {
             "sha": "caab1f623bb68a330f294a11279597d7ae7be737",
@@ -249,7 +249,7 @@
               "sourcePath": "prompts/create-implementation-plan.prompt.md",
               "destinationPath": "skills/create-implementation-plan/SKILL.md"
             },
-            "summary": "添加 create-implementation-plan 技能文件，包含说明、必要的计划范本与验证规则。"
+            "summary": "添加 create-implementation-plan 技能档，内容包含规划要求与结构化计划范本。"
           },
           {
             "sha": "531b5118864d33e848863e415cb326ab532f8c77",
@@ -258,7 +258,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/531b5118864d33e848863e415cb326ab532f8c77",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单中的 `fetch` 改为 `web/fetch`。"
+            "summary": "将提示词工具清单中的 `fetch` 替换为 `web/fetch`。"
           },
           {
             "sha": "5afc90e633da52f255abe1fa45da5d2797c8f896",
@@ -267,7 +267,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/5afc90e633da52f255abe1fa45da5d2797c8f896",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单中的 `web/fetch` 改回 `fetch`。"
+            "summary": "将提示词工具清单中的 `web/fetch` 改回 `fetch`。"
           },
           {
             "sha": "ca790b171619f827da54e647dab9a2c4a8a5a1bb",
@@ -276,7 +276,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/ca790b171619f827da54e647dab9a2c4a8a5a1bb",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单中的 `fetch` 改为 `web/fetch`。"
+            "summary": "将提示词工具清单中的 `fetch` 替换为 `web/fetch`。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -285,7 +285,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示前置数据字段从 `mode` 更名为 `agent`。"
+            "summary": "将提示词中继数据字段从 `mode` 改名为 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -294,7 +294,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单中的多个工具名称更新为其命名空间版本。"
+            "summary": "将提示词工具清单中的 `codebase`、`searchResults`、`terminalLastCommand` 和 `terminalSelection` 替换为命名空间版本。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -303,7 +303,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单中的 `editFiles` 更名为 `edit/editFiles`。"
+            "summary": "将提示词工具名称 `editFiles` 改为 `edit/editFiles`。"
           },
           {
             "sha": "647a2b43c393b975d1312be15965dfd0f5b8da98",
@@ -312,7 +312,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/647a2b43c393b975d1312be15965dfd0f5b8da98",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "在实作计划范本中添加状态需求、status 前置数据字段与状态徽章。"
+            "summary": "在实作计划范本中添加状态说明、前置中继数据的状态字段，以及状态徽章。"
           },
           {
             "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
@@ -321,7 +321,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
             "pathAtCommit": "prompts/create-implementation-plan.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加 create-implementation-plan 提示文件，包含说明与完整的实作计划范本。"
+            "summary": "添加 create-implementation-plan 提示词，内含规划要求与结构化的实作计划范本。"
           }
         ]
       }

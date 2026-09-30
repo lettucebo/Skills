@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-storage-bucket-architect",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f6ed4737883ca10cd6f4fc32e5a5ce693616c224b79310cea6e8c530a30a3104"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It helps design and provision secure, cost-effective Cloud Storage buckets tailored to specific workloads, including project-level security checks.",
+        "whenToUse": "Use it when a new workload needs object storage and the bucket's location, storage class, security settings, and lifecycle should be assessed before provisioning.",
+        "outputs": "It provides a workload-specific configuration plan and bucket-creation commands or code for gcloud, REST, Terraform, or SDKs, and can create the bucket when authorized."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助依特定工作負載設計並佈建安全且具成本效益的 Cloud Storage bucket，並檢查專案層級的安全設定。",
+        "whenToUse": "當新工作負載需要物件儲存，且佈建前應評估 bucket 的位置、儲存類別、安全設定與生命週期時使用。",
+        "outputs": "提供依工作負載規劃的設定方案，以及 gcloud、REST、Terraform 或 SDK 的建立命令或程式碼；獲得授權時也可代為建立 bucket。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助依特定工作负载设计并布建安全且具成本效益的 Cloud Storage bucket，并检查项目层级的安全设置。",
+        "whenToUse": "当新工作负载需要对象保存，且布建前应评估 bucket 的位置、保存类别、安全设置与生命周期时使用。",
+        "outputs": "提供依工作负载规划的设置方案，以及 gcloud、REST、Terraform 或 SDK 的创建命令或代码；获得授权时也可代为创建 bucket。"
+      }
+    }
+  }
+}

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides practical guidance for setting up and running CodeQL code scanning with GitHub Actions or the CodeQL CLI.",
-        "whenToUse": "Use it when you need help configuring scans, choosing build and query options, understanding SARIF results, or troubleshooting CodeQL analysis.",
-        "outputs": "Delivers workflow examples, CLI command patterns, configuration guidance, and troubleshooting advice for CodeQL-based code scanning."
+        "purpose": "Guides end-to-end CodeQL scanning, from choosing languages and build modes to configuring queries and handling results.",
+        "whenToUse": "Use it when moving from default to advanced setup, tailoring scan coverage for compiled languages or monorepos, or diagnosing missed code, extraction errors, and SARIF upload failures.",
+        "outputs": "Provides workflow and configuration examples, CLI commands for database creation, analysis, and SARIF upload, plus guidance on query packs, alert triage, and common failures."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供使用 GitHub Actions 或 CodeQL CLI 設定與執行 CodeQL 程式碼掃描的實務指引。",
-        "whenToUse": "當你需要協助設定掃描、選擇建置與查詢選項、理解 SARIF 結果或排除 CodeQL 分析問題時，可使用它。",
-        "outputs": "它會提供工作流程範例、CLI 指令模式、設定指引，以及與 CodeQL 程式碼掃描相關的疑難排解建議。"
+        "purpose": "提供 CodeQL 掃描的完整指引，涵蓋選擇語言與建置模式、設定查詢及處理分析結果。",
+        "whenToUse": "當你要從預設設定改用進階設定、調整編譯語言或 monorepo 的掃描範圍，或排查漏掃、擷取錯誤及 SARIF 上傳失敗時使用。",
+        "outputs": "提供工作流程與設定範例、建立及分析資料庫和上傳 SARIF 的 CLI 指令，並涵蓋查詢套件、警示分流與常見故障處理。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供使用 GitHub Actions 或 CodeQL CLI 设置与运行 CodeQL 代码扫描的实务指引。",
-        "whenToUse": "当你需要协助设置扫描、选择建置与查找选项、理解 SARIF 结果或排除 CodeQL 分析问题时，可使用它。",
-        "outputs": "它会提供工作流程范例、CLI 指令模式、设置指引，以及与 CodeQL 代码扫描相关的疑难排解建议。"
+        "purpose": "提供 CodeQL 扫描的完整指引，涵盖选择语言与建置模式、设置查找及处理分析结果。",
+        "whenToUse": "当你要从预设设置改用高级设置、调整编译语言或 monorepo 的扫描范围，或排查漏扫、截取错误及 SARIF 上传失败时使用。",
+        "outputs": "提供工作流程与设置范例、创建及分析数据库和上传 SARIF 的 CLI 指令，并涵盖查找套件、警示分流与常见故障处理。"
       }
     }
   }

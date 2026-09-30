@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/analytics/google-analytics-admin-api-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:763152be9bd3b2930e8b175bcc13c14b20678cc49e411f17e11563dcb317653d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides you in using the Google Analytics Admin API to inspect accessible account and property summaries and manage supported Analytics settings.",
+        "whenToUse": "Use it when setting up API access or finding the right API and client-library guidance for a Google Analytics administration task.",
+        "outputs": "It provides commands to enable and verify the API, authentication guidance, API version notes, client-library setup references, and a Python example for listing accessible accounts and properties."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它協助你透過 Google Analytics Admin API 檢視可存取的帳戶與資源摘要，並管理支援的 Analytics 設定。",
+        "whenToUse": "當你要設定 API 存取權，或為 Google Analytics 管理工作查找適用的 API 與用戶端程式庫指引時，請使用它。",
+        "outputs": "它提供啟用與驗證 API 的指令、驗證設定指引、API 版本說明、用戶端程式庫設定參考，以及列出可存取帳戶與資源的 Python 範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它协助你透过 Google Analytics Admin API 查看可访问的帐户与资源摘要，并管理支持的 Analytics 设置。",
+        "whenToUse": "当你要设置 API 访问权，或为 Google Analytics 管理工作查找适用的 API 与用户端程序库指引时，请使用它。",
+        "outputs": "它提供激活与验证 API 的指令、验证设置指引、API 版本说明、用户端程序库设置参考，以及列出可访问帐户与资源的 Python 范例。"
+      }
+    }
+  }
+}

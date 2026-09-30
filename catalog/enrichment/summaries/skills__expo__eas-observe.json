@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/eas-observe",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f6f042c8220bf57a57b56a528f27a78892f1cbfe0e2c5e4ff3fa5c297d66ae80"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Tracks production Expo app startup, navigation, and custom-event performance, with guidance for interpreting and investigating the resulting metrics.",
+        "whenToUse": "Use it when instrumenting an Expo app, checking its performance through EAS CLI data, or diagnosing slow launches and route transitions.",
+        "outputs": "Offers integration and configuration guidance, EAS CLI query instructions, metric explanations and diagnostic patterns, and guidance for embedding Observe in a library."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "追蹤正式環境 Expo 應用程式的啟動、導覽與自訂事件效能，並提供解讀及調查相關指標的指引。",
+        "whenToUse": "在為 Expo 應用程式加入監測、透過 EAS CLI 檢視效能資料，或診斷啟動與路由切換緩慢時使用。",
+        "outputs": "提供整合與設定指引、EAS CLI 查詢說明、指標解讀與診斷模式，以及在程式庫中整合 Observe 的指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "追踪正式环境 Expo 应用程序的启动、导览与自订事件性能，并提供解读及调查相关指针的指引。",
+        "whenToUse": "在为 Expo 应用程序加入监测、透过 EAS CLI 查看性能数据，或诊断启动与路由切换缓慢时使用。",
+        "outputs": "提供集成与设置指引、EAS CLI 查找说明、指针解读与诊断模式，以及在程序库中集成 Observe 的指引。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-app-clip",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:09c2083cda6aff26f63ed67e8dfd74f8eec76eebd28b22876d0a7b213e7022f5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides an end-to-end Expo iOS setup for an App Clip that launches from the app’s web domain.",
+        "whenToUse": "Use it when you need to connect an Expo App Clip to its website and prepare the app-and-Clip pair for release.",
+        "outputs": "The result is an Expo setup with a Clip target, associated-domain and AASA configuration, a Smart App Banner, and TestFlight and App Store metadata guidance."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本技能說明如何為 Expo iOS 專案完整設定 App Clip，讓使用者可從 App 的網站網域啟動它。",
+        "whenToUse": "當你需要將 Expo App Clip 與網站連結，並準備母 App 與 Clip 的發佈設定時使用。",
+        "outputs": "完成後的設定包含 Clip target、關聯網域與 AASA 託管、智慧型 App 橫幅，以及 TestFlight 與 App Store 中繼資料指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本技能说明如何为 Expo iOS 项目完整设置 App Clip，让用户可从 App 的网站网域启动它。",
+        "whenToUse": "当你需要将 Expo App Clip 与网站链接，并准备母 App 与 Clip 的发布设置时使用。",
+        "outputs": "完成后的设置包含 Clip target、关联网域与 AASA 托管、智能型 App 横幅，以及 TestFlight 与 App Store 中继数据指引。"
+      }
+    }
+  }
+}

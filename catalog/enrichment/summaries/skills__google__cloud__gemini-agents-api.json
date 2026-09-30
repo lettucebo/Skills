@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gemini-agents-api",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:01c2f95a79ad3db4f3587e55a7f4713194ee30098d2c30c7a89552f3de6d799d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It explains the control-plane API's authentication, agent configuration fields, and request-response workflow.",
+        "whenToUse": "Use it when you need concrete request details for ADC authentication, Cloud Storage or Skill Registry mounts, built-in or MCP tool configuration, or polling provisioning operations and patching selected fields with an update mask.",
+        "outputs": "It provides REST endpoints, curl examples, and JSON request and response shapes for creation, operation polling, retrieval, listing, masked updates, and deletion."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明控制平面 API 的驗證方式、代理程式設定欄位與請求回應流程。",
+        "whenToUse": "當您需要查閱 ADC 驗證、Cloud Storage 或 Skill Registry 掛載、內建或 MCP 工具設定、佈建作業輪詢，或使用更新遮罩修補指定欄位的具體請求方式時，可參考此內容。",
+        "outputs": "提供 REST 端點、curl 範例，以及建立、輪詢作業、擷取、列出、使用更新遮罩修改與刪除資源的 JSON 請求和回應結構。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明控制平面 API 的验证方式、代理程序设置字段与请求回应流程。",
+        "whenToUse": "当您需要查阅 ADC 验证、Cloud Storage 或 Skill Registry 挂载、内置或 MCP 工具设置、布建作业轮询，或使用更新遮罩修补指定字段的具体请求方式时，可参考此内容。",
+        "outputs": "提供 REST 端点、curl 范例，以及创建、轮询作业、截取、列出、使用更新遮罩修改与删除资源的 JSON 请求和回应结构。"
+      }
+    }
+  }
+}

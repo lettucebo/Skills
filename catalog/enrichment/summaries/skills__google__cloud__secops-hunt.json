@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/secops-hunt",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7d25590185f8edabb25cecea273c1934e885623b5881b20bccba06fb759df3f9"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Supports structured threat hunts in Google SecOps by testing behavioral hypotheses, checking historical telemetry for indicators, and investigating rare or anomalous activity.",
+        "whenToUse": "Use it when a hunt hypothesis, newly disclosed indicator, uncommon artifact, or unusual behavior needs validation across enterprise telemetry.",
+        "outputs": "Delivers time-bounded UDM searches, contextualized findings on indicators, entities, and anomalies, and a hunt summary with recommendations for case escalation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過驗證行為假設、回查歷史遙測中的指標，以及調查罕見或異常活動，支援 Google SecOps 的系統化威脅狩獵。",
+        "whenToUse": "當需要在企業遙測中驗證狩獵假設、新揭露指標、罕見工件或異常行為時使用。",
+        "outputs": "提供有時間範圍限制的 UDM 搜尋、指標、實體與異常活動的脈絡化調查結果，以及含升級建議的狩獵摘要。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过验证行为假设、回查历史遥测中的指针，以及调查罕见或异常活动，支持 Google SecOps 的系统化威胁狩猎。",
+        "whenToUse": "当需要在企业遥测中验证狩猎假设、新揭露指针、罕见工件或异常行为时使用。",
+        "outputs": "提供有时间范围限制的 UDM 搜索、指针、实体与异常活动的脉络化调查结果，以及含升级建议的狩猎摘要。"
+      }
+    }
+  }
+}

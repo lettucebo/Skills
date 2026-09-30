@@ -1,0 +1,126 @@
+{
+  "path": "skills/expo/expo-project-structure",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:247803066d5e635f9fb8a41ace3afb3ce7a10e18a017a8d6a933dbdf336ceb4a",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-project-structure",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-project-structure/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance to load expo-skill-feedback and use its eval-candidate flow when an AI agent repeatedly fails at an Expo task or the user has to take over."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-project-structure/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a feedback section directing users to report specific, actionable errors or outdated information in the skill through Expo's feedback CLI."
+          },
+          {
+            "sha": "9eb5ab06b7315a1a517b61fa730f60d9a3b48d69",
+            "date": "2026-07-14T16:58:19+02:00",
+            "subject": "Add expo-project-structure skill for greenfield app layout (#91)",
+            "url": "https://github.com/expo/skills/commit/9eb5ab06b7315a1a517b61fa730f60d9a3b48d69",
+            "pathAtCommit": "plugins/expo/skills/expo-project-structure/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the expo-project-structure skill with a starter layout and guidance for organizing new Expo apps' routes, UI, screens, server code, platform-specific files, tests, and configuration."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-project-structure/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若 AI 代理在 Expo 任務中屢次失敗或需要使用者接手，應載入 expo-skill-feedback 並採用其 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-project-structure/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增回饋章節，指引使用者透過 Expo 回饋 CLI 回報此技能中具體且可採取行動的錯誤或過時資訊。"
+          },
+          {
+            "sha": "9eb5ab06b7315a1a517b61fa730f60d9a3b48d69",
+            "date": "2026-07-14T16:58:19+02:00",
+            "subject": "Add expo-project-structure skill for greenfield app layout (#91)",
+            "url": "https://github.com/expo/skills/commit/9eb5ab06b7315a1a517b61fa730f60d9a3b48d69",
+            "pathAtCommit": "plugins/expo/skills/expo-project-structure/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 expo-project-structure 技能，提供新 Expo 應用程式的起始目錄結構，以及組織路由、UI、畫面、伺服器程式碼、平台專屬檔案、測試與設定的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-project-structure/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若 AI 代理在 Expo 任务中屡次失败或需要用户接手，应加载 expo-skill-feedback 并采用其 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-project-structure/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加回馈章节，指引用户透过 Expo 回馈 CLI 回报此技能中具体且可采取行动的错误或过时信息。"
+          },
+          {
+            "sha": "9eb5ab06b7315a1a517b61fa730f60d9a3b48d69",
+            "date": "2026-07-14T16:58:19+02:00",
+            "subject": "Add expo-project-structure skill for greenfield app layout (#91)",
+            "url": "https://github.com/expo/skills/commit/9eb5ab06b7315a1a517b61fa730f60d9a3b48d69",
+            "pathAtCommit": "plugins/expo/skills/expo-project-structure/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 expo-project-structure 技能，提供新 Expo 应用程序的起始目录结构，以及组织路由、UI、画面、服务器代码、平台专属文件、测试与设置的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

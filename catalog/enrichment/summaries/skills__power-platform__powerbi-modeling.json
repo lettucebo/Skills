@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides best-practice guidance for building and refining Power BI semantic models, including schema design, measures, relationships, security, documentation, and performance.",
-        "whenToUse": "Use it for questions about DAX, star schemas, table relationships, row-level security, naming, calculation groups, field parameters, or model validation and tuning.",
-        "outputs": "Returns model-focused recommendations, quality checks, and example operations for measures, columns, relationships, and other semantic model changes."
+        "purpose": "Helps assess and improve Power BI semantic models using modeling best practices.",
+        "whenToUse": "Use it when designing or reviewing model schemas and relationships, writing DAX, setting up row-level security, documenting models, or investigating performance.",
+        "outputs": "It provides model-specific recommendations and supports inspecting or modifying model objects such as measures, relationships, and documentation through Power BI modeling tools."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供建立與優化 Power BI 語意模型的最佳實務建議，涵蓋結構設計、量值、關聯、安全性、文件與效能。",
-        "whenToUse": "當需求涉及 DAX、星型架構、資料表關聯、列層級安全性、命名、計算群組、欄位參數或模型驗證與調校時使用。",
-        "outputs": "回傳以模型為中心的建議、品質檢查，以及針對量值、欄位、關聯等語意模型變更的操作範例。"
+        "purpose": "協助依據建模最佳實務評估並改善 Power BI 語意模型。",
+        "whenToUse": "在設計或檢視模型結構與關聯、撰寫 DAX、設定資料列層級安全性、補充模型文件或排查效能時使用。",
+        "outputs": "它會提供針對模型狀況的建議，並可透過 Power BI 建模工具檢視或修改度量值、關聯與文件等模型物件。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供创建与优化 Power BI 语意模型的最佳实务建议，涵盖结构设计、量值、关联、安全性、文档与性能。",
-        "whenToUse": "当需求涉及 DAX、星型架构、数据表关联、列层级安全性、命名、计算群组、字段参数或模型验证与调校时使用。",
-        "outputs": "回传以模型为中心的建议、品质检查，以及针对量值、字段、关联等语意模型变更的操作范例。"
+        "purpose": "协助依据建模最佳实务评估并改善 Power BI 语意模型。",
+        "whenToUse": "在设计或查看模型结构与关联、撰写 DAX、设置数据列层级安全性、补充模型文档或排查性能时使用。",
+        "outputs": "它会提供针对模型状况的建议，并可透过 Power BI 建模工具查看或修改度量值、关联与文档等模型对象。"
       }
     }
   }

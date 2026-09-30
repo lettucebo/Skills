@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/2ea69e89f4d8c40132e0f8eaf0920be22009729d",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The SKILL.md frontmatter description was shortened by changing \"batch storage operations\" to \"batch storage.\""
+            "summary": "The skill description changes \"batch storage operations\" to \"batch storage.\""
           },
           {
             "sha": "5e7796cdf2ae21a125b506c7170a92ee37f917dc",
@@ -33,7 +33,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/5e7796cdf2ae21a125b506c7170a92ee37f917dc",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The Tampermonkey skill was expanded with updated frontmatter, async and TypeScript guidance, new v5.x API references, and related documentation additions."
+            "summary": "The skill adds async GM.* and TypeScript examples, v5.x API and header guidance, and an injection-permission limitation, while updating its reference guide."
           },
           {
             "sha": "1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
@@ -42,7 +42,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The frontmatter changed `allowed-tools` from a YAML list to a single comma-separated line."
+            "summary": "The frontmatter changes `allowed-tools` from a YAML list to an inline comma-separated value."
           },
           {
             "sha": "dc8580a25626e43be3c823933d5aa416e1ffd8f5",
@@ -51,7 +51,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/dc8580a25626e43be3c823933d5aa416e1ffd8f5",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The skill was condensed by flattening the description, shortening examples and sections, and replacing full pattern code blocks with brief references."
+            "summary": "The skill streamlines its frontmatter, replaces full pattern examples and a sample response with concise summaries or links, and condenses its reference guide."
           },
           {
             "sha": "a648c18667eaf49dd8211571157d51e465df0a52",
@@ -65,7 +65,7 @@
               "sourcePath": "plugins/productivity/skills/tampermonkey/SKILL.md",
               "destinationPath": "plugins/tampermonkey/skills/tampermonkey/SKILL.md"
             },
-            "summary": "The skill file was renamed from `plugins/productivity/skills/tampermonkey/SKILL.md` to `plugins/tampermonkey/skills/tampermonkey/SKILL.md` with no content changes."
+            "summary": "The unchanged skill file is renamed from `plugins/productivity/skills/tampermonkey/SKILL.md` to `plugins/tampermonkey/skills/tampermonkey/SKILL.md`."
           },
           {
             "sha": "800f8c9e4f98dbae69d5e63835167fa2f4ea8cab",
@@ -79,7 +79,7 @@
               "sourcePath": "productivity/skills/tampermonkey/SKILL.md",
               "destinationPath": "plugins/productivity/skills/tampermonkey/SKILL.md"
             },
-            "summary": "The skill file was renamed from `productivity/skills/tampermonkey/SKILL.md` to `plugins/productivity/skills/tampermonkey/SKILL.md` with no content changes."
+            "summary": "The unchanged skill file moves from `productivity/skills/tampermonkey/SKILL.md` to `plugins/productivity/skills/tampermonkey/SKILL.md`."
           },
           {
             "sha": "b5cc1abed6f0f73410cacc1e66b6f364323eb609",
@@ -88,15 +88,15 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/b5cc1abed6f0f73410cacc1e66b6f364323eb609",
             "pathAtCommit": "productivity/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The Tampermonkey skill was added as a new `SKILL.md` file with userscript guidance, templates, references, and checklists."
+            "summary": "The patch adds a Tampermonkey userscript-development skill with a starter template, header, URL and permission guidance, common patterns, usage guidance, a security checklist, and a reference index."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -108,7 +108,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/2ea69e89f4d8c40132e0f8eaf0920be22009729d",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "SKILL.md 的 frontmatter 描述將「batch storage operations」縮短為「batch storage」。"
+            "summary": "此技能的描述將「batch storage operations」改為「batch storage」。"
           },
           {
             "sha": "5e7796cdf2ae21a125b506c7170a92ee37f917dc",
@@ -117,7 +117,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/5e7796cdf2ae21a125b506c7170a92ee37f917dc",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Tampermonkey 技能擴充了更新後的 frontmatter、非同步與 TypeScript 指南、新的 v5.x API 參考，以及相關文件內容。"
+            "summary": "此技能新增 async GM.* 與 TypeScript 範例、v5.x API 與標頭指引及注入權限限制，並更新參考資料指南。"
           },
           {
             "sha": "1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
@@ -126,7 +126,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "frontmatter 將 `allowed-tools` 從 YAML 清單改成單行的逗號分隔格式。"
+            "summary": "前置中繼資料將 `allowed-tools` 從 YAML 清單改為行內逗號分隔值。"
           },
           {
             "sha": "dc8580a25626e43be3c823933d5aa416e1ffd8f5",
@@ -135,7 +135,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/dc8580a25626e43be3c823933d5aa416e1ffd8f5",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能透過將描述改為單行、縮短範例與章節，並以簡短參考取代完整模式程式碼區塊來精簡內容。"
+            "summary": "此技能簡化前置中繼資料，以精簡摘要或連結取代完整的模式範例與回覆範例，並精簡參考指南。"
           },
           {
             "sha": "a648c18667eaf49dd8211571157d51e465df0a52",
@@ -149,7 +149,7 @@
               "sourcePath": "plugins/productivity/skills/tampermonkey/SKILL.md",
               "destinationPath": "plugins/tampermonkey/skills/tampermonkey/SKILL.md"
             },
-            "summary": "此技能檔案從 `plugins/productivity/skills/tampermonkey/SKILL.md` 重新命名為 `plugins/tampermonkey/skills/tampermonkey/SKILL.md`，內容沒有變更。"
+            "summary": "此技能檔案在內容不變的情況下，從 `plugins/productivity/skills/tampermonkey/SKILL.md` 重新命名為 `plugins/tampermonkey/skills/tampermonkey/SKILL.md`。"
           },
           {
             "sha": "800f8c9e4f98dbae69d5e63835167fa2f4ea8cab",
@@ -163,7 +163,7 @@
               "sourcePath": "productivity/skills/tampermonkey/SKILL.md",
               "destinationPath": "plugins/productivity/skills/tampermonkey/SKILL.md"
             },
-            "summary": "此技能檔案從 `productivity/skills/tampermonkey/SKILL.md` 重新命名為 `plugins/productivity/skills/tampermonkey/SKILL.md`，內容沒有變更。"
+            "summary": "此技能檔案在內容不變的情況下，從 `productivity/skills/tampermonkey/SKILL.md` 移至 `plugins/productivity/skills/tampermonkey/SKILL.md`。"
           },
           {
             "sha": "b5cc1abed6f0f73410cacc1e66b6f364323eb609",
@@ -172,13 +172,13 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/b5cc1abed6f0f73410cacc1e66b6f364323eb609",
             "pathAtCommit": "productivity/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Tampermonkey 技能新增為一個 `SKILL.md` 檔案，包含 userscript 指南、範本、參考資料與檢查清單。"
+            "summary": "此補丁新增一項 Tampermonkey 使用者腳本開發技能，包含入門範本、標頭、網址與權限指引、常見模式、使用指引、安全檢查清單及參考索引。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -191,7 +191,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/2ea69e89f4d8c40132e0f8eaf0920be22009729d",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "SKILL.md 的 frontmatter 描述将「batch storage operations」缩短为「batch storage」。"
+            "summary": "此技能的描述将「batch storage operations」改为「batch storage」。"
           },
           {
             "sha": "5e7796cdf2ae21a125b506c7170a92ee37f917dc",
@@ -200,7 +200,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/5e7796cdf2ae21a125b506c7170a92ee37f917dc",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Tampermonkey 技能扩充了更新后的 frontmatter、异步与 TypeScript 指南、新的 v5.x API 参考，以及相关文档内容。"
+            "summary": "此技能添加 async GM.* 与 TypeScript 范例、v5.x API 与标头指引及注入权限限制，并更新参考资料指南。"
           },
           {
             "sha": "1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
@@ -209,7 +209,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/1b5ced23cdb5bf7a7df1c70353044d6ec6f53ef4",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "frontmatter 将 `allowed-tools` 从 YAML 清单改成单行的逗号分隔格式。"
+            "summary": "前置中继数据将 `allowed-tools` 从 YAML 清单改为行内逗号分隔值。"
           },
           {
             "sha": "dc8580a25626e43be3c823933d5aa416e1ffd8f5",
@@ -218,7 +218,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/dc8580a25626e43be3c823933d5aa416e1ffd8f5",
             "pathAtCommit": "plugins/tampermonkey/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "此技能透过将描述改为单行、缩短范例与章节，并以简短参考取代完整模式代码区块来精简内容。"
+            "summary": "此技能简化前置中继数据，以精简摘要或链接取代完整的模式范例与回复范例，并精简参考指南。"
           },
           {
             "sha": "a648c18667eaf49dd8211571157d51e465df0a52",
@@ -232,7 +232,7 @@
               "sourcePath": "plugins/productivity/skills/tampermonkey/SKILL.md",
               "destinationPath": "plugins/tampermonkey/skills/tampermonkey/SKILL.md"
             },
-            "summary": "此技能文件从 `plugins/productivity/skills/tampermonkey/SKILL.md` 重命名为 `plugins/tampermonkey/skills/tampermonkey/SKILL.md`，内容没有变更。"
+            "summary": "此技能文件在内容不变的情况下，从 `plugins/productivity/skills/tampermonkey/SKILL.md` 重命名为 `plugins/tampermonkey/skills/tampermonkey/SKILL.md`。"
           },
           {
             "sha": "800f8c9e4f98dbae69d5e63835167fa2f4ea8cab",
@@ -246,7 +246,7 @@
               "sourcePath": "productivity/skills/tampermonkey/SKILL.md",
               "destinationPath": "plugins/productivity/skills/tampermonkey/SKILL.md"
             },
-            "summary": "此技能文件从 `productivity/skills/tampermonkey/SKILL.md` 重命名为 `plugins/productivity/skills/tampermonkey/SKILL.md`，内容没有变更。"
+            "summary": "此技能文件在内容不变的情况下，从 `productivity/skills/tampermonkey/SKILL.md` 移至 `plugins/productivity/skills/tampermonkey/SKILL.md`。"
           },
           {
             "sha": "b5cc1abed6f0f73410cacc1e66b6f364323eb609",
@@ -255,7 +255,7 @@
             "url": "https://github.com/henkisdabro/wookstar-claude-plugins/commit/b5cc1abed6f0f73410cacc1e66b6f364323eb609",
             "pathAtCommit": "productivity/skills/tampermonkey/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Tampermonkey 技能添加为一个 `SKILL.md` 文件，包含 userscript 指南、范本、参考资料与检查清单。"
+            "summary": "此补丁添加一项 Tampermonkey 用户脚本开发技能，包含入门范本、标头、网址与权限指引、常见模式、使用指引、安全检查清单及参考索引。"
           }
         ]
       }

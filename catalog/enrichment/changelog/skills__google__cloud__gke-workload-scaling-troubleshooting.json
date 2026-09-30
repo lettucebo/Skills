@@ -1,0 +1,72 @@
+{
+  "path": "skills/google/cloud/gke-workload-scaling-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:732290b03e0088e9d3e81c29286731b9d6e2f93b1f348b400b45f940d9646760",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-workload-scaling-troubleshooting",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f566651a2f60aecbc4654f8868fb239f85a783f6",
+            "date": "2026-09-25T12:39:05-07:00",
+            "subject": "Add the gke-workload-scaling-troubleshooting skill.",
+            "url": "https://github.com/google/skills/commit/f566651a2f60aecbc4654f8868fb239f85a783f6",
+            "pathAtCommit": "skills/cloud/gke-workload-scaling-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a GKE HorizontalPodAutoscaler (HPA) troubleshooting skill with symptom-based diagnostics and read-only guidance for proposing GitOps fixes."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f566651a2f60aecbc4654f8868fb239f85a783f6",
+            "date": "2026-09-25T12:39:05-07:00",
+            "subject": "Add the gke-workload-scaling-troubleshooting skill.",
+            "url": "https://github.com/google/skills/commit/f566651a2f60aecbc4654f8868fb239f85a783f6",
+            "pathAtCommit": "skills/cloud/gke-workload-scaling-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE HorizontalPodAutoscaler（HPA）疑難排解技能，提供依症狀分類的診斷流程，並指引以唯讀方式提出 GitOps 修正方案。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "f566651a2f60aecbc4654f8868fb239f85a783f6",
+            "date": "2026-09-25T12:39:05-07:00",
+            "subject": "Add the gke-workload-scaling-troubleshooting skill.",
+            "url": "https://github.com/google/skills/commit/f566651a2f60aecbc4654f8868fb239f85a783f6",
+            "pathAtCommit": "skills/cloud/gke-workload-scaling-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE HorizontalPodAutoscaler（HPA）疑难排解技能，提供依症状分类的诊断流程，并指引以唯读方式提出 GitOps 修正方案。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-project-structure",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:247803066d5e635f9fb8a41ace3afb3ce7a10e18a017a8d6a933dbdf336ceb4a"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Defines a starter organization that keeps Expo Router routes distinct from reusable UI, screen bodies, and server-only code.",
+        "whenToUse": "Use it while deciding where routes, screen-only UI, shared components, API handlers, or platform variants belong in a fresh project, and keep an existing app's conventions.",
+        "outputs": "Provides a sample src-based directory tree plus placement guidance for routes, components, screens, server helpers, platform variants, colocated tests and styles, and root configuration."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "定義一套入門專案組織方式，將 Expo Router 路由與可重用介面、畫面內容及僅供伺服器使用的程式碼分開。",
+        "whenToUse": "在新專案決定路由、畫面專屬介面、共用元件、API 處理程式或平台變體的歸屬時參考，並沿用既有應用程式的原有慣例。",
+        "outputs": "提供以 src 為主的範例目錄樹，並說明路由、元件、畫面、伺服器輔助程式、平台變體、就近放置的測試與樣式，以及根目錄設定檔的安排。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "定义一套入门项目组织方式，将 Expo Router 路由与可重用界面、画面内容及仅供服务器使用的代码分开。",
+        "whenToUse": "在新项目决定路由、画面专属界面、共用组件、API 处理程序或平台变体的归属时参考，并沿用既有应用程序的原有惯例。",
+        "outputs": "提供以 src 为主的范例目录树，并说明路由、组件、画面、服务器辅助程序、平台变体、就近放置的测试与样式，以及根目录设置档的安排。"
+      }
+    }
+  }
+}

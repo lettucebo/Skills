@@ -1,0 +1,507 @@
+{
+  "path": "skills/google/cloud/bigquery-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:a9ea505407a85e391b97554999ecdeb268fe2d340e4f0a73447f9087e01da843",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/bigquery-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 under the skill's metadata front matter."
+          },
+          {
+            "sha": "0ecc2fc6be6074c2614e5234c593515068bf695e",
+            "date": "2026-09-10T09:26:10-07:00",
+            "subject": "Update bigquery-basics skill with standardized metrics tracking (agent-skills).",
+            "url": "https://github.com/google/skills/commit/0ecc2fc6be6074c2614e5234c593515068bf695e",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added attribution guidance for directly executed gcloud commands and BigQuery HTTP/MCP requests, and updated the gcloud example with the attribution variable."
+          },
+          {
+            "sha": "e08ada03c19b013861cc139b3e06d764afad0fd2",
+            "date": "2026-07-31T13:31:56-07:00",
+            "subject": "Add documentation for BigQuery continuous queries to the BigQuery agent skills.",
+            "url": "https://github.com/google/skills/commit/e08ada03c19b013861cc139b3e06d764afad0fd2",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a reference link for BigQuery continuous queries and real-time SQL analysis."
+          },
+          {
+            "sha": "6617ca70a978adab1abfd154576330f6f9dd3314",
+            "date": "2026-07-29T15:02:14-07:00",
+            "subject": "Add documentation for BigQuery Change History to the BigQuery agent skills.",
+            "url": "https://github.com/google/skills/commit/6617ca70a978adab1abfd154576330f6f9dd3314",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a Change History reference covering APPENDS and CHANGES for incremental table changes."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a metadata front-matter block and moved the BigDataAndAnalytics category under it."
+          },
+          {
+            "sha": "872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "date": "2026-06-20T00:26:41-07:00",
+            "subject": "Refactor BQ skills",
+            "url": "https://github.com/google/skills/commit/872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Narrowed the skill description to basic BigQuery tasks, removed several AI/ML reference entries, and changed the related AI & ML skill link to a relative path."
+          },
+          {
+            "sha": "31c6adb8583b0b05e5a8ac265a5089e950e0336a",
+            "date": "2026-06-02T16:39:40-07:00",
+            "subject": "Adding BQ AI generate reference",
+            "url": "https://github.com/google/skills/commit/31c6adb8583b0b05e5a8ac265a5089e950e0336a",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added an AI Generate reference and removed the AI Generate file from the related AI/ML reference list."
+          },
+          {
+            "sha": "14a8f360c0414007ee9c8647edc7a0d9d3c65798",
+            "date": "2026-06-01T16:29:27-07:00",
+            "subject": "Adding BQ AI anomaly detection reference",
+            "url": "https://github.com/google/skills/commit/14a8f360c0414007ee9c8647edc7a0d9d3c65798",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added an AI Detect Anomalies reference and removed its file from the related AI/ML reference list."
+          },
+          {
+            "sha": "d59d0e2db2d95627141d23883adb6c6d72a77d18",
+            "date": "2026-06-01T15:41:55-07:00",
+            "subject": "Upload BigQuery AI.FORECAST skill",
+            "url": "https://github.com/google/skills/commit/d59d0e2db2d95627141d23883adb6c6d72a77d18",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added an AI Forecast reference and reformatted the related AI/ML reference list while removing its forecast file entry."
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the --quiet flag to the gcloud API-enablement example."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/bigquery-basics/SKILL.md",
+              "destinationPath": "skills/cloud/bigquery-basics/SKILL.md"
+            },
+            "summary": "Renamed the skill file from cloud/bigquery-basics/SKILL.md to skills/cloud/bigquery-basics/SKILL.md without content changes."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+              "destinationPath": "cloud/bigquery-basics/SKILL.md"
+            },
+            "summary": "Renamed the skill file from cloud/products/bigquery/bigquery-basics/SKILL.md to cloud/bigquery-basics/SKILL.md without content changes."
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the document heading from BigQuery Guide to BigQuery Basics."
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill's front-matter name from bigquery to bigquery-basics."
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the six reference links to use paths relative to the skill directory."
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial BigQuery skill guide with setup and query instructions and links to reference documentation and related AI/ML resources."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 metadata 前置資料中新增版本 1.0.0。"
+          },
+          {
+            "sha": "0ecc2fc6be6074c2614e5234c593515068bf695e",
+            "date": "2026-09-10T09:26:10-07:00",
+            "subject": "Update bigquery-basics skill with standardized metrics tracking (agent-skills).",
+            "url": "https://github.com/google/skills/commit/0ecc2fc6be6074c2614e5234c593515068bf695e",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增直接執行的 gcloud 指令及 BigQuery HTTP/MCP 請求的歸因指引，並在 gcloud 範例中加入歸因環境變數。"
+          },
+          {
+            "sha": "e08ada03c19b013861cc139b3e06d764afad0fd2",
+            "date": "2026-07-31T13:31:56-07:00",
+            "subject": "Add documentation for BigQuery continuous queries to the BigQuery agent skills.",
+            "url": "https://github.com/google/skills/commit/e08ada03c19b013861cc139b3e06d764afad0fd2",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 BigQuery 連續查詢及即時 SQL 分析的參考文件連結。"
+          },
+          {
+            "sha": "6617ca70a978adab1abfd154576330f6f9dd3314",
+            "date": "2026-07-29T15:02:14-07:00",
+            "subject": "Add documentation for BigQuery Change History to the BigQuery agent skills.",
+            "url": "https://github.com/google/skills/commit/6617ca70a978adab1abfd154576330f6f9dd3314",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增變更歷史參考文件，說明如何使用 APPENDS 和 CHANGES 追蹤增量資料表變更。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 metadata 前置資料區塊，並將 BigDataAndAnalytics 類別移至其中。"
+          },
+          {
+            "sha": "872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "date": "2026-06-20T00:26:41-07:00",
+            "subject": "Refactor BQ skills",
+            "url": "https://github.com/google/skills/commit/872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能描述限縮為 BigQuery 基本工作，移除多個 AI/ML 參考項目，並將相關 AI 與 ML 技能連結改為相對路徑。"
+          },
+          {
+            "sha": "31c6adb8583b0b05e5a8ac265a5089e950e0336a",
+            "date": "2026-06-02T16:39:40-07:00",
+            "subject": "Adding BQ AI generate reference",
+            "url": "https://github.com/google/skills/commit/31c6adb8583b0b05e5a8ac265a5089e950e0336a",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 AI Generate 參考項目，並從相關 AI/ML 參考清單移除 AI Generate 檔案項目。"
+          },
+          {
+            "sha": "14a8f360c0414007ee9c8647edc7a0d9d3c65798",
+            "date": "2026-06-01T16:29:27-07:00",
+            "subject": "Adding BQ AI anomaly detection reference",
+            "url": "https://github.com/google/skills/commit/14a8f360c0414007ee9c8647edc7a0d9d3c65798",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 AI Detect Anomalies 參考項目，並從相關 AI/ML 參考清單移除其檔案項目。"
+          },
+          {
+            "sha": "d59d0e2db2d95627141d23883adb6c6d72a77d18",
+            "date": "2026-06-01T15:41:55-07:00",
+            "subject": "Upload BigQuery AI.FORECAST skill",
+            "url": "https://github.com/google/skills/commit/d59d0e2db2d95627141d23883adb6c6d72a77d18",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 AI Forecast 參考項目，重新排版相關 AI/ML 參考清單，並移除其中的 forecast 檔案項目。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在啟用 API 的 gcloud 範例中加入 --quiet 旗標。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/bigquery-basics/SKILL.md",
+              "destinationPath": "skills/cloud/bigquery-basics/SKILL.md"
+            },
+            "summary": "將技能檔案從 cloud/bigquery-basics/SKILL.md 移至 skills/cloud/bigquery-basics/SKILL.md，內容未變更。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+              "destinationPath": "cloud/bigquery-basics/SKILL.md"
+            },
+            "summary": "將技能檔案從 cloud/products/bigquery/bigquery-basics/SKILL.md 移至 cloud/bigquery-basics/SKILL.md，內容未變更。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將文件標題從 BigQuery Guide 改為 BigQuery Basics。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能前置資料中的名稱從 bigquery 改為 bigquery-basics。"
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將六個參考文件連結更新為相對於技能目錄的路徑。"
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 BigQuery 技能指南初版，包含設定與查詢說明，以及參考文件和相關 AI/ML 資源連結。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 metadata 前置数据中添加版本 1.0.0。"
+          },
+          {
+            "sha": "0ecc2fc6be6074c2614e5234c593515068bf695e",
+            "date": "2026-09-10T09:26:10-07:00",
+            "subject": "Update bigquery-basics skill with standardized metrics tracking (agent-skills).",
+            "url": "https://github.com/google/skills/commit/0ecc2fc6be6074c2614e5234c593515068bf695e",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加直接运行的 gcloud 指令及 BigQuery HTTP/MCP 请求的归因指引，并在 gcloud 范例中加入归因环境变量。"
+          },
+          {
+            "sha": "e08ada03c19b013861cc139b3e06d764afad0fd2",
+            "date": "2026-07-31T13:31:56-07:00",
+            "subject": "Add documentation for BigQuery continuous queries to the BigQuery agent skills.",
+            "url": "https://github.com/google/skills/commit/e08ada03c19b013861cc139b3e06d764afad0fd2",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 BigQuery 连续查找及实时 SQL 分析的参考文档链接。"
+          },
+          {
+            "sha": "6617ca70a978adab1abfd154576330f6f9dd3314",
+            "date": "2026-07-29T15:02:14-07:00",
+            "subject": "Add documentation for BigQuery Change History to the BigQuery agent skills.",
+            "url": "https://github.com/google/skills/commit/6617ca70a978adab1abfd154576330f6f9dd3314",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加变更历史参考文档，说明如何使用 APPENDS 和 CHANGES 追踪增量数据表变更。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 metadata 前置数据区块，并将 BigDataAndAnalytics 类别移至其中。"
+          },
+          {
+            "sha": "872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "date": "2026-06-20T00:26:41-07:00",
+            "subject": "Refactor BQ skills",
+            "url": "https://github.com/google/skills/commit/872e31b26b961d5611336f5d2c8f433f2e21d981",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能描述限缩为 BigQuery 基本工作，移除多个 AI/ML 参考项目，并将相关 AI 与 ML 技能链接改为相对路径。"
+          },
+          {
+            "sha": "31c6adb8583b0b05e5a8ac265a5089e950e0336a",
+            "date": "2026-06-02T16:39:40-07:00",
+            "subject": "Adding BQ AI generate reference",
+            "url": "https://github.com/google/skills/commit/31c6adb8583b0b05e5a8ac265a5089e950e0336a",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 AI Generate 参考项目，并从相关 AI/ML 参考清单移除 AI Generate 文件项目。"
+          },
+          {
+            "sha": "14a8f360c0414007ee9c8647edc7a0d9d3c65798",
+            "date": "2026-06-01T16:29:27-07:00",
+            "subject": "Adding BQ AI anomaly detection reference",
+            "url": "https://github.com/google/skills/commit/14a8f360c0414007ee9c8647edc7a0d9d3c65798",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 AI Detect Anomalies 参考项目，并从相关 AI/ML 参考清单移除其文件项目。"
+          },
+          {
+            "sha": "d59d0e2db2d95627141d23883adb6c6d72a77d18",
+            "date": "2026-06-01T15:41:55-07:00",
+            "subject": "Upload BigQuery AI.FORECAST skill",
+            "url": "https://github.com/google/skills/commit/d59d0e2db2d95627141d23883adb6c6d72a77d18",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 AI Forecast 参考项目，重新排版相关 AI/ML 参考清单，并移除其中的 forecast 文件项目。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在激活 API 的 gcloud 范例中加入 --quiet 旗标。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/bigquery-basics/SKILL.md",
+              "destinationPath": "skills/cloud/bigquery-basics/SKILL.md"
+            },
+            "summary": "将技能文件从 cloud/bigquery-basics/SKILL.md 移至 skills/cloud/bigquery-basics/SKILL.md，内容未变更。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/bigquery-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+              "destinationPath": "cloud/bigquery-basics/SKILL.md"
+            },
+            "summary": "将技能文件从 cloud/products/bigquery/bigquery-basics/SKILL.md 移至 cloud/bigquery-basics/SKILL.md，内容未变更。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将文档标题从 BigQuery Guide 改为 BigQuery Basics。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能前置数据中的名称从 bigquery 改为 bigquery-basics。"
+          },
+          {
+            "sha": "4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "date": "2026-04-16T09:12:44-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/4e3635713a607c8504a4433b4e95401e0b6135d2",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将六个参考文档链接更新为相对于技能目录的路径。"
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/bigquery/bigquery-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 BigQuery 技能指南初版，包含设置与查找说明，以及参考文档和相关 AI/ML 资源链接。"
+          }
+        ]
+      }
+    }
+  }
+}

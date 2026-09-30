@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gemini-live-api",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:56499118382d3a5b4e93020646fb00ea947760c6511015ca9574ffb0e4c8a898"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Builds an asynchronous WebSocket client for Gemini Enterprise Live API with bidirectional streaming, ADC authentication, and session resumption.",
+        "whenToUse": "Choose it for applications that need persistent, real-time conversations with Gemini Enterprise rather than one-shot API requests.",
+        "outputs": "Generates the client, proto-backed tests and run guides, plus a demo frontend and backend for text, audio, video, and transcription."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "建立 Gemini Enterprise Live API 的非同步 WebSocket 用戶端，支援雙向串流、ADC 驗證與工作階段續接。",
+        "whenToUse": "適用於需要與 Gemini Enterprise 進行持續即時對話，而非單次 API 請求的應用程式。",
+        "outputs": "產生用戶端、以 proto 為基礎的測試與使用指南，以及支援文字、音訊、影片和轉錄的示範前後端。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "创建 Gemini Enterprise Live API 的异步 WebSocket 用户端，支持双向串流、ADC 验证与工作阶段续接。",
+        "whenToUse": "适用于需要与 Gemini Enterprise 进行持续实时对话，而非单次 API 请求的应用程序。",
+        "outputs": "产生用户端、以 proto 为基础的测试与使用指南，以及支持文字、音频、视频和转录的示范前后端。"
+      }
+    }
+  }
+}

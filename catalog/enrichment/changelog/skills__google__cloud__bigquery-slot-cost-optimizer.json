@@ -1,0 +1,72 @@
+{
+  "path": "skills/google/cloud/bigquery-slot-cost-optimizer",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b024588e92e4e9dfb7e64674c08eb3e22b9ee586a314baf455775a07b9d90994",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/bigquery-slot-cost-optimizer",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "db264811a8517b600ee5cdcfafb9fad77740e328",
+            "date": "2026-09-17T08:13:01-07:00",
+            "subject": "Add BigQuery Slot & Cost Optimizer skill under skills/cloud/bigquery-slot-cost-optimizer.",
+            "url": "https://github.com/google/skills/commit/db264811a8517b600ee5cdcfafb9fad77740e328",
+            "pathAtCommit": "skills/cloud/bigquery-slot-cost-optimizer/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a BigQuery slot and cost optimization skill covering environment setup, telemetry analysis, diagnostic rules, remediation references, and validation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "db264811a8517b600ee5cdcfafb9fad77740e328",
+            "date": "2026-09-17T08:13:01-07:00",
+            "subject": "Add BigQuery Slot & Cost Optimizer skill under skills/cloud/bigquery-slot-cost-optimizer.",
+            "url": "https://github.com/google/skills/commit/db264811a8517b600ee5cdcfafb9fad77740e328",
+            "pathAtCommit": "skills/cloud/bigquery-slot-cost-optimizer/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 BigQuery slot 與成本最佳化技能，涵蓋環境設定、遙測分析、診斷規則、修復參考資料與驗證。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "db264811a8517b600ee5cdcfafb9fad77740e328",
+            "date": "2026-09-17T08:13:01-07:00",
+            "subject": "Add BigQuery Slot & Cost Optimizer skill under skills/cloud/bigquery-slot-cost-optimizer.",
+            "url": "https://github.com/google/skills/commit/db264811a8517b600ee5cdcfafb9fad77740e328",
+            "pathAtCommit": "skills/cloud/bigquery-slot-cost-optimizer/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 BigQuery slot 与成本优化技能，涵盖环境设置、遥测分析、诊断规则、修复参考资料与验证。"
+          }
+        ]
+      }
+    }
+  }
+}

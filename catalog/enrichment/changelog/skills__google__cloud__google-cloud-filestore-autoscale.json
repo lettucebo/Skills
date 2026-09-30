@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/google-cloud-filestore-autoscale",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4152c2e7447152eb1390a8a6ecd6ee7a6aa397a9de73c8c4d752f01b5f2d922f",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-filestore-autoscale",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-autoscale/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 metadata to the skill's front matter."
+          },
+          {
+            "sha": "5e13c394c12ff742ecbf5a760bdb72eb67130a8f",
+            "date": "2026-09-01T21:50:07-07:00",
+            "subject": "Update Filestore autoscale skill documentation for metric collection and IAM requirements.",
+            "url": "https://github.com/google/skills/commit/5e13c394c12ff742ecbf5a760bdb72eb67130a8f",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-autoscale/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill documentation with required IAM roles, project-wide bulk utilization-metric collection and calculations, detailed scaling thresholds and capacity rules, a required output table, and custom-threshold session-memory behavior."
+          },
+          {
+            "sha": "5e7977d3f08b2e72ff4750ca411da26a033c191e",
+            "date": "2026-08-10T18:59:19-07:00",
+            "subject": "Add google-cloud-filestore-autoscale skill for managing and autoscaling GCP Filestore instances.",
+            "url": "https://github.com/google/skills/commit/5e7977d3f08b2e72ff4750ca411da26a033c191e",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-autoscale/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the Filestore autoscaling skill documentation, covering prerequisites, attribution, instance discovery, utilization checks, tier limits, scale-up/down decision rules, confirmation before changes, and references."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-autoscale/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能文件的前置中繼資料中新增了 1.0.0 版本資訊。"
+          },
+          {
+            "sha": "5e13c394c12ff742ecbf5a760bdb72eb67130a8f",
+            "date": "2026-09-01T21:50:07-07:00",
+            "subject": "Update Filestore autoscale skill documentation for metric collection and IAM requirements.",
+            "url": "https://github.com/google/skills/commit/5e13c394c12ff742ecbf5a760bdb72eb67130a8f",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-autoscale/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充技能文件，補充必要的 IAM 角色、全專案批次用量指標收集與計算方式、詳細的擴縮容門檻與容量規則、必需的輸出表格，以及自訂門檻的工作階段記憶行為。"
+          },
+          {
+            "sha": "5e7977d3f08b2e72ff4750ca411da26a033c191e",
+            "date": "2026-08-10T18:59:19-07:00",
+            "subject": "Add google-cloud-filestore-autoscale skill for managing and autoscaling GCP Filestore instances.",
+            "url": "https://github.com/google/skills/commit/5e7977d3f08b2e72ff4750ca411da26a033c191e",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-autoscale/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Filestore 自動擴縮技能文件，說明必要條件、請求歸屬標記、執行個體探索、用量檢查、層級限制、擴容與縮容判定規則、變更前確認流程及參考資料。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-autoscale/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能文档的前置中继数据中添加了 1.0.0 版本信息。"
+          },
+          {
+            "sha": "5e13c394c12ff742ecbf5a760bdb72eb67130a8f",
+            "date": "2026-09-01T21:50:07-07:00",
+            "subject": "Update Filestore autoscale skill documentation for metric collection and IAM requirements.",
+            "url": "https://github.com/google/skills/commit/5e13c394c12ff742ecbf5a760bdb72eb67130a8f",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-autoscale/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充技能文档，补充必要的 IAM 角色、全项目批量用量指针收集与计算方式、详细的扩缩容门槛与容量规则、必需的输出表格，以及自订门槛的工作阶段记忆行为。"
+          },
+          {
+            "sha": "5e7977d3f08b2e72ff4750ca411da26a033c191e",
+            "date": "2026-08-10T18:59:19-07:00",
+            "subject": "Add google-cloud-filestore-autoscale skill for managing and autoscaling GCP Filestore instances.",
+            "url": "https://github.com/google/skills/commit/5e7977d3f08b2e72ff4750ca411da26a033c191e",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-autoscale/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Filestore 自动扩缩技能文档，说明必要条件、请求归属标记、运行个体探索、用量检查、层级限制、扩容与缩容判定规则、变更前确认流程及参考资料。"
+          }
+        ]
+      }
+    }
+  }
+}

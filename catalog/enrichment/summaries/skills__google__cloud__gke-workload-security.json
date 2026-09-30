@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-workload-security",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c5cf03aa1eb9f2b2f60ebb6af47bc836df5ff9d7ff1aab14ac998819525c7314"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It translates GKE workload-security requirements into concrete configuration guidance and clarifies where implementation depends on cluster-level capabilities.",
+        "whenToUse": "Use it when you need to turn an identified workload-security requirement into commands or manifests, or determine how cluster features affect its implementation.",
+        "outputs": "It provides a cluster-audit command, gcloud/kubectl examples, and sample configurations for network policies and logging, restricted Pod Security Standards, gVisor pods, and Secret Manager CSI mounts."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它將 GKE 工作負載安全需求轉化為具體設定指引，並說明實作時對叢集層級功能的依賴。",
+        "whenToUse": "當你需要將已確認的工作負載安全需求轉化為指令或 Kubernetes 設定範例，或判斷叢集功能如何影響實作時，請使用此技能。",
+        "outputs": "它提供叢集稽核指令、gcloud/kubectl 範例，以及網路政策與記錄、受限 Pod 安全標準、gVisor Pod 和 Secret Manager CSI 掛載的設定範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它将 GKE 工作负载安全需求转化为具体设置指引，并说明实作时对集群层级功能的依赖。",
+        "whenToUse": "当你需要将已确认的工作负载安全需求转化为指令或 Kubernetes 设置范例，或判断集群功能如何影响实作时，请使用此技能。",
+        "outputs": "它提供集群审核指令、gcloud/kubectl 范例，以及网络政策与记录、受限 Pod 安全标准、gVisor Pod 和 Secret Manager CSI 挂载的设置范例。"
+      }
+    }
+  }
+}

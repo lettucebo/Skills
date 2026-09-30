@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/spanner-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:bd5e502a34318face540c453ef56485bf1ccec2ad8ffe7bd843263a72a073731"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Supports Google Cloud Spanner administration and development with guidance on instance and database setup, schema design, and data access.",
+        "whenToUse": "Use it to plan data layouts around access patterns, evolve a Spanner schema, or investigate query bottlenecks with system statistics.",
+        "outputs": "It provides schema and key-design guidance, Spanner DDL and command examples, and query-diagnostics guidance using SPANNER_SYS."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助管理及開發 Google Cloud Spanner，提供執行個體與資料庫設定、結構設計及資料存取方面的指引。",
+        "whenToUse": "適用於依存取模式規劃資料配置、調整 Spanner 結構，或利用系統統計資料追查查詢瓶頸時。",
+        "outputs": "它提供結構與主索引鍵設計指引、Spanner DDL 與指令範例，以及使用 SPANNER_SYS 診斷查詢的說明。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助管理及开发 Google Cloud Spanner，提供运行个体与数据库设置、结构设计及数据访问方面的指引。",
+        "whenToUse": "适用于依访问模式规划数据配置、调整 Spanner 结构，或利用系统统计数据追查查找瓶颈时。",
+        "outputs": "它提供结构与主索引键设计指引、Spanner DDL 与指令范例，以及使用 SPANNER_SYS 诊断查找的说明。"
+      }
+    }
+  }
+}

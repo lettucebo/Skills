@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/secops-detection-engineering",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:e6fca143b28a991e4cd417163e7e38f1d76e5a93a7d7ddb249f6dc5295f344dd"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides the end-to-end creation, validation, testing, and approval-based deployment of YARA-L 2.0 detections, alongside coverage-gap analysis and remediation in Google SecOps.",
+        "whenToUse": "Use it when an investigation or known indicators call for a new or refined rule, or when external threat reporting or a coverage review needs to be checked against existing detections.",
+        "outputs": "It provides rule drafts and validation or historical-test results, plus TDO and synthetic-event summaries, matched-rule coverage findings, verified gaps, and candidate rules to address them."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它引導在 Google SecOps 中完成 YARA-L 2.0 偵測規則的建立、驗證、測試及經核准後部署，並支援偵測覆蓋缺口的分析與補強。",
+        "whenToUse": "當調查結果或已知指標需要建立或調整規則，或外部威脅情報與覆蓋檢視需要比對現有偵測能力時，請使用此流程。",
+        "outputs": "它會提供規則草稿、驗證與歷史測試結果，以及 TDO 和合成事件摘要、已命中規則的覆蓋結果、確認的缺口與候選補強規則。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它引导在 Google SecOps 中完成 YARA-L 2.0 侦测规则的创建、验证、测试及经核准后部署，并支持侦测覆盖缺口的分析与补强。",
+        "whenToUse": "当调查结果或已知指针需要创建或调整规则，或外部威胁情报与覆盖查看需要比对现有侦测能力时，请使用此流程。",
+        "outputs": "它会提供规则草稿、验证与历史测试结果，以及 TDO 和合成事件摘要、已命中规则的覆盖结果、确认的缺口与候选补强规则。"
+      }
+    }
+  }
+}

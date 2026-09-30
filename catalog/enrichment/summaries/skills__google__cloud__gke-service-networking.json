@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-service-networking",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:82883cfb5e6e0bd2e5927866e7ca55951a017908149ecdb5f416f8086ffcee35"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps expose GKE workloads to external or internal consumers with managed routing, load balancing, and service security.",
+        "whenToUse": "Use when a GKE workload needs an internet-facing or private entry point, reliable traffic distribution, or controlled access between VPCs.",
+        "outputs": "Provides workflow guidance and example configuration for routing, traffic splitting, security, TLS, pod-backed load balancing, PSC service sharing, and topology-aware Services."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助透過受管理的路由、負載平衡與服務安全功能，將 GKE 工作負載提供給外部或內部使用者。",
+        "whenToUse": "當 GKE 工作負載需要面向網際網路或私有網路的入口、可靠的流量分配，或 VPC 間受控存取時使用。",
+        "outputs": "提供工作流程指引與範例設定，涵蓋路由、流量分流、安全政策、TLS、以 Pod 為後端的負載平衡、PSC 服務分享及拓撲感知服務。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助透过受管理的路由、负载平衡与服务安全功能，将 GKE 工作负载提供给外部或内部用户。",
+        "whenToUse": "当 GKE 工作负载需要面向互联网或私有网络的入口、可靠的流量分配，或 VPC 间受控访问时使用。",
+        "outputs": "提供工作流程指引与范例设置，涵盖路由、流量分流、安全政策、TLS、以 Pod 为后端的负载平衡、PSC 服务分享及拓扑感知服务。"
+      }
+    }
+  }
+}

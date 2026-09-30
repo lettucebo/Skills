@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/421418928715158da3610571cb9e9cbb18d4747d",
             "pathAtCommit": "skills/azure-architecture-autopilot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added three asset entries to the quick reference table for example architecture, Azure portal resource view, and successful deployment screenshots."
+            "summary": "The skill’s quick-reference table now lists three example image assets: an architecture diagram, an Azure portal resource view, and a successful deployment result."
           },
           {
             "sha": "3e01810473588d12830bb93983a52764aaa1788b",
@@ -33,15 +33,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/3e01810473588d12830bb93983a52764aaa1788b",
             "pathAtCommit": "skills/azure-architecture-autopilot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the azure-architecture-autopilot SKILL.md with instructions for Azure architecture design, existing-resource analysis, diagram generation, and phased deployment."
+            "summary": "The patch adds the skill’s SKILL.md, which defines workflows for designing or analyzing Azure infrastructure, generating diagrams and Bicep, reviewing the code, and deploying it."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -53,7 +53,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/421418928715158da3610571cb9e9cbb18d4747d",
             "pathAtCommit": "skills/azure-architecture-autopilot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在快速參考表中新增三個資產項目，分別是架構範例、Azure 入口網站資源檢視與成功部署截圖。"
+            "summary": "此技能的快速參考表新增了三個範例圖片資產：架構圖、Azure 入口網站資源檢視畫面，以及成功部署結果。"
           },
           {
             "sha": "3e01810473588d12830bb93983a52764aaa1788b",
@@ -62,13 +62,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/3e01810473588d12830bb93983a52764aaa1788b",
             "pathAtCommit": "skills/azure-architecture-autopilot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 azure-architecture-autopilot 的 SKILL.md，包含 Azure 架構設計、既有資源分析、圖表產生與分階段部署的指引。"
+            "summary": "此修補新增了該技能的 SKILL.md，定義設計或分析 Azure 基礎架構、產生圖表與 Bicep、審查程式碼及部署的工作流程。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -81,7 +81,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/421418928715158da3610571cb9e9cbb18d4747d",
             "pathAtCommit": "skills/azure-architecture-autopilot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "在快速参考表中添加三个资产项目，分别是架构范例、Azure 门户网站资源查看与成功部署截屏。"
+            "summary": "此技能的快速参考表添加了三个范例图片资产：架构图、Azure 门户网站资源查看画面，以及成功部署结果。"
           },
           {
             "sha": "3e01810473588d12830bb93983a52764aaa1788b",
@@ -90,7 +90,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/3e01810473588d12830bb93983a52764aaa1788b",
             "pathAtCommit": "skills/azure-architecture-autopilot/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 azure-architecture-autopilot 的 SKILL.md，包含 Azure 架构设计、既有资源分析、图表产生与分阶段部署的指引。"
+            "summary": "此修补添加了该技能的 SKILL.md，定义设计或分析 Azure 基础架构、产生图表与 Bicep、审查代码及部署的工作流程。"
           }
         ]
       }

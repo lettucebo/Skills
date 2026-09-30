@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-security",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:bdb1c5f2f67223da65a0e4f4dc1b30d9ee32840921311781aab9f84e7010e5c1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Assesses a Google Cloud workload against Well-Architected security principles and identifies gaps across identity, networking, data, operations, AI, and compliance.",
+        "whenToUse": "Use when reviewing a planned or existing Google Cloud workload to evaluate security controls, threat readiness, compliance, or secure AI practices.",
+        "outputs": "Provides prioritized, actionable recommendations linked to framework principles, relevant Google Cloud services, and their benefits."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "依據架構完善框架的安全原則評估 Google Cloud 工作負載，並找出身分、網路、資料、營運、AI 與法規遵循方面的缺口。",
+        "whenToUse": "在檢視規劃中或既有的 Google Cloud 工作負載，並需評估安全控制、威脅防護、法規遵循或安全 AI 實務時使用。",
+        "outputs": "提供依優先順序排列的可行建議，並連結至框架原則、相關 Google Cloud 服務及其效益。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "依据架构完善框架的安全原则评估 Google Cloud 工作负载，并找出身分、网络、数据、营运、AI 与法规遵循方面的缺口。",
+        "whenToUse": "在查看规划中或既有的 Google Cloud 工作负载，并需评估安全控制、威胁防护、法规遵循或安全 AI 实务时使用。",
+        "outputs": "提供依优先级排列的可行建议，并链接至框架原则、相关 Google Cloud 服务及其效益。"
+      }
+    }
+  }
+}

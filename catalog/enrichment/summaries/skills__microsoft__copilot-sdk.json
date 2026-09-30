@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps developers build applications that integrate with GitHub Copilot through an SDK with support for sessions, tools, streaming, hooks, and MCP servers.",
-        "whenToUse": "Use it when you need to embed Copilot into a Node.js/TypeScript, Python, Go, or .NET app and manage behavior such as authentication, persistence, or provider configuration.",
-        "outputs": "Provides architecture guidance, configuration details, and cross-language examples for sessions, custom tools, hooks, MCP integration, BYOK providers, and related deployment patterns."
+        "purpose": "Explains how applications communicate with the Copilot CLI over stdio or TCP and configure and manage SDK sessions.",
+        "whenToUse": "Use it when selecting authentication or model-provider settings, controlling tool access, resuming sessions, or preparing a local or backend deployment.",
+        "outputs": "Provides Node.js, Python, Go, and .NET API examples plus configuration guidance for authentication, permissions, session persistence, troubleshooting, and deployment."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助開發者使用 SDK 建立可整合 GitHub Copilot 的應用程式，並支援工作階段、工具、串流、掛鉤與 MCP 伺服器。",
-        "whenToUse": "當你需要在 Node.js/TypeScript、Python、Go 或 .NET 應用程式中嵌入 Copilot，並管理驗證、持久化或提供者設定等行為時使用。",
-        "outputs": "提供工作階段、自訂工具、掛鉤、MCP 整合、BYOK 提供者與相關部署模式的架構說明、設定細節與跨語言範例。"
+        "purpose": "說明應用程式如何透過 stdio 或 TCP 與 Copilot CLI 通訊，以及如何設定和管理 SDK 工作階段。",
+        "whenToUse": "需要選擇驗證或模型提供者設定、控管工具存取、恢復工作階段，或準備本機或後端部署時使用。",
+        "outputs": "提供 Node.js、Python、Go 和 .NET 的 API 範例，以及驗證、權限、工作階段持久化、疑難排解與部署的設定指引。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助开发者使用 SDK 创建可集成 GitHub Copilot 的应用程序，并支持工作阶段、工具、串流、挂钩与 MCP 服务器。",
-        "whenToUse": "当你需要在 Node.js/TypeScript、Python、Go 或 .NET 应用程序中嵌入 Copilot，并管理验证、持久化或提供者设置等行为时使用。",
-        "outputs": "提供工作阶段、自订工具、挂钩、MCP 集成、BYOK 提供者与相关部署模式的架构说明、设置细节与跨语言范例。"
+        "purpose": "说明应用程序如何透过 stdio 或 TCP 与 Copilot CLI 通信，以及如何设置和管理 SDK 工作阶段。",
+        "whenToUse": "需要选择验证或模型提供者设置、控管工具访问、恢复工作阶段，或准备本机或后端部署时使用。",
+        "outputs": "提供 Node.js、Python、Go 和 .NET 的 API 范例，以及验证、权限、工作阶段持久化、疑难排解与部署的设置指引。"
       }
     }
   }

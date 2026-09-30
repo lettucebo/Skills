@@ -1,0 +1,99 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-multi-agent-security",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c9a7f8c47d90d4e75034e580279802e3afe72480c3ec781fea5f5443bfbe9a6e",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-solution-multi-agent-security",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-multi-agent-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds metadata version 1.0.0 to the skill definition."
+          },
+          {
+            "sha": "d08678bd7838b947770ee5b88c13b2cc54125016",
+            "date": "2026-08-26T11:13:16-07:00",
+            "subject": "Skill for secure multi-agent deployment using Agent Gateway. Initial checkin.",
+            "url": "https://github.com/google/skills/commit/d08678bd7838b947770ee5b88c13b2cc54125016",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-multi-agent-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the initial guide for designing, configuring, deploying, validating, and troubleshooting secure Google Cloud Agent Gateway ingress and egress solutions."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-multi-agent-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能定義中加入中繼資料版本 1.0.0。"
+          },
+          {
+            "sha": "d08678bd7838b947770ee5b88c13b2cc54125016",
+            "date": "2026-08-26T11:13:16-07:00",
+            "subject": "Skill for secure multi-agent deployment using Agent Gateway. Initial checkin.",
+            "url": "https://github.com/google/skills/commit/d08678bd7838b947770ee5b88c13b2cc54125016",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-multi-agent-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版指南，說明如何設計、設定、部署、驗證及疑難排解安全的 Google Cloud Agent Gateway 入口與出口方案。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-multi-agent-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能定义中加入中继数据版本 1.0.0。"
+          },
+          {
+            "sha": "d08678bd7838b947770ee5b88c13b2cc54125016",
+            "date": "2026-08-26T11:13:16-07:00",
+            "subject": "Skill for secure multi-agent deployment using Agent Gateway. Initial checkin.",
+            "url": "https://github.com/google/skills/commit/d08678bd7838b947770ee5b88c13b2cc54125016",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-multi-agent-security/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版指南，说明如何设计、设置、部署、验证及疑难排解安全的 Google Cloud Agent Gateway 入口与出口方案。"
+          }
+        ]
+      }
+    }
+  }
+}

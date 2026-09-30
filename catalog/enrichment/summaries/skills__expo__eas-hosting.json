@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/eas-hosting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0dd25d81fca880bbf48f25eee2a30f8a063fbc5286fa438ab0da43ac8e90195e"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It explains how to implement Expo Router API endpoints and deploy them alongside a web export to Expo's managed edge runtime.",
+        "whenToUse": "Use it when building server-side handlers for secrets, database operations, proxies, validation, or webhooks, or when evaluating API-route suitability and Workers limitations.",
+        "outputs": "It provides TypeScript route examples and practical guidance for request handling, CORS, local testing, deployment, environment variables, domains, and workflows."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本內容說明如何實作 Expo Router API 端點，並將其與網頁匯出內容一同部署至 Expo 管理的邊緣執行環境。",
+        "whenToUse": "當您要為機密資料、資料庫操作、API 代理、資料驗證或 webhook 建立伺服器端處理程序，或評估 API 路由是否適用及 Workers 的限制時，請使用本內容。",
+        "outputs": "內容提供 TypeScript 路由範例，以及請求處理、CORS、本機測試、部署、環境變數、網域和工作流程的實務指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本内容说明如何实作 Expo Router API 端点，并将其与网页导出内容一同部署至 Expo 管理的边缘运行环境。",
+        "whenToUse": "当您要为机密数据、数据库操作、API 代理、数据验证或 webhook 创建服务器端处理程序，或评估 API 路由是否适用及 Workers 的限制时，请使用本内容。",
+        "outputs": "内容提供 TypeScript 路由范例，以及请求处理、CORS、本机测试、部署、环境变量、网域和工作流程的实务指引。"
+      }
+    }
+  }
+}

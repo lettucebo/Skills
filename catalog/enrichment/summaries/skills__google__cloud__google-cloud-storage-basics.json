@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-storage-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d59646766f68485b3653304da788f10c9005dd35f612b24b8581ee32840b8f18"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains Cloud Storage concepts and how its capabilities support common storage workflows.",
+        "whenToUse": "Use it when you need guidance on routine storage workflows, choosing an interface, or configuring transfers, access, data protection, cost, and performance features.",
+        "outputs": "It provides workflow guidance, command and API examples, and references for common operations, configuration, transfers, access controls, and storage optimization."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明 Cloud Storage 的概念，以及其功能如何支援常見的儲存工作流程。",
+        "whenToUse": "當您需要一般儲存工作流程的指引、選擇操作介面，或設定資料傳輸、存取、資料保護、成本與效能功能時使用。",
+        "outputs": "它提供工作流程指引、命令列與 API 範例，以及常見操作、設定、資料傳輸、存取控制和儲存最佳化的參考資料。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明 Cloud Storage 的概念，以及其功能如何支持常见的保存工作流程。",
+        "whenToUse": "当您需要一般保存工作流程的指引、选择操作界面，或设置数据传输、访问、数据保护、成本与性能功能时使用。",
+        "outputs": "它提供工作流程指引、命令行与 API 范例，以及常见操作、设置、数据传输、访问控制和保存优化的参考资料。"
+      }
+    }
+  }
+}

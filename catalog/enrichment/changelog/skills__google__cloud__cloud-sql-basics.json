@@ -1,0 +1,372 @@
+{
+  "path": "skills/google/cloud/cloud-sql-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:dcd41694ef443db541054c8e5467504e2c33233849e3382d6e3891d6cbf77c61",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/cloud-sql-basics",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version `1.0.0` to the skill's metadata."
+          },
+          {
+            "sha": "50eecce48d6628b09c220aca617a580d89cee218",
+            "date": "2026-07-24T11:36:19-07:00",
+            "subject": "Improved accuracy and contents for Cloud SQL basics skills for security, CLI usage, backups and DR configurations and core concepts",
+            "url": "https://github.com/google/skills/commit/50eecce48d6628b09c220aca617a580d89cee218",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the Core Concepts summary with Cloud SQL editions and read pools, and added a Disaster Recovery & Backups reference covering backups, PITR, replicas, read-pool comparisons, and Enterprise Plus Advanced DR."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the Databases category under `metadata` and inserted blank lines before several Quick Start code blocks."
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the `gcloud` examples to use `--quiet` for API enablement, instance creation, password setting, database creation, and instance description."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/cloud-sql-basics/SKILL.md",
+              "destinationPath": "skills/cloud/cloud-sql-basics/SKILL.md"
+            },
+            "summary": "Renamed the file's path from `cloud/cloud-sql-basics/SKILL.md` to `skills/cloud/cloud-sql-basics/SKILL.md` without changing its contents."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+              "destinationPath": "cloud/cloud-sql-basics/SKILL.md"
+            },
+            "summary": "Moved the unchanged skill file from `cloud/products/cloud-sql/cloud-sql-basics/SKILL.md` to `cloud/cloud-sql-basics/SKILL.md`."
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the Quick Start heading to specify PostgreSQL."
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the document heading from `Cloud SQL Guide` to `Cloud SQL Basics`."
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the skill in its frontmatter from `cloud-sql` to `cloud-sql-basics`."
+          },
+          {
+            "sha": "c871830120e6a6f592fb847068458aefe522fb49",
+            "date": "2026-04-16T09:58:01-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c871830120e6a6f592fb847068458aefe522fb49",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added PostgreSQL's default `postgres` user guidance and a command to retrieve the instance connection name, updated Auth Proxy instructions, and changed reference links to `references/...`."
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Cloud SQL skill guide with a service overview, prerequisites, PostgreSQL setup and connection steps, and reference links."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中新增版本號 `1.0.0`。"
+          },
+          {
+            "sha": "50eecce48d6628b09c220aca617a580d89cee218",
+            "date": "2026-07-24T11:36:19-07:00",
+            "subject": "Improved accuracy and contents for Cloud SQL basics skills for security, CLI usage, backups and DR configurations and core concepts",
+            "url": "https://github.com/google/skills/commit/50eecce48d6628b09c220aca617a580d89cee218",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充 Core Concepts 摘要，納入 Cloud SQL 版本方案與讀取集區，並新增 Disaster Recovery & Backups 參考項目，涵蓋備份、PITR、複本、讀取集區比較及 Enterprise Plus Advanced DR。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Databases 類別移至 `metadata` 底下，並在多個 Quick Start 程式碼區塊前加入空行。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 `gcloud` 範例，在啟用 API、建立執行個體、設定密碼、建立資料庫及描述執行個體時使用 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/cloud-sql-basics/SKILL.md",
+              "destinationPath": "skills/cloud/cloud-sql-basics/SKILL.md"
+            },
+            "summary": "將檔案路徑從 `cloud/cloud-sql-basics/SKILL.md` 移至 `skills/cloud/cloud-sql-basics/SKILL.md`，內容未變。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+              "destinationPath": "cloud/cloud-sql-basics/SKILL.md"
+            },
+            "summary": "將內容未變的技能檔案從 `cloud/products/cloud-sql/cloud-sql-basics/SKILL.md` 移至 `cloud/cloud-sql-basics/SKILL.md`。"
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Quick Start 標題改為明確標示 PostgreSQL。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將文件標題從 `Cloud SQL Guide` 改為 `Cloud SQL Basics`。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 frontmatter 中的技能名稱從 `cloud-sql` 改為 `cloud-sql-basics`。"
+          },
+          {
+            "sha": "c871830120e6a6f592fb847068458aefe522fb49",
+            "date": "2026-04-16T09:58:01-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c871830120e6a6f592fb847068458aefe522fb49",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 PostgreSQL 預設 `postgres` 使用者說明與查詢執行個體連線名稱的指令、更新 Auth Proxy 連線指引，並將參考文件連結改為 `references/...`。"
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Cloud SQL 技能指南初版，包含服務概述、先決條件、PostgreSQL 設定與連線步驟，以及參考文件連結。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中添加版本号 `1.0.0`。"
+          },
+          {
+            "sha": "50eecce48d6628b09c220aca617a580d89cee218",
+            "date": "2026-07-24T11:36:19-07:00",
+            "subject": "Improved accuracy and contents for Cloud SQL basics skills for security, CLI usage, backups and DR configurations and core concepts",
+            "url": "https://github.com/google/skills/commit/50eecce48d6628b09c220aca617a580d89cee218",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充 Core Concepts 摘要，纳入 Cloud SQL 版本方案与读取集区，并添加 Disaster Recovery & Backups 参考项目，涵盖备份、PITR、复本、读取集区比较及 Enterprise Plus Advanced DR。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Databases 类别移至 `metadata` 底下，并在多个 Quick Start 代码区块前加入空行。"
+          },
+          {
+            "sha": "626910e00d06878d26ead993de0e3296ef7d0a12",
+            "date": "2026-05-11T07:03:21-07:00",
+            "subject": "Update gcloud examples to use --quiet.",
+            "url": "https://github.com/google/skills/commit/626910e00d06878d26ead993de0e3296ef7d0a12",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 `gcloud` 范例，在激活 API、创建运行个体、设置密码、创建数据库及描述运行个体时使用 `--quiet`。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/cloud-sql-basics/SKILL.md",
+              "destinationPath": "skills/cloud/cloud-sql-basics/SKILL.md"
+            },
+            "summary": "将文件路径从 `cloud/cloud-sql-basics/SKILL.md` 移至 `skills/cloud/cloud-sql-basics/SKILL.md`，内容未变。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+              "destinationPath": "cloud/cloud-sql-basics/SKILL.md"
+            },
+            "summary": "将内容未变的技能文件从 `cloud/products/cloud-sql/cloud-sql-basics/SKILL.md` 移至 `cloud/cloud-sql-basics/SKILL.md`。"
+          },
+          {
+            "sha": "9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "date": "2026-04-19T12:49:24-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9fdab9037c047be6996121c3f58a3fd3967dca7b",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Quick Start 标题改为明确标示 PostgreSQL。"
+          },
+          {
+            "sha": "9b3ff7f97211dd89a222a96c275df83453199015",
+            "date": "2026-04-17T09:53:25-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/9b3ff7f97211dd89a222a96c275df83453199015",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将文档标题从 `Cloud SQL Guide` 改为 `Cloud SQL Basics`。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 frontmatter 中的技能名称从 `cloud-sql` 改为 `cloud-sql-basics`。"
+          },
+          {
+            "sha": "c871830120e6a6f592fb847068458aefe522fb49",
+            "date": "2026-04-16T09:58:01-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c871830120e6a6f592fb847068458aefe522fb49",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 PostgreSQL 预设 `postgres` 用户说明与查找运行个体连接名称的指令、更新 Auth Proxy 连接指引，并将参考文档链接改为 `references/...`。"
+          },
+          {
+            "sha": "2f4998e6f9425729ae99fea55f687ee61375c680",
+            "date": "2026-04-15T17:14:20-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/2f4998e6f9425729ae99fea55f687ee61375c680",
+            "pathAtCommit": "cloud/products/cloud-sql/cloud-sql-basics/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Cloud SQL 技能指南初版，包含服务概述、先决条件、PostgreSQL 设置与连接步骤，以及参考文档链接。"
+          }
+        ]
+      }
+    }
+  }
+}

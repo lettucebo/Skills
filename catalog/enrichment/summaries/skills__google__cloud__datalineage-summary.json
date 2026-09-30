@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/datalineage-summary",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d2d0b27f7c8bf2bcc8e660be2c4fd0a98cda794c7d42ac10a270def3780a99b5"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Turns a Google Cloud Data Lineage graph for a selected asset or field into a plain-language account of how its data is produced and used.",
+        "whenToUse": "Use it to trace the sources and processing behind a particular table or column and identify the downstream assets that depend on it.",
+        "outputs": "A concise Markdown walkthrough of upstream sources, processing, downstream consumers, and the search scope and limits."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "將 Google Cloud Data Lineage 中所選資產或欄位的資料血緣圖，轉化為易懂的說明，呈現資料如何產生與被使用。",
+        "whenToUse": "當需要追查特定資料表或欄位的來源與處理流程，並找出依賴它的下游資產時使用。",
+        "outputs": "提供簡潔的 Markdown 流程說明，涵蓋上游來源、處理步驟、下游使用系統與資產，以及搜尋範圍與限制。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "将 Google Cloud Data Lineage 中所选资产或字段的数据血缘图，转化为易懂的说明，呈现数据如何产生与被使用。",
+        "whenToUse": "当需要追查特定数据表或字段的来源与处理流程，并找出依赖它的下游资产时使用。",
+        "outputs": "提供简洁的 Markdown 流程说明，涵盖上游来源、处理步骤、下游使用系统与资产，以及搜索范围与限制。"
+      }
+    }
+  }
+}

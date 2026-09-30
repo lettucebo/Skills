@@ -1,0 +1,126 @@
+{
+  "path": "skills/expo/expo-skill-feedback",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9b96fc94861d1f1ba7f71b285e5faf9bf5152489339c41049e7f8beb17c63196",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-skill-feedback",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-skill-feedback/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added an `evals` feedback category and guidance for identifying, approving, and submitting a structured report about repeated or unresolved Expo agent failures."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-skill-feedback/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced the local feedback-submission flow with the `submit-expo-feedback` CLI, documenting its category and subject options and separating feedback from opt-in usage telemetry."
+          },
+          {
+            "sha": "ca4f034c39f3540559c3c10f69e160ad8020b991",
+            "date": "2026-07-13T17:46:18+02:00",
+            "subject": "feat(expo): anonymous usage telemetry and skill feedback (#71)",
+            "url": "https://github.com/expo/skills/commit/ca4f034c39f3540559c3c10f69e160ad8020b991",
+            "pathAtCommit": "plugins/expo/skills/expo-skill-feedback/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial expo-skill-feedback skill with instructions for submitting skill or Expo feedback and controlling opt-in anonymous usage telemetry."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-skill-feedback/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `evals` 回饋類別，並加入辨識、取得核准及提交 Expo 代理程式重複或未解決失敗之結構化回報的指引。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-skill-feedback/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將本機回饋提交流程改為使用 `submit-expo-feedback` CLI，說明其類別與主旨選項，並將回饋與使用者選擇加入的使用遙測分開。"
+          },
+          {
+            "sha": "ca4f034c39f3540559c3c10f69e160ad8020b991",
+            "date": "2026-07-13T17:46:18+02:00",
+            "subject": "feat(expo): anonymous usage telemetry and skill feedback (#71)",
+            "url": "https://github.com/expo/skills/commit/ca4f034c39f3540559c3c10f69e160ad8020b991",
+            "pathAtCommit": "plugins/expo/skills/expo-skill-feedback/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初始版本的 expo-skill-feedback 技能，提供提交技能或 Expo 回饋以及管理選擇加入之匿名使用遙測的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-skill-feedback/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `evals` 回馈类别，并加入辨识、取得核准及提交 Expo 代理程序重复或未解决失败之结构化回报的指引。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-skill-feedback/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将本机回馈提交流程改为使用 `submit-expo-feedback` CLI，说明其类别与主旨选项，并将回馈与用户选择加入的使用遥测分开。"
+          },
+          {
+            "sha": "ca4f034c39f3540559c3c10f69e160ad8020b991",
+            "date": "2026-07-13T17:46:18+02:00",
+            "subject": "feat(expo): anonymous usage telemetry and skill feedback (#71)",
+            "url": "https://github.com/expo/skills/commit/ca4f034c39f3540559c3c10f69e160ad8020b991",
+            "pathAtCommit": "plugins/expo/skills/expo-skill-feedback/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初始版本的 expo-skill-feedback 技能，提供提交技能或 Expo 回馈以及管理选择加入之匿名使用遥测的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

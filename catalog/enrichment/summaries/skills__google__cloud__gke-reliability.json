@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-reliability",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:89161506be45b634a3be78201cd144b7ce1296cad4393344524cedbf75830051"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It supports resilient GKE operations with safeguards for cluster topology, workload scheduling, health checks, and termination.",
+        "whenToUse": "Use it to assess or improve an existing GKE setup's availability, disruption protection, probe behavior, failure-domain distribution, replica counts, or graceful shutdown, rather than to generate Kubernetes manifests or handle backup and disaster recovery.",
+        "outputs": "It provides production reliability defaults, verification steps, and example settings for cluster high availability, PodDisruptionBudgets, probes, topology spread, replica counts, and graceful shutdown."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它透過為叢集拓撲、工作負載排程、健康檢查與終止流程提供防護措施，協助提升 GKE 作業韌性。",
+        "whenToUse": "當你要評估或改善既有 GKE 環境的可用性、中斷防護、探針行為、故障域分散、副本數或正常關閉時，請使用此參考，而非用於產生 Kubernetes 資訊清單或處理備份與災難復原。",
+        "outputs": "它提供正式環境可靠性預設值、檢查步驟，以及涵蓋叢集高可用性、PodDisruptionBudget、探針、拓撲分散、副本數與正常關閉的設定範例。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它透过为集群拓扑、工作负载调度、健康检查与终止流程提供防护措施，协助提升 GKE 作业韧性。",
+        "whenToUse": "当你要评估或改善既有 GKE 环境的可用性、中断防护、探针行为、故障域分散、副本数或正常关闭时，请使用此参考，而非用于产生 Kubernetes 信息清单或处理备份与灾难复原。",
+        "outputs": "它提供正式环境可靠性默认值、检查步骤，以及涵盖集群高可用性、PodDisruptionBudget、探针、拓扑分散、副本数与正常关闭的设置范例。"
+      }
+    }
+  }
+}

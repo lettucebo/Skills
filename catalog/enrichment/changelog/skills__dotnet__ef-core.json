@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/ef-core.prompt.md",
               "destinationPath": "skills/ef-core/SKILL.md"
             },
-            "summary": "Added the ef-core skill file with Entity Framework Core best-practice guidance."
+            "summary": "Adds an EF Core best-practices skill covering DbContext and entity design, performance, migrations, querying, change tracking and saving, security, and testing."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the ef-core prompt frontmatter field from mode to agent."
+            "summary": "Renames the prompt front-matter key from `mode` to `agent`."
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -47,7 +47,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Updated the ef-core prompt tools list to use the namespaced search/codebase tool name."
+            "summary": "Changes the prompt's tools list entry from `codebase` to `search/codebase`."
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -56,7 +56,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Updated the ef-core prompt tools list to rename editFiles to edit/editFiles."
+            "summary": "Changes the prompt's tools list entry from `editFiles` to `edit/editFiles`."
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -65,7 +65,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Changed the ef-core prompt frontmatter values from double-quoted to single-quoted strings."
+            "summary": "Changes the prompt front matter's `mode`, `tools`, and `description` values from double-quoted to single-quoted strings."
           },
           {
             "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
@@ -74,7 +74,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the ef-core prompt tools list from codebase and terminalCommand to changes, codebase, editFiles, problems, and runCommands."
+            "summary": "Updates the tools list, retaining `codebase` and replacing `terminalCommand` with `changes`, `editFiles`, `problems`, and `runCommands`."
           },
           {
             "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
@@ -83,15 +83,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial ef-core prompt file with Entity Framework Core best-practice guidance."
+            "summary": "Adds an EF Core best-practices prompt covering DbContext and entity design, performance, migrations, querying, change tracking and saving, security, and testing."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -108,7 +108,7 @@
               "sourcePath": "prompts/ef-core.prompt.md",
               "destinationPath": "skills/ef-core/SKILL.md"
             },
-            "summary": "新增 ef-core 技能檔案，內容為 Entity Framework Core 最佳實務指引。"
+            "summary": "新增 EF Core 最佳實務技能，涵蓋 DbContext 與實體設計、效能、遷移、查詢、變更追蹤與儲存、安全性及測試。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -117,7 +117,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 ef-core 提示檔前言區塊中的欄位名稱從 mode 改為 agent。"
+            "summary": "將提示檔前置資料中的 `mode` 欄位名稱改為 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -126,7 +126,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新 ef-core 提示檔的工具清單，改用具命名空間的 search/codebase 工具名稱。"
+            "summary": "將提示檔的 tools 清單項目從 `codebase` 改為 `search/codebase`。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -135,7 +135,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新 ef-core 提示檔的工具清單，將 editFiles 更名為 edit/editFiles。"
+            "summary": "將提示檔的 tools 清單項目從 `editFiles` 改為 `edit/editFiles`。"
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -144,7 +144,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 ef-core 提示檔前言區塊的值由雙引號字串改為單引號字串。"
+            "summary": "將提示檔前置資料中的 `mode`、`tools` 和 `description` 值由雙引號改為單引號。"
           },
           {
             "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
@@ -153,7 +153,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 ef-core 提示檔的工具清單由 codebase 與 terminalCommand 擴充為 changes、codebase、editFiles、problems 與 runCommands。"
+            "summary": "更新 tools 清單，保留 `codebase`，並以 `changes`、`editFiles`、`problems` 和 `runCommands` 取代 `terminalCommand`。"
           },
           {
             "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
@@ -162,13 +162,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增初始的 ef-core 提示檔，內容為 Entity Framework Core 最佳實務指引。"
+            "summary": "新增 EF Core 最佳實務提示檔，涵蓋 DbContext 與實體設計、效能、遷移、查詢、變更追蹤與儲存、安全性及測試。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -186,7 +186,7 @@
               "sourcePath": "prompts/ef-core.prompt.md",
               "destinationPath": "skills/ef-core/SKILL.md"
             },
-            "summary": "添加 ef-core 技能文件，内容为 Entity Framework Core 最佳实务指引。"
+            "summary": "添加 EF Core 最佳实务技能，涵盖 DbContext 与实体设计、性能、迁移、查找、变更追踪与保存、安全性及测试。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -195,7 +195,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 ef-core 提示档前言区块中的字段名称从 mode 改为 agent。"
+            "summary": "将提示档前置数据中的 `mode` 字段名称改为 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -204,7 +204,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新 ef-core 提示档的工具清单，改用具命名空间的 search/codebase 工具名称。"
+            "summary": "将提示档的 tools 清单项目从 `codebase` 改为 `search/codebase`。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -213,7 +213,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新 ef-core 提示档的工具清单，将 editFiles 更名为 edit/editFiles。"
+            "summary": "将提示档的 tools 清单项目从 `editFiles` 改为 `edit/editFiles`。"
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -222,7 +222,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 ef-core 提示档前言区块的值由双引号字符串改为单引号字符串。"
+            "summary": "将提示档前置数据中的 `mode`、`tools` 和 `description` 值由双引号改为单引号。"
           },
           {
             "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
@@ -231,7 +231,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 ef-core 提示档的工具清单由 codebase 与 terminalCommand 扩充为 changes、codebase、editFiles、problems 与 runCommands。"
+            "summary": "更新 tools 清单，保留 `codebase`，并以 `changes`、`editFiles`、`problems` 和 `runCommands` 取代 `terminalCommand`。"
           },
           {
             "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
@@ -240,7 +240,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
             "pathAtCommit": "prompts/ef-core.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加初始的 ef-core 提示档，内容为 Entity Framework Core 最佳实务指引。"
+            "summary": "添加 EF Core 最佳实务提示档，涵盖 DbContext 与实体设计、性能、迁移、查找、变更追踪与保存、安全性及测试。"
           }
         ]
       }

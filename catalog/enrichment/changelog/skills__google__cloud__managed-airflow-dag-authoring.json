@@ -1,0 +1,99 @@
+{
+  "path": "skills/google/cloud/managed-airflow-dag-authoring",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:919ffc505e8a414238c1f900863ffe464c75932fa0acd2f55a385c4219951880",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/managed-airflow-dag-authoring",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/managed-airflow-dag-authoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a `1.0.0` version field to the skill's metadata."
+          },
+          {
+            "sha": "16fa2c3687a5945c5e1494e6d6a10b1971afd297",
+            "date": "2026-08-12T02:49:49-07:00",
+            "subject": "managed-airflow-dag-authoring - a skill for Airflow DAG code authoring",
+            "url": "https://github.com/google/skills/commit/16fa2c3687a5945c5e1494e6d6a10b1971afd297",
+            "pathAtCommit": "skills/cloud/managed-airflow-dag-authoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a Managed Airflow DAG authoring guide covering environment discovery, DAG best practices, Airflow-version compatibility, and local and target-environment validation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/managed-airflow-dag-authoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 metadata 中新增 `1.0.0` 版本欄位。"
+          },
+          {
+            "sha": "16fa2c3687a5945c5e1494e6d6a10b1971afd297",
+            "date": "2026-08-12T02:49:49-07:00",
+            "subject": "managed-airflow-dag-authoring - a skill for Airflow DAG code authoring",
+            "url": "https://github.com/google/skills/commit/16fa2c3687a5945c5e1494e6d6a10b1971afd297",
+            "pathAtCommit": "skills/cloud/managed-airflow-dag-authoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Managed Airflow DAG 撰寫指南，涵蓋環境探索、DAG 最佳實務、Airflow 版本相容性，以及本機與目標環境驗證。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/managed-airflow-dag-authoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 metadata 中添加 `1.0.0` 版本字段。"
+          },
+          {
+            "sha": "16fa2c3687a5945c5e1494e6d6a10b1971afd297",
+            "date": "2026-08-12T02:49:49-07:00",
+            "subject": "managed-airflow-dag-authoring - a skill for Airflow DAG code authoring",
+            "url": "https://github.com/google/skills/commit/16fa2c3687a5945c5e1494e6d6a10b1971afd297",
+            "pathAtCommit": "skills/cloud/managed-airflow-dag-authoring/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Managed Airflow DAG 撰写指南，涵盖环境探索、DAG 最佳实务、Airflow 版本兼容性，以及本机与目标环境验证。"
+          }
+        ]
+      }
+    }
+  }
+}

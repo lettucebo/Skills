@@ -145,6 +145,10 @@ Both artifact kinds use the history filename convention. For example,
 `skills__azure__az-cost-optimize.json` below its kind directory. The shared
 shape is frozen at schema version 1:
 
+LLM generation pins `gpt-6-luna` with `--reasoning-effort max` in CLI contract
+version 2. The contract is included in freshness signatures; changing it
+requires regeneration rather than relabeling existing artifacts.
+
 ```json
 {
   "path": "skills/azure/az-cost-optimize",
@@ -160,7 +164,7 @@ shape is frozen at schema version 1:
     "en": {
       "signature": "sha256:...",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:...",
       "generatorVersion": 1,
       "content": {}
@@ -168,7 +172,7 @@ shape is frozen at schema version 1:
     "zh-tw": {
       "signature": "sha256:...",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:...",
       "generatorVersion": 1,
       "content": {}

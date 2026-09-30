@@ -1,0 +1,153 @@
+{
+  "path": "skills/google/cloud/gemini-live-api",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:56499118382d3a5b4e93020646fb00ea947760c6511015ca9574ffb0e4c8a898",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gemini-live-api",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill's metadata."
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the AiAndMachineLearning category to the skill's metadata."
+          },
+          {
+            "sha": "99aa72b4d376d5826e39d9f3f2dc4c9f8ef07bae",
+            "date": "2026-07-20T11:15:29-07:00",
+            "subject": "Change name of skill to match the top level directory",
+            "url": "https://github.com/google/skills/commit/99aa72b4d376d5826e39d9f3f2dc4c9f8ef07bae",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the skill to gemini-live-api and updated its description to specify Gemini LiveAPI."
+          },
+          {
+            "sha": "62985fca4fc6d87a87d6e3cdcab8c62b7d33f335",
+            "date": "2026-07-16T17:23:09-07:00",
+            "subject": "https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/genai Public reference already exists in `third_party/skills/skills/cloud/gemini-api/SKILL.md`, not changing it.",
+            "url": "https://github.com/google/skills/commit/62985fca4fc6d87a87d6e3cdcab8c62b7d33f335",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a skill guide for building a Gemini LiveAPI WebSocket client, its tests, and demo service."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增版本號 1.0.0。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增 AiAndMachineLearning 類別。"
+          },
+          {
+            "sha": "99aa72b4d376d5826e39d9f3f2dc4c9f8ef07bae",
+            "date": "2026-07-20T11:15:29-07:00",
+            "subject": "Change name of skill to match the top level directory",
+            "url": "https://github.com/google/skills/commit/99aa72b4d376d5826e39d9f3f2dc4c9f8ef07bae",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能重新命名為 gemini-live-api，並更新說明以明確指出 Gemini LiveAPI。"
+          },
+          {
+            "sha": "62985fca4fc6d87a87d6e3cdcab8c62b7d33f335",
+            "date": "2026-07-16T17:23:09-07:00",
+            "subject": "https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/genai Public reference already exists in `third_party/skills/skills/cloud/gemini-api/SKILL.md`, not changing it.",
+            "url": "https://github.com/google/skills/commit/62985fca4fc6d87a87d6e3cdcab8c62b7d33f335",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增技能指南，說明如何建置 Gemini LiveAPI WebSocket 用戶端、測試及示範服務。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加版本号 1.0.0。"
+          },
+          {
+            "sha": "8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "date": "2026-07-24T12:51:46-07:00",
+            "subject": "Add category metadata to skills and update README.md with new skills and external links.",
+            "url": "https://github.com/google/skills/commit/8f5179b287c9cdf362ce24a87898458069dd7b04",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加 AiAndMachineLearning 类别。"
+          },
+          {
+            "sha": "99aa72b4d376d5826e39d9f3f2dc4c9f8ef07bae",
+            "date": "2026-07-20T11:15:29-07:00",
+            "subject": "Change name of skill to match the top level directory",
+            "url": "https://github.com/google/skills/commit/99aa72b4d376d5826e39d9f3f2dc4c9f8ef07bae",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能重命名为 gemini-live-api，并更新说明以明确指出 Gemini LiveAPI。"
+          },
+          {
+            "sha": "62985fca4fc6d87a87d6e3cdcab8c62b7d33f335",
+            "date": "2026-07-16T17:23:09-07:00",
+            "subject": "https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/genai Public reference already exists in `third_party/skills/skills/cloud/gemini-api/SKILL.md`, not changing it.",
+            "url": "https://github.com/google/skills/commit/62985fca4fc6d87a87d6e3cdcab8c62b7d33f335",
+            "pathAtCommit": "skills/cloud/gemini-live-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加技能指南，说明如何建置 Gemini LiveAPI WebSocket 用户端、测试及示范服务。"
+          }
+        ]
+      }
+    }
+  }
+}

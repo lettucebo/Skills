@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/developing-genkit-js",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6bce23575b0b509eed0c602c3d66bbcf873e575a2878388fe5f5eefda1aecc3f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides version-aware guidance for composing Genkit flows, reusable prompts, agent interactions, middleware, and generative UI in JavaScript and TypeScript.",
+        "whenToUse": "Consult it when choosing Genkit APIs or providers, adapting an integration to its framework, or looking up documented fixes for runtime and type errors.",
+        "outputs": "Delivers documentation-grounded implementation patterns and troubleshooting steps, including CLI trace workflows for inspecting model calls and tool use."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供具版本依據的指引，說明如何以 JavaScript 與 TypeScript 組合 Genkit 流程、可重用提示、代理程式互動、中介軟體及生成式介面。",
+        "whenToUse": "在選擇 Genkit API 或模型供應商、依專案框架調整整合方式，或查找執行期與型別錯誤的文件解法時，請參考此指引。",
+        "outputs": "提供以文件為依據的實作模式與故障排除步驟，包括透過 CLI 追蹤檢視模型呼叫及工具使用情形。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供具版本依据的指引，说明如何以 JavaScript 与 TypeScript 组合 Genkit 流程、可重用提示、代理程序交互、中间件及生成式界面。",
+        "whenToUse": "在选择 Genkit API 或模型供应商、依项目框架调整集成方式，或查找运行期与类型错误的文档解法时，请参考此指引。",
+        "outputs": "提供以文档为依据的实作模式与故障排除步骤，包括透过 CLI 追踪查看模型调用及工具使用情形。"
+      }
+    }
+  }
+}

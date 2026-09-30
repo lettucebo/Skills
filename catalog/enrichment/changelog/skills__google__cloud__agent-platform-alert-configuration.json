@@ -1,0 +1,477 @@
+{
+  "path": "skills/google/cloud/agent-platform-alert-configuration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:a3a8d790efc306da6f2a84b41a3cfa236138a5ec4f56841e09125e7aa175ead1",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/agent-platform-alert-configuration",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "date": "2026-09-23T08:53:46-07:00",
+            "subject": "Add semantic versions to the hand-authored agent-platform-* skills.",
+            "url": "https://github.com/google/skills/commit/efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.version: \"1.0.0\"` to the skill's front matter."
+          },
+          {
+            "sha": "7072dc408e998a5e9b84cfc8d8fb8ade84d3b213",
+            "date": "2026-08-12T11:26:47-07:00",
+            "subject": "Eliminate Latin abbreviations (e.g., i.e., etc.) from agent-platform-alert-configuration skill.",
+            "url": "https://github.com/google/skills/commit/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Replaced occurrences of the Latin example abbreviation `e.g.` with plain-language alternatives such as `such as` and `for example` throughout the skill."
+          },
+          {
+            "sha": "5027f3903d6ad0a86d2584bd1537e8f447b55527",
+            "date": "2026-08-12T11:23:52-07:00",
+            "subject": "Change weak language to a stronger set of verbs for agent-platform-alert-configuration for consistency.",
+            "url": "https://github.com/google/skills/commit/5027f3903d6ad0a86d2584bd1537e8f447b55527",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworded discovery, metric-scope, duplicate-policy, and background-task instructions to emphasize verification and stronger mandatory actions."
+          },
+          {
+            "sha": "62a8a8507996d4bed6ffe43f2c35b5919916bea4",
+            "date": "2026-08-12T11:04:31-07:00",
+            "subject": "Apply GCP language corrections to agent-platform-alert-configuration skill.",
+            "url": "https://github.com/google/skills/commit/62a8a8507996d4bed6ffe43f2c35b5919916bea4",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the telemetry billing warning to specify Cloud Trace/Cloud Logging export and renamed SQL alerting descriptions from Log Analytics to Observability Analytics."
+          },
+          {
+            "sha": "9d9a10f6292f99cd8111f344ae0013bcc5e7c883",
+            "date": "2026-08-12T10:38:44-07:00",
+            "subject": "Update documentation links to use docs.cloud.google.com domain.",
+            "url": "https://github.com/google/skills/commit/9d9a10f6292f99cd8111f344ae0013bcc5e7c883",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the Alerting Policies and PromQL supporting links to use the `docs.cloud.google.com` domain."
+          },
+          {
+            "sha": "a39f283003368b13c12a30840dcc6fe69b6ca06c",
+            "date": "2026-08-12T10:17:09-07:00",
+            "subject": "- Updated `SKILL.md` front matter description and added good/bad examples for dynamic grouping. - Clarified pinning rules in `reliability_alert_policies.md` to avoid conflicts.",
+            "url": "https://github.com/google/skills/commit/a39f283003368b13c12a30840dcc6fe69b6ca06c",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill description with Terraform-output and applicability details, and added good and bad PromQL and SQL examples for dynamic grouping versus hardcoded filters."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance not to rerun the log- or trace-table lookup scripts when `gather_agent_info.py` has already returned or written those table names."
+          },
+          {
+            "sha": "8229c1e1ab1b8bd9bd4334e6953ae6bb81bbf2db",
+            "date": "2026-08-03T13:09:10-07:00",
+            "subject": "Update SKILL.md to clarify gather_agent_info usage and fallbacks so that the agent will not call Gcloud for Metric Scopes if it already has enough information.",
+            "url": "https://github.com/google/skills/commit/8229c1e1ab1b8bd9bd4334e6953ae6bb81bbf2db",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified that metric-scope fallback checks run only when streamlined discovery lacks the scope, while successful discovery proceeds directly to the pre-existing-policy check."
+          },
+          {
+            "sha": "3ea747f7a3e71188215a77875fc4e62d78826767",
+            "date": "2026-08-03T10:43:30-07:00",
+            "subject": "Split validate_config.py into single-responsibility scripts: lint_syntax.py and scan_duplicates.py.",
+            "url": "https://github.com/google/skills/commit/3ea747f7a3e71188215a77875fc4e62d78826767",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated duplicate-checking and linting instructions to use `scan_duplicates.py` and `lint_syntax.py` instead of `validate_config.py` modes."
+          },
+          {
+            "sha": "12f4821514ac9b23cf3960c0450c7cbc62ab0499",
+            "date": "2026-08-03T08:47:52-07:00",
+            "subject": "Renamed flags in `validate_config.py` to be more semantic (`--scan-duplicates` instead of `--directory`, `--lint-syntax` instead of `--file`) to reduce agent confusion, and updated `SKILL.md` expectations.",
+            "url": "https://github.com/google/skills/commit/12f4821514ac9b23cf3960c0450c7cbc62ab0499",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Made streamlined discovery mandatory and renamed the documented `validate_config.py` flags and commands to `--scan-duplicates` and `--lint-syntax`."
+          },
+          {
+            "sha": "984673e6d826e17e2950da107374685e5b3b33f0",
+            "date": "2026-07-30T10:07:52-07:00",
+            "subject": "- Added gather_agent_info.py script with Fast lookup via Cloud Asset Inventory (CAIS) as the primary track. - Added --regions flag to allow custom region scanning. - Capped printed lists (Linked Datasets, Channels, Scopes, Evaluators) to 5 items to prevent context window overflow. - Updated SKILL.md to guide agents on using the script and handling potential failures.",
+            "url": "https://github.com/google/skills/commit/984673e6d826e17e2950da107374685e5b3b33f0",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the skill to classify `gather_agent_info.py` as read-only, add its discovery flow and usage instructions, and broaden utility-script failure guidance."
+          },
+          {
+            "sha": "26f2b89ca431d5270b2653587415f981f8890898",
+            "date": "2026-07-28T11:36:02-07:00",
+            "subject": "Minor fixes for the agent-platform-alert-configuration skill: - Update the SKILL.md instruction example to use single quotes ('${var.gen_ai_agent_name}') so that bash passes the string literal directly without attempting variable expansion. - In analyze_traffic.py, update argparse so that using `--metric-type` is required.",
+            "url": "https://github.com/google/skills/commit/26f2b89ca431d5270b2653587415f981f8890898",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the duplicate-check example to enclose the `${var.gen_ai_agent_name}` argument in single quotes."
+          },
+          {
+            "sha": "f20e4b66a9705c9e6c03ae5f490c065a4b825366",
+            "date": "2026-07-28T06:57:46-07:00",
+            "subject": "Update skill for agent-platform-alert-configuration",
+            "url": "https://github.com/google/skills/commit/f20e4b66a9705c9e6c03ae5f490c065a4b825366",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked the skill from Agent Runtime-specific alerting guidance into broader OTel alerting guidance, adding safety, discovery, alert-type, Terraform-only, dynamic-grouping, and validation rules while removing detailed algorithm and provisioning sections."
+          },
+          {
+            "sha": "439d729532cfb63685829f8c1fb0acdd02d8cddc",
+            "date": "2026-07-06T15:14:49-07:00",
+            "subject": "Correct allowed-tools field for agent-platform-alert-configuration",
+            "url": "https://github.com/google/skills/commit/439d729532cfb63685829f8c1fb0acdd02d8cddc",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the `allowed-tools` front matter from a YAML list to the inline value `terraform gcloud python`."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved `category: AiAndMachineLearning` into a new nested `metadata` block in the front matter."
+          },
+          {
+            "sha": "40e40d738a6a4befeb560d4ae7899fbe212d6102",
+            "date": "2026-06-22T08:26:25-07:00",
+            "subject": "Introduce the agent-platform-alert-configuration skill",
+            "url": "https://github.com/google/skills/commit/40e40d738a6a4befeb560d4ae7899fbe212d6102",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Introduced the skill with guidance for Vertex AI / Agent Platform alerting, safety tiers, policy selection, dynamic grouping and scope, telemetry and quality monitoring, and Terraform validation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "date": "2026-09-23T08:53:46-07:00",
+            "subject": "Add semantic versions to the hand-authored agent-platform-* skills.",
+            "url": "https://github.com/google/skills/commit/efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的前置資訊中新增 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "7072dc408e998a5e9b84cfc8d8fb8ade84d3b213",
+            "date": "2026-08-12T11:26:47-07:00",
+            "subject": "Eliminate Latin abbreviations (e.g., i.e., etc.) from agent-platform-alert-configuration skill.",
+            "url": "https://github.com/google/skills/commit/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能各處的拉丁文舉例縮寫 `e.g.` 改為 `such as`、`for example` 等完整說法。"
+          },
+          {
+            "sha": "5027f3903d6ad0a86d2584bd1537e8f447b55527",
+            "date": "2026-08-12T11:23:52-07:00",
+            "subject": "Change weak language to a stronger set of verbs for agent-platform-alert-configuration for consistency.",
+            "url": "https://github.com/google/skills/commit/5027f3903d6ad0a86d2584bd1537e8f447b55527",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新措辭探索、指標範圍、重複政策及背景工作的指示，強調驗證並採用更強制的行動要求。"
+          },
+          {
+            "sha": "62a8a8507996d4bed6ffe43f2c35b5919916bea4",
+            "date": "2026-08-12T11:04:31-07:00",
+            "subject": "Apply GCP language corrections to agent-platform-alert-configuration skill.",
+            "url": "https://github.com/google/skills/commit/62a8a8507996d4bed6ffe43f2c35b5919916bea4",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將遙測帳務警告中的匯出措辭改為 Cloud Trace/Cloud Logging，並將 SQL 告警描述中的 Log Analytics 改為 Observability Analytics。"
+          },
+          {
+            "sha": "9d9a10f6292f99cd8111f344ae0013bcc5e7c883",
+            "date": "2026-08-12T10:38:44-07:00",
+            "subject": "Update documentation links to use docs.cloud.google.com domain.",
+            "url": "https://github.com/google/skills/commit/9d9a10f6292f99cd8111f344ae0013bcc5e7c883",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Alerting Policies 與 PromQL 支援連結的網域改為 `docs.cloud.google.com`。"
+          },
+          {
+            "sha": "a39f283003368b13c12a30840dcc6fe69b6ca06c",
+            "date": "2026-08-12T10:17:09-07:00",
+            "subject": "- Updated `SKILL.md` front matter description and added good/bad examples for dynamic grouping. - Clarified pinning rules in `reliability_alert_policies.md` to avoid conflicts.",
+            "url": "https://github.com/google/skills/commit/a39f283003368b13c12a30840dcc6fe69b6ca06c",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充技能描述，加入 Terraform 輸出與適用範圍資訊，並新增對照動態分組與硬編碼篩選的 PromQL、SQL 正反例。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若 `gather_agent_info.py` 已回傳或寫入記錄或追蹤資料表名稱，就不要再執行相應的查詢腳本。"
+          },
+          {
+            "sha": "8229c1e1ab1b8bd9bd4334e6953ae6bb81bbf2db",
+            "date": "2026-08-03T13:09:10-07:00",
+            "subject": "Update SKILL.md to clarify gather_agent_info usage and fallbacks so that the agent will not call Gcloud for Metric Scopes if it already has enough information.",
+            "url": "https://github.com/google/skills/commit/8229c1e1ab1b8bd9bd4334e6953ae6bb81bbf2db",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "明確說明，只有精簡探索未能判定指標範圍時才執行備援檢查；探索成功則直接進入既有政策檢查。"
+          },
+          {
+            "sha": "3ea747f7a3e71188215a77875fc4e62d78826767",
+            "date": "2026-08-03T10:43:30-07:00",
+            "subject": "Split validate_config.py into single-responsibility scripts: lint_syntax.py and scan_duplicates.py.",
+            "url": "https://github.com/google/skills/commit/3ea747f7a3e71188215a77875fc4e62d78826767",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將重複項檢查與語法檢查指引改為使用 `scan_duplicates.py` 和 `lint_syntax.py`，取代 `validate_config.py` 的對應模式。"
+          },
+          {
+            "sha": "12f4821514ac9b23cf3960c0450c7cbc62ab0499",
+            "date": "2026-08-03T08:47:52-07:00",
+            "subject": "Renamed flags in `validate_config.py` to be more semantic (`--scan-duplicates` instead of `--directory`, `--lint-syntax` instead of `--file`) to reduce agent confusion, and updated `SKILL.md` expectations.",
+            "url": "https://github.com/google/skills/commit/12f4821514ac9b23cf3960c0450c7cbc62ab0499",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將精簡探索列為必做，並將文件中的 `validate_config.py` 參數與命令改名為 `--scan-duplicates` 和 `--lint-syntax`。"
+          },
+          {
+            "sha": "984673e6d826e17e2950da107374685e5b3b33f0",
+            "date": "2026-07-30T10:07:52-07:00",
+            "subject": "- Added gather_agent_info.py script with Fast lookup via Cloud Asset Inventory (CAIS) as the primary track. - Added --regions flag to allow custom region scanning. - Capped printed lists (Linked Datasets, Channels, Scopes, Evaluators) to 5 items to prevent context window overflow. - Updated SKILL.md to guide agents on using the script and handling potential failures.",
+            "url": "https://github.com/google/skills/commit/984673e6d826e17e2950da107374685e5b3b33f0",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能，將 `gather_agent_info.py` 列為唯讀工具、新增其探索流程與用法，並擴充工具腳本失敗時的處理指引。"
+          },
+          {
+            "sha": "26f2b89ca431d5270b2653587415f981f8890898",
+            "date": "2026-07-28T11:36:02-07:00",
+            "subject": "Minor fixes for the agent-platform-alert-configuration skill: - Update the SKILL.md instruction example to use single quotes ('${var.gen_ai_agent_name}') so that bash passes the string literal directly without attempting variable expansion. - In analyze_traffic.py, update argparse so that using `--metric-type` is required.",
+            "url": "https://github.com/google/skills/commit/26f2b89ca431d5270b2653587415f981f8890898",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將重複檢查範例中的 `${var.gen_ai_agent_name}` 參數改為以單引號括住。"
+          },
+          {
+            "sha": "f20e4b66a9705c9e6c03ae5f490c065a4b825366",
+            "date": "2026-07-28T06:57:46-07:00",
+            "subject": "Update skill for agent-platform-alert-configuration",
+            "url": "https://github.com/google/skills/commit/f20e4b66a9705c9e6c03ae5f490c065a4b825366",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能從專屬 Agent Runtime 的告警指引改寫為較廣泛的 OTel 告警指引，新增安全、探索、告警類型、僅限 Terraform、動態分組與驗證規則，並移除詳細的演算法及佈建章節。"
+          },
+          {
+            "sha": "439d729532cfb63685829f8c1fb0acdd02d8cddc",
+            "date": "2026-07-06T15:14:49-07:00",
+            "subject": "Correct allowed-tools field for agent-platform-alert-configuration",
+            "url": "https://github.com/google/skills/commit/439d729532cfb63685829f8c1fb0acdd02d8cddc",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將前置資訊中的 `allowed-tools` 從 YAML 清單改為行內值 `terraform gcloud python`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在前置資訊中新增 `metadata` 區塊，並將 `category: AiAndMachineLearning` 移入其中。"
+          },
+          {
+            "sha": "40e40d738a6a4befeb560d4ae7899fbe212d6102",
+            "date": "2026-06-22T08:26:25-07:00",
+            "subject": "Introduce the agent-platform-alert-configuration skill",
+            "url": "https://github.com/google/skills/commit/40e40d738a6a4befeb560d4ae7899fbe212d6102",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立此技能，提供 Vertex AI／Agent Platform 告警、安全層級、政策選擇、動態分組與範圍、遙測與品質監控及 Terraform 驗證指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "date": "2026-09-23T08:53:46-07:00",
+            "subject": "Add semantic versions to the hand-authored agent-platform-* skills.",
+            "url": "https://github.com/google/skills/commit/efcb6f0d2a2085285c75e31545df4c1072d2dd0a",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的前置信息中添加 `metadata.version: \"1.0.0\"`。"
+          },
+          {
+            "sha": "7072dc408e998a5e9b84cfc8d8fb8ade84d3b213",
+            "date": "2026-08-12T11:26:47-07:00",
+            "subject": "Eliminate Latin abbreviations (e.g., i.e., etc.) from agent-platform-alert-configuration skill.",
+            "url": "https://github.com/google/skills/commit/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能各处的拉丁文举例缩写 `e.g.` 改为 `such as`、`for example` 等完整说法。"
+          },
+          {
+            "sha": "5027f3903d6ad0a86d2584bd1537e8f447b55527",
+            "date": "2026-08-12T11:23:52-07:00",
+            "subject": "Change weak language to a stronger set of verbs for agent-platform-alert-configuration for consistency.",
+            "url": "https://github.com/google/skills/commit/5027f3903d6ad0a86d2584bd1537e8f447b55527",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新措辞探索、指针范围、重复政策及背景工作的指示，强调验证并采用更强制的行动要求。"
+          },
+          {
+            "sha": "62a8a8507996d4bed6ffe43f2c35b5919916bea4",
+            "date": "2026-08-12T11:04:31-07:00",
+            "subject": "Apply GCP language corrections to agent-platform-alert-configuration skill.",
+            "url": "https://github.com/google/skills/commit/62a8a8507996d4bed6ffe43f2c35b5919916bea4",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将遥测帐务警告中的导出措辞改为 Cloud Trace/Cloud Logging，并将 SQL 告警描述中的 Log Analytics 改为 Observability Analytics。"
+          },
+          {
+            "sha": "9d9a10f6292f99cd8111f344ae0013bcc5e7c883",
+            "date": "2026-08-12T10:38:44-07:00",
+            "subject": "Update documentation links to use docs.cloud.google.com domain.",
+            "url": "https://github.com/google/skills/commit/9d9a10f6292f99cd8111f344ae0013bcc5e7c883",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Alerting Policies 与 PromQL 支持链接的网域改为 `docs.cloud.google.com`。"
+          },
+          {
+            "sha": "a39f283003368b13c12a30840dcc6fe69b6ca06c",
+            "date": "2026-08-12T10:17:09-07:00",
+            "subject": "- Updated `SKILL.md` front matter description and added good/bad examples for dynamic grouping. - Clarified pinning rules in `reliability_alert_policies.md` to avoid conflicts.",
+            "url": "https://github.com/google/skills/commit/a39f283003368b13c12a30840dcc6fe69b6ca06c",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充技能描述，加入 Terraform 输出与适用范围信息，并添加对照动态分组与硬编码筛选的 PromQL、SQL 正反例。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若 `gather_agent_info.py` 已回传或写入记录或追踪数据表名称，就不要再运行相应的查找脚本。"
+          },
+          {
+            "sha": "8229c1e1ab1b8bd9bd4334e6953ae6bb81bbf2db",
+            "date": "2026-08-03T13:09:10-07:00",
+            "subject": "Update SKILL.md to clarify gather_agent_info usage and fallbacks so that the agent will not call Gcloud for Metric Scopes if it already has enough information.",
+            "url": "https://github.com/google/skills/commit/8229c1e1ab1b8bd9bd4334e6953ae6bb81bbf2db",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "明确说明，只有精简探索未能判定指针范围时才运行备援检查；探索成功则直接进入既有政策检查。"
+          },
+          {
+            "sha": "3ea747f7a3e71188215a77875fc4e62d78826767",
+            "date": "2026-08-03T10:43:30-07:00",
+            "subject": "Split validate_config.py into single-responsibility scripts: lint_syntax.py and scan_duplicates.py.",
+            "url": "https://github.com/google/skills/commit/3ea747f7a3e71188215a77875fc4e62d78826767",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将重复项检查与语法检查指引改为使用 `scan_duplicates.py` 和 `lint_syntax.py`，取代 `validate_config.py` 的对应模式。"
+          },
+          {
+            "sha": "12f4821514ac9b23cf3960c0450c7cbc62ab0499",
+            "date": "2026-08-03T08:47:52-07:00",
+            "subject": "Renamed flags in `validate_config.py` to be more semantic (`--scan-duplicates` instead of `--directory`, `--lint-syntax` instead of `--file`) to reduce agent confusion, and updated `SKILL.md` expectations.",
+            "url": "https://github.com/google/skills/commit/12f4821514ac9b23cf3960c0450c7cbc62ab0499",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将精简探索列为必做，并将文档中的 `validate_config.py` 参数与命令改名为 `--scan-duplicates` 和 `--lint-syntax`。"
+          },
+          {
+            "sha": "984673e6d826e17e2950da107374685e5b3b33f0",
+            "date": "2026-07-30T10:07:52-07:00",
+            "subject": "- Added gather_agent_info.py script with Fast lookup via Cloud Asset Inventory (CAIS) as the primary track. - Added --regions flag to allow custom region scanning. - Capped printed lists (Linked Datasets, Channels, Scopes, Evaluators) to 5 items to prevent context window overflow. - Updated SKILL.md to guide agents on using the script and handling potential failures.",
+            "url": "https://github.com/google/skills/commit/984673e6d826e17e2950da107374685e5b3b33f0",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能，将 `gather_agent_info.py` 列为唯读工具、添加其探索流程与用法，并扩充工具脚本失败时的处理指引。"
+          },
+          {
+            "sha": "26f2b89ca431d5270b2653587415f981f8890898",
+            "date": "2026-07-28T11:36:02-07:00",
+            "subject": "Minor fixes for the agent-platform-alert-configuration skill: - Update the SKILL.md instruction example to use single quotes ('${var.gen_ai_agent_name}') so that bash passes the string literal directly without attempting variable expansion. - In analyze_traffic.py, update argparse so that using `--metric-type` is required.",
+            "url": "https://github.com/google/skills/commit/26f2b89ca431d5270b2653587415f981f8890898",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将重复检查范例中的 `${var.gen_ai_agent_name}` 参数改为以单引号括住。"
+          },
+          {
+            "sha": "f20e4b66a9705c9e6c03ae5f490c065a4b825366",
+            "date": "2026-07-28T06:57:46-07:00",
+            "subject": "Update skill for agent-platform-alert-configuration",
+            "url": "https://github.com/google/skills/commit/f20e4b66a9705c9e6c03ae5f490c065a4b825366",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能从专属 Agent Runtime 的告警指引改写为较广泛的 OTel 告警指引，添加安全、探索、告警类型、仅限 Terraform、动态分组与验证规则，并移除详细的算法及布建章节。"
+          },
+          {
+            "sha": "439d729532cfb63685829f8c1fb0acdd02d8cddc",
+            "date": "2026-07-06T15:14:49-07:00",
+            "subject": "Correct allowed-tools field for agent-platform-alert-configuration",
+            "url": "https://github.com/google/skills/commit/439d729532cfb63685829f8c1fb0acdd02d8cddc",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将前置信息中的 `allowed-tools` 从 YAML 清单改为行内值 `terraform gcloud python`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在前置信息中添加 `metadata` 区块，并将 `category: AiAndMachineLearning` 移入其中。"
+          },
+          {
+            "sha": "40e40d738a6a4befeb560d4ae7899fbe212d6102",
+            "date": "2026-06-22T08:26:25-07:00",
+            "subject": "Introduce the agent-platform-alert-configuration skill",
+            "url": "https://github.com/google/skills/commit/40e40d738a6a4befeb560d4ae7899fbe212d6102",
+            "pathAtCommit": "skills/cloud/agent-platform-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建此技能，提供 Vertex AI／Agent Platform 告警、安全层级、政策选择、动态分组与范围、遥测与品质监控及 Terraform 验证指引。"
+          }
+        ]
+      }
+    }
+  }
+}

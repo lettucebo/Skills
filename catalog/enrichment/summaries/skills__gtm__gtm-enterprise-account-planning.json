@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps teams plan and manage complex enterprise deals by structuring account research, stakeholder strategy, qualification, and execution.",
-        "whenToUse": "Use it for higher-value, multi-stakeholder opportunities with long or complex buying cycles, especially when you need MEDDICC rigor, mutual action planning, or a clear read on deal health.",
-        "outputs": "Produces a practical account-planning package such as an account summary, stakeholder map, validated MEDDICC opportunity plan, mutual action plan, and deal-stage or health guidance."
+        "purpose": "Provides a structured approach to enterprise account strategy, qualification, stakeholder alignment, and deal-health management.",
+        "whenToUse": "Use for strategic enterprise or mid-market pursuits with above-average deal potential, sales cycles over 60 days, or complex stakeholder and buying processes.",
+        "outputs": "Produces a tailored account plan covering account context, stakeholder motivations, validated MEDDICC qualification, risks, mutual actions, and deal-stage exit criteria."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助團隊以系統化方式規劃與推進複雜的企業交易，涵蓋帳戶研究、利害關係人策略、資格確認與執行。",
-        "whenToUse": "適用於高價值、涉及多位利害關係人且採購流程冗長或複雜的商機，特別是在需要 MEDDICC 紀律、共同執行計畫或明確判斷交易健康度時。",
-        "outputs": "會產出實用的帳戶規劃內容，例如帳戶摘要、利害關係人地圖、經驗證的 MEDDICC 商機計畫、共同執行計畫，以及交易階段或健康度判斷。"
+        "purpose": "提供企業客戶策略、資格評估、利害關係人協調與交易健康度管理的結構化方法。",
+        "whenToUse": "適用於具策略價值的企業或中型市場銷售機會，尤其是交易規模高於平均、銷售週期超過 60 天，或採購流程及利害關係人複雜時。",
+        "outputs": "產出涵蓋客戶背景、利害關係人動機、經驗證的 MEDDICC 資格資訊、風險、共同執行計畫與各銷售階段退出條件的客戶計畫。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助团队以系统化方式规划与推进复杂的企业交易，涵盖帐户研究、利害关系人策略、资格确认与运行。",
-        "whenToUse": "适用于高价值、涉及多位利害关系人且采购流程冗长或复杂的商机，特别是在需要 MEDDICC 纪律、共同运行计划或明确判断交易健康度时。",
-        "outputs": "会产出实用的帐户规划内容，例如帐户摘要、利害关系人地图、经验证的 MEDDICC 商机计划、共同运行计划，以及交易阶段或健康度判断。"
+        "purpose": "提供企业客户策略、资格评估、利害关系人协调与交易健康度管理的结构化方法。",
+        "whenToUse": "适用于具策略价值的企业或中型市场销售机会，尤其是交易规模高于平均、销售周期超过 60 天，或采购流程及利害关系人复杂时。",
+        "outputs": "产出涵盖客户背景、利害关系人动机、经验证的 MEDDICC 资格信息、风险、共同运行计划与各销售阶段退出条件的客户计划。"
       }
     }
   }

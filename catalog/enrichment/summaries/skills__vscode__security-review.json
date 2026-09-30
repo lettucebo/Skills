@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Analyzes a codebase like a security reviewer to uncover vulnerabilities, exposed secrets, risky dependencies, and weak security logic across files.",
-        "whenToUse": "Use it when you need a security scan of a project or file, including checks for injection flaws, auth or access-control issues, insecure crypto, dependency CVEs, or hardcoded credentials.",
-        "outputs": "Produces a structured security report with severity and confidence for each finding, a summary of dependency and secrets checks, and review-only patch suggestions for critical and high issues."
+        "purpose": "Reviews code in context and traces cross-file data flows to identify and verify security weaknesses that simple pattern matching can miss.",
+        "whenToUse": "Use it for a scoped or repository-wide audit of dependencies, exposed secrets, input-to-sink flows, access controls, cryptography, or business logic.",
+        "outputs": "It produces a severity-ranked report with categorized findings, file and line evidence, confidence ratings, and risk explanations, plus review-only patches for critical and high findings; it never applies changes automatically."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "以安全審查者的角度分析程式碼庫，找出跨檔案的漏洞、外洩的祕密、風險相依套件與薄弱的安全邏輯。",
-        "whenToUse": "當你需要對專案或單一檔案做安全掃描時使用，包括檢查注入漏洞、驗證或存取控制問題、不安全的密碼學、相依套件 CVE，或硬編碼憑證。",
-        "outputs": "會產生結構化的安全報告，列出每項發現的嚴重度與信心等級、相依與祕密掃描摘要，以及供人工審查的重大與高風險修補建議。"
+        "purpose": "透過脈絡化檢視與跨檔案資料流追蹤，辨識並驗證簡單模式比對可能漏掉的安全弱點。",
+        "whenToUse": "當你要針對指定範圍或整個專案，稽核相依套件、暴露的機密資訊、輸入流向危險操作的資料流、存取控制、密碼學或商業邏輯時使用。",
+        "outputs": "報告會依嚴重程度排序，列出分類發現、檔案與行號證據、信心評級及風險說明，並為嚴重與高風險問題提供僅供審閱的修補方案，且不會自動套用修改。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "以安全审查者的角度分析代码库，找出跨文件的漏洞、外泄的秘密、风险相依套件与薄弱的安全逻辑。",
-        "whenToUse": "当你需要对项目或单一文件做安全扫描时使用，包括检查注入漏洞、验证或访问控制问题、不安全的密码学、相依套件 CVE，或硬编码凭证。",
-        "outputs": "会产生结构化的安全报告，列出每项发现的严重度与信心等级、相依与秘密扫描摘要，以及供人工审查的重大与高风险修补建议。"
+        "purpose": "透过脉络化查看与跨文件数据流追踪，辨识并验证简单模式比对可能漏掉的安全弱点。",
+        "whenToUse": "当你要针对指定范围或整个项目，审核相依套件、暴露的机密信息、输入流向危险操作的数据流、访问控制、密码学或商业逻辑时使用。",
+        "outputs": "报告会依严重程度排序，列出分类发现、文件与行号证据、信心评级及风险说明，并为严重与高风险问题提供仅供审阅的修补方案，且不会自动套用修改。"
       }
     }
   }

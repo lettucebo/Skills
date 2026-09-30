@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-waf-performance-optimization",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:d888c5453a88cf37beb5b64d22da24fdfeff0e98d4dbe4fcef9fafd86fd93a69"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps assess and improve Google Cloud workload performance through resource allocation, modular architecture, elasticity, and ongoing measurement.",
+        "whenToUse": "Use it when reviewing a Google Cloud workload's performance requirements, capacity and scaling approach, architecture, or performance monitoring.",
+        "outputs": "It provides workload assessment questions, actionable recommendations, and a checklist for evaluating resource allocation, modular design, monitoring, and elasticity."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助評估並改善 Google Cloud 工作負載的效能，涵蓋資源配置、模組化架構、彈性調整與持續量測。",
+        "whenToUse": "當檢視 Google Cloud 工作負載的效能需求、容量與擴縮策略、架構或效能監控時使用。",
+        "outputs": "提供工作負載評估問題、可執行的建議，以及用於檢查資源配置、模組化設計、監控與彈性的清單。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助评估并改善 Google Cloud 工作负载的性能，涵盖资源配置、模块化架构、弹性调整与持续量测。",
+        "whenToUse": "当查看 Google Cloud 工作负载的性能需求、容量与扩缩策略、架构或性能监控时使用。",
+        "outputs": "提供工作负载评估问题、可运行的建议，以及用于检查资源配置、模块化设计、监控与弹性的清单。"
+      }
+    }
+  }
+}

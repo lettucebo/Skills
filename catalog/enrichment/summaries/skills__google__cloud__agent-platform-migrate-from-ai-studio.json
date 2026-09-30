@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-migrate-from-ai-studio",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2b0010a7df836732027412e2e0ad15a70003f0076541890aaceb00be8f114242"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to move Gemini API applications from Google AI Studio to Gemini Enterprise Agent Platform, including billing, authentication, and client configuration.",
+        "whenToUse": "Use it when an existing Gemini integration needs Google Cloud billing and IAM, or when configuring ADK or OpenClaw agents to call models through Agent Platform.",
+        "outputs": "It provides steps for billing and budget setup, enabling the API, granting user or service-account access, and configuring the GenAI SDK, ADK, Antigravity CLI, or OpenClaw."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何將 Gemini API 應用程式從 Google AI Studio 遷移至 Gemini Enterprise Agent Platform，涵蓋帳務、驗證與用戶端設定。",
+        "whenToUse": "當現有的 Gemini 整合需要採用 Google Cloud 帳務與 IAM，或需要設定 ADK 或 OpenClaw 代理程式透過 Agent Platform 呼叫模型時，請使用此指南。",
+        "outputs": "內容提供帳務與預算設定、啟用 API、授予使用者或服務帳戶存取權，以及設定 GenAI SDK、ADK、Antigravity CLI 或 OpenClaw 的步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何将 Gemini API 应用程序从 Google AI Studio 迁移至 Gemini Enterprise Agent Platform，涵盖帐务、验证与用户端设置。",
+        "whenToUse": "当现有的 Gemini 集成需要采用 Google Cloud 帐务与 IAM，或需要设置 ADK 或 OpenClaw 代理程序透过 Agent Platform 调用模型时，请使用此指南。",
+        "outputs": "内容提供帐务与预算设置、激活 API、授予用户或服务帐户访问权，以及设置 GenAI SDK、ADK、Antigravity CLI 或 OpenClaw 的步骤。"
+      }
+    }
+  }
+}

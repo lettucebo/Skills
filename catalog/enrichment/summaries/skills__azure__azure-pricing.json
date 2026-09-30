@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides current Azure retail pricing details and estimates Copilot Studio agent credit costs from public Microsoft pricing sources.",
-        "whenToUse": "Use it for Azure service cost questions, SKU or region price comparisons, workload estimates, or Copilot Studio pricing and usage-cost inquiries.",
-        "outputs": "It returns pricing details such as service, SKU, region, unit price, and monthly or annual estimates, or a Copilot Studio credit and cost breakdown."
+        "purpose": "Fetches current Azure retail prices and turns them into cost estimates, including Copilot Studio credit usage.",
+        "whenToUse": "Use it when an estimate depends on current regional or SKU rates, pricing-plan comparisons, workload assumptions, or Copilot Studio feature usage.",
+        "outputs": "Provides service, SKU, region, and rate details with monthly or annual Azure estimates, plus Copilot Studio credit and USD cost breakdowns when usage inputs are available."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供最新的 Azure 零售價格資訊，並根據公開的 Microsoft 定價來源估算 Copilot Studio 代理程式點數成本。",
-        "whenToUse": "當你需要查詢 Azure 服務成本、比較 SKU 或區域價格、估算工作負載費用，或了解 Copilot Studio 定價與使用成本時使用。",
-        "outputs": "它會回傳服務、SKU、區域、單價與月或年估算等定價資訊，或 Copilot Studio 點數與成本明細。"
+        "purpose": "擷取最新的 Azure 零售價格並據此估算成本，包括 Copilot Studio 點數用量。",
+        "whenToUse": "當估算取決於最新的區域或 SKU 費率、定價方案比較、工作負載假設或 Copilot Studio 功能用量時使用。",
+        "outputs": "提供服務、SKU、區域與費率資訊，以及 Azure 月度或年度估算；若有用量輸入，也會列出 Copilot Studio 點數與美元成本明細。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供最新的 Azure 零售价格信息，并根据公开的 Microsoft 定价来源估算 Copilot Studio 代理程序点数成本。",
-        "whenToUse": "当你需要查找 Azure 服务成本、比较 SKU 或区域价格、估算工作负载费用，或了解 Copilot Studio 定价与使用成本时使用。",
-        "outputs": "它会回传服务、SKU、区域、单价与月或年估算等定价信息，或 Copilot Studio 点数与成本明细。"
+        "purpose": "截取最新的 Azure 零售价格并据此估算成本，包括 Copilot Studio 点数用量。",
+        "whenToUse": "当估算取决于最新的区域或 SKU 费率、定价方案比较、工作负载假设或 Copilot Studio 功能用量时使用。",
+        "outputs": "提供服务、SKU、区域与费率信息，以及 Azure 月度或年度估算；若有用量输入，也会列出 Copilot Studio 点数与美元成本明细。"
       }
     }
   }

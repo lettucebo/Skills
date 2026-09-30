@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps manage percentage-based Google Play releases and monitor rollout health as distribution expands.",
-        "whenToUse": "Use this when you are gradually releasing an Android app update and need to increase, pause, resume, or finish the rollout based on observed issues.",
-        "outputs": "Provides example commands, rollout schedules, monitoring checks, and recovery options for staged Google Play releases."
+        "purpose": "Control the staged distribution of Google Play app releases while limiting the impact of issues.",
+        "whenToUse": "Use it to choose or change rollout percentages, pause or resume a release, or evaluate rollout health before full distribution.",
+        "outputs": "It provides commands and guidance to start, adjust, inspect, halt, resume, and complete rollouts, monitor crashes and reviews, and address issues with a hotfix or promotion of a previous version."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助管理 Google Play 的分階段百分比發佈，並在擴大散佈時監控發佈狀態。",
-        "whenToUse": "當你要逐步發佈 Android 應用程式更新，並需依據觀察到的問題提高、暫停、恢復或完成發佈時使用。",
-        "outputs": "提供分階段 Google Play 發佈的指令範例、發佈時程、監控檢查與應對選項。"
+        "purpose": "控管 Google Play 應用程式的分階段發布，以限制問題造成的影響。",
+        "whenToUse": "在選擇或調整發布比例、暫停或恢復發布，或在全面發布前評估發布狀況時使用。",
+        "outputs": "提供啟動、調整、檢查、停止、恢復及完成分階段發布的指令與指南，並說明如何監控當機與評論，以及透過修補版本或推廣先前版本處理問題。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助管理 Google Play 的分阶段百分比发布，并在扩大散布时监控发布状态。",
-        "whenToUse": "当你要逐步发布 Android 应用程序更新，并需依据观察到的问题提高、暂停、恢复或完成发布时使用。",
-        "outputs": "提供分阶段 Google Play 发布的指令范例、发布时程、监控检查与应对选项。"
+        "purpose": "控管 Google Play 应用程序的分阶段发布，以限制问题造成的影响。",
+        "whenToUse": "在选择或调整发布比例、暂停或恢复发布，或在全面发布前评估发布状况时使用。",
+        "outputs": "提供启动、调整、检查、停止、恢复及完成分阶段发布的指令与指南，并说明如何监控当机与评论，以及透过修补版本或推广先前版本处理问题。"
       }
     }
   }

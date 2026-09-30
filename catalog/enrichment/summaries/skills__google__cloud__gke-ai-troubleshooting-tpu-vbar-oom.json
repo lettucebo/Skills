@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-ai-troubleshooting-tpu-vbar-oom",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:4bed09fbc14c444b55c99ec354caf707281048add634b708baff9a5e3986c910"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a structured diagnosis of vBAR-related TPU v6e crashes and out-of-memory failures in GKE, including possible conflicts from frequent metrics collection.",
+        "whenToUse": "Use it to correlate node serial-console OOMs, TPU device-plugin checksum errors, and custom TPU metrics activity around an incident.",
+        "outputs": "When an issue time is available, it provides a 30-minute-before-and-after log window and Cloud Logging filters, checks for custom metrics collection, and outlines mitigation and upgrade guidance."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供一套結構化方法，診斷 GKE 中 TPU v6e 的 vBAR 相關當機與記憶體不足問題，並檢查頻繁收集指標是否造成衝突。",
+        "whenToUse": "當需要比對事件期間節點序列主控台的 OOM 訊息、TPU 裝置外掛程式的校驗和錯誤，以及自訂 TPU 指標收集活動時使用。",
+        "outputs": "若提供事件時間，會給出前後各 30 分鐘的 Cloud Logging 查詢範本、檢查自訂指標收集的步驟，以及緩解措施與升級建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供一套结构化方法，诊断 GKE 中 TPU v6e 的 vBAR 相关当机与内存不足问题，并检查频繁收集指针是否造成冲突。",
+        "whenToUse": "当需要比对事件期间节点串行主控台的 OOM 消息、TPU 设备插件程序的校验和错误，以及自订 TPU 指针收集活动时使用。",
+        "outputs": "若提供事件时间，会给出前后各 30 分钟的 Cloud Logging 查找范本、检查自订指针收集的步骤，以及缓解措施与升级建议。"
+      }
+    }
+  }
+}

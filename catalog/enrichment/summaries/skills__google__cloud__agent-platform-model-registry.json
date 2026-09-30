@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/agent-platform-model-registry",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:fd69f3d50716a0a908395287408e125fd40d8ad4c233409a9f1a36589fefb21f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Supports management of model records and version metadata in the Agent Platform Model Registry.",
+        "whenToUse": "Use it when a workflow needs registry IDs or version details, model metadata must change, or a Model Garden publisher model identifier must be verified.",
+        "outputs": "It provides registry listings and model/version metadata, supports model registration, metadata updates, and deletion, and finds matching publisher models."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助管理 Agent Platform 模型登錄庫中的模型記錄與版本中繼資料。",
+        "whenToUse": "當工作流程需要登錄庫識別碼或版本詳細資料、需要變更模型中繼資料，或必須驗證 Model Garden 發布者模型識別碼時，請使用此技能。",
+        "outputs": "提供登錄庫清單與模型／版本中繼資料，支援註冊模型、更新中繼資料與刪除模型，並可找出相符的發布者模型。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助管理 Agent Platform 模型登录库中的模型记录与版本中继数据。",
+        "whenToUse": "当工作流程需要登录库识别码或版本详细数据、需要变更模型中继数据，或必须验证 Model Garden 发布者模型识别码时，请使用此技能。",
+        "outputs": "提供登录库清单与模型／版本中继数据，支持注册模型、更新中继数据与删除模型，并可找出相符的发布者模型。"
+      }
+    }
+  }
+}

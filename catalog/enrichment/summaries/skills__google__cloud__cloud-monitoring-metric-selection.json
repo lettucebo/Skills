@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-monitoring-metric-selection",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8dc68e84c1be7d1cbf39b0f41a3eb60a26213a59afda62c1f32b4d2a1016589f"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps identify relevant Google Cloud Monitoring metrics for a service or resource by retrieving descriptors and narrowing them with metric keywords and resource labels.",
+        "whenToUse": "Use it when an observability task needs a focused set of service metrics for a particular resource or measurement, such as CPU use, latency, or request counts.",
+        "outputs": "Returns selected metrics in service-grouped Markdown tables with their type, display name, description, kind, value type, unit, and monitored resource types, and reports API errors, fallback sources, and non-live-data risks when documentation is used."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過擷取指標描述資料，並依指標關鍵字與資源標籤篩選，協助找出與服務或資源相關的 Google Cloud Monitoring 指標。",
+        "whenToUse": "當監控工作需要針對特定資源或測量項目（例如 CPU 使用率、延遲或請求數）整理精簡的服務指標時使用。",
+        "outputs": "以按服務分類的 Markdown 表格提供所選指標及其類型、顯示名稱、說明、種類、值類型、單位與受監控資源類型；若使用文件作為備援，也會說明 API 錯誤、備援來源與非即時資料的風險。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过截取指针描述数据，并依指针关键字与资源标签筛选，协助找出与服务或资源相关的 Google Cloud Monitoring 指针。",
+        "whenToUse": "当监控工作需要针对特定资源或测量项目（例如 CPU 使用率、延迟或请求数）整理精简的服务指针时使用。",
+        "outputs": "以按服务分类的 Markdown 表格提供所选指针及其类型、显示名称、说明、种类、值类型、单位与受监控资源类型；若使用文档作为备援，也会说明 API 错误、备援来源与非实时数据的风险。"
+      }
+    }
+  }
+}

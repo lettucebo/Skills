@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps produce clear internal communications using company-preferred structures and reference guidance.",
-        "whenToUse": "Use it when writing internal updates or messages such as 3P reports, newsletters, FAQ responses, status reports, leadership updates, project updates, or incident reports.",
-        "outputs": "It provides drafted internal communication content shaped to the relevant format, including 3P updates, newsletters, FAQs, or general updates."
+        "purpose": "It provides guidance for writing internal messages in the formats preferred by the company.",
+        "whenToUse": "Use it when an internal message needs a consistent company style or a format-specific structure.",
+        "outputs": "It guides a draft in the matching format and requests more context if no listed guideline fits."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助依照公司偏好的結構與參考指引撰寫清楚的內部溝通內容。",
-        "whenToUse": "當你要撰寫 3P 報告、公司電子報、FAQ 回覆、狀態報告、主管更新、專案更新或事件報告等內部訊息時使用。",
-        "outputs": "它會提供符合相應格式的內部溝通草稿內容，包括 3P 更新、電子報、FAQ 或一般更新。"
+        "purpose": "此技能提供撰寫內部訊息的指引，協助採用公司偏好的格式。",
+        "whenToUse": "當內部訊息需要一致的公司風格或特定格式架構時使用。",
+        "outputs": "它會依照相符的格式指引草擬內容，若沒有適用的指引則要求補充背景。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助依照公司偏好的结构与参考指引撰写清楚的内部沟通内容。",
-        "whenToUse": "当你要撰写 3P 报告、公司电子报、FAQ 回复、状态报告、主管更新、项目更新或事件报告等内部消息时使用。",
-        "outputs": "它会提供符合相应格式的内部沟通草稿内容，包括 3P 更新、电子报、FAQ 或一般更新。"
+        "purpose": "此技能提供撰写内部消息的指引，协助采用公司偏好的格式。",
+        "whenToUse": "当内部消息需要一致的公司风格或特定格式架构时使用。",
+        "outputs": "它会依照相符的格式指引草拟内容，若没有适用的指引则要求补充背景。"
       }
     }
   }

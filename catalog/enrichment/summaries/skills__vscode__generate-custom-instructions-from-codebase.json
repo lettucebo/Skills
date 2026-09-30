@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Summarizes differences between two versions of a codebase and turns the recurring changes into migration guidance for GitHub Copilot.",
-        "whenToUse": "Use it when a framework upgrade, technology swap, or large refactor needs project-specific rules to keep future edits aligned with the new conventions.",
-        "outputs": "It produces a .github/copilot-migration-instructions.md document with transformation rules, API mappings, validation checkpoints, and optionally before-and-after examples."
+        "purpose": "Turn comparisons of two project states into reusable Copilot guidance that carries observed code-evolution patterns into future changes.",
+        "whenToUse": "Use it when a framework or dependency upgrade, technology switch, architectural refactor, or convention change needs to carry through consistently to later code changes.",
+        "outputs": "It produces a Copilot migration-instructions document with transformation rules, new and obsolete patterns, validation guidance, and, when enabled, before-and-after examples."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "它會整理程式碼庫兩個版本之間的差異，並將重複出現的變更轉成提供給 GitHub Copilot 的遷移指引。",
-        "whenToUse": "當框架升級、技術替換或大型重構需要專案專屬規則來讓後續修改持續符合新慣例時，可使用它。",
-        "outputs": "它會產出一份 .github/copilot-migration-instructions.md 文件，內容包含轉換規則、API 對應、驗證檢查點，以及可選的前後對照範例。"
+        "purpose": "將兩個專案狀態的比較轉化為可重用的 Copilot 指引，讓後續變更延續觀察到的程式碼演進模式。",
+        "whenToUse": "當框架或相依套件升級、技術替換、架構重構或慣例變更需要在後續程式碼變更中保持一致時使用。",
+        "outputs": "產生一份 Copilot 遷移指引文件，整理程式轉換規則、新採用與應避免的模式及驗證指引，並可依設定加入轉換前後範例。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "它会整理代码库两个版本之间的差异，并将重复出现的变更转成提供给 GitHub Copilot 的迁移指引。",
-        "whenToUse": "当框架升级、技术替换或大型重构需要项目专属规则来让后续修改持续符合新惯例时，可使用它。",
-        "outputs": "它会产出一份 .github/copilot-migration-instructions.md 文档，内容包含转换规则、API 对应、验证检查点，以及可选的前后对照范例。"
+        "purpose": "将两个项目状态的比较转化为可重用的 Copilot 指引，让后续变更延续观察到的代码演进模式。",
+        "whenToUse": "当框架或相依套件升级、技术替换、架构重构或惯例变更需要在后续代码变更中保持一致时使用。",
+        "outputs": "产生一份 Copilot 迁移指引文档，整理程序转换规则、新采用与应避免的模式及验证指引，并可依设置加入转换前后范例。"
       }
     }
   }

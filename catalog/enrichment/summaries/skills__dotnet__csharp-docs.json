@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps you document C# types and members with XML comments that follow established API documentation conventions.",
-        "whenToUse": "Use it when writing or reviewing C# code that needs clear summaries, parameter and return descriptions, property docs, examples, or exception notes.",
-        "outputs": "It provides documentation guidance for XML comment tags, recommended wording patterns, and coverage expectations for APIs."
+        "purpose": "Establishes conventions for XML documentation that clearly explains C# API behavior and usage.",
+        "whenToUse": "Use it when documenting public C# APIs or adding clarity to complex or non-self-explanatory internal members.",
+        "outputs": "It provides guidance on summaries, remarks, examples, references, parameters, return and property values, and exceptions."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助你以符合既有 API 文件慣例的 XML 註解來記錄 C# 型別與成員。",
-        "whenToUse": "當你在撰寫或審查需要清楚摘要、參數與傳回值說明、屬性文件、範例或例外資訊的 C# 程式碼時使用。",
-        "outputs": "它提供 XML 註解標籤、建議措辭模式，以及 API 文件涵蓋範圍的指引。"
+        "purpose": "建立 XML 文件註解的撰寫慣例，清楚說明 C# API 的行為與用法。",
+        "whenToUse": "撰寫公開的 C# API 文件，或為複雜且不易理解的內部成員補充說明時使用。",
+        "outputs": "提供摘要、補充說明、範例、參照、參數、傳回值與屬性值，以及例外狀況的撰寫指引。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助你以符合既有 API 文档惯例的 XML 注解来记录 C# 类型与成员。",
-        "whenToUse": "当你在撰写或审查需要清楚摘要、参数与传回值说明、属性文档、范例或例外信息的 C# 代码时使用。",
-        "outputs": "它提供 XML 注解标签、建议措辞模式，以及 API 文档涵盖范围的指引。"
+        "purpose": "创建 XML 文档注解的撰写惯例，清楚说明 C# API 的行为与用法。",
+        "whenToUse": "撰写公开的 C# API 文档，或为复杂且不易理解的内部成员补充说明时使用。",
+        "outputs": "提供摘要、补充说明、范例、参照、参数、传回值与属性值，以及例外状况的撰写指引。"
       }
     }
   }

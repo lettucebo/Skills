@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-multi-agent-security",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c9a7f8c47d90d4e75034e580279802e3afe72480c3ec781fea5f5443bfbe9a6e"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides practical guidance for securing traffic and controlling agent tool access across Google Cloud Agent Gateway paths.",
+        "whenToUse": "Use it when designing, configuring, deploying, validating, or troubleshooting gateway security, guardrails, authorization, and private egress for agent systems.",
+        "outputs": "It provides architecture guidance and diagrams, gateway and policy configuration files, deployment and validation commands or scripts, and troubleshooting steps."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供實務指引，協助保護 Google Cloud Agent Gateway 各路徑的流量並控管代理程式的工具存取。",
+        "whenToUse": "在設計、設定、部署、驗證或排解代理程式系統的閘道安全、防護措施、授權及私有出口問題時使用。",
+        "outputs": "提供架構指引與圖表、閘道和政策設定檔、部署與驗證命令或腳本，以及疑難排解步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供实务指引，协助保护 Google Cloud Agent Gateway 各路径的流量并控管代理程序的工具访问。",
+        "whenToUse": "在设计、设置、部署、验证或排解代理程序系统的闸道安全、防护措施、授权及私有出口问题时使用。",
+        "outputs": "提供架构指引与图表、闸道和政策设置档、部署与验证命令或脚本，以及疑难排解步骤。"
+      }
+    }
+  }
+}

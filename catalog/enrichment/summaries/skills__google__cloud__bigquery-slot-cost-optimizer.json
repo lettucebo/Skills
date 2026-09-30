@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/bigquery-slot-cost-optimizer",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b024588e92e4e9dfb7e64674c08eb3e22b9ee586a314baf455775a07b9d90994"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Analyzes BigQuery job telemetry to calculate slot hours and query costs and identify performance bottlenecks.",
+        "whenToUse": "Use it when you need evidence-based priorities for improving BigQuery resource use, query costs, or execution efficiency.",
+        "outputs": "A telemetry analysis with slot-hour and cost estimates, classified bottlenecks, and targeted optimization recommendations."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "分析 BigQuery 工作遙測資料，以計算 slot 小時與查詢成本，並找出效能瓶頸。",
+        "whenToUse": "當你需要根據證據排定改善 BigQuery 資源使用、查詢成本或執行效率的優先順序時使用。",
+        "outputs": "提供遙測分析結果，包含 slot 小時與成本估算、分類後的瓶頸，以及具體的最佳化建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "分析 BigQuery 工作遥测数据，以计算 slot 小时与查找成本，并找出性能瓶颈。",
+        "whenToUse": "当你需要根据证据排定改善 BigQuery 资源使用、查找成本或运行效率的优先级时使用。",
+        "outputs": "提供遥测分析结果，包含 slot 小时与成本估算、分类后的瓶颈，以及具体的优化建议。"
+      }
+    }
+  }
+}

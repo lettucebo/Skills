@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Clarifies whether self-serve growth is the right motion and how to design acquisition, activation, and expansion if it is.",
-        "whenToUse": "Use it when deciding between PLG, hybrid, or sales-led GTM, improving time to first value or freemium conversion, or prioritizing growth channels with measurable economics.",
-        "outputs": "Provides a motion recommendation plus growth equations, channel metrics, activation fixes, forecast scenarios, and product-qualified lead handoff guidance."
+        "purpose": "Helps teams choose and build the right self-serve, sales-assisted, or sales-led growth motion by connecting acquisition, activation, conversion, and retention to measurable channel economics.",
+        "whenToUse": "Use during go-to-market planning or growth reviews to assess onboarding friction, channel investment, conversion performance, or the need for sales engagement as organizational complexity increases.",
+        "outputs": "Produces a motion-fit assessment, growth equations and channel economics, activation and conversion improvements, and guidance on experiments, forecasts, or sales-assist thresholds."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助判斷自助式成長是否適合你的產品，並在適用時設計獲客、啟動與擴張方式。",
-        "whenToUse": "當你需要在 PLG、混合式或銷售主導 GTM 之間做選擇，改善首次價值時間或免費轉付費轉換，或以可量化經濟效益排序成長渠道時使用。",
-        "outputs": "提供成長動線建議，以及成長方程式、渠道指標、啟動優化、預測情境與產品合格線索交接指引。"
+        "purpose": "協助團隊選擇並建立合適的自助式、銷售輔助或銷售主導成長模式，並以可衡量的渠道經濟指標連結獲客、啟用、轉換與留存。",
+        "whenToUse": "在規劃或檢視 Go-to-Market 成長時，若要評估導入摩擦、渠道投資、轉換成效，或組織複雜度增加後是否需要銷售介入，請使用此方法。",
+        "outputs": "產出成長模式適配評估、成長方程式與渠道經濟指標、啟用和轉換改善方向，以及實驗、預測或銷售輔助門檻。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助判断自助式成长是否适合你的产品，并在适用时设计获客、启动与扩张方式。",
-        "whenToUse": "当你需要在 PLG、混合式或销售主导 GTM 之间做选择，改善首次价值时间或免费转付费转换，或以可量化经济效益排序成长渠道时使用。",
-        "outputs": "提供成长动线建议，以及成长方程式、渠道指针、启动优化、预测情境与产品合格线索交接指引。"
+        "purpose": "协助团队选择并创建合适的自助式、销售辅助或销售主导成长模式，并以可衡量的渠道经济指针链接获客、激活、转换与留存。",
+        "whenToUse": "在规划或查看 Go-to-Market 成长时，若要评估导入摩擦、渠道投资、转换成效，或组织复杂度增加后是否需要销售介入，请使用此方法。",
+        "outputs": "产出成长模式适配评估、成长方程式与渠道经济指针、激活和转换改善方向，以及实验、预测或销售辅助门槛。"
       }
     }
   }

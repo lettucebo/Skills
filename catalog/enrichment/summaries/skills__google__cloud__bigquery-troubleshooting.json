@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/bigquery-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:cf43f346a2304ef612dce2ca51dca8e297a2dc9a8a8a3f33d33917f4d87e1804"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides comparative, telemetry-based investigations that trace BigQuery performance regressions and cost changes to root causes and practical remedies.",
+        "whenToUse": "Use it when a BigQuery job or workload is slow, failing, or unexpectedly costly and you need to narrow the cause using job, execution-plan, reservation, or storage evidence.",
+        "outputs": "Produces a bounded baseline comparison, focused diagnostic findings, likely root causes, and actionable remediation options scoped to the affected performance, compute-cost, or storage-cost domain."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過比較遙測資料，協助追查 BigQuery 效能退化與成本變化的根本原因，並提出可行的處置方式。",
+        "whenToUse": "當 BigQuery 工作或工作負載緩慢、失敗或成本異常，且需要根據工作、執行計畫、預留資源或儲存資料找出原因時使用。",
+        "outputs": "提供有限範圍的基準比較、聚焦的診斷結果、可能根因與可執行的改善選項，並依效能、運算成本或儲存成本問題界定分析範圍。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过比较遥测数据，协助追查 BigQuery 性能退化与成本变化的根本原因，并提出可行的处置方式。",
+        "whenToUse": "当 BigQuery 工作或工作负载缓慢、失败或成本异常，且需要根据工作、运行计划、预留资源或保存数据找出原因时使用。",
+        "outputs": "提供有限范围的基准比较、聚焦的诊断结果、可能根因与可运行的改善选项，并依性能、运算成本或保存成本问题界定分析范围。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/iam-helper-for-policy-management",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:ee2bcdf3d87b357a588af11665bd9c691d678f50ad275fe2d6d69dc889e1151c"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides a consistent workflow for inspecting and managing IAM allow and deny policies on Google Cloud resources.",
+        "whenToUse": "Use it when a request concerns policy state at an organization, folder, project, or supported individual resource and requires either read-only inspection or a confirmed change.",
+        "outputs": "It provides policy query results or a fully specified change plan with an impact warning and verifies the resulting state after an approved change."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供一致的流程，用於檢視及管理 Google Cloud 資源上的 IAM 允許政策與拒絕政策。",
+        "whenToUse": "當需求涉及組織、資料夾、專案或支援的個別資源之政策狀態，並需要唯讀檢視或經核准的變更時使用。",
+        "outputs": "提供政策查詢結果，或附有影響警告的完整變更計畫，並在變更獲准執行後驗證實際生效狀態。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供一致的流程，用于查看及管理 Google Cloud 资源上的 IAM 允许政策与拒绝政策。",
+        "whenToUse": "当需求涉及组织、文件夹、项目或支持的个别资源之政策状态，并需要唯读查看或经核准的变更时使用。",
+        "outputs": "提供政策查找结果，或附有影响警告的完整变更计划，并在变更获准运行后验证实际生效状态。"
+      }
+    }
+  }
+}

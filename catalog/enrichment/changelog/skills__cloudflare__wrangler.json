@@ -2,21 +2,93 @@
   "path": "skills/cloudflare/wrangler",
   "schemaVersion": 1,
   "freshnessKey": {
-    "contentHash": "sha256:572a54107e930cff92ad894f65e71dc7cd74ac415833b54a7621dcf9f2474a31",
+    "contentHash": "sha256:57bf974f0d2cf26e515816a19c64a88ab22ea104f84da9635e672bce2eda6fac",
     "repository": "cloudflare/skills",
     "reference": "refs/heads/main",
     "source": "skills/wrangler",
-    "pinnedCommit": "f96bff754e428838818017f75817f0f9428acd48"
+    "pinnedCommit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "a05da7860e9c109274fe47aef271c0b473521219",
+            "date": "2026-09-22T14:59:43-04:00",
+            "subject": "Clarify Workers Previews setup requirements",
+            "url": "https://github.com/cloudflare/skills/commit/a05da7860e9c109274fe47aef271c0b473521219",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The preview guidance now requires project-local Wrangler 4.135.0 or later and separates how Preview domains are configured from how Preview deployments are run."
+          },
+          {
+            "sha": "c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "date": "2026-09-22T14:51:24-04:00",
+            "subject": "Add Workers authorization skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill adds Wrangler authorization documentation and requires checking operation-specific roles and scopes before remote commands, preferring least privilege and account-owned API tokens for granular access."
+          },
+          {
+            "sha": "8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "date": "2026-09-22T14:41:55-04:00",
+            "subject": "Add Workers Previews skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill adds Workers Previews documentation links and a dedicated section covering workflow selection, configuration and resource isolation, public URL access, target environments, and validation."
+          },
+          {
+            "sha": "53fd63fedd84273070234d46a892d0537179f31f",
+            "date": "2026-09-05T12:35:10-07:00",
+            "subject": "docs(wrangler): link framework deployment and migration guides",
+            "url": "https://github.com/cloudflare/skills/commit/53fd63fedd84273070234d46a892d0537179f31f",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill adds links to Cloudflare framework deployment guides and Pages-to-Workers and Vercel-to-Workers migration guides."
+          },
+          {
+            "sha": "c811855e5079343cc392fdb5a84e490d2c6f20eb",
+            "date": "2026-09-05T11:46:07-07:00",
+            "subject": "Fix obsolete Workers Vitest setup examples",
+            "url": "https://github.com/cloudflare/skills/commit/c811855e5079343cc392fdb5a84e490d2c6f20eb",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The Vitest example now uses `@cloudflare/vitest-plugin` with Vitest 4 and documents its ESM project prerequisite instead of the older pool-workers setup."
+          },
+          {
+            "sha": "5cbcee31d6c5cb8b0b70a2cc1a56be889b464337",
+            "date": "2026-09-05T10:51:48-07:00",
+            "subject": "Address Wrangler documentation audit findings",
+            "url": "https://github.com/cloudflare/skills/commit/5cbcee31d6c5cb8b0b70a2cc1a56be889b464337",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill expands project inspection, documentation references, configuration and security guidance, and validation steps, including local installation, compatibility dates, Vite environments, secret handling, and rollback limits."
+          },
+          {
+            "sha": "d7b9bbf24deeb2e7b88d2e58f35bde7c383a42c4",
+            "date": "2026-09-05T10:49:00-07:00",
+            "subject": "Simplify Wrangler skill around current documentation",
+            "url": "https://github.com/cloudflare/skills/commit/d7b9bbf24deeb2e7b88d2e58f35bde7c383a42c4",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill is condensed from a large command and configuration reference into concise inspection, documentation-retrieval, change-application, and validation guidance."
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description is narrowed to running or troubleshooting Wrangler and configuring Worker projects for local development, deployment, and resource management."
+          },
           {
             "sha": "8c01b03b0a09a01581beed87b656cf634009e735",
             "date": "2026-04-22T11:05:21-07:00",
@@ -24,7 +96,7 @@
             "url": "https://github.com/cloudflare/skills/commit/8c01b03b0a09a01581beed87b656cf634009e735",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated the installation section to tell agents to check for Wrangler, install it if missing, and prefer Wrangler over manual API requests."
+            "summary": "The skill now explicitly checks for Wrangler, installs it when absent, and recommends using Wrangler instead of manually constructing API requests."
           },
           {
             "sha": "54ca4fd800e69906355da5010c03499017ddc3b1",
@@ -33,7 +105,7 @@
             "url": "https://github.com/cloudflare/skills/commit/54ca4fd800e69906355da5010c03499017ddc3b1",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added security guidance that avoids passing secrets in commands, replacing examples with interactive, file-based, and environment-variable-based Wrangler usage."
+            "summary": "Credential examples are changed to use prompts, files, or environment variables, with explicit warnings against logging or hardcoding secrets."
           },
           {
             "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
@@ -42,7 +114,7 @@
             "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Corrected the skill to use `wrangler check startup` for startup profiling and changed compatibility flag examples from `nodejs_compat_v2` to `nodejs_compat`."
+            "summary": "The skill replaces the obsolete compatibility flag and `wrangler check` examples with `nodejs_compat` and startup profiling, and updates related troubleshooting and configuration examples."
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -51,7 +123,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added instructions to prefer retrieving current Wrangler information from Cloudflare docs and the local config schema instead of relying on baked-in knowledge."
+            "summary": "The skill adds directives to retrieve current Wrangler documentation and schema rather than rely on memorized CLI, configuration, or binding details."
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -65,7 +137,7 @@
               "sourcePath": "wrangler/SKILL.md",
               "destinationPath": "skills/wrangler/SKILL.md"
             },
-            "summary": "Moved the Wrangler skill file from `wrangler/SKILL.md` to `skills/wrangler/SKILL.md` without changing its contents."
+            "summary": "The Wrangler skill file is moved from `wrangler/SKILL.md` to `skills/wrangler/SKILL.md` without content changes."
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -74,19 +146,91 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial Wrangler skill file covering installation, configuration, core commands, resource management, and best practices."
+            "summary": "A new `wrangler/SKILL.md` is added with broad guidance for Wrangler installation, configuration, development, deployment, Cloudflare resources, testing, and troubleshooting."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
         "commits": [
+          {
+            "sha": "a05da7860e9c109274fe47aef271c0b473521219",
+            "date": "2026-09-22T14:59:43-04:00",
+            "subject": "Clarify Workers Previews setup requirements",
+            "url": "https://github.com/cloudflare/skills/commit/a05da7860e9c109274fe47aef271c0b473521219",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "預覽環境指引現在要求專案本機 Wrangler 4.135.0 以上，並區分預覽網域的設定方式與預覽部署的執行方式。"
+          },
+          {
+            "sha": "c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "date": "2026-09-22T14:51:24-04:00",
+            "subject": "Add Workers authorization skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能新增 Wrangler 授權文件，並要求在遠端命令前確認該操作所需的角色與範圍、採用最低必要權限，且在需要細分授權時使用帳戶擁有的 API token。"
+          },
+          {
+            "sha": "8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "date": "2026-09-22T14:41:55-04:00",
+            "subject": "Add Workers Previews skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能新增 Workers Previews 文件連結與專節，涵蓋工作流程選擇、設定與資源隔離、公開網址存取、目標環境及驗證。"
+          },
+          {
+            "sha": "53fd63fedd84273070234d46a892d0537179f31f",
+            "date": "2026-09-05T12:35:10-07:00",
+            "subject": "docs(wrangler): link framework deployment and migration guides",
+            "url": "https://github.com/cloudflare/skills/commit/53fd63fedd84273070234d46a892d0537179f31f",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能新增 Cloudflare 框架部署指南，以及 Pages 遷移至 Workers 和 Vercel 遷移至 Workers 的指南連結。"
+          },
+          {
+            "sha": "c811855e5079343cc392fdb5a84e490d2c6f20eb",
+            "date": "2026-09-05T11:46:07-07:00",
+            "subject": "Fix obsolete Workers Vitest setup examples",
+            "url": "https://github.com/cloudflare/skills/commit/c811855e5079343cc392fdb5a84e490d2c6f20eb",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Vitest 範例改用 `@cloudflare/vitest-plugin` 搭配 Vitest 4，並說明其 ESM 專案前提，取代舊的 pool-workers 設定方式。"
+          },
+          {
+            "sha": "5cbcee31d6c5cb8b0b70a2cc1a56be889b464337",
+            "date": "2026-09-05T10:51:48-07:00",
+            "subject": "Address Wrangler documentation audit findings",
+            "url": "https://github.com/cloudflare/skills/commit/5cbcee31d6c5cb8b0b70a2cc1a56be889b464337",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能擴充了專案檢查、文件參照、設定與安全指引及驗證步驟，涵蓋本機安裝、相容性日期、Vite 環境、密鑰處理和回復限制。"
+          },
+          {
+            "sha": "d7b9bbf24deeb2e7b88d2e58f35bde7c383a42c4",
+            "date": "2026-09-05T10:49:00-07:00",
+            "subject": "Simplify Wrangler skill around current documentation",
+            "url": "https://github.com/cloudflare/skills/commit/d7b9bbf24deeb2e7b88d2e58f35bde7c383a42c4",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能從大型命令與設定參考文件精簡為簡明的專案檢查、文件檢索、變更套用及驗證指引。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能描述縮小為執行或疑難排解 Wrangler，以及設定 Worker 專案的本機開發、部署和資源管理。"
+          },
           {
             "sha": "8c01b03b0a09a01581beed87b656cf634009e735",
             "date": "2026-04-22T11:05:21-07:00",
@@ -94,7 +238,7 @@
             "url": "https://github.com/cloudflare/skills/commit/8c01b03b0a09a01581beed87b656cf634009e735",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新安裝章節，要求代理先檢查是否已安裝 Wrangler、若缺少則安裝，並優先使用 Wrangler 而非手動組裝 API 請求。"
+            "summary": "技能現在明確要求檢查是否已安裝 Wrangler、未安裝時進行安裝，並建議使用 Wrangler，而非手動建構 API 請求。"
           },
           {
             "sha": "54ca4fd800e69906355da5010c03499017ddc3b1",
@@ -103,7 +247,7 @@
             "url": "https://github.com/cloudflare/skills/commit/54ca4fd800e69906355da5010c03499017ddc3b1",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增避免在命令中傳遞密鑰的安全指引，並以互動式、檔案式與環境變數式的 Wrangler 用法取代原有範例。"
+            "summary": "憑證範例改為使用提示輸入、檔案或環境變數，並明確警告不得記錄或將密鑰寫死在程式碼中。"
           },
           {
             "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
@@ -112,7 +256,7 @@
             "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "修正此技能，改用 `wrangler check startup` 進行啟動分析，並將相容性旗標範例從 `nodejs_compat_v2` 改為 `nodejs_compat`。"
+            "summary": "技能以 `nodejs_compat` 和啟動時間分析取代過時的相容性旗標及 `wrangler check` 範例，並更新相關的疑難排解與設定範例。"
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -121,7 +265,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增指示，要求優先從 Cloudflare 文件與本機設定結構擷取最新的 Wrangler 資訊，而不是依賴內建知識。"
+            "summary": "技能新增指示，要求檢索最新的 Wrangler 文件與結構描述，而非依賴記憶中的 CLI、設定或繫結細節。"
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -135,7 +279,7 @@
               "sourcePath": "wrangler/SKILL.md",
               "destinationPath": "skills/wrangler/SKILL.md"
             },
-            "summary": "將 Wrangler 技能檔案從 `wrangler/SKILL.md` 移到 `skills/wrangler/SKILL.md`，內容沒有變更。"
+            "summary": "Wrangler 技能檔案從 `wrangler/SKILL.md` 移至 `skills/wrangler/SKILL.md`，內容未變更。"
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -144,26 +288,98 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增初始的 Wrangler 技能檔案，涵蓋安裝、設定、核心命令、資源管理與最佳實務。"
+            "summary": "新增 `wrangler/SKILL.md`，提供 Wrangler 安裝、設定、開發、部署、Cloudflare 資源、測試及疑難排解的廣泛指引。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
         "commits": [
           {
+            "sha": "a05da7860e9c109274fe47aef271c0b473521219",
+            "date": "2026-09-22T14:59:43-04:00",
+            "subject": "Clarify Workers Previews setup requirements",
+            "url": "https://github.com/cloudflare/skills/commit/a05da7860e9c109274fe47aef271c0b473521219",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "预览环境指引现在要求项目本机 Wrangler 4.135.0 以上，并区分预览网域的设置方式与预览部署的运行方式。"
+          },
+          {
+            "sha": "c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "date": "2026-09-22T14:51:24-04:00",
+            "subject": "Add Workers authorization skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/c57a2d8dfcaf3432c8ebdc3e4b79cc9643dea871",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能添加 Wrangler 授权文档，并要求在远程命令前确认该操作所需的角色与范围、采用最低必要权限，且在需要细分授权时使用帐户拥有的 API token。"
+          },
+          {
+            "sha": "8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "date": "2026-09-22T14:41:55-04:00",
+            "subject": "Add Workers Previews skill guidance",
+            "url": "https://github.com/cloudflare/skills/commit/8c5812f94870df30d483fe5d67dab8914063c3dc",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能添加 Workers Previews 文档链接与专节，涵盖工作流程选择、设置与资源隔离、公开网址访问、目标环境及验证。"
+          },
+          {
+            "sha": "53fd63fedd84273070234d46a892d0537179f31f",
+            "date": "2026-09-05T12:35:10-07:00",
+            "subject": "docs(wrangler): link framework deployment and migration guides",
+            "url": "https://github.com/cloudflare/skills/commit/53fd63fedd84273070234d46a892d0537179f31f",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能添加 Cloudflare 框架部署指南，以及 Pages 迁移至 Workers 和 Vercel 迁移至 Workers 的指南链接。"
+          },
+          {
+            "sha": "c811855e5079343cc392fdb5a84e490d2c6f20eb",
+            "date": "2026-09-05T11:46:07-07:00",
+            "subject": "Fix obsolete Workers Vitest setup examples",
+            "url": "https://github.com/cloudflare/skills/commit/c811855e5079343cc392fdb5a84e490d2c6f20eb",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Vitest 范例改用 `@cloudflare/vitest-plugin` 搭配 Vitest 4，并说明其 ESM 项目前提，取代旧的 pool-workers 设置方式。"
+          },
+          {
+            "sha": "5cbcee31d6c5cb8b0b70a2cc1a56be889b464337",
+            "date": "2026-09-05T10:51:48-07:00",
+            "subject": "Address Wrangler documentation audit findings",
+            "url": "https://github.com/cloudflare/skills/commit/5cbcee31d6c5cb8b0b70a2cc1a56be889b464337",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能扩充了项目检查、文档参照、设置与安全指引及验证步骤，涵盖本机安装、兼容性日期、Vite 环境、密钥处理和回复限制。"
+          },
+          {
+            "sha": "d7b9bbf24deeb2e7b88d2e58f35bde7c383a42c4",
+            "date": "2026-09-05T10:49:00-07:00",
+            "subject": "Simplify Wrangler skill around current documentation",
+            "url": "https://github.com/cloudflare/skills/commit/d7b9bbf24deeb2e7b88d2e58f35bde7c383a42c4",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能从大型命令与设置参考文档精简为简明的项目检查、文档检索、变更套用及验证指引。"
+          },
+          {
+            "sha": "791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "date": "2026-09-05T09:47:11-07:00",
+            "subject": "Narrow skill descriptions to distinct task triggers",
+            "url": "https://github.com/cloudflare/skills/commit/791012421c900f3fd4f007be6cd84f2ff42f100a",
+            "pathAtCommit": "skills/wrangler/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能描述缩小为运行或疑难排解 Wrangler，以及设置 Worker 项目的本机开发、部署和资源管理。"
+          },
+          {
             "sha": "8c01b03b0a09a01581beed87b656cf634009e735",
             "date": "2026-04-22T11:05:21-07:00",
             "subject": "More explicitly instruct agents to install and use Wrangler (#40)",
             "url": "https://github.com/cloudflare/skills/commit/8c01b03b0a09a01581beed87b656cf634009e735",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新安装章节，要求代理先检查是否已安装 Wrangler、若缺少则安装，并优先使用 Wrangler 而非手动组装 API 请求。"
+            "summary": "技能现在明确要求检查是否已安装 Wrangler、未安装时进行安装，并建议使用 Wrangler，而非手动建构 API 请求。"
           },
           {
             "sha": "54ca4fd800e69906355da5010c03499017ddc3b1",
@@ -172,7 +388,7 @@
             "url": "https://github.com/cloudflare/skills/commit/54ca4fd800e69906355da5010c03499017ddc3b1",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加避免在命令中传递密钥的安全指引，并以交互式、文件式与环境变量式的 Wrangler 用法取代原有范例。"
+            "summary": "凭证范例改为使用提示输入、文件或环境变量，并明确警告不得记录或将密钥写死在代码中。"
           },
           {
             "sha": "22a32f5f10eedd4428b26597406804ddf43b747d",
@@ -181,7 +397,7 @@
             "url": "https://github.com/cloudflare/skills/commit/22a32f5f10eedd4428b26597406804ddf43b747d",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "修正此技能，改用 `wrangler check startup` 进行启动分析，并将兼容性旗标范例从 `nodejs_compat_v2` 改为 `nodejs_compat`。"
+            "summary": "技能以 `nodejs_compat` 和启动时间分析取代过时的兼容性旗标及 `wrangler check` 范例，并更新相关的疑难排解与设置范例。"
           },
           {
             "sha": "d3113039790f64e052ff80f351190da65e9b7510",
@@ -190,7 +406,7 @@
             "url": "https://github.com/cloudflare/skills/commit/d3113039790f64e052ff80f351190da65e9b7510",
             "pathAtCommit": "skills/wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加指示，要求优先从 Cloudflare 文档与本机设置结构截取最新的 Wrangler 信息，而不是依赖内置知识。"
+            "summary": "技能添加指示，要求检索最新的 Wrangler 文档与结构描述，而非依赖记忆中的 CLI、设置或绑定细节。"
           },
           {
             "sha": "3f725897fca609a753f35028218801e303a81145",
@@ -204,7 +420,7 @@
               "sourcePath": "wrangler/SKILL.md",
               "destinationPath": "skills/wrangler/SKILL.md"
             },
-            "summary": "将 Wrangler 技能文件从 `wrangler/SKILL.md` 移到 `skills/wrangler/SKILL.md`，内容没有变更。"
+            "summary": "Wrangler 技能文件从 `wrangler/SKILL.md` 移至 `skills/wrangler/SKILL.md`，内容未变更。"
           },
           {
             "sha": "425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
@@ -213,7 +429,7 @@
             "url": "https://github.com/cloudflare/skills/commit/425ed1d5d384e2bd72b7e5cd5c1adcc50724874c",
             "pathAtCommit": "wrangler/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加初始的 Wrangler 技能文件，涵盖安装、设置、内核命令、资源管理与最佳实务。"
+            "summary": "添加 `wrangler/SKILL.md`，提供 Wrangler 安装、设置、开发、部署、Cloudflare 资源、测试及疑难排解的广泛指引。"
           }
         ]
       }

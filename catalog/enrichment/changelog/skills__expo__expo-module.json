@@ -1,0 +1,261 @@
+{
+  "path": "skills/expo/expo-module",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6e96a21d88eb49511b9cc1a7bef2dbd039c25c363f1fae52a51916bce6657593",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-module",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds guidance to use the expo-skill-feedback eval-candidate flow when an AI agent repeatedly fails or a user takes over, rather than the existing feedback command."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a feedback-submission section with an npm command and guidance to report only specific, actionable issues with relevant context."
+          },
+          {
+            "sha": "8bd359f8a44d2446de12f1fe6e6316daf043056e",
+            "date": "2026-07-20T07:29:36+02:00",
+            "subject": "Add expo-migrate-module skill (#109)",
+            "url": "https://github.com/expo/skills/commit/8bd359f8a44d2446de12f1fe6e6316daf043056e",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarifies that this skill is not for migrating existing Swift modules from the definition DSL to API 2.0 macros and directs users to expo-migrate-module in expo-experiments."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Prefixes the skill description with “Framework (OSS).”"
+          },
+          {
+            "sha": "510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "date": "2026-05-27T15:21:03+08:00",
+            "subject": "fine tune wordings (#69)",
+            "url": "https://github.com/expo/skills/commit/510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Fixes spacing in the feature list and corrects “stepto” to “step to.”"
+          },
+          {
+            "sha": "47f0ef64821f10e42a600758b5087bfe89c09474",
+            "date": "2026-05-08T14:58:51+02:00",
+            "subject": "Update create-expo-module skill (#49)",
+            "url": "https://github.com/expo/skills/commit/47f0ef64821f10e42a600758b5087bfe89c09474",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworks the skill’s scaffolding guidance, adding a create-expo-module reference, platform and configuration use cases, and recommended workflow and practical rules in place of the former quick-start instructions."
+          },
+          {
+            "sha": "cef67e4da5200eba0934f3af09a98364447f5364",
+            "date": "2026-04-03T16:52:11+08:00",
+            "subject": "update expo-module skill (#40)",
+            "url": "https://github.com/expo/skills/commit/cef67e4da5200eba0934f3af09a98364447f5364",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds detailed create-expo-module setup and cleanup guidance, documents generated project contents and CLI flags, adds platform and configuration use cases, and renames “Minimal Module” to “Module Structure Reference.”"
+          },
+          {
+            "sha": "72c355dddbc941143083aacb144de04b40c7d221",
+            "date": "2026-04-02T18:04:12+08:00",
+            "subject": "Add expo-module skill for writing Expo native modules (#37)",
+            "url": "https://github.com/expo/skills/commit/72c355dddbc941143083aacb144de04b40c7d221",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds the initial expo-module guide covering local and standalone module scaffolding, Swift and Kotlin module definitions, TypeScript bindings, and Expo module configuration."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若 AI 代理反覆失敗或使用者必須接手，應改用 expo-skill-feedback 的 eval-candidate 流程，而非既有的回饋指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增回饋提交章節，提供 npm 指令，並指示僅回報具體且可執行的問題及相關脈絡。"
+          },
+          {
+            "sha": "8bd359f8a44d2446de12f1fe6e6316daf043056e",
+            "date": "2026-07-20T07:29:36+02:00",
+            "subject": "Add expo-migrate-module skill (#109)",
+            "url": "https://github.com/expo/skills/commit/8bd359f8a44d2446de12f1fe6e6316daf043056e",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "明確說明此技能不適用於將既有 Swift 模組從定義 DSL 遷移至 API 2.0 巨集，並指引使用者改用 expo-experiments 中的 expo-migrate-module。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能描述開頭加上「Framework (OSS).」。"
+          },
+          {
+            "sha": "510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "date": "2026-05-27T15:21:03+08:00",
+            "subject": "fine tune wordings (#69)",
+            "url": "https://github.com/expo/skills/commit/510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修正功能清單中的間距，並將「stepto」改為「step to」。"
+          },
+          {
+            "sha": "47f0ef64821f10e42a600758b5087bfe89c09474",
+            "date": "2026-05-08T14:58:51+02:00",
+            "subject": "Update create-expo-module skill (#49)",
+            "url": "https://github.com/expo/skills/commit/47f0ef64821f10e42a600758b5087bfe89c09474",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整此技能的腳手架指引，新增 create-expo-module 參考資料、平台與設定檔使用情境，以及建議流程和實務規則，取代原有的快速入門說明。"
+          },
+          {
+            "sha": "cef67e4da5200eba0934f3af09a98364447f5364",
+            "date": "2026-04-03T16:52:11+08:00",
+            "subject": "update expo-module skill (#40)",
+            "url": "https://github.com/expo/skills/commit/cef67e4da5200eba0934f3af09a98364447f5364",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增詳細的 create-expo-module 設定與清理指引，說明產生的專案內容和 CLI 旗標，補充平台與設定檔使用情境，並將「Minimal Module」改名為「Module Structure Reference」。"
+          },
+          {
+            "sha": "72c355dddbc941143083aacb144de04b40c7d221",
+            "date": "2026-04-02T18:04:12+08:00",
+            "subject": "Add expo-module skill for writing Expo native modules (#37)",
+            "url": "https://github.com/expo/skills/commit/72c355dddbc941143083aacb144de04b40c7d221",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 expo-module 指南初版，涵蓋本機與獨立模組的腳手架、Swift 和 Kotlin 模組定義、TypeScript 綁定，以及 Expo 模組設定。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若 AI 代理反复失败或用户必须接手，应改用 expo-skill-feedback 的 eval-candidate 流程，而非既有的回馈指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加回馈提交章节，提供 npm 指令，并指示仅回报具体且可运行的问题及相关脉络。"
+          },
+          {
+            "sha": "8bd359f8a44d2446de12f1fe6e6316daf043056e",
+            "date": "2026-07-20T07:29:36+02:00",
+            "subject": "Add expo-migrate-module skill (#109)",
+            "url": "https://github.com/expo/skills/commit/8bd359f8a44d2446de12f1fe6e6316daf043056e",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "明确说明此技能不适用于将既有 Swift 模块从定义 DSL 迁移至 API 2.0 宏，并指引用户改用 expo-experiments 中的 expo-migrate-module。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能描述开头加上「Framework (OSS).」。"
+          },
+          {
+            "sha": "510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "date": "2026-05-27T15:21:03+08:00",
+            "subject": "fine tune wordings (#69)",
+            "url": "https://github.com/expo/skills/commit/510373b50956ef4dc84c20bb4c9cce70b618aa06",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修正功能清单中的间距，并将「stepto」改为「step to」。"
+          },
+          {
+            "sha": "47f0ef64821f10e42a600758b5087bfe89c09474",
+            "date": "2026-05-08T14:58:51+02:00",
+            "subject": "Update create-expo-module skill (#49)",
+            "url": "https://github.com/expo/skills/commit/47f0ef64821f10e42a600758b5087bfe89c09474",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重整此技能的脚手架指引，添加 create-expo-module 参考资料、平台与设置档使用情境，以及建议流程和实务规则，取代原有的快速入门说明。"
+          },
+          {
+            "sha": "cef67e4da5200eba0934f3af09a98364447f5364",
+            "date": "2026-04-03T16:52:11+08:00",
+            "subject": "update expo-module skill (#40)",
+            "url": "https://github.com/expo/skills/commit/cef67e4da5200eba0934f3af09a98364447f5364",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加详细的 create-expo-module 设置与清理指引，说明产生的项目内容和 CLI 旗标，补充平台与设置档使用情境，并将「Minimal Module」改名为「Module Structure Reference」。"
+          },
+          {
+            "sha": "72c355dddbc941143083aacb144de04b40c7d221",
+            "date": "2026-04-02T18:04:12+08:00",
+            "subject": "Add expo-module skill for writing Expo native modules (#37)",
+            "url": "https://github.com/expo/skills/commit/72c355dddbc941143083aacb144de04b40c7d221",
+            "pathAtCommit": "plugins/expo/skills/expo-module/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 expo-module 指南初版，涵盖本机与独立模块的脚手架、Swift 和 Kotlin 模块定义、TypeScript 绑定，以及 Expo 模块设置。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "path": "skills/google/cloud/gcloud",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7c56b7703339f54a1045a623e8e75479e62d1a728ae2e9187daf44a3de8a929d",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gcloud",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill frontmatter adds the metadata version `1.0.0`."
+          },
+          {
+            "sha": "c43d53a2a344d92bb1bccf15e4797b381da27293",
+            "date": "2026-08-26T07:40:46-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c43d53a2a344d92bb1bccf15e4797b381da27293",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The guide replaces its installation and authorization section with CLI and MCP execution-mode links, and adds a reference directory for those guides."
+          },
+          {
+            "sha": "4040d4d125ecdba618d12b47b760edce9a29c38c",
+            "date": "2026-08-04T10:57:47-07:00",
+            "subject": "Improve gcloud skill frontmatter to cover command generation use cases. Require --validate-only first, if available.",
+            "url": "https://github.com/google/skills/commit/4040d4d125ecdba618d12b47b760edce9a29c38c",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description now covers constructing and proposing gcloud commands and syntax questions, while dry-run guidance also recognizes `--validate-only`."
+          },
+          {
+            "sha": "948a2ca371dccf6538f163409ff348ae42ccd28d",
+            "date": "2026-07-23T10:50:55-07:00",
+            "subject": "Improve gcloud skill: enforce mandatory command-level validation, dry-runs, and data reduction.",
+            "url": "https://github.com/google/skills/commit/948a2ca371dccf6538f163409ff348ae42ccd28d",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill adds leaf-command help validation before plans or execution, strengthens list data-reduction and `--quiet` requirements, and updates scoping, dry-run, and discovery guidance."
+          },
+          {
+            "sha": "844d811a846793a45c80b3021d14d88a568fb19b",
+            "date": "2026-07-22T14:30:46-07:00",
+            "subject": "Broaden the gcloud skill metadata category for improved agent discovery.",
+            "url": "https://github.com/google/skills/commit/844d811a846793a45c80b3021d14d88a568fb19b",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill metadata category changes from `DevOps` to `CloudInfrastructureAndServices`."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The frontmatter adds a `metadata` block and places the existing `DevOps` category inside it."
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The installation, authorization, and scripting-guide links now use their `.md.txt` URLs."
+          },
+          {
+            "sha": "cafef5eec0a797581c4932410f06231b2c5de6d0",
+            "date": "2026-06-01T06:00:05-07:00",
+            "subject": "Add gcloud CLI agent skill to skills/cloud.",
+            "url": "https://github.com/google/skills/commit/cafef5eec0a797581c4932410f06231b2c5de6d0",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The new skill document introduces gcloud CLI guidance covering installation and authentication, command validation, data reduction, execution and safety constraints, workflows, and a command cheat sheet."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的 frontmatter 新增了 metadata 版本欄位 `1.0.0`。"
+          },
+          {
+            "sha": "c43d53a2a344d92bb1bccf15e4797b381da27293",
+            "date": "2026-08-26T07:40:46-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c43d53a2a344d92bb1bccf15e4797b381da27293",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "指南將安裝與授權章節改為 CLI 和 MCP 執行模式連結，並新增收錄這兩份指南的參考目錄。"
+          },
+          {
+            "sha": "4040d4d125ecdba618d12b47b760edce9a29c38c",
+            "date": "2026-08-04T10:57:47-07:00",
+            "subject": "Improve gcloud skill frontmatter to cover command generation use cases. Require --validate-only first, if available.",
+            "url": "https://github.com/google/skills/commit/4040d4d125ecdba618d12b47b760edce9a29c38c",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能說明現在涵蓋建構及提出 gcloud 指令與語法問題，且試執行指引也納入 `--validate-only`。"
+          },
+          {
+            "sha": "948a2ca371dccf6538f163409ff348ae42ccd28d",
+            "date": "2026-07-23T10:50:55-07:00",
+            "subject": "Improve gcloud skill: enforce mandatory command-level validation, dry-runs, and data reduction.",
+            "url": "https://github.com/google/skills/commit/948a2ca371dccf6538f163409ff348ae42ccd28d",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能新增在規劃或執行前查閱葉節點指令說明的驗證要求、強化清單資料縮減與 `--quiet` 要求，並更新範圍設定、試執行及探索指引。"
+          },
+          {
+            "sha": "844d811a846793a45c80b3021d14d88a568fb19b",
+            "date": "2026-07-22T14:30:46-07:00",
+            "subject": "Broaden the gcloud skill metadata category for improved agent discovery.",
+            "url": "https://github.com/google/skills/commit/844d811a846793a45c80b3021d14d88a568fb19b",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能 metadata 類別從 `DevOps` 改為 `CloudInfrastructureAndServices`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "frontmatter 新增 `metadata` 區塊，並將原有的 `DevOps` 類別移入其中。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "安裝、授權與指令碼指南連結現在改用 `.md.txt` 網址。"
+          },
+          {
+            "sha": "cafef5eec0a797581c4932410f06231b2c5de6d0",
+            "date": "2026-06-01T06:00:05-07:00",
+            "subject": "Add gcloud CLI agent skill to skills/cloud.",
+            "url": "https://github.com/google/skills/commit/cafef5eec0a797581c4932410f06231b2c5de6d0",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增的技能文件提供 gcloud CLI 指引，涵蓋安裝與身分驗證、指令驗證、資料縮減、執行與安全限制、工作流程及指令速查表。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的 frontmatter 添加了 metadata 版本字段 `1.0.0`。"
+          },
+          {
+            "sha": "c43d53a2a344d92bb1bccf15e4797b381da27293",
+            "date": "2026-08-26T07:40:46-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/c43d53a2a344d92bb1bccf15e4797b381da27293",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "指南将安装与授权章节改为 CLI 和 MCP 运行模式链接，并添加收录这两份指南的参考目录。"
+          },
+          {
+            "sha": "4040d4d125ecdba618d12b47b760edce9a29c38c",
+            "date": "2026-08-04T10:57:47-07:00",
+            "subject": "Improve gcloud skill frontmatter to cover command generation use cases. Require --validate-only first, if available.",
+            "url": "https://github.com/google/skills/commit/4040d4d125ecdba618d12b47b760edce9a29c38c",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能说明现在涵盖建构及提出 gcloud 指令与语法问题，且试运行指引也纳入 `--validate-only`。"
+          },
+          {
+            "sha": "948a2ca371dccf6538f163409ff348ae42ccd28d",
+            "date": "2026-07-23T10:50:55-07:00",
+            "subject": "Improve gcloud skill: enforce mandatory command-level validation, dry-runs, and data reduction.",
+            "url": "https://github.com/google/skills/commit/948a2ca371dccf6538f163409ff348ae42ccd28d",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能添加在规划或运行前查阅叶节点指令说明的验证要求、强化清单数据缩减与 `--quiet` 要求，并更新范围设置、试运行及探索指引。"
+          },
+          {
+            "sha": "844d811a846793a45c80b3021d14d88a568fb19b",
+            "date": "2026-07-22T14:30:46-07:00",
+            "subject": "Broaden the gcloud skill metadata category for improved agent discovery.",
+            "url": "https://github.com/google/skills/commit/844d811a846793a45c80b3021d14d88a568fb19b",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "技能 metadata 类别从 `DevOps` 改为 `CloudInfrastructureAndServices`。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "frontmatter 添加 `metadata` 区块，并将原有的 `DevOps` 类别移入其中。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "安装、授权与脚本指南链接现在改用 `.md.txt` 网址。"
+          },
+          {
+            "sha": "cafef5eec0a797581c4932410f06231b2c5de6d0",
+            "date": "2026-06-01T06:00:05-07:00",
+            "subject": "Add gcloud CLI agent skill to skills/cloud.",
+            "url": "https://github.com/google/skills/commit/cafef5eec0a797581c4932410f06231b2c5de6d0",
+            "pathAtCommit": "skills/cloud/gcloud/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加的技能文档提供 gcloud CLI 指引，涵盖安装与身分验证、指令验证、数据缩减、运行与安全限制、工作流程及指令速查表。"
+          }
+        ]
+      }
+    }
+  }
+}

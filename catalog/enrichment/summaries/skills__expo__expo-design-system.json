@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/expo-design-system",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:3f0daf63e81e72f07530fe2ad564c4b3ddf13578a3afc87e7e93f7ff581c70a1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Establishes a single source of truth for an Expo app’s design tokens and reusable component patterns so screens stay consistent and maintainable.",
+        "whenToUse": "Before introducing styles or shared UI, locate and extend the app’s existing system, then use its tokens and component rules to address repeated patterns and visual drift.",
+        "outputs": "A tokenized theme structure, component conventions for variants, sizes, states, and accessibility, guidance for extracting shared views, and a process for reviewing visual consistency."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "為 Expo 應用程式建立涵蓋設計 token 與可重用元件規範的單一設計依據，讓各畫面一致且易於維護。",
+        "whenToUse": "新增樣式或共用 UI 前，先找出並沿用既有設計系統，再依其 token 與元件規範處理重複模式及視覺落差。",
+        "outputs": "提供 token 化的主題架構、涵蓋變體、尺寸、狀態與無障礙設計的元件慣例、提取共用畫面的指引，以及檢視視覺一致性的流程。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "为 Expo 应用程序创建涵盖设计 token 与可重用组件规范的单一设计依据，让各画面一致且易于维护。",
+        "whenToUse": "添加样式或共用 UI 前，先找出并沿用既有设计系统，再依其 token 与组件规范处理重复模式及视觉落差。",
+        "outputs": "提供 token 化的主题架构、涵盖变体、尺寸、状态与无障碍设计的组件惯例、提取共用画面的指引，以及查看视觉一致性的流程。"
+      }
+    }
+  }
+}

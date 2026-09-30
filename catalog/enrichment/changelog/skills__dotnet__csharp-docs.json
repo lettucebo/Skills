@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/csharp-docs.prompt.md",
               "destinationPath": "skills/csharp-docs/SKILL.md"
             },
-            "summary": "Added a new `SKILL.md` file with metadata and detailed C# XML documentation guidance."
+            "summary": "Added a C# documentation best-practices skill covering XML comments and guidance for APIs, methods, constructors, properties, and exceptions."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the prompt frontmatter field from `mode` to `agent`."
+            "summary": "Renamed the prompt front-matter field from `mode` to `agent`."
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -47,7 +47,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Updated the prompt tool list to use `search/codebase` instead of `codebase`."
+            "summary": "Changed the prompt's tool list entry from `codebase` to `search/codebase`."
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -56,7 +56,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Updated the prompt tool list to use `edit/editFiles` instead of `editFiles`."
+            "summary": "Changed the prompt's tool list entry from `editFiles` to `edit/editFiles`."
           },
           {
             "sha": "febd4c492500a494c06b848dc6eb6bc3518f83a9",
@@ -65,7 +65,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/febd4c492500a494c06b848dc6eb6bc3518f83a9",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the C# documentation prompt with structured guidance for APIs, methods, constructors, properties, and exceptions."
+            "summary": "Expanded the C# documentation guidance with detailed XML-tag rules for APIs, methods, constructors, properties, and exceptions."
           },
           {
             "sha": "aec65e3b34bd773d504707fb901164c945d6eebb",
@@ -74,7 +74,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/aec65e3b34bd773d504707fb901164c945d6eebb",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the prompt to add `<paramref>` guidance, split reference tag usage into specific tags, and clarify `<code>` examples."
+            "summary": "Added `<paramref>` guidance, clarified `<see langword>`, distinguished inline `<see cref>` from standalone `<seealso>`, and specified that language-tagged `<code>` blocks go inside `<example>`."
           },
           {
             "sha": "f1c532cf573aef764c4721d5ed4347fa20648631",
@@ -83,7 +83,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/f1c532cf573aef764c4721d5ed4347fa20648631",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added guidance to use `<see langword>` for language keywords such as `null`, `true`, and `false`."
+            "summary": "Added guidance to use `<see langword>` for language-specific keywords."
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -92,7 +92,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Changed the prompt frontmatter strings and list values from double quotes to single quotes."
+            "summary": "Standardized the prompt's front-matter values to use single quotes instead of double quotes."
           },
           {
             "sha": "e30b801289139663a651b2865cd53e6be5d9d8ca",
@@ -101,7 +101,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/e30b801289139663a651b2865cd53e6be5d9d8ca",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Fixed the example guidance text by changing `the the member` to `the member`."
+            "summary": "Corrected the example-use guidance by removing a duplicated `the`."
           },
           {
             "sha": "9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
@@ -110,15 +110,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial `csharp-docs` prompt file with C# XML documentation best-practice guidance."
+            "summary": "Added the initial C# documentation best-practices prompt, outlining XML-comment guidance and relevant documentation tags."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -135,7 +135,7 @@
               "sourcePath": "prompts/csharp-docs.prompt.md",
               "destinationPath": "skills/csharp-docs/SKILL.md"
             },
-            "summary": "新增 `SKILL.md` 檔案，包含中繼資料與詳細的 C# XML 文件撰寫指引。"
+            "summary": "新增 C# 文件最佳實務技能，涵蓋 XML 註解及適用於 API、方法、建構函式、屬性與例外的文件指引。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -144,7 +144,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示檔前置中繼資料欄位由 `mode` 更名為 `agent`。"
+            "summary": "將提示檔前置資料欄位從 `mode` 改為 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -153,7 +153,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新提示檔的工具清單，將 `codebase` 改為 `search/codebase`。"
+            "summary": "將提示檔工具清單中的 `codebase` 項目改為 `search/codebase`。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -162,7 +162,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新提示檔的工具清單，將 `editFiles` 改為 `edit/editFiles`。"
+            "summary": "將提示檔工具清單中的 `editFiles` 項目改為 `edit/editFiles`。"
           },
           {
             "sha": "febd4c492500a494c06b848dc6eb6bc3518f83a9",
@@ -171,7 +171,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/febd4c492500a494c06b848dc6eb6bc3518f83a9",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "擴充 C# 文件提示內容，加入 API、方法、建構函式、屬性與例外狀況的結構化指引。"
+            "summary": "擴充 C# 文件指引，加入適用於 API、方法、建構函式、屬性與例外的 XML 標籤詳細規則。"
           },
           {
             "sha": "aec65e3b34bd773d504707fb901164c945d6eebb",
@@ -180,7 +180,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/aec65e3b34bd773d504707fb901164c945d6eebb",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "擴充提示內容，加入 `<paramref>` 指引、將參照標籤用法拆分為具體標籤，並釐清 `<code>` 範例的寫法。"
+            "summary": "新增 `<paramref>` 指引、釐清 `<see langword>` 的用法、區分句中引用的 `<see cref>` 與獨立參照的 `<seealso>`，並指定含語言標記的 `<code>` 區塊應置於 `<example>` 內。"
           },
           {
             "sha": "f1c532cf573aef764c4721d5ed4347fa20648631",
@@ -189,7 +189,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/f1c532cf573aef764c4721d5ed4347fa20648631",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增指引，說明應以 `<see langword>` 標示 `null`、`true`、`false` 等語言關鍵字。"
+            "summary": "新增使用 `<see langword>` 標記語言專屬關鍵字的指引。"
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -198,7 +198,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示檔前置中繼資料中的字串與清單值由雙引號改為單引號。"
+            "summary": "統一提示檔前置資料值的引號格式，改用單引號而非雙引號。"
           },
           {
             "sha": "e30b801289139663a651b2865cd53e6be5d9d8ca",
@@ -207,7 +207,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/e30b801289139663a651b2865cd53e6be5d9d8ca",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "修正範例指引文字，將 `the the member` 改為 `the member`。"
+            "summary": "修正範例使用指引中的文法，移除重複的 `the`。"
           },
           {
             "sha": "9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
@@ -216,13 +216,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增初始的 `csharp-docs` 提示檔，內容為 C# XML 文件最佳實務指引。"
+            "summary": "新增最初版 C# 文件最佳實務提示，概述 XML 註解指引與相關文件標籤。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -240,7 +240,7 @@
               "sourcePath": "prompts/csharp-docs.prompt.md",
               "destinationPath": "skills/csharp-docs/SKILL.md"
             },
-            "summary": "添加 `SKILL.md` 文件，包含中继数据与详细的 C# XML 文档撰写指引。"
+            "summary": "添加 C# 文档最佳实务技能，涵盖 XML 注解及适用于 API、方法、构造函数、属性与例外的文档指引。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -249,7 +249,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示档前置中继数据字段由 `mode` 更名为 `agent`。"
+            "summary": "将提示档前置数据字段从 `mode` 改为 `agent`。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -258,7 +258,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新提示档的工具清单，将 `codebase` 改为 `search/codebase`。"
+            "summary": "将提示档工具清单中的 `codebase` 项目改为 `search/codebase`。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -267,7 +267,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新提示档的工具清单，将 `editFiles` 改为 `edit/editFiles`。"
+            "summary": "将提示档工具清单中的 `editFiles` 项目改为 `edit/editFiles`。"
           },
           {
             "sha": "febd4c492500a494c06b848dc6eb6bc3518f83a9",
@@ -276,7 +276,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/febd4c492500a494c06b848dc6eb6bc3518f83a9",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "扩充 C# 文档提示内容，加入 API、方法、构造函数、属性与例外状况的结构化指引。"
+            "summary": "扩充 C# 文档指引，加入适用于 API、方法、构造函数、属性与例外的 XML 标签详细规则。"
           },
           {
             "sha": "aec65e3b34bd773d504707fb901164c945d6eebb",
@@ -285,7 +285,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/aec65e3b34bd773d504707fb901164c945d6eebb",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "扩充提示内容，加入 `<paramref>` 指引、将参照标签用法拆分为具体标签，并厘清 `<code>` 范例的写法。"
+            "summary": "添加 `<paramref>` 指引、厘清 `<see langword>` 的用法、区分句中引用的 `<see cref>` 与独立参照的 `<seealso>`，并指定含语言标记的 `<code>` 区块应置于 `<example>` 内。"
           },
           {
             "sha": "f1c532cf573aef764c4721d5ed4347fa20648631",
@@ -294,7 +294,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/f1c532cf573aef764c4721d5ed4347fa20648631",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加指引，说明应以 `<see langword>` 标示 `null`、`true`、`false` 等语言关键字。"
+            "summary": "添加使用 `<see langword>` 标记语言专属关键字的指引。"
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -303,7 +303,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示档前置中继数据中的字符串与清单值由双引号改为单引号。"
+            "summary": "统一提示档前置数据值的引号格式，改用单引号而非双引号。"
           },
           {
             "sha": "e30b801289139663a651b2865cd53e6be5d9d8ca",
@@ -312,7 +312,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/e30b801289139663a651b2865cd53e6be5d9d8ca",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "修正范例指引文字，将 `the the member` 改为 `the member`。"
+            "summary": "修正范例使用指引中的文法，移除重复的 `the`。"
           },
           {
             "sha": "9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
@@ -321,7 +321,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/9b202e88d521f179dac97176eb0cfb9bf3b5dc3b",
             "pathAtCommit": "prompts/csharp-docs.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加初始的 `csharp-docs` 提示档，内容为 C# XML 文档最佳实务指引。"
+            "summary": "添加最初版 C# 文档最佳实务提示，概述 XML 注解指引与相关文档标签。"
           }
         ]
       }

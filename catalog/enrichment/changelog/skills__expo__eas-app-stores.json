@@ -1,0 +1,333 @@
+{
+  "path": "skills/expo/eas-app-stores",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8775fea9147cc1da6fd7fc14921605f80d84a0826931a8723db7474986fcae5a",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/eas-app-stores",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "85c7236254db761c3905f9078ce17393f3544ff8",
+            "date": "2026-09-09T16:33:04+02:00",
+            "subject": "Extend EAS skills to support native Swift iOS apps (#183)",
+            "url": "https://github.com/expo/skills/commit/85c7236254db761c3905f9078ce17393f3544ff8",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill to cover existing native Swift/SwiftUI/UIKit iOS apps alongside Expo and React Native projects, adding native iOS setup guidance and clarifying EAS build, submission, and version-monitoring steps."
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance to use the expo-skill-feedback evaluation-candidate flow when an agent repeatedly fails or a user must take over an Expo task."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a feedback section with a command for submitting actionable reports about errors or outdated skill guidance."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R059",
+              "sourcePath": "plugins/expo/skills/expo-deployment/SKILL.md",
+              "destinationPath": "plugins/expo/skills/eas-app-stores/SKILL.md"
+            },
+            "summary": "Renamed the skill to eas-app-stores and refocused it on app-store releases, directing Expo web and API hosting guidance to eas-hosting and workflow-authoring guidance to eas-workflows."
+          },
+          {
+            "sha": "81ee6546b0745dc666ebacfc1f48e4bff74fbf44",
+            "date": "2026-06-22T23:09:19+08:00",
+            "subject": "Dedupe EAS Workflow syntax out of the expo-deployment skill (#81)",
+            "url": "https://github.com/expo/skills/commit/81ee6546b0745dc666ebacfc1f48e4bff74fbf44",
+            "pathAtCommit": "plugins/expo/skills/expo-deployment/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill description to cover EAS production releases, clarified that Expo Router API routes deploy with the web bundle, corrected reference paths, and replaced the inline workflow example with a pointer to expo-cicd-workflows."
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/expo-deployment/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-deployment/skills/expo-deployment/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-deployment/SKILL.md"
+            },
+            "summary": "Moved the skill file from the standalone expo-deployment plugin into the consolidated expo plugin without changing its contents."
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-deployment/skills/expo-deployment/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-deployment/skills/deployment/SKILL.md",
+              "destinationPath": "plugins/expo-deployment/skills/expo-deployment/SKILL.md"
+            },
+            "summary": "Renamed the skill from deployment to expo-deployment in its metadata."
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-deployment/skills/deployment/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version and license metadata and updated the guide's reference links from reference/ to references/."
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-deployment/skills/deployment/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial deployment guide with EAS setup, build and store-submission commands, hosting instructions, configuration examples, platform guidance, workflow automation, version management, and monitoring."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "85c7236254db761c3905f9078ce17393f3544ff8",
+            "date": "2026-09-09T16:33:04+02:00",
+            "subject": "Extend EAS skills to support native Swift iOS apps (#183)",
+            "url": "https://github.com/expo/skills/commit/85c7236254db761c3905f9078ce17393f3544ff8",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此變更將技能範圍擴大至既有的原生 Swift／SwiftUI／UIKit iOS App，以及 Expo 與 React Native 專案，新增原生 iOS 設定指引，並釐清 EAS 建置、提交與版本監控步驟。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若 AI agent 反覆失敗或使用者必須接手 Expo 任務，請改用 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增回饋章節，提供指令以提交關於錯誤或過時技能指引的具體回報。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R059",
+              "sourcePath": "plugins/expo/skills/expo-deployment/SKILL.md",
+              "destinationPath": "plugins/expo/skills/eas-app-stores/SKILL.md"
+            },
+            "summary": "將技能重新命名為 eas-app-stores 並聚焦於應用程式商店發布，將 Expo 網站與 API 託管指引改導至 eas-hosting，並將工作流程撰寫指引改導至 eas-workflows。"
+          },
+          {
+            "sha": "81ee6546b0745dc666ebacfc1f48e4bff74fbf44",
+            "date": "2026-06-22T23:09:19+08:00",
+            "subject": "Dedupe EAS Workflow syntax out of the expo-deployment skill (#81)",
+            "url": "https://github.com/expo/skills/commit/81ee6546b0745dc666ebacfc1f48e4bff74fbf44",
+            "pathAtCommit": "plugins/expo/skills/expo-deployment/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充技能說明以涵蓋 EAS 正式版發布，釐清 Expo Router API 路由會與網站套件一同部署，修正參考文件路徑，並以 expo-cicd-workflows 的指引取代內嵌工作流程範例。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/expo-deployment/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-deployment/skills/expo-deployment/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-deployment/SKILL.md"
+            },
+            "summary": "將技能檔案從獨立的 expo-deployment 外掛移至整合後的 expo 外掛，內容未變更。"
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-deployment/skills/expo-deployment/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-deployment/skills/deployment/SKILL.md",
+              "destinationPath": "plugins/expo-deployment/skills/expo-deployment/SKILL.md"
+            },
+            "summary": "在技能中繼資料中，將名稱從 deployment 改為 expo-deployment。"
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-deployment/skills/deployment/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增版本與授權中繼資料，並將指南中的參考連結路徑從 reference/ 更新為 references/。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-deployment/skills/deployment/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版部署指南，涵蓋 EAS 設定、建置與商店提交指令、託管說明、設定範例、平台指引、工作流程自動化、版本管理及監控。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "85c7236254db761c3905f9078ce17393f3544ff8",
+            "date": "2026-09-09T16:33:04+02:00",
+            "subject": "Extend EAS skills to support native Swift iOS apps (#183)",
+            "url": "https://github.com/expo/skills/commit/85c7236254db761c3905f9078ce17393f3544ff8",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此变更将技能范围扩大至既有的原生 Swift／SwiftUI／UIKit iOS App，以及 Expo 与 React Native 项目，添加原生 iOS 设置指引，并厘清 EAS 建置、提交与版本监控步骤。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若 AI agent 反复失败或用户必须接手 Expo 任务，请改用 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加回馈章节，提供指令以提交关于错误或过时技能指引的具体回报。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-app-stores/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R059",
+              "sourcePath": "plugins/expo/skills/expo-deployment/SKILL.md",
+              "destinationPath": "plugins/expo/skills/eas-app-stores/SKILL.md"
+            },
+            "summary": "将技能重命名为 eas-app-stores 并聚焦于应用程序商店发布，将 Expo 网站与 API 托管指引改导至 eas-hosting，并将工作流程撰写指引改导至 eas-workflows。"
+          },
+          {
+            "sha": "81ee6546b0745dc666ebacfc1f48e4bff74fbf44",
+            "date": "2026-06-22T23:09:19+08:00",
+            "subject": "Dedupe EAS Workflow syntax out of the expo-deployment skill (#81)",
+            "url": "https://github.com/expo/skills/commit/81ee6546b0745dc666ebacfc1f48e4bff74fbf44",
+            "pathAtCommit": "plugins/expo/skills/expo-deployment/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充技能说明以涵盖 EAS 正式版发布，厘清 Expo Router API 路由会与网站套件一同部署，修正参考文档路径，并以 expo-cicd-workflows 的指引取代内嵌工作流程范例。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/expo-deployment/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-deployment/skills/expo-deployment/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-deployment/SKILL.md"
+            },
+            "summary": "将技能文件从独立的 expo-deployment 插件移至集成后的 expo 插件，内容未变更。"
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-deployment/skills/expo-deployment/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-deployment/skills/deployment/SKILL.md",
+              "destinationPath": "plugins/expo-deployment/skills/expo-deployment/SKILL.md"
+            },
+            "summary": "在技能中继数据中，将名称从 deployment 改为 expo-deployment。"
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-deployment/skills/deployment/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加版本与授权中继数据，并将指南中的参考链接路径从 reference/ 更新为 references/。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-deployment/skills/deployment/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版部署指南，涵盖 EAS 设置、建置与商店提交指令、托管说明、设置范例、平台指引、工作流程自动化、版本管理及监控。"
+          }
+        ]
+      }
+    }
+  }
+}

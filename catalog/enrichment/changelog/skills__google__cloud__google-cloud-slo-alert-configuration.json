@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/google-cloud-slo-alert-configuration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:34a825a67efb969a33485ac79dd83c048a87cf0c43390c3c94b94f67df947361",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-slo-alert-configuration",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-slo-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version `1.0.0` to the skill metadata."
+          },
+          {
+            "sha": "658616ce37ed9ffef5512b2294350b2ac07d2f72",
+            "date": "2026-08-20T14:00:18-07:00",
+            "subject": "Track alert policies created by google-cloud-slo-alert-configuration using user labels",
+            "url": "https://github.com/google/skills/commit/658616ce37ed9ffef5512b2294350b2ac07d2f72",
+            "pathAtCommit": "skills/cloud/google-cloud-slo-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added instructions to include a `created-with-google-skill` user label in alert policies and report that label in the final summary."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-slo-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a five-step wizard for gathering Google Cloud SLO requirements and generating PromQL-based Terraform alert policies."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-slo-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增版本 `1.0.0`。"
+          },
+          {
+            "sha": "658616ce37ed9ffef5512b2294350b2ac07d2f72",
+            "date": "2026-08-20T14:00:18-07:00",
+            "subject": "Track alert policies created by google-cloud-slo-alert-configuration using user labels",
+            "url": "https://github.com/google/skills/commit/658616ce37ed9ffef5512b2294350b2ac07d2f72",
+            "pathAtCommit": "skills/cloud/google-cloud-slo-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指示，要求在警示政策中加入 `created-with-google-skill` 使用者標籤，並在最終摘要中說明該標籤。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-slo-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增五步驟精靈，用於收集 Google Cloud SLO 需求並產生以 PromQL 為基礎的 Terraform 警示政策。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-slo-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加版本 `1.0.0`。"
+          },
+          {
+            "sha": "658616ce37ed9ffef5512b2294350b2ac07d2f72",
+            "date": "2026-08-20T14:00:18-07:00",
+            "subject": "Track alert policies created by google-cloud-slo-alert-configuration using user labels",
+            "url": "https://github.com/google/skills/commit/658616ce37ed9ffef5512b2294350b2ac07d2f72",
+            "pathAtCommit": "skills/cloud/google-cloud-slo-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指示，要求在警示政策中加入 `created-with-google-skill` 用户标签，并在最终摘要中说明该标签。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-slo-alert-configuration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加五步骤精灵，用于收集 Google Cloud SLO 需求并产生以 PromQL 为基础的 Terraform 警示政策。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Helps teams grow developer adoption by designing ecosystem, community, partner, and documentation strategies that emphasize real usage over vanity metrics.",
-        "whenToUse": "Use this when choosing between open and curated ecosystem models, improving developer onboarding and community programs, or structuring partner and student pipelines for a platform product.",
-        "outputs": "Provides practical decision frameworks, program structures, metric priorities, and operating guidance for marketplace design, developer journeys, documentation, support routing, partner tiers, and long-term student engagement."
+        "purpose": "It helps teams grow developer adoption through ecosystem, community, and partner programs focused on activation, production use, and advocacy.",
+        "whenToUse": "Use it when shaping the path from a developer’s first API call to production, improving documentation or community support, weighing partner quality against ecosystem reach, or building a long-term student-to-career pipeline.",
+        "outputs": "It provides practical decision frameworks, a staged developer and student journey, documentation and support guidance, partner tiers, and adoption metrics."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "協助團隊設計生態系、社群、夥伴與文件策略，以實際使用與採用成效而非虛榮指標來擴大開發者採用。",
-        "whenToUse": "當你需要在開放與審核式生態系模式間做選擇、改善開發者導入與社群計畫，或為平台產品規劃夥伴與學生培育管道時適用。",
-        "outputs": "提供可執行的決策框架、計畫架構、指標重點與營運指引，涵蓋市集設計、開發者旅程、文件層級、支援分流、夥伴分級與長期學生經營。"
+        "purpose": "協助團隊透過生態系、社群與合作夥伴計畫提升開發者採用，並著重於啟用、正式環境部署及持續推薦。",
+        "whenToUse": "當團隊要規劃開發者從首次 API 呼叫到正式環境部署的路徑、改善文件或社群支援、權衡合作夥伴品質與生態系涵蓋面，或建立長期的學生至職涯人才管道時使用。",
+        "outputs": "提供實用的決策框架、分階段的開發者與學生旅程、文件與支援指引、合作夥伴分級，以及以採用為核心的指標。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "协助团队设计生态系、社区、伙伴与文档策略，以实际使用与采用成效而非虚荣指针来扩大开发者采用。",
-        "whenToUse": "当你需要在开放与审核式生态系模式间做选择、改善开发者导入与社区计划，或为平台产品规划伙伴与学生培育管道时适用。",
-        "outputs": "提供可运行的决策框架、计划架构、指针重点与营运指引，涵盖市集设计、开发者旅程、文档层级、支持分流、伙伴分级与长期学生经营。"
+        "purpose": "协助团队透过生态系、社区与合作伙伴计划提升开发者采用，并着重于激活、正式环境部署及持续推荐。",
+        "whenToUse": "当团队要规划开发者从首次 API 调用到正式环境部署的路径、改善文档或社区支持、权衡合作伙伴品质与生态系涵盖面，或创建长期的学生至职涯人才管道时使用。",
+        "outputs": "提供实用的决策框架、分阶段的开发者与学生旅程、文档与支持指引、合作伙伴分级，以及以采用为内核的指针。"
       }
     }
   }

@@ -1,0 +1,222 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-get-started",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:90fc61742000392d37e19bd0248ba0f6553afbc64a7ca2c3f2db36ed2da1cea5",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/ads/google-mobile-ads-get-started",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Quoted the skill's metadata version as \"1.2.0\" in the frontmatter."
+          },
+          {
+            "sha": "f36c9ebe9658ee9f98bf83ad0fe97f747abb743c",
+            "date": "2026-08-31T12:58:55-07:00",
+            "subject": "Inline SKAdNetworkIDs to google-mobile-ads-get-started skill",
+            "url": "https://github.com/google/skills/commit/f36c9ebe9658ee9f98bf83ad0fe97f747abb743c",
+            "pathAtCommit": "skills/ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill description to a folded YAML block and updated the metadata version from 1.1.0 to 1.2.0."
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-get-started/SKILL.md"
+            },
+            "summary": "Moved the unchanged skill file from the nested google-mobile-ads directory to the top-level ads skills directory."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the GoogleAds category under the frontmatter metadata and removed the blank line before the title."
+          },
+          {
+            "sha": "c768bfa4fcfa5d6423dd95611989d164f462081f",
+            "date": "2026-06-24T11:28:16-07:00",
+            "subject": "Add Unity support to the google-mobile-ads-get-started skill",
+            "url": "https://github.com/google/skills/commit/c768bfa4fcfa5d6423dd95611989d164f462081f",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now supports Unity, adds a Unity getting-started guide to its workflow, and updates the metadata version to 1.1.0."
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Google Mobile Ads setup skill with Android and iOS guidance and an ordered SDK integration workflow."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能前置資料中的版本值改為以引號標示的「1.2.0」。"
+          },
+          {
+            "sha": "f36c9ebe9658ee9f98bf83ad0fe97f747abb743c",
+            "date": "2026-08-31T12:58:55-07:00",
+            "subject": "Inline SKAdNetworkIDs to google-mobile-ads-get-started skill",
+            "url": "https://github.com/google/skills/commit/f36c9ebe9658ee9f98bf83ad0fe97f747abb743c",
+            "pathAtCommit": "skills/ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能描述改為折疊式 YAML 區塊，並將中繼資料版本從 1.1.0 更新為 1.2.0。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-get-started/SKILL.md"
+            },
+            "summary": "將內容未變的技能檔案從巢狀的 google-mobile-ads 目錄移至頂層 ads 技能目錄。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在前置資料的 metadata 區塊中新增 GoogleAds 類別，並移除標題前的空白行。"
+          },
+          {
+            "sha": "c768bfa4fcfa5d6423dd95611989d164f462081f",
+            "date": "2026-06-24T11:28:16-07:00",
+            "subject": "Add Unity support to the google-mobile-ads-get-started skill",
+            "url": "https://github.com/google/skills/commit/c768bfa4fcfa5d6423dd95611989d164f462081f",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現在支援 Unity、在工作流程中加入 Unity 入門指南，並將中繼資料版本更新為 1.1.0。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增初版 Google Mobile Ads 設定技能，提供 Android 與 iOS 指引及有順序的 SDK 整合工作流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能前置数据中的版本值改为以引号标示的「1.2.0」。"
+          },
+          {
+            "sha": "f36c9ebe9658ee9f98bf83ad0fe97f747abb743c",
+            "date": "2026-08-31T12:58:55-07:00",
+            "subject": "Inline SKAdNetworkIDs to google-mobile-ads-get-started skill",
+            "url": "https://github.com/google/skills/commit/f36c9ebe9658ee9f98bf83ad0fe97f747abb743c",
+            "pathAtCommit": "skills/ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能描述改为折叠式 YAML 区块，并将中继数据版本从 1.1.0 更新为 1.2.0。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-get-started/SKILL.md"
+            },
+            "summary": "将内容未变的技能文件从嵌套的 google-mobile-ads 目录移至顶层 ads 技能目录。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在前置数据的 metadata 区块中添加 GoogleAds 类别，并移除标题前的空白行。"
+          },
+          {
+            "sha": "c768bfa4fcfa5d6423dd95611989d164f462081f",
+            "date": "2026-06-24T11:28:16-07:00",
+            "subject": "Add Unity support to the google-mobile-ads-get-started skill",
+            "url": "https://github.com/google/skills/commit/c768bfa4fcfa5d6423dd95611989d164f462081f",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现在支持 Unity、在工作流程中加入 Unity 入门指南，并将中继数据版本更新为 1.1.0。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-get-started/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加初版 Google Mobile Ads 设置技能，提供 Android 与 iOS 指引及有顺序的 SDK 集成工作流程。"
+          }
+        ]
+      }
+    }
+  }
+}

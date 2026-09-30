@@ -1,0 +1,195 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-interstitial",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c34cfca32349e4598c8ad607a6c7f9ffedbe5c9ce18350c9c6dde8409f11611e",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/ads/google-mobile-ads-interstitial",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Quoted the metadata version value as the string \"1.1.0\"."
+          },
+          {
+            "sha": "9bb184823bd157d9a88d999e2c47ad6dd21fc3fb",
+            "date": "2026-08-13T10:32:28-07:00",
+            "subject": "Add Unity support to google-mobile-ads-interstitial",
+            "url": "https://github.com/google/skills/commit/9bb184823bd157d9a88d999e2c47ad6dd21fc3fb",
+            "pathAtCommit": "skills/ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added Unity as a supported platform, linked its implementation guide in the workflow, and removed the ad-placement guideline section."
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-interstitial/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-interstitial/SKILL.md"
+            },
+            "summary": "Moved the skill file from the nested Google Mobile Ads directory to the top-level ads directory without changing its contents."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved the GoogleAds category into the metadata block and removed the blank line after the frontmatter."
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the interstitial ads skill with Android and iOS guidance, ad-placement instructions, platform guide links, and a load/callback/show/verification workflow."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 metadata 中的版本值改為字串「1.1.0」。"
+          },
+          {
+            "sha": "9bb184823bd157d9a88d999e2c47ad6dd21fc3fb",
+            "date": "2026-08-13T10:32:28-07:00",
+            "subject": "Add Unity support to google-mobile-ads-interstitial",
+            "url": "https://github.com/google/skills/commit/9bb184823bd157d9a88d999e2c47ad6dd21fc3fb",
+            "pathAtCommit": "skills/ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 Unity 納入支援平台、在工作流程中加入其實作指南連結，並移除廣告版位指南章節。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-interstitial/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-interstitial/SKILL.md"
+            },
+            "summary": "將技能檔案從巢狀的 Google Mobile Ads 目錄移至頂層 ads 目錄，內容未變。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 GoogleAds 類別移入 metadata 區塊，並移除 frontmatter 後方的空白行。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增插頁式廣告技能，提供 Android 與 iOS 指引、廣告版位說明、平台指南連結，以及載入／回呼／顯示／驗證工作流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 metadata 中的版本值改为字符串「1.1.0」。"
+          },
+          {
+            "sha": "9bb184823bd157d9a88d999e2c47ad6dd21fc3fb",
+            "date": "2026-08-13T10:32:28-07:00",
+            "subject": "Add Unity support to google-mobile-ads-interstitial",
+            "url": "https://github.com/google/skills/commit/9bb184823bd157d9a88d999e2c47ad6dd21fc3fb",
+            "pathAtCommit": "skills/ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 Unity 纳入支持平台、在工作流程中加入其实作指南链接，并移除广告版位指南章节。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/google-mobile-ads/google-mobile-ads-interstitial/SKILL.md",
+              "destinationPath": "skills/ads/google-mobile-ads-interstitial/SKILL.md"
+            },
+            "summary": "将技能文件从嵌套的 Google Mobile Ads 目录移至顶层 ads 目录，内容未变。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 GoogleAds 类别移入 metadata 区块，并移除 frontmatter 后方的空白行。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/google-mobile-ads/google-mobile-ads-interstitial/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加插页式广告技能，提供 Android 与 iOS 指引、广告版位说明、平台指南链接，以及加载／回呼／显示／验证工作流程。"
+          }
+        ]
+      }
+    }
+  }
+}

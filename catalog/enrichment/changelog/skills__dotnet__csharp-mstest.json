@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/csharp-mstest.prompt.md",
               "destinationPath": "skills/csharp-mstest/SKILL.md"
             },
-            "summary": "Added skills/csharp-mstest/SKILL.md with expanded MSTest 3.x/4.x guidance covering setup, lifecycle, assertions, data-driven tests, TestContext, advanced features, common mistakes, organization, and mocking."
+            "summary": "Added a csharp-mstest skill covering MSTest 3.x/4.x setup, lifecycle, assertions, data-driven tests, TestContext, and advanced testing practices."
           },
           {
             "sha": "461c92745d3974a24e2ac097696544393bc5d296",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/461c92745d3974a24e2ac097696544393bc5d296",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Updated the type assertions section to note the MSTest 3.x out-parameter form and add the MSTest 4.x typed-return example for Assert.IsInstanceOfType."
+            "summary": "Clarified the MSTest 3.x out-parameter and MSTest 4.x typed-return forms of IsInstanceOfType in the type-assertion examples."
           },
           {
             "sha": "a08d09b311aaac9a56023b341b2b2d47c047a801",
@@ -47,7 +47,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/a08d09b311aaac9a56023b341b2b2d47c047a801",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the MSTest prompt into a modern MSTest 3.x/4.x guide with new sections and examples for test class structure, lifecycle, assertions, data-driven tests, TestContext, advanced features, and organization."
+            "summary": "Expanded the guide into MSTest 3.x/4.x best practices, adding setup and lifecycle guidance, modern assertions, typed data-driven examples, TestContext usage, advanced execution features, and updated testing advice."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -56,7 +56,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the prompt front matter key from `mode` to `agent`."
+            "summary": "Renamed the prompt front-matter field from mode to agent."
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -65,7 +65,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Changed the prompt tool list to use the namespaced `search/codebase` entry instead of `codebase`."
+            "summary": "Replaced the configured codebase tool name with search/codebase."
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -74,7 +74,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Changed the prompt tool list to use `edit/editFiles` instead of `editFiles`."
+            "summary": "Changed the configured tool name from editFiles to edit/editFiles."
           },
           {
             "sha": "064bbfe7eb52abd6eaa74e926293772df5e0b1a0",
@@ -83,7 +83,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/064bbfe7eb52abd6eaa74e926293772df5e0b1a0",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Updated the prompt to recommend `Assert.Throws<T>` and `[TestMethod]` for data-driven tests, simplify the package reference, and remove the `CsvDataSource` recommendation."
+            "summary": "Updated package, data-test, and exception guidance, removed the CSV data-source suggestion, and normalized list formatting."
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -92,7 +92,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Standardized the prompt front matter to single-quoted YAML values and added a trailing newline."
+            "summary": "Normalized the prompt front matter to single-quoted YAML values and added a final newline."
           },
           {
             "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
@@ -101,7 +101,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the prompt tool list from `codebase` and `terminalCommand` to `changes`, `codebase`, `editFiles`, `problems`, and `search`."
+            "summary": "Expanded the configured tool list from codebase and terminalCommand to changes, codebase, editFiles, problems, and search."
           },
           {
             "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
@@ -110,15 +110,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial csharp-mstest prompt with guidance on MSTest setup, test structure, data-driven tests, assertions, mocking, and test organization."
+            "summary": "Added the initial MSTest prompt with project setup, test structure, standard and data-driven testing, assertions, mocking, and organization guidance."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -135,7 +135,7 @@
               "sourcePath": "prompts/csharp-mstest.prompt.md",
               "destinationPath": "skills/csharp-mstest/SKILL.md"
             },
-            "summary": "新增 skills/csharp-mstest/SKILL.md，擴充 MSTest 3.x/4.x 指南，涵蓋設定、生命週期、斷言、資料驅動測試、TestContext、進階功能、常見錯誤、組織方式與模擬。"
+            "summary": "新增 csharp-mstest 技能，涵蓋 MSTest 3.x/4.x 的設定、生命週期、斷言、資料驅動測試、TestContext 與進階測試實務。"
           },
           {
             "sha": "461c92745d3974a24e2ac097696544393bc5d296",
@@ -144,7 +144,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/461c92745d3974a24e2ac097696544393bc5d296",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新型別斷言段落，說明 MSTest 3.x 的 out 參數形式，並新增 MSTest 4.x 的 Assert.IsInstanceOfType 型別回傳範例。"
+            "summary": "在型別斷言範例中，釐清 MSTest 3.x 的 out 參數形式與 MSTest 4.x 的具型別回傳形式之 IsInstanceOfType 用法。"
           },
           {
             "sha": "a08d09b311aaac9a56023b341b2b2d47c047a801",
@@ -153,7 +153,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/a08d09b311aaac9a56023b341b2b2d47c047a801",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 MSTest 提示擴充為現代化的 MSTest 3.x/4.x 指南，新增測試類別結構、生命週期、斷言、資料驅動測試、TestContext、進階功能與組織方式的章節與範例。"
+            "summary": "將指南擴充為 MSTest 3.x/4.x 最佳實務，新增設定與生命週期指引、現代斷言、具型別資料驅動範例、TestContext 用法、進階執行功能及更新的測試建議。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -162,7 +162,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示前置中繼資料的鍵從 `mode` 更名為 `agent`。"
+            "summary": "將提示檔前置資訊中的欄位由 mode 改名為 agent。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -171,7 +171,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單改為使用具命名空間的 `search/codebase` 項目，取代 `codebase`。"
+            "summary": "將提示檔設定的 codebase 工具名稱改為 search/codebase。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -180,7 +180,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單改為使用 `edit/editFiles`，取代 `editFiles`。"
+            "summary": "將設定的工具名稱從 editFiles 改為 edit/editFiles。"
           },
           {
             "sha": "064bbfe7eb52abd6eaa74e926293772df5e0b1a0",
@@ -189,7 +189,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/064bbfe7eb52abd6eaa74e926293772df5e0b1a0",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新提示，改為建議在資料驅動測試中使用 `Assert.Throws<T>` 與 `[TestMethod]`，簡化套件參考，並移除 `CsvDataSource` 的建議。"
+            "summary": "更新套件、資料測試與例外處理建議，移除 CSV 資料來源建議，並統一清單格式。"
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -198,7 +198,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示前置中繼資料統一為使用單引號的 YAML 值，並補上結尾換行。"
+            "summary": "將提示檔前置 YAML 值統一改用單引號，並補上檔案結尾換行。"
           },
           {
             "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
@@ -207,7 +207,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將提示工具清單從 `codebase` 與 `terminalCommand` 擴充為 `changes`、`codebase`、`editFiles`、`problems` 與 `search`。"
+            "summary": "將設定的工具清單從 codebase 與 terminalCommand 擴充為 changes、codebase、editFiles、problems 和 search。"
           },
           {
             "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
@@ -216,13 +216,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增初始的 csharp-mstest 提示，提供 MSTest 設定、測試結構、資料驅動測試、斷言、模擬與測試組織的指引。"
+            "summary": "新增初始 MSTest 提示，涵蓋專案設定、測試結構、一般與資料驅動測試、斷言、模擬及測試組織指引。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -240,7 +240,7 @@
               "sourcePath": "prompts/csharp-mstest.prompt.md",
               "destinationPath": "skills/csharp-mstest/SKILL.md"
             },
-            "summary": "添加 skills/csharp-mstest/SKILL.md，扩充 MSTest 3.x/4.x 指南，涵盖设置、生命周期、断言、数据驱动测试、TestContext、高级功能、常见错误、组织方式与模拟。"
+            "summary": "添加 csharp-mstest 技能，涵盖 MSTest 3.x/4.x 的设置、生命周期、断言、数据驱动测试、TestContext 与高级测试实务。"
           },
           {
             "sha": "461c92745d3974a24e2ac097696544393bc5d296",
@@ -249,7 +249,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/461c92745d3974a24e2ac097696544393bc5d296",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新类型断言段落，说明 MSTest 3.x 的 out 参数形式，并添加 MSTest 4.x 的 Assert.IsInstanceOfType 类型回传范例。"
+            "summary": "在类型断言范例中，厘清 MSTest 3.x 的 out 参数形式与 MSTest 4.x 的具类型回传形式之 IsInstanceOfType 用法。"
           },
           {
             "sha": "a08d09b311aaac9a56023b341b2b2d47c047a801",
@@ -258,7 +258,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/a08d09b311aaac9a56023b341b2b2d47c047a801",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 MSTest 提示扩充为现代化的 MSTest 3.x/4.x 指南，添加测试类别结构、生命周期、断言、数据驱动测试、TestContext、高级功能与组织方式的章节与范例。"
+            "summary": "将指南扩充为 MSTest 3.x/4.x 最佳实务，添加设置与生命周期指引、现代断言、具类型数据驱动范例、TestContext 用法、高级运行功能及更新的测试建议。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -267,7 +267,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示前置中继数据的键从 `mode` 更名为 `agent`。"
+            "summary": "将提示档前置信息中的字段由 mode 改名为 agent。"
           },
           {
             "sha": "2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
@@ -276,7 +276,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2b45ca4e8b19b60f16534ab8501c6faeab3ff6f6",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单改为使用具命名空间的 `search/codebase` 项目，取代 `codebase`。"
+            "summary": "将提示档设置的 codebase 工具名称改为 search/codebase。"
           },
           {
             "sha": "69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
@@ -285,7 +285,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/69cd4fae4e06a119bd9c8d45c050473a8a43fff2",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单改为使用 `edit/editFiles`，取代 `editFiles`。"
+            "summary": "将设置的工具名称从 editFiles 改为 edit/editFiles。"
           },
           {
             "sha": "064bbfe7eb52abd6eaa74e926293772df5e0b1a0",
@@ -294,7 +294,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/064bbfe7eb52abd6eaa74e926293772df5e0b1a0",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "更新提示，改为建议在数据驱动测试中使用 `Assert.Throws<T>` 与 `[TestMethod]`，简化套件参考，并移除 `CsvDataSource` 的建议。"
+            "summary": "更新套件、数据测试与例外处理建议，移除 CSV 数据源建议，并统一清单格式。"
           },
           {
             "sha": "6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
@@ -303,7 +303,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/6fb794bc7917fff6a259ae3ba72cd1fad350c0bf",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示前置中继数据统一为使用单引号的 YAML 值，并补上结尾换行。"
+            "summary": "将提示档前置 YAML 值统一改用单引号，并补上文件结尾换行。"
           },
           {
             "sha": "9872a778253d3f3cdc9b061c7809da76dd2c2930",
@@ -312,7 +312,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/9872a778253d3f3cdc9b061c7809da76dd2c2930",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将提示工具清单从 `codebase` 与 `terminalCommand` 扩充为 `changes`、`codebase`、`editFiles`、`problems` 与 `search`。"
+            "summary": "将设置的工具清单从 codebase 与 terminalCommand 扩充为 changes、codebase、editFiles、problems 和 search。"
           },
           {
             "sha": "4c8ad05afdd99d6fd9723ace69571ec4762b342f",
@@ -321,7 +321,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/4c8ad05afdd99d6fd9723ace69571ec4762b342f",
             "pathAtCommit": "prompts/csharp-mstest.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加初始的 csharp-mstest 提示，提供 MSTest 设置、测试结构、数据驱动测试、断言、模拟与测试组织的指引。"
+            "summary": "添加初始 MSTest 提示，涵盖项目设置、测试结构、一般与数据驱动测试、断言、模拟及测试组织指引。"
           }
         ]
       }

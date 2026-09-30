@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-workload-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:db2f95153e48c6aa1ff71abe5b65f1bd4d6f49a15b228b8a0a9275d27b88adaa"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Systematically diagnose GKE application workload failures through pod status, events, logs, and connectivity checks, then recommend GitOps-safe fixes without changing live resources.",
+        "whenToUse": "Use for GKE application pods that are pending, repeatedly restarting, unable to pull images, stuck during container creation, or unable to reach dependencies; not for cluster provisioning or non-Kubernetes Google Cloud services.",
+        "outputs": "Provides diagnostic findings and commands, along with proposed manifest patches or Google Cloud configuration commands, without applying live changes."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透過檢查 Pod 狀態、事件、日誌與連線，系統性診斷 GKE 應用程式工作負載故障，並提出不直接變更線上資源的 GitOps 修正建議。",
+        "whenToUse": "適用於 GKE 應用程式 Pod 處於 Pending、反覆重新啟動、無法擷取容器映像、卡在容器建立階段或無法連線至相依服務時；不適用於叢集佈建或非 Kubernetes 的 Google Cloud 服務。",
+        "outputs": "提供診斷結果與指令，以及建議的資訊清單修補內容或 Google Cloud 設定命令，但不會直接套用線上變更。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "透过检查 Pod 状态、事件、日志与连接，系统性诊断 GKE 应用程序工作负载故障，并提出不直接变更在线资源的 GitOps 修正建议。",
+        "whenToUse": "适用于 GKE 应用程序 Pod 处于 Pending、反复重新启动、无法截取容器映像、卡在容器创建阶段或无法连接至相依服务时；不适用于集群布建或非 Kubernetes 的 Google Cloud 服务。",
+        "outputs": "提供诊断结果与指令，以及建议的信息清单修补内容或 Google Cloud 设置命令，但不会直接套用在线变更。"
+      }
+    }
+  }
+}

@@ -1,0 +1,630 @@
+{
+  "path": "skills/expo/expo-native-ui",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b7f76ed7ab6b15d309b70dc9848b5f460fdc7670396fcd5aa3901a28797a4a75",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-native-ui",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the UI guidance with Android Material icon requirements, data-screen loading/error/empty/content states, keyboard and async-save handling, completion checks, and platform-specific iOS/Android styling."
+          },
+          {
+            "sha": "170589a7ee8963156f63de8202fa96cf08a9e610",
+            "date": "2026-09-08T11:41:34+02:00",
+            "subject": "[expo] Correctness pass on design-surface skills (#176)",
+            "url": "https://github.com/expo/skills/commit/170589a7ee8963156f63de8202fa96cf08a9e610",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Revised the skill to defer navigation to expo-router and motion to expo-animation, while updating Expo Go, icon, scrolling, and semantic-color guidance."
+          },
+          {
+            "sha": "472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "date": "2026-08-20T12:32:05+08:00",
+            "subject": "add expo-overview skill (#107)",
+            "url": "https://github.com/expo/skills/commit/472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance to check @expo/ui for native components before using React Native or community-library alternatives."
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a rule to use the expo-skill-feedback eval-candidate flow after repeated agent failures or user takeovers."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added instructions and a CLI command for submitting actionable feedback about the expo-native-ui skill."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R095",
+              "sourcePath": "plugins/expo/skills/building-native-ui/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-native-ui/SKILL.md"
+            },
+            "summary": "Renamed the skill identifier and heading from building-native-ui/Expo UI Guidelines to expo-native-ui/Expo Native UI Guidelines, and labeled its description as an OSS framework."
+          },
+          {
+            "sha": "06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "date": "2026-07-06T12:17:23+02:00",
+            "subject": "Split building-native-ui into building-native-ui + expo-router (#99)",
+            "url": "https://github.com/expo/skills/commit/06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Separated navigation and route guidance from the native-UI skill, directing those topics to expo-router while revising component, scrolling, and animation recommendations."
+          },
+          {
+            "sha": "ad897fdf0c6593d0cc7523198aa752c6f62adeda",
+            "date": "2026-06-25T22:55:27+08:00",
+            "subject": "improve building-native-ui skill (#90)",
+            "url": "https://github.com/expo/skills/commit/ad897fdf0c6593d0cc7523198aa752c6f62adeda",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added platform-semantic Color palette guidance and SDK 56 React Navigation import guidance, and updated the NativeTabs example and responsive-layout rules."
+          },
+          {
+            "sha": "1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "date": "2026-06-10T23:03:26+08:00",
+            "subject": "sync openai-curated plugin (#74)",
+            "url": "https://github.com/expo/skills/commit/1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed trailing whitespace from the form-sheet reference entry."
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+              "destinationPath": "plugins/expo/skills/building-native-ui/SKILL.md"
+            },
+            "summary": "Moved the unchanged building-native-ui skill from the expo-app-design plugin to the expo plugin."
+          },
+          {
+            "sha": "066928d49a2d25092efe8f32726eaf8bb14b1891",
+            "date": "2026-02-25T08:16:59+01:00",
+            "subject": "Add information about background interaction to form-sheet (#26)",
+            "url": "https://github.com/expo/skills/commit/066928d49a2d25092efe8f32726eaf8bb14b1891",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the form-sheet reference description to cover Expo Router configuration, footers, and background interaction."
+          },
+          {
+            "sha": "052fa1b53872cd81ac8c47a13cfb36b6318d869a",
+            "date": "2026-02-13T11:52:02+01:00",
+            "subject": "docs: document problems in tabs and emphasize ScrollView order (#16)",
+            "url": "https://github.com/expo/skills/commit/052fa1b53872cd81ac8c47a13cfb36b6318d869a",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance to place a ScrollView first inside a route when the page includes one."
+          },
+          {
+            "sha": "ce1283f4328c1014aba4ebf445d583c2fdf02232",
+            "date": "2026-02-01T16:56:24-08:00",
+            "subject": "Add zoom transition skill",
+            "url": "https://github.com/expo/skills/commit/ce1283f4328c1014aba4ebf445d583c2fdf02232",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the zoom-transitions reference and changed SF Symbol guidance to use expo-image's sf: source instead of expo-symbols."
+          },
+          {
+            "sha": "d73b3c5e2668dbdd58f93f5d9542628b7fa85d9e",
+            "date": "2026-02-01T15:36:14-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/d73b3c5e2668dbdd58f93f5d9542628b7fa85d9e",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill version from 1.0.0 to 1.0.1."
+          },
+          {
+            "sha": "760251e6935cfd7e938a5f4318e804e56b2e8a4f",
+            "date": "2026-02-01T15:35:10-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/760251e6935cfd7e938a5f4318e804e56b2e8a4f",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reformatted the references index as a directory-style block and added form-sheet and toolbar/header entries."
+          },
+          {
+            "sha": "1ea7c2ee0b4a311b60b4928b6fac4a564dbec04f",
+            "date": "2026-02-01T15:34:47-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/1ea7c2ee0b4a311b60b4928b6fac4a564dbec04f",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reordered the reference entries and corrected the filename from toolbars-and-headers.md to toolbar-and-headers.md."
+          },
+          {
+            "sha": "b631a6045b421c425df947af74d3f6007e6ccc69",
+            "date": "2026-01-25T15:46:28+01:00",
+            "subject": "feat: skill for adding toolbars on iOS (#7)",
+            "url": "https://github.com/expo/skills/commit/b631a6045b421c425df947af74d3f6007e6ccc69",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the toolbar-and-headers guide to the reference list as an iOS-only resource."
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-app-design/skills/building-ui/SKILL.md",
+              "destinationPath": "plugins/expo-app-design/skills/building-native-ui/SKILL.md"
+            },
+            "summary": "Renamed the skill from building-ui to building-native-ui in its front matter."
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 and MIT license metadata to the building-ui skill."
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created the initial building-ui guide with Expo Go setup, code and styling conventions, routing, library, responsiveness, behavior, and navigation guidance."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充了 UI 指引，加入 Android Material 圖示要求、資料畫面的載入／錯誤／空狀態／內容狀態、鍵盤與非同步儲存處理、完成前檢查，以及 iOS／Android 各自的平台樣式指引。"
+          },
+          {
+            "sha": "170589a7ee8963156f63de8202fa96cf08a9e610",
+            "date": "2026-09-08T11:41:34+02:00",
+            "subject": "[expo] Correctness pass on design-surface skills (#176)",
+            "url": "https://github.com/expo/skills/commit/170589a7ee8963156f63de8202fa96cf08a9e610",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修訂了指引，將導覽交由 expo-router、動畫交由 expo-animation，並更新 Expo Go、圖示、捲動與語意色彩相關建議。"
+          },
+          {
+            "sha": "472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "date": "2026-08-20T12:32:05+08:00",
+            "subject": "add expo-overview skill (#107)",
+            "url": "https://github.com/expo/skills/commit/472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引，要求在選用 React Native 或社群函式庫替代方案前，先檢查 @expo/ui 是否提供原生元件。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增規則，若代理程式反覆失敗或需要使用者接手，應使用 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增提交 expo-native-ui 技能具體可行回饋的說明與 CLI 指令。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R095",
+              "sourcePath": "plugins/expo/skills/building-native-ui/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-native-ui/SKILL.md"
+            },
+            "summary": "將技能識別名稱與標題從 building-native-ui／Expo UI Guidelines 改為 expo-native-ui／Expo Native UI Guidelines，並在描述中標示為 OSS 框架。"
+          },
+          {
+            "sha": "06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "date": "2026-07-06T12:17:23+02:00",
+            "subject": "Split building-native-ui into building-native-ui + expo-router (#99)",
+            "url": "https://github.com/expo/skills/commit/06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將導覽與路由指引從原生 UI 技能中拆出並導向 expo-router，同時修訂元件、捲動與動畫建議。"
+          },
+          {
+            "sha": "ad897fdf0c6593d0cc7523198aa752c6f62adeda",
+            "date": "2026-06-25T22:55:27+08:00",
+            "subject": "improve building-native-ui skill (#90)",
+            "url": "https://github.com/expo/skills/commit/ad897fdf0c6593d0cc7523198aa752c6f62adeda",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增平台語意 Color 色盤與 SDK 56 React Navigation 匯入指引，並更新 NativeTabs 範例及響應式版面規則。"
+          },
+          {
+            "sha": "1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "date": "2026-06-10T23:03:26+08:00",
+            "subject": "sync openai-curated plugin (#74)",
+            "url": "https://github.com/expo/skills/commit/1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了 form-sheet 參考項目末尾的空白字元。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+              "destinationPath": "plugins/expo/skills/building-native-ui/SKILL.md"
+            },
+            "summary": "將未變更的 building-native-ui 技能從 expo-app-design 外掛移至 expo 外掛。"
+          },
+          {
+            "sha": "066928d49a2d25092efe8f32726eaf8bb14b1891",
+            "date": "2026-02-25T08:16:59+01:00",
+            "subject": "Add information about background interaction to form-sheet (#26)",
+            "url": "https://github.com/expo/skills/commit/066928d49a2d25092efe8f32726eaf8bb14b1891",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 form-sheet 參考說明，涵蓋 Expo Router 設定、頁尾與背景互動。"
+          },
+          {
+            "sha": "052fa1b53872cd81ac8c47a13cfb36b6318d869a",
+            "date": "2026-02-13T11:52:02+01:00",
+            "subject": "docs: document problems in tabs and emphasize ScrollView order (#16)",
+            "url": "https://github.com/expo/skills/commit/052fa1b53872cd81ac8c47a13cfb36b6318d869a",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引，頁面使用 ScrollView 時，應將它放在路由元件內的第一個位置。"
+          },
+          {
+            "sha": "ce1283f4328c1014aba4ebf445d583c2fdf02232",
+            "date": "2026-02-01T16:56:24-08:00",
+            "subject": "Add zoom transition skill",
+            "url": "https://github.com/expo/skills/commit/ce1283f4328c1014aba4ebf445d583c2fdf02232",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 zoom-transitions 參考項目，並將 SF Symbols 指引改為使用 expo-image 的 sf: 來源，而非 expo-symbols。"
+          },
+          {
+            "sha": "d73b3c5e2668dbdd58f93f5d9542628b7fa85d9e",
+            "date": "2026-02-01T15:36:14-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/d73b3c5e2668dbdd58f93f5d9542628b7fa85d9e",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能版本從 1.0.0 更新為 1.0.1。"
+          },
+          {
+            "sha": "760251e6935cfd7e938a5f4318e804e56b2e8a4f",
+            "date": "2026-02-01T15:35:10-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/760251e6935cfd7e938a5f4318e804e56b2e8a4f",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將參考資料索引改為目錄樣式區塊，並新增 form-sheet 與 toolbar/header 項目。"
+          },
+          {
+            "sha": "1ea7c2ee0b4a311b60b4928b6fac4a564dbec04f",
+            "date": "2026-02-01T15:34:47-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/1ea7c2ee0b4a311b60b4928b6fac4a564dbec04f",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新排列參考項目，並將檔名從 toolbars-and-headers.md 更正為 toolbar-and-headers.md。"
+          },
+          {
+            "sha": "b631a6045b421c425df947af74d3f6007e6ccc69",
+            "date": "2026-01-25T15:46:28+01:00",
+            "subject": "feat: skill for adding toolbars on iOS (#7)",
+            "url": "https://github.com/expo/skills/commit/b631a6045b421c425df947af74d3f6007e6ccc69",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在參考清單中新增 toolbar-and-headers 指南，並標示為僅適用於 iOS。"
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-app-design/skills/building-ui/SKILL.md",
+              "destinationPath": "plugins/expo-app-design/skills/building-native-ui/SKILL.md"
+            },
+            "summary": "將技能前置資料中的名稱從 building-ui 改為 building-native-ui。"
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "為 building-ui 技能新增 1.0.0 版本與 MIT 授權中繼資料。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立初版 building-ui 指南，涵蓋 Expo Go 設定、程式碼與樣式慣例、路由、函式庫、響應式設計、行為及導覽指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "date": "2026-09-09T15:24:11+02:00",
+            "subject": "[expo] native-slop tells, four-state screens, Dynamic Type, keyboard, Android floor (#178)",
+            "url": "https://github.com/expo/skills/commit/4503deb68f55f2c0b09eb93f213f2d0629a363a0",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充了 UI 指引，加入 Android Material 图标要求、数据画面的加载／错误／空状态／内容状态、键盘与异步保存处理、完成前检查，以及 iOS／Android 各自的平台样式指引。"
+          },
+          {
+            "sha": "170589a7ee8963156f63de8202fa96cf08a9e610",
+            "date": "2026-09-08T11:41:34+02:00",
+            "subject": "[expo] Correctness pass on design-surface skills (#176)",
+            "url": "https://github.com/expo/skills/commit/170589a7ee8963156f63de8202fa96cf08a9e610",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修订了指引，将导览交由 expo-router、动画交由 expo-animation，并更新 Expo Go、图标、卷动与语意色彩相关建议。"
+          },
+          {
+            "sha": "472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "date": "2026-08-20T12:32:05+08:00",
+            "subject": "add expo-overview skill (#107)",
+            "url": "https://github.com/expo/skills/commit/472d040092900dc8bbf84dc7efb0c90abff77a0d",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引，要求在选用 React Native 或社区函数库替代方案前，先检查 @expo/ui 是否提供原生组件。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加规则，若代理程序反复失败或需要用户接手，应使用 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加提交 expo-native-ui 技能具体可行回馈的说明与 CLI 指令。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-native-ui/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R095",
+              "sourcePath": "plugins/expo/skills/building-native-ui/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-native-ui/SKILL.md"
+            },
+            "summary": "将技能识别名称与标题从 building-native-ui／Expo UI Guidelines 改为 expo-native-ui／Expo Native UI Guidelines，并在描述中标示为 OSS 框架。"
+          },
+          {
+            "sha": "06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "date": "2026-07-06T12:17:23+02:00",
+            "subject": "Split building-native-ui into building-native-ui + expo-router (#99)",
+            "url": "https://github.com/expo/skills/commit/06fcc81d979c015fc0e2ff55b5b733021f04ec3e",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将导览与路由指引从原生 UI 技能中拆出并导向 expo-router，同时修订组件、卷动与动画建议。"
+          },
+          {
+            "sha": "ad897fdf0c6593d0cc7523198aa752c6f62adeda",
+            "date": "2026-06-25T22:55:27+08:00",
+            "subject": "improve building-native-ui skill (#90)",
+            "url": "https://github.com/expo/skills/commit/ad897fdf0c6593d0cc7523198aa752c6f62adeda",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加平台语意 Color 色盘与 SDK 56 React Navigation 导入指引，并更新 NativeTabs 范例及响应式版面规则。"
+          },
+          {
+            "sha": "1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "date": "2026-06-10T23:03:26+08:00",
+            "subject": "sync openai-curated plugin (#74)",
+            "url": "https://github.com/expo/skills/commit/1a5693e0acc95a0829ff1656b4426fee2f2c1167",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了 form-sheet 参考项目末尾的空白字符。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+              "destinationPath": "plugins/expo/skills/building-native-ui/SKILL.md"
+            },
+            "summary": "将未变更的 building-native-ui 技能从 expo-app-design 插件移至 expo 插件。"
+          },
+          {
+            "sha": "066928d49a2d25092efe8f32726eaf8bb14b1891",
+            "date": "2026-02-25T08:16:59+01:00",
+            "subject": "Add information about background interaction to form-sheet (#26)",
+            "url": "https://github.com/expo/skills/commit/066928d49a2d25092efe8f32726eaf8bb14b1891",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 form-sheet 参考说明，涵盖 Expo Router 设置、页脚与背景交互。"
+          },
+          {
+            "sha": "052fa1b53872cd81ac8c47a13cfb36b6318d869a",
+            "date": "2026-02-13T11:52:02+01:00",
+            "subject": "docs: document problems in tabs and emphasize ScrollView order (#16)",
+            "url": "https://github.com/expo/skills/commit/052fa1b53872cd81ac8c47a13cfb36b6318d869a",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引，页面使用 ScrollView 时，应将它放在路由组件内的第一个位置。"
+          },
+          {
+            "sha": "ce1283f4328c1014aba4ebf445d583c2fdf02232",
+            "date": "2026-02-01T16:56:24-08:00",
+            "subject": "Add zoom transition skill",
+            "url": "https://github.com/expo/skills/commit/ce1283f4328c1014aba4ebf445d583c2fdf02232",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 zoom-transitions 参考项目，并将 SF Symbols 指引改为使用 expo-image 的 sf: 来源，而非 expo-symbols。"
+          },
+          {
+            "sha": "d73b3c5e2668dbdd58f93f5d9542628b7fa85d9e",
+            "date": "2026-02-01T15:36:14-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/d73b3c5e2668dbdd58f93f5d9542628b7fa85d9e",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能版本从 1.0.0 更新为 1.0.1。"
+          },
+          {
+            "sha": "760251e6935cfd7e938a5f4318e804e56b2e8a4f",
+            "date": "2026-02-01T15:35:10-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/760251e6935cfd7e938a5f4318e804e56b2e8a4f",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将参考资料索引改为目录样式区块，并添加 form-sheet 与 toolbar/header 项目。"
+          },
+          {
+            "sha": "1ea7c2ee0b4a311b60b4928b6fac4a564dbec04f",
+            "date": "2026-02-01T15:34:47-08:00",
+            "subject": "Update SKILL.md",
+            "url": "https://github.com/expo/skills/commit/1ea7c2ee0b4a311b60b4928b6fac4a564dbec04f",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新排列参考项目，并将文件名从 toolbars-and-headers.md 更正为 toolbar-and-headers.md。"
+          },
+          {
+            "sha": "b631a6045b421c425df947af74d3f6007e6ccc69",
+            "date": "2026-01-25T15:46:28+01:00",
+            "subject": "feat: skill for adding toolbars on iOS (#7)",
+            "url": "https://github.com/expo/skills/commit/b631a6045b421c425df947af74d3f6007e6ccc69",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在参考清单中添加 toolbar-and-headers 指南，并标示为仅适用于 iOS。"
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-native-ui/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-app-design/skills/building-ui/SKILL.md",
+              "destinationPath": "plugins/expo-app-design/skills/building-native-ui/SKILL.md"
+            },
+            "summary": "将技能前置数据中的名称从 building-ui 改为 building-native-ui。"
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "为 building-ui 技能添加 1.0.0 版本与 MIT 授权中继数据。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-app-design/skills/building-ui/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建初版 building-ui 指南，涵盖 Expo Go 设置、代码与样式惯例、路由、函数库、响应式设计、行为及导览指引。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "path": "skills/google/cloud/google-cloud-filestore-log-troubleshooting",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:5cde0d43929521ac168d5c555ec8347f56a3cafc7ced52d76095bc3b79599a5a",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-filestore-log-troubleshooting",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "28094838f3069420a17303213faa9297f5c6e84d",
+            "date": "2026-09-20T22:56:49-07:00",
+            "subject": "Add google-cloud-filestore-log-troubleshooting skill for diagnosing and resolving GCP Filestore mount timeouts (ETIMEDOUT), permission errors (EACCES/EPERM), and configuration drift.",
+            "url": "https://github.com/google/skills/commit/28094838f3069420a17303213faa9297f5c6e84d",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-log-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a Google Cloud Filestore troubleshooting skill covering NFS mount timeouts, export permission errors, firewall checks, audit-log drift, and diagnostic workflows."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "28094838f3069420a17303213faa9297f5c6e84d",
+            "date": "2026-09-20T22:56:49-07:00",
+            "subject": "Add google-cloud-filestore-log-troubleshooting skill for diagnosing and resolving GCP Filestore mount timeouts (ETIMEDOUT), permission errors (EACCES/EPERM), and configuration drift.",
+            "url": "https://github.com/google/skills/commit/28094838f3069420a17303213faa9297f5c6e84d",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-log-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Google Cloud Filestore 疑難排解技能，涵蓋 NFS 掛載逾時、匯出權限錯誤、防火牆檢查、稽核記錄中的設定變更，以及診斷流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "28094838f3069420a17303213faa9297f5c6e84d",
+            "date": "2026-09-20T22:56:49-07:00",
+            "subject": "Add google-cloud-filestore-log-troubleshooting skill for diagnosing and resolving GCP Filestore mount timeouts (ETIMEDOUT), permission errors (EACCES/EPERM), and configuration drift.",
+            "url": "https://github.com/google/skills/commit/28094838f3069420a17303213faa9297f5c6e84d",
+            "pathAtCommit": "skills/cloud/google-cloud-filestore-log-troubleshooting/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Google Cloud Filestore 疑难排解技能，涵盖 NFS 挂载逾时、导出权限错误、防火墙检查、审核记录中的设置变更，以及诊断流程。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "path": "skills/google/cloud/gemini-api",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:7d7d91df77f3d75184ab12e1bc8cd865ca50421c23c8b34c8b994ad03525041a",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gemini-api",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version `1.0.0` to the skill metadata."
+          },
+          {
+            "sha": "f4ed3d0a756cbbf24cc8f3ebc7c2d5a49140bf1c",
+            "date": "2026-09-11T10:36:50-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/f4ed3d0a756cbbf24cc8f3ebc7c2d5a49140bf1c",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated the Agent Platform notice and authentication link, made `gemini-3.8-flash` the recommended and example flash model, and marked `gemini-3.7-flash` and `gemini-3.6-flash` as available only on explicit request."
+          },
+          {
+            "sha": "13d9090ce3ca63bd4c451435d71ad0beed8ce90f",
+            "date": "2026-07-21T12:09:51-07:00",
+            "subject": "Update gemini-api skills with gemini-3.6-flash and gemini-3.5-flash-lite",
+            "url": "https://github.com/google/skills/commit/13d9090ce3ca63bd4c451435d71ad0beed8ce90f",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated model guidance to recommend `gemini-3.6-flash` and `gemini-3.5-flash-lite`, moved `gemini-3.5-flash` and `gemini-3.1-flash-lite` to explicit-request-only, added a fast image model, and refreshed the quick-start model."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Moved `category: AiAndMachineLearning` into a new `metadata` block and adjusted spacing around code blocks and documentation links."
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill's Google Cloud documentation URLs to their `.md.txt` forms, including links for migration, authentication, supported regions, Express Mode, and the REST API."
+          },
+          {
+            "sha": "e3b1eee2eee2ae676349deaa8a4fc2f39040f383",
+            "date": "2026-05-29T11:17:56-07:00",
+            "subject": "Update Gemini API skill documentation with `enterprise` parameter and make description more prescriptive",
+            "url": "https://github.com/google/skills/commit/e3b1eee2eee2ae676349deaa8a4fc2f39040f383",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reordered the description to state when to use the skill first, updated model guidance and documentation links, and changed the TypeScript, Java, and C# examples to use `enterprise` configuration."
+          },
+          {
+            "sha": "df67a40d3a8274ef82098b25070fc13a930ce971",
+            "date": "2026-05-29T10:51:07-07:00",
+            "subject": "Update Gemini API skill documentation to reflect new model names and client configuration.",
+            "url": "https://github.com/google/skills/commit/df67a40d3a8274ef82098b25070fc13a930ce971",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated authentication setup and the Python, TypeScript, Java, and C# examples to use Agent Platform's `enterprise` configuration, revised Gemini model guidance, and refreshed migration and documentation links."
+          },
+          {
+            "sha": "42b28e212973529d8c17ce73c2044c1455d0966f",
+            "date": "2026-05-05T10:56:39-07:00",
+            "subject": "Update Models and capabilities for google-genai Agent Skills",
+            "url": "https://github.com/google/skills/commit/42b28e212973529d8c17ce73c2044c1455d0966f",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `gemini-3.1-flash-lite-preview` as a recommended model for high-frequency, lightweight tasks."
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gemini-api/SKILL.md",
+              "destinationPath": "skills/cloud/gemini-api/SKILL.md"
+            },
+            "summary": "Renamed the skill file from `cloud/gemini-api/SKILL.md` to `skills/cloud/gemini-api/SKILL.md` without changing its contents."
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gemini-api/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/agent-platform/gemini-api/SKILL.md",
+              "destinationPath": "cloud/gemini-api/SKILL.md"
+            },
+            "summary": "Renamed the skill file from `cloud/products/agent-platform/gemini-api/SKILL.md` to `cloud/gemini-api/SKILL.md` without changing its contents."
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/agent-platform/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Renamed the skill from `genai-sdk` to `gemini-api` and removed trailing whitespace from the Java dependency version-reference line."
+          },
+          {
+            "sha": "47e7133b17c0e15607e946badcd348b95b9aa36d",
+            "date": "2026-04-15T16:28:14-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/47e7133b17c0e15607e946badcd348b95b9aa36d",
+            "pathAtCommit": "cloud/products/agent-platform/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial Agent Platform Gemini API skill, covering supported SDKs, authentication, model guidance, code samples in several languages, and reference links."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中繼資料中新增版本 `1.0.0`。"
+          },
+          {
+            "sha": "f4ed3d0a756cbbf24cc8f3ebc7c2d5a49140bf1c",
+            "date": "2026-09-11T10:36:50-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/f4ed3d0a756cbbf24cc8f3ebc7c2d5a49140bf1c",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 Agent Platform 注意事項與驗證連結，將 `gemini-3.8-flash` 設為建議及範例使用的 Flash 模型，並將 `gemini-3.7-flash` 和 `gemini-3.6-flash` 標示為僅在明確要求時使用。"
+          },
+          {
+            "sha": "13d9090ce3ca63bd4c451435d71ad0beed8ce90f",
+            "date": "2026-07-21T12:09:51-07:00",
+            "subject": "Update gemini-api skills with gemini-3.6-flash and gemini-3.5-flash-lite",
+            "url": "https://github.com/google/skills/commit/13d9090ce3ca63bd4c451435d71ad0beed8ce90f",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新模型指引，建議使用 `gemini-3.6-flash` 與 `gemini-3.5-flash-lite`，將 `gemini-3.5-flash` 和 `gemini-3.1-flash-lite` 移至僅限明確要求的清單，新增快速影像模型，並更新快速入門範例所用的模型。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將 `category: AiAndMachineLearning` 移入新的 `metadata` 區塊，並調整程式碼區塊和文件連結周圍的間距。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能中的 Google Cloud 文件網址改為 `.md.txt` 形式，包括遷移、驗證、支援區域、Express Mode 與 REST API 的連結。"
+          },
+          {
+            "sha": "e3b1eee2eee2ae676349deaa8a4fc2f39040f383",
+            "date": "2026-05-29T11:17:56-07:00",
+            "subject": "Update Gemini API skill documentation with `enterprise` parameter and make description more prescriptive",
+            "url": "https://github.com/google/skills/commit/e3b1eee2eee2ae676349deaa8a4fc2f39040f383",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "調整描述順序，先說明何時使用此技能；更新模型指引與文件連結，並將 TypeScript、Java 和 C# 範例改為使用 `enterprise` 設定。"
+          },
+          {
+            "sha": "df67a40d3a8274ef82098b25070fc13a930ce971",
+            "date": "2026-05-29T10:51:07-07:00",
+            "subject": "Update Gemini API skill documentation to reflect new model names and client configuration.",
+            "url": "https://github.com/google/skills/commit/df67a40d3a8274ef82098b25070fc13a930ce971",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新驗證設定及 Python、TypeScript、Java 和 C# 範例，改用 Agent Platform 的 `enterprise` 設定；修訂 Gemini 模型指引，並更新遷移與文件連結。"
+          },
+          {
+            "sha": "42b28e212973529d8c17ce73c2044c1455d0966f",
+            "date": "2026-05-05T10:56:39-07:00",
+            "subject": "Update Models and capabilities for google-genai Agent Skills",
+            "url": "https://github.com/google/skills/commit/42b28e212973529d8c17ce73c2044c1455d0966f",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 `gemini-3.1-flash-lite-preview`，建議用於高頻率、輕量化工作。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gemini-api/SKILL.md",
+              "destinationPath": "skills/cloud/gemini-api/SKILL.md"
+            },
+            "summary": "將技能檔案從 `cloud/gemini-api/SKILL.md` 重新命名為 `skills/cloud/gemini-api/SKILL.md`，內容未變更。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gemini-api/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/agent-platform/gemini-api/SKILL.md",
+              "destinationPath": "cloud/gemini-api/SKILL.md"
+            },
+            "summary": "將技能檔案從 `cloud/products/agent-platform/gemini-api/SKILL.md` 重新命名為 `cloud/gemini-api/SKILL.md`，內容未變更。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/agent-platform/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能名稱從 `genai-sdk` 更改為 `gemini-api`，並移除 Java 相依性版本參考行尾的空白。"
+          },
+          {
+            "sha": "47e7133b17c0e15607e946badcd348b95b9aa36d",
+            "date": "2026-04-15T16:28:14-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/47e7133b17c0e15607e946badcd348b95b9aa36d",
+            "pathAtCommit": "cloud/products/agent-platform/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 Agent Platform Gemini API 技能，涵蓋支援的 SDK、驗證、模型指引、多種語言的程式碼範例及參考連結。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能中继数据中添加版本 `1.0.0`。"
+          },
+          {
+            "sha": "f4ed3d0a756cbbf24cc8f3ebc7c2d5a49140bf1c",
+            "date": "2026-09-11T10:36:50-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/f4ed3d0a756cbbf24cc8f3ebc7c2d5a49140bf1c",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 Agent Platform 注意事项与验证链接，将 `gemini-3.8-flash` 设为建议及范例使用的 Flash 模型，并将 `gemini-3.7-flash` 和 `gemini-3.6-flash` 标示为仅在明确要求时使用。"
+          },
+          {
+            "sha": "13d9090ce3ca63bd4c451435d71ad0beed8ce90f",
+            "date": "2026-07-21T12:09:51-07:00",
+            "subject": "Update gemini-api skills with gemini-3.6-flash and gemini-3.5-flash-lite",
+            "url": "https://github.com/google/skills/commit/13d9090ce3ca63bd4c451435d71ad0beed8ce90f",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新模型指引，建议使用 `gemini-3.6-flash` 与 `gemini-3.5-flash-lite`，将 `gemini-3.5-flash` 和 `gemini-3.1-flash-lite` 移至仅限明确要求的清单，添加快速图像模型，并更新快速入门范例所用的模型。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将 `category: AiAndMachineLearning` 移入新的 `metadata` 区块，并调整代码区块和文档链接周围的间距。"
+          },
+          {
+            "sha": "16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "date": "2026-06-17T13:34:02-07:00",
+            "subject": "Link updates - Fetch Google Cloud documentation as markdown instead of HTML",
+            "url": "https://github.com/google/skills/commit/16b3fef9905ca0adef1f97ea16bf0670cade9839",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能中的 Google Cloud 文档网址改为 `.md.txt` 形式，包括迁移、验证、支持区域、Express Mode 与 REST API 的链接。"
+          },
+          {
+            "sha": "e3b1eee2eee2ae676349deaa8a4fc2f39040f383",
+            "date": "2026-05-29T11:17:56-07:00",
+            "subject": "Update Gemini API skill documentation with `enterprise` parameter and make description more prescriptive",
+            "url": "https://github.com/google/skills/commit/e3b1eee2eee2ae676349deaa8a4fc2f39040f383",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "调整描述顺序，先说明何时使用此技能；更新模型指引与文档链接，并将 TypeScript、Java 和 C# 范例改为使用 `enterprise` 设置。"
+          },
+          {
+            "sha": "df67a40d3a8274ef82098b25070fc13a930ce971",
+            "date": "2026-05-29T10:51:07-07:00",
+            "subject": "Update Gemini API skill documentation to reflect new model names and client configuration.",
+            "url": "https://github.com/google/skills/commit/df67a40d3a8274ef82098b25070fc13a930ce971",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新验证设置及 Python、TypeScript、Java 和 C# 范例，改用 Agent Platform 的 `enterprise` 设置；修订 Gemini 模型指引，并更新迁移与文档链接。"
+          },
+          {
+            "sha": "42b28e212973529d8c17ce73c2044c1455d0966f",
+            "date": "2026-05-05T10:56:39-07:00",
+            "subject": "Update Models and capabilities for google-genai Agent Skills",
+            "url": "https://github.com/google/skills/commit/42b28e212973529d8c17ce73c2044c1455d0966f",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 `gemini-3.1-flash-lite-preview`，建议用于高频率、轻量化工作。"
+          },
+          {
+            "sha": "6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "date": "2026-04-23T12:31:58-07:00",
+            "subject": "Nests cloud/ skills under a top level skills/ directory",
+            "url": "https://github.com/google/skills/commit/6f0b8771638112948f03601e54f4602dd3cb7cc7",
+            "pathAtCommit": "skills/cloud/gemini-api/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/gemini-api/SKILL.md",
+              "destinationPath": "skills/cloud/gemini-api/SKILL.md"
+            },
+            "summary": "将技能文件从 `cloud/gemini-api/SKILL.md` 重命名为 `skills/cloud/gemini-api/SKILL.md`，内容未变更。"
+          },
+          {
+            "sha": "9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "date": "2026-04-23T11:49:57-07:00",
+            "subject": "Flatten skill directories to work with multiple installation tools",
+            "url": "https://github.com/google/skills/commit/9114a94a6e66788703965e6fa3d504deb4e1ac66",
+            "pathAtCommit": "cloud/gemini-api/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "cloud/products/agent-platform/gemini-api/SKILL.md",
+              "destinationPath": "cloud/gemini-api/SKILL.md"
+            },
+            "summary": "将技能文件从 `cloud/products/agent-platform/gemini-api/SKILL.md` 重命名为 `cloud/gemini-api/SKILL.md`，内容未变更。"
+          },
+          {
+            "sha": "1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "date": "2026-04-17T06:27:37-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/1b57cb49f0027a9e6aa345e6125f87fe055c740a",
+            "pathAtCommit": "cloud/products/agent-platform/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能名称从 `genai-sdk` 更改为 `gemini-api`，并移除 Java 相依性版本参考行尾的空白。"
+          },
+          {
+            "sha": "47e7133b17c0e15607e946badcd348b95b9aa36d",
+            "date": "2026-04-15T16:28:14-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/47e7133b17c0e15607e946badcd348b95b9aa36d",
+            "pathAtCommit": "cloud/products/agent-platform/gemini-api/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 Agent Platform Gemini API 技能，涵盖支持的 SDK、验证、模型指引、多种语言的代码范例及参考链接。"
+          }
+        ]
+      }
+    }
+  }
+}

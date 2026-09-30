@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Corrected several command examples by updating profile, apps, docs, reports, and notify usage to newer CLI forms, and added pagination and bucket-id guidance."
+            "summary": "The examples now use `auth login` and `switch` for profiles, list apps without `--developer-id` with optional formatting or pagination, generate docs with `--output-file`, use bucket IDs for financial and statistics reports, and send notifications with `notify send --webhook-url`."
           },
           {
             "sha": "d531a455daad0b089616f982f3e2cc10482d12f6",
@@ -33,7 +33,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/d531a455daad0b089616f982f3e2cc10482d12f6",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Replaced the generic reports section with separate financial and statistics report descriptions and list/download command examples."
+            "summary": "The reports entry now describes financial and statistics reports listed or downloaded from GCS, and the examples use separate financial and statistics list/download subcommands."
           },
           {
             "sha": "f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
@@ -42,7 +42,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Expanded the skill with command and environment-variable reference sections plus examples for dry runs, app listing, docs generation, updates, reports, and notifications."
+            "summary": "The guide adds a command catalog and environment-variable reference, documents dry-run and default-output behavior, and adds examples for initialization, app listing, docs generation, updates, reports, and notifications."
           },
           {
             "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
@@ -51,15 +51,15 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the initial gplay-cli-usage skill with guidance on command discovery, flags, output formats, authentication, timeouts, common patterns, and edit sessions."
+            "summary": "The initial patch adds a Google Play CLI usage skill covering command discovery, flag and output conventions, authentication and timeouts, common command examples, edit sessions, and high-level versus manual workflows."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -71,7 +71,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "修正多個指令範例，將 profile、apps、docs、reports 與 notify 的用法更新為較新的 CLI 形式，並補充分頁與 bucket-id 指引。"
+            "summary": "範例現在使用 `auth login` 和 `switch` 管理設定檔、不帶 `--developer-id` 列出應用程式並可選擇輸出格式或分頁、以 `--output-file` 產生文件、使用 bucket ID 處理財務與統計報表，並以 `notify send --webhook-url` 發送通知。"
           },
           {
             "sha": "d531a455daad0b089616f982f3e2cc10482d12f6",
@@ -80,7 +80,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/d531a455daad0b089616f982f3e2cc10482d12f6",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "將原本通用的 reports 章節改為分開說明 financial 與 statistics reports，並提供 list/download 指令範例。"
+            "summary": "報表項目現在說明可從 GCS 列出或下載財務與統計報表，範例也改用各自的財務及統計列出／下載子命令。"
           },
           {
             "sha": "f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
@@ -89,7 +89,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "擴充此技能，新增指令與環境變數參考章節，並加入 dry run、app listing、文件產生、更新、reports 與通知的範例。"
+            "summary": "指南新增命令目錄與環境變數參考，說明 dry-run 和預設輸出行為，並加入初始化、列出應用程式、產生文件、自我更新、報表及通知的範例。"
           },
           {
             "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
@@ -98,13 +98,13 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增初版 gplay-cli-usage 技能，內容涵蓋指令探索、旗標、輸出格式、驗證、逾時、常見模式與 edit sessions 指引。"
+            "summary": "初始變更新增 Google Play CLI 使用技能，涵蓋命令探索、旗標與輸出慣例、驗證與逾時、常用命令範例、編輯工作階段，以及高階與手動工作流程。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -117,7 +117,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "修正多个指令范例，将 profile、apps、docs、reports 与 notify 的用法更新为较新的 CLI 形式，并补充分页与 bucket-id 指引。"
+            "summary": "范例现在使用 `auth login` 和 `switch` 管理设置档、不带 `--developer-id` 列出应用程序并可选择输出格式或分页、以 `--output-file` 产生文档、使用 bucket ID 处理财务与统计报表，并以 `notify send --webhook-url` 发送通知。"
           },
           {
             "sha": "d531a455daad0b089616f982f3e2cc10482d12f6",
@@ -126,7 +126,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/d531a455daad0b089616f982f3e2cc10482d12f6",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "将原本通用的 reports 章节改为分开说明 financial 与 statistics reports，并提供 list/download 指令范例。"
+            "summary": "报表项目现在说明可从 GCS 列出或下载财务与统计报表，范例也改用各自的财务及统计列出／下载子命令。"
           },
           {
             "sha": "f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
@@ -135,7 +135,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/f8592d57d145ebf3c6ec053febc7b2dbeb0c5441",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "扩充此技能，添加指令与环境变量参考章节，并加入 dry run、app listing、文档产生、更新、reports 与通知的范例。"
+            "summary": "指南添加命令目录与环境变量参考，说明 dry-run 和预设输出行为，并加入初始化、列出应用程序、产生文档、自我更新、报表及通知的范例。"
           },
           {
             "sha": "acb31df28edfbde5e92989577cef267fe0d43aeb",
@@ -144,7 +144,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/acb31df28edfbde5e92989577cef267fe0d43aeb",
             "pathAtCommit": "skills/gplay-cli-usage/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加初版 gplay-cli-usage 技能，内容涵盖指令探索、旗标、输出格式、验证、逾时、常见模式与 edit sessions 指引。"
+            "summary": "初始变更添加 Google Play CLI 使用技能，涵盖命令探索、旗标与输出惯例、验证与逾时、常用命令范例、编辑工作阶段，以及高级与手动工作流程。"
           }
         ]
       }

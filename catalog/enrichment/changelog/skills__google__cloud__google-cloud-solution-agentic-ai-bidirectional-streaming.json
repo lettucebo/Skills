@@ -1,0 +1,180 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8839d09631ebaf90d730e878c7ff7fb92b18ef8c5696c94d931cff17cfd6c103",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version metadata set to 1.0.0 to the skill."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill's category from AiAndMachineLearning to MultiProductSolutions."
+          },
+          {
+            "sha": "50c61b7af53cd78d7d0b19c7d9e824d9311e2bae",
+            "date": "2026-07-17T06:44:20-07:00",
+            "subject": "Refactor multiple google-cloud-solution skills.",
+            "url": "https://github.com/google/skills/commit/50c61b7af53cd78d7d0b19c7d9e824d9311e2bae",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Refactored the four-phase workflow into checklists, moved product-mapping and design guidance to referenced files, and routed architecture, deployment, and validation deliverables to `solution-architecture-guide.md`."
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added metadata setting the skill's category to AiAndMachineLearning."
+          },
+          {
+            "sha": "c03169671232a50da03d7ce2cc9ab4919ffcd283",
+            "date": "2026-07-07T14:43:20-07:00",
+            "subject": "New agent skill for building a bidrectional streaming agentic AI system.",
+            "url": "https://github.com/google/skills/commit/c03169671232a50da03d7ce2cc9ab4919ffcd283",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial skill document to guide design and implementation of Google Cloud solutions for live bidirectional multimodal streaming workloads."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "為此技能新增版本中繼資料，版本設為 1.0.0。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將此技能的類別從 AiAndMachineLearning 改為 MultiProductSolutions。"
+          },
+          {
+            "sha": "50c61b7af53cd78d7d0b19c7d9e824d9311e2bae",
+            "date": "2026-07-17T06:44:20-07:00",
+            "subject": "Refactor multiple google-cloud-solution skills.",
+            "url": "https://github.com/google/skills/commit/50c61b7af53cd78d7d0b19c7d9e824d9311e2bae",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將四階段工作流程重構為檢查清單，將產品對應與設計指引移至參考檔案，並將架構、部署及驗證成果集中至 `solution-architecture-guide.md`。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增中繼資料，將此技能的類別設為 AiAndMachineLearning。"
+          },
+          {
+            "sha": "c03169671232a50da03d7ce2cc9ab4919ffcd283",
+            "date": "2026-07-07T14:43:20-07:00",
+            "subject": "New agent skill for building a bidrectional streaming agentic AI system.",
+            "url": "https://github.com/google/skills/commit/c03169671232a50da03d7ce2cc9ab4919ffcd283",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增技能初始文件，用於引導即時雙向多模態串流工作負載之 Google Cloud 解決方案的設計與實作。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "为此技能添加版本中继数据，版本设为 1.0.0。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将此技能的类别从 AiAndMachineLearning 改为 MultiProductSolutions。"
+          },
+          {
+            "sha": "50c61b7af53cd78d7d0b19c7d9e824d9311e2bae",
+            "date": "2026-07-17T06:44:20-07:00",
+            "subject": "Refactor multiple google-cloud-solution skills.",
+            "url": "https://github.com/google/skills/commit/50c61b7af53cd78d7d0b19c7d9e824d9311e2bae",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将四阶段工作流程重构为检查清单，将产品对应与设计指引移至参考文件，并将架构、部署及验证成果集中至 `solution-architecture-guide.md`。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加中继数据，将此技能的类别设为 AiAndMachineLearning。"
+          },
+          {
+            "sha": "c03169671232a50da03d7ce2cc9ab4919ffcd283",
+            "date": "2026-07-07T14:43:20-07:00",
+            "subject": "New agent skill for building a bidrectional streaming agentic AI system.",
+            "url": "https://github.com/google/skills/commit/c03169671232a50da03d7ce2cc9ab4919ffcd283",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加技能初始文档，用于引导实时双向多模态串流工作负载之 Google Cloud 解决方案的设计与实作。"
+          }
+        ]
+      }
+    }
+  }
+}

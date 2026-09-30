@@ -1,0 +1,222 @@
+{
+  "path": "skills/expo/eas-observe",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:f6f042c8220bf57a57b56a528f27a78892f1cbfe0e2c5e4ff3fa5c297d66ae80",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/eas-observe",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "948115e9e0148af1a966531530e9e948c804a3e7",
+            "date": "2026-08-13T14:32:15-07:00",
+            "subject": "[eas-observe] align skill with current docs and CLI (#142)",
+            "url": "https://github.com/expo/skills/commit/948115e9e0148af1a966531530e9e948c804a3e7",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill with updated setup and CLI guidance, error reporting and runtime configuration details, third-party integration instructions, and current documentation caveats."
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance directing repeated agent failures or user takeovers to the expo-skill-feedback eval-candidate flow."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added instructions and a command for submitting specific, actionable feedback about errors or outdated skill information."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R069",
+              "sourcePath": "plugins/expo/skills/expo-observe/SKILL.md",
+              "destinationPath": "plugins/expo/skills/eas-observe/SKILL.md"
+            },
+            "summary": "Renamed the skill from expo-observe to eas-observe, updated its metadata, and added a notice about EAS service costs."
+          },
+          {
+            "sha": "e7e81d2964ec8907bc3c2988e3408dc643028f96",
+            "date": "2026-07-04T03:02:00-07:00",
+            "subject": "Document user-defined events in the expo-observe skill (#100)",
+            "url": "https://github.com/expo/skills/commit/e7e81d2964ec8907bc3c2988e3408dc643028f96",
+            "pathAtCommit": "plugins/expo/skills/expo-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Documented user-defined events through Observe.logEvent in the skill description, setup guidance, and documentation links."
+          },
+          {
+            "sha": "fdd3df12151a208853fe540ffea9a67773446377",
+            "date": "2026-05-28T16:57:45-07:00",
+            "subject": "feat: Expo Observe skills (#64)",
+            "url": "https://github.com/expo/skills/commit/fdd3df12151a208853fe540ffea9a67773446377",
+            "pathAtCommit": "plugins/expo/skills/expo-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial expo-observe skill covering setup, metric queries and interpretation, and links to the EAS Observe documentation."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "948115e9e0148af1a966531530e9e948c804a3e7",
+            "date": "2026-08-13T14:32:15-07:00",
+            "subject": "[eas-observe] align skill with current docs and CLI (#142)",
+            "url": "https://github.com/expo/skills/commit/948115e9e0148af1a966531530e9e948c804a3e7",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充此技能，更新設定與 CLI 指引，補充錯誤回報和執行階段設定、第三方整合說明，以及目前文件的注意事項。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引，要求在代理程式屢次失敗或使用者接手時，改用 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增說明與指令，以提交有關錯誤或過時技能資訊的具體且可採取行動的意見。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R069",
+              "sourcePath": "plugins/expo/skills/expo-observe/SKILL.md",
+              "destinationPath": "plugins/expo/skills/eas-observe/SKILL.md"
+            },
+            "summary": "將技能從 expo-observe 重新命名為 eas-observe、更新其中繼資料，並新增 EAS 服務費用的提醒。"
+          },
+          {
+            "sha": "e7e81d2964ec8907bc3c2988e3408dc643028f96",
+            "date": "2026-07-04T03:02:00-07:00",
+            "subject": "Document user-defined events in the expo-observe skill (#100)",
+            "url": "https://github.com/expo/skills/commit/e7e81d2964ec8907bc3c2988e3408dc643028f96",
+            "pathAtCommit": "plugins/expo/skills/expo-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能描述、設定指引與文件連結中，新增透過 Observe.logEvent 記錄使用者自訂事件的說明。"
+          },
+          {
+            "sha": "fdd3df12151a208853fe540ffea9a67773446377",
+            "date": "2026-05-28T16:57:45-07:00",
+            "subject": "feat: Expo Observe skills (#64)",
+            "url": "https://github.com/expo/skills/commit/fdd3df12151a208853fe540ffea9a67773446377",
+            "pathAtCommit": "plugins/expo/skills/expo-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 expo-observe 技能初始版本，涵蓋設定、指標查詢與解讀，並提供 EAS Observe 文件連結。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "948115e9e0148af1a966531530e9e948c804a3e7",
+            "date": "2026-08-13T14:32:15-07:00",
+            "subject": "[eas-observe] align skill with current docs and CLI (#142)",
+            "url": "https://github.com/expo/skills/commit/948115e9e0148af1a966531530e9e948c804a3e7",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充此技能，更新设置与 CLI 指引，补充错误回报和运行阶段设置、第三方集成说明，以及目前文档的注意事项。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引，要求在代理程序屡次失败或用户接手时，改用 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加说明与指令，以提交有关错误或过时技能信息的具体且可采取行动的意见。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-observe/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R069",
+              "sourcePath": "plugins/expo/skills/expo-observe/SKILL.md",
+              "destinationPath": "plugins/expo/skills/eas-observe/SKILL.md"
+            },
+            "summary": "将技能从 expo-observe 重命名为 eas-observe、更新其中继数据，并添加 EAS 服务费用的提醒。"
+          },
+          {
+            "sha": "e7e81d2964ec8907bc3c2988e3408dc643028f96",
+            "date": "2026-07-04T03:02:00-07:00",
+            "subject": "Document user-defined events in the expo-observe skill (#100)",
+            "url": "https://github.com/expo/skills/commit/e7e81d2964ec8907bc3c2988e3408dc643028f96",
+            "pathAtCommit": "plugins/expo/skills/expo-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能描述、设置指引与文档链接中，添加透过 Observe.logEvent 记录用户自订事件的说明。"
+          },
+          {
+            "sha": "fdd3df12151a208853fe540ffea9a67773446377",
+            "date": "2026-05-28T16:57:45-07:00",
+            "subject": "feat: Expo Observe skills (#64)",
+            "url": "https://github.com/expo/skills/commit/fdd3df12151a208853fe540ffea9a67773446377",
+            "pathAtCommit": "plugins/expo/skills/expo-observe/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 expo-observe 技能初始版本，涵盖设置、指针查找与解读，并提供 EAS Observe 文档链接。"
+          }
+        ]
+      }
+    }
+  }
+}

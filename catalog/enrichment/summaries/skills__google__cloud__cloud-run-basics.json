@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/cloud-run-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9592e01f9164a443eab576bee92167794247759786c2837d80bdf37ef45a5ea9"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides Cloud Run setup and deployment by explaining resource choices, build options, IAM prerequisites, and common failure diagnosis.",
+        "whenToUse": "Use it when planning a Cloud Run rollout, selecting a resource type, preparing permissions and builds, or troubleshooting deployment and startup issues.",
+        "outputs": "It provides gcloud commands and configuration guidance for deploying services and worker pools from images or source, creating or running jobs, and diagnosing failures."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本指南說明 Cloud Run 的設定與部署，涵蓋資源類型選擇、建置方式、IAM 前置條件及常見故障診斷。",
+        "whenToUse": "規劃 Cloud Run 上線、選擇資源類型、準備權限與建置流程，或排解部署及啟動問題時使用。",
+        "outputs": "提供 gcloud 指令與設定說明，協助從映像檔或原始碼部署服務與工作者集區、建立或執行工作，並診斷故障。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本指南说明 Cloud Run 的设置与部署，涵盖资源类型选择、建置方式、IAM 前置条件及常见故障诊断。",
+        "whenToUse": "规划 Cloud Run 上线、选择资源类型、准备权限与建置流程，或排解部署及启动问题时使用。",
+        "outputs": "提供 gcloud 指令与设置说明，协助从映像档或源代码部署服务与工作者集区、创建或运行工作，并诊断故障。"
+      }
+    }
+  }
+}

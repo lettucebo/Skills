@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides practical guidance for designing, querying, securing, and testing Entity Framework Core code using established best practices.",
-        "whenToUse": "Use it when you need help evaluating or improving an EF Core data layer, especially around DbContext design, entity modeling, performance, migrations, and change tracking.",
-        "outputs": "Returns concise findings and improvement suggestions grounded in EF Core best practices for code structure, queries, migrations, security, and testing."
+        "purpose": "Provides practical guidance for structuring EF Core contexts and entities and handling queries, persistence, migrations, security, and tests.",
+        "whenToUse": "Use when designing or reviewing EF Core data models, queries, migrations, change tracking, or database tests.",
+        "outputs": "Actionable recommendations cover model design, query efficiency, safe migrations, persistence behavior, security, and testing."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供以既有最佳實務為基礎的 Entity Framework Core 指引，涵蓋設計、查詢、安全性與測試。",
-        "whenToUse": "當你需要檢視或改善 EF Core 資料層，尤其是 DbContext 設計、實體建模、效能、遷移與變更追蹤時可使用。",
-        "outputs": "會回傳根據 EF Core 最佳實務整理的精簡發現與改進建議，涵蓋程式結構、查詢、遷移、安全性與測試。"
+        "purpose": "提供 EF Core DbContext 與實體設計，以及查詢、資料保存、遷移、安全性和測試的實務指引。",
+        "whenToUse": "在設計或檢視 EF Core 資料模型、查詢、遷移、變更追蹤或資料庫測試時使用。",
+        "outputs": "提供可採取的改進建議，涵蓋模型設計、查詢效率、安全遷移、資料保存、安全性與測試策略。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供以既有最佳实务为基础的 Entity Framework Core 指引，涵盖设计、查找、安全性与测试。",
-        "whenToUse": "当你需要查看或改善 EF Core 数据层，尤其是 DbContext 设计、实体建模、性能、迁移与变更追踪时可使用。",
-        "outputs": "会回传根据 EF Core 最佳实务整理的精简发现与改进建议，涵盖程序结构、查找、迁移、安全性与测试。"
+        "purpose": "提供 EF Core DbContext 与实体设计，以及查找、数据保存、迁移、安全性和测试的实务指引。",
+        "whenToUse": "在设计或查看 EF Core 数据模型、查找、迁移、变更追踪或数据库测试时使用。",
+        "outputs": "提供可采取的改进建议，涵盖模型设计、查找效率、安全迁移、数据保存、安全性与测试策略。"
       }
     }
   }

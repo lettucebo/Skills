@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/power-bi-model-design-review.prompt.md",
               "destinationPath": "skills/power-bi-model-design-review/SKILL.md"
             },
-            "summary": "Added SKILL.md for the Power BI model design review skill with metadata and a comprehensive review framework."
+            "summary": "Adds a Power BI model-design-review skill with a comprehensive framework for schema, relationships, storage modes, data quality, performance, governance, and structured recommendations and checklists."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the frontmatter field in the Power BI model design review prompt from `mode` to `agent`."
+            "summary": "Renames the prompt front-matter key from `mode` to `agent`, retaining the value `'agent'`."
           },
           {
             "sha": "38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
@@ -47,15 +47,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
             "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added the Power BI model design review prompt file with metadata, documentation tool configuration, and a comprehensive review framework."
+            "summary": "Adds the Power BI model-design-review prompt, including its review framework, assessment checklists, specialized review types, and report and recommendation templates."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -72,7 +72,7 @@
               "sourcePath": "prompts/power-bi-model-design-review.prompt.md",
               "destinationPath": "skills/power-bi-model-design-review/SKILL.md"
             },
-            "summary": "新增 Power BI 模型設計審查技能的 SKILL.md，包含中繼資料與完整的審查框架。"
+            "summary": "新增 Power BI 模型設計審查技能，提供涵蓋結構、關聯、儲存模式、資料品質、效能與治理的完整框架，以及結構化建議與檢查清單。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -81,7 +81,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 Power BI 模型設計審查提示中的 frontmatter 欄位由 `mode` 重新命名為 `agent`。"
+            "summary": "將提示檔前置資料中的 `mode` 欄位改名為 `agent`，並保留 `'agent'` 值。"
           },
           {
             "sha": "38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
@@ -90,13 +90,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
             "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增 Power BI 模型設計審查提示檔，包含中繼資料、文件工具設定與完整的審查框架。"
+            "summary": "新增 Power BI 模型設計審查提示，包含審查框架、評估檢查清單、專項審查類型，以及報告與建議範本。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -114,7 +114,7 @@
               "sourcePath": "prompts/power-bi-model-design-review.prompt.md",
               "destinationPath": "skills/power-bi-model-design-review/SKILL.md"
             },
-            "summary": "添加 Power BI 模型设计审查技能的 SKILL.md，包含中继数据与完整的审查框架。"
+            "summary": "添加 Power BI 模型设计审查技能，提供涵盖结构、关联、保存模式、数据品质、性能与治理的完整框架，以及结构化建议与检查清单。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -123,7 +123,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 Power BI 模型设计审查提示中的 frontmatter 字段由 `mode` 重命名为 `agent`。"
+            "summary": "将提示档前置数据中的 `mode` 字段改名为 `agent`，并保留 `'agent'` 值。"
           },
           {
             "sha": "38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
@@ -132,7 +132,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/38969f7cc2f910c54e5ec5c1a8cfafb4c9fa2943",
             "pathAtCommit": "prompts/power-bi-model-design-review.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加 Power BI 模型设计审查提示档，包含中继数据、文档工具设置与完整的审查框架。"
+            "summary": "添加 Power BI 模型设计审查提示，包含审查框架、评估检查清单、专项审查类型，以及报告与建议范本。"
           }
         ]
       }

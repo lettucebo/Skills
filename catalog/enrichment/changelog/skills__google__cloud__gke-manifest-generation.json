@@ -1,0 +1,99 @@
+{
+  "path": "skills/google/cloud/gke-manifest-generation",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2321a0907c2ffd6c2cf7a0c84e8e06eec98a16d4cd5780dbdbc71dabc206667d",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/gke-manifest-generation",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-manifest-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the skill's metadata version as 1.0.0."
+          },
+          {
+            "sha": "f125f29dfce155973d6eac9dad915ae26f14f885",
+            "date": "2026-07-28T10:10:49-07:00",
+            "subject": "Migrate and validate the gke-manifest-generation skill for GKE YAML manifest creation and tuning.",
+            "url": "https://github.com/google/skills/commit/f125f29dfce155973d6eac9dad915ae26f14f885",
+            "pathAtCommit": "skills/cloud/gke-manifest-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the initial GKE manifest-generation skill, with guidance on secure Kubernetes manifests, specialized workloads, tooling, and reference templates."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-manifest-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中繼資料中新增版本號 1.0.0。"
+          },
+          {
+            "sha": "f125f29dfce155973d6eac9dad915ae26f14f885",
+            "date": "2026-07-28T10:10:49-07:00",
+            "subject": "Migrate and validate the gke-manifest-generation skill for GKE YAML manifest creation and tuning.",
+            "url": "https://github.com/google/skills/commit/f125f29dfce155973d6eac9dad915ae26f14f885",
+            "pathAtCommit": "skills/cloud/gke-manifest-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 GKE 資訊清單產生技能初版，提供安全 Kubernetes 資訊清單、特定工作負載、工具及參考範本的指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/gke-manifest-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中继数据中添加版本号 1.0.0。"
+          },
+          {
+            "sha": "f125f29dfce155973d6eac9dad915ae26f14f885",
+            "date": "2026-07-28T10:10:49-07:00",
+            "subject": "Migrate and validate the gke-manifest-generation skill for GKE YAML manifest creation and tuning.",
+            "url": "https://github.com/google/skills/commit/f125f29dfce155973d6eac9dad915ae26f14f885",
+            "pathAtCommit": "skills/cloud/gke-manifest-generation/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 GKE 信息清单产生技能初版，提供安全 Kubernetes 信息清单、特定工作负载、工具及参考范本的指引。"
+          }
+        ]
+      }
+    }
+  }
+}

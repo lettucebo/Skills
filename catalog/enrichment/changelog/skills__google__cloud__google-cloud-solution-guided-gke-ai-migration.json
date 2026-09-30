@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-guided-gke-ai-migration",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:fc83cf3b8d098eb5ba79ce82f74d5eacea606112311175b8c51d338148c133b2",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/google-cloud-solution-guided-gke-ai-migration",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-guided-gke-ai-migration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a `1.0.0` version field to the skill's metadata."
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-guided-gke-ai-migration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the skill's metadata category from `CloudInfrastructure` to `MultiProductSolutions`."
+          },
+          {
+            "sha": "4259e279e6aae4cbf005a5aeae03d7f00328380c",
+            "date": "2026-07-23T14:12:13-07:00",
+            "subject": "Add GKE AI inference migration skill",
+            "url": "https://github.com/google/skills/commit/4259e279e6aae4cbf005a5aeae03d7f00328380c",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-guided-gke-ai-migration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the skill document with guidance for migrating existing AI inference workloads to GKE through a four-phase discovery, design, implementation, and validation workflow."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-guided-gke-ai-migration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中繼資料中新增 `1.0.0` 版本欄位。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-guided-gke-ai-migration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將此技能的中繼資料類別從 `CloudInfrastructure` 改為 `MultiProductSolutions`。"
+          },
+          {
+            "sha": "4259e279e6aae4cbf005a5aeae03d7f00328380c",
+            "date": "2026-07-23T14:12:13-07:00",
+            "subject": "Add GKE AI inference migration skill",
+            "url": "https://github.com/google/skills/commit/4259e279e6aae4cbf005a5aeae03d7f00328380c",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-guided-gke-ai-migration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增技能文件，說明如何透過探索、設計、實作與驗證四階段流程，將現有 AI 推論工作負載遷移至 GKE。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-guided-gke-ai-migration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中继数据中添加 `1.0.0` 版本字段。"
+          },
+          {
+            "sha": "92aa4282b6f7501cb25694e51901b963842f391e",
+            "date": "2026-08-06T14:18:00-07:00",
+            "subject": "No public description",
+            "url": "https://github.com/google/skills/commit/92aa4282b6f7501cb25694e51901b963842f391e",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-guided-gke-ai-migration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将此技能的中继数据类别从 `CloudInfrastructure` 改为 `MultiProductSolutions`。"
+          },
+          {
+            "sha": "4259e279e6aae4cbf005a5aeae03d7f00328380c",
+            "date": "2026-07-23T14:12:13-07:00",
+            "subject": "Add GKE AI inference migration skill",
+            "url": "https://github.com/google/skills/commit/4259e279e6aae4cbf005a5aeae03d7f00328380c",
+            "pathAtCommit": "skills/cloud/google-cloud-solution-guided-gke-ai-migration/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加技能文档，说明如何透过探索、设计、实作与验证四阶段流程，将现有 AI 推论工作负载迁移至 GKE。"
+          }
+        ]
+      }
+    }
+  }
+}

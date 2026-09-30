@@ -1,0 +1,72 @@
+{
+  "path": "skills/google/cloud/bigquery-optimization",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:702b9d071fb70f251d72752d4d7a43fa753d4833ec7dbe12e6dc4268f4a48f7e",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/bigquery-optimization",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "1f9c1054f99e9a19b85ff7478cec58f92374b137",
+            "date": "2026-09-28T21:23:16-07:00",
+            "subject": "Add BigQuery optimization agent skill (`bigquery-optimization`) for rightsizing, slot estimation, billing model decision rules, capacity planning, and SQL query optimization.",
+            "url": "https://github.com/google/skills/commit/1f9c1054f99e9a19b85ff7478cec58f92374b137",
+            "pathAtCommit": "skills/cloud/bigquery-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a BigQuery optimization skill covering setup, capacity and Editions modeling, table and storage optimization, SQL optimization, and execution guardrails."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "1f9c1054f99e9a19b85ff7478cec58f92374b137",
+            "date": "2026-09-28T21:23:16-07:00",
+            "subject": "Add BigQuery optimization agent skill (`bigquery-optimization`) for rightsizing, slot estimation, billing model decision rules, capacity planning, and SQL query optimization.",
+            "url": "https://github.com/google/skills/commit/1f9c1054f99e9a19b85ff7478cec58f92374b137",
+            "pathAtCommit": "skills/cloud/bigquery-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 BigQuery 最佳化技能，涵蓋環境設定、容量與 Editions 建模、資料表與儲存空間最佳化、SQL 最佳化及執行規範。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "1f9c1054f99e9a19b85ff7478cec58f92374b137",
+            "date": "2026-09-28T21:23:16-07:00",
+            "subject": "Add BigQuery optimization agent skill (`bigquery-optimization`) for rightsizing, slot estimation, billing model decision rules, capacity planning, and SQL query optimization.",
+            "url": "https://github.com/google/skills/commit/1f9c1054f99e9a19b85ff7478cec58f92374b137",
+            "pathAtCommit": "skills/cloud/bigquery-optimization/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 BigQuery 优化技能，涵盖环境设置、容量与 Editions 建模、数据表与保存空间优化、SQL 优化及运行规范。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "path": "skills/expo/expo-dev-client",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:bf83eeb1c232e30c78fb11c0e5761d79d33491019aa32ea73584469d1684fc4d",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-dev-client",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds guidance to use the expo-skill-feedback skill's eval-candidate flow after repeated agent failures or user takeover, instead of the general feedback command."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a feedback section directing users to report actionable errors or misleading or outdated skill information with the submit-expo-feedback CLI."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updates the skill description for local or TestFlight development-client workflows and adds a note that local builds are free, EAS cloud builds consume plan build minutes, and device or TestFlight distribution requires a paid Apple Developer account."
+          },
+          {
+            "sha": "4c39f31df4e3c8c6838ee743d28c607c097c1c43",
+            "date": "2026-06-30T19:10:51+05:30",
+            "subject": "Improve expo-dev-client skill (#97)",
+            "url": "https://github.com/expo/skills/commit/4c39f31df4e3c8c6838ee743d28c607c097c1c43",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Bumps the skill to version 1.1.0, updates its description and recommends development clients for real or production apps, and adds config plugins, remote push notifications, and App or Universal Links as use cases."
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-app-design/skills/expo-dev-client/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-dev-client/SKILL.md"
+            },
+            "summary": "Moves the unchanged skill file from the expo-app-design plugin path to the expo plugin path."
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-app-design/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-app-design/skills/dev-client/SKILL.md",
+              "destinationPath": "plugins/expo-app-design/skills/expo-dev-client/SKILL.md"
+            },
+            "summary": "Renames the skill from dev-client to expo-dev-client in the file path and front matter."
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-app-design/skills/dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds version 1.0.0 and MIT license metadata to the skill front matter."
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-app-design/skills/dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds a dev-client guide covering Expo development-client use cases, EAS configuration, cloud/TestFlight and local builds, installation, platform commands, build status, client use, and troubleshooting."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若 AI 代理反覆失敗或需由使用者接手，應改用 expo-skill-feedback 技能的 eval-candidate 流程，而非一般回饋指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增回饋章節，指引使用者透過 submit-expo-feedback CLI 回報此技能中具體且可採取行動的錯誤、誤導內容或過時資訊。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能描述以涵蓋本機或 TestFlight 開發用戶端工作流程，並新增說明：本機建置免費、EAS 雲端建置會使用方案中的建置分鐘數，而裝置或 TestFlight 發佈需要付費的 Apple Developer 帳號。"
+          },
+          {
+            "sha": "4c39f31df4e3c8c6838ee743d28c607c097c1c43",
+            "date": "2026-06-30T19:10:51+05:30",
+            "subject": "Improve expo-dev-client skill (#97)",
+            "url": "https://github.com/expo/skills/commit/4c39f31df4e3c8c6838ee743d28c607c097c1c43",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能版本升至 1.1.0、更新描述並建議真實或正式環境應用程式使用開發用戶端，且新增設定外掛程式、遠端推播通知及 App 或 Universal Links 作為適用情境。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-app-design/skills/expo-dev-client/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-dev-client/SKILL.md"
+            },
+            "summary": "將內容未變更的技能檔案從 expo-app-design 外掛路徑移至 expo 外掛路徑。"
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-app-design/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-app-design/skills/dev-client/SKILL.md",
+              "destinationPath": "plugins/expo-app-design/skills/expo-dev-client/SKILL.md"
+            },
+            "summary": "在檔案路徑與前置中繼資料中，將技能名稱從 dev-client 更名為 expo-dev-client。"
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-app-design/skills/dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的前置中繼資料中新增 1.0.0 版本及 MIT 授權資訊。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-app-design/skills/dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 dev-client 指南，涵蓋 Expo 開發用戶端的適用情境、EAS 設定、雲端／TestFlight 與本機建置、安裝、平台指令、建置狀態、用戶端使用方式及疑難排解。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若 AI 代理反复失败或需由用户接手，应改用 expo-skill-feedback 技能的 eval-candidate 流程，而非一般回馈指令。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加回馈章节，指引用户透过 submit-expo-feedback CLI 回报此技能中具体且可采取行动的错误、误导内容或过时信息。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新技能描述以涵盖本机或 TestFlight 开发用户端工作流程，并添加说明：本机建置免费、EAS 云端建置会使用方案中的建置分钟数，而设备或 TestFlight 发布需要付费的 Apple Developer 帐号。"
+          },
+          {
+            "sha": "4c39f31df4e3c8c6838ee743d28c607c097c1c43",
+            "date": "2026-06-30T19:10:51+05:30",
+            "subject": "Improve expo-dev-client skill (#97)",
+            "url": "https://github.com/expo/skills/commit/4c39f31df4e3c8c6838ee743d28c607c097c1c43",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能版本升至 1.1.0、更新描述并建议真实或正式环境应用程序使用开发用户端，且添加设置插件程序、远程推播通知及 App 或 Universal Links 作为适用情境。"
+          },
+          {
+            "sha": "3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "date": "2026-03-14T01:37:13+08:00",
+            "subject": "Merge plugins into a single \"expo\" plugin (#31)",
+            "url": "https://github.com/expo/skills/commit/3cd151c9d96bf481c4fc274f2de758cd2e265261",
+            "pathAtCommit": "plugins/expo/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "plugins/expo-app-design/skills/expo-dev-client/SKILL.md",
+              "destinationPath": "plugins/expo/skills/expo-dev-client/SKILL.md"
+            },
+            "summary": "将内容未变更的技能文件从 expo-app-design 插件路径移至 expo 插件路径。"
+          },
+          {
+            "sha": "7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "date": "2026-01-20T13:11:33-08:00",
+            "subject": "Rename skills for clarity and consistency (#6)",
+            "url": "https://github.com/expo/skills/commit/7b7ecb2a304ae94168aa45ad1de936ec59b9a949",
+            "pathAtCommit": "plugins/expo-app-design/skills/expo-dev-client/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R099",
+              "sourcePath": "plugins/expo-app-design/skills/dev-client/SKILL.md",
+              "destinationPath": "plugins/expo-app-design/skills/expo-dev-client/SKILL.md"
+            },
+            "summary": "在文件路径与前置中继数据中，将技能名称从 dev-client 更名为 expo-dev-client。"
+          },
+          {
+            "sha": "4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "date": "2026-01-14T10:50:56-08:00",
+            "subject": "Remove outdated TestFlight and EAS Workflows documentation; add comprehensive App Store and Play Store submission guides with metadata management and CI/CD integration details.",
+            "url": "https://github.com/expo/skills/commit/4e96d56df807dd9168423c3b30c23efc5c20a7da",
+            "pathAtCommit": "plugins/expo-app-design/skills/dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的前置中继数据中添加 1.0.0 版本及 MIT 授权信息。"
+          },
+          {
+            "sha": "0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "date": "2026-01-14T09:36:59-08:00",
+            "subject": "Restructure repo for Claude Code plugin marketplace",
+            "url": "https://github.com/expo/skills/commit/0dfc24f35c530e3feb4b56e70983bbcdc8f4dc4c",
+            "pathAtCommit": "plugins/expo-app-design/skills/dev-client/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 dev-client 指南，涵盖 Expo 开发用户端的适用情境、EAS 设置、云端／TestFlight 与本机建置、安装、平台指令、建置状态、用户端使用方式及疑难排解。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/data-manager-api-setup",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:6376dee3b68c1484f906cc77a5c905b8e163f6621673c792a29c43fdf3cc837b"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Explains how to prepare local access to the Data Manager API and install its client and companion utility libraries.",
+        "whenToUse": "Use it when you need help with ADC scopes or service-account impersonation, or need to identify the client and utility packages for your language.",
+        "outputs": "It provides API enablement and authentication steps, plus links and package names for Python, Java, Node.js, PHP, and .NET installation guides."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何準備 Data Manager API 的本機存取環境，並安裝其用戶端與輔助程式庫。",
+        "whenToUse": "當你需要確認 ADC 範圍或服務帳戶模擬設定，或查找所用語言的用戶端與輔助套件時使用。",
+        "outputs": "提供啟用 API 與設定驗證的步驟，以及 Python、Java、Node.js、PHP 和 .NET 安裝指南連結與套件名稱。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何准备 Data Manager API 的本机访问环境，并安装其用户端与辅助程序库。",
+        "whenToUse": "当你需要确认 ADC 范围或服务帐户模拟设置，或查找所用语言的用户端与辅助套件时使用。",
+        "outputs": "提供激活 API 与设置验证的步骤，以及 Python、Java、Node.js、PHP 和 .NET 安装指南链接与套件名称。"
+      }
+    }
+  }
+}

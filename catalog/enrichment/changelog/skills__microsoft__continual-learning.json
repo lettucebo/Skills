@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/microsoft/skills/commit/6737dcb904d7578313c891b63ce50c03f82eafe9",
             "pathAtCommit": ".github/skills/continual-learning/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "The continual-learning SKILL.md was rewritten into a shorter guide with one-step hook setup, separate global and local memory tiers, direct storage examples, and compaction guidance."
+            "summary": "Reworked the skill guide around auto-initialized hooks, global and local SQLite memory, agent-native and manual learning storage, and compaction."
           },
           {
             "sha": "1ea0f8bf02e3fd4aa705f2765a8c458f26a0e5e6",
@@ -33,15 +33,15 @@
             "url": "https://github.com/microsoft/skills/commit/1ea0f8bf02e3fd4aa705f2765a8c458f26a0e5e6",
             "pathAtCommit": ".github/skills/continual-learning/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the continual-learning SKILL.md with guidance on the learning loop, storage options, hook-based and agent-native patterns, and best practices."
+            "summary": "Added a continual-learning guide describing the capture, reflect, persist, and apply loop, hook-based and agent-native implementations, memory-file and diary patterns, and best practices."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -53,7 +53,7 @@
             "url": "https://github.com/microsoft/skills/commit/6737dcb904d7578313c891b63ce50c03f82eafe9",
             "pathAtCommit": ".github/skills/continual-learning/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "continual-learning 的 SKILL.md 被改寫成較精簡的指南，加入單步驟 hook 安裝、區分全域與本機記憶層級、直接儲存範例，以及壓縮整理說明。"
+            "summary": "重寫技能指南，聚焦於自動初始化的 hooks、全域與本機 SQLite 記憶、代理原生與手動學習儲存方式，以及記憶精簡機制。"
           },
           {
             "sha": "1ea0f8bf02e3fd4aa705f2765a8c458f26a0e5e6",
@@ -62,13 +62,13 @@
             "url": "https://github.com/microsoft/skills/commit/1ea0f8bf02e3fd4aa705f2765a8c458f26a0e5e6",
             "pathAtCommit": ".github/skills/continual-learning/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 continual-learning 的 SKILL.md，說明學習循環、儲存選項、以 hook 為基礎與 agent 原生的模式，以及最佳實務。"
+            "summary": "新增持續學習指南，說明擷取、反思、保存與套用的循環、以 hooks 和代理原生工具實作的方法、記憶檔與日誌模式，以及最佳實務。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -81,7 +81,7 @@
             "url": "https://github.com/microsoft/skills/commit/6737dcb904d7578313c891b63ce50c03f82eafe9",
             "pathAtCommit": ".github/skills/continual-learning/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "continual-learning 的 SKILL.md 被改写成较精简的指南，加入单步骤 hook 安装、区分全域与本机记忆层级、直接保存范例，以及压缩整理说明。"
+            "summary": "重写技能指南，聚焦于自动初始化的 hooks、全域与本机 SQLite 记忆、代理原生与手动学习保存方式，以及记忆精简机制。"
           },
           {
             "sha": "1ea0f8bf02e3fd4aa705f2765a8c458f26a0e5e6",
@@ -90,7 +90,7 @@
             "url": "https://github.com/microsoft/skills/commit/1ea0f8bf02e3fd4aa705f2765a8c458f26a0e5e6",
             "pathAtCommit": ".github/skills/continual-learning/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 continual-learning 的 SKILL.md，说明学习循环、保存选项、以 hook 为基础与 agent 原生的模式，以及最佳实务。"
+            "summary": "添加持续学习指南，说明截取、反思、保存与套用的循环、以 hooks 和代理原生工具实作的方法、记忆档与日志模式，以及最佳实务。"
           }
         ]
       }

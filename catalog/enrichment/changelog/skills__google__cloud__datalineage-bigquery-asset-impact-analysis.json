@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/datalineage-bigquery-asset-impact-analysis",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1ac0dcdc98b51008040171fff7e156edbcd0842512aeb01d25f1c184c31731e7",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/datalineage-bigquery-asset-impact-analysis",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/datalineage-bigquery-asset-impact-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.0 to the skill's metadata."
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/datalineage-bigquery-asset-impact-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added the BigDataAndAnalytics category to the skill's metadata."
+          },
+          {
+            "sha": "bb697eb93d1d70bb4a51048b41d01b8dc4bffe2a",
+            "date": "2026-06-30T08:58:23-07:00",
+            "subject": "Add datalineage-bigquery-asset-impact-analysis skill to datalineage skills performing Lineage based impact analysis on BigQuery assets.",
+            "url": "https://github.com/google/skills/commit/bb697eb93d1d70bb4a51048b41d01b8dc4bffe2a",
+            "pathAtCommit": "skills/cloud/datalineage-bigquery-asset-impact-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a SKILL.md defining the BigQuery asset impact-analysis workflow, prerequisites, output format, and guardrails."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/datalineage-bigquery-asset-impact-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中繼資料中新增版本 1.0.0。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/datalineage-bigquery-asset-impact-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中繼資料中新增 BigDataAndAnalytics 類別。"
+          },
+          {
+            "sha": "bb697eb93d1d70bb4a51048b41d01b8dc4bffe2a",
+            "date": "2026-06-30T08:58:23-07:00",
+            "subject": "Add datalineage-bigquery-asset-impact-analysis skill to datalineage skills performing Lineage based impact analysis on BigQuery assets.",
+            "url": "https://github.com/google/skills/commit/bb697eb93d1d70bb4a51048b41d01b8dc4bffe2a",
+            "pathAtCommit": "skills/cloud/datalineage-bigquery-asset-impact-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 SKILL.md，定義 BigQuery 資產影響分析的工作流程、先決條件、輸出格式與防護措施。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/datalineage-bigquery-asset-impact-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中继数据中添加版本 1.0.0。"
+          },
+          {
+            "sha": "b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "date": "2026-07-08T14:57:58-07:00",
+            "subject": "Update README.md to group skills by category.",
+            "url": "https://github.com/google/skills/commit/b303146bfd85679c67e146a98eeaeaeedb2fff66",
+            "pathAtCommit": "skills/cloud/datalineage-bigquery-asset-impact-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的中继数据中添加 BigDataAndAnalytics 类别。"
+          },
+          {
+            "sha": "bb697eb93d1d70bb4a51048b41d01b8dc4bffe2a",
+            "date": "2026-06-30T08:58:23-07:00",
+            "subject": "Add datalineage-bigquery-asset-impact-analysis skill to datalineage skills performing Lineage based impact analysis on BigQuery assets.",
+            "url": "https://github.com/google/skills/commit/bb697eb93d1d70bb4a51048b41d01b8dc4bffe2a",
+            "pathAtCommit": "skills/cloud/datalineage-bigquery-asset-impact-analysis/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 SKILL.md，定义 BigQuery 资产影响分析的工作流程、先决条件、输出格式与防护措施。"
+          }
+        ]
+      }
+    }
+  }
+}

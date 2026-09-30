@@ -1,0 +1,288 @@
+{
+  "path": "skills/google/cloud/agent-platform-deploy",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:88fd09fe3ad0e48acb08e9e8102f2346cefc9cdff150a8444f7d27c1dc757fb2",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/agent-platform-deploy",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "99c871efb402aba106c3ce7432451d253efd77b1",
+            "date": "2026-09-29T06:50:50-07:00",
+            "subject": "Remove nonexistent vertex-deploy reference from agent-platform-deploy description.",
+            "url": "https://github.com/google/skills/commit/99c871efb402aba106c3ce7432451d253efd77b1",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Bumped the skill version to 1.0.3 and removed the `vertex-deploy` exclusion from its description."
+          },
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Reworked deployment guidance with a structured confirmation card, revised cost-estimation and API deployment steps, and references to separate guides for regional availability, tuned-model copying, cleanup, and troubleshooting."
+          },
+          {
+            "sha": "aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "date": "2026-09-24T10:01:41-07:00",
+            "subject": "Sync two agent-platform skill descriptions and regenerate the skill index.",
+            "url": "https://github.com/google/skills/commit/aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added version 1.0.1 and adjusted the skill-description formatting for its references to related skills."
+          },
+          {
+            "sha": "0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "date": "2026-09-02T09:45:34-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Removed an extra blank line before the deployment section."
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a same-turn wait requirement after mutation confirmation prompts and expanded cost-estimation and alternative-configuration pricing guidance."
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Revised the description to clarify active deployment and catalog-discovery scope and exclude endpoint-listing queries, and inserted a blank line before the deployment section."
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded model catalog and recommendation instructions, added regional availability checks for Gemini/LoRA, and revised pricing and deployment examples."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added `metadata.category: AiAndMachineLearning` to the skill's YAML frontmatter."
+          },
+          {
+            "sha": "20d30c1494e21cd44fa1e7c2268f3bc7c705c8cf",
+            "date": "2026-05-26T10:13:19-07:00",
+            "subject": "Add cloud agent-platform-deploy skill",
+            "url": "https://github.com/google/skills/commit/20d30c1494e21cd44fa1e7c2268f3bc7c705c8cf",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created the Agent Platform Model Garden deployment skill with instructions for model discovery, deployment, status checks, prediction verification, cleanup, and troubleshooting."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "99c871efb402aba106c3ce7432451d253efd77b1",
+            "date": "2026-09-29T06:50:50-07:00",
+            "subject": "Remove nonexistent vertex-deploy reference from agent-platform-deploy description.",
+            "url": "https://github.com/google/skills/commit/99c871efb402aba106c3ce7432451d253efd77b1",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將技能版本提升至 1.0.3，並從描述中移除對 `vertex-deploy` 的排除說明。"
+          },
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "重新整理部署指引，加入結構化確認卡、修訂成本估算與 API 部署步驟，並改以參照獨立指南說明區域可用性、已調校模型複製、清理及疑難排解。"
+          },
+          {
+            "sha": "aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "date": "2026-09-24T10:01:41-07:00",
+            "subject": "Sync two agent-platform skill descriptions and regenerate the skill index.",
+            "url": "https://github.com/google/skills/commit/aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增版本 1.0.1，並調整技能描述中相關技能引用的格式。"
+          },
+          {
+            "sha": "0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "date": "2026-09-02T09:45:34-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了部署章節前多餘的空白行。"
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增在提出變更確認提示後必須等待使用者回覆的規定，並擴充成本估算與替代設定的定價指引。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修訂技能描述以釐清其適用於主動部署與模型目錄查詢、排除端點列舉問題，並在部署章節前插入空白行。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充模型目錄與推薦指引，新增 Gemini／LoRA 的區域可用性檢查，並修訂定價及部署範例。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML 前置資料中新增 `metadata.category: AiAndMachineLearning`。"
+          },
+          {
+            "sha": "20d30c1494e21cd44fa1e7c2268f3bc7c705c8cf",
+            "date": "2026-05-26T10:13:19-07:00",
+            "subject": "Add cloud agent-platform-deploy skill",
+            "url": "https://github.com/google/skills/commit/20d30c1494e21cd44fa1e7c2268f3bc7c705c8cf",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立 Agent Platform Model Garden 部署技能，提供模型探索、部署、狀態檢查、預測驗證、清理及疑難排解指引。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "99c871efb402aba106c3ce7432451d253efd77b1",
+            "date": "2026-09-29T06:50:50-07:00",
+            "subject": "Remove nonexistent vertex-deploy reference from agent-platform-deploy description.",
+            "url": "https://github.com/google/skills/commit/99c871efb402aba106c3ce7432451d253efd77b1",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将技能版本提升至 1.0.3，并从描述中移除对 `vertex-deploy` 的排除说明。"
+          },
+          {
+            "sha": "748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "date": "2026-09-24T12:37:20-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/748af9bd7e9cd4bd8285d58f6969614b09b0cab3",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "刷新部署指引，加入结构化确认卡、修订成本估算与 API 部署步骤，并改以参照独立指南说明区域可用性、已调校模型拷贝、清理及疑难排解。"
+          },
+          {
+            "sha": "aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "date": "2026-09-24T10:01:41-07:00",
+            "subject": "Sync two agent-platform skill descriptions and regenerate the skill index.",
+            "url": "https://github.com/google/skills/commit/aaca4a8ba575d4549e93eeca776b40a022f875d3",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加版本 1.0.1，并调整技能描述中相关技能引用的格式。"
+          },
+          {
+            "sha": "0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "date": "2026-09-02T09:45:34-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/0c7fdf3c09ed2c64ee964893095b9bc8b789eeba",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "移除了部署章节前多余的空白行。"
+          },
+          {
+            "sha": "1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "date": "2026-08-19T14:30:21-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/1730bfd9fa87e7cfcfd29b1f11d8d98e642458fb",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加在提出变更确认提示后必须等待用户回复的规定，并扩充成本估算与替代设置的定价指引。"
+          },
+          {
+            "sha": "70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "date": "2026-07-31T10:35:30-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/70c343b485e99387c65cb90bc509d400ad2b91fc",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修订技能描述以厘清其适用于主动部署与模型目录查找、排除端点枚举问题，并在部署章节前插入空白行。"
+          },
+          {
+            "sha": "5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "date": "2026-07-29T12:09:35-07:00",
+            "subject": "Update the Agent Platform skills.",
+            "url": "https://github.com/google/skills/commit/5d0244a7fbe27a3fd4b4e8a470737cf593c6264e",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充模型目录与推荐指引，添加 Gemini／LoRA 的区域可用性检查，并修订定价及部署范例。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能的 YAML 前置数据中添加 `metadata.category: AiAndMachineLearning`。"
+          },
+          {
+            "sha": "20d30c1494e21cd44fa1e7c2268f3bc7c705c8cf",
+            "date": "2026-05-26T10:13:19-07:00",
+            "subject": "Add cloud agent-platform-deploy skill",
+            "url": "https://github.com/google/skills/commit/20d30c1494e21cd44fa1e7c2268f3bc7c705c8cf",
+            "pathAtCommit": "skills/cloud/agent-platform-deploy/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建 Agent Platform Model Garden 部署技能，提供模型探索、部署、状态检查、预测验证、清理及疑难排解指引。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-multitenancy",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:834d126aac3325319844c7d5ffc46abc550d6ff7f922b75b75a135621b4de027"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps organize shared GKE clusters so teams and environments have appropriate access, resource, network, and cost boundaries.",
+        "whenToUse": "Use when multiple teams or development environments must share a GKE cluster and you need to choose isolation boundaries, limit resource use, or attribute costs.",
+        "outputs": "Provides isolation-model guidance plus example commands and Kubernetes manifests for namespaces, RBAC, quotas, LimitRanges, network policies, labels, and GKE cost allocation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助規劃共用的 GKE 叢集，為不同團隊與環境設定適當的存取、資源、網路及成本界線。",
+        "whenToUse": "當多個團隊或開發環境需要共用 GKE 叢集，且必須選擇隔離界線、限制資源使用或歸屬成本時使用。",
+        "outputs": "提供隔離模式建議，以及建立命名空間、RBAC、資源配額、LimitRange、網路政策、標籤與 GKE 成本分攤的範例指令和 Kubernetes 資訊清單。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助规划共用的 GKE 集群，为不同团队与环境设置适当的访问、资源、网络及成本界线。",
+        "whenToUse": "当多个团队或开发环境需要共用 GKE 集群，且必须选择隔离界线、限制资源使用或归属成本时使用。",
+        "outputs": "提供隔离模式建议，以及创建命名空间、RBAC、资源配额、LimitRange、网络政策、标签与 GKE 成本分摊的范例指令和 Kubernetes 信息清单。"
+      }
+    }
+  }
+}

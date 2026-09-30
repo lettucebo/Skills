@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -24,7 +24,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/10301b24639e4f768d009b2edda9315cb2149712",
             "pathAtCommit": "skills/gplay-submission-checks/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Updated the skill to document `gplay preflight`'s nine scanners and extra usage examples, and replaced hard-coded target API advice with policy-scanner guidance."
+            "summary": "The skill now documents the nine-scanner offline `gplay preflight` command, including listing-validation and scanner-selection examples, and replaces the fixed target-SDK guidance with policy-scanner instructions for checking or overriding Play's floor."
           },
           {
             "sha": "439c9aea171247318a32da91674e50b295aef94e",
@@ -33,7 +33,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
             "pathAtCommit": "skills/gplay-submission-checks/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added guidance for first-class `gplay` commands, corrected `gplay deobfuscation upload` to use edit-scoped flags, and updated the CI and agent instructions."
+            "summary": "The skill adds guidance for first-class readiness, offline preflight, Checks, and strict publishing commands, corrects mapping-file uploads to use an edit and `--apk-version`, and updates the pipeline, CI, and agent instructions accordingly."
           },
           {
             "sha": "f423854efc65855164228ce631dfc33210835975",
@@ -42,15 +42,15 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/f423854efc65855164228ce631dfc33210835975",
             "pathAtCommit": "skills/gplay-submission-checks/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added the new `gplay-submission-checks` skill with release validation steps, policy guidance, rejection fixes, CI examples, and agent notes."
+            "summary": "The new skill introduces a Google Play release-preparation guide covering artifact and listing checks, policy and data-safety requirements, screenshot requirements, release validation, common rejection fixes, and CI workflows."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -62,7 +62,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/10301b24639e4f768d009b2edda9315cb2149712",
             "pathAtCommit": "skills/gplay-submission-checks/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新此技能文件，補充 `gplay preflight` 的九個掃描器與更多使用範例，並以 policy 掃描器指引取代寫死的 target API 建議。"
+            "summary": "此技能現已說明具備九種掃描器的離線 `gplay preflight` 指令，並提供商店資訊驗證與指定掃描器的範例；同時將固定的目標 SDK 指引改為透過政策掃描器檢查或覆寫 Play API 門檻的說明。"
           },
           {
             "sha": "439c9aea171247318a32da91674e50b295aef94e",
@@ -71,7 +71,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
             "pathAtCommit": "skills/gplay-submission-checks/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增一級 `gplay` 指令的使用指引，修正 `gplay deobfuscation upload` 改用 edit 範圍旗標，並更新 CI 與 agent 說明。"
+            "summary": "此技能新增核心就緒檢查、離線預檢、Checks 與嚴格發布指令的使用指引，修正映射檔上傳流程以使用 edit 和 `--apk-version`，並據此更新整體流程、CI 與代理程式指引。"
           },
           {
             "sha": "f423854efc65855164228ce631dfc33210835975",
@@ -80,13 +80,13 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/f423854efc65855164228ce631dfc33210835975",
             "pathAtCommit": "skills/gplay-submission-checks/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 `gplay-submission-checks` 技能，包含發版驗證步驟、政策指引、駁回修正方式、CI 範例與 agent 備註。"
+            "summary": "新技能提供 Google Play 發布前準備指南，涵蓋產物與商店資訊檢查、政策與資料安全要求、螢幕截圖規範、發布驗證、常見拒絕原因的修正方式及 CI 流程。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -99,7 +99,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/10301b24639e4f768d009b2edda9315cb2149712",
             "pathAtCommit": "skills/gplay-submission-checks/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "更新此技能文档，补充 `gplay preflight` 的九个扫描仪与更多使用范例，并以 policy 扫描仪指引取代写死的 target API 建议。"
+            "summary": "此技能现已说明具备九种扫描仪的脱机 `gplay preflight` 指令，并提供商店信息验证与指定扫描仪的范例；同时将固定的目标 SDK 指引改为透过政策扫描仪检查或覆写 Play API 门槛的说明。"
           },
           {
             "sha": "439c9aea171247318a32da91674e50b295aef94e",
@@ -108,7 +108,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/439c9aea171247318a32da91674e50b295aef94e",
             "pathAtCommit": "skills/gplay-submission-checks/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加一级 `gplay` 指令的使用指引，修正 `gplay deobfuscation upload` 改用 edit 范围旗标，并更新 CI 与 agent 说明。"
+            "summary": "此技能添加内核就绪检查、脱机预检、Checks 与严格发布指令的使用指引，修正映射档上传流程以使用 edit 和 `--apk-version`，并据此更新整体流程、CI 与代理程序指引。"
           },
           {
             "sha": "f423854efc65855164228ce631dfc33210835975",
@@ -117,7 +117,7 @@
             "url": "https://github.com/tamtom/gplay-cli-skills/commit/f423854efc65855164228ce631dfc33210835975",
             "pathAtCommit": "skills/gplay-submission-checks/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 `gplay-submission-checks` 技能，包含发版验证步骤、政策指引、驳回修正方式、CI 范例与 agent 备注。"
+            "summary": "新技能提供 Google Play 发布前准备指南，涵盖产物与商店信息检查、政策与数据安全要求、屏幕截屏规范、发布验证、常见拒绝原因的修正方式及 CI 流程。"
           }
         ]
       }

@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/eas-workflows",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:353fa7820b1168c689e8fb6493490ff814015bae74dfeb66d9cbabe4e314a0e8"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It helps shape Expo CI/CD automation by drafting and revising EAS workflow YAML against current workflow references.",
+        "whenToUse": "Use it when defining workflow triggers, jobs, dependencies, expressions, or validation steps for an Expo project.",
+        "outputs": "It produces or updates a .eas/workflows YAML file and concise guidance grounded in the published schema and syntax documentation."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它依據最新的 EAS 工作流程參考資料，協助草擬與修訂 Expo CI/CD 自動化設定。",
+        "whenToUse": "當你要為 Expo 專案定義工作流程觸發條件、工作、相依關係、運算式或驗證步驟時使用。",
+        "outputs": "它會產生或更新 .eas/workflows 下的 YAML 檔，並提供根據已發布結構描述與語法文件整理的簡要說明。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它依据最新的 EAS 工作流程参考资料，协助草拟与修订 Expo CI/CD 自动化设置。",
+        "whenToUse": "当你要为 Expo 项目定义工作流程触发条件、工作、相依关系、表达式或验证步骤时使用。",
+        "outputs": "它会产生或更新 .eas/workflows 下的 YAML 档，并提供根据已发布结构描述与语法文档整理的简要说明。"
+      }
+    }
+  }
+}

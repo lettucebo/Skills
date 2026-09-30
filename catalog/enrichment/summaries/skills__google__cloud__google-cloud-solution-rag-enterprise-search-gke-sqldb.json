@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-rag-enterprise-search-gke-sqldb",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:2f41c51e383e324f620589dcb1763cc7cd3e391f225d82495b5484ce70bdf1c1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps plan a secure, low-latency conversational search solution for private enterprise content using retrieval-augmented generation.",
+        "whenToUse": "Use after choosing a self-managed RAG approach when you need a guided path from requirements discovery through architecture, deployment, and validation.",
+        "outputs": "It guides creation of a technical decomposition, product recommendations, an architecture diagram and description, design and deployment guidance, a validation plan, and a final solution guide."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助規劃以檢索增強生成支援私有企業內容的安全、低延遲對話式搜尋方案。",
+        "whenToUse": "在選定自行管理的 RAG 方案後，若需要一套流程從需求整理逐步完成架構、部署與驗證，請使用此技能。",
+        "outputs": "此流程會引導產出技術分解、產品建議、架構圖與說明、設計及部署指引、驗證計畫，以及最終解決方案指南。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助规划以检索增强生成支持私有企业内容的安全、低延迟对话式搜索方案。",
+        "whenToUse": "在选定自行管理的 RAG 方案后，若需要一套流程从需求整理逐步完成架构、部署与验证，请使用此技能。",
+        "outputs": "此流程会引导产出技术分解、产品建议、架构图与说明、设计及部署指引、验证计划，以及最终解决方案指南。"
+      }
+    }
+  }
+}

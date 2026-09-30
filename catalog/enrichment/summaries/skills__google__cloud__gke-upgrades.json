@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-upgrades",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0257da1f8b97f69c905c8c9d73dabfb2fdc2523b959af8881d12de7354ad1b92"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Helps teams manage GKE cluster and node-pool upgrades safely by aligning strategy with versions, release channels, and workload needs.",
+        "whenToUse": "Use it when preparing cluster maintenance, assessing upgrade readiness, or diagnosing a paused or failing upgrade.",
+        "outputs": "It produces environment-tailored upgrade plans, pre- and post-upgrade checklists, command-based runbooks, and troubleshooting guidance."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助團隊依據版本、發布管道與工作負載需求，安全地管理 GKE 叢集及節點集區升級。",
+        "whenToUse": "在準備叢集維護、評估升級就緒情況，或診斷暫停或失敗的升級時使用。",
+        "outputs": "可產出依環境調整的升級計畫、升級前後檢查清單、含命令的操作手冊及疑難排解指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助团队依据版本、发布管道与工作负载需求，安全地管理 GKE 集群及节点集区升级。",
+        "whenToUse": "在准备集群维护、评估升级就绪情况，或诊断暂停或失败的升级时使用。",
+        "outputs": "可产出依环境调整的升级计划、升级前后检查清单、含命令的操作手册及疑难排解指引。"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/google-cloud-solution-hybrid-search-alloydb",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:0f9a8a9533ce3fe9b04fa0b3741726c34f8ec5d1910ff8c5312cdaea11d14ba8"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It guides teams through designing, deploying, and validating secure, low-latency hybrid search solutions built around AlloyDB on Google Cloud.",
+        "whenToUse": "Use it when a hybrid-search project needs a requirements-first workflow with approval checkpoints before architecture, implementation guidance, and validation.",
+        "outputs": "It produces a consolidated requirements summary, product recommendations, a Mermaid architecture, design and deployment guidance, validation plans, and a final solution guide, with code artifacts only after permission."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它引導團隊在 Google Cloud 上以 AlloyDB 為核心，設計、部署並驗證安全且低延遲的混合式搜尋解決方案。",
+        "whenToUse": "當混合式搜尋專案需要先釐清需求，並在架構、實作指引與驗證各階段設置核准關卡時使用。",
+        "outputs": "它會產出彙整後的需求摘要、產品建議、Mermaid 架構圖、設計與部署指引、驗證計畫及最終解決方案指南，並僅在取得許可後建立程式碼檔案。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "它引导团队在 Google Cloud 上以 AlloyDB 为内核，设计、部署并验证安全且低延迟的混合式搜索解决方案。",
+        "whenToUse": "当混合式搜索项目需要先厘清需求，并在架构、实作指引与验证各阶段设置核准关卡时使用。",
+        "outputs": "它会产出汇整后的需求摘要、产品建议、Mermaid 架构图、设计与部署指引、验证计划及最终解决方案指南，并仅在取得许可后创建代码文件。"
+      }
+    }
+  }
+}

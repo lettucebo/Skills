@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/ads/google-mobile-ads-validate",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:365d40fbe7c560c57a332e46bf0b44cb3c178d25841cefef1536e7cd5103e17d"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Checks whether a Google Mobile Ads SDK integration meets relevant setup requirements.",
+        "whenToUse": "Use it for a pre-launch review or to examine a requested integration area without checking unrelated areas.",
+        "outputs": "It produces a Markdown report with statuses, findings, and next steps only for checks performed."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "檢查 Google Mobile Ads SDK 整合是否符合相關設定要求。",
+        "whenToUse": "可用於上線前檢視，或檢查指定的整合項目，而不檢查無關項目。",
+        "outputs": "產生 Markdown 報告，僅列出已執行檢查的狀態、發現與後續步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "检查 Google Mobile Ads SDK 集成是否符合相关设置要求。",
+        "whenToUse": "可用于上线前查看，或检查指定的集成项目，而不检查无关项目。",
+        "outputs": "产生 Markdown 报告，仅列出已运行检查的状态、发现与后续步骤。"
+      }
+    }
+  }
+}

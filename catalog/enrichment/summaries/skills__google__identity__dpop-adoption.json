@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/identity/dpop-adoption",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:1145e7777388cddee98a083a643ab6f6845177a8c0ba9c511657200223b92155"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It describes how to bind Google OAuth refresh tokens to a client-held P-256 key while leaving Google API calls on the standard OAuth access-token authorization path.",
+        "whenToUse": "Use it to design or audit Google OAuth server or BFF flows that manage DPoP keys and proofs for code exchange and refresh, including a single nonce-challenge retry; standalone SPAs need a BFF, and IAM or service-account authentication is out of scope.",
+        "outputs": "It provides implementation guidance and APIs for key-pair and JWK handling, DPoP proof creation and verification, PKCE and encoding helpers, and nonce-aware token requests."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本指南說明如何將 Google OAuth 更新權杖綁定至用戶端持有的 P-256 金鑰，同時讓 Google API 呼叫沿用標準 OAuth 存取權杖授權方式。",
+        "whenToUse": "在設計或稽核管理 DPoP 金鑰與授權碼交換及更新證明的 Google OAuth 伺服器端或 BFF 流程時使用，包含一次 nonce 挑戰重試；純 SPA 需搭配 BFF，而 IAM 或服務帳戶驗證不在適用範圍內。",
+        "outputs": "提供金鑰組與 JWK 處理、DPoP 證明產生與驗證、PKCE 及編碼輔助函式，以及支援 nonce 的權杖請求實作指引與 API。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本指南说明如何将 Google OAuth 更新权杖绑定至用户端持有的 P-256 密钥，同时让 Google API 调用沿用标准 OAuth 访问权杖授权方式。",
+        "whenToUse": "在设计或审核管理 DPoP 密钥与授权码交换及更新证明的 Google OAuth 服务器端或 BFF 流程时使用，包含一次 nonce 挑战重试；纯 SPA 需搭配 BFF，而 IAM 或服务帐户验证不在适用范围内。",
+        "outputs": "提供密钥组与 JWK 处理、DPoP 证明产生与验证、PKCE 及编码辅助函数，以及支持 nonce 的权杖请求实作指引与 API。"
+      }
+    }
+  }
+}

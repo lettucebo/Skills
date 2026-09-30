@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "internal-comms/SKILL.md",
               "destinationPath": "skills/internal-comms/SKILL.md"
             },
-            "summary": "The skill's SKILL.md file was moved from `internal-comms/` to `skills/internal-comms/` with no content changes."
+            "summary": "Renamed `internal-comms/SKILL.md` to `skills/internal-comms/SKILL.md` without changing its contents."
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -43,7 +43,7 @@
               "sourcePath": "examples/internal-comms/SKILL.md",
               "destinationPath": "internal-comms/SKILL.md"
             },
-            "summary": "The skill's SKILL.md file was moved from `examples/internal-comms/` to `internal-comms/` with no content changes."
+            "summary": "Renamed `examples/internal-comms/SKILL.md` to `internal-comms/SKILL.md` without changing its contents."
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -52,15 +52,15 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/internal-comms/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "A new `examples/internal-comms/SKILL.md` file was added with metadata, usage guidance for internal communications, example guideline files, and keywords."
+            "summary": "Added `examples/internal-comms/SKILL.md`, describing when to use the internal-comms skill and how to select and follow a communication guideline."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -77,7 +77,7 @@
               "sourcePath": "internal-comms/SKILL.md",
               "destinationPath": "skills/internal-comms/SKILL.md"
             },
-            "summary": "此技能的 SKILL.md 檔案從 `internal-comms/` 移至 `skills/internal-comms/`，內容沒有變更。"
+            "summary": "將 `internal-comms/SKILL.md` 重新命名為 `skills/internal-comms/SKILL.md`，檔案內容未變。"
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -91,7 +91,7 @@
               "sourcePath": "examples/internal-comms/SKILL.md",
               "destinationPath": "internal-comms/SKILL.md"
             },
-            "summary": "此技能的 SKILL.md 檔案從 `examples/internal-comms/` 移至 `internal-comms/`，內容沒有變更。"
+            "summary": "將 `examples/internal-comms/SKILL.md` 重新命名為 `internal-comms/SKILL.md`，檔案內容未變。"
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -100,13 +100,13 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/internal-comms/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增了 `examples/internal-comms/SKILL.md` 檔案，包含中繼資料、內部溝通的使用指引、範例指引檔案與關鍵字。"
+            "summary": "新增 `examples/internal-comms/SKILL.md`，說明 internal-comms 技能的適用情境，以及如何選擇並遵循溝通指南。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -124,7 +124,7 @@
               "sourcePath": "internal-comms/SKILL.md",
               "destinationPath": "skills/internal-comms/SKILL.md"
             },
-            "summary": "此技能的 SKILL.md 文件从 `internal-comms/` 移至 `skills/internal-comms/`，内容没有变更。"
+            "summary": "将 `internal-comms/SKILL.md` 重命名为 `skills/internal-comms/SKILL.md`，文件内容未变。"
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -138,7 +138,7 @@
               "sourcePath": "examples/internal-comms/SKILL.md",
               "destinationPath": "internal-comms/SKILL.md"
             },
-            "summary": "此技能的 SKILL.md 文件从 `examples/internal-comms/` 移至 `internal-comms/`，内容没有变更。"
+            "summary": "将 `examples/internal-comms/SKILL.md` 重命名为 `internal-comms/SKILL.md`，文件内容未变。"
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -147,7 +147,7 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/internal-comms/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加了 `examples/internal-comms/SKILL.md` 文件，包含中继数据、内部沟通的使用指引、范例指引文件与关键字。"
+            "summary": "添加 `examples/internal-comms/SKILL.md`，说明 internal-comms 技能的适用情境，以及如何选择并遵循沟通指南。"
           }
         ]
       }

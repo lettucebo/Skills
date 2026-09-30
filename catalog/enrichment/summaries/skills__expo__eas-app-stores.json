@@ -1,0 +1,44 @@
+{
+  "path": "skills/expo/eas-app-stores",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:8775fea9147cc1da6fd7fc14921605f80d84a0826931a8723db7474986fcae5a"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Guides building and releasing Expo, React Native, and existing native iOS or Android apps through EAS to TestFlight and the app stores.",
+        "whenToUse": "Use when an app is nearing distribution or its release setup needs troubleshooting, including native iOS archive and version checks or store-processing status; use eas-hosting for Expo web and API hosting and expo-brownfield for integrating React Native screens into a native app.",
+        "outputs": "Provides project-path guidance, EAS configuration and build/submit commands, platform-specific release references, and status checks, while clarifying that a successful build or queued submission does not establish Apple acceptance, tester access, or an App Store release."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "說明如何透過 EAS 建置並發布 Expo、React Native 與既有原生 iOS 或 Android App，送往 TestFlight 或應用程式商店。",
+        "whenToUse": "當 App 即將發行或需要排查發布設定時使用，包括原生 iOS 封存檔與版本檢查或商店處理狀態確認；Expo 網站與 API 託管請使用 eas-hosting，原生 App 整合 React Native 畫面則使用 expo-brownfield。",
+        "outputs": "提供專案路徑指引、EAS 設定與建置／提交命令、各平台發布參考及狀態檢查，並說明建置成功或提交排隊不代表 Apple 已接受、測試者已可存取或 App Store 已發布。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "说明如何透过 EAS 建置并发布 Expo、React Native 与既有原生 iOS 或 Android App，送往 TestFlight 或应用程序商店。",
+        "whenToUse": "当 App 即将发行或需要排查发布设置时使用，包括原生 iOS 封存盘与版本检查或商店处理状态确认；Expo 网站与 API 托管请使用 eas-hosting，原生 App 集成 React Native 画面则使用 expo-brownfield。",
+        "outputs": "提供项目路径指引、EAS 设置与建置／提交命令、各平台发布参考及状态检查，并说明建置成功或提交排队不代表 Apple 已接受、测试者已可访问或 App Store 已发布。"
+      }
+    }
+  }
+}

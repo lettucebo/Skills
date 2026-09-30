@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/gke-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:b26272af0d10c2f7162e4ab7bd9b4a26dd1db9005b5da50826005ebe103935e7"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Supports core Google Kubernetes Engine cluster setup and operation, including mode selection, credential retrieval, and workload deployment.",
+        "whenToUse": "Use it when node-level requirements may rule out Autopilot, or when configuring private-cluster access and Autopilot resource requests.",
+        "outputs": "Provides mode-selection guidance, commands for cluster setup and credential retrieval, and workload settings that account for Autopilot constraints."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "協助完成 Google Kubernetes Engine 叢集的核心設定與操作，包括模式選擇、憑證取得及工作負載部署。",
+        "whenToUse": "當節點層級需求可能使 Autopilot 不適用，或需要設定私有叢集存取與 Autopilot 資源請求時，請使用此內容。",
+        "outputs": "提供模式選擇指引、建立叢集與取得憑證的指令，以及符合 Autopilot 限制的工作負載設定建議。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "协助完成 Google Kubernetes Engine 集群的核心设置与操作，包括模式选择、凭证取得及工作负载部署。",
+        "whenToUse": "当节点层级需求可能使 Autopilot 不适用，或需要设置私有集群访问与 Autopilot 资源请求时，请使用此内容。",
+        "outputs": "提供模式选择指引、创建集群与取得凭证的指令，以及符合 Autopilot 限制的工作负载设置建议。"
+      }
+    }
+  }
+}

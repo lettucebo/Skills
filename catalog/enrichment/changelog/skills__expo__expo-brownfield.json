@@ -1,0 +1,180 @@
+{
+  "path": "skills/expo/expo-brownfield",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:10c9edf119c85f2d9fa209855d7c78679cfdd83a703dd579de49c9aa70be6ef9",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/expo-brownfield",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "date": "2026-09-10T17:11:15+02:00",
+            "subject": "Improve brownfield guidance and add runnable iOS fixtures (#184)",
+            "url": "https://github.com/expo/skills/commit/ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded the skill with host-app inspection and verification guidance, package-manager and toolchain advice, compatible-version guidance, and updated approach criteria and references."
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added guidance to route repeated agent failures or user takeovers to the expo-skill-feedback eval-candidate flow."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a feedback-submission section with a CLI command and instructions to report only specific, actionable feedback."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Labeled the skill as an open-source framework in its description."
+          },
+          {
+            "sha": "434c935cfdce54e02b6164148e52cd151b2bc0c0",
+            "date": "2026-05-19T09:10:44-03:00",
+            "subject": "Add brownfield skill (#60)",
+            "url": "https://github.com/expo/skills/commit/434c935cfdce54e02b6164148e52cd151b2bc0c0",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created the skill with guidance on isolated and integrated brownfield approaches, selection criteria, references, prerequisites, and an Expo SDK 55 minimum-version note."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "date": "2026-09-10T17:11:15+02:00",
+            "subject": "Improve brownfield guidance and add runnable iOS fixtures (#184)",
+            "url": "https://github.com/expo/skills/commit/ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充此技能，加入宿主應用程式的檢查與驗證指引、套件管理器與工具鏈建議、相容版本指引，並更新方案選擇標準與參考資料。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：若代理程式反覆失敗或使用者必須接手，應改用 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增意見回饋提交章節，提供 CLI 指令，並說明只應回報具體且可採取行動的意見。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能描述中將其標示為開源框架。"
+          },
+          {
+            "sha": "434c935cfdce54e02b6164148e52cd151b2bc0c0",
+            "date": "2026-05-19T09:10:44-03:00",
+            "subject": "Add brownfield skill (#60)",
+            "url": "https://github.com/expo/skills/commit/434c935cfdce54e02b6164148e52cd151b2bc0c0",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立此技能，提供隔離式與整合式 brownfield 方案、選擇標準、參考資料、先決條件，以及 Expo SDK 55 最低版本的說明。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "date": "2026-09-10T17:11:15+02:00",
+            "subject": "Improve brownfield guidance and add runnable iOS fixtures (#184)",
+            "url": "https://github.com/expo/skills/commit/ea892a7d1421fea5ecdf8c00a4550867fdf8c423",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充此技能，加入宿主应用程序的检查与验证指引、套件管理器与工具链建议、兼容版本指引，并更新方案选择标准与参考资料。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：若代理程序反复失败或用户必须接手，应改用 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加意见回馈提交章节，提供 CLI 指令，并说明只应回报具体且可采取行动的意见。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在技能描述中将其标示为开源框架。"
+          },
+          {
+            "sha": "434c935cfdce54e02b6164148e52cd151b2bc0c0",
+            "date": "2026-05-19T09:10:44-03:00",
+            "subject": "Add brownfield skill (#60)",
+            "url": "https://github.com/expo/skills/commit/434c935cfdce54e02b6164148e52cd151b2bc0c0",
+            "pathAtCommit": "plugins/expo/skills/expo-brownfield/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建此技能，提供隔离式与集成式 brownfield 方案、选择标准、参考资料、先决条件，以及 Expo SDK 55 最低版本的说明。"
+          }
+        ]
+      }
+    }
+  }
+}

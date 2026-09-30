@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/developer-device-platform-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:9a1d723b04894245c4b10089b13763b5c0c3f669adb8002264ef74ca736c5558"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides practical guidance for preparing and managing remote Android device sessions on Google’s Developer Device Platform.",
+        "whenToUse": "Use it when selecting a streaming-capable Android model, connecting to or viewing a device, or managing an existing session.",
+        "outputs": "It outlines device and session details to collect, including the model, OS version, ADB address, and expiry, and gives steps for connecting, viewing, canceling, or updating a session."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供使用 Google Developer Device Platform 準備與管理遠端 Android 裝置工作階段的實用指引。",
+        "whenToUse": "當你需要挑選支援裝置串流的 Android 型號、連線或查看裝置，或管理既有工作階段時使用。",
+        "outputs": "指引說明需取得的裝置與工作階段資訊（例如型號、OS 版本、ADB 位址與到期時間），以及連線、檢視、取消或更新期限的步驟。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供使用 Google Developer Device Platform 准备与管理远程 Android 设备工作阶段的实用指引。",
+        "whenToUse": "当你需要挑选支持设备串流的 Android 型号、连接或查看设备，或管理既有工作阶段时使用。",
+        "outputs": "指引说明需取得的设备与工作阶段信息（例如型号、OS 版本、ADB 地址与到期时间），以及连接、查看、取消或更新期限的步骤。"
+      }
+    }
+  }
+}

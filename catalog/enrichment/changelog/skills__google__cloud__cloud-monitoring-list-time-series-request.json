@@ -1,0 +1,126 @@
+{
+  "path": "skills/google/cloud/cloud-monitoring-list-time-series-request",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:5d0387774956ee636fd3a508525c3f07e691bd745fdeb543a489a27b378a0857",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/cloud/cloud-monitoring-list-time-series-request",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-list-time-series-request/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Adds version \"1.0.0\" to the skill's metadata."
+          },
+          {
+            "sha": "55756ce2ea552eb3be05441790c646700b6f735c",
+            "date": "2026-08-25T09:59:43-07:00",
+            "subject": "Switch ListTimeSeries validation to use list_timeseries MCP tool instead of curl.",
+            "url": "https://github.com/google/skills/commit/55756ce2ea552eb3be05441790c646700b6f735c",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-list-time-series-request/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changes the description to use “Generates” and replaces curl-based validation with the `list_timeseries` MCP tool, using HEADERS and retaining a direct API fallback."
+          },
+          {
+            "sha": "e02b06ed4409b9e62c5fb9de86d5f92e914d45e2",
+            "date": "2026-08-14T11:02:20-07:00",
+            "subject": "Introduce the cloud-monitoring-list-time-series-request skill",
+            "url": "https://github.com/google/skills/commit/e02b06ed4409b9e62c5fb9de86d5f92e914d45e2",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-list-time-series-request/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Introduces the skill with instructions for constructing, formatting, and validating Cloud Monitoring ListTimeSeries requests."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-list-time-series-request/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中新增版本號 \"1.0.0\"。"
+          },
+          {
+            "sha": "55756ce2ea552eb3be05441790c646700b6f735c",
+            "date": "2026-08-25T09:59:43-07:00",
+            "subject": "Switch ListTimeSeries validation to use list_timeseries MCP tool instead of curl.",
+            "url": "https://github.com/google/skills/commit/55756ce2ea552eb3be05441790c646700b6f735c",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-list-time-series-request/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "將描述中的動詞改為「Generates」，並以 `list_timeseries` MCP 工具取代 curl 驗證、使用 HEADERS，且保留直接呼叫 API 的備援方式。"
+          },
+          {
+            "sha": "e02b06ed4409b9e62c5fb9de86d5f92e914d45e2",
+            "date": "2026-08-14T11:02:20-07:00",
+            "subject": "Introduce the cloud-monitoring-list-time-series-request skill",
+            "url": "https://github.com/google/skills/commit/e02b06ed4409b9e62c5fb9de86d5f92e914d45e2",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-list-time-series-request/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增此技能，說明如何建構、格式化及驗證 Cloud Monitoring ListTimeSeries 請求。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "date": "2026-09-21T03:06:20-07:00",
+            "subject": "Enforce semantic versioning (MAJOR.MINOR.PATCH) for skills.",
+            "url": "https://github.com/google/skills/commit/becc4b8aa459803f4a9ee7974d8d33286de733a8",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-list-time-series-request/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "在此技能的 metadata 中添加版本号 \"1.0.0\"。"
+          },
+          {
+            "sha": "55756ce2ea552eb3be05441790c646700b6f735c",
+            "date": "2026-08-25T09:59:43-07:00",
+            "subject": "Switch ListTimeSeries validation to use list_timeseries MCP tool instead of curl.",
+            "url": "https://github.com/google/skills/commit/55756ce2ea552eb3be05441790c646700b6f735c",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-list-time-series-request/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "将描述中的动词改为「Generates」，并以 `list_timeseries` MCP 工具取代 curl 验证、使用 HEADERS，且保留直接调用 API 的备援方式。"
+          },
+          {
+            "sha": "e02b06ed4409b9e62c5fb9de86d5f92e914d45e2",
+            "date": "2026-08-14T11:02:20-07:00",
+            "subject": "Introduce the cloud-monitoring-list-time-series-request skill",
+            "url": "https://github.com/google/skills/commit/e02b06ed4409b9e62c5fb9de86d5f92e914d45e2",
+            "pathAtCommit": "skills/cloud/cloud-monitoring-list-time-series-request/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加此技能，说明如何建构、格式化及验证 Cloud Monitoring ListTimeSeries 请求。"
+          }
+        ]
+      }
+    }
+  }
+}

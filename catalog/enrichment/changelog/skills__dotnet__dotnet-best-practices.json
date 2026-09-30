@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "prompts/dotnet-best-practices.prompt.md",
               "destinationPath": "skills/dotnet-best-practices/SKILL.md"
             },
-            "summary": "Added `skills/dotnet-best-practices/SKILL.md` with .NET/C# best-practices guidance and YAML metadata."
+            "summary": "Adds a .NET/C# best-practices skill covering documentation, architecture, dependency injection, localization, async, testing, configuration, Semantic Kernel, error handling, security, and code quality."
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -38,7 +38,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/dotnet-best-practices.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Renamed the front matter key in `prompts/dotnet-best-practices.prompt.md` from `mode` to `agent`."
+            "summary": "Renames the prompt front-matter field from `mode` to `agent`, retaining the value `agent`."
           },
           {
             "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
@@ -47,15 +47,15 @@
             "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
             "pathAtCommit": "prompts/dotnet-best-practices.prompt.md",
             "resolvedVia": "direct",
-            "summary": "Added `prompts/dotnet-best-practices.prompt.md` with .NET/C# best-practices guidance and front matter metadata."
+            "summary": "Adds a .NET/C# best-practices prompt covering documentation, architecture, dependency injection, localization, async, testing, configuration, Semantic Kernel, error handling, security, and code quality."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -72,7 +72,7 @@
               "sourcePath": "prompts/dotnet-best-practices.prompt.md",
               "destinationPath": "skills/dotnet-best-practices/SKILL.md"
             },
-            "summary": "新增 `skills/dotnet-best-practices/SKILL.md`，包含 .NET/C# 最佳實務指引與 YAML 中繼資料。"
+            "summary": "新增 .NET/C# 最佳實務技能，涵蓋文件、架構、相依性注入、本地化、非同步處理、測試、組態、Semantic Kernel、錯誤處理、安全性與程式碼品質。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -81,7 +81,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/dotnet-best-practices.prompt.md",
             "resolvedVia": "direct",
-            "summary": "將 `prompts/dotnet-best-practices.prompt.md` 的 front matter 鍵名從 `mode` 更名為 `agent`。"
+            "summary": "將提示詞前置中繼資料欄位從 `mode` 改名為 `agent`，並保留值 `agent`。"
           },
           {
             "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
@@ -90,13 +90,13 @@
             "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
             "pathAtCommit": "prompts/dotnet-best-practices.prompt.md",
             "resolvedVia": "direct",
-            "summary": "新增 `prompts/dotnet-best-practices.prompt.md`，包含 .NET/C# 最佳實務指引與 front matter 中繼資料。"
+            "summary": "新增 .NET/C# 最佳實務提示詞，涵蓋文件、架構、相依性注入、本地化、非同步處理、測試、組態、Semantic Kernel、錯誤處理、安全性與程式碼品質。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -114,7 +114,7 @@
               "sourcePath": "prompts/dotnet-best-practices.prompt.md",
               "destinationPath": "skills/dotnet-best-practices/SKILL.md"
             },
-            "summary": "添加 `skills/dotnet-best-practices/SKILL.md`，包含 .NET/C# 最佳实务指引与 YAML 中继数据。"
+            "summary": "添加 .NET/C# 最佳实务技能，涵盖文档、架构、相依性注入、本地化、异步处理、测试、组态、Semantic Kernel、错误处理、安全性与代码品质。"
           },
           {
             "sha": "2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
@@ -123,7 +123,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/2f9c96d4b510aac23e18fcca08fbdb5cb4b6d31e",
             "pathAtCommit": "prompts/dotnet-best-practices.prompt.md",
             "resolvedVia": "direct",
-            "summary": "将 `prompts/dotnet-best-practices.prompt.md` 的 front matter 键名从 `mode` 更名为 `agent`。"
+            "summary": "将提示词前置中继数据字段从 `mode` 改名为 `agent`，并保留值 `agent`。"
           },
           {
             "sha": "e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
@@ -132,7 +132,7 @@
             "url": "https://github.com/github/awesome-copilot/commit/e1c7c7a50e975cdf35d40c6a81f19f7ddb267e40",
             "pathAtCommit": "prompts/dotnet-best-practices.prompt.md",
             "resolvedVia": "direct",
-            "summary": "添加 `prompts/dotnet-best-practices.prompt.md`，包含 .NET/C# 最佳实务指引与 front matter 中继数据。"
+            "summary": "添加 .NET/C# 最佳实务提示词，涵盖文档、架构、相依性注入、本地化、异步处理、测试、组态、Semantic Kernel、错误处理、安全性与代码品质。"
           }
         ]
       }

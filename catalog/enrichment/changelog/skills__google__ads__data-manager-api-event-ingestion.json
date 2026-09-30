@@ -1,0 +1,276 @@
+{
+  "path": "skills/google/ads/data-manager-api-event-ingestion",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:732fb7b2c777fab6d48d51d81971b821f3e8e004ee3d7a18e45728a20c86f662",
+    "repository": "google/skills",
+    "reference": "refs/heads/main",
+    "source": "skills/ads/data-manager-api-event-ingestion",
+    "pinnedCommit": "99c871efb402aba106c3ce7432451d253efd77b1"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "fd762f94e6a6a557ec9d7b1089aec30c1bb28d30",
+            "date": "2026-09-24T09:54:07-07:00",
+            "subject": "feat: update event ingestion skill to reference new detailed use case guides",
+            "url": "https://github.com/google/skills/commit/fd762f94e6a6a557ec9d7b1089aec30c1bb28d30",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now directs implementations to destination- and use-case-specific event guides, adds intent-based troubleshooting and migration guidance, and updates its version to 1.2.0."
+          },
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill metadata version was standardized from 1.1 to \"1.1.0\"."
+          },
+          {
+            "sha": "126ed1e17923b00d3a93c661a6a864677d94fd8e",
+            "date": "2026-08-04T12:32:33-07:00",
+            "subject": "feat: add guidance on implementing remove and removeall workflows to audience skill feat: add step for ingestion warnings to both ingestion skills feat: add reference for creating new user lists to audience skill",
+            "url": "https://github.com/google/skills/commit/126ed1e17923b00d3a93c661a6a864677d94fd8e",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill adds guidance for `field_warnings`, updates request-ID wording to `request_id`, and expands its troubleshooting guidance to cover warnings."
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+              "destinationPath": "skills/ads/data-manager-api-event-ingestion/SKILL.md"
+            },
+            "summary": "The skill file moved from `skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md` to `skills/ads/data-manager-api-event-ingestion/SKILL.md` without content changes."
+          },
+          {
+            "sha": "e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "date": "2026-06-30T07:12:42-07:00",
+            "subject": "feat: Introduce a new data-manager-api-setup skill for getting started, auth setup, and client/utility library installation feat: Add guidance to ingestion skills for retrieving diagnostics and using the validate_only flag",
+            "url": "https://github.com/google/skills/commit/e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill now delegates authentication and library setup to `data-manager-api-setup`, and adds `validate_only` and asynchronous request-status diagnostics guidance."
+          },
+          {
+            "sha": "dac3453a142a1a73c6cb2ddd01270a6ea49bb616",
+            "date": "2026-06-25T06:36:01-07:00",
+            "subject": "Fixes to instructions for utility library installation",
+            "url": "https://github.com/google/skills/commit/dac3453a142a1a73c6cb2ddd01270a6ea49bb616",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill description now targets developers, and its utility-library instructions correct version-source references and the Python dependency pin syntax."
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The skill's `category` field was moved under `metadata`, and spacing around front matter and code blocks was adjusted."
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "The new skill defines an event-ingestion workflow covering destination selection, setup, client installation, code samples, migration guides, payload construction, formatting, common pitfalls, and error handling."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "fd762f94e6a6a557ec9d7b1089aec30c1bb28d30",
+            "date": "2026-09-24T09:54:07-07:00",
+            "subject": "feat: update event ingestion skill to reference new detailed use case guides",
+            "url": "https://github.com/google/skills/commit/fd762f94e6a6a557ec9d7b1089aec30c1bb28d30",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現在依目的地與使用情境指引實作參照不同的事件指南，新增依使用者意圖提供的疑難排解與遷移指引，並將版本更新為 1.2.0。"
+          },
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中繼資料版本格式從 1.1 統一為「1.1.0」。"
+          },
+          {
+            "sha": "126ed1e17923b00d3a93c661a6a864677d94fd8e",
+            "date": "2026-08-04T12:32:33-07:00",
+            "subject": "feat: add guidance on implementing remove and removeall workflows to audience skill feat: add step for ingestion warnings to both ingestion skills feat: add reference for creating new user lists to audience skill",
+            "url": "https://github.com/google/skills/commit/126ed1e17923b00d3a93c661a6a864677d94fd8e",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能新增 `field_warnings` 指引，將請求 ID 的用語更新為 `request_id`，並擴充疑難排解指引以涵蓋警告。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+              "destinationPath": "skills/ads/data-manager-api-event-ingestion/SKILL.md"
+            },
+            "summary": "技能檔案從 `skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md` 移至 `skills/ads/data-manager-api-event-ingestion/SKILL.md`，內容未變更。"
+          },
+          {
+            "sha": "e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "date": "2026-06-30T07:12:42-07:00",
+            "subject": "feat: Introduce a new data-manager-api-setup skill for getting started, auth setup, and client/utility library installation feat: Add guidance to ingestion skills for retrieving diagnostics and using the validate_only flag",
+            "url": "https://github.com/google/skills/commit/e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能現在將驗證與程式庫設定交由 `data-manager-api-setup` 處理，並新增 `validate_only` 與非同步請求狀態診斷指引。"
+          },
+          {
+            "sha": "dac3453a142a1a73c6cb2ddd01270a6ea49bb616",
+            "date": "2026-06-25T06:36:01-07:00",
+            "subject": "Fixes to instructions for utility library installation",
+            "url": "https://github.com/google/skills/commit/dac3453a142a1a73c6cb2ddd01270a6ea49bb616",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的描述現在以開發人員為對象，並修正工具程式庫指引中的版本來源參照與 Python 相依套件固定版本語法。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的 `category` 欄位移至 `metadata` 區塊中，並調整了前置資料與程式碼區塊周圍的空白。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增的技能定義了事件擷取工作流程，涵蓋目的地選擇、設定、用戶端安裝、程式碼範例、遷移指南、酬載建構、格式化、常見陷阱與錯誤處理。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "fd762f94e6a6a557ec9d7b1089aec30c1bb28d30",
+            "date": "2026-09-24T09:54:07-07:00",
+            "subject": "feat: update event ingestion skill to reference new detailed use case guides",
+            "url": "https://github.com/google/skills/commit/fd762f94e6a6a557ec9d7b1089aec30c1bb28d30",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现在依目的地与使用情境指引实作参照不同的事件指南，添加依用户意图提供的疑难排解与迁移指引，并将版本更新为 1.2.0。"
+          },
+          {
+            "sha": "329fa268939d84de5834319e33f0c977984faefd",
+            "date": "2026-09-22T12:48:48-07:00",
+            "subject": "Standardize version formatting in Ads skills metadata",
+            "url": "https://github.com/google/skills/commit/329fa268939d84de5834319e33f0c977984faefd",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的中继数据版本格式从 1.1 统一为「1.1.0」。"
+          },
+          {
+            "sha": "126ed1e17923b00d3a93c661a6a864677d94fd8e",
+            "date": "2026-08-04T12:32:33-07:00",
+            "subject": "feat: add guidance on implementing remove and removeall workflows to audience skill feat: add step for ingestion warnings to both ingestion skills feat: add reference for creating new user lists to audience skill",
+            "url": "https://github.com/google/skills/commit/126ed1e17923b00d3a93c661a6a864677d94fd8e",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能添加 `field_warnings` 指引，将请求 ID 的用语更新为 `request_id`，并扩充疑难排解指引以涵盖警告。"
+          },
+          {
+            "sha": "703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "date": "2026-07-09T15:20:47-07:00",
+            "subject": "Move ads skills from per-product subdirectories to top-level skills/ads/ directory.",
+            "url": "https://github.com/google/skills/commit/703f8d2a9086c92c99b388585527ed9d38a4e954",
+            "pathAtCommit": "skills/ads/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "rename",
+            "transition": {
+              "status": "R100",
+              "sourcePath": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+              "destinationPath": "skills/ads/data-manager-api-event-ingestion/SKILL.md"
+            },
+            "summary": "技能文件从 `skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md` 移至 `skills/ads/data-manager-api-event-ingestion/SKILL.md`，内容未变更。"
+          },
+          {
+            "sha": "e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "date": "2026-06-30T07:12:42-07:00",
+            "subject": "feat: Introduce a new data-manager-api-setup skill for getting started, auth setup, and client/utility library installation feat: Add guidance to ingestion skills for retrieving diagnostics and using the validate_only flag",
+            "url": "https://github.com/google/skills/commit/e1ac3d0feb40c855260b8dab50fb6b75a60f7871",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能现在将验证与程序库设置交由 `data-manager-api-setup` 处理，并添加 `validate_only` 与异步请求状态诊断指引。"
+          },
+          {
+            "sha": "dac3453a142a1a73c6cb2ddd01270a6ea49bb616",
+            "date": "2026-06-25T06:36:01-07:00",
+            "subject": "Fixes to instructions for utility library installation",
+            "url": "https://github.com/google/skills/commit/dac3453a142a1a73c6cb2ddd01270a6ea49bb616",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的描述现在以开发人员为对象，并修正工具程序库指引中的版本来源参照与 Python 相依套件固定版本语法。"
+          },
+          {
+            "sha": "c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "date": "2026-06-24T16:15:47-07:00",
+            "subject": "Restructure the YAML frontmatter in all SKILL.md files to nest the 'category' field under the 'metadata:' block. The 'category' field is used to organize the skills in the README.md",
+            "url": "https://github.com/google/skills/commit/c75b500e4c7caf90724fdaed5a37edcffaf4750b",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "此技能的 `category` 字段移至 `metadata` 区块中，并调整了前置数据与代码区块周围的空白。"
+          },
+          {
+            "sha": "b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "date": "2026-06-23T10:32:19-07:00",
+            "subject": "Add new skills for Google Advertising and Measurement.",
+            "url": "https://github.com/google/skills/commit/b13a5a1309222b415b0dbcdef3e8a3665ef998eb",
+            "pathAtCommit": "skills/ads/data-manager-api/data-manager-api-event-ingestion/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加的技能定义了事件截取工作流程，涵盖目的地选择、设置、用户端安装、代码范例、迁移指南、酬载建构、格式化、常见陷阱与错误处理。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,450 @@
+{
+  "path": "skills/expo/eas-simulator",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:15e4cd71e1a2a23a711929499b1cbcb4da324a6d7486a477ccc7005d37f782b0",
+    "repository": "expo/skills",
+    "reference": "refs/heads/main",
+    "source": "plugins/expo/skills/eas-simulator",
+    "pinnedCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+            "date": "2026-09-28T19:43:06-03:00",
+            "subject": "[eas-simulator] read device logs and crash reports from an iOS session (#206)",
+            "url": "https://github.com/expo/skills/commit/c0dadf355d4caa4e1720de372f0f8766df1a8978",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added iOS crash-diagnosis guidance for reading device logs and crash reports, including holding the log before reproducing a crash and keeping the session token private."
+          },
+          {
+            "sha": "cd752143d19e5a9aa71b4aaaf1cfc59226c77d6a",
+            "date": "2026-09-22T14:55:49+02:00",
+            "subject": "[eas-simulator] Carry tunnel authorization through live development (#204)",
+            "url": "https://github.com/expo/skills/commit/cd752143d19e5a9aa71b4aaaf1cfc59226c77d6a",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Clarified that existing authorization for the project's remote development transport should carry through tunnel creation, dev-client connection, and live edits, with its source and data flow stated in approval requests."
+          },
+          {
+            "sha": "39708666ce7014def1f8e34f3d8c93e8d3f588bb",
+            "date": "2026-09-15T15:04:33+02:00",
+            "subject": "[eas-simulator] cover current CLI flags (#187)",
+            "url": "https://github.com/expo/skills/commit/39708666ce7014def1f8e34f3d8c93e8d3f588bb",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Updated CLI guidance for current flags and session types, documented idle-timeout behavior and safer handling of existing sessions, and made each subcommand's `--help` authoritative."
+          },
+          {
+            "sha": "c180b05b2f6f4d414f1f58a05fca2cf6751495df",
+            "date": "2026-09-14T16:48:36+02:00",
+            "subject": "[eas-simulator] Clarify EAS Simulator cost and authorization guidance (#186)",
+            "url": "https://github.com/expo/skills/commit/c180b05b2f6f4d414f1f58a05fca2cf6751495df",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Revised cost, host-selection, access, authorization, and session-lifecycle guidance, including when to use local versus EAS simulators and when to stop or retain sessions."
+          },
+          {
+            "sha": "9042013f8dd48901d9756602f2e1297dfe922c0f",
+            "date": "2026-09-14T16:16:29+02:00",
+            "subject": "[eas-simulator] Clarify tunnel approvals and recording recovery (#185)",
+            "url": "https://github.com/expo/skills/commit/9042013f8dd48901d9756602f2e1297dfe922c0f",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added references for tunnel scope and approval guidance and for recovering recordings from EAS session artifacts."
+          },
+          {
+            "sha": "db64c31f0789d96ee304eb74cbf5a7b406c604ed",
+            "date": "2026-08-05T16:03:08-07:00",
+            "subject": "[eas-simulator] record video for motion; argent trimStatic/watermark, ffmpeg (#135)",
+            "url": "https://github.com/expo/skills/commit/db64c31f0789d96ee304eb74cbf5a7b406c604ed",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added video-recording guidance for motion and timing checks, described recording and frame-inspection caveats, and allowed the `ffmpeg` command."
+          },
+          {
+            "sha": "e0b3a68226bbdf4617ac73959a10a9c5503f4cac",
+            "date": "2026-08-05T15:46:23-07:00",
+            "subject": "[eas-simulator] Metro on its own port, stop forcing/killing :8081 (#133)",
+            "url": "https://github.com/expo/skills/commit/e0b3a68226bbdf4617ac73959a10a9c5503f4cac",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Changed the guidance to reuse Metro only if it was started in the current session, otherwise use a free port, and to stop only the agent's own Metro when resetting."
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added instructions to use the expo-skill-feedback eval-candidate flow after repeated agent failures or when the user had to take over."
+          },
+          {
+            "sha": "db6dcfa12a77ff7561455d8e1c690978f2a9e9cd",
+            "date": "2026-08-01T09:28:35-07:00",
+            "subject": "[eas-simulator] always pass --name to simulator:start (#125)",
+            "url": "https://github.com/expo/skills/commit/db6dcfa12a77ff7561455d8e1c690978f2a9e9cd",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Required descriptive `--name` values for simulator sessions and added naming rules plus guidance on where session names appear."
+          },
+          {
+            "sha": "b1ec56fc67ab61528f80652ae7cd5b8c94f88e2c",
+            "date": "2026-07-28T10:27:19-07:00",
+            "subject": "[eas-simulator] flag the first-time deep-link Open dialog (#120)",
+            "url": "https://github.com/expo/skills/commit/b1ec56fc67ab61528f80652ae7cd5b8c94f88e2c",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Documented the first-time app deep-link confirmation dialog and how to confirm it with `agent-device press` using its own timeout."
+          },
+          {
+            "sha": "09eb052410e7f609624cb161ea4cd9576c69cd5d",
+            "date": "2026-07-23T18:36:23-07:00",
+            "subject": "[eas-simulator] check availability first, graceful fallback (#114)",
+            "url": "https://github.com/expo/skills/commit/09eb052410e7f609624cb161ea4cd9576c69cd5d",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a read-only access check before starting EAS sessions and a fallback to local alternatives when the account lacks access."
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Added a command and guidance for submitting specific, actionable feedback about the skill."
+          },
+          {
+            "sha": "8d72763f53c4fe11ed3ae0441b921bda821d2a74",
+            "date": "2026-07-16T08:32:06-07:00",
+            "subject": "[eas-simulator] argent remote install + dogfood gaps (#103)",
+            "url": "https://github.com/expo/skills/commit/8d72763f53c4fe11ed3ae0441b921bda821d2a74",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Expanded controller and command guidance by allowing `argent`, noting POSIX-shell requirements on Windows, documenting `--json` behavior, and clarifying how to list system apps."
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Revised the pricing notice to describe EAS Simulator as a hosted service whose session usage follows account pricing and limits."
+          },
+          {
+            "sha": "1f9951197dc6acff61c4f0f19521fa0e62c33e51",
+            "date": "2026-07-01T21:59:17-07:00",
+            "subject": "Add eas-simulator skill (#88)",
+            "url": "https://github.com/expo/skills/commit/1f9951197dc6acff61c4f0f19521fa0e62c33e51",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "Created the initial EAS Simulator skill, covering remote iOS/Android sessions, prerequisites, operating modes, controller commands, and cleanup."
+          }
+        ]
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+            "date": "2026-09-28T19:43:06-03:00",
+            "subject": "[eas-simulator] read device logs and crash reports from an iOS session (#206)",
+            "url": "https://github.com/expo/skills/commit/c0dadf355d4caa4e1720de372f0f8766df1a8978",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增 iOS 當機診斷指南，說明如何讀取裝置記錄與當機報告，包括重現當機前先保留記錄，並保護工作階段權杖。"
+          },
+          {
+            "sha": "cd752143d19e5a9aa71b4aaaf1cfc59226c77d6a",
+            "date": "2026-09-22T14:55:49+02:00",
+            "subject": "[eas-simulator] Carry tunnel authorization through live development (#204)",
+            "url": "https://github.com/expo/skills/commit/cd752143d19e5a9aa71b4aaaf1cfc59226c77d6a",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "釐清此專案遠端開發傳輸的既有授權應延續至通道建立、開發用戶端連線與即時編輯，並在核准請求中說明授權來源及資料流向。"
+          },
+          {
+            "sha": "39708666ce7014def1f8e34f3d8c93e8d3f588bb",
+            "date": "2026-09-15T15:04:33+02:00",
+            "subject": "[eas-simulator] cover current CLI flags (#187)",
+            "url": "https://github.com/expo/skills/commit/39708666ce7014def1f8e34f3d8c93e8d3f588bb",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 CLI 指引以涵蓋目前的旗標與工作階段類型，說明閒置逾時行為及更安全的既有工作階段處理方式，並指定各子命令的 `--help` 為準。"
+          },
+          {
+            "sha": "c180b05b2f6f4d414f1f58a05fca2cf6751495df",
+            "date": "2026-09-14T16:48:36+02:00",
+            "subject": "[eas-simulator] Clarify EAS Simulator cost and authorization guidance (#186)",
+            "url": "https://github.com/expo/skills/commit/c180b05b2f6f4d414f1f58a05fca2cf6751495df",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修訂費用、主機選擇、存取權限、授權與工作階段生命週期指引，包括何時使用本機或 EAS 模擬器，以及何時停止或保留工作階段。"
+          },
+          {
+            "sha": "9042013f8dd48901d9756602f2e1297dfe922c0f",
+            "date": "2026-09-14T16:16:29+02:00",
+            "subject": "[eas-simulator] Clarify tunnel approvals and recording recovery (#185)",
+            "url": "https://github.com/expo/skills/commit/9042013f8dd48901d9756602f2e1297dfe922c0f",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增通道範圍與核准指引，以及從 EAS 工作階段產物復原錄影的參考資料。"
+          },
+          {
+            "sha": "db64c31f0789d96ee304eb74cbf5a7b406c604ed",
+            "date": "2026-08-05T16:03:08-07:00",
+            "subject": "[eas-simulator] record video for motion; argent trimStatic/watermark, ffmpeg (#135)",
+            "url": "https://github.com/expo/skills/commit/db64c31f0789d96ee304eb74cbf5a7b406c604ed",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增用於檢查動態與時序的影片錄製指引，說明錄影與影格檢視的注意事項，並將 `ffmpeg` 命令列入允許工具。"
+          },
+          {
+            "sha": "e0b3a68226bbdf4617ac73959a10a9c5503f4cac",
+            "date": "2026-08-05T15:46:23-07:00",
+            "subject": "[eas-simulator] Metro on its own port, stop forcing/killing :8081 (#133)",
+            "url": "https://github.com/expo/skills/commit/e0b3a68226bbdf4617ac73959a10a9c5503f4cac",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修改指引，僅在目前工作階段啟動 Metro 時才重用，否則改用空閒連接埠；重設時也只停止代理程式自行啟動的 Metro。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增指引：代理程式多次失敗或使用者必須接手時，改用 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "db6dcfa12a77ff7561455d8e1c690978f2a9e9cd",
+            "date": "2026-08-01T09:28:35-07:00",
+            "subject": "[eas-simulator] always pass --name to simulator:start (#125)",
+            "url": "https://github.com/expo/skills/commit/db6dcfa12a77ff7561455d8e1c690978f2a9e9cd",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "要求為模擬器工作階段提供具描述性的 `--name`，並新增命名規則及工作階段名稱顯示位置的說明。"
+          },
+          {
+            "sha": "b1ec56fc67ab61528f80652ae7cd5b8c94f88e2c",
+            "date": "2026-07-28T10:27:19-07:00",
+            "subject": "[eas-simulator] flag the first-time deep-link Open dialog (#120)",
+            "url": "https://github.com/expo/skills/commit/b1ec56fc67ab61528f80652ae7cd5b8c94f88e2c",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "說明首次開啟應用程式深層連結時會出現的確認對話框，以及如何使用 `agent-device press` 和其逾時設定確認。"
+          },
+          {
+            "sha": "09eb052410e7f609624cb161ea4cd9576c69cd5d",
+            "date": "2026-07-23T18:36:23-07:00",
+            "subject": "[eas-simulator] check availability first, graceful fallback (#114)",
+            "url": "https://github.com/expo/skills/commit/09eb052410e7f609624cb161ea4cd9576c69cd5d",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增啟動 EAS 工作階段前的唯讀存取檢查，並說明帳戶無權使用時改採本機替代方案。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "新增提交針對此技能之具體且可採取行動回饋的命令與指引。"
+          },
+          {
+            "sha": "8d72763f53c4fe11ed3ae0441b921bda821d2a74",
+            "date": "2026-07-16T08:32:06-07:00",
+            "subject": "[eas-simulator] argent remote install + dogfood gaps (#103)",
+            "url": "https://github.com/expo/skills/commit/8d72763f53c4fe11ed3ae0441b921bda821d2a74",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "擴充控制器與命令指引，將 `argent` 列為允許工具、說明 Windows 上的 POSIX shell 需求、記錄 `--json` 行為，並釐清如何列出系統應用程式。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修訂費用提示，將 EAS Simulator 說明為託管服務，且工作階段用量依帳戶的定價與限制計算。"
+          },
+          {
+            "sha": "1f9951197dc6acff61c4f0f19521fa0e62c33e51",
+            "date": "2026-07-01T21:59:17-07:00",
+            "subject": "Add eas-simulator skill (#88)",
+            "url": "https://github.com/expo/skills/commit/1f9951197dc6acff61c4f0f19521fa0e62c33e51",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "建立 EAS Simulator 技能初版，涵蓋遠端 iOS／Android 工作階段、先決條件、操作模式、控制器命令與清理流程。"
+          }
+        ]
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "commits": [
+          {
+            "sha": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+            "date": "2026-09-28T19:43:06-03:00",
+            "subject": "[eas-simulator] read device logs and crash reports from an iOS session (#206)",
+            "url": "https://github.com/expo/skills/commit/c0dadf355d4caa4e1720de372f0f8766df1a8978",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加 iOS 当机诊断指南，说明如何读取设备记录与当机报告，包括重现当机前先保留记录，并保护工作阶段权杖。"
+          },
+          {
+            "sha": "cd752143d19e5a9aa71b4aaaf1cfc59226c77d6a",
+            "date": "2026-09-22T14:55:49+02:00",
+            "subject": "[eas-simulator] Carry tunnel authorization through live development (#204)",
+            "url": "https://github.com/expo/skills/commit/cd752143d19e5a9aa71b4aaaf1cfc59226c77d6a",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "厘清此项目远程开发传输的既有授权应延续至通道创建、开发用户端连接与实时编辑，并在核准请求中说明授权来源及数据流向。"
+          },
+          {
+            "sha": "39708666ce7014def1f8e34f3d8c93e8d3f588bb",
+            "date": "2026-09-15T15:04:33+02:00",
+            "subject": "[eas-simulator] cover current CLI flags (#187)",
+            "url": "https://github.com/expo/skills/commit/39708666ce7014def1f8e34f3d8c93e8d3f588bb",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "更新 CLI 指引以涵盖目前的旗标与工作阶段类型，说明闲置逾时行为及更安全的既有工作阶段处理方式，并指定各子命令的 `--help` 为准。"
+          },
+          {
+            "sha": "c180b05b2f6f4d414f1f58a05fca2cf6751495df",
+            "date": "2026-09-14T16:48:36+02:00",
+            "subject": "[eas-simulator] Clarify EAS Simulator cost and authorization guidance (#186)",
+            "url": "https://github.com/expo/skills/commit/c180b05b2f6f4d414f1f58a05fca2cf6751495df",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修订费用、主机选择、访问权限、授权与工作阶段生命周期指引，包括何时使用本机或 EAS 模拟器，以及何时停止或保留工作阶段。"
+          },
+          {
+            "sha": "9042013f8dd48901d9756602f2e1297dfe922c0f",
+            "date": "2026-09-14T16:16:29+02:00",
+            "subject": "[eas-simulator] Clarify tunnel approvals and recording recovery (#185)",
+            "url": "https://github.com/expo/skills/commit/9042013f8dd48901d9756602f2e1297dfe922c0f",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加通道范围与核准指引，以及从 EAS 工作阶段产物复原录像的参考资料。"
+          },
+          {
+            "sha": "db64c31f0789d96ee304eb74cbf5a7b406c604ed",
+            "date": "2026-08-05T16:03:08-07:00",
+            "subject": "[eas-simulator] record video for motion; argent trimStatic/watermark, ffmpeg (#135)",
+            "url": "https://github.com/expo/skills/commit/db64c31f0789d96ee304eb74cbf5a7b406c604ed",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加用于检查动态与时序的视频录制指引，说明录像与影格查看的注意事项，并将 `ffmpeg` 命令行入允许工具。"
+          },
+          {
+            "sha": "e0b3a68226bbdf4617ac73959a10a9c5503f4cac",
+            "date": "2026-08-05T15:46:23-07:00",
+            "subject": "[eas-simulator] Metro on its own port, stop forcing/killing :8081 (#133)",
+            "url": "https://github.com/expo/skills/commit/e0b3a68226bbdf4617ac73959a10a9c5503f4cac",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修改指引，仅在目前工作阶段启动 Metro 时才重用，否则改用空闲连接端口；重设时也只停止代理程序自行启动的 Metro。"
+          },
+          {
+            "sha": "5c8f62e0854f83950a1a908e8815c1030c998899",
+            "date": "2026-08-04T14:32:22+02:00",
+            "subject": "[skills] collect eval-candidate signals via new evals feedback category (#126)",
+            "url": "https://github.com/expo/skills/commit/5c8f62e0854f83950a1a908e8815c1030c998899",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加指引：代理程序多次失败或用户必须接手时，改用 expo-skill-feedback 的 eval-candidate 流程。"
+          },
+          {
+            "sha": "db6dcfa12a77ff7561455d8e1c690978f2a9e9cd",
+            "date": "2026-08-01T09:28:35-07:00",
+            "subject": "[eas-simulator] always pass --name to simulator:start (#125)",
+            "url": "https://github.com/expo/skills/commit/db6dcfa12a77ff7561455d8e1c690978f2a9e9cd",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "要求为模拟器工作阶段提供具描述性的 `--name`，并添加命名规则及工作阶段名称显示位置的说明。"
+          },
+          {
+            "sha": "b1ec56fc67ab61528f80652ae7cd5b8c94f88e2c",
+            "date": "2026-07-28T10:27:19-07:00",
+            "subject": "[eas-simulator] flag the first-time deep-link Open dialog (#120)",
+            "url": "https://github.com/expo/skills/commit/b1ec56fc67ab61528f80652ae7cd5b8c94f88e2c",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "说明首次打开应用程序深层链接时会出现的确认对话框，以及如何使用 `agent-device press` 和其逾时设置确认。"
+          },
+          {
+            "sha": "09eb052410e7f609624cb161ea4cd9576c69cd5d",
+            "date": "2026-07-23T18:36:23-07:00",
+            "subject": "[eas-simulator] check availability first, graceful fallback (#114)",
+            "url": "https://github.com/expo/skills/commit/09eb052410e7f609624cb161ea4cd9576c69cd5d",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加启动 EAS 工作阶段前的唯读访问检查，并说明帐户无权使用时改采本机替代方案。"
+          },
+          {
+            "sha": "cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "date": "2026-07-23T00:32:17+02:00",
+            "subject": "[skills] add automated feedback submission (#112)",
+            "url": "https://github.com/expo/skills/commit/cb916609b51a71f73c8230571530ea0e673d1d7a",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "添加提交针对此技能之具体且可采取行动回馈的命令与指引。"
+          },
+          {
+            "sha": "8d72763f53c4fe11ed3ae0441b921bda821d2a74",
+            "date": "2026-07-16T08:32:06-07:00",
+            "subject": "[eas-simulator] argent remote install + dogfood gaps (#103)",
+            "url": "https://github.com/expo/skills/commit/8d72763f53c4fe11ed3ae0441b921bda821d2a74",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "扩充控制器与命令指引，将 `argent` 列为允许工具、说明 Windows 上的 POSIX shell 需求、记录 `--json` 行为，并厘清如何列出系统应用程序。"
+          },
+          {
+            "sha": "b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "date": "2026-07-07T11:18:52-05:00",
+            "subject": "Organize skills with expo-* and eas-* (#98)",
+            "url": "https://github.com/expo/skills/commit/b2fdce752bbf8f3ba83883d8a35c642e229c8812",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "修订费用提示，将 EAS Simulator 说明为托管服务，且工作阶段用量依帐户的定价与限制计算。"
+          },
+          {
+            "sha": "1f9951197dc6acff61c4f0f19521fa0e62c33e51",
+            "date": "2026-07-01T21:59:17-07:00",
+            "subject": "Add eas-simulator skill (#88)",
+            "url": "https://github.com/expo/skills/commit/1f9951197dc6acff61c4f0f19521fa0e62c33e51",
+            "pathAtCommit": "plugins/expo/skills/eas-simulator/SKILL.md",
+            "resolvedVia": "direct",
+            "summary": "创建 EAS Simulator 技能初版，涵盖远程 iOS／Android 工作阶段、先决条件、操作模式、控制器命令与清理流程。"
+          }
+        ]
+      }
+    }
+  }
+}

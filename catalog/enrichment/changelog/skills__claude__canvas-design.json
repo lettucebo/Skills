@@ -10,9 +10,9 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:13799ea34cf6565709c0633c46dc743d9bd51801cb2c161bfa5446ac6e9f1cd5",
+      "signature": "sha256:3ba3d744d761ce0f14e4f76ee5d8438a2b45b19c28b2b8b6498fe9ce6aa44e4b",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -29,7 +29,7 @@
               "sourcePath": "canvas-design/SKILL.md",
               "destinationPath": "skills/canvas-design/SKILL.md"
             },
-            "summary": "Renamed `canvas-design/SKILL.md` to `skills/canvas-design/SKILL.md` without content changes."
+            "summary": "Renamed `canvas-design/SKILL.md` to `skills/canvas-design/SKILL.md` with no content changes."
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -43,7 +43,7 @@
               "sourcePath": "examples/canvas-design/SKILL.md",
               "destinationPath": "canvas-design/SKILL.md"
             },
-            "summary": "Renamed `examples/canvas-design/SKILL.md` to `canvas-design/SKILL.md` without content changes."
+            "summary": "Renamed `examples/canvas-design/SKILL.md` to `canvas-design/SKILL.md` with no content changes."
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -52,15 +52,15 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/canvas-design/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "Added `examples/canvas-design/SKILL.md` with metadata and detailed instructions for creating a canvas-design philosophy and refined visual outputs."
+            "summary": "Added `examples/canvas-design/SKILL.md` describing a workflow for developing a visual design philosophy and expressing it as a crafted canvas artwork."
           }
         ]
       }
     },
     "zh-tw": {
-      "signature": "sha256:646fd45e6db1ea8942dc03b680df514f719fc73960cd6f2eb47696fd47f54410",
+      "signature": "sha256:2b84e44d76325b7bf21ab225f90f23367f015e16501e838c20c028dcb003efd4",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:ac4d5f61b04e9b9c06e24172806b253d73abcfe648b0d884da6f0479e286430a",
       "generatorVersion": 1,
       "content": {
@@ -77,7 +77,7 @@
               "sourcePath": "canvas-design/SKILL.md",
               "destinationPath": "skills/canvas-design/SKILL.md"
             },
-            "summary": "將 `canvas-design/SKILL.md` 重新命名為 `skills/canvas-design/SKILL.md`，內容沒有變更。"
+            "summary": "將 `canvas-design/SKILL.md` 重新命名為 `skills/canvas-design/SKILL.md`，內容未變更。"
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -91,7 +91,7 @@
               "sourcePath": "examples/canvas-design/SKILL.md",
               "destinationPath": "canvas-design/SKILL.md"
             },
-            "summary": "將 `examples/canvas-design/SKILL.md` 重新命名為 `canvas-design/SKILL.md`，內容沒有變更。"
+            "summary": "將 `examples/canvas-design/SKILL.md` 重新命名為 `canvas-design/SKILL.md`，內容未變更。"
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -100,13 +100,13 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/canvas-design/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "新增 `examples/canvas-design/SKILL.md`，包含中繼資料以及建立 canvas-design 設計哲學與精緻視覺輸出的詳細指示。"
+            "summary": "新增 `examples/canvas-design/SKILL.md`，說明如何建立視覺設計理念，並將其精心呈現為畫布藝術作品。"
           }
         ]
       }
     },
     "zh-cn": {
-      "signature": "sha256:2251ce82d546779d5911c089fd63e2ec576833f996a1638391abccad485f4efa",
+      "signature": "sha256:7358fec56e409afc410fe154579717c2918ac66f16f5f26a433e16432230fd0d",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
@@ -124,7 +124,7 @@
               "sourcePath": "canvas-design/SKILL.md",
               "destinationPath": "skills/canvas-design/SKILL.md"
             },
-            "summary": "将 `canvas-design/SKILL.md` 重命名为 `skills/canvas-design/SKILL.md`，内容没有变更。"
+            "summary": "将 `canvas-design/SKILL.md` 重命名为 `skills/canvas-design/SKILL.md`，内容未变更。"
           },
           {
             "sha": "83291af582d21f5418854fa628a76686203c2f7a",
@@ -138,7 +138,7 @@
               "sourcePath": "examples/canvas-design/SKILL.md",
               "destinationPath": "canvas-design/SKILL.md"
             },
-            "summary": "将 `examples/canvas-design/SKILL.md` 重命名为 `canvas-design/SKILL.md`，内容没有变更。"
+            "summary": "将 `examples/canvas-design/SKILL.md` 重命名为 `canvas-design/SKILL.md`，内容未变更。"
           },
           {
             "sha": "37292f37bf4bdf33bbd75e415d5313292966e443",
@@ -147,7 +147,7 @@
             "url": "https://github.com/anthropics/skills/commit/37292f37bf4bdf33bbd75e415d5313292966e443",
             "pathAtCommit": "examples/canvas-design/SKILL.md",
             "resolvedVia": "direct",
-            "summary": "添加 `examples/canvas-design/SKILL.md`，包含中继数据以及创建 canvas-design 设计哲学与精致视觉输出的详细指示。"
+            "summary": "添加 `examples/canvas-design/SKILL.md`，说明如何创建视觉设计理念，并将其精心呈现为画布艺术作品。"
           }
         ]
       }

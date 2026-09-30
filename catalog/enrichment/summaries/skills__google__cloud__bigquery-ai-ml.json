@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/bigquery-ai-ml",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:20402c9333727076765c31e64516a08075c41b3d3c69b91c0c74038f307d31b7"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "It explains how to use BigQuery’s SQL-based machine learning and generative AI capabilities, including Vertex AI integration, for data analysis.",
+        "whenToUse": "Use it when you need AI/ML-driven analysis in BigQuery SQL, rather than help managing datasets, tables, or jobs.",
+        "outputs": "It provides function and model references for producing results such as forecasts, anomaly detections, classifications, summaries, embeddings, and semantic or vector-search matches."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本技能說明如何在 BigQuery SQL 中運用機器學習與生成式 AI 功能（包括 Vertex AI 整合）進行資料分析。",
+        "whenToUse": "當您需要在 BigQuery SQL 中進行 AI／機器學習分析時使用；若要管理資料集、資料表或工作，則不適用。",
+        "outputs": "內容提供相關函式與模型的參考，協助產生預測、異常偵測、分類、摘要、嵌入向量及語意或向量搜尋結果。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "本技能说明如何在 BigQuery SQL 中运用机器学习与生成式 AI 功能（包括 Vertex AI 集成）进行数据分析。",
+        "whenToUse": "当您需要在 BigQuery SQL 中进行 AI／机器学习分析时使用；若要管理数据集、数据表或工作，则不适用。",
+        "outputs": "内容提供相关函数与模型的参考，协助产生预测、异常侦测、分类、摘要、嵌入矢量及语意或矢量搜索结果。"
+      }
+    }
+  }
+}

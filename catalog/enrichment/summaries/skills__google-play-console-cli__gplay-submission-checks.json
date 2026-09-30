@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Provides a practical release-readiness summary for a Google Play submission by checking artifacts, store assets, compliance details, and common rejection risks.",
-        "whenToUse": "Use it while finalizing an Android release when you want to catch submission problems before uploading or promoting it in Google Play.",
-        "outputs": "It yields validation findings and readiness signals for items such as the app bundle, listings, screenshots, data safety, versioning, deobfuscation, and policy-related checks."
+        "purpose": "Provides a release-readiness workflow that combines local artifact and listing checks with Play Console status checks, edit validation, and release dry runs.",
+        "whenToUse": "Use it after building a signed AAB or APK to investigate release-validation findings or gate a CI pipeline before committing a release.",
+        "outputs": "It produces local and server-side validation results, identifies release blockers and follow-up items, and supports a non-committing dry run."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供 Google Play 提交前的實用上架就緒摘要，檢查應用程式產物、商店素材、合規細節，以及常見退件風險。",
-        "whenToUse": "當你在完成 Android 發行準備並想在上傳或推送到 Google Play 前先找出提交流程問題時使用。",
-        "outputs": "它會產生針對 App Bundle、商店列表、螢幕截圖、資料安全、版本號、反混淆檔與政策相關檢查的驗證結果與就緒訊號。"
+        "purpose": "提供一套發布就緒檢查流程，結合本機產物與商店資訊驗證、Play Console 狀態檢查、編輯內容驗證及發布試行。",
+        "whenToUse": "在建置並簽署 AAB 或 APK 後，若要排查發布驗證結果，或在提交發布前設定 CI 門檻，請使用此流程。",
+        "outputs": "此流程會產生本機與伺服器端的驗證結果、指出發布阻礙與後續待辦事項，並支援不提交變更的試行發布。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "提供 Google Play 提交前的实用上架就绪摘要，检查应用程序产物、商店素材、合规细节，以及常见退件风险。",
-        "whenToUse": "当你在完成 Android 发行准备并想在上传或推送到 Google Play 前先找出提交流程问题时使用。",
-        "outputs": "它会产生针对 App Bundle、商店列表、屏幕截屏、数据安全、版本号、反混淆档与政策相关检查的验证结果与就绪信号。"
+        "purpose": "提供一套发布就绪检查流程，结合本机产物与商店信息验证、Play Console 状态检查、编辑内容验证及发布试行。",
+        "whenToUse": "在建置并签署 AAB 或 APK 后，若要排查发布验证结果，或在提交发布前设置 CI 门槛，请使用此流程。",
+        "outputs": "此流程会产生本机与服务器端的验证结果、指出发布阻碍与后续待办事项，并支持不提交变更的试行发布。"
       }
     }
   }

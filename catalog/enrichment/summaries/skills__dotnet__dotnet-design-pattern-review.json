@@ -6,38 +6,38 @@
   },
   "locales": {
     "en": {
-      "signature": "sha256:c696f59075f0e5e20ac5dd7da082489b813bdef893e6c9f6cae7e0e6ad207d9f",
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "Evaluates a C#/.NET codebase for the quality of its design pattern usage, architecture, and engineering practices.",
-        "whenToUse": "Use it when you want a non-invasive review of a .NET solution's patterns, structure, and maintainability with targeted improvement advice.",
-        "outputs": "Delivers a concise review that identifies relevant patterns, notes architectural or SOLID concerns, and recommends concrete improvements."
+        "purpose": "Assess how a C#/.NET codebase applies design patterns, architectural boundaries, and platform best practices.",
+        "whenToUse": "Use it when evaluating a C#/.NET solution for pattern correctness and concerns such as maintainability, testability, performance, or security.",
+        "outputs": "It provides a review with specific, actionable recommendations and makes no code changes."
       }
     },
     "zh-tw": {
-      "signature": "sha256:7880e695442f5deab19b78bfef6ceb6908e2c9f1a1c4f88ca67b773ec4f1b484",
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
       "producer": "llm",
-      "model": "gpt-5.4",
+      "model": "gpt-6-luna",
       "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
       "generatorVersion": 1,
       "content": {
-        "purpose": "評估 C#/.NET 程式碼庫中的設計模式運用、架構品質與工程實務是否妥當。",
-        "whenToUse": "當你需要在不修改程式碼的前提下，檢視 .NET 解決方案的模式、結構與可維護性並獲得具體改進建議時使用。",
-        "outputs": "提供精簡的審查結果，指出相關模式、架構或 SOLID 疑慮，並給出可執行的改進建議。"
+        "purpose": "評估 C#/.NET 程式碼如何運用設計模式、架構分層與平台最佳實務。",
+        "whenToUse": "當你想檢視 C#/.NET 解決方案中的模式運用，以及可維護性、可測試性、效能或安全性時使用。",
+        "outputs": "提供程式碼審查與具體、可執行的改進建議，且不會修改程式碼。"
       }
     },
     "zh-cn": {
-      "signature": "sha256:dd4d9a059e976dfded9a8eaaf03ea1fe52845f0d272dbf8e28e2a33107bb5020",
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
       "producer": "opencc",
       "converterVersion": "opencc-js:twp-to-cn@1.4.2",
       "generatorVersion": 1,
       "content": {
-        "purpose": "评估 C#/.NET 代码库中的设计模式运用、架构品质与工程实务是否妥当。",
-        "whenToUse": "当你需要在不修改代码的前提下，查看 .NET 解决方案的模式、结构与可维护性并获得具体改进建议时使用。",
-        "outputs": "提供精简的审查结果，指出相关模式、架构或 SOLID 疑虑，并给出可运行的改进建议。"
+        "purpose": "评估 C#/.NET 代码如何运用设计模式、架构分层与平台最佳实务。",
+        "whenToUse": "当你想查看 C#/.NET 解决方案中的模式运用，以及可维护性、可测试性、性能或安全性时使用。",
+        "outputs": "提供代码审查与具体、可运行的改进建议，且不会修改代码。"
       }
     }
   }

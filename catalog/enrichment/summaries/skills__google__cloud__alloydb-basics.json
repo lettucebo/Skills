@@ -1,0 +1,44 @@
+{
+  "path": "skills/google/cloud/alloydb-basics",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:61f9ed9c9c4e7bb1d4a8162b4e7aa9a1f3b32f2ffb322fda1872feb8ac06d3b9"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Provides guidance for managing AlloyDB for PostgreSQL resources and using AlloyDB MCP tools to automate database operations.",
+        "whenToUse": "Use it for AlloyDB operations such as provisioning clusters or instances and managing backups, not for Cloud SQL or other database services.",
+        "outputs": "Provides initial gcloud commands and task-specific reference guidance for cluster and instance management, backups, MCP, infrastructure as code, IAM, and security."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供管理 AlloyDB for PostgreSQL 資源及使用 AlloyDB MCP 工具自動執行資料庫作業的指引。",
+        "whenToUse": "適用於 AlloyDB 的實務管理工作，例如佈建叢集或執行個體及管理備份；Cloud SQL 或其他資料庫服務則應使用其他指引。",
+        "outputs": "提供初始 gcloud 指令，以及叢集與執行個體管理、備份、MCP、基礎架構即程式碼、IAM 和安全性的任務參考指引。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "提供管理 AlloyDB for PostgreSQL 资源及使用 AlloyDB MCP 工具自动运行数据库作业的指引。",
+        "whenToUse": "适用于 AlloyDB 的实务管理工作，例如布建集群或运行个体及管理备份；Cloud SQL 或其他数据库服务则应使用其他指引。",
+        "outputs": "提供初始 gcloud 指令，以及集群与运行个体管理、备份、MCP、基础架构即代码、IAM 和安全性的任务参考指引。"
+      }
+    }
+  }
+}
