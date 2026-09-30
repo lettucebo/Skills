@@ -259,6 +259,28 @@ test('DOC1: English and Traditional Chinese trees contain the complete page set'
   }
 });
 
+test('installation guidance uses default full selection and warns that wildcard filters include internal skills', async () => {
+  for (const locale of locales) {
+    const installation = await readFile(localizedPath(locale, 'installation.md'), 'utf8');
+    const troubleshooting = await readFile(localizedPath(locale, 'troubleshooting.md'), 'utf8');
+    const fullCommands = installation.split(/\r?\n/)
+      .filter((line) => /npx.*skills.* add "lettucebo\/Skills#\$TAG"/.test(line));
+    assert.equal(fullCommands.length, 3);
+    for (const command of fullCommands) {
+      assert.doesNotMatch(command, /--skill/);
+      if (!command.endsWith('\\')) {
+        assert.match(command, /-y.*--full-depth|--full-depth.*-y/);
+      }
+    }
+    assert.match(installation, /--agent github-copilot --copy -y --full-depth/);
+    for (const document of [installation, troubleshooting]) {
+      assert.match(document, /--skill "\*"/);
+      assert.match(document, /internal/);
+      assert.doesNotMatch(document, /Found 1 skill/);
+    }
+  }
+});
+
 test('DOC2: every localized page links to both languages and its local home in the page header', async () => {
   for (const locale of locales) {
     for (const page of expectedPages) {

@@ -52,15 +52,21 @@ $TAG = "REPLACE_WITH_PUBLISHED_TAG"
 ### 安裝整個 registry
 
 ```bash
-npx skills add "lettucebo/Skills#$TAG" --full-depth
+npx skills add "lettucebo/Skills#$TAG" -y --full-depth
 ```
 
-需要選項時，這個短指令會以互動方式詢問 project／global scope、目標 agent、
-copy／symlink 模式，以及要安裝的 skill。CLI 可能自動選取唯一偵測到的 agent；
-若所有所選 agent 共用同一個 skills 目錄，也會跳過 copy／symlink 提示並直接
-copy。選擇全部 skill（`*`）會安裝目前 289 個 active skill。Repository-root
-範圍必須使用 `--full-depth`；否則
-CLI 會停在頂層 `.github/skills/`，不會找到 `skills/` 底下的 registry。
+`-y` 會跳過提示，使用 CLI 預設選項選取全部非 internal skill；目前 registry
+包含 289 個 active skill。省略 `-y` 時，無法推導的 scope、agent、模式與
+skill 選項才會以互動方式詢問。`.github/skills/` 下的 repository-local
+維護者 skill 標示 `metadata.internal: true`，預設不會納入消費者安裝。
+不要加上 `--skill "*"`：明確指定 filter 也會納入 internal skill，包括
+`release` 與內部同名的 `git-commit`。
+
+Repository-root 指令保留 `--full-depth`，確保搜尋整棵樹。本機以
+`skills@1.5.1` 重新觀察時，未加此旗標的預設 discovery 會略過 internal 的
+`.github/skills/` 並繼續搜尋，找到 289 個公開 skill；但明確指定
+`--skill "*"` 時會停在該目錄，只找到兩個 internal skill。因此 discovery
+取決於 metadata 與 filter 旗標，不是固定的頂層數量。
 
 ### 安裝單一來源集合
 
@@ -83,21 +89,23 @@ skill 選取同樣需要 `--full-depth`。
 
 ### 非互動式 GitHub Copilot 範例
 
-自動化時請明確提供所有選項。本 repository 會用釘選的 CLI 版本
-`skills@1.5.1` 驗證以下旗標組合：
+自動化時請明確指定 agent 與 copy 模式，並用 `-y` 選取 project scope 與
+預設公開 skill。本 repository 會用釘選的 CLI 版本 `skills@1.5.1` 驗證
+以下旗標組合：
 
 ```bash
 npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" \
-  --agent github-copilot --copy -y --skill "*" --full-depth
+  --agent github-copilot --copy -y --full-depth
 ```
 
 ```powershell
-npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" --agent github-copilot --copy -y --skill "*" --full-depth
+npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" --agent github-copilot --copy -y --full-depth
 ```
 
-若只安裝一個 skill，請把 `*` 換成 `agents-sdk` 之類的 frontmatter 名稱；`*`
-會安裝目前全部 289 個 active skill。若只
-安裝一個來源集合，則把來源換成 `lettucebo/Skills/skills/azure#$TAG`。Smoke
+若只安裝一個 skill，請加上 `--skill agents-sdk`（或其他公開 frontmatter
+名稱）；若只安裝一個來源集合，則把來源換成
+`lettucebo/Skills/skills/azure#$TAG`。消費者完整安裝不要使用 wildcard filter，
+因為它也會選入 internal skill。Smoke
 測試會對本機簽出實際執行這些選項；另外的契約測試則保護已發布的
 `owner/repo#tag`、子路徑與 `#tag@skill` 來源字串。在無人看管的外部自動化依賴
 已發布指令之前，請至少先實際執行一次。

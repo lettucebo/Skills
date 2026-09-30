@@ -88,9 +88,12 @@ export async function createSmokePlan({
         name: 'full-repo',
         sourcePath: repoRoot,
         expectedNames: allExpectedNames,
-        skillArgs: ['--skill', '*'],
+        skillArgs: [],
         extraArgs: ['--full-depth'],
         requiredNames: RENAMED_SKILL_NAMES,
+        expectedSkillFiles: {
+          'git-commit': path.join(repoRoot, 'skills', 'vscode', 'git-commit', 'SKILL.md'),
+        },
       }),
       buildSmokeCase({
         cliSpec,
@@ -131,12 +134,14 @@ function buildSmokeCase({
   skillArgs,
   extraArgs = [],
   requiredNames = [],
+  expectedSkillFiles = {},
 }) {
   return {
     name,
     sourcePath,
     expectedNames,
     requiredNames,
+    expectedSkillFiles,
     argv: [
       '--yes',
       cliSpec,
@@ -315,6 +320,7 @@ async function runSmokeCase(repoRoot, smokeCase) {
 
     assertExactNames(installedNames, smokeCase.expectedNames, smokeCase.name);
     assertRequiredNames(installedNames, smokeCase.requiredNames, smokeCase.name);
+    await assertInstalledSkillFiles(runtimeProject, smokeCase.expectedSkillFiles, smokeCase.name);
 
     return {
       name: smokeCase.name,
@@ -322,6 +328,7 @@ async function runSmokeCase(repoRoot, smokeCase) {
       expectedCount: smokeCase.expectedNames.length,
       installedCount: installedNames.length,
       installedNames,
+      verifiedSkillFiles: Object.keys(smokeCase.expectedSkillFiles),
     };
   } finally {
     await rm(runtimeProject, { recursive: true, force: true });
@@ -390,6 +397,19 @@ async function collectInstalledSkillNames(runtimeProject) {
   }
 
   return installedNames.sort(compareStrings);
+}
+
+export async function assertInstalledSkillFiles(runtimeProject, expectedSkillFiles, caseName) {
+  for (const [name, expectedFile] of Object.entries(expectedSkillFiles)) {
+    const installedFile = path.join(runtimeProject, '.agents', 'skills', name, 'SKILL.md');
+    const [actual, expected] = await Promise.all([
+      readFile(installedFile),
+      readFile(expectedFile),
+    ]);
+    if (!actual.equals(expected)) {
+      throw new Error(`Smoke case "${caseName}" installed unexpected SKILL.md bytes for ${name}; expected ${expectedFile}.`);
+    }
+  }
 }
 
 function assertExactNames(actualNames, expectedNames, caseName) {

@@ -55,18 +55,23 @@ $TAG = "REPLACE_WITH_PUBLISHED_TAG"
 ### Install the entire registry
 
 ```bash
-npx skills add "lettucebo/Skills#$TAG" --full-depth
+npx skills add "lettucebo/Skills#$TAG" -y --full-depth
 ```
 
-This short form is interactive when choices are needed: choose project or
-global scope, the target agent, copy/symlink mode, and the skills to install.
-The CLI can auto-select a single detected agent, and it skips the
-copy/symlink prompt when all selected agents use one skills directory (copy
-is then used). Selecting all skills (`*`) installs the current 289 active
-skills.
-`--full-depth` is required at repository-root scope; without it, the CLI stops
-at the top-level `.github/skills/` directory instead of discovering the
-registry under `skills/`.
+`-y` skips prompts and selects all non-internal skills using the CLI defaults;
+the current registry contains 289 active skills. Omit `-y` for interactive
+scope, agent, mode, and skill selection where choices cannot be inferred.
+Repository-local maintainer skills under `.github/skills/` have
+`metadata.internal: true` and are excluded from default consumer selection.
+Do not add `--skill "*"`: an explicit filter includes internal skills too,
+including `release` and the internal same-name `git-commit`.
+
+Keep `--full-depth` on repository-root commands so discovery searches the
+whole tree. In a local observation with `skills@1.5.1`, default discovery
+without this flag found 289 public skills by falling back past the internal
+`.github/skills/` directory, while explicit `--skill "*"` stopped there and
+found only the two internal skills. Discovery therefore depends on both
+metadata and filter flags, not a fixed top-level count.
 
 ### Install one source collection
 
@@ -89,21 +94,24 @@ first. Repository-root single-skill selection also needs `--full-depth`.
 
 ### Non-interactive GitHub Copilot example
 
-For automation, provide every selection explicitly. This repository validates
-the following flag shape against pinned CLI version `skills@1.5.1`:
+For automation, specify the agent and copy mode, and use `-y` for project
+scope and default public skill selection. This repository validates the
+following flag shape against pinned CLI version `skills@1.5.1`:
 
 ```bash
 npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" \
-  --agent github-copilot --copy -y --skill "*" --full-depth
+  --agent github-copilot --copy -y --full-depth
 ```
 
 ```powershell
-npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" --agent github-copilot --copy -y --skill "*" --full-depth
+npx --yes skills@1.5.1 add "lettucebo/Skills#$TAG" --agent github-copilot --copy -y --full-depth
 ```
 
-Replace `*` with a frontmatter skill name such as `agents-sdk` for one skill,
-or replace the source with `lettucebo/Skills/skills/azure#$TAG` for one source
-collection. The smoke test executes these selections against the local
+For one skill, add `--skill agents-sdk` (or another public frontmatter name);
+for one source collection, replace the source with
+`lettucebo/Skills/skills/azure#$TAG`. Do not use a wildcard filter for a
+consumer full-registry install: it also opts into internal skills.
+The smoke test executes these selections against the local
 checkout; separate contract tests protect the published `owner/repo#tag`,
 subpath, and `#tag@skill` source strings. Run the published command once
 before relying on it in unattended external automation.
