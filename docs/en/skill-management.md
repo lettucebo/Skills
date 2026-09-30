@@ -119,11 +119,15 @@ Regardless of category, adding a new skill through the sync engine
 
 After `--apply` regenerates the lock and derived files:
 
-1. Run `npm run smoke:npx -- --ref HEAD`, then `npm test` and
+1. Commit **all** transaction outputs, including `skills/**`, the lockfile,
+   history, `catalog/licenses/`, `NOTICE`, and README blocks. Include any
+   `catalog/enrichment/` changes from pruning ineligible artifacts and related
+   site/test changes. Require empty `git status --porcelain`; keep reports
+   outside the repository or under ignored `sync-report/`.
+2. Run `npm run smoke:npx -- --ref HEAD`, then `npm test` and
    `node scripts/validate.mjs`. The smoke check must run **after** the lockfile
-   includes the new skill.
-2. Commit the sync-generated lockfile, history, `catalog/licenses/`, `NOTICE`,
-   and README blocks, and merge the reviewed change into `main`.
+   and all skill content are committed. Complete the relevant site build,
+   unit and E2E checks, then merge the reviewed change into `main`.
 3. Keep scheduled sync disabled until the release is published. On an updated
    `main`, create the annotated `v<release>` tag named by the lockfile at the
    merged release commit and push it. Do not tag the feature branch. Because

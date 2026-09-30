@@ -105,11 +105,15 @@ transaction 中一起變更。
 
 `--apply` 重新產生 lock 與衍生檔案之後：
 
-1. 執行 `npm run smoke:npx -- --ref HEAD`，再執行 `npm test` 與
-   `node scripts/validate.mjs`。Smoke 檢查必須在 lockfile 已包含新 skill **之後**
-   執行。
-2. 提交同步產生的 lockfile、history、`catalog/licenses/`、`NOTICE` 與 README
-   區塊，再把經過審查的變更合併至 `main`。
+1. 提交**全部**交易輸出，包括 `skills/**`、lockfile、history、
+   `catalog/licenses/`、`NOTICE` 與 README 區塊。納入清除不再符合資格的
+   artifacts 所產生的 `catalog/enrichment/` 變更，以及相關網站與測試變更。
+   確認 `git status --porcelain` 沒有輸出；報告放在儲存庫外，或已忽略的
+   `sync-report/`。
+2. 執行 `npm run smoke:npx -- --ref HEAD`，再執行 `npm test` 與
+   `node scripts/validate.mjs`。Smoke 檢查必須在 lockfile 與全部 skill 內容
+   **已提交之後**執行。完成相關網站建置、單元與 E2E 檢查，再把經過審查的
+   變更合併至 `main`。
 3. Release 發布前保持排程同步停用。在更新後的 `main` 上，於合併後的 release
    commit 建立 lockfile 所指定的 annotated `v<release>` tag 並推送。不要在
    feature branch 上打 tag。由於 PR merge 時 commit 已先到遠端，這條手動路徑
