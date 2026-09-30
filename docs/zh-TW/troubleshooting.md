@@ -34,22 +34,28 @@ skill 時才加上 `@<name>`（例如把 `vX.Y.Z` 換成已發布 tag 後使用
 project／global scope、agent、安裝模式與 skill 選項。唯一偵測到的 agent 可能
 被自動選取，而所選 agent 只解析到一個目錄時也會跳過 copy／symlink 提示，因此
 不同電腦不一定出現所有 prompts。自動跳過 prompts 不代表已選取全部 skill；
-請選擇 `*` 或傳入 `--skill "*"`。
-在 repository-root 範圍省略 `--full-depth`，也可能只從頂層
-`.github/skills/` 得到「Found 1 skill」，或找不到位於 `skills/` 深處的 catalog
+完整公開安裝請使用 `-y` 並省略 skill filter。明確指定 `--skill "*"` 會
+納入標示 `metadata.internal: true` 的 skill，不等於預設公開選取。
+本機以 `skills@1.5.1` 觀察未加 `--full-depth` 的 discovery 時，預設找到
+289 個公開 skill，但 wildcard filter 會停在 `.github/skills/`，只找到兩個
+internal skill。明確指定 catalog 名稱時，也可能找不到位於 `skills/` 深處的
 skill。
 
 **解法：** 回答提示，或使用
 [安裝方式](installation.md#非互動式-github-copilot-範例) 中釘選版本的非互動式
-指令，明確設定 `--agent` 與 `--skill`。Repository-root 的完整或單一 skill
-指令都要加上 `--full-depth`。
+指令，明確設定 `--agent`、`--copy` 與 `-y`。完整公開安裝省略 `--skill`；
+僅在選取單一 skill 時加上指定的公開名稱。Repository-root 的完整或單一
+skill 指令都要加上 `--full-depth`。
 
 ### 整個 registry 安裝進來了我不預期的 skill
 
-**原因：** 完整 registry 安裝會選取釘選 release 的每個 active skill。2.1.0
-包含 289 個 active skill，沒有受限制 skill。
+**原因：** 預設完整 registry 安裝會選取釘選 release 的每個 active 公開
+skill。2.1.0 包含 289 個 active skill，沒有受限制 skill。明確指定
+`--skill "*"` 也會納入 repository-local internal 維護者 skill，包括
+`release`，以及 discovery 時可能取代公開副本的同名 `git-commit`。
 
-**解法：** 不需要廣泛涵蓋時改裝單一來源或單一 skill。仍請查看
+**解法：** 公開 registry 使用 `-y --full-depth`，不要加上 `--skill "*"`；
+不需要廣泛涵蓋時改裝單一來源或單一 skill。仍請查看
 `catalog/skills.lock.json` 或網站狀態頁，因為未來 release 可能再次出現 active
 restricted inventory。
 

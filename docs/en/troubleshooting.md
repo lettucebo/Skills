@@ -38,23 +38,30 @@ that cannot be inferred: project/global scope, agent, installation mode, and
 skill selection. A single detected agent may be auto-selected, and the
 copy/symlink prompt is skipped when the selected agents resolve to one
 directory, so not every prompt appears on every machine. Auto-skipped prompts
-do not mean every skill was selected; choose `*` or pass `--skill "*"`.
-At repository-root scope, omitting `--full-depth` can also produce only
-"Found 1 skill" from the
-top-level `.github/skills/`, or "No matching skills found" for a catalog
-skill nested under `skills/`.
+do not mean every skill was selected. Use `-y` without a skill filter for
+all public skills. Explicit `--skill "*"` includes skills marked
+`metadata.internal: true`; it is not equivalent to default public selection.
+In a local `skills@1.5.1` observation without `--full-depth`, default
+discovery found 289 public skills, but the wildcard filter stopped at
+`.github/skills/` and found the two internal skills. An explicit catalog
+name can likewise fail to match a skill nested under `skills/`.
 
 **Fix:** answer the prompts, or use the pinned non-interactive command in
 [Installation](installation.md#non-interactive-github-copilot-example) and
-set `--agent` and `--skill` explicitly. Add `--full-depth` to every
-repository-root full or single-skill command.
+set `--agent`, `--copy`, and `-y` explicitly. Leave out `--skill` for a full
+public install; add a specific public name only for a selected skill.
+Add `--full-depth` to every repository-root full or single-skill command.
 
 ### A full-registry install pulled in skills I didn't expect
 
-**Cause:** a full-registry install selects every active skill in the pinned
-release. Release 2.1.0 contains 289 active skills and no restricted skills.
+**Cause:** a default full-registry install selects every active public skill in
+the pinned release. Release 2.1.0 contains 289 active skills and no restricted
+skills. Explicit `--skill "*"` also includes repository-local internal
+maintainer skills, including `release` and a same-name `git-commit` that can
+replace the public copy during discovery.
 
-**Fix:** install one source or one skill when broad coverage is not intended.
+**Fix:** use `-y --full-depth` without `--skill "*"` for the public registry,
+or install one source or one skill when broad coverage is not intended.
 Also check `catalog/skills.lock.json` or the website status page because future
 releases may again contain active restricted inventory.
 

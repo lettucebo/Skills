@@ -1,6 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import path from 'node:path';
+import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import * as smoke from '../smoke-npx.mjs';
+import { parseSkillFrontmatter } from '../lib/frontmatter.mjs';
 
 import {
   assertRequiredAddOptions,
@@ -104,6 +108,55 @@ test('createSmokePlan pins the CLI package and local smoke coverage', async () =
       },
     ],
   );
+});
+
+test('full-repo smoke uses default public selection and the exact active lock inventory', async () => {
+  const plan = await createSmokePlan();
+  const full = plan.cases.find((entry) => entry.name === 'full-repo');
+  const lock = JSON.parse(await readFile(path.join(plan.repoRoot, 'catalog', 'skills.lock.json'), 'utf8'));
+  const activeNames = lock.skills.filter((entry) => entry.category !== 'removed')
+    .map((entry) => entry.name).sort();
+
+  assert.equal(activeNames.length, 289);
+  assert.deepEqual(full.expectedNames, activeNames);
+  assert.ok(!full.expectedNames.includes('release'));
+  assert.ok(full.argv.includes('-y'));
+  assert.ok(full.argv.includes('--full-depth'));
+  assert.ok(!full.argv.includes('--skill'), 'explicit filters also discover internal skills');
+  assert.deepEqual(full.expectedSkillFiles, {
+    'git-commit': path.join(plan.repoRoot, 'skills', 'vscode', 'git-commit', 'SKILL.md'),
+  });
+});
+
+test('repository-local skills are internal without changing the vendored git-commit', async () => {
+  const { repoRoot } = await createSmokePlan();
+  for (const name of ['git-commit', 'release']) {
+    const file = path.join(repoRoot, '.github', 'skills', name, 'SKILL.md');
+    const metadata = parseSkillFrontmatter(await readFile(file, 'utf8'), file);
+    assert.equal(metadata.metadata?.internal, true, `${name} must be excluded from default consumer discovery`);
+  }
+  const vendored = path.join(repoRoot, 'skills', 'vscode', 'git-commit', 'SKILL.md');
+  assert.notEqual(parseSkillFrontmatter(await readFile(vendored, 'utf8'), vendored).metadata?.internal, true);
+});
+
+test('installed skill content verification accepts exact bytes and rejects a same-name internal copy', async () => {
+  assert.equal(typeof smoke.assertInstalledSkillFiles, 'function');
+  const { repoRoot } = await createSmokePlan();
+  const runtime = await mkdtemp(path.join(tmpdir(), 'skills-smoke-content-'));
+  const installedFile = path.join(runtime, '.agents', 'skills', 'git-commit', 'SKILL.md');
+  const expectedFile = path.join(repoRoot, 'skills', 'vscode', 'git-commit', 'SKILL.md');
+  try {
+    await mkdir(path.dirname(installedFile), { recursive: true });
+    await writeFile(installedFile, await readFile(expectedFile));
+    await smoke.assertInstalledSkillFiles(runtime, { 'git-commit': expectedFile }, 'full-repo');
+    await writeFile(installedFile, await readFile(path.join(repoRoot, '.github', 'skills', 'git-commit', 'SKILL.md')));
+    await assert.rejects(
+      smoke.assertInstalledSkillFiles(runtime, { 'git-commit': expectedFile }, 'full-repo'),
+      /Smoke case "full-repo" installed unexpected SKILL\.md bytes for git-commit/,
+    );
+  } finally {
+    await rm(runtime, { recursive: true, force: true });
+  }
 });
 
 test('parseCliArgs accepts the npm forwarded positional ref form', () => {
