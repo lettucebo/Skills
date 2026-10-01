@@ -1,6 +1,6 @@
 {
-  "release": "2.1.0",
-  "generatedAt": "2026-09-29T16:05:47.940Z",
+  "release": "2.1.1",
+  "generatedAt": "2026-10-01T09:50:24.178Z",
   "licenseEvidenceVersion": 1,
   "counts": {
     "total": 289,
@@ -696,7 +696,7 @@
       "path": "skills/cloudflare/cloudflare",
       "name": "cloudflare",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -704,17 +704,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+        "commit": "d8c1937dcd7a11d447965a87330c3a0fbf70ae22",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:195809560ac8299e27c16e93045c4f227c1da79f18daa37b03cb5b26000924a0",
-      "contentHash": "sha256:ce55f6c479ea5258149df28b3e69f8df500b8b7184029d59dfc1d674f7f3c842",
+      "snapshotHash": "sha256:46b31263aab2a47b52adf8bd4e2e95631b635e71d3a18f5641b01d6bc85e26cf",
+      "contentHash": "sha256:ec5c46cfe89b1e195d12562f068eb8ddcb91062641ee5cc5a2304032be06a496",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloudflare",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "d8c1937dcd7a11d447965a87330c3a0fbf70ae22"
       }
     },
     {
@@ -971,7 +971,7 @@
       "path": "skills/cloudflare/wrangler",
       "name": "wrangler",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -979,17 +979,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+        "commit": "d8c1937dcd7a11d447965a87330c3a0fbf70ae22",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:efd3d379e5033866b50382fd99fc5f7f07b3e4679ba420836c63b5b819e876f2",
-      "contentHash": "sha256:57bf974f0d2cf26e515816a19c64a88ab22ea104f84da9635e672bce2eda6fac",
+      "snapshotHash": "sha256:8ed251c244bd09f8d5dc13d2f576048c7a1679dd015ca3a6dd17472b34862b96",
+      "contentHash": "sha256:ef97cbaadffbdb683da6da96e09f3e43ae1c80323a372aafba9fb6a9f3c8cc55",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/wrangler",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "d8c1937dcd7a11d447965a87330c3a0fbf70ae22"
       }
     },
     {
@@ -3369,7 +3369,7 @@
       "path": "skills/google/cloud/bigquery-observability",
       "name": "bigquery-observability",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3377,17 +3377,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:685e43141da6fc0e640b3a925bc95ea6c6b662eac5368781c17dda886bc1ef1d",
-      "contentHash": "sha256:e732e70f14c65a1ecac16c8eed8910715f52dd108dd893c097e70c23cb093905",
+      "snapshotHash": "sha256:b22efc8d9dc81b1dad7e1672952171ea4f5b467299e1e2a48447202a03e3d201",
+      "contentHash": "sha256:d9ef34e836d38bc290899fda63ca86970aa3c7cf792d7a97b394f1fd9d93516c",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/bigquery-observability",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
@@ -3919,7 +3919,7 @@
       "path": "skills/google/cloud/developing-genkit-dart",
       "name": "developing-genkit-dart",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3927,24 +3927,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:c9ec99d961f45c125b725fa181a76dddc112fbc4cfb63704bcdb75431d0e9a5f",
-      "contentHash": "sha256:bcaf84add7185a74cdd2329b6dbd6bfc9d197577fc389f59e1919f9999604388",
+      "snapshotHash": "sha256:e320312441baa86cc7f6fc58855496a2330e400f2e37f8b1e2a37abfd0e4f14f",
+      "contentHash": "sha256:40f7c5bc7a76fbf8048fed0c756a081860cb120fcf629e34592776cfafe24b82",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/developing-genkit-dart",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
       "path": "skills/google/cloud/developing-genkit-go",
       "name": "developing-genkit-go",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3952,24 +3952,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:907efe7e90b0eaf24485edaebc82ce44318593a4534b7c6480a1e3fce871e402",
-      "contentHash": "sha256:177b4d22fd1a26409c29f0683f44256deff900f110bfdb24c094f94a0a7b6541",
+      "snapshotHash": "sha256:e89c6c2ba2566142f6c79ec9c31922e58d554f600091bf25cedc19e5f8f852d3",
+      "contentHash": "sha256:8f1dc571ed43f4c0f3b81e90f69ca37d43be51f3ed51dc4f9b306e1b6a088cc9",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/developing-genkit-go",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
       "path": "skills/google/cloud/developing-genkit-js",
       "name": "developing-genkit-js",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3977,24 +3977,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:15b02fc211fb39733eab0f4925bb4e49cce5726e1c980b050c97cf594663f987",
-      "contentHash": "sha256:6bce23575b0b509eed0c602c3d66bbcf873e575a2878388fe5f5eefda1aecc3f",
+      "snapshotHash": "sha256:9e608c80771facf6c9e6fcd33497dfb11de0e562e77a984f2dc641fab85052cd",
+      "contentHash": "sha256:cb7e0feaea55c185386c614c46e2ea2d24e7f73836acde451a15938adc70fb63",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/developing-genkit-js",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
       "path": "skills/google/cloud/developing-genkit-python",
       "name": "developing-genkit-python",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -4002,17 +4002,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:74f8b14a19d747cb57ff4c580332317f5166dca081a0f95fe2046a00de4c35fb",
-      "contentHash": "sha256:3eb4661a6d59ba197ac8b39bb065545646180bf7020e3ece48ed8c210cb5426f",
+      "snapshotHash": "sha256:5f93e3759218c9db0e92d2fcdf16be515d0c15352f08da1dda17c799daa88b95",
+      "contentHash": "sha256:f3fd5297e1c22fe69d58a9a72fd57976477536fad12161b9fc805701fde3b588",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/developing-genkit-python",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
@@ -4819,7 +4819,7 @@
       "path": "skills/google/cloud/gke-service-networking",
       "name": "gke-service-networking",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -4827,17 +4827,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:e742d553a76ce3a3ae19529eb0a158e3d9520a48aa892bbb5cd8186cf8ebbe7f",
-      "contentHash": "sha256:82883cfb5e6e0bd2e5927866e7ca55951a017908149ecdb5f416f8086ffcee35",
+      "snapshotHash": "sha256:fc2aafc3b65b4156e85a64a64f57cc099f86ade64b68c00e5a02b16d5faa12de",
+      "contentHash": "sha256:b5de12c7b447138a18691b60d043577ddf4467f442fea14d950b10f8ec82a38c",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/gke-service-networking",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
@@ -4894,7 +4894,7 @@
       "path": "skills/google/cloud/gke-upgrades",
       "name": "gke-upgrades",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -4902,17 +4902,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:4adb921473b53d9681af5fd1911a0409dc72b84e6d616a292ef3242906a28913",
-      "contentHash": "sha256:0257da1f8b97f69c905c8c9d73dabfb2fdc2523b959af8881d12de7354ad1b92",
+      "snapshotHash": "sha256:c28db9ced009fcd0604fb76f925445ca5597be06d710415deea2bb8246e662ee",
+      "contentHash": "sha256:11c7119c2fc81e679737d24631f561938655338859ba88707144c2a554bd0cd5",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/gke-upgrades",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
@@ -5194,7 +5194,7 @@
       "path": "skills/google/cloud/google-cloud-networking-observability",
       "name": "google-cloud-networking-observability",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5202,17 +5202,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:38dec629b5e78b617cf519eca6a564bb23668ac6bb0825243b43060f7e5c2470",
-      "contentHash": "sha256:8f820dc70e5068f800072011f5d0194cceea11d8f5824fb197bec3a62a3224df",
+      "snapshotHash": "sha256:8606859c0f0bd8eee9056788c41096c488d2278d3b807b680e99fd230fa30f44",
+      "contentHash": "sha256:c753cf499c63497fbb6d16087b2083753df44329aca72d32917c3839c548fa32",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-networking-observability",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
@@ -5444,7 +5444,7 @@
       "path": "skills/google/cloud/google-cloud-solution-architecture",
       "name": "google-cloud-solution-architecture",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5452,17 +5452,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:0f63c1ffb2cf187def2c33dd433532dd959ea01ba5ffaf988cf639011a34e351",
-      "contentHash": "sha256:218d3c20d3105bb67f99456164340d09a2d407012729497907a145c9d0933199",
+      "snapshotHash": "sha256:e69cf926bb7e3edda75e00cb13cb563cf629396a9e709c4c23bb3a66f308f77e",
+      "contentHash": "sha256:d305c53e32ec9de1f6e547302593605755e57a493c25cf6ce2add42b45db5728",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-solution-architecture",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
@@ -5644,7 +5644,7 @@
       "path": "skills/google/cloud/google-cloud-storage-bucket-architect",
       "name": "google-cloud-storage-bucket-architect",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5654,15 +5654,15 @@
         "hash": "sha256:2af71558e438db0b73a20beab92dc278a94e1bbe974c00c1a33e3ab62d53a608",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       },
-      "snapshotHash": "sha256:f133bad1662a3f1beb4a8eb97b59ce8e14611d349417dcad7691fe0bafc28dde",
-      "contentHash": "sha256:f6ed4737883ca10cd6f4fc32e5a5ce693616c224b79310cea6e8c530a30a3104",
+      "snapshotHash": "sha256:9e850866b357e8a6b5cfce040e6cbb3ff36e9c4111173db55c4c0f3ea80b23b6",
+      "contentHash": "sha256:532ec8bdc929ccb1a63764f2c5b4fd829a747ac8782263c84ab6a651bbb03838",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-storage-bucket-architect",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
@@ -6094,7 +6094,7 @@
       "path": "skills/google/cloud/secops-investigate",
       "name": "secops-investigate",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -6102,17 +6102,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:830714901e6c234e78dcb8745f9d8c36138de26a68e667e5cee250ceb519442a",
-      "contentHash": "sha256:8ddb1ebd5dff383376a474ad8bdbcec63ff3a8e8a8ae3a546a725fc2855a110f",
+      "snapshotHash": "sha256:55f3657e54778edccf88c9385e9259defb74399c6ffc8cb8d17d7db963bac8b0",
+      "contentHash": "sha256:29c3250c4f63e56831bfe24f026d358520124bf708ce21913548e8b27f6bd63c",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/secops-investigate",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {
@@ -6219,7 +6219,7 @@
       "path": "skills/google/developers/retrieving-developer-knowledge",
       "name": "retrieving-developer-knowledge",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -6227,17 +6227,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:17b06d09ca62f7b2b5c7828b5270a387eaa432ded513d891039ceda1a42f8bd2",
-      "contentHash": "sha256:800458fe9c1544752187acd224d4d3bdf1cb31ab4d50d4af23b649b7f20cad5d",
+      "snapshotHash": "sha256:d610f4affc7f4610dd90e35890da557107a564f2e4264fa146c92d8dc14e9b75",
+      "contentHash": "sha256:8330f465fbeba54cfec83fd3720bdf6f955fc61db9d63831b9626222c01845e1",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/developers/retrieving-developer-knowledge",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
       }
     },
     {

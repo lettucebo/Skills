@@ -1,7 +1,7 @@
 ---
 name: google-cloud-solution-architecture
 metadata:
-  version: 1.0.2
+  version: 1.0.3
   category: MultiProductSolutions
 description: Interactively discovers requirements and designs holistic,
   multi-product system architectures, solution blueprints, and deployment
@@ -15,8 +15,8 @@ description: Interactively discovers requirements and designs holistic,
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/google-cloud-solution-architecture
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: d5d905232ec501743831cc68e6763af90da3cd69
+x-version: 1.0.1
 ---
 
 # Google Cloud solution-architecture workflow
@@ -141,9 +141,9 @@ content by using the following resources:
 *   Google Developer Knowledge MCP server
     *   Server: https://developerknowledge.googleapis.com/mcp
     *   Tools:
-    *   `developerknowledge:search_documents`
-    *   `developerknowledge:get_documents`
-    *   `developerknowledge:answer_query`
+        *   `developerknowledge:search_documents`
+        *   `developerknowledge:get_documents`
+        *   `developerknowledge:answer_query`
 *   Relevant skills from https://github.com/google/skills
 *   Official Google Cloud documentation, including the following:
     *   Reference architectures and design guides that are relevant to the

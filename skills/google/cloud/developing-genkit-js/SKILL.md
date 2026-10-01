@@ -5,12 +5,13 @@ description: Develop AI-powered applications using Genkit in Node.js/TypeScript.
   JavaScript/TypeScript, or when encountering Genkit errors, validation issues,
   type errors, or API problems.
 metadata:
+  version: 1.0.0
   category: AiAndMachineLearning
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/developing-genkit-js
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: d5d905232ec501743831cc68e6763af90da3cd69
+x-version: 1.0.1
 ---
 
 # Genkit JS

@@ -11,6 +11,14 @@
       "upstreamCommit": "99c871efb402aba106c3ce7432451d253efd77b1",
       "diffUrl": null,
       "contentHash": "sha256:bcaf84add7185a74cdd2329b6dbd6bfc9d197577fc389f59e1919f9999604388"
+    },
+    {
+      "release": "2.1.1",
+      "kind": "upstream-update",
+      "version": "1.0.1",
+      "upstreamCommit": "d5d905232ec501743831cc68e6763af90da3cd69",
+      "diffUrl": "https://github.com/google/skills/compare/99c871efb402aba106c3ce7432451d253efd77b1...d5d905232ec501743831cc68e6763af90da3cd69",
+      "contentHash": "sha256:40f7c5bc7a76fbf8048fed0c756a081860cb120fcf629e34592776cfafe24b82"
     }
   ]
 }

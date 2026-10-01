@@ -1,7 +1,7 @@
 ---
 name: gke-upgrades
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   category: Containers
 description: Plans, executes, and validates Google Kubernetes Engine (GKE)
   cluster upgrades and maintenance operations for both Standard and Autopilot
@@ -20,8 +20,8 @@ description: Plans, executes, and validates Google Kubernetes Engine (GKE)
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/gke-upgrades
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: d5d905232ec501743831cc68e6763af90da3cd69
+x-version: 1.0.1
 ---
 
 # GKE Upgrades & Maintenance
@@ -211,6 +211,9 @@ Refer to [`references/troubleshooting.md`](references/troubleshooting.md) for th
 
 - [GKE Release Notes](https://cloud.google.com/kubernetes-engine/docs/release-notes)
 - [Upgrading GKE Clusters](https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster)
+- [Troubleshoot GKE upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/upgrades.md.txt)
+- [Get upgrade information (upgrade assist)](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/upgrade-assist.md.txt)
+- [Node pool upgrade strategies (surge & blue-green)](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-pool-upgrade-strategies.md.txt)
 - [Maintenance Windows & Exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions)
 - [Rollout Sequencing Concepts](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing/about-rollout-sequencing)
 - [Configure Rollout Sequencing](https://cloud.google.com/kubernetes-engine/docs/how-to/rollout-sequencing/manage-upgrades-with-rollout-sequencing)

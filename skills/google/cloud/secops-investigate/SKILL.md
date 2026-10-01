@@ -3,7 +3,7 @@ name: secops-investigate
 metadata:
   category: Security
   author: Google LLC
-  version: 1.1.1
+  version: 1.1.2
   status: published
 description: Expert guidance for deep security incident and entity
   investigations in Google SecOps. Use when investigating cases, analyzing
@@ -16,8 +16,8 @@ description: Expert guidance for deep security incident and entity
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/secops-investigate
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: d5d905232ec501743831cc68e6763af90da3cd69
+x-version: 1.0.1
 ---
 
 # Google SecOps Incident & Entity Investigation Skill
@@ -185,7 +185,13 @@ Reconstructing an asset timeline establishes:
    Execute a UDM search for all events associated with `principal.hostname = "TARGET_HOST"` or `target.hostname = "TARGET_HOST"` ordered chronologically.
    ```udm
    (principal.hostname = "TARGET_HOST" OR target.hostname = "TARGET_HOST")
-   AND metadata.event_type IN ("USER_LOGIN", "PROCESS_LAUNCH", "FILE_CREATION", "NETWORK_CONNECTION", "REGISTRY_MODIFICATION")
+   AND (
+     metadata.event_type = "USER_LOGIN"
+     OR metadata.event_type = "PROCESS_LAUNCH"
+     OR metadata.event_type = "FILE_CREATION"
+     OR metadata.event_type = "NETWORK_CONNECTION"
+     OR metadata.event_type = "REGISTRY_MODIFICATION"
+   )
    ```
 4. **Identify Gaps & Anomalies**:
    - Check for event log clearing (`event_id = 1102` or `wevtutil cl`).
@@ -282,9 +288,9 @@ WMI allows adversaries to remotely execute commands via Windows Management Instr
 - **WMIC Remote Invocation**:
   ```udm
   metadata.event_type = "PROCESS_LAUNCH"
-  AND principal.process.command_line = /wmic/nocase
-  AND principal.process.command_line = /\/node:/nocase
-  AND principal.process.command_line = /process call create/nocase
+  AND target.process.file.full_path = /wmic\.exe$/nocase
+  AND target.process.command_line = /\/node:/nocase
+  AND target.process.command_line = /process\s+call\s+create/nocase
   ```
 
 #### 3. Remote PowerShell & WinRM (T1021.006)
@@ -301,9 +307,9 @@ Windows Remote Management (WinRM) facilitates remote shell execution over TCP po
 Adversaries create scheduled tasks on remote systems using `schtasks.exe`:
 ```udm
 metadata.event_type = "PROCESS_LAUNCH"
-AND principal.process.file.full_path = /schtasks\.exe/nocase
-AND principal.process.command_line = /\/create/nocase
-AND principal.process.command_line = /\/s /nocase
+AND target.process.file.full_path = /schtasks\.exe$/nocase
+AND target.process.command_line = /\/create/nocase
+AND target.process.command_line = /\/s\s+/nocase
 ```
 
 ---

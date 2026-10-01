@@ -4,12 +4,13 @@ description: Generates code and provides documentation for the Genkit Dart SDK.
   Use when the user asks to build AI agents in Dart, use Genkit flows, or
   integrate LLMs into Dart/Flutter applications.
 metadata:
+  version: 1.0.0
   category: AiAndMachineLearning
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/developing-genkit-dart
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: d5d905232ec501743831cc68e6763af90da3cd69
+x-version: 1.0.1
 ---
 
 # Genkit Dart

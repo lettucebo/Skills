@@ -1,7 +1,7 @@
 ---
 name: bigquery-observability
 metadata:
-  version: v1
+  version: 1.1.0
   category: BigDataAndAnalytics
 description: Provides data-retrieval best practices, tool selection guidance,
   and performant SQL query syntax for BigQuery telemetry across
@@ -18,8 +18,8 @@ description: Provides data-retrieval best practices, tool selection guidance,
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/bigquery-observability
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: d5d905232ec501743831cc68e6763af90da3cd69
+x-version: 1.0.1
 ---
 
 # BigQuery Observability
@@ -32,7 +32,7 @@ x-version: 1.0.0
 | --- | --- | --- | --- |
 | **`INFORMATION_SCHEMA` (`I_S`)** | Historical analysis, cohort comparison (`normalized_literals`), discovery of fast/slow windows, reservation/project timelines, multi-job aggregates, cost/billing tracing. | Flexible SQL querying across `JOBS`, `JOBS_TIMELINE`, and `RESERVATIONS`; supports custom time windows and grouping. | Avoid for high-frequency real-time polling or single-job point-lookups (can consume slots and take seconds to execute). |
 | **REST API (`jobs.api` / `reservation.api`)** | Single-job point-lookup, real-time stage bottleneck diagnosis, automated pipeline status checks, reservation/capacity commitment configuration inspection (`reservations.get`, `reservations.list`). | Zero-SQL overhead, fast REST/CLI point-lookups (`bq show -j`, `bq show --reservation`), instant access to `performanceInsights`, `queryPlan`, and structural metadata. | Avoid for aggregate analysis across thousands of jobs, cross-project historical comparison, or system timeline aggregations. |
-| **`Cloud Monitoring` (Monarch / Charts)** | Real-time alerting, fleet-wide dashboards, continuous slot utilization tracking, high-level SLA/SLO monitoring. | Out-of-the-box charts for slot utilization, query throughput, `PENDING` queue depth, and execution latency; low-latency alerting without running queries. | Avoid for SQL-level debugging, individual query text inspection, or stage-level execution detail. |
+| **`Cloud Monitoring` (Metrics Explorer / Charts)** | Real-time alerting, fleet-wide dashboards, continuous slot utilization tracking, high-level SLA/SLO monitoring. | Out-of-the-box charts for slot utilization, query throughput, `PENDING` queue depth, and execution latency; low-latency alerting without running queries. | Avoid for SQL-level debugging, individual query text inspection, or stage-level execution detail. |
 
 <!-- mdformat on -->
 
@@ -72,6 +72,15 @@ Google Cloud environment and project are configured:
         *   `roles/bigquery.resourceViewer` or `roles/bigquery.admin`:
             Organization-level jobs and reservation telemetry.
         *   `roles/monitoring.viewer`: Cloud Monitoring metrics.
+
+6.  **Companion Skills Installation**:
+    This skill is part of a 3-pillar operations suite (`bigquery-observability`,
+    `bigquery-optimization`, `bigquery-troubleshooting`). If any companion skill
+    is not yet installed in your environment, install the full suite:
+
+    ```bash
+    npx skills add google/skills --skill bigquery-observability --skill bigquery-optimization --skill bigquery-troubleshooting
+    ```
 
 ## Workflow
 

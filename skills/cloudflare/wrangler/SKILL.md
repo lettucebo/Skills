@@ -6,11 +6,13 @@ description: Run or troubleshoot Wrangler CLI commands and configure Worker
 x-source: cloudflare/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/wrangler
-x-source-commit: 626547c06881a20b3322bdc2ed6e6451b33a4fb6
-x-version: 1.1.1
+x-source-commit: d8c1937dcd7a11d447965a87330c3a0fbf70ae22
+x-version: 1.1.2
 ---
 
 # Wrangler CLI
+
+If the project has a `cloudflare.config.ts` file, or the user has asked you to use the `cf` CLI, do not use this skill. Follow the [Cloudflare CLI documentation](https://developers.cloudflare.com/cf/) instead.
 
 Use the project's Wrangler version and retrieve the relevant documentation before writing commands or configuration. CLI flags and configuration fields change; do not rely on memorized examples.
 
