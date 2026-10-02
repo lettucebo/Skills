@@ -1,7 +1,7 @@
 ---
 name: dbt-sf-to-bq-translator
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: BigDataAndAnalytics
 description: Translates Snowflake dbt SQL models to Standardized BigQuery SQL.
   Handles SQL compilation, Jinja macro placeholder masking, BigQuery Translation
@@ -12,8 +12,8 @@ description: Translates Snowflake dbt SQL models to Standardized BigQuery SQL.
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/dbt-sf-to-bq-translator
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: c93a73ddde0c31f811e4459aeb876605dca4ebfb
+x-version: 1.0.1
 ---
 
 # dbt Snowflake to BigQuery Translator
@@ -28,7 +28,7 @@ Follow the instructions given you under `migration_plan/[mig_prefix]/tasks.md`. 
 # Prerequisites & Environment Setup
 
 Before starting the translation, ensure your Google Cloud environment is properly configured:
-1.  **Google Cloud SDK**: Install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install.md.txt) if not already installed.
+1.  **Google Cloud SDK**: Install the [Google Cloud SDK](https://docs.cloud.google.com/sdk/docs/install-sdk.md.txt) if not already installed.
 2.  **Authentication**: Authenticate your CLI session:
     ```bash
     gcloud auth login
@@ -43,7 +43,7 @@ Before starting the translation, ensure your Google Cloud environment is properl
     ```bash
     gcloud services enable bigquerymigration.googleapis.com storage.googleapis.com bigquery.googleapis.com
     ```
-6.  **Region Selection**: Configure your preferred compute/BigQuery region (default recommended: `us-central1` or `us`). See [Google Cloud Locations](https://cloud.google.com/about/locations.md.txt):
+6.  **Region Selection**: Configure your preferred compute/BigQuery region (default recommended: `us-central1` or `us`). See [Google Cloud Locations](https://cloud.google.com/about/locations):
     ```bash
     gcloud config set compute/region us-central1
     ```

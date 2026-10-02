@@ -5,8 +5,8 @@ description: Build, debug, or review Cloudflare Durable Objects code for
 x-source: cloudflare/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/durable-objects
-x-source-commit: 626547c06881a20b3322bdc2ed6e6451b33a4fb6
-x-version: 1.1.1
+x-source-commit: 41e0d19858946d18af9ee2c2feebbe2e11d829ff
+x-version: 1.1.2
 ---
 
 # Durable Objects
@@ -19,11 +19,11 @@ Your knowledge of Durable Objects APIs and configuration may be outdated. **Pref
 
 | Resource | URL |
 |----------|-----|
-| Docs | https://developers.cloudflare.com/durable-objects/ |
-| API Reference | https://developers.cloudflare.com/durable-objects/api/ |
-| Best Practices | https://developers.cloudflare.com/durable-objects/best-practices/ |
-| Examples | https://developers.cloudflare.com/durable-objects/examples/ |
-| Roles and permissions | https://developers.cloudflare.com/workers/authorization/durable-objects/ |
+| Docs | https://developers.cloudflare.com/durable-objects/index.md |
+| API Reference | https://developers.cloudflare.com/durable-objects/api/index.md |
+| Best Practices | https://developers.cloudflare.com/durable-objects/best-practices/index.md |
+| Examples | https://developers.cloudflare.com/durable-objects/examples/index.md |
+| Roles and permissions | https://developers.cloudflare.com/workers/authorization/durable-objects/index.md |
 
 Fetch the relevant doc page when implementing features.
 
@@ -128,7 +128,7 @@ export default {
 
 ## Authorization
 
-Durable Objects do not have separate roles or permissions; access follows the Worker that implements them. Retrieve the current [Durable Objects authorization guidance](https://developers.cloudflare.com/workers/authorization/durable-objects/) before granting observability or Data Studio access, and scope the Workers role to the intended Worker or Workers product.
+Durable Objects do not have separate roles or permissions; access follows the Worker that implements them. Retrieve the current [Durable Objects authorization guidance](https://developers.cloudflare.com/workers/authorization/durable-objects/index.md) before granting observability or Data Studio access, and scope the Workers role to the intended Worker or Workers product.
 
 ## Anti-Patterns (NEVER)
 

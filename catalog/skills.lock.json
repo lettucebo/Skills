@@ -1,6 +1,6 @@
 {
-  "release": "2.1.1",
-  "generatedAt": "2026-10-01T09:50:24.178Z",
+  "release": "2.1.2",
+  "generatedAt": "2026-10-02T09:26:38.888Z",
   "licenseEvidenceVersion": 1,
   "counts": {
     "total": 289,
@@ -671,7 +671,7 @@
       "path": "skills/cloudflare/agents-sdk",
       "name": "agents-sdk",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -679,22 +679,47 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:efd4714c3fb34fc2206f801987014fc347afa2da0a38ca2c459661e9f7be2779",
-      "contentHash": "sha256:2338cd234ff946eeb95ebdabaf12fb5acd8b46c99dd8aed1d588aa7719c2d9e9",
+      "snapshotHash": "sha256:c790f6932a9dcd8c48f2e1f32e8322d7333c0313d224220fa064295743a15116",
+      "contentHash": "sha256:92c8b2e1fb95f8623352a6105536508befb264fd80de3a2a9f37fb6afdaeb291",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/agents-sdk",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
       }
     },
     {
       "path": "skills/cloudflare/cloudflare",
       "name": "cloudflare",
+      "category": "mapped",
+      "version": "1.1.3",
+      "baseline": "verified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+      },
+      "snapshotHash": "sha256:5981f31a4d72ba6b4e9954bfa164a8f5d9e891a24811da330b16cb3ee2822f8d",
+      "contentHash": "sha256:9571af5f8b5f343052e422bf4d63b2448f90a3efe1fd9ce9b8a376ea9db83210",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/cloudflare",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
+      }
+    },
+    {
+      "path": "skills/cloudflare/cloudflare-email-service",
+      "name": "cloudflare-email-service",
       "category": "mapped",
       "version": "1.1.2",
       "baseline": "verified",
@@ -704,49 +729,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "d8c1937dcd7a11d447965a87330c3a0fbf70ae22",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:46b31263aab2a47b52adf8bd4e2e95631b635e71d3a18f5641b01d6bc85e26cf",
-      "contentHash": "sha256:ec5c46cfe89b1e195d12562f068eb8ddcb91062641ee5cc5a2304032be06a496",
-      "upstream": {
-        "repository": "cloudflare/skills",
-        "reference": "refs/heads/main",
-        "source": "skills/cloudflare",
-        "commit": "d8c1937dcd7a11d447965a87330c3a0fbf70ae22"
-      }
-    },
-    {
-      "path": "skills/cloudflare/cloudflare-email-service",
-      "name": "cloudflare-email-service",
-      "category": "mapped",
-      "version": "1.1.1",
-      "baseline": "verified",
-      "license": "Apache-2.0",
-      "redistributable": true,
-      "licenseEvidence": {
-        "source": "upstream-root:LICENSE",
-        "repository": "cloudflare/skills",
-        "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
-        "path": "LICENSE",
-        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
-      },
-      "snapshotHash": "sha256:e27380e7a318c470739b6006fb555bb6b1dff9affa47208789fa285179affe2a",
-      "contentHash": "sha256:30b4819cadb357e1b488c0dbf1b4f3c2525545e904a222851386d3048b3ce285",
+      "snapshotHash": "sha256:55d59d9129bf5e1e378e85abf5a7b55c78c4c393db173cf39b1122a6beee4228",
+      "contentHash": "sha256:96c9ebab1c15416610ed805a6983dc5650ce2885ab9ff014ead008c359f34ead",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloudflare-email-service",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
       }
     },
     {
       "path": "skills/cloudflare/cloudflare-one",
       "name": "cloudflare-one",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -754,24 +754,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:e56ae9d812315274b8cabe00a04d2ab82cceb8490c6eefa9bd0030619b5281ea",
-      "contentHash": "sha256:4836c3d93d50d9efcca42abce7ed48c0ffea349201dc8f28b840575db89188dc",
+      "snapshotHash": "sha256:8565d7a870a0630a72794ece4c5df13f514c0ff88b358b9ff2a35109eb0cb0c0",
+      "contentHash": "sha256:be197cff08c694a1642d2bbdcafbffa7e079e9fab409a2994aa36485efdb18e6",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloudflare-one",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
       }
     },
     {
       "path": "skills/cloudflare/cloudflare-one-migrations",
       "name": "cloudflare-one-migrations",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -779,24 +779,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:d941a359a9bdf5d5a1614866ce381d79c5e4ca9bf1dfbefc2dd2e9fcd224560d",
-      "contentHash": "sha256:fecdb1efad93b71de47b49f90253cf361706884488e734f0848b22ef210736ca",
+      "snapshotHash": "sha256:6b5e9c3685e67920584ff1c074d67e7022babf680bbb552b1799c92399e19dcb",
+      "contentHash": "sha256:33809e12e76b16e8084e4f0d07bf923119a9c078cc611a3a950a9ac28a8b3699",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloudflare-one-migrations",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
       }
     },
     {
       "path": "skills/cloudflare/durable-objects",
       "name": "durable-objects",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -804,24 +804,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:556a0b6720d5dced5f88bee12c2db27c7c84d03fee666f8d726bb4109704f6e9",
-      "contentHash": "sha256:c533f27520efef5c105ec36094a9865ac9e494bd61ba14911b948dd5d904fe25",
+      "snapshotHash": "sha256:c5d3f8ee796e7586bc4d88685849827077fafcd3442a50d4c5bfbc6af245294a",
+      "contentHash": "sha256:5e3533ea47a76a5bd8306aca36e1043276d35a19ab70aa72d4d19023d356b424",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/durable-objects",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
       }
     },
     {
       "path": "skills/cloudflare/sandbox-migrate-to-next",
       "name": "sandbox-migrate-to-next",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -829,24 +829,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:4965f770cb063dfe28cbdf0f4846fb7de07798710d6f0f41bb34f4351bb86dd2",
-      "contentHash": "sha256:77dec2d5dc2ec204949c70da59bf811280c9cf9567b9e46d0d1aa53ff5aaef24",
+      "snapshotHash": "sha256:2ad4fef5f8c665004b89549715ccf4e2a0e9adece5727d67fb0aab5200f1e3e5",
+      "contentHash": "sha256:ecb4b9e3ccb2788784f6869d6b7271fb0a1c328e08f49a3271b4a85f1f726514",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/sandbox-migrate-to-next",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
       }
     },
     {
       "path": "skills/cloudflare/sandbox-next",
       "name": "sandbox-next",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -854,24 +854,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:ce59f6d967a8ab735666d85c98acf55fb19c15697f347e1b9a09594c34bd42ea",
-      "contentHash": "sha256:cfe4b80db77d0156ebc240d44a4bddbd656384d6bfb4ae7c18e32d9ef4fe47c4",
+      "snapshotHash": "sha256:b8c767a3252ac5a16d09eaaf178734067e4826356b503e736be269f85c585d85",
+      "contentHash": "sha256:cd415e24ff1366189d1396f81afc9a18f13e9aaf4c73fffddb6875c0b8e94c08",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/sandbox-next",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
       }
     },
     {
       "path": "skills/cloudflare/sandbox-stable",
       "name": "sandbox-stable",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -879,24 +879,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:8ef7b670cebe6ca0c64c9a8502485d2e9ea38c016b4b46a06005c14fdaa4431c",
-      "contentHash": "sha256:63fd52bf420b3b04db65badbe158c30f79c520847c589dc65f6d9a8fee088b01",
+      "snapshotHash": "sha256:296803be07761dec97befa788340dc337166d28a7d842865afed9c351d9eff4d",
+      "contentHash": "sha256:d2166ce55447b212217529f0deb7b22466f4b85e6ff827727da87914ac787846",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/sandbox-stable",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
       }
     },
     {
       "path": "skills/cloudflare/turnstile-spin",
       "name": "turnstile-spin",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -904,17 +904,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:e4bbe8d256a29469c0d9b9aafddf9edd5c10858cf0f20e33f07c03f531580125",
-      "contentHash": "sha256:8014eb1554af54d7c99e0aea9cd3e607f4f5092b560b2c42e0ada2eb74d06b6f",
+      "snapshotHash": "sha256:41a8a9e4c29099bc2b8ac865e39b57fc142423aac6a171cab4aae9dcafbe54c0",
+      "contentHash": "sha256:4c178cb53ae56789b3dae824307e55291849d0785c9906114c117790d0944c5c",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/turnstile-spin",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
       }
     },
     {
@@ -946,31 +946,6 @@
       "path": "skills/cloudflare/workers-best-practices",
       "name": "workers-best-practices",
       "category": "mapped",
-      "version": "1.1.1",
-      "baseline": "verified",
-      "license": "Apache-2.0",
-      "redistributable": true,
-      "licenseEvidence": {
-        "source": "upstream-root:LICENSE",
-        "repository": "cloudflare/skills",
-        "reference": "refs/heads/main",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6",
-        "path": "LICENSE",
-        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
-      },
-      "snapshotHash": "sha256:c29857f2699e3fc119983a90f7277314c09c3b6c9e662073186edc1b3a35b962",
-      "contentHash": "sha256:5ea906efdbc430bb0d26b1f1dde3a975335246be2a7d550222dad347e48745f2",
-      "upstream": {
-        "repository": "cloudflare/skills",
-        "reference": "refs/heads/main",
-        "source": "skills/workers-best-practices",
-        "commit": "626547c06881a20b3322bdc2ed6e6451b33a4fb6"
-      }
-    },
-    {
-      "path": "skills/cloudflare/wrangler",
-      "name": "wrangler",
-      "category": "mapped",
       "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
@@ -979,17 +954,42 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "d8c1937dcd7a11d447965a87330c3a0fbf70ae22",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:8ed251c244bd09f8d5dc13d2f576048c7a1679dd015ca3a6dd17472b34862b96",
-      "contentHash": "sha256:ef97cbaadffbdb683da6da96e09f3e43ae1c80323a372aafba9fb6a9f3c8cc55",
+      "snapshotHash": "sha256:d1de554d478eac176527c1cfd51d1b13e2c1c1166b0c250328a6b933252a7895",
+      "contentHash": "sha256:4445e8e5bf93f8f6348b68b69694702887a5f69821aeec1f34ca4eab33720db4",
+      "upstream": {
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/workers-best-practices",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
+      }
+    },
+    {
+      "path": "skills/cloudflare/wrangler",
+      "name": "wrangler",
+      "category": "mapped",
+      "version": "1.1.3",
+      "baseline": "verified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "cloudflare/skills",
+        "reference": "refs/heads/main",
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+        "path": "LICENSE",
+        "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+      },
+      "snapshotHash": "sha256:bed0af40972352a05f89b87b128646bca7cb2ba1a67ceaf9be3acb11cee5aead",
+      "contentHash": "sha256:8789f6d13bb4d6cdc46739b850acdfcea44e2a365fc388ff4d065fda0dd83a73",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/wrangler",
-        "commit": "d8c1937dcd7a11d447965a87330c3a0fbf70ae22"
+        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
       }
     },
     {
@@ -3844,7 +3844,7 @@
       "path": "skills/google/cloud/dbt-sf-to-bq-translator",
       "name": "dbt-sf-to-bq-translator",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3852,17 +3852,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "c93a73ddde0c31f811e4459aeb876605dca4ebfb",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:94d826b01c3035792d12d660a22d5f0550cfe6630eb196d9afb72e9ce97768a5",
-      "contentHash": "sha256:51312a5bbd03fe7d9a113fdd57ad7648f25467dd937b412d7501b2380d5c5b66",
+      "snapshotHash": "sha256:2516d84e7c27bbb858ac0df07f6657d11edd9465b509f037cc40e1044eab3bb6",
+      "contentHash": "sha256:77797fe80f73b8b3eb05c9abca1f007e971a5fbed4bb00b4d7da34c11414faea",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/dbt-sf-to-bq-translator",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "c93a73ddde0c31f811e4459aeb876605dca4ebfb"
       }
     },
     {
@@ -6144,7 +6144,7 @@
       "path": "skills/google/cloud/spanner-basics",
       "name": "spanner-basics",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -6152,17 +6152,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "c93a73ddde0c31f811e4459aeb876605dca4ebfb",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:079f69fa894d5d25ee47b644b38ed4cacffe0985ff039995fc340d026236db87",
-      "contentHash": "sha256:bd5e502a34318face540c453ef56485bf1ccec2ad8ffe7bd843263a72a073731",
+      "snapshotHash": "sha256:0ec279b60633fabea9d8f0e4140320d1d9e8ad829a3e5614b95c72a1bdbdd564",
+      "contentHash": "sha256:2b4f298aad434c2724b042d5658a303ca57258c147def63de332b6d2da6a1fdd",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/spanner-basics",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "c93a73ddde0c31f811e4459aeb876605dca4ebfb"
       }
     },
     {

@@ -1,7 +1,7 @@
 ---
 name: spanner-basics
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   category: Databases
 description: Assists in provisioning instances and databases, designing
   performant schemas, and querying data in Spanner. Use when designing primary
@@ -10,8 +10,8 @@ description: Assists in provisioning instances and databases, designing
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/spanner-basics
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: c93a73ddde0c31f811e4459aeb876605dca4ebfb
+x-version: 1.0.1
 ---
 
 # Spanner Basics
@@ -52,6 +52,7 @@ This skill provides core workflows and guidance for administering and developing
 - [Terraform Usage](references/terraform-usage.md): Infrastructure as Code examples for provisioning Spanner instances and databases.
 - [MCP Usage](references/mcp-usage.md): Using the Spanner remote MCP server.
 - [PostgreSQL Dialect](references/postgresql-dialect.md): Best practices and examples for using the PostgreSQL interface in Spanner.
+- [Queues Usage](references/queues-usage.md): Cloud Spanner Queues: mental model, design constraints, and links related to transactional message queues.
 - [Schema Design](references/schema-design.md): Guidelines on primary key selection and interleaved tables for performance.
 
 If you need product information that's not found in these references, use the

@@ -1,6 +1,15 @@
 {
-  "release": "2.1.1",
+  "release": "2.1.2",
   "licenses": [
+    {
+      "repository": "cloudflare/skills",
+      "reference": "refs/heads/main",
+      "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "license": "Apache-2.0",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "bundlePath": "cloudflare--skills--a317a9aaf9890e04--41e0d19858946d18af9ee2c2feebbe2e11d829ff--LICENSE"
+    },
     {
       "repository": "cloudflare/skills",
       "reference": "refs/heads/main",
@@ -9,15 +18,6 @@
       "sourcePath": "LICENSE",
       "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
       "bundlePath": "cloudflare--skills--a317a9aaf9890e04--626547c06881a20b3322bdc2ed6e6451b33a4fb6--LICENSE"
-    },
-    {
-      "repository": "cloudflare/skills",
-      "reference": "refs/heads/main",
-      "commit": "d8c1937dcd7a11d447965a87330c3a0fbf70ae22",
-      "license": "Apache-2.0",
-      "sourcePath": "LICENSE",
-      "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
-      "bundlePath": "cloudflare--skills--a317a9aaf9890e04--d8c1937dcd7a11d447965a87330c3a0fbf70ae22--LICENSE"
     },
     {
       "repository": "expo/skills",
@@ -54,6 +54,15 @@
       "sourcePath": "LICENSE",
       "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
       "bundlePath": "google--skills--2c42a31a2228a072--99c871efb402aba106c3ce7432451d253efd77b1--LICENSE"
+    },
+    {
+      "repository": "google/skills",
+      "reference": "refs/heads/main",
+      "commit": "c93a73ddde0c31f811e4459aeb876605dca4ebfb",
+      "license": "Apache-2.0",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bundlePath": "google--skills--2c42a31a2228a072--c93a73ddde0c31f811e4459aeb876605dca4ebfb--LICENSE"
     },
     {
       "repository": "google/skills",

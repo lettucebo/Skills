@@ -34,12 +34,13 @@ Complete upstream root-license texts used by the registry are committed under
 
 | Upstream repository | Reference | Evidence commit | License | Text |
 |---------------------|-----------|-----------------|---------|------|
+| cloudflare/skills | refs/heads/main | `41e0d19858946d18af9ee2c2feebbe2e11d829ff` | Apache-2.0 | [LICENSE](catalog/licenses/cloudflare--skills--a317a9aaf9890e04--41e0d19858946d18af9ee2c2feebbe2e11d829ff--LICENSE) |
 | cloudflare/skills | refs/heads/main | `626547c06881a20b3322bdc2ed6e6451b33a4fb6` | Apache-2.0 | [LICENSE](catalog/licenses/cloudflare--skills--a317a9aaf9890e04--626547c06881a20b3322bdc2ed6e6451b33a4fb6--LICENSE) |
-| cloudflare/skills | refs/heads/main | `d8c1937dcd7a11d447965a87330c3a0fbf70ae22` | Apache-2.0 | [LICENSE](catalog/licenses/cloudflare--skills--a317a9aaf9890e04--d8c1937dcd7a11d447965a87330c3a0fbf70ae22--LICENSE) |
 | expo/skills | refs/heads/main | `c0dadf355d4caa4e1720de372f0f8766df1a8978` | MIT | [LICENSE](catalog/licenses/expo--skills--bda913dfa6363523--c0dadf355d4caa4e1720de372f0f8766df1a8978--LICENSE) |
 | github/awesome-copilot | refs/heads/main | `4742f265959bf025882314564b364d9d7af6e2d5` | MIT | [LICENSE](catalog/licenses/github--awesome-copilot--a178dc401fe03076--4742f265959bf025882314564b364d9d7af6e2d5--LICENSE) |
 | github/awesome-copilot | refs/heads/main | `997e95a6e42869c350f8ca6ec4c066287697c9f0` | MIT | [LICENSE](catalog/licenses/github--awesome-copilot--a178dc401fe03076--997e95a6e42869c350f8ca6ec4c066287697c9f0--LICENSE) |
 | google/skills | refs/heads/main | `99c871efb402aba106c3ce7432451d253efd77b1` | Apache-2.0 | [LICENSE](catalog/licenses/google--skills--2c42a31a2228a072--99c871efb402aba106c3ce7432451d253efd77b1--LICENSE) |
+| google/skills | refs/heads/main | `c93a73ddde0c31f811e4459aeb876605dca4ebfb` | Apache-2.0 | [LICENSE](catalog/licenses/google--skills--2c42a31a2228a072--c93a73ddde0c31f811e4459aeb876605dca4ebfb--LICENSE) |
 | google/skills | refs/heads/main | `d5d905232ec501743831cc68e6763af90da3cd69` | Apache-2.0 | [LICENSE](catalog/licenses/google--skills--2c42a31a2228a072--d5d905232ec501743831cc68e6763af90da3cd69--LICENSE) |
 | henkisdabro/wookstar-claude-plugins | refs/heads/main | `5091eccfb7cf09275f20fda850c190dff83be100` | MIT | [LICENSE](catalog/licenses/henkisdabro--wookstar-claude-plugins--d3e12b52a035c7c5--5091eccfb7cf09275f20fda850c190dff83be100--LICENSE) |
 | microsoft/skills | refs/heads/main | `cde32f9c7332b53de67faa7dadabb6873d02bb0c` | MIT | [LICENSE](catalog/licenses/microsoft--skills--d7f8dad1627d0b67--cde32f9c7332b53de67faa7dadabb6873d02bb0c--LICENSE) |
