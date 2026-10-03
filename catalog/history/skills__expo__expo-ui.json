@@ -11,6 +11,14 @@
       "upstreamCommit": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
       "diffUrl": null,
       "contentHash": "sha256:3016f97fa109e45d0b11f7cd1858dc2d283f5b026e4071be9cc74d786022967c"
+    },
+    {
+      "release": "2.1.3",
+      "kind": "upstream-update",
+      "version": "1.0.1",
+      "upstreamCommit": "13ad8e05874195633b5c185f6947bb6400e228fc",
+      "diffUrl": "https://github.com/expo/skills/compare/c0dadf355d4caa4e1720de372f0f8766df1a8978...13ad8e05874195633b5c185f6947bb6400e228fc",
+      "contentHash": "sha256:8189c07f06574fdb1fa4478d81b27b4274307e0e8d295368bc3bd857d9a5c971"
     }
   ]
 }

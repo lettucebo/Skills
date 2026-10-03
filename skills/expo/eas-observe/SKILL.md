@@ -1,10 +1,10 @@
 ---
 name: eas-observe
-description: EAS service (paid). Use for anything related to EAS Observe -
-  adding `expo-observe` to an Expo project (AppMetricsRoot/ObserveRoot HOC,
-  markInteractive and ObserveInteractiveMarker, the useObserve hook, the Expo
-  Router / React Navigation integrations for per-route metrics, user-defined
-  events via `Observe.logEvent`, error reporting via ObserveErrorBoundary and
+description: Use for anything related to EAS Observe - adding `expo-observe` to
+  an Expo project (AppMetricsRoot/ObserveRoot HOC, markInteractive and
+  ObserveInteractiveMarker, the useObserve hook, the Expo Router / React
+  Navigation integrations for per-route metrics, user-defined events via
+  `Observe.logEvent`, error reporting via ObserveErrorBoundary and
   `Observe.reportError`, and runtime config such as sampleRate and
   dispatchInDebug), querying via the EAS CLI (`eas observe:metrics-summary`,
   `observe:metrics`, `observe:routes`, `observe:events`, `observe:session`,
@@ -17,8 +17,8 @@ license: MIT
 x-source: expo/skills
 x-source-ref: refs/heads/main
 x-source-path: plugins/expo/skills/eas-observe
-x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
-x-version: 1.0.0
+x-source-commit: 13ad8e05874195633b5c185f6947bb6400e228fc
+x-version: 1.0.1
 ---
 
 # EAS Observe

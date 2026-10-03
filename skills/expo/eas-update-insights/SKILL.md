@@ -1,18 +1,18 @@
 ---
 name: eas-update-insights
-description: "EAS service (paid). Check the health of published EAS Update:
-  crash rates, install/launch counts, unique users, payload size, and the split
-  between embedded and OTA users per channel. Use when the user asks how an
-  update is performing, whether a rollout is healthy, how many users are on the
-  embedded build vs OTA, or wants to gate CI on update health."
+description: "Check the health of published EAS Update: crash rates,
+  install/launch counts, unique users, payload size, and the split between
+  embedded and OTA users per channel. Use when the user asks how an update is
+  performing, whether a rollout is healthy, how many users are on the embedded
+  build vs OTA, or wants to gate CI on update health."
 version: 1.0.0
 license: MIT
 allowed-tools: Bash(eas *)
 x-source: expo/skills
 x-source-ref: refs/heads/main
 x-source-path: plugins/expo/skills/eas-update-insights
-x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
-x-version: 1.0.0
+x-source-commit: 13ad8e05874195633b5c185f6947bb6400e228fc
+x-version: 1.0.1
 ---
 
 # EAS Update Insights

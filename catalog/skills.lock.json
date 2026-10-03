@@ -1,6 +1,6 @@
 {
-  "release": "2.1.2",
-  "generatedAt": "2026-10-02T09:26:38.888Z",
+  "release": "2.1.3",
+  "generatedAt": "2026-10-03T08:55:11.976Z",
   "licenseEvidenceVersion": 1,
   "counts": {
     "total": 289,
@@ -1335,7 +1335,7 @@
       "path": "skills/expo/eas-app-stores",
       "name": "eas-app-stores",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1345,22 +1345,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:95b431c52d00b1ce0eeb0117825a32b09057de085d1c653f85915c90ac3bfbc6",
-      "contentHash": "sha256:8775fea9147cc1da6fd7fc14921605f80d84a0826931a8723db7474986fcae5a",
+      "snapshotHash": "sha256:7203ee2eaece33780498df13e171928ef0d29033cc3f9dcb9c987f26104c75cd",
+      "contentHash": "sha256:25e91cfc44a9ae979ff7b99020db47e082cab23e51520d2c939b2f59be82ed25",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/eas-app-stores",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/eas-hosting",
       "name": "eas-hosting",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1370,22 +1370,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:75668f0d76c3ebe2525e57d5eca2f10cb953bde5a7bfcd45b4058b7c0d373c08",
-      "contentHash": "sha256:0dd25d81fca880bbf48f25eee2a30f8a063fbc5286fa438ab0da43ac8e90195e",
+      "snapshotHash": "sha256:73296554ea2e0bc97932b30a4b4d764187e5f97d772625fbbebd38416f1635ef",
+      "contentHash": "sha256:9579b8e2ff825bab0c8c3b3230357d727e5f7f22724337cde6ee64f70848d74e",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/eas-hosting",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/eas-observe",
       "name": "eas-observe",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1395,22 +1395,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:8c08d048c8755f24a776e69a076dbdf087d5958a4a0d469fd9c26d807dabb3ac",
-      "contentHash": "sha256:f6f042c8220bf57a57b56a528f27a78892f1cbfe0e2c5e4ff3fa5c297d66ae80",
+      "snapshotHash": "sha256:7488a54467a5c3fa106ad29ffc46e7bb9624dd7fc3c798340e1bfc6166cbd458",
+      "contentHash": "sha256:0179185117ec3a6f9e87d544e48daf13619d412f8d20a8f1c4cd20b7f03f6c64",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/eas-observe",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/eas-simulator",
       "name": "eas-simulator",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1420,22 +1420,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:e91e16c880ef9d7f34ae2799e401f4e0046d23d98f534953a674dcade2e57070",
-      "contentHash": "sha256:15e4cd71e1a2a23a711929499b1cbcb4da324a6d7486a477ccc7005d37f782b0",
+      "snapshotHash": "sha256:77d5333c69837ea0ed4f17219b15491859f0297d2f6eb740465cd11d2ff3ced6",
+      "contentHash": "sha256:05b291232ff088d93856c3037600fc2be322a2cc509e7fc41abc4cf4a636ff6c",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/eas-simulator",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/eas-update",
       "name": "eas-update",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1445,22 +1445,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:f5770f2c4678a874295541beefb3963fe2c990678e4f226ee4c3a95a81ebb236",
-      "contentHash": "sha256:b07b74e19e1f87b1f391d62840f61bc7a1859df82842524c481190da80e5a9a3",
+      "snapshotHash": "sha256:ad99584e06b0d2b6939a653862883d8e5cc5b6b5c4e4a2af793943d085fe78e1",
+      "contentHash": "sha256:82e1ab0ec9e19e42d36447ad6bde0e83b47a5f4412c42cc9e24c0db895f32451",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/eas-update",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/eas-update-insights",
       "name": "eas-update-insights",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1470,22 +1470,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:55fc4f7f3ae09de27074b327f33f71ad8c068f069ee1794046e6178f2c13e94e",
-      "contentHash": "sha256:179ff63bd52170d6681c489eba4ad2ec327266336504fa8ec04a00f4a63d59d0",
+      "snapshotHash": "sha256:62367c1a0c655dd3bc349f4c38323561cb9a62b6cf984661f99184acd6cfb4e6",
+      "contentHash": "sha256:d7ebc1d7e407796b393c202beaed01fd4e3a402e822a1b1f7e2db72717ed191f",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/eas-update-insights",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/eas-workflows",
       "name": "eas-workflows",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1495,22 +1495,22 @@
         "hash": "sha256:abb2896dc3c2a9402f901b88d5035cf0a83d5cf7c17e73642cdf562b0b9d3bc5",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:f2423a62b016644d0e0fa19c3c14575e123a05504a5e5d7dfd5dc65136297f94",
-      "contentHash": "sha256:353fa7820b1168c689e8fb6493490ff814015bae74dfeb66d9cbabe4e314a0e8",
+      "snapshotHash": "sha256:1569343da2a2483e0defa90fdf4c6d509bfc9344882621c77770f554d3cec86a",
+      "contentHash": "sha256:61f6ef3bff2c7f740ef45c460182dfec7fe4c60254a7ffaa6e701f9e4baec7a3",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/eas-workflows",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-animation",
       "name": "expo-animation",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1520,22 +1520,22 @@
         "hash": "sha256:4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:3ff0d9a648ab5d316832f0827a5b643b2691e421249094074df0ff728a2ee1b6",
-      "contentHash": "sha256:869d56ae317c884407c95370cb1cac66262bfea4c81c05bb134c0752bef53d30",
+      "snapshotHash": "sha256:66b39e43f88bcce6829f537a5025282c6afa6a818bfbec3affa02db260f2c8ce",
+      "contentHash": "sha256:7a8addd87498a0691cac9c8bb9b2a420253f8c618b52bf666a87f05078e3fdf0",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-animation",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-app-clip",
       "name": "expo-app-clip",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1543,24 +1543,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc",
         "path": "LICENSE",
         "hash": "sha256:49c5f9c7097c9a940ff663a54c27a4c60e379df6cc2b3052df0d37a09a85df93"
       },
-      "snapshotHash": "sha256:b508ba6c991f03e1f0c4a330faae271febd334e938eaf4aac11d9057d3ba9d40",
-      "contentHash": "sha256:09c2083cda6aff26f63ed67e8dfd74f8eec76eebd28b22876d0a7b213e7022f5",
+      "snapshotHash": "sha256:11d4552e24e7e8a51fedc434abae34ab32f655649ac2bf6d269b40772325b3e8",
+      "contentHash": "sha256:c708630e2d10023b0e6e541d04db55515593e4ca4cb53729fc5a43169ac62978",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-app-clip",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-brownfield",
       "name": "expo-brownfield",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1568,24 +1568,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978",
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc",
         "path": "LICENSE",
         "hash": "sha256:49c5f9c7097c9a940ff663a54c27a4c60e379df6cc2b3052df0d37a09a85df93"
       },
-      "snapshotHash": "sha256:a4ba761c1b0a9f2f5187d05cc3fc6beb79a97a3f355cb874940ecca12951f66f",
-      "contentHash": "sha256:10c9edf119c85f2d9fa209855d7c78679cfdd83a703dd579de49c9aa70be6ef9",
+      "snapshotHash": "sha256:e4e578157b7360f9764914793543bd7005e8dd0fc56c2a0e65d85d377aaf9dcf",
+      "contentHash": "sha256:e43ebd4dfe6dae2dc4cf0dfad253ea3726f98f4ebc1f0de1158281952494e265",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-brownfield",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-data-fetching",
       "name": "expo-data-fetching",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1595,22 +1595,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:f8e3769854ee6ae52632c65ecc6988456c5d01498d2677fe56e97a6e642c3c8d",
-      "contentHash": "sha256:43b9e30947482dbacb34c798ffc7b48d4170e650b15612fd69357e1f1d106703",
+      "snapshotHash": "sha256:aa6827ca2e5a9f94c7cba9f19135283c9379ed4be6f189d3da221b85e64d3c3a",
+      "contentHash": "sha256:e60026ff0c8af05778ac89f21155601c013d66c3eec7980e6984fcd5e50480d0",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-data-fetching",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-design-system",
       "name": "expo-design-system",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1620,22 +1620,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:caa9561efbc90a5486f6715037af51f31c0730f3560b15e6d1e1d54123d61579",
-      "contentHash": "sha256:3f0daf63e81e72f07530fe2ad564c4b3ddf13578a3afc87e7e93f7ff581c70a1",
+      "snapshotHash": "sha256:f0b364dc2293ff2c679b870c0b7b766e5cdca8eff5e640a0b898909b33d65f79",
+      "contentHash": "sha256:d985041e58cf8cbe33d64a72cc841481dd7d701bd414812d1b34afb4cb8dddb6",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-design-system",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-dev-client",
       "name": "expo-dev-client",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1645,22 +1645,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:9d87434a0f83d52b0006ba530d3e7dbdfbd85420bb66b89ad5c6f03dd3c901ce",
-      "contentHash": "sha256:bf83eeb1c232e30c78fb11c0e5761d79d33491019aa32ea73584469d1684fc4d",
+      "snapshotHash": "sha256:be91a2077cb8012aba2563125be444c986e10d6284bff0638167396e9a730493",
+      "contentHash": "sha256:ece73aadf75bd7c7f8223f667c2e74c67acd3b1e4d5b6c2fcfcf33d522c02cf8",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-dev-client",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-dom",
       "name": "expo-dom",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1670,22 +1670,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:0035dc7ce3488d39dc3e6387257d6563c81b05eecdeb9d2473526732700a84d5",
-      "contentHash": "sha256:ca575472a77ee4315ed836ea63795894a99c2493a970b5f9c93aebf8c419c50a",
+      "snapshotHash": "sha256:b055e838530d7ff0b6aee54ccaea3cedf1dfbaaaaa5371f48067fab0ab4dae43",
+      "contentHash": "sha256:011bbc7a663a5af2fed9145b52a5e8f1275aecbd96e7925acd30b2bdaf03e0d9",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-dom",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-examples",
       "name": "expo-examples",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1695,22 +1695,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:1904f4af7dc42c0dcca96091f3e749e9f9d0df4431899a34768a37d1fa8002f9",
-      "contentHash": "sha256:f7c098e56f63b985248c959d2dfd74dd9798658c8ba536c03afcb8bc3f42eb49",
+      "snapshotHash": "sha256:0f02fa0d97eb17b82786183a3416ee791c9d6640bb384938b53b8421ec895fec",
+      "contentHash": "sha256:7db443510be708ee9f1a9bb8deda4c1657aa19d55fda71bd869f3265dcc6c166",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-examples",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-module",
       "name": "expo-module",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1720,22 +1720,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:4b43fd9cac7e76e914e11c2c6b4b42d9a482b88a945416fae7e86248504fa9df",
-      "contentHash": "sha256:6e96a21d88eb49511b9cc1a7bef2dbd039c25c363f1fae52a51916bce6657593",
+      "snapshotHash": "sha256:7a193efe1c04fb99fc3617467e456eced4d11e536ec395f3f65363475507edad",
+      "contentHash": "sha256:4589b1113a834227806103e553911b01c02904b855bfc3eff21fc376b23ba888",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-module",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-native-ui",
       "name": "expo-native-ui",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1745,22 +1745,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:39693e0071e01490ee444a880b033abd05351b680a69c8b1e3eb0b8c18355d1d",
-      "contentHash": "sha256:b7f76ed7ab6b15d309b70dc9848b5f460fdc7670396fcd5aa3901a28797a4a75",
+      "snapshotHash": "sha256:f2199085f2b24c19e238da3484f8ab26d4465b496452d5a46fa603e5e5b2d7e4",
+      "contentHash": "sha256:f0cf04600930722dec64ca0ee25360c457477b695674f576e7a77f549f08d2dd",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-native-ui",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-overview",
       "name": "expo-overview",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1770,22 +1770,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:144ccb332f2a6d062d4e545c64dd2140437490e3c9a7f353832b3c11a0f24561",
-      "contentHash": "sha256:abf4b79c6d755fc83f6ae670fd752358eac9ee239d8fe359b83ee9adf8044cbb",
+      "snapshotHash": "sha256:d5f7714b054d2fbf2d7ae1573fc5b67504512b9ea576ca21200ac396e5f201cc",
+      "contentHash": "sha256:891dcc6a19ed14ff53e98c64f309248b08c084fabdf4f4271af6a1bcd781eb26",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-overview",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-project-structure",
       "name": "expo-project-structure",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1795,22 +1795,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:ea5b57e7489e3546727cf43749e55dc8724aeb013189c7af940bdd0adbd43c3e",
-      "contentHash": "sha256:247803066d5e635f9fb8a41ace3afb3ce7a10e18a017a8d6a933dbdf336ceb4a",
+      "snapshotHash": "sha256:fb0d5409bab729e4e8f86730ea78be63decbd65deefbda90fa06dccabca07897",
+      "contentHash": "sha256:87be45dab392858609b119bb0fbf35291d712b51c9f5d13d95786b2be2e50894",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-project-structure",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-router",
       "name": "expo-router",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1820,15 +1820,15 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:115cd44ac958221150caece346f20a37a66f365d17c5fe4c9b8fb565f95d780a",
-      "contentHash": "sha256:1dba9bc62ad5d6cb37e00c0802cd2cd21b941aacdd0c81e4c239334d606a306a",
+      "snapshotHash": "sha256:137f99fa8638a3d773ae38845d59fecc7dc89cee2b25e8ec1c9fa284657f54f8",
+      "contentHash": "sha256:71636d49c46cd469c6c767bd1b43cfc9b6ab5fb8c398394827283fe346b0b805",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-router",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
@@ -1860,7 +1860,7 @@
       "path": "skills/expo/expo-ui",
       "name": "expo-ui",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1870,22 +1870,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:4b000d26fd2090e57e9f355a7bbedc6a4b283b23f2fb75ac8861c0b0f57eb06a",
-      "contentHash": "sha256:3016f97fa109e45d0b11f7cd1858dc2d283f5b026e4071be9cc74d786022967c",
+      "snapshotHash": "sha256:e6cc793166ec0f76928b35e039f962250986d96a63904544438f0a0af7c0f660",
+      "contentHash": "sha256:8189c07f06574fdb1fa4478d81b27b4274307e0e8d295368bc3bd857d9a5c971",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-ui",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-upgrade",
       "name": "expo-upgrade",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1895,22 +1895,22 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:5c6ba17197946158edea1ce39926a5e71aab3c10acaeb7bb2071b888f9d63959",
-      "contentHash": "sha256:9794c04c24d4105ebbb9b591f2df38a7696bb6c1539ce18a4d2574650483f426",
+      "snapshotHash": "sha256:fea845da0432cf46022e2e9544a72626c4fff118220f65d0727e7dcaf9044f09",
+      "contentHash": "sha256:4c8958803564ee04b2f37ee52c83dd2425169c65a882d9a5b964d5dd28f49aa8",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-upgrade",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
       "path": "skills/expo/expo-web-to-native",
       "name": "expo-web-to-native",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1920,15 +1920,15 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       },
-      "snapshotHash": "sha256:dee8dde7e1fa4c2e9af0bdf7648ea56e02bb3f68ac94eaa185a982f558ffe2c7",
-      "contentHash": "sha256:6e4837e5e10fb3eeca43a74e0fb81e3460eb37042eb194325081ba83787ec31e",
+      "snapshotHash": "sha256:bbef2e47c93f77ca5b6a618a1933072d2b002f1927f376a6383d314c66105785",
+      "contentHash": "sha256:0d6a5c690d09c0328e2215848544cc03dc512f9eba5d0837bba47e1830c16fc6",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/expo-web-to-native",
-        "commit": "c0dadf355d4caa4e1720de372f0f8766df1a8978"
+        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
       }
     },
     {
@@ -4119,7 +4119,7 @@
       "path": "skills/google/cloud/gemini-interactions-api",
       "name": "gemini-interactions-api",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -4127,17 +4127,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "1d77046ad3670d62227f50a8f53286f6c6cde08b",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:90995630df79dcc77ad6c9c7259568435a7490f1a09d291e532766e0fa13b55a",
-      "contentHash": "sha256:8aec817939a3c9b7e11d2e80288b4016721b4c3ce2149b172e80b72060aa5645",
+      "snapshotHash": "sha256:55d302e9096117dc32c143c2f6060a7549b1c80ba9cc7c61dbed275f34466995",
+      "contentHash": "sha256:7c97dca3608e9a23c9d6ea6c5021e0794ab507df65e9300ce14742ca1d0abe80",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/gemini-interactions-api",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "1d77046ad3670d62227f50a8f53286f6c6cde08b"
       }
     },
     {
@@ -4569,7 +4569,7 @@
       "path": "skills/google/cloud/gke-golden-path",
       "name": "gke-golden-path",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -4577,17 +4577,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "1d77046ad3670d62227f50a8f53286f6c6cde08b",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:e1a5f5e8173ab7ad27dc21b2f9c66b5cf5929594fd2cee27cd3e04d8f740db38",
-      "contentHash": "sha256:27c81c6a8dfb7678d9e1bdd21c1db86850c04e0ece077e987398c239a1235d57",
+      "snapshotHash": "sha256:952b946861d8a4cc33fe5b928dad20ff5572892596ac2944b7162dd471216e39",
+      "contentHash": "sha256:8fcde3f3d8aa3f90e16e1b22ccd34928b2c429d2c5878e5f10ca0ab028bcbce0",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/gke-golden-path",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "1d77046ad3670d62227f50a8f53286f6c6cde08b"
       }
     },
     {
@@ -5694,7 +5694,7 @@
       "path": "skills/google/cloud/google-cloud-waf-cost-optimization",
       "name": "google-cloud-waf-cost-optimization",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5702,17 +5702,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "1d77046ad3670d62227f50a8f53286f6c6cde08b",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:9e77a37a5273e2f14b5b4b65349bf2f32a17315bdee056ec49c1944d07600e96",
-      "contentHash": "sha256:0d28d10fcd5d9cda4cc5d04f8178e8e5e115a1e8ac59157654ebc816b689af42",
+      "snapshotHash": "sha256:2938ea2225c59f753b780778759e550aa878747c947dd5830fe50c8851d35298",
+      "contentHash": "sha256:30e36b268b6999bedeb54555484637baab6db1540fdfe91c9ac5425c7d62b990",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-waf-cost-optimization",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "1d77046ad3670d62227f50a8f53286f6c6cde08b"
       }
     },
     {

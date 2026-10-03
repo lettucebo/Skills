@@ -1,16 +1,15 @@
 ---
 name: expo-project-structure
-description: Framework (OSS). Folder structure for a new Expo app. Use when
-  scaffolding or laying out a new Expo project with Expo Router, or deciding
-  where a file should live in one. For new projects only — never restructure an
-  existing app to match.
+description: Folder structure for a new Expo app. Use when scaffolding or laying
+  out a new Expo project with Expo Router, or deciding where a file should live
+  in one. For new projects only — never restructure an existing app to match.
 version: 1.0.0
 license: MIT
 x-source: expo/skills
 x-source-ref: refs/heads/main
 x-source-path: plugins/expo/skills/expo-project-structure
-x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
-x-version: 1.0.0
+x-source-commit: 13ad8e05874195633b5c185f6947bb6400e228fc
+x-version: 1.0.1
 ---
 
 # Expo Project Structure

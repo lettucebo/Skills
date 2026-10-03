@@ -1,25 +1,25 @@
 ---
 name: expo-design-system
-description: Framework (OSS). Build and maintain a design system inside an Expo
-  app - a reusable theme of design tokens (color, spacing, typography, radius,
-  shadow, motion), reusable component structure with variant/size/state prop
-  conventions, and rules for when to extract a repeated view into a shared
-  component. Use when creating or organizing theme files and design tokens
-  (theme.ts / theme/), extending an existing theme or styling library
-  (NativeWind, Tamagui, Restyle, Unistyles) in its own idiom, standardizing
-  styles so screens (including AI-generated ones) look consistent and polished,
-  fixing an app that looks AI-generated or generic instead of native (the named
-  native-slop tells), building an in-app component library, or auditing an app
-  for design-system drift (hardcoded colors, spacing, fonts). For platform
-  styling specifics (semantic colors, HIG rules, native controls) use
-  expo-native-ui; for folder layout of a new app use expo-project-structure.
+description: Build and maintain a design system inside an Expo app - a reusable
+  theme of design tokens (color, spacing, typography, radius, shadow, motion),
+  reusable component structure with variant/size/state prop conventions, and
+  rules for when to extract a repeated view into a shared component. Use when
+  creating or organizing theme files and design tokens (theme.ts / theme/),
+  extending an existing theme or styling library (NativeWind, Tamagui, Restyle,
+  Unistyles) in its own idiom, standardizing styles so screens (including
+  AI-generated ones) look consistent and polished, fixing an app that looks
+  AI-generated or generic instead of native (the named native-slop tells),
+  building an in-app component library, or auditing an app for design-system
+  drift (hardcoded colors, spacing, fonts). For platform styling specifics
+  (semantic colors, HIG rules, native controls) use expo-native-ui; for folder
+  layout of a new app use expo-project-structure.
 version: 1.0.0
 license: MIT
 x-source: expo/skills
 x-source-ref: refs/heads/main
 x-source-path: plugins/expo/skills/expo-design-system
-x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
-x-version: 1.0.0
+x-source-commit: 13ad8e05874195633b5c185f6947bb6400e228fc
+x-version: 1.0.1
 ---
 
 # Expo Design Systems

@@ -1,15 +1,15 @@
 ---
 name: expo-dev-client
-description: Framework (OSS). Build and distribute Expo development clients
-  locally or via TestFlight for internal testing. For production TestFlight
-  releases and store submission, use the eas-app-stores skill.
+description: Build and distribute Expo development clients locally or via
+  TestFlight for internal testing. For production TestFlight releases and store
+  submission, use the eas-app-stores skill.
 version: 1.1.0
 license: MIT
 x-source: expo/skills
 x-source-ref: refs/heads/main
 x-source-path: plugins/expo/skills/expo-dev-client
-x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
-x-version: 1.0.0
+x-source-commit: 13ad8e05874195633b5c185f6947bb6400e228fc
+x-version: 1.0.1
 ---
 
 Use EAS Build to create development clients for testing native code changes on physical devices. Use this for creating custom Expo Go clients for testing branches of your app.

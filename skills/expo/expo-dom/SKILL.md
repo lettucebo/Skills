@@ -1,16 +1,15 @@
 ---
 name: expo-dom
-description: Framework (OSS). Use Expo DOM components to run web code in a
-  webview on native and as-is on web. Migrate web code to native incrementally.
-  For the end-to-end migration of a whole web app, use the expo-web-to-native
-  skill.
+description: Use Expo DOM components to run web code in a webview on native and
+  as-is on web. Migrate web code to native incrementally. For the end-to-end
+  migration of a whole web app, use the expo-web-to-native skill.
 version: 1.0.0
 license: MIT
 x-source: expo/skills
 x-source-ref: refs/heads/main
 x-source-path: plugins/expo/skills/expo-dom
-x-source-commit: c0dadf355d4caa4e1720de372f0f8766df1a8978
-x-version: 1.0.0
+x-source-commit: 13ad8e05874195633b5c185f6947bb6400e228fc
+x-version: 1.0.1
 ---
 
 ## What are DOM Components?
