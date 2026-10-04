@@ -1,5 +1,5 @@
 {
-  "release": "2.1.3",
+  "release": "2.1.4",
   "licenses": [
     {
       "repository": "cloudflare/skills",
@@ -94,11 +94,11 @@
     {
       "repository": "henkisdabro/wookstar-claude-plugins",
       "reference": "refs/heads/main",
-      "commit": "5091eccfb7cf09275f20fda850c190dff83be100",
+      "commit": "cdc5961bd33293a54751d4b3b30e72be424aaf5a",
       "license": "MIT",
       "sourcePath": "LICENSE",
       "hash": "sha256:48dfa68521bf12091285618e22ed767d79c328189e2b7f6745aa473535101335",
-      "bundlePath": "henkisdabro--wookstar-claude-plugins--d3e12b52a035c7c5--5091eccfb7cf09275f20fda850c190dff83be100--LICENSE"
+      "bundlePath": "henkisdabro--wookstar-claude-plugins--d3e12b52a035c7c5--cdc5961bd33293a54751d4b3b30e72be424aaf5a--LICENSE"
     },
     {
       "repository": "microsoft/skills",

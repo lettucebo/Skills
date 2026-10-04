@@ -41,6 +41,14 @@
       },
       "evidenceCommit": "5091eccfb7cf09275f20fda850c190dff83be100",
       "evidenceHash": "sha256:48dfa68521bf12091285618e22ed767d79c328189e2b7f6745aa473535101335"
+    },
+    {
+      "release": "2.1.4",
+      "kind": "upstream-update",
+      "version": "1.1.1",
+      "upstreamCommit": "cdc5961bd33293a54751d4b3b30e72be424aaf5a",
+      "diffUrl": "https://github.com/henkisdabro/wookstar-claude-plugins/compare/5091eccfb7cf09275f20fda850c190dff83be100...cdc5961bd33293a54751d4b3b30e72be424aaf5a",
+      "contentHash": "sha256:8a0fe8eb725a09e90f385f91c7429d176e521bda906bd706d8275f1c9892e918"
     }
   ]
 }

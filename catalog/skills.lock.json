@@ -1,6 +1,6 @@
 {
-  "release": "2.1.3",
-  "generatedAt": "2026-10-03T08:55:11.976Z",
+  "release": "2.1.4",
+  "generatedAt": "2026-10-04T09:24:52.991Z",
   "licenseEvidenceVersion": 1,
   "counts": {
     "total": 289,
@@ -7044,25 +7044,25 @@
       "path": "skills/tampermonkey/tampermonkey",
       "name": "tampermonkey",
       "category": "mapped",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
-      "snapshotHash": "sha256:e40eac989b8a1ae0685b817c59f6028cd648bad45a198384c1b479b239bed691",
-      "contentHash": "sha256:cde80ad6dfe90690947dfb326574137bdea632dc49c3aa38c64ff2f7416e2290",
-      "upstream": {
-        "repository": "henkisdabro/wookstar-claude-plugins",
-        "reference": "refs/heads/main",
-        "source": "plugins/tampermonkey/skills/tampermonkey",
-        "commit": "5091eccfb7cf09275f20fda850c190dff83be100"
-      },
       "licenseEvidence": {
         "source": "upstream-root:LICENSE",
         "repository": "henkisdabro/wookstar-claude-plugins",
         "reference": "refs/heads/main",
-        "commit": "5091eccfb7cf09275f20fda850c190dff83be100",
+        "commit": "cdc5961bd33293a54751d4b3b30e72be424aaf5a",
         "path": "LICENSE",
         "hash": "sha256:48dfa68521bf12091285618e22ed767d79c328189e2b7f6745aa473535101335"
+      },
+      "snapshotHash": "sha256:0fd2c06a82b659fa6875e30184d7ec57d6d330353d3b23af400e60f27f9e8161",
+      "contentHash": "sha256:8a0fe8eb725a09e90f385f91c7429d176e521bda906bd706d8275f1c9892e918",
+      "upstream": {
+        "repository": "henkisdabro/wookstar-claude-plugins",
+        "reference": "refs/heads/main",
+        "source": "plugins/tampermonkey/skills/tampermonkey",
+        "commit": "cdc5961bd33293a54751d4b3b30e72be424aaf5a"
       }
     },
     {
