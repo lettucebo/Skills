@@ -49,6 +49,14 @@
       "upstreamCommit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
       "diffUrl": "https://github.com/anthropics/skills/compare/3b3fad96af16a10759d930941b4520ba0c40edae...8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
       "contentHash": "sha256:498ae139001467707fb94e9b1f823c05a61a60d21e580e15b8c50d52b290e1c9"
+    },
+    {
+      "release": "2.1.5",
+      "kind": "upstream-update",
+      "version": "1.1.2",
+      "upstreamCommit": "683bc88e56f3e09ba94f7055977f3d3aa499f202",
+      "diffUrl": "https://github.com/anthropics/skills/compare/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4...683bc88e56f3e09ba94f7055977f3d3aa499f202",
+      "contentHash": "sha256:2b51d4789626841421ece4e40e8cd5127f8b2dc1154e58010fd248470fdd2ab8"
     }
   ]
 }

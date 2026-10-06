@@ -3,7 +3,7 @@ name: secops-triage
 metadata:
   category: Security
   author: Google LLC
-  version: 1.1.0
+  version: 1.1.1
   status: published
 description: Expert guidance for security alert triage in Google SecOps. Use
   when investigating and triaging security alerts, determining false positives
@@ -16,8 +16,8 @@ description: Expert guidance for security alert triage in Google SecOps. Use
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/secops-triage
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: d6eee396ed6a51871cc3f0979c5ff1be26d35d10
+x-version: 1.0.1
 ---
 
 # Google SecOps Security Alert Triage Specialist
@@ -118,10 +118,10 @@ Follow the standardized end-to-end triage lifecycle:
        ```udm
        metadata.event_type = "PROCESS_LAUNCH"
        AND principal.hostname = "TARGET_HOST"
-       AND target.process.file.full_path = /(powershell|cmd|wscript|cscript|bash)\.exe/nocase
+       AND target.process.file.full_path = /(\\(powershell|pwsh|cmd|wscript|cscript)\.exe|\/(ba|z|da)?sh)$/nocase
        ```
      - **Network Beaconing & Data Exfiltration**:
-       Search `NETWORK_CONNECTION` and `DNS_QUERY` records for anomalous bandwidth, high connection frequency, or external IPs:
+       Search `NETWORK_CONNECTION` and `NETWORK_DNS` records for anomalous bandwidth, high connection frequency, or external IPs:
        ```udm
        metadata.event_type = "NETWORK_CONNECTION"
        AND principal.ip = "SOURCE_IP"

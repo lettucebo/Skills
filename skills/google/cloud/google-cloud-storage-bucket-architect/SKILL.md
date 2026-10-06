@@ -1,21 +1,22 @@
 ---
 name: google-cloud-storage-bucket-architect
-description: Creates Cloud Storage (Google Cloud Storage, or GCS) buckets.
-  Analyzes the workload (sensitive data, media hosting, ingestion, web hosting,
-  archiving, backup, logging, analytics, AI/ML, or general-purpose), validates
-  project-level security settings, and designs a secure-by-default,
-  cost-effective configuration (location, storage class, uniform bucket-level
-  access, public access prevention, soft delete, lifecycle) before creating it.
-  Use whenever a user wants to create, make, set up, provision, or spin up a
-  bucket, or needs object storage for an app, service, pipeline, or dataset —
-  even a "simple" or "default" bucket, or when bucket creation is one step in a
-  larger workflow. Outputs or executes the creation via gcloud, the JSON/REST
-  API, Terraform, or SDK client libraries (C++, Java, Python, Go). Don't use for
-  anything other than creating new buckets — for uploads, downloads, access
-  changes, or reconfiguring existing buckets, use google-cloud-storage-basics.
+description: Creates Cloud Storage on Google Cloud (also known colloquially as
+  GCS) buckets. Analyzes the workload (sensitive data, media hosting, ingestion,
+  web hosting, archiving, backup, logging, analytics, AI/ML, or
+  general-purpose), validates project-level security settings, and designs a
+  secure-by-default, cost-effective configuration (location, storage class,
+  uniform bucket-level access, public access prevention, soft delete, lifecycle)
+  before creating it. Use whenever a user wants to create, make, set up,
+  provision, or spin up a bucket, or needs object storage for an app, service,
+  pipeline, or dataset — even a "simple" or "default" bucket, or when bucket
+  creation is one step in a larger workflow. Outputs or executes the creation
+  via gcloud, the JSON/REST API, Terraform, or SDK client libraries (C++, Java,
+  Python, Go). Don't use for anything other than creating new buckets — for
+  uploads, downloads, access changes, or reconfiguring existing buckets, use
+  google-cloud-storage-basics.
 license: Apache-2.0
 metadata:
-  version: 1.0.1
+  version: 1.0.2
   publisher: google
   tags: gcs, storage, architect, bucket-creation
   category: Storage
@@ -23,15 +24,15 @@ metadata:
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/google-cloud-storage-bucket-architect
-x-source-commit: d5d905232ec501743831cc68e6763af90da3cd69
-x-version: 1.0.1
+x-source-commit: d6eee396ed6a51871cc3f0979c5ff1be26d35d10
+x-version: 1.0.2
 ---
 
-# Google Cloud Storage Bucket Architect
+# Cloud Storage Bucket Architect
 
-You are a Use-Case Driven Google Cloud Storage Bucket Architect agent. Your job
-is to help users design and create Cloud Storage buckets that are secure,
-cost-effective, and optimized for their specific use cases. You validate
+You are a Use-Case Driven Cloud Storage Bucket Architect agent on Google Cloud.
+Your job is to help users design and create Cloud Storage buckets that are
+secure, cost-effective, and optimized for their specific use cases. You validate
 project-level settings to ensure baseline security and provide the configuration
 in the user's preferred format, or execute the creation if authorized.
 
@@ -195,10 +196,10 @@ Creation fails with 409 or "already exists" error | The bucket name became taken
 ### SDK Language-Specific Guides
 
 *   [C++ SDK Guide](references/sdk_cpp.md): Code examples and patterns for the
-    Google Cloud Storage C++ client library.
+    Cloud Storage C++ client library.
 *   [Go SDK Guide](references/sdk_go.md): Code examples and patterns for the
     Cloud Storage Go client library.
 *   [Java SDK Guide](references/sdk_java.md): Code examples and patterns for the
     Cloud Storage Java client library.
 *   [Python SDK Guide](references/sdk_python.md): Code examples and patterns for
-    the Google Cloud Storage Python client library.
+    the Cloud Storage Python client library.

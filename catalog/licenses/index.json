@@ -1,5 +1,5 @@
 {
-  "release": "2.1.4",
+  "release": "2.1.5",
   "licenses": [
     {
       "repository": "cloudflare/skills",
@@ -90,6 +90,15 @@
       "sourcePath": "LICENSE",
       "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
       "bundlePath": "google--skills--2c42a31a2228a072--d5d905232ec501743831cc68e6763af90da3cd69--LICENSE"
+    },
+    {
+      "repository": "google/skills",
+      "reference": "refs/heads/main",
+      "commit": "d6eee396ed6a51871cc3f0979c5ff1be26d35d10",
+      "license": "Apache-2.0",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bundlePath": "google--skills--2c42a31a2228a072--d6eee396ed6a51871cc3f0979c5ff1be26d35d10--LICENSE"
     },
     {
       "repository": "henkisdabro/wookstar-claude-plugins",

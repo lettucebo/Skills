@@ -1,6 +1,6 @@
 {
-  "release": "2.1.4",
-  "generatedAt": "2026-10-04T09:24:52.991Z",
+  "release": "2.1.5",
+  "generatedAt": "2026-10-06T09:50:25.244Z",
   "licenseEvidenceVersion": 1,
   "counts": {
     "total": 289,
@@ -338,7 +338,7 @@
       "path": "skills/claude/claude-api",
       "name": "claude-api",
       "category": "mapped",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -348,15 +348,15 @@
         "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
-        "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4"
+        "commit": "683bc88e56f3e09ba94f7055977f3d3aa499f202"
       },
-      "snapshotHash": "sha256:891bb04343a14b7ba51df31779b6a2b951e515fb59fa298677742dc154f576ee",
-      "contentHash": "sha256:498ae139001467707fb94e9b1f823c05a61a60d21e580e15b8c50d52b290e1c9",
+      "snapshotHash": "sha256:cffdfec8c9a6edcfff7b5565239b2f2f0a5c6ab26474e6f8e8fc36280e4a7e6b",
+      "contentHash": "sha256:2b51d4789626841421ece4e40e8cd5127f8b2dc1154e58010fd248470fdd2ab8",
       "upstream": {
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
         "source": "skills/claude-api",
-        "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4"
+        "commit": "683bc88e56f3e09ba94f7055977f3d3aa499f202"
       }
     },
     {
@@ -1410,7 +1410,7 @@
       "path": "skills/expo/eas-simulator",
       "name": "eas-simulator",
       "category": "mapped",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "baseline": "verified",
       "license": "MIT",
       "redistributable": true,
@@ -1420,15 +1420,15 @@
         "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
         "repository": "expo/skills",
         "reference": "refs/heads/main",
-        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
+        "commit": "d4f484024fec15196bfd3c272e953e3f983972cf"
       },
-      "snapshotHash": "sha256:77d5333c69837ea0ed4f17219b15491859f0297d2f6eb740465cd11d2ff3ced6",
-      "contentHash": "sha256:05b291232ff088d93856c3037600fc2be322a2cc509e7fc41abc4cf4a636ff6c",
+      "snapshotHash": "sha256:881ebca5efb35eaedb62f65af2c4fa4040331cdfd138a99cd08942bf6cf1b64d",
+      "contentHash": "sha256:4780f2ce29a4590036bafb45bbf28e09618eaa3013bb12eaa9aa0a8d5b7b7ba7",
       "upstream": {
         "repository": "expo/skills",
         "reference": "refs/heads/main",
         "source": "plugins/expo/skills/eas-simulator",
-        "commit": "13ad8e05874195633b5c185f6947bb6400e228fc"
+        "commit": "d4f484024fec15196bfd3c272e953e3f983972cf"
       }
     },
     {
@@ -5619,7 +5619,7 @@
       "path": "skills/google/cloud/google-cloud-storage-basics",
       "name": "google-cloud-storage-basics",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5629,22 +5629,22 @@
         "hash": "sha256:2af71558e438db0b73a20beab92dc278a94e1bbe974c00c1a33e3ab62d53a608",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d6eee396ed6a51871cc3f0979c5ff1be26d35d10"
       },
-      "snapshotHash": "sha256:bf7defc86bd14fc6c2eebffc2ddcaf48ccfc61459e88cfb68a195951e6ad7007",
-      "contentHash": "sha256:d59646766f68485b3653304da788f10c9005dd35f612b24b8581ee32840b8f18",
+      "snapshotHash": "sha256:12e5c79c945065d9a61d9408fac7a5428b65dd5e70c28aa97196c5f1d0ced88a",
+      "contentHash": "sha256:bb3a3c323f09654862003bba753c4b60bd4b8724e9b8495f00ce769e0781c29d",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-storage-basics",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d6eee396ed6a51871cc3f0979c5ff1be26d35d10"
       }
     },
     {
       "path": "skills/google/cloud/google-cloud-storage-bucket-architect",
       "name": "google-cloud-storage-bucket-architect",
       "category": "mapped",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5654,22 +5654,22 @@
         "hash": "sha256:2af71558e438db0b73a20beab92dc278a94e1bbe974c00c1a33e3ab62d53a608",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
+        "commit": "d6eee396ed6a51871cc3f0979c5ff1be26d35d10"
       },
-      "snapshotHash": "sha256:9e850866b357e8a6b5cfce040e6cbb3ff36e9c4111173db55c4c0f3ea80b23b6",
-      "contentHash": "sha256:532ec8bdc929ccb1a63764f2c5b4fd829a747ac8782263c84ab6a651bbb03838",
+      "snapshotHash": "sha256:af424de24cd1847dd83bf2bcc8d328de5a61a3ca63e844c3ab7a52d19a347ecb",
+      "contentHash": "sha256:133e1c23e84c30c35add3a6a0201babeb8e3bedc3cfbbcafa2b9f33a0e6d6654",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-storage-bucket-architect",
-        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
+        "commit": "d6eee396ed6a51871cc3f0979c5ff1be26d35d10"
       }
     },
     {
       "path": "skills/google/cloud/google-cloud-storage-fuse",
       "name": "google-cloud-storage-fuse",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5679,15 +5679,15 @@
         "hash": "sha256:2af71558e438db0b73a20beab92dc278a94e1bbe974c00c1a33e3ab62d53a608",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d6eee396ed6a51871cc3f0979c5ff1be26d35d10"
       },
-      "snapshotHash": "sha256:473cf45a0a6db39f70657c5b41fa247b349df7992ac3eb586a70b14f6e926883",
-      "contentHash": "sha256:1703ac040bbc2f256e2cbdc18a077884281d85711d2baf88318002625663bb3c",
+      "snapshotHash": "sha256:aa993f6636a5001b8b8281838c4bac700d1a6f2f41806ecba9c981d5735008f8",
+      "contentHash": "sha256:052125613f33e9410ae4633219547048f08e9c74630aa0d29ee6d00869ef5b5e",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-storage-fuse",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d6eee396ed6a51871cc3f0979c5ff1be26d35d10"
       }
     },
     {
@@ -6119,7 +6119,7 @@
       "path": "skills/google/cloud/secops-triage",
       "name": "secops-triage",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -6127,17 +6127,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "d6eee396ed6a51871cc3f0979c5ff1be26d35d10",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:6ed0a01ce9a36566f3d5820910b6393a59a134c89bffbe83adad2f1d8fa0c959",
-      "contentHash": "sha256:bba761fa2d89cdc98630cccd8b58663fb86c3fafce92ec0688469e382fc54dda",
+      "snapshotHash": "sha256:da93ddaf0e67972f5cefa1286dbc607f6b223300461278dd9094daca33f64920",
+      "contentHash": "sha256:7c519b161d2307e451b31dc921e26d8351b6b3b872afcc1662b8014dd8d0115b",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/secops-triage",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "d6eee396ed6a51871cc3f0979c5ff1be26d35d10"
       }
     },
     {

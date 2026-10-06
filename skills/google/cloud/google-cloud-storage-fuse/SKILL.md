@@ -1,7 +1,8 @@
 ---
 name: google-cloud-storage-fuse
-description: "Mounts Cloud Storage buckets as a POSIX file system with Cloud
-  Storage FUSE (gcsfuse). Use when interacting with gcsfuse: decide whether
+description: "Mounts Cloud Storage buckets on Google Cloud as a POSIX file
+  system using Cloud Storage FUSE (and the gcsfuse CLI tool). Use when
+  interacting with the gcsfuse CLI or Cloud Storage FUSE mounts: decide whether
   FUSE, native gs:// reads, or Filestore/Managed Lustre fits a workload, deploy
   tuned mounts on GKE, Compute Engine, or Cloud Run, enable and size file, stat,
   and list caches, tune mount flags (--implicit-dirs) or config-file settings,
@@ -16,7 +17,7 @@ description: "Mounts Cloud Storage buckets as a POSIX file system with Cloud
   gke-storage)."
 license: Apache-2.0
 metadata:
-  version: 1.0.1
+  version: 1.0.2
   publisher: google
   tags: gcs, gcsfuse, fuse, mount, file-system
   category: Storage
@@ -24,21 +25,22 @@ metadata:
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/google-cloud-storage-fuse
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: d6eee396ed6a51871cc3f0979c5ff1be26d35d10
+x-version: 1.0.1
 ---
 
-# Google Cloud Storage FUSE
+# Cloud Storage FUSE
 
-Cloud Storage FUSE (gcsfuse) is a POSIX file-system adapter over Cloud Storage's
-immutable object store. Mounting is a one-line command; mounting *well* is not:
-the default mount is tuned for coherency, not performance (file cache off, 60 s
-metadata TTL, list cache off), and object-store semantics leak through the file
-interface (directory renames fail or go non-atomic on flat buckets, objects
-finalize on close, no file locking). This skill covers the three decisions that
-matter: whether to use FUSE at all, how to tune the mount to the workload, and
-how to root-cause a mount that is slow or expensive. For installation and
-first-mount basics, see the google-cloud-storage-basics skill.
+Cloud Storage FUSE is a POSIX file-system adapter over Cloud Storage on Google
+Cloud, operated via the gcsfuse CLI tool. Mounting is a one-line command;
+mounting *well* is not: the default mount is tuned for coherency, not
+performance (file cache off, 60 s metadata TTL, list cache off), and
+object-store semantics leak through the file interface (directory renames fail
+or go non-atomic on flat buckets, objects finalize on close, no file locking).
+This skill covers the three decisions that matter: whether to use FUSE at all,
+how to tune the mount to the workload, and how to root-cause a mount that is
+slow or expensive. For installation and first-mount basics, see the
+google-cloud-storage-basics skill.
 
 ## Attribution
 
