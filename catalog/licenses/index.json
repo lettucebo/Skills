@@ -1,5 +1,5 @@
 {
-  "release": "2.1.5",
+  "release": "2.1.6",
   "licenses": [
     {
       "repository": "cloudflare/skills",
@@ -63,6 +63,15 @@
       "sourcePath": "LICENSE",
       "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
       "bundlePath": "google--skills--2c42a31a2228a072--1d77046ad3670d62227f50a8f53286f6c6cde08b--LICENSE"
+    },
+    {
+      "repository": "google/skills",
+      "reference": "refs/heads/main",
+      "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e",
+      "license": "Apache-2.0",
+      "sourcePath": "LICENSE",
+      "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bundlePath": "google--skills--2c42a31a2228a072--8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e--LICENSE"
     },
     {
       "repository": "google/skills",

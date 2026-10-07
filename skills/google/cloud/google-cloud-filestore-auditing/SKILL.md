@@ -1,9 +1,9 @@
 ---
 name: google-cloud-filestore-auditing
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: Storage
-description: Audits Google Cloud Filestore instances across projects for
+description: Audits Filestore instances on Google Cloud across projects for
   disaster recovery readiness (missing or stale backups), security access
   governance (overly permissive NFS export rules, 0.0.0.0/0 exposure, missing
   ROOT_SQUASH), and reliability compliance (Physical Zone Isolation PZI and
@@ -14,15 +14,15 @@ description: Audits Google Cloud Filestore instances across projects for
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/google-cloud-filestore-auditing
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e
+x-version: 1.0.1
 ---
 
-# Google Cloud Filestore Auditing Skill
+# Filestore Auditing Skill
 
 This skill enables autonomous agents to audit, evaluate, and report the disaster
 recovery, security access governance, and architectural reliability posture of
-Google Cloud Filestore fleets across GCP projects.
+Filestore fleets across Google Cloud projects.
 
 ## Prerequisites / IAM Requirements & Permissions
 
@@ -53,7 +53,7 @@ provides:
 
 ### 3. MCP Tool Invocation
 
-If invoking capabilities via the Google Cloud Filestore MCP Server
+If invoking capabilities via the Filestore MCP Server
 (`file.googleapis.com/mcp`):
 
 -   **`roles/mcp.toolUser`**: Required to execute MCP tools (`list_instances`,

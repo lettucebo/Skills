@@ -1,6 +1,6 @@
 {
-  "release": "2.1.5",
-  "generatedAt": "2026-10-06T09:50:25.244Z",
+  "release": "2.1.6",
+  "generatedAt": "2026-10-07T09:56:09.161Z",
   "licenseEvidenceVersion": 1,
   "counts": {
     "total": 289,
@@ -4844,7 +4844,7 @@
       "path": "skills/google/cloud/gke-storage",
       "name": "gke-storage",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -4852,17 +4852,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:ef78fe3c9113031f8b174d6d7474718efb8497c6401bba9bb0f80b31eaf7cdda",
-      "contentHash": "sha256:a1012782814aafb588e376e097db0cfdeeec58d79347b2ca2d291780593946a7",
+      "snapshotHash": "sha256:7c3e244229b69aa94f71dc0ca8f90b498f6ebc2cf176393951f0bb3e1c58d521",
+      "contentHash": "sha256:6d1759286a7fa4cf1545b07a69fc63799c28465a9b5e8301a87adcdcb5fea5a6",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/gke-storage",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e"
       }
     },
     {
@@ -5069,7 +5069,7 @@
       "path": "skills/google/cloud/google-cloud-filestore-auditing",
       "name": "google-cloud-filestore-auditing",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5077,24 +5077,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:9722b07a98ebb8ba73be31c1d16bab0f5426e4b4a842cd84e3bdcb36e2acbf49",
-      "contentHash": "sha256:c8f7ba16b0d6fcf6c77914dd54283707143dce7b3a7d4b1551d012a2dc7166d6",
+      "snapshotHash": "sha256:ef32da13a6be637394127e4e19f3954ac5be437b67a4ab522be0c94c8efa38ba",
+      "contentHash": "sha256:ad4136998b568b4f969822d6a1b41fdf4d8b96473ec825fdd60d73cab68d1ff5",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-filestore-auditing",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e"
       }
     },
     {
       "path": "skills/google/cloud/google-cloud-filestore-autoscale",
       "name": "google-cloud-filestore-autoscale",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5102,24 +5102,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:883327f42b9c83afc2ea7641801e51d9ad3c9ce68fb0e30c6383ce39e71ad3cc",
-      "contentHash": "sha256:4152c2e7447152eb1390a8a6ecd6ee7a6aa397a9de73c8c4d752f01b5f2d922f",
+      "snapshotHash": "sha256:e850cf49a286c60edf2a475553ace1fce7130424ef74a7434b082fb14497a80e",
+      "contentHash": "sha256:ad9d5ebd95c2591981150d54032c81fc7b633eda5a5e2242f51a3a6c3e7a6d7b",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-filestore-autoscale",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e"
       }
     },
     {
       "path": "skills/google/cloud/google-cloud-filestore-log-troubleshooting",
       "name": "google-cloud-filestore-log-troubleshooting",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5127,24 +5127,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:662b5166a0e1446fe0ebc45831c8c37628735798970c7fb0419ff05b1b7abdef",
-      "contentHash": "sha256:5cde0d43929521ac168d5c555ec8347f56a3cafc7ced52d76095bc3b79599a5a",
+      "snapshotHash": "sha256:c8c17acf9128e460d3c6f84bd2c04c22df13b3adc25204c7cd05374bf6620bbb",
+      "contentHash": "sha256:2da66eb17cba59b2771392451dc81d4c093d09cc4cf5dd4d2a8c3c372605bb35",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-filestore-log-troubleshooting",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e"
       }
     },
     {
       "path": "skills/google/cloud/google-cloud-filestore-nfs-browser",
       "name": "google-cloud-filestore-nfs-browser",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5152,17 +5152,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:bf5d857f73ae2104073678b15f105836798040143aec9e7d4a70d2d6db6131f9",
-      "contentHash": "sha256:55bdbc11102e7787b0ec16bc9ba3bf8c3f3a2a722e60548e82b0fa57162dc5f8",
+      "snapshotHash": "sha256:17b0f8c4700a0d51c253fbf7ba6e213007736c5299f6025cd333817529dc3905",
+      "contentHash": "sha256:2b192910ae7fd35c5b3fa1d925a4444fc0ed0b80918a5f759cc4f6116a12a399",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-filestore-nfs-browser",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e"
       }
     },
     {
@@ -5394,7 +5394,7 @@
       "path": "skills/google/cloud/google-cloud-solution-agentic-ai-data-science-workflow",
       "name": "google-cloud-solution-agentic-ai-data-science-workflow",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5402,17 +5402,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:e0d5b41e3cb3e3968f66d97ee90ddae282c7728398c10fb74a4dc9da99f2452e",
-      "contentHash": "sha256:f68914a593bc3051cff2091d3b6e072fda66313325c227334b2a567acd353683",
+      "snapshotHash": "sha256:69fddaed52f0b92d35383be787ca0be39674eeb45486b03282d1b14eb2bf5789",
+      "contentHash": "sha256:4917ae9b232956b1a36f0eed35af2a622176b1cfb02dd772c707d0dfbe43458e",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e"
       }
     },
     {
