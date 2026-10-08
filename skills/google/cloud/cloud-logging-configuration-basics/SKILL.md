@@ -1,18 +1,18 @@
 ---
 name: cloud-logging-configuration-basics
-description: "Configure single-project Google Cloud Logging: regional log
-  buckets, log sinks, log views, restricting or hiding sensitive logs in the
+description: "Configure single-project Cloud Logging on Google Cloud: regional
+  log buckets, log sinks, log views, restricting or hiding sensitive logs in the
   default view (_Default) filter, IAM permissions for views (Logs View Accessor,
   IAM conditions), logs-based metrics, log exclusions, and sampling. Don't use
   for cross-project logging or multi-project setups."
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: CloudObservabilityAndMonitoring
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/cloud-logging-configuration-basics
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 55b4e13eba6d86dec14bddd0a4cd25e63055f786
+x-version: 1.0.1
 ---
 
 # Configuring Cloud Logging
@@ -345,6 +345,6 @@ gcloud logging sinks describe _Default --project={project_id}
 
 ## References and Supporting Links
 
-*   [Google Cloud Logging - Counter Metrics](https://docs.cloud.google.com/logging/docs/logs-based-metrics/counter-metrics.md.txt)
-*   [Google Cloud Logging - Custom Log Views](https://docs.cloud.google.com/logging/docs/logs-views.md.txt)
-*   [Google Cloud Logging - Exclusions](https://docs.cloud.google.com/logging/docs/routing/overview.md.txt)
+*   [Cloud Logging - Counter Metrics](https://docs.cloud.google.com/logging/docs/logs-based-metrics/counter-metrics.md.txt)
+*   [Cloud Logging - Custom Log Views](https://docs.cloud.google.com/logging/docs/logs-views.md.txt)
+*   [Cloud Logging - Exclusions](https://docs.cloud.google.com/logging/docs/routing/overview.md.txt)

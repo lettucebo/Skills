@@ -1,21 +1,21 @@
 ---
 name: cloud-build-basics
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: DevOps
-description: Teaches the fundamentals of Google Cloud Build (GCB). Covers core
-  concepts, API enablement, console navigation to the Build History page, and
-  the end-to-end workflow for creating and manually running a basic build
+description: Teaches the fundamentals of Cloud Build on Google Cloud. Covers
+  core concepts, API enablement, console navigation to the Build History page,
+  and the end-to-end workflow for creating and manually running a basic build
   trigger. Do not use for managing private pools or complex pipeline
   architectures.
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/cloud-build-basics
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 55b4e13eba6d86dec14bddd0a4cd25e63055f786
+x-version: 1.0.1
 ---
 
-# Google Cloud Build Basics
+# Cloud Build Basics
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Before starting, ensure the following prerequisites are met:
 
 ## Core Concepts
 
-Google Cloud Build (GCB) is a serverless platform that executes your builds on Google Cloud. It translates your source code into deployable artifacts, such as Docker containers or Java archives.
+Cloud Build (GCB) is a serverless platform that executes your builds on Google Cloud. It translates your source code into deployable artifacts, such as Docker containers or Java archives.
 
 | Concept | Description |
 | :--- | :--- |
@@ -145,7 +145,7 @@ gcloud builds triggers run <TRIGGER_NAME> \
 
 ## External Resources & Documentation
 
-*   [Google Cloud Build Documentation](https://cloud.google.com/build/docs)
+*   [Cloud Build Documentation](https://cloud.google.com/build/docs)
 *   [Cloud Build Configuration File Schema](https://cloud.google.com/build/docs/build-config-file-schema)
 *   [Automating Builds with Triggers](https://cloud.google.com/build/docs/automating-builds/create-manage-triggers)
 *   [gcloud CLI builds Reference](https://cloud.google.com/sdk/gcloud/reference/builds)

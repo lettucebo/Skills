@@ -1,29 +1,29 @@
 ---
 name: cloud-run-alert-configuration
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: Serverless
-description: Configures best-practice, high-signal alerting policies for Google
-  Cloud Run resources (services, jobs, and worker pools) based on seasoned SRE
-  practices. Use when analyzing, recommending, writing, or deploying Terraform
-  PromQL alerting policies to monitor Cloud Run error rates (4xx/5xx), request
-  latency, container instance saturation (warning/critical), container
-  CPU/memory utilization and allocation, billable instance time, job execution
-  status, and worker pool queue backlog. Don't use for GKE workloads (use
-  gke-alert-configuration) or Compute Engine VMs.
+description: Configures best-practice, high-signal alerting policies for Cloud
+  Run resources on Google Cloud (services, jobs, and worker pools) based on
+  seasoned SRE practices. Use when analyzing, recommending, writing, or
+  deploying Terraform PromQL alerting policies to monitor Cloud Run error rates
+  (4xx/5xx), request latency, container instance saturation (warning/critical),
+  container CPU/memory utilization and allocation, billable instance time, job
+  execution status, and worker pool queue backlog. Don't use for GKE workloads
+  (use gke-alert-configuration) or Compute Engine VMs.
 allowed-tools:
   - terraform
   - gcloud
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/cloud-run-alert-configuration
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 55b4e13eba6d86dec14bddd0a4cd25e63055f786
+x-version: 1.0.1
 ---
 
 # Cloud Run Alert Configuration
 
-Production-grade observability for Google Cloud Run using Terraform and PromQL
+Production-grade observability for Cloud Run using Terraform and PromQL
 (Cloud Monitoring). Grounded in SRE practices, this skill focuses strictly on
 actionable user impact and scaling bounds.
 
@@ -101,7 +101,7 @@ actionable user impact and scaling bounds.
 
 ## Additional Resources
 
-*   [Google Cloud Run Documentation](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run.md.txt)
-*   [Google Cloud Monitoring PromQL Documentation](https://docs.cloud.google.com/monitoring/promql/promql-in-monitoring.md.txt)
+*   [Cloud Run Documentation](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run.md.txt)
+*   [Cloud Monitoring PromQL Documentation](https://docs.cloud.google.com/monitoring/promql/promql-in-monitoring.md.txt)
 *   [Google Cloud Alerting Policies in Terraform](https://docs.cloud.google.com/monitoring/alerts/terraform.md.txt)
 *   [Google SRE Workbook: Alerting on SLOs](https://sre.google/workbook/alerting-on-slos/)

@@ -1,7 +1,7 @@
 ---
 name: agent-platform-deploy
 metadata:
-  version: 1.0.3
+  version: 1.0.4
   category: AiAndMachineLearning
 description: Deploy open models or custom weights from Model Garden to Agent
   Platform endpoints, check the status of an in-progress deployment operation,
@@ -18,8 +18,8 @@ description: Deploy open models or custom weights from Model Garden to Agent
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/agent-platform-deploy
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 55b4e13eba6d86dec14bddd0a4cd25e63055f786
+x-version: 1.0.1
 ---
 
 # Agent Platform Model Garden Deploy Skill
@@ -47,8 +47,8 @@ following safety tiers based on the action requested:
     *   **Rule**: This requires explicit user confirmation. You MUST present a
         clear dry-run confirmation card containing:
 
-        1.  Exact proposed request: the `:deploy` request body for a deployment
-            (§3), or the `gcloud` command code block for `undeploy-model`.
+        1.  Exact proposed `gcloud` command code block (`gcloud ai model-garden
+            models deploy ... --asynchronous`).
         2.  Model identifier, destination project ID, and target region.
         3.  Machine type and accelerator configuration.
         4.  Estimated hourly cost ($/hr).
@@ -73,11 +73,11 @@ following safety tiers based on the action requested:
 > [!IMPORTANT]
 >
 > **Always Output Complete Text Response (NEVER Emit Empty Text)**: After
-> executing any tool call (such as the `:deploy` API call, `gcloud ai endpoints
-> delete`, `gcloud ai endpoints list`, or status checks), you MUST formulate and
-> return a complete, informative textual response to the user. Explicitly report
-> the operation ID, endpoint name/ID, error message, or list of resources.
-> **NEVER finish a turn with empty text or silence**.
+> executing any tool call (such as `gcloud ai model-garden models deploy`,
+> `gcloud ai endpoints delete`, `gcloud ai endpoints list`, or status checks),
+> you MUST formulate and return a complete, informative textual response to the
+> user. Explicitly report the operation name, endpoint name/ID, error message,
+> or list of resources. **NEVER finish a turn with empty text or silence**.
 
 ## 1. Prerequisites
 
@@ -203,10 +203,9 @@ gcloud ai model-garden models list-deployment-config \
 > 3.  You **MUST ALWAYS** request explicit confirmation from the user agreeing
 >     to the estimated cost before executing any `deploy` command.
 
-To deploy an open-weights Model Garden model, call the `:deploy` API directly
-with `curl`.
-
-If a deployment is rejected for quota, report the API's error verbatim.
+To deploy a model, use the `deploy` command. It is highly recommended to use the
+`--asynchronous` flag for long-running deployments, and then poll the status if
+necessary.
 
 > [!IMPORTANT]
 >
@@ -231,18 +230,19 @@ If a deployment is rejected for quota, report the API's error verbatim.
 >     the model ID, region, or hardware configuration are already known or
 >     resolved. Run each discovery command strictly once.
 > -   **Single Status Check & Response Formatting (CRITICAL)**:
->     -   When initiating a deployment (the `:deploy` call in §3), the response
->         immediately returns a long-running operation. **Formulate and return
->         your textual confirmation response with the operation ID and endpoint
->         display name immediately**. Do NOT call `operations describe` in the
->         same turn as deployment initiation.
+>     -   When initiating an asynchronous deployment (`gcloud ai model-garden
+>         models deploy ... --asynchronous`), the command output immediately
+>         returns the operation name. **Formulate and return your textual
+>         confirmation response with the operation name and endpoint display
+>         name immediately**. Do NOT call `operations describe` in the same turn
+>         as deployment initiation.
 >     -   When the user explicitly asks to check deployment status (e.g.,
 >         "Please check to see the status of the deployment" or "Can you check
 >         if the deployment has finished?"):
 >         -   **NEVER run `sleep` commands, `while` loops, or repeated polling
 >             calls**.
->         -   Execute `gcloud ai operations describe <OP_ID> --region=<REGION>`
->             **strictly ONCE**.
+>         -   Execute `gcloud ai operations describe <OPERATION_NAME>`, the full
+>             operation name the deploy command printed, **strictly ONCE**.
 >         -   **ALWAYS output a full textual response** reporting the operation
 >             status (e.g. "The deployment operation
 >             `projects/.../operations/...` is currently in progress / running
@@ -258,11 +258,9 @@ If a deployment is rejected for quota, report the API's error verbatim.
 >     --region=projects/123456789012/locations/us-central1`, or as a positional
 >     resource, `gcloud ai endpoints describe
 >     projects/123456789012/locations/us-central1/endpoints/<ENDPOINT_ID>
->     --region=us-central1`. If a command is still refused because
->     `core/project` is set to a project number, the sandbox's own project was
->     seeded as a number: every `gcloud ai` call then needs an explicit
->     `--project=<PROJECT_ID>`, which a resource name cannot substitute for.
->     Report that instead of retrying.
+>     --region=us-central1`. If `gcloud ai` still refuses because `core/project`
+>     is set to a project number, ask the user for the Project ID rather than
+>     retrying.
 > -   **Valid User-Specified Hardware Priority**: When the user specifies an
 >     explicit, valid hardware configuration (e.g. `g2-standard-96` with 8
 >     `NVIDIA_L4` GPUs, or `g2-standard-12` with 1 `NVIDIA_L4` GPU), honor that
@@ -291,56 +289,46 @@ directly.
 # with a value from a live `gcloud ai model-garden models list` (see §2)
 # before running this script, and do NOT quote the placeholder back to the
 # user as a recommended model.
+#
+# IMPORTANT FOR deploy_config["command"]: when building the curl command for
+# the deploy confirmation card, inline ALL values as literals — do NOT leave
+# ${PROJECT_ID}, ${LOCATION_ID}, or ${PUBLISHER_MODEL} as shell variables.
+# The server rejects commands with unresolved variables at render time.
+# The only allowed substitution is $(gcloud auth print-access-token).
 
 PROJECT_ID=$(gcloud config get-value project)
+# `gcloud ai` needs the alphanumeric Project ID, not the project number.
+: "${PROJECT_ID:?no project ID is set; ask the user for the Project ID}"
 LOCATION_ID="us-central1" # Recommended default region
 # Replace placeholder with exact ID from `gcloud ai model-garden models list`:
 MODEL_ID="<PUBLISHER>/<FAMILY>@<VERSION-ID>"
 
 echo "Deploying model $MODEL_ID to project $PROJECT_ID in $LOCATION_ID..."
 
-# The API takes the model as a resource name, while the catalog ID is
-# "<PUBLISHER>/<FAMILY>@<VERSION-ID>". Split on the first "/" to convert.
-PUBLISHER_MODEL="publishers/${MODEL_ID%%/*}/models/${MODEL_ID#*/}"
-
-# Omit deployConfig entirely to select the recommended default config.
-# Comprehensive request with supported fields. Returns a long-running
-# operation, so this is inherently asynchronous.
-curl -sS -X POST \
-    "https://${LOCATION_ID}-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/${LOCATION_ID}:deploy" \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    -d "{
-      \"publisherModelName\": \"${PUBLISHER_MODEL}\",
-      \"modelConfig\": {
-        \"acceptEula\": true
-      },
-      \"endpointConfig\": {
-        \"endpointDisplayName\": \"my-open-model-deployment\"
-      },
-      \"deployConfig\": {
-        \"dedicatedResources\": {
-          \"machineSpec\": {
-            \"machineType\": \"g2-standard-12\",
-            \"acceleratorType\": \"NVIDIA_L4\",
-            \"acceleratorCount\": 1
-          },
-          \"minReplicaCount\": 1
-        }
-      }
-    }"
+# Hardware params can be omitted to select recommended default config.
+# Comprehensive command with supported parameters:
+gcloud ai model-garden models deploy \
+    --project=$PROJECT_ID \
+    --region=$LOCATION_ID \
+    --model=$MODEL_ID \
+    --machine-type="g2-standard-12" \
+    --accelerator-type="NVIDIA_L4" \
+    --accelerator-count=1 \
+    --endpoint-display-name="my-open-model-deployment" \
+    --asynchronous
 
 echo "Deployment initiated asynchronously."
 ```
 
-The response is a `GoogleLongrunningOperation`. Its `name` field is the full
-operation path, `projects/<PROJECT>/locations/<REGION>/operations/<OP_ID>`; §4
-accepts either that or the bare `<OP_ID>`.
+With `--asynchronous` the command prints the full operation name,
+`projects/<PROJECT>/locations/<REGION>/operations/<OP_ID>`. Pass that to §4: a
+bare `<OP_ID>` works only when gcloud has a project.
 
--   Set `modelConfig.huggingFaceAccessToken` when deploying gated Hugging Face
-    models that require authentication.
--   Set `deployConfig.dedicatedResources.machineSpec.reservationAffinity` if
-    using reserved compute.
+-   Include `--hugging-face-access-token="<HF_TOKEN>"` when deploying gated
+    Hugging Face models that require authentication.
+-   Include `--reservation-affinity` (e.g. `none` or
+    `reservation-affinity-type=specific-reservation,...`) if using reserved
+    compute.
 
 ### 1P Tuned Model Cross-Region Copy and Deployment
 
@@ -353,13 +341,12 @@ accepts either that or the bare `<OP_ID>`.
 
 ## 4. Checking Deployment Status
 
-The `:deploy` call in §3 is asynchronous in itself -- there is no flag to
-pass -- and returns a long-running operation whose `name` is the operation ID.
-You can use that ID to check the ongoing status of the deployment.
+When you deploy a model asynchronously using the `--asynchronous` flag, the
+`deploy` command returns an operation name. Pass the full name to check the
+ongoing status of the deployment.
 
 ```bash
-gcloud ai operations describe YOUR_OPERATION_ID \
-    --region=$LOCATION_ID
+gcloud ai operations describe YOUR_OPERATION_NAME
 ```
 
 > [!IMPORTANT]
@@ -368,7 +355,7 @@ gcloud ai operations describe YOUR_OPERATION_ID \
 > operations take 10–30 minutes. NEVER run `sleep` commands (e.g. `sleep 45 &&
 > ...`) or loop `operations describe` repeatedly in a turn. Run `gcloud ai
 > operations describe` **strictly ONCE**. If `done` is not true, immediately
-> return the operation ID and in-progress status to the user and explain that
+> return the operation name and in-progress status to the user and explain that
 > deployment takes 10–15 minutes.
 
 Note: Large models (roughly 20B+ parameters) may take 15-20 minutes to fully
@@ -389,6 +376,7 @@ Use the following script:
 ```bash
 #!/bin/bash
 PROJECT_ID=$(gcloud config get-value project)
+: "${PROJECT_ID:?no gcloud project is set; ask the user for the Project ID}"
 LOCATION_ID="us-central1"
 ENDPOINT_ID="YOUR_ENDPOINT_ID"
 PROMPT=${1:-"Explain quantum computing in simple terms."}

@@ -13,6 +13,7 @@ Here is a bash script demonstrating how to find the IDs and undeploy the model.
 # Example script to undeploy a model
 
 PROJECT_ID=$(gcloud config get-value project)
+: "${PROJECT_ID:?no gcloud project is set; ask the user for the Project ID}"
 LOCATION_ID="us-central1"
 # The model ID used during deployment.
 # It is usually easiest to find via `gcloud ai models list`.

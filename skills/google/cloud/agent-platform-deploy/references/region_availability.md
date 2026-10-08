@@ -2,8 +2,8 @@
 
 > [!NOTE] **Skip this section** if the user is deploying an open-weights model
 > from Model Garden (Gemma, Llama, DeepSeek, Qwen, or any user-supplied weights)
-> or a Gemini-tuned model — i.e. anything served via the §3 `:deploy` API onto a
-> dedicated endpoint. These have no per-region publisher endpoint restriction.
+> or a Gemini-tuned model — i.e. anything served via `gcloud ai model-garden
+> models deploy` (§3) onto a dedicated endpoint. These have no per-region publisher endpoint restriction.
 > The real failure modes for an unusual region are (a) the requested
 > accelerator/machine type isn't offered in that region, or (b) the project has
 > no quota — both surface as a clean error at deploy time before any resources

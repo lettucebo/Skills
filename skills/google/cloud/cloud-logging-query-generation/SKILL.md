@@ -1,18 +1,18 @@
 ---
 name: cloud-logging-query-generation
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: CloudObservabilityAndMonitoring
-description: Generates Logging Query Language (LQL) queries for Google Cloud
-  Logging from natural language. Use this skill when you need to query log data
-  or when you are debugging issues. You can filter log data by Google Cloud
+description: Generates Logging Query Language (LQL) queries for Cloud Logging on
+  Google Cloud from natural language. Use this skill when you need to query log
+  data or when you are debugging issues. You can filter log data by Google Cloud
   service. Don't use this skill to query other databases, such as SQL or Cloud
   Spanner.
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/cloud-logging-query-generation
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 55b4e13eba6d86dec14bddd0a4cd25e63055f786
+x-version: 1.0.1
 ---
 
 # Generate Logging Query Language queries

@@ -1,6 +1,6 @@
 {
-  "release": "2.1.6",
-  "generatedAt": "2026-10-07T09:56:09.161Z",
+  "release": "2.1.7",
+  "generatedAt": "2026-10-08T10:08:14.492Z",
   "licenseEvidenceVersion": 1,
   "counts": {
     "total": 289,
@@ -2944,7 +2944,7 @@
       "path": "skills/google/cloud/agent-platform-deploy",
       "name": "agent-platform-deploy",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -2952,24 +2952,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:1bf580e926db5be76b112a6d63d953a1ba84c86cd8417216250cbc1a74374d9c",
-      "contentHash": "sha256:88fd09fe3ad0e48acb08e9e8102f2346cefc9cdff150a8444f7d27c1dc757fb2",
+      "snapshotHash": "sha256:81708d941b6bce585f16094d050ce7e9613577c73ca7a4dcbfe4bacae658ef94",
+      "contentHash": "sha256:4bb941077d56bba8994d8c380787d7bc0e4a75e90c36b214b706d71aa1e780b9",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/agent-platform-deploy",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
       "path": "skills/google/cloud/agent-platform-endpoint-management",
       "name": "agent-platform-endpoint-management",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -2977,24 +2977,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:9057de33eacca2dc5353f0f7a44308f65d4fd45b9fdfeb103b0459eae7960bc8",
-      "contentHash": "sha256:927f04397246ea039f4ed90fadbc23999281e4f94ea157ecf7fc641a4c8576cf",
+      "snapshotHash": "sha256:6e0dcb07c7616021bd00d2c5ffe4ff44b1a85b417fcc0a22c4d0be0c533900f2",
+      "contentHash": "sha256:096177b0b305cb2fe03be497bac94f0c118fa90f1564ae00b59a9e05e39c6cf5",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/agent-platform-endpoint-management",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
       "path": "skills/google/cloud/agent-platform-eval-flywheel",
       "name": "agent-platform-eval-flywheel",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3002,17 +3002,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:50866a369f54d17c7245debf8f09be5a3b26530c804cb58fd123bc8aa687dc4a",
-      "contentHash": "sha256:c178b7d75e06a32f3668be9e0cc885db1ab037333cadef16eefe8e52f3a8aae0",
+      "snapshotHash": "sha256:43a95532c673126fb1f5598f4626905670978a3b21d7f7c90e6e93a341dd07da",
+      "contentHash": "sha256:d0c77a5e339e1bf88bc77f4ba338ce3b9d8a52d5e004e971a3e12d88577eeee1",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/agent-platform-eval-flywheel",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
@@ -3069,7 +3069,7 @@
       "path": "skills/google/cloud/agent-platform-model-registry",
       "name": "agent-platform-model-registry",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3077,17 +3077,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:d2824c134886263acc684714d007a8576ca9837a1a4d7a6ae28f3ab154b15f0a",
-      "contentHash": "sha256:fd69f3d50716a0a908395287408e125fd40d8ad4c233409a9f1a36589fefb21f",
+      "snapshotHash": "sha256:ab59b166b9bb606ac728f2d777178187809b29e8dc5aa950c200b342c4fabfa6",
+      "contentHash": "sha256:92e43eacd979e984f43acc236ec86e2b91e6b0edb8ef04a7ce6523f84b4057c7",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/agent-platform-model-registry",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
@@ -3119,7 +3119,7 @@
       "path": "skills/google/cloud/agent-platform-rag-engine-management",
       "name": "agent-platform-rag-engine-management",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3127,17 +3127,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:4a15aedd87f7530cc8d071d4f5c082313cd6125b3d638514cbe9a6e69648dce5",
-      "contentHash": "sha256:d498c6a569aaf0fac006b9801b0bf1f98fb92cce3f77597719197234d5893014",
+      "snapshotHash": "sha256:55e383f4961747a7d7c087c54006bf342a25cc195e945698e8f0f519e09c6b76",
+      "contentHash": "sha256:07d6a509916eeadd24b103ad012ee64e19fa0c17622501ecc8d0508fc53c0a35",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/agent-platform-rag-engine-management",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
@@ -3194,7 +3194,7 @@
       "path": "skills/google/cloud/agent-platform-tuning",
       "name": "agent-platform-tuning",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3202,24 +3202,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:024637b074ab2988e66c505b0decee4054daa02dda26f74071c8540e16468daa",
-      "contentHash": "sha256:02155e975f0849d96712c6e338ab2cd0a5785dd172b7ce4d88de12ce69200203",
+      "snapshotHash": "sha256:96c12a870b624befcdb5115c2bebe48c46f61f2b62bfda4e355c50564b1d6e8b",
+      "contentHash": "sha256:04bbee671e28562abbf7e83741dac333c6f3014e1f141381755c0932b8e62a78",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/agent-platform-tuning",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
       "path": "skills/google/cloud/agent-platform-tuning-management",
       "name": "agent-platform-tuning-management",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3227,17 +3227,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:35cb7e083a0a6a59b26e355fdf1d325fea57636fde122cce6cff7fba8ac3f334",
-      "contentHash": "sha256:992190695d8fed131785fb49ef15c30789da04072de52a325c8243d638be419a",
+      "snapshotHash": "sha256:c9e749411fc32bf5c457f9d2b53cb5311f5862b34317f767e5fbba2d466182b7",
+      "contentHash": "sha256:bb2ea34f8442591cbe6b7d3da3a7ef151dd1e692855314e18b40a8a6325f734b",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/agent-platform-tuning-management",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
@@ -3494,7 +3494,7 @@
       "path": "skills/google/cloud/cloud-build-basics",
       "name": "cloud-build-basics",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3502,17 +3502,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:7386ce27970102807cfce1c7a54186851869e78cccd05216aeea8eb7190e582d",
-      "contentHash": "sha256:4d408055d48f7a2d507dc01a6498f645f67dc195fe7af7c1caa89156366cf813",
+      "snapshotHash": "sha256:a4485fd862827374dcf98d2e7ec3c6336a7a54d17922c78334562b5af6d1f879",
+      "contentHash": "sha256:9cb9c11a940e5f4067c8bafe25f8ca17e986693a49bb7f54d46950b38d8744da",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/cloud-build-basics",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
@@ -3544,7 +3544,7 @@
       "path": "skills/google/cloud/cloud-logging-configuration-basics",
       "name": "cloud-logging-configuration-basics",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3552,17 +3552,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:4b06c47a7d9d70e7eda5bcf8a8259e7d451b4a5f719cbaf6b79023c98fee9a44",
-      "contentHash": "sha256:582389ff6b6b6250dacbbdcc9c0e6c5b8f0c3e8b5001287161e2967765397b62",
+      "snapshotHash": "sha256:ebbe0693e0f5eaee7edb1b3a50bbafe3e368bfa0a9a356dc1d6f1a211a02c658",
+      "contentHash": "sha256:c820aac6c388236b5231230c46ff83c0fc26de40c5d7a0ffbcdad4c47811c94d",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/cloud-logging-configuration-basics",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
@@ -3594,7 +3594,7 @@
       "path": "skills/google/cloud/cloud-logging-query-generation",
       "name": "cloud-logging-query-generation",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3602,24 +3602,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:0903346b3214bcff0da8a5391573b6de2814d0b71d3167750b85680943f4395a",
-      "contentHash": "sha256:63213f8f28fc601d730de307643b876d4fe1867d92d1dd0b481af1e5a2f327bc",
+      "snapshotHash": "sha256:40ae1e99593f383a161215a0ceb595d0864876e1bf9309ec50b95c0cd7fb3138",
+      "contentHash": "sha256:844448a7aa548297503c9b28dc9c4b3d072aac0b07b87096933fcf0ae39c9e85",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/cloud-logging-query-generation",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
       "path": "skills/google/cloud/cloud-monitoring-chart-generation",
       "name": "cloud-monitoring-chart-generation",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3627,17 +3627,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:9f3d019988927daf2a973e49ea8979718f6b7305e3e9722637183c500f1d5fdd",
-      "contentHash": "sha256:9a39d302a73d178f9d1033c2617193c6a4abb315420dbe1cfe07636cf29ad9e0",
+      "snapshotHash": "sha256:bfdb914e495dc2bbfcf094373125d0ae7f9bed0d1d9d4df79a1e9267960179e8",
+      "contentHash": "sha256:04b7c18fa424def8fd5779ff20a39170de251edb3c5c788d5ffdc72f78c92cb8",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/cloud-monitoring-chart-generation",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
@@ -3669,7 +3669,7 @@
       "path": "skills/google/cloud/cloud-monitoring-metric-selection",
       "name": "cloud-monitoring-metric-selection",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3677,17 +3677,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:2f4b12b9567a722fd1271c3db07d1cf484eb4618b9c94a2f076bf668b1fc06bb",
-      "contentHash": "sha256:8dc68e84c1be7d1cbf39b0f41a3eb60a26213a59afda62c1f32b4d2a1016589f",
+      "snapshotHash": "sha256:7e2a63983b78c870e2ab019586aca69a678b946c276785ca623a51f6df45ad7c",
+      "contentHash": "sha256:a7fd619dca4a7d37e8e7f570a29488e29a2e6bed5386890fe9a57f02c236aeba",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/cloud-monitoring-metric-selection",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
@@ -3719,7 +3719,7 @@
       "path": "skills/google/cloud/cloud-run-alert-configuration",
       "name": "cloud-run-alert-configuration",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3727,17 +3727,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:3d759cac0ffbbbb0cca71b03893dff71c21caea94289ae1478f356a74c1a6460",
-      "contentHash": "sha256:d2de55f7d33a99bbc173992831c2f4c3c39d21e403c309a046c8c34cf307885e",
+      "snapshotHash": "sha256:ba9fba1ff07ca1b2221e63abaf0b4ca96a9dbfe93c13108afe44e05d9bd2344b",
+      "contentHash": "sha256:3896de275fc17fa82df8355014ecbfa890a65108b2b49c61dc578d74b8870c48",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/cloud-run-alert-configuration",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {
@@ -5319,7 +5319,7 @@
       "path": "skills/google/cloud/google-cloud-slo-alert-configuration",
       "name": "google-cloud-slo-alert-configuration",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5327,17 +5327,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:7faa449c623c5870b122ea1396cc769fcdb4f4c017a31aee444b1ed2c24331f1",
-      "contentHash": "sha256:34a825a67efb969a33485ac79dd83c048a87cf0c43390c3c94b94f67df947361",
+      "snapshotHash": "sha256:ccc88b9b269deb45039677cf0a23b099290a6ed243ac663aacf48c3e1cdf4f14",
+      "contentHash": "sha256:c18119299899cce9c71b705014cadf0577fdedefab18699750df9b330927626d",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-slo-alert-configuration",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "55b4e13eba6d86dec14bddd0a4cd25e63055f786"
       }
     },
     {

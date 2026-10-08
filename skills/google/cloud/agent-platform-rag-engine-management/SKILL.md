@@ -1,7 +1,7 @@
 ---
 name: agent-platform-rag-engine-management
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: AiAndMachineLearning
 description: Manage and query Agent Platform RAG Engine Corpora and retrieve
   grounded contexts using the Google GenAI SDK. Use when listing RAG corpora or
@@ -11,8 +11,8 @@ description: Manage and query Agent Platform RAG Engine Corpora and retrieve
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/agent-platform-rag-engine-management
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 55b4e13eba6d86dec14bddd0a4cd25e63055f786
+x-version: 1.0.1
 ---
 
 # Agent Platform RAG Engine Management
@@ -70,17 +70,25 @@ the environment is correctly initialized by following these steps:
     ```
 
 2.  **Python Dependencies**: This skill needs `google-cloud-aiplatform` and
-    `google-genai`. Do **not** create a virtual environment — it starts empty
-    and hides packages the environment already provides, forcing a redundant
-    install. Probe, and install only what is missing:
+    `google-genai`, which the sandbox already provides. Do **not** create a
+    virtual environment — it starts empty and hides packages the environment
+    already provides, forcing a redundant install. Do not spend a separate
+    command checking for them: run the snippet directly, and only if it fails
+    with `ModuleNotFoundError`, install in the same command as the retry:
 
     ```bash
-    python3 -c "import vertexai, google.genai" \
-      || pip install google-cloud-aiplatform google-genai
+    pip install -q google-cloud-aiplatform google-genai && python3 - <<'PY'
+    ...
+    PY
     ```
 
-3.  **Execution**: Run Python snippets with a plain `python3`. There is no
-    environment to activate first.
+3.  **Execution**: Run each snippet as a quoted heredoc, `python3 - <<'PY'` ...
+    `PY`, rather than `python3 -c '...'`, whose nested quotes break easily.
+    There is no environment to activate first. When one step needs several of
+    the snippets below (for example, list the corpora and then the files in
+    each), combine them into one script and one command. The
+    `vertexai.preview.rag` deprecation warning printed on stderr is expected;
+    keep using these snippets rather than switching clients because of it.
 
 ## Workflow Decision Tree
 
@@ -192,7 +200,10 @@ print(f"Display Name: {corpus.display_name}")
 
 ## 3. Retrieving Contexts
 
-To retrieve relevant contexts from a RAG Engine corpus based on a query:
+To retrieve relevant contexts from a RAG Engine corpus based on a query. If no
+contexts come back, that is a valid answer: report it with the corpus and query
+you used. If a broader search is reasonable, try it in the same script (for
+example a larger `similarity_top_k`) rather than as a separate command.
 
 ```python
 import vertexai

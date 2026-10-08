@@ -1,7 +1,7 @@
 ---
 name: agent-platform-eval-flywheel
 metadata:
-  version: 1.0.2
+  version: 1.0.3
   category: AiAndMachineLearning
 description: Measures and improves the quality of AI models and agents on Google
   Cloud using the Eval Quality Flywheel methodology. Use when generating
@@ -14,8 +14,8 @@ description: Measures and improves the quality of AI models and agents on Google
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/agent-platform-eval-flywheel
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 55b4e13eba6d86dec14bddd0a4cd25e63055f786
+x-version: 1.0.1
 ---
 
 # Agent Platform Eval Flywheel Skill
@@ -203,6 +203,15 @@ matches the data the user already has:
     (1-100): it defaults to None, the client accepts that, and the server
     rejects the call with `400 INVALID_ARGUMENT`. `count` is a separate field
     and does not substitute for it. Stage 2 plays the scenarios out.
+    *   **CRITICAL - Multi-turn user-simulation scenarios must use this API**:
+        When the user asks to synthesize multi-turn **user scenarios** to
+        simulate customers interacting with an agent (as opposed to writing a
+        local single-turn test dataset in the sandbox), never author the
+        conversation scenarios yourself in prose or a handwritten file. Calling
+        `client.evals.generate_conversation_scenarios` is a server-side Tier M
+        API call (using the user's project, location, model, and environment
+        data) and requires a confirmation card; local single-turn dataset files
+        written in the sandbox without calling Agent Platform APIs are Tier R.
     *   **CRITICAL - Underspecified Requests**: When asked to synthesize
         scenarios, if the request omits required parameters (such as `location`,
         `environment_data`, `simulation_instruction`, or `model_name`), do NOT
@@ -210,13 +219,15 @@ matches the data the user already has:
         explicitly ask the user for the missing information (e.g., "Please
         provide the missing simulation instructions, environment data, model
         name, and location"). Only proceed with the dry-run preview after the
-        user provides them.
+        user provides them. `location` has no safe default: neither
+        `us-central1` nor a location you assumed on your own for another call is
+        a substitute for a location the user has not given.
     *   **Friction & Parameter Changes**: When asked to generate synthetic user
         scenarios, if the user modifies requested parameters (such as scenario
         count, model, or instructions) or pushes back, you MUST present a
         revised dry-run confirmation card with the updated parameters and wait
         for explicit user approval before executing generation code via
-        `run_command`. Do NOT generate scenarios directly in plain text.
+        `run_command`.
 
 -   **Managed Agents (Gemini Agents API):** evaluate agents created with the
     [Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents).
@@ -281,6 +292,30 @@ scaffold a custom `LLMMetric` for a name that appears here, and do not reach for
 `vertexai.evaluation.EvalTask` / `PointwiseMetric` /
 `MetricPromptTemplateExamples` — that SDK is superseded (see Setup).
 
+**`judge_model` format and handling user-named models:**
+
+*   **Full resource name required for `judge_model`**: Both `LLMMetric` and
+    `RubricMetric` send `judge_model` as `autorater_config.autorater_model` to
+    the backend (even though `agentplatform` logs a client-side "ignored"
+    warning on `RubricMetric`). Short names like `"gemini-2.5-flash"` or
+    `"gemini-2.5-pro"` fail with `400 INVALID_ARGUMENT ("Invalid autorater model
+    resource name")`. Always pass the full publisher model resource name:
+    `f"projects/{PROJECT_ID}/locations/{LOCATION}/publishers/google/models/{MODEL_NAME}"`
+    (prefer `gemini-2.5-flash` as autorater; `gemini-2.5-pro` can intermittently
+    fail server-side with `"Rubric results could not be reliably computed"`).
+*   **Datasets without vs. with responses**:
+    *   If the dataset contains **prompts only** (no `response` column), call
+        `run_inference(model="<the named model>", src=dataset)` to generate the
+        candidate model's responses first, then grade them with `evaluate()`.
+    *   If the user **already supplies `response`s** in the dataset, **do NOT
+        call `run_inference`** — `run_inference` overwrites the existing
+        `response` column with the model's generated output and discards the
+        user's responses! Instead, grade the user's supplied `response`s
+        directly with `evaluate(dataset=dataset, ...)`, passing the named model
+        as the full resource path in `judge_model` (or if a predefined
+        `RubricMetric` cannot reliably compute rubric results with that
+        autorater model, fall back to the default autorater and explain why).
+
 **Agent metrics (multi-turn, adaptive rubrics)** — start here for agent eval.
 
 Goal                                          | Metric
@@ -325,7 +360,12 @@ Safety policy compliance                          | `safety`
         evaluate when the user does not specify a judge model.
 -   **Custom code:** `types.CodeExecutionMetric` with a `custom_function` string
     containing `def evaluate(instance: dict)` for remote sandboxed execution; or
-    `types.Metric` with `custom_function=<callable>` for local execution.
+    `types.Metric` with `custom_function=<callable>` for local execution. The
+    `instance` dict's `prompt` / `response` / `reference` are `Content` dicts,
+    not strings; read
+    [references/metric_registry.md](references/metric_registry.md) ("What the
+    function receives") before writing the body, rather than discovering the
+    shape by running the evaluation.
 
 **Always persist the result** so Stage 4 and 5 can read it. Save both JSON
 (machine-readable, diffable) and HTML (human-readable, linkable):

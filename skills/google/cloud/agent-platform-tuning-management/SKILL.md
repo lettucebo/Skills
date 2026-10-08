@@ -1,7 +1,7 @@
 ---
 name: agent-platform-tuning-management
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: AiAndMachineLearning
 description: Manages GenAI tuning jobs in Agent Platform. Use this to list, get,
   or cancel ongoing model tuning jobs. Don't use for fine-tuning models (use
@@ -11,8 +11,8 @@ description: Manages GenAI tuning jobs in Agent Platform. Use this to list, get,
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/agent-platform-tuning-management
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 55b4e13eba6d86dec14bddd0a4cd25e63055f786
+x-version: 1.0.1
 ---
 
 # Agent Platform Tuning Management
@@ -132,6 +132,9 @@ for job in jobs:
     print(f"Base Model: {job.base_model}")
     print(f"State: {job.state}")
 ```
+
+`list_tuning_jobs` takes no `page_size` keyword. To set one, pass the request:
+`client.list_tuning_jobs(request={"parent": parent, "page_size": 50})`.
 
 ### 2. Getting Details for a Specific Job (Tier R)
 

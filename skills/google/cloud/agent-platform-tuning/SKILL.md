@@ -1,7 +1,7 @@
 ---
 name: agent-platform-tuning
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: AiAndMachineLearning
 description: Agent Platform Model Tuning. Use when you need to fine-tune open
   models or Gemini models using Agent Platform infrastructure. Don't use for
@@ -11,8 +11,8 @@ description: Agent Platform Model Tuning. Use when you need to fine-tune open
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/agent-platform-tuning
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 55b4e13eba6d86dec14bddd0a4cd25e63055f786
+x-version: 1.0.1
 ---
 
 # Agent Platform Model Tuning
@@ -672,27 +672,124 @@ the status.
 
 ## Phase 5: Model Deployment {#phase-5-model-deployment}
 
-Once the tuning job is `SUCCEEDED`, deploy the model.
+Once the tuning job is `SUCCEEDED`, deploy the tuned checkpoint by registering
+it in Model Registry with the base model's serving container, then deploying
+that registered model to a new endpoint.
 
-Deployment requires a real region — `--region=global` is not valid here. If the
-job ran on `global`, read the region out of the tuned model's resource name
+Deployment requires a real region — `global` is not valid here. If the job ran
+on `global`, read the region out of the tuned model's resource name
 (`projects/.../locations/<REGION>/models/...`) and deploy there; do not guess.
 
+If a deploy step is rejected for quota, report the API's error verbatim.
+
 ```bash
+#!/bin/bash
+# Deploy a tuned checkpoint by registering it in Model Registry with the base
+# model's serving container, then deploying to a new endpoint. All four gcloud
+# calls hit aiplatform.googleapis.com.
+set -euo pipefail
+PROJECT_ID="YOUR_PROJECT"
+LOCATION_ID="YOUR_LOCATION"          # e.g. us-central1; NOT global.
+BASE_MODEL="<PUBLISHER>/<FAMILY>@<VERSION-ID>"   # the base model you tuned; e.g. google/gemma3@gemma-3-4b-it
 ARTIFACTS="gs://YOUR_BUCKET/tuning_agent_job_<datetime>/output/postprocess/node-0/checkpoints/final"
-gcloud ai model-garden models deploy \
-    --project=YOUR_PROJECT \
-    --region=YOUR_LOCATION \
-    --model="$ARTIFACTS" \
-    --machine-type=MACHINE_TYPE \
-    --accelerator-type=ACCELERATOR_TYPE \
-    --accelerator-count=COUNT
+DISPLAY_NAME="my-tuned-model"
+# Explicit IDs, so no step can pick up an older model or endpoint that shares
+# the display name.
+RUN_ID="tuned-$(date +%Y%m%d-%H%M%S)"
+
+# 1. List the base model's verified deployment configs and pick the row that
+#    fits the user-approved cost/perf. CONFIG_INDEX is its 0-based table row.
+gcloud ai model-garden models list-deployment-config \
+    --model="$BASE_MODEL" \
+    --project="$PROJECT_ID"
+CONFIG_INDEX="<pick from step 1>"
+
+# Turn that row into gcloud flags files. The table shows only the image, but
+# the container also needs the row's args, env, ports and routes; its
+# --model/--model-path arg points at the base weights and is repointed at
+# $ARTIFACTS.
+gcloud ai model-garden models list-deployment-config \
+    --model="$BASE_MODEL" \
+    --project="$PROJECT_ID" \
+    --format=json | python3 -c '
+import json, sys
+idx, artifacts = int(sys.argv[1]), sys.argv[2]
+cfg = json.load(sys.stdin)[idx]
+spec = dict(cfg["containerSpec"])
+args, repointed = [], 0
+for a in spec.pop("args", []):
+    flag = a.split("=", 1)[0]
+    if flag in ("--model", "--model-path"):
+        a, repointed = flag + "=" + artifacts, repointed + 1
+    args.append(a)
+if repointed != 1:
+    sys.exit("expected exactly one --model/--model-path arg, found %d" % repointed)
+upload = {"--container-image-uri": spec.pop("imageUri"), "--container-args": args}
+if "command" in spec:
+    upload["--container-command"] = spec.pop("command")
+if "env" in spec:
+    upload["--container-env-vars"] = {e["name"]: e["value"] for e in spec.pop("env")}
+if "ports" in spec:
+    upload["--container-ports"] = [str(p["containerPort"]) for p in spec.pop("ports")]
+for key, flag in (("predictRoute", "--container-predict-route"),
+                  ("healthRoute", "--container-health-route"),
+                  ("sharedMemorySizeMb", "--container-shared-memory-size-mb")):
+    if key in spec:
+        upload[flag] = str(spec.pop(key))
+if "deploymentTimeout" in spec:  # e.g. "7200s"
+    upload["--container-deployment-timeout-seconds"] = str(
+        int(float(spec.pop("deploymentTimeout").rstrip("s"))))
+if spec:
+    sys.exit("unhandled containerSpec fields: %s" % sorted(spec))
+m = cfg["dedicatedResources"]["machineSpec"]
+deploy = {"--machine-type": m["machineType"]}
+if "acceleratorType" in m:
+    deploy["--accelerator"] = {
+        "type": m["acceleratorType"].lower().replace("_", "-"),
+        "count": str(m.get("acceleratorCount", 1))}
+json.dump(upload, open("/tmp/upload_flags.yaml", "w"), indent=1)
+json.dump(deploy, open("/tmp/deploy_flags.yaml", "w"), indent=1)
+' "$CONFIG_INDEX" "$ARTIFACTS"
+cat /tmp/upload_flags.yaml /tmp/deploy_flags.yaml
+
+# 2. Register the tuned checkpoint in Model Registry with the base model's
+#    serving container. Blocks until the upload finishes.
+gcloud ai models upload \
+    --project="$PROJECT_ID" \
+    --region="$LOCATION_ID" \
+    --model-id="$RUN_ID" \
+    --display-name="$DISPLAY_NAME" \
+    --artifact-uri="$ARTIFACTS" \
+    --flags-file=/tmp/upload_flags.yaml
+
+# 3. Create a dedicated endpoint.
+gcloud ai endpoints create \
+    --project="$PROJECT_ID" \
+    --region="$LOCATION_ID" \
+    --endpoint-id="$RUN_ID" \
+    --display-name="$DISPLAY_NAME"
+
+# 4. Deploy the registered model to the endpoint.
+gcloud ai endpoints deploy-model "$RUN_ID" \
+    --project="$PROJECT_ID" \
+    --region="$LOCATION_ID" \
+    --model="$RUN_ID" \
+    --display-name="$DISPLAY_NAME" \
+    --flags-file=/tmp/deploy_flags.yaml
 ```
 
+`set -e` stops the sequence at the first failed step. Step 4 blocks until the
+model is serving, which can take 20 minutes or more; its progress output prints
+the operation name, `projects/<PROJECT>/locations/<REGION>/operations/<OP_ID>`.
+Pass that whole name to `gcloud ai operations describe <OPERATION_NAME>` for
+status checks from another shell: a bare `<OP_ID>` works only when gcloud has a
+project.
+
 > [!IMPORTANT] **Interactive Confirmation Required (Tier M):** Before proceeding
-> with deployment, you **MUST** present the proposed command string showing all
-> literal flags in a confirmation prompt to the user with 'Yes' and 'No'
-> options.
+> with deployment, you **MUST** present the three write commands (steps 2-4)
+> with all literal values filled in, plus the generated flags files (container
+> image, args, machine type, accelerator config), in a confirmation prompt to
+> the user with 'Yes' and 'No' options.
 
 > **CRITICAL:** When presenting this confirmation prompt to the user, you MUST
 > output it as a direct plain text response and stop tool execution immediately.

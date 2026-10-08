@@ -1,7 +1,7 @@
 ---
 name: agent-platform-endpoint-management
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: AiAndMachineLearning
 description: Manages Agent Platform serving endpoints. Use when you need to
   create, list, describe, update, or delete serving endpoints for model
@@ -11,8 +11,8 @@ description: Manages Agent Platform serving endpoints. Use when you need to
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/agent-platform-endpoint-management
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 55b4e13eba6d86dec14bddd0a4cd25e63055f786
+x-version: 1.0.1
 ---
 
 # Agent Platform Endpoint Management
@@ -79,9 +79,9 @@ gcloud ai endpoints list \
     --region=$LOCATION_ID
 ```
 
-*(Optional)* For pagination, you MUST use `--limit=$LIMIT` to restrict the total
-number of returned endpoints. You can also append `--page-size=$PAGE_SIZE` to
-control API chunking, or `--page-token=$PAGE_TOKEN` for next pages.
+*(Optional)* To bound the result, use `--limit=$LIMIT`; `--page-size=$PAGE_SIZE`
+controls API chunking only and does NOT limit the total output. Use
+`--page-token=$PAGE_TOKEN` to continue from a previous batch.
 
 > [!IMPORTANT]
 >
@@ -97,6 +97,10 @@ gcloud ai endpoints describe $ENDPOINT_ID \
     --region=$LOCATION_ID
 ```
 
+The models deployed on an endpoint are its `deployedModels` in this output. In
+the Python SDK they are `endpoint.gca_resource.deployed_models`;
+`aiplatform.Endpoint` has no `deployed_models` attribute.
+
 ## 3. Creating an Endpoint (Tier M)
 
 Create a new endpoint resource. The parent resource is the location. **Action
@@ -107,6 +111,9 @@ gcloud ai endpoints create \
     --region=$LOCATION_ID \
     --display-name="my-endpoint"
 ```
+
+The command has no `--asynchronous` flag: it waits for the operation and prints
+the new endpoint's resource name, whose last segment is the endpoint ID.
 
 > [!IMPORTANT]
 >
