@@ -36,11 +36,13 @@ Complete upstream root-license texts used by the registry are committed under
 |---------------------|-----------|-----------------|---------|------|
 | cloudflare/skills | refs/heads/main | `41e0d19858946d18af9ee2c2feebbe2e11d829ff` | Apache-2.0 | [LICENSE](catalog/licenses/cloudflare--skills--a317a9aaf9890e04--41e0d19858946d18af9ee2c2feebbe2e11d829ff--LICENSE) |
 | cloudflare/skills | refs/heads/main | `626547c06881a20b3322bdc2ed6e6451b33a4fb6` | Apache-2.0 | [LICENSE](catalog/licenses/cloudflare--skills--a317a9aaf9890e04--626547c06881a20b3322bdc2ed6e6451b33a4fb6--LICENSE) |
+| cloudflare/skills | refs/heads/main | `c430dd965cea3a8faf0ef035e3b3d73b38518081` | Apache-2.0 | [LICENSE](catalog/licenses/cloudflare--skills--a317a9aaf9890e04--c430dd965cea3a8faf0ef035e3b3d73b38518081--LICENSE) |
 | expo/skills | refs/heads/main | `13ad8e05874195633b5c185f6947bb6400e228fc` | MIT | [LICENSE](catalog/licenses/expo--skills--bda913dfa6363523--13ad8e05874195633b5c185f6947bb6400e228fc--LICENSE) |
 | expo/skills | refs/heads/main | `c0dadf355d4caa4e1720de372f0f8766df1a8978` | MIT | [LICENSE](catalog/licenses/expo--skills--bda913dfa6363523--c0dadf355d4caa4e1720de372f0f8766df1a8978--LICENSE) |
 | github/awesome-copilot | refs/heads/main | `4742f265959bf025882314564b364d9d7af6e2d5` | MIT | [LICENSE](catalog/licenses/github--awesome-copilot--a178dc401fe03076--4742f265959bf025882314564b364d9d7af6e2d5--LICENSE) |
 | github/awesome-copilot | refs/heads/main | `997e95a6e42869c350f8ca6ec4c066287697c9f0` | MIT | [LICENSE](catalog/licenses/github--awesome-copilot--a178dc401fe03076--997e95a6e42869c350f8ca6ec4c066287697c9f0--LICENSE) |
 | google/skills | refs/heads/main | `1d77046ad3670d62227f50a8f53286f6c6cde08b` | Apache-2.0 | [LICENSE](catalog/licenses/google--skills--2c42a31a2228a072--1d77046ad3670d62227f50a8f53286f6c6cde08b--LICENSE) |
+| google/skills | refs/heads/main | `4b940dd4b5f5759794cc257266cb8cb7524b7a66` | Apache-2.0 | [LICENSE](catalog/licenses/google--skills--2c42a31a2228a072--4b940dd4b5f5759794cc257266cb8cb7524b7a66--LICENSE) |
 | google/skills | refs/heads/main | `55b4e13eba6d86dec14bddd0a4cd25e63055f786` | Apache-2.0 | [LICENSE](catalog/licenses/google--skills--2c42a31a2228a072--55b4e13eba6d86dec14bddd0a4cd25e63055f786--LICENSE) |
 | google/skills | refs/heads/main | `8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e` | Apache-2.0 | [LICENSE](catalog/licenses/google--skills--2c42a31a2228a072--8a1ac055f5ae83f52dc42e96c2dcc8d9b0be829e--LICENSE) |
 | google/skills | refs/heads/main | `99c871efb402aba106c3ce7432451d253efd77b1` | Apache-2.0 | [LICENSE](catalog/licenses/google--skills--2c42a31a2228a072--99c871efb402aba106c3ce7432451d253efd77b1--LICENSE) |

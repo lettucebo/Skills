@@ -5,18 +5,19 @@ query pruning optimization, and storage efficiency.
 
 ## Table of Contents
 
--   [1. Decision Matrix: Partitioning vs. Clustering vs. Hybrid](#1-decision-matrix-partitioning-vs-clustering-vs-hybrid) (Lines 21-31)
--   [2. Partitioning Design Principles](#2-partitioning-design-principles) (Lines 33-65)
-    -   [Partitioning Types by Column Type](#partitioning-types-by-column-type) (Lines 35-45)
-    -   [Core Partitioning Invariants & Rules](#core-partitioning-invariants-rules) (Lines 47-65)
--   [3. Clustering Design Principles](#3-clustering-design-principles) (Lines 67-85)
-    -   [Clustering Rules & Mechanics](#clustering-rules-mechanics) (Lines 69-85)
--   [4. Production DDL Templates](#4-production-ddl-templates) (Lines 87-161)
-    -   [Recommended Hybrid Pattern (Partition + Cluster)](#recommended-hybrid-pattern-partition-cluster) (Lines 89-107)
-    -   [Migrating an Existing Unpartitioned Table to Partitioned](#migrating-an-existing-unpartitioned-table-to-partitioned) (Lines 109-118)
-    -   [Modifying the Clustering Specification](#modifying-the-clustering-specification) (Lines 120-161)
--   [5. Table Design & Recommendation Workflow (Given a Table or Schema)](#5-table-design-recommendation-workflow-given-a-table-or-schema) (Lines 163-206)
--   [6. Table Design Anti-Patterns & Architecture Constraints](#6-table-design-anti-patterns-architecture-constraints) (Lines 208-234)
+-   [1. Decision Matrix: Partitioning vs. Clustering vs. Hybrid](#1-decision-matrix-partitioning-vs-clustering-vs-hybrid) (Lines 22-32)
+-   [2. Partitioning Design Principles](#2-partitioning-design-principles) (Lines 34-66)
+    -   [Partitioning Types by Column Type](#partitioning-types-by-column-type) (Lines 36-46)
+    -   [Core Partitioning Invariants & Rules](#core-partitioning-invariants-rules) (Lines 48-66)
+-   [3. Clustering Design Principles](#3-clustering-design-principles) (Lines 68-88)
+    -   [Clustering Rules & Mechanics](#clustering-rules-mechanics) (Lines 70-88)
+-   [4. Production DDL Templates](#4-production-ddl-templates) (Lines 90-178)
+    -   [Recommended Hybrid Pattern (Partition + Cluster)](#recommended-hybrid-pattern-partition-cluster) (Lines 92-112)
+    -   [Migrating an Existing Unpartitioned Table to Partitioned](#migrating-an-existing-unpartitioned-table-to-partitioned) (Lines 114-135)
+    -   [Modifying the Clustering Specification](#modifying-the-clustering-specification) (Lines 137-178)
+-   [5. Table Design & Recommendation Workflow (Given a Table or Schema)](#5-table-design-recommendation-workflow-given-a-table-or-schema) (Lines 180-235)
+-   [6. Table Design Anti-Patterns & Architecture Constraints](#6-table-design-anti-patterns-architecture-constraints) (Lines 237-263)
+-   [7. Telemetry & Data Retrieval Reference](#7-telemetry-data-retrieval-reference) (Lines 265-287)
 
 ## 1. Decision Matrix: Partitioning vs. Clustering vs. Hybrid
 
@@ -68,7 +69,9 @@ query pruning optimization, and storage efficiency.
 
 ### Clustering Rules & Mechanics
 
-*   **Up to 4 Columns:** Specify up to 4 columns in the `CLUSTER BY` clause.
+*   **Up to 4 High-Cardinality Filtering & Grouping Columns:** Specify up to 4
+    high-cardinality filtering and grouping columns (`WHERE` filters and `GROUP
+    BY` keys) in the `CLUSTER BY` clause.
 *   **Column Ordering is Critical:** BigQuery clusters data hierarchically based
     on the order of columns specified:
     *   Place the **most frequently filtered column** or the column with
@@ -97,7 +100,9 @@ CREATE OR REPLACE TABLE `{project_id}.{dataset_id}.events`
   event_timestamp TIMESTAMP,
   payload JSON
 )
+-- Partition by DATE, TIMESTAMP, DATETIME, or INT64 range column:
 PARTITION BY TIMESTAMP_TRUNC(event_timestamp, DAY)
+-- Cluster on up to 4 high-cardinality filtering and grouping columns:
 CLUSTER BY customer_id, event_type
 OPTIONS (
   require_partition_filter = true,
@@ -108,13 +113,25 @@ OPTIONS (
 
 ### Migrating an Existing Unpartitioned Table to Partitioned
 
+You cannot directly convert an existing non-partitioned table to a partitioned
+table via `ALTER TABLE`, and it is not possible to use the `OR REPLACE` modifier
+to replace a table with a different kind of partitioning. Instead, use a `CREATE
+TABLE ... PARTITION BY ... CLUSTER BY ... AS SELECT * FROM ...` (CTAS) statement
+to create a new partitioned table by querying the data in the existing table (or
+`DROP` the table first and then recreate it)—partitioning by a `DATE`,
+`TIMESTAMP`, `DATETIME`, or `INT64` (`RANGE_BUCKET`) column, clustering on up to
+4 high-cardinality filtering and grouping columns (`WHERE` and `GROUP BY`), and
+setting `require_partition_filter = true`:
+
 ```sql
--- Unpartitioned tables cannot be converted via ALTER TABLE; use CTAS to create the partitioned version:
-CREATE OR REPLACE TABLE `{project_id}.{dataset_id}.events_partitioned`
-PARTITION BY TIMESTAMP_TRUNC(event_timestamp, DAY)
-CLUSTER BY customer_id, event_type
-OPTIONS (require_partition_filter = true)
-AS SELECT * FROM `{project_id}.{dataset_id}.events_unpartitioned`;
+CREATE TABLE `{project_id}.{dataset_id}.events_partitioned`
+  -- Partition by DATE, TIMESTAMP, DATETIME, or INT64 range column:
+  PARTITION BY TIMESTAMP_TRUNC(event_timestamp, DAY)
+  -- Cluster on up to 4 high-cardinality filtering and grouping columns:
+  CLUSTER BY customer_id, event_type
+  OPTIONS (require_partition_filter = TRUE)
+AS
+SELECT * FROM `{project_id}.{dataset_id}.events_unpartitioned`;
 ```
 
 ### Modifying the Clustering Specification
@@ -167,6 +184,16 @@ table or schema:
 
 1.  **Step 1: Identify Partitioning Key & Time Granularity**
 
+    *   *Audit Existing Table Configuration:* Before proposing changes, check
+        `INFORMATION_SCHEMA.COLUMNS` (`is_partitioning_column = 'YES'`,
+        `data_type`, `clustering_ordinal_position`) and
+        `INFORMATION_SCHEMA.TABLE_OPTIONS` (`option_name =
+        'require_partition_filter'`) for the target dataset, or run `bq show
+        --format=prettyjson {project_id}:{dataset_id}.{table_id}`
+        (`timePartitioning`, `rangePartitioning`, `clustering`,
+        `requirePartitionFilter`) to confirm whether the table already has
+        `DATE`, `TIMESTAMP`, `DATETIME`, or `INT64` integer-range partitioning,
+        clustering columns, and partition filter enforcement.
     *   *Scan Column Types:* Look for `TIMESTAMP`, `DATE`, or `DATETIME` columns
         representing primary event generation time.
     *   *Check the 10,000 Partition Quota Limit:*
@@ -200,8 +227,10 @@ table or schema:
     *   Generate complete `CREATE TABLE` DDL, including CTAS migrations. To
         modify a table's clustering specification, use the two-step sequence in
         Section 4.
-    *   Add `require_partition_filter = true` for high-volume production tables
-        to prevent accidental unpruned full-table scans.
+    *   Add `require_partition_filter = true` (`ALTER TABLE
+        {dataset_id}.{table_id} SET OPTIONS (require_partition_filter = true)`)
+        for high-volume production tables to prevent accidental unpruned
+        full-table scans.
     *   Add `partition_expiration_days = N` for staging, ETL, or rolling log
         tables to automate data cleanup.
 
@@ -232,3 +261,27 @@ table or schema:
     effectively in query execution, predicates must use compile-time constants.
     For query-level `WHERE`-clause rewrites and function anti-patterns, refer to
     the `bigquery-optimization` skill.
+
+## 7. Telemetry & Data Retrieval Reference
+
+If the `bigquery-observability` skill is available in your workspace, refer to
+its shared telemetry references for canonical query templates and schema
+dictionaries. All essential table design workflows, DDL templates, and
+remediation levers are self-contained within this guide.
+
+*   **Table Partitioning, Clustering & Filter Enforcement Audit:** See the
+    `bigquery-observability` skill (`references/storage_footprints.md`, section
+    "Table Partitioning, Clustering & Filter Enforcement Audit") to query
+    `INFORMATION_SCHEMA.COLUMNS` and `INFORMATION_SCHEMA.TABLE_OPTIONS` for
+    unpartitioned tables, partitioning column types, clustering columns, and
+    `require_partition_filter`.
+*   **High-Scan Referenced Tables Discovery:** See the `bigquery-observability`
+    skill (`references/compute_ondemand_billable.md`, section "CORE RULE: The
+    Golden Base CTE (bytes_billed_cte)") to group
+    `INFORMATION_SCHEMA.JOBS_BY_PROJECT` by
+    `query_info.query_hashes.normalized_literals` for exact job-level
+    `total_bytes_billed` and `total_bytes_processed` attribution, and unnest
+    `referenced_tables` to discover candidate tables (do not sum job-level bytes
+    across multi-table joins; cross-check candidate table size via
+    `total_logical_bytes` in `INFORMATION_SCHEMA.TABLE_STORAGE` before
+    recommending partitioning).

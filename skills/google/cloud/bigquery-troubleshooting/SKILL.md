@@ -1,7 +1,7 @@
 ---
 name: bigquery-troubleshooting
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   category: BigDataAndAnalytics
 description: Provides diagnostic workflows and step-by-step root-cause analysis
   procedures for actively broken, failing, or slow BigQuery jobs, execution
@@ -16,8 +16,8 @@ description: Provides diagnostic workflows and step-by-step root-cause analysis
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/bigquery-troubleshooting
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 4b940dd4b5f5759794cc257266cb8cb7524b7a66
+x-version: 1.0.1
 ---
 
 # BigQuery Troubleshooting
@@ -160,9 +160,11 @@ TiB Billed, GiB Stored) rather than fluctuating contract rates:
 -   **Execution Graph & Query Plan Troubleshooting**
     (`references/query_plan_execution_graph.md`): Diagnostic workflows for
     investigating single-job stage bottlenecks (`bq show` point-lookups),
-    isolating slowest stages (`end_ms - start_ms`), substep intermediate
-    variable disambiguation (`$1`, `$2`), mandatory bytes scanned vs records
-    read corrections, and UI execution graph grounding concepts.
+    isolating slowest stages (`end_ms - start_ms`), diagnosing join explosions
+    (`records_written >> records_read`, `high_cardinality_joins`), shuffle
+    spills (`shuffle_output_bytes_spilled`), and partition skew, substep
+    intermediate variable disambiguation (`$1`, `$2`), mandatory bytes scanned
+    vs records read corrections, and UI execution graph grounding concepts.
 
 ### Cost Troubleshooting
 

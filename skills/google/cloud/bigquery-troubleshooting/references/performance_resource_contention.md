@@ -7,15 +7,15 @@ to potential root causes and points to the corresponding query in
 
 ## Table of Contents
 
--   [Diagnostic Workflows by Symptom & Root Cause](#diagnostic-workflows-by-symptom-root-cause) (Lines 20-165)
-    -   [1. Single-Job Stage Bottleneck Diagnosis & REST API Triage](#1-single-job-stage-bottleneck-diagnosis-rest-api-triage) (Lines 22-47)
-    -   [2. Cohort Baseline Comparison (normalized_literals)](#2-cohort-baseline-comparison-normalized_literals) (Lines 49-67)
-    -   [3. Incident Window Discovery & Timeline Degradation](#3-incident-window-discovery-timeline-degradation) (Lines 69-87)
-    -   [4. Reservation Slot Saturation (1-Second Resolution)](#4-reservation-slot-saturation-1-second-resolution) (Lines 89-107)
-    -   [5. Target vs. Baseline Timeframe Comparison](#5-target-vs-baseline-timeframe-comparison) (Lines 109-128)
-    -   [6. Fleet Performance Variance & Outlier Discovery](#6-fleet-performance-variance-outlier-discovery) (Lines 130-147)
-    -   [7. Table-Level Activity & Lock Contention](#7-table-level-activity-lock-contention) (Lines 149-165)
--   [Remediation & Optimization Strategies](#remediation-optimization-strategies) (Lines 167-177)
+-   [Diagnostic Workflows by Symptom & Root Cause](#diagnostic-workflows-by-symptom-root-cause) (Lines 20-173)
+    -   [1. Single-Job Stage Bottleneck Diagnosis & REST API Triage](#1-single-job-stage-bottleneck-diagnosis-rest-api-triage) (Lines 22-55)
+    -   [2. Cohort Baseline Comparison (`normalized_literals`)](#2-cohort-baseline-comparison-normalized_literals) (Lines 57-75)
+    -   [3. Incident Window Discovery & Timeline Degradation](#3-incident-window-discovery-timeline-degradation) (Lines 77-95)
+    -   [4. Reservation Slot Saturation (1-Second Resolution)](#4-reservation-slot-saturation-1-second-resolution) (Lines 97-115)
+    -   [5. Target vs. Baseline Timeframe Comparison](#5-target-vs-baseline-timeframe-comparison) (Lines 117-136)
+    -   [6. Fleet Performance Variance & Outlier Discovery](#6-fleet-performance-variance-outlier-discovery) (Lines 138-155)
+    -   [7. Table-Level Activity & Lock Contention](#7-table-level-activity-lock-contention) (Lines 157-173)
+-   [Remediation & Optimization Strategies](#remediation-optimization-strategies) (Lines 175-189)
 
 ## Diagnostic Workflows by Symptom & Root Cause
 
@@ -24,9 +24,10 @@ to potential root causes and points to the corresponding query in
 -   **When to Use / Symptoms**: A specific query is slow or stalled, and you
     need to isolate whether delay occurred in pending queueing or during active
     stage execution.
--   **Potential Root Causes**: Slot starvation during execution stages, shuffle
-    memory exhaustion (`shuffleOutputBytesSpilled`), unpruned input scans, or
-    stage skew.
+-   **Potential Root Causes**: Slot starvation during execution stages, join row
+    explosions (`records_written >> records_read` from cross joins or non-unique
+    keys on both sides of a join), shuffle memory exhaustion
+    (`shuffleOutputBytesSpilled`), unpruned input scans, or stage skew.
 -   **Key Telemetry & Tables**:
     -   **CLI Triage**: `bq show --location={location} --format=prettyjson -j
         {project_id}:{job_id}` to inspect `statistics.query.timeline` for
@@ -38,13 +39,20 @@ to potential root causes and points to the corresponding query in
         `creation_time >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)`.
     -   **Key Fields**: `total_slot_ms`, `total_bytes_billed`,
         `total_bytes_processed`, `job_stages` (`records_read`,
-        `records_written`, `shuffle_output_bytes_spilled`, `slot_ms`),
+        `records_written`, `shuffle_output_bytes_spilled`, `slot_ms`,
+        `wait_ratio_avg`, `wait_ratio_max`, `wait_ms_avg`, `wait_ms_max`,
+        `read_ratio_avg`, `compute_ratio_avg`, `write_ratio_avg`),
+        `query_info.performance_insights.stage_performance_standalone_insights`,
         `query_info.resource_warning_details`.
 -   **Diagnostic Procedure & Telemetry**: See the `bigquery-observability` skill
     (`references/job_performance_queries.md`, section "REST API Single-Job
-    Point-Lookup & Stage Bottlenecks") for fast CLI triage (`bq show -j`) and
-    the section "Single Job Performance & Stage Bottleneck Flags" for SQL-based
-    stage bottleneck analysis.
+    Point-Lookup & Stage Bottlenecks") for fast CLI triage (`bq show -j`), the
+    section "Single Job Performance & Stage Bottleneck Flags" for single-job
+    SQL bottleneck analysis, and the section "Stage Row Expansion, Shuffle Spill
+    & Join Insights" for multi-job `UNNEST(job_stages)` analysis. For
+    execution-plan stage diagnosis of join explosions, shuffle spills, and
+    partition skew, see
+    [query_plan_execution_graph.md](query_plan_execution_graph.md#3-join-explosion-shuffle-spill-partition-skew-diagnosis).
 
 ### 2. Cohort Baseline Comparison (`normalized_literals`)
 
@@ -169,9 +177,13 @@ to potential root causes and points to the corresponding query in
 -   **Slot Contention & Saturation**: Increase `autoscale.max_slots` on the
     reservation, configure reservation priority, or isolate heavy batch queries
     into a dedicated reservation.
--   **Stage Bottlenecks & Shuffle Spill**: Optimize join ordering (broadcast
-    smaller tables with `HASH` joins), partition or cluster large tables to
-    prune shuffle volume, and eliminate unneeded columns.
+-   **Stage Bottlenecks & Shuffle Spill**: Check join conditions to avoid
+    unintentional `CROSS JOIN`s or non-unique keys on both sides of a join, use
+    a `GROUP BY` clause to pre-aggregate join inputs before joining, optimize
+    join ordering (broadcast smaller tables with `HASH` joins), partition or
+    cluster large tables to prune shuffle volume, and eliminate unneeded columns
+    (see
+    [query_plan_execution_graph.md](query_plan_execution_graph.md#3-join-explosion-shuffle-spill-partition-skew-diagnosis)).
 -   **Queueing / Pending Slowness**: Increase reservation baseline capacity,
     adjust target job concurrency, or stagger scheduled query start times to
     avoid top-of-the-hour arrival spikes.

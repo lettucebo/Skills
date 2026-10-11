@@ -10,22 +10,25 @@ of rules in the subsections in this file.
 
 ## Table of Contents
 
--   [SQL optimization rules for reducing slot-time](#sql-optimization-rules-for-reducing-slot-time) (Lines 30-438)
-    -   [Materialize a CTE with temporary tables](#materialize-a-cte-with-temporary-tables) (Lines 32-72)
-    -   [Order multiple temporary tables or variables in reference order](#order-multiple-temporary-tables-or-variables-in-reference-order) (Lines 74-139)
-    -   [Add DISTINCT to semijoin subqueries](#add-distinct-to-semijoin-subqueries) (Lines 141-187)
-    -   [Replace REGEXP_CONTAINS with LIKE](#replace-regexp_contains-with-like) (Lines 189-207)
-    -   [In a WHERE clause, use a BETWEEN expression instead of the EXTRACT function](#in-a-where-clause-use-a-between-expression-instead-of-the-extract-function) (Lines 209-242)
-    -   [Add a LIMIT clause to an ORDER BY clause](#add-a-limit-clause-to-an-order-by-clause) (Lines 244-274)
-    -   [Remove an ORDER BY clause from a CREATE TABLE statement](#remove-an-order-by-clause-from-a-create-table-statement) (Lines 276-306)
-    -   [Compare date columns to DATE literals, not string casts](#compare-date-columns-to-date-literals-not-string-casts) (Lines 308-338)
-    -   [Add a null filter to a NOT IN subquery](#add-a-null-filter-to-a-not-in-subquery) (Lines 340-369)
-    -   [Replace a WHERE IN OR IN clause with LEFT JOINs](#replace-a-where-in-or-in-clause-with-left-joins) (Lines 371-407)
-    -   [Replace exact aggregates with approximate aggregates](#replace-exact-aggregates-with-approximate-aggregates) (Lines 409-438)
--   [SQL optimization rules for reducing amount of data](#sql-optimization-rules-for-reducing-amount-of-data) (Lines 440-639)
-    -   [Replace `SELECT *` with a specific column list](#replace-select-with-a-specific-column-list) (Lines 442-479)
-    -   [Check the query filters on the partitioned column](#check-the-query-filters-on-the-partitioned-column) (Lines 481-639)
-        -   [Fetching table schemas from BigQuery](#fetching-table-schemas-from-bigquery) (Lines 611-639)
+-   [SQL optimization rules for reducing slot-time](#sql-optimization-rules-for-reducing-slot-time) (Lines 33-569)
+    -   [Materialize a CTE with temporary tables](#materialize-a-cte-with-temporary-tables) (Lines 35-75)
+    -   [Order multiple temporary tables or variables in reference order](#order-multiple-temporary-tables-or-variables-in-reference-order) (Lines 77-142)
+    -   [Add DISTINCT to semijoin subqueries](#add-distinct-to-semijoin-subqueries) (Lines 144-190)
+    -   [Replace REGEXP_CONTAINS with LIKE](#replace-regexp_contains-with-like) (Lines 192-210)
+    -   [Use SEARCH on columns with a search index](#use-search-on-columns-with-a-search-index) (Lines 212-260)
+    -   [In a WHERE clause, use a BETWEEN expression instead of the EXTRACT function](#in-a-where-clause-use-a-between-expression-instead-of-the-extract-function) (Lines 262-295)
+    -   [Add a LIMIT clause to an ORDER BY clause](#add-a-limit-clause-to-an-order-by-clause) (Lines 297-327)
+    -   [Remove an ORDER BY clause from a CREATE TABLE statement](#remove-an-order-by-clause-from-a-create-table-statement) (Lines 329-359)
+    -   [Compare date columns to DATE literals, not string casts](#compare-date-columns-to-date-literals-not-string-casts) (Lines 361-391)
+    -   [Add a null filter to a NOT IN subquery](#add-a-null-filter-to-a-not-in-subquery) (Lines 393-422)
+    -   [Replace a WHERE IN OR IN clause with LEFT JOINs](#replace-a-where-in-or-in-clause-with-left-joins) (Lines 424-460)
+    -   [Replace exact aggregates with approximate aggregates](#replace-exact-aggregates-with-approximate-aggregates) (Lines 462-491)
+    -   [Pre-aggregate join inputs before joining](#pre-aggregate-join-inputs-before-joining) (Lines 493-569)
+-   [SQL optimization rules for reducing amount of data](#sql-optimization-rules-for-reducing-amount-of-data) (Lines 571-818)
+    -   [Replace `SELECT *` with a specific column list](#replace-select-with-a-specific-column-list) (Lines 573-610)
+    -   [Check the query filters on the partitioned column](#check-the-query-filters-on-the-partitioned-column) (Lines 612-818)
+        -   [Fetching table schemas from BigQuery](#fetching-table-schemas-from-bigquery) (Lines 774-802)
+        -   [Validating a rewrite with a dry run](#validating-a-rewrite-with-a-dry-run) (Lines 804-818)
 
 ## SQL optimization rules for reducing slot-time
 
@@ -205,6 +208,56 @@ Example of where `REGEXP_CONTAINS` should not be rewritten:
 
 *   `REGEXP_CONTAINS(a, 'abc')` should not be rewritten as `a LIKE '%abc%'`
     since the query does not contain any wildcards.
+
+### Use SEARCH on columns with a search index
+
+If the query filters a column with `REGEXP_CONTAINS` or `LIKE '%term%'` and the
+column is covered by an `ACTIVE` search index with a `coverage_percentage` above
+0 (the user confirms, or `INFORMATION_SCHEMA.SEARCH_INDEXES` shows the column or
+`ALL COLUMNS` in `ddl`), suggest rewriting the filter to use the `SEARCH`
+function. If no index exists, propose the rewrite only together with an index
+proposal, to apply once coverage is above 0. Do not rewrite `=`, `IN`, `LIKE
+'prefix%'`, `STARTS_WITH`, or `ENDS_WITH` comparisons with string literals;
+BigQuery can already use the search index for them.
+
+`SEARCH` matches tokens, not substrings. With the default `LOG_ANALYZER` it is
+case-insensitive, and `SEARCH(a, '192.0.2.1')` matches any row that contains
+the tokens `192`, `0`, `2`, and `1` in any order; enclose the term in backticks
+for an exact match. If the index uses a non-default analyzer, pass the same
+analyzer to `SEARCH`. Because the results can differ from the original filter,
+propose it and wait for the user to confirm before applying; do not include it
+in an otherwise-automatic rewrite. For when to create an index, see
+[search_indexes.md](search_indexes.md).
+
+Rationale: A search index lets BigQuery skip base table data that doesn't
+contain the search tokens, which reduces bytes processed and slot time. Savings
+are largest when the matching rows are a small fraction of the table.
+
+Here is an example of a query that filters an indexed column with `LIKE`:
+
+```sql
+SELECT
+  Level,
+  Source,
+  Message
+FROM
+  my_dataset.Logs
+WHERE
+  Message LIKE '%94.60.64.181%';
+```
+
+Here is the rewritten query with `SEARCH`:
+
+```sql
+SELECT
+  Level,
+  Source,
+  Message
+FROM
+  my_dataset.Logs
+WHERE
+  SEARCH(Message, '`94.60.64.181`');
+```
 
 ### In a WHERE clause, use a BETWEEN expression instead of the EXTRACT function
 
@@ -437,6 +490,84 @@ FROM
   test.a AS t1;
 ```
 
+### Pre-aggregate join inputs before joining
+
+If a `WITH` CTE joins a detail table to a parent table without aggregating and
+the outer query immediately aggregates (`GROUP BY`) that CTE's rows by the join
+key, rewrite the CTE to pre-aggregate the detail table by the join key before
+joining to the parent table in the outer query, and place the largest table
+first (leftmost) in the `JOIN` clause. Only apply this rule when the query has a
+`WITH` CTE that performs an unaggregated `JOIN` followed by an outer `GROUP BY`;
+do not apply it to flat queries without a join CTE or to queries that already
+aggregate in a semijoin (`WHERE ... IN (SELECT ... GROUP BY ...)`).
+
+Rationale: Reducing data with `GROUP BY` before a `JOIN` avoids shuffling and
+multiplying detail rows across the join stage (`records_written >>
+records_read` and `shuffle_output_bytes_spilled > 0` in `job_stages`), reducing
+both slot-time and shuffle memory usage. When diagnosing a Cartesian join
+explosion, also inspect the `JOIN` clauses for unintentional `CROSS JOIN`s,
+missing `ON` conditions, or non-selective join predicates (duplicate keys on
+both sides), and filter out `NULL` or skewed dummy keys (e.g., `WHERE
+customer_id IS NOT NULL AND customer_id != 'GUEST'`) before joining.
+
+Here is an example of a query that joins `comments` and `users` before
+aggregating:
+
+```sql
+WITH
+  users_posts AS (
+    SELECT
+      u.display_name,
+      u.reputation,
+      c.score,
+      c.text,
+      c.user_id
+    FROM
+      `my_dataset.comments` AS c
+    JOIN
+      `my_dataset.users` AS u
+      ON c.user_id = u.id
+  )
+SELECT
+  display_name,
+  reputation,
+  AVG(score) AS avg_score,
+  COUNT(text) AS comments_count
+FROM
+  users_posts
+GROUP BY
+  display_name,
+  reputation,
+  user_id;
+```
+
+Here is the rewritten query that pre-aggregates `comments` by `user_id` before
+joining to `users`:
+
+```sql
+WITH
+  comments_by_user AS (
+    SELECT
+      user_id,
+      AVG(score) AS avg_score,
+      COUNT(text) AS comments_count
+    FROM
+      `my_dataset.comments`
+    GROUP BY
+      user_id
+  )
+SELECT
+  u.display_name,
+  u.reputation,
+  c.avg_score,
+  c.comments_count
+FROM
+  comments_by_user AS c
+JOIN
+  `my_dataset.users` AS u
+  ON c.user_id = u.id;
+```
+
 ## SQL optimization rules for reducing amount of data
 
 ### Replace `SELECT *` with a specific column list
@@ -608,6 +739,38 @@ Steps to follow:
     user needs to add an additional filter condition within the variable
     `max_order_date`.
 
+    c. Isolate the partitioned column from unsupported functions and arithmetic
+    expressions. BigQuery prunes partitions when the `WHERE` filter compares the
+    partitioned column (or a documented pruning-supported built-in function on
+    the partitioned column, such as `DATE(ts_col)`, `EXTRACT(DATE FROM ts_col)`,
+    `CAST(ts_col AS DATE)`, `DATE_TRUNC`, or `TIMESTAMP_TRUNC` with constant
+    arguments) against a constant expression. Wrapping the partitioned column in
+    an unsupported function (such as `FORMAT_DATE` or `EXTRACT(MONTH FROM
+    ts_col)`) or applying arithmetic to the partitioned column (such as
+    `ts_col + INTERVAL 1 DAY > CURRENT_TIMESTAMP()`) prevents partition pruning.
+    Rewrite the filter to isolate the partitioned column on one side of the
+    comparison:
+
+    ```sql
+    -- Unpruned (arithmetic on the partitioned column):
+    SELECT
+      order_id,
+      total_amount
+    FROM
+      `my_dataset.orders`
+    WHERE
+      order_timestamp + INTERVAL 1 DAY > CURRENT_TIMESTAMP();
+
+    -- Rewritten to isolate the partitioned column for partition pruning:
+    SELECT
+      order_id,
+      total_amount
+    FROM
+      `my_dataset.orders`
+    WHERE
+      order_timestamp > CURRENT_TIMESTAMP() - INTERVAL 1 DAY;
+    ```
+
 #### Fetching table schemas from BigQuery
 
 Use the following shell command to fetch the table schema from BigQuery:
@@ -638,3 +801,18 @@ Use the following shell command to fetch the table schema from BigQuery:
     bq show --format=prettyjson my_dataset.orders
     ```
 
+#### Validating a rewrite with a dry run
+
+After rewriting a query to add partition filters or replace `SELECT *` with
+explicit columns, instruct the user to validate the estimated bytes processed
+before executing the query using a dry run:
+
+```bash
+bq query --use_legacy_sql=false --dry_run "{sql_query}"
+```
+
+A dry run validates SQL syntax and returns the deterministic
+`totalBytesProcessed` estimate after partition pruning and column pruning
+without running the query or incurring compute charges. Note that block-pruning
+savings from clustered columns are determined dynamically during execution and
+are not reflected in the dry-run upper bound.

@@ -6,11 +6,12 @@ operations, and query plan metrics in BigQuery.
 
 ## Table of Contents
 
--   [Diagnostic Workflows](#diagnostic-workflows) (Lines 15-48)
-    -   [1. Single-Job Stage Bottleneck Triage & REST API Lookup](#1-single-job-stage-bottleneck-triage-rest-api-lookup) (Lines 17-37)
-    -   [2. General Telemetry & Stage Metrics Cross-Reference](#2-general-telemetry-stage-metrics-cross-reference) (Lines 39-48)
--   [Execution Graph & UI Grounding Concepts](#execution-graph-ui-grounding-concepts) (Lines 50-96)
--   [Strict Disambiguation Invariants](#strict-disambiguation-invariants) (Lines 98-113)
+-   [Diagnostic Workflows](#diagnostic-workflows) (Lines 16-104)
+    -   [1. Single-Job Stage Bottleneck Triage & REST API Lookup](#1-single-job-stage-bottleneck-triage-rest-api-lookup) (Lines 18-38)
+    -   [2. General Telemetry & Stage Metrics Cross-Reference](#2-general-telemetry-stage-metrics-cross-reference) (Lines 40-49)
+    -   [3. Join Explosion, Shuffle Spill & Partition Skew Diagnosis](#3-join-explosion-shuffle-spill-partition-skew-diagnosis) (Lines 51-104)
+-   [Execution Graph & UI Grounding Concepts](#execution-graph-ui-grounding-concepts) (Lines 106-152)
+-   [Strict Disambiguation Invariants](#strict-disambiguation-invariants) (Lines 154-169)
 
 ## Diagnostic Workflows
 
@@ -46,6 +47,61 @@ as `records_read`, `records_written`, `shuffle_output_bytes_spilled`, and
 -   `references/schema_compute.md` for raw telemetry metrics and column types.
 -   `references/job_performance_queries.md` for SQL-based stage bottleneck
     analysis and historical baseline comparisons.
+
+### 3. Join Explosion, Shuffle Spill & Partition Skew Diagnosis
+
+-   **When to Use / Symptoms**: A query consumes excessive slot-hours, runs out
+    of shuffle resources, or stalls in a `Join` or `Aggregate` stage due to
+    unintentional `CROSS JOIN`s, missing or non-selective `ON` conditions,
+    many-to-many row multiplication (`records_written >> records_read`), disk
+    spill (`shuffle_output_bytes_spilled > 0`), or worker skew.
+-   **Diagnostic Procedure**:
+    -   Unnest `job_stages` and
+        `query_info.performance_insights.stage_performance_standalone_insights`
+        in `INFORMATION_SCHEMA.JOBS_BY_PROJECT` (see the
+        `bigquery-observability` skill, `references/job_performance_queries.md`,
+        section "Stage Row Expansion, Shuffle Spill & Join Insights") or inspect
+        `statistics.query.queryPlan` and `statistics.query.performanceInsights`
+        via `bq show --location={location} --format=prettyjson -j
+        {project_id}:{job_id}`.
+    -   **Row Expansion Check (`records_written` vs. `records_read`)**: Compare
+        `stage.records_written` to `stage.records_read`
+        (`SAFE_DIVIDE(stage.records_written, NULLIF(stage.records_read, 0))`)
+        and inspect `insight.high_cardinality_joins` (`left_rows`, `right_rows`,
+        `output_rows`, `step_index`) to identify stages where output rows
+        drastically exceed input rows.
+    -   **Join Condition & `CROSS JOIN` Check**: Inspect the query's `JOIN`
+        conditions and the `JOIN` step details in the query plan (join pattern
+        and join columns) for unintentional `CROSS JOIN`s (or comma cross
+        joins), missing `ON` conditions, or non-selective/non-unique join keys
+        on both sides of the join. Confirm a Cartesian product by counting rows
+        per join key (`GROUP BY` the join key) on each side of the `JOIN`.
+    -   **Shuffle Spill & Quota Check**: Check `stage.shuffle_output_bytes`,
+        `stage.shuffle_output_bytes_spilled > 0`, and
+        `insight.insufficient_shuffle_quota = TRUE` to identify stages spilling
+        intermediate data to disk or starving for shuffle quota.
+    -   **Wait vs. Skew Check**: Compare `stage.wait_ratio_avg` (`wait_ms_avg`)
+        and `stage.wait_ratio_max` (`wait_ms_max`) to detect worker slot
+        starvation (`insight.slot_contention = TRUE`), and compare
+        `stage.compute_ratio_max` against `stage.compute_ratio_avg` alongside
+        `insight.partition_skew.skew_sources` (`stage_id`) to isolate hot
+        keys overloading a single worker shard.
+-   **Remediation & Actions**:
+    -   **Eliminate Unintentional `CROSS JOIN`s & Use Selective Join Keys**:
+        Ensure every `JOIN` specifies explicit `ON` conditions using selective
+        join keys rather than an unintentional `CROSS JOIN` (or replace cross
+        joins and self-joins with window functions where applicable).
+    -   **Pre-Aggregate Join Inputs Before Joining**: Use a `GROUP BY` clause in
+        a CTE to pre-aggregate data on the join key before the `JOIN` (or
+        deduplicate non-unique keys) so non-unique keys on both sides do not
+        multiply rows, and filter out `NULL` or skewed dummy keys (e.g., `WHERE
+        customer_id IS NOT NULL AND customer_id != 'GUEST'`) before joining.
+    -   **Filter Early & Order Joins Largest-First**: Push selective `WHERE`
+        filters into each table before the `JOIN`, and place the largest table
+        first (leftmost) and the smallest table second (rightmost) so BigQuery
+        broadcasts the small table (`JOIN EACH WITH ALL`) instead of shuffling
+        both inputs (`JOIN EACH WITH EACH`). For SQL rewrite patterns, refer to
+        the `bigquery-optimization` skill.
 
 ## Execution Graph & UI Grounding Concepts
 

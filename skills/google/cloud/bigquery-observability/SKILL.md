@@ -1,7 +1,7 @@
 ---
 name: bigquery-observability
 metadata:
-  version: 1.1.0
+  version: 1.2.0
   category: BigDataAndAnalytics
 description: Provides data-retrieval best practices, tool selection guidance,
   and performant SQL query syntax for BigQuery telemetry across
@@ -18,8 +18,8 @@ description: Provides data-retrieval best practices, tool selection guidance,
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/bigquery-observability
-x-source-commit: d5d905232ec501743831cc68e6763af90da3cd69
-x-version: 1.0.1
+x-source-commit: 4b940dd4b5f5759794cc257266cb8cb7524b7a66
+x-version: 1.0.2
 ---
 
 # BigQuery Observability
@@ -214,7 +214,7 @@ analytical need:
 *   **Storage Footprints & Usage (Bytes Stored)**
     (`references/storage_footprints.md`): Storage snapshot queries, compression
     ratio calculations, Time Travel / Fail-Safe churn, daily average GiB
-    time-integrals, and billing model evaluation.
+    time-integrals, billing model evaluation, and search index coverage.
 
 ### Performance & Troubleshooting Guides
 
@@ -222,7 +222,8 @@ analytical need:
     Queries for evaluating individual and aggregate job performance, stage
     bottleneck flags, comparable jobs via normalized literals
     (`query_info.query_hashes.normalized_literals`), BI Engine acceleration,
-    metadata cache (cmeta) acceleration, and execution variance outliers.
+    metadata cache (cmeta) acceleration, search index usage, materialized view
+    rewrite usage, and execution variance outliers.
 *   **Resource Contention Queries**
     (`references/resource_contention_queries.md`): Queries for diagnosing slot
     contention, queue latency, per-minute concurrency/queue timelines, and

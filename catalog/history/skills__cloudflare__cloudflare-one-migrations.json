@@ -57,6 +57,14 @@
       "upstreamCommit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
       "diffUrl": "https://github.com/cloudflare/skills/compare/626547c06881a20b3322bdc2ed6e6451b33a4fb6...41e0d19858946d18af9ee2c2feebbe2e11d829ff",
       "contentHash": "sha256:33809e12e76b16e8084e4f0d07bf923119a9c078cc611a3a950a9ac28a8b3699"
+    },
+    {
+      "release": "2.1.8",
+      "kind": "upstream-update",
+      "version": "1.1.3",
+      "upstreamCommit": "c430dd965cea3a8faf0ef035e3b3d73b38518081",
+      "diffUrl": "https://github.com/cloudflare/skills/compare/41e0d19858946d18af9ee2c2feebbe2e11d829ff...c430dd965cea3a8faf0ef035e3b3d73b38518081",
+      "contentHash": "sha256:7e608dd07adf8caceb2b0ce975dd3bef86e36e4d431ca84d6aa9e437f9bcd348"
     }
   ]
 }

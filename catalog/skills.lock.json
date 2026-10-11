@@ -1,6 +1,6 @@
 {
-  "release": "2.1.7",
-  "generatedAt": "2026-10-08T10:08:14.492Z",
+  "release": "2.1.8",
+  "generatedAt": "2026-10-11T09:44:29.404Z",
   "licenseEvidenceVersion": 1,
   "counts": {
     "total": 289,
@@ -338,7 +338,7 @@
       "path": "skills/claude/claude-api",
       "name": "claude-api",
       "category": "mapped",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -348,15 +348,15 @@
         "hash": "sha256:bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
-        "commit": "683bc88e56f3e09ba94f7055977f3d3aa499f202"
+        "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
       },
-      "snapshotHash": "sha256:cffdfec8c9a6edcfff7b5565239b2f2f0a5c6ab26474e6f8e8fc36280e4a7e6b",
-      "contentHash": "sha256:2b51d4789626841421ece4e40e8cd5127f8b2dc1154e58010fd248470fdd2ab8",
+      "snapshotHash": "sha256:9e9271478c365f336dec6c5e785d0b1d9c53536e4fb672556c284d482b2986ae",
+      "contentHash": "sha256:fde28004c33b154afbffdb032db0ce41d4244fd3fdd12a779ae3f7a260413d61",
       "upstream": {
         "repository": "anthropics/skills",
         "reference": "refs/heads/main",
         "source": "skills/claude-api",
-        "commit": "683bc88e56f3e09ba94f7055977f3d3aa499f202"
+        "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
       }
     },
     {
@@ -696,7 +696,7 @@
       "path": "skills/cloudflare/cloudflare",
       "name": "cloudflare",
       "category": "mapped",
-      "version": "1.1.3",
+      "version": "1.1.4",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -704,17 +704,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+        "commit": "c430dd965cea3a8faf0ef035e3b3d73b38518081",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:5981f31a4d72ba6b4e9954bfa164a8f5d9e891a24811da330b16cb3ee2822f8d",
-      "contentHash": "sha256:9571af5f8b5f343052e422bf4d63b2448f90a3efe1fd9ce9b8a376ea9db83210",
+      "snapshotHash": "sha256:adb44a421f24c5ee428ca02d0a8beb428181270d5d8502f9e1c4196ef742e59f",
+      "contentHash": "sha256:905f48fcc58f2d1f8d1dc154d59dc878106d694950949a9d064eb6742b471bba",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloudflare",
-        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
+        "commit": "c430dd965cea3a8faf0ef035e3b3d73b38518081"
       }
     },
     {
@@ -746,7 +746,7 @@
       "path": "skills/cloudflare/cloudflare-one",
       "name": "cloudflare-one",
       "category": "mapped",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -754,24 +754,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+        "commit": "c430dd965cea3a8faf0ef035e3b3d73b38518081",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:8565d7a870a0630a72794ece4c5df13f514c0ff88b358b9ff2a35109eb0cb0c0",
-      "contentHash": "sha256:be197cff08c694a1642d2bbdcafbffa7e079e9fab409a2994aa36485efdb18e6",
+      "snapshotHash": "sha256:10d38cc561793f4261c07a1d8613ef6fd47129cc9809b55afa98d5cdc6961e85",
+      "contentHash": "sha256:291422bcfdb9def4e5a49286dab86af5066a7ff8e16c972ca8c544be9cde2751",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloudflare-one",
-        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
+        "commit": "c430dd965cea3a8faf0ef035e3b3d73b38518081"
       }
     },
     {
       "path": "skills/cloudflare/cloudflare-one-migrations",
       "name": "cloudflare-one-migrations",
       "category": "mapped",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -779,17 +779,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
-        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+        "commit": "c430dd965cea3a8faf0ef035e3b3d73b38518081",
         "path": "LICENSE",
         "hash": "sha256:58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
       },
-      "snapshotHash": "sha256:6b5e9c3685e67920584ff1c074d67e7022babf680bbb552b1799c92399e19dcb",
-      "contentHash": "sha256:33809e12e76b16e8084e4f0d07bf923119a9c078cc611a3a950a9ac28a8b3699",
+      "snapshotHash": "sha256:e4318ffe2bd85bcbe1be94b70af8ce9aa63437af025ffb5d1d7225ff6470d0c1",
+      "contentHash": "sha256:7e608dd07adf8caceb2b0ce975dd3bef86e36e4d431ca84d6aa9e437f9bcd348",
       "upstream": {
         "repository": "cloudflare/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloudflare-one-migrations",
-        "commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
+        "commit": "c430dd965cea3a8faf0ef035e3b3d73b38518081"
       }
     },
     {
@@ -3369,6 +3369,31 @@
       "path": "skills/google/cloud/bigquery-observability",
       "name": "bigquery-observability",
       "category": "mapped",
+      "version": "1.0.2",
+      "baseline": "verified",
+      "license": "Apache-2.0",
+      "redistributable": true,
+      "licenseEvidence": {
+        "source": "upstream-root:LICENSE",
+        "repository": "google/skills",
+        "reference": "refs/heads/main",
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
+        "path": "LICENSE",
+        "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      "snapshotHash": "sha256:0853fa3394911cddf7f7a3a147f1cb6eed5d86258cf7439c7b6de6e7dc2e0dc9",
+      "contentHash": "sha256:f84b463b68db2ea754bfba3fca2cac62a71ccfae88b886b402fc674045a02269",
+      "upstream": {
+        "repository": "google/skills",
+        "reference": "refs/heads/main",
+        "source": "skills/cloud/bigquery-observability",
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66"
+      }
+    },
+    {
+      "path": "skills/google/cloud/bigquery-optimization",
+      "name": "bigquery-optimization",
+      "category": "mapped",
       "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
@@ -3377,42 +3402,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "d5d905232ec501743831cc68e6763af90da3cd69",
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:b22efc8d9dc81b1dad7e1672952171ea4f5b467299e1e2a48447202a03e3d201",
-      "contentHash": "sha256:d9ef34e836d38bc290899fda63ca86970aa3c7cf792d7a97b394f1fd9d93516c",
-      "upstream": {
-        "repository": "google/skills",
-        "reference": "refs/heads/main",
-        "source": "skills/cloud/bigquery-observability",
-        "commit": "d5d905232ec501743831cc68e6763af90da3cd69"
-      }
-    },
-    {
-      "path": "skills/google/cloud/bigquery-optimization",
-      "name": "bigquery-optimization",
-      "category": "mapped",
-      "version": "1.0.0",
-      "baseline": "verified",
-      "license": "Apache-2.0",
-      "redistributable": true,
-      "licenseEvidence": {
-        "source": "upstream-root:LICENSE",
-        "repository": "google/skills",
-        "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
-        "path": "LICENSE",
-        "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
-      },
-      "snapshotHash": "sha256:5c31629f7bd0f903f29a5b909eef864b7191ca64a53d73e0f7140c504d6e3b34",
-      "contentHash": "sha256:702b9d071fb70f251d72752d4d7a43fa753d4833ec7dbe12e6dc4268f4a48f7e",
+      "snapshotHash": "sha256:797022e7742d463b4e7b933b7d5f8a9903cf1272967ecc0985e404478cb8c074",
+      "contentHash": "sha256:8baffd79660fe5dda440339ba84f19e4d14c5f77e5e07fac34f70873da0b112f",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/bigquery-optimization",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66"
       }
     },
     {
@@ -3444,7 +3444,7 @@
       "path": "skills/google/cloud/bigquery-troubleshooting",
       "name": "bigquery-troubleshooting",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3452,17 +3452,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:dffa3fc5373ffa3a8f8d5d07e7ed75ef23607fb804ad77b1416f91e21672cc55",
-      "contentHash": "sha256:cf43f346a2304ef612dce2ca51dca8e297a2dc9a8a8a3f33d33917f4d87e1804",
+      "snapshotHash": "sha256:5bf94a31accd6af160b92b60762205a14e1b5646f30b2674da2b96eb2870d213",
+      "contentHash": "sha256:bc0525032942f34c5c145826ea28104ae2c39104f1e8dd43695d17df8f77bccf",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/bigquery-troubleshooting",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66"
       }
     },
     {
@@ -3794,7 +3794,7 @@
       "path": "skills/google/cloud/datalineage-bigquery-asset-impact-analysis",
       "name": "datalineage-bigquery-asset-impact-analysis",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3802,24 +3802,24 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:76e5a14d1e5779a13eb8cddacd0529a9d22a6f129ac5917388dd088f60d6a9f8",
-      "contentHash": "sha256:1ac0dcdc98b51008040171fff7e156edbcd0842512aeb01d25f1c184c31731e7",
+      "snapshotHash": "sha256:7d60338bd0a81492eb62885d64a21b73cb9bb3376ec97321109d9887e56a07ad",
+      "contentHash": "sha256:5d8f2a814439778cd7cdbda5fafe50ebc7ea258a45fec2e33f21242442dd3c3b",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/datalineage-bigquery-asset-impact-analysis",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66"
       }
     },
     {
       "path": "skills/google/cloud/datalineage-summary",
       "name": "datalineage-summary",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -3827,17 +3827,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:3efec70a6ed0aeddb635fb5c9f2300f044949e29bacac0e13a30d3ea34599d6c",
-      "contentHash": "sha256:d2d0b27f7c8bf2bcc8e660be2c4fd0a98cda794c7d42ac10a270def3780a99b5",
+      "snapshotHash": "sha256:087814595cf6bfc23c38806e3cc37d090c9aea1f7d35557327cff69d48540136",
+      "contentHash": "sha256:de73c56c1bb72e477345e230b6c5db2e880903b3334dcd2f587180a8fd158388",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/datalineage-summary",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66"
       }
     },
     {
@@ -5219,7 +5219,7 @@
       "path": "skills/google/cloud/google-cloud-recipe-auth",
       "name": "google-cloud-recipe-auth",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5227,17 +5227,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:09c3ae93565db07ee4b338d752f9bc47b4a6d6f07b483674ce190a1508de9ba3",
-      "contentHash": "sha256:641edb65dee61003d8ffdf739e853af1c6fa206f6cf6cef1cef3f3bc35fb5c60",
+      "snapshotHash": "sha256:8b18f7fc39b1ee79c13388783ddd04be66f91a8ba569faadeb1719191d6882c5",
+      "contentHash": "sha256:db45e550f9035c3f05db8c797ce5e893a133b4f064e6d77a0600279c603ea9d2",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-recipe-auth",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66"
       }
     },
     {
@@ -5294,7 +5294,7 @@
       "path": "skills/google/cloud/google-cloud-scc-query",
       "name": "google-cloud-scc-query",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5302,17 +5302,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:55c42b18aafe0842601842adf2bbced45967f860fcd4b110604fc9e1948fd704",
-      "contentHash": "sha256:105693e7cf2b4bfcc0a06f820783af5953beb24dd0cd92ba8a0e9d2aa49a4bae",
+      "snapshotHash": "sha256:7cae9166bdb9b37465545f482acdff6f19bdebe329cdf608875358a09331f85c",
+      "contentHash": "sha256:c20b86401e2a35ecdfb2ad7d5d81b0441a5a1f5db80f23071f97f60e38ac6bc6",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/google-cloud-scc-query",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66"
       }
     },
     {
@@ -5869,7 +5869,7 @@
       "path": "skills/google/cloud/iam-helper-for-policy-simulator",
       "name": "iam-helper-for-policy-simulator",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5877,17 +5877,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:3d24270448745a733312ec6cab5001c243fdeb209948686a4328cdedab4e9d38",
-      "contentHash": "sha256:aa5c43579486ab86155ea86a3ebad8dce96eecc49d44006d6284d39d95909587",
+      "snapshotHash": "sha256:70ccd749a84b6c4e7c0c9c3e3c76cf064853f9f0da745f47f6ec8fef27644a37",
+      "contentHash": "sha256:49464bc04dd8a737306d8b0925023a7c576872bdf01cf4332b14cdb0c3f5c191",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/iam-helper-for-policy-simulator",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66"
       }
     },
     {
@@ -5919,7 +5919,7 @@
       "path": "skills/google/cloud/iam-helper-for-troubleshooting",
       "name": "iam-helper-for-troubleshooting",
       "category": "mapped",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "baseline": "verified",
       "license": "Apache-2.0",
       "redistributable": true,
@@ -5927,17 +5927,17 @@
         "source": "upstream-root:LICENSE",
         "repository": "google/skills",
         "reference": "refs/heads/main",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1",
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
         "path": "LICENSE",
         "hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
       },
-      "snapshotHash": "sha256:0449393acfb6dd9cf2ba6867c504d853573d7ff2922af0fc9daa2f5be83000c6",
-      "contentHash": "sha256:acbb8a07ec5e1df12ff0e189c90836843f90c6476eee522ed40697bfa5b69887",
+      "snapshotHash": "sha256:b5c1b0e2cb7be9950e542658746d1d5675634cbcc0e2c1ccf9608bce337cfbbc",
+      "contentHash": "sha256:157f37b0c8dcce0cad32fcf2b8ecdad9850245aaa2bc56aec7635682d76f4783",
       "upstream": {
         "repository": "google/skills",
         "reference": "refs/heads/main",
         "source": "skills/cloud/iam-helper-for-troubleshooting",
-        "commit": "99c871efb402aba106c3ce7432451d253efd77b1"
+        "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66"
       }
     },
     {

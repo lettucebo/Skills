@@ -12,13 +12,13 @@ corresponding query in `bigquery-observability`.
 ## Table of Contents
 
 -   [1. 4-Step Diagnostic Funnel](#1-4-step-diagnostic-funnel) (Lines 23-76)
--   [2. Diagnostic Workflows by Symptom & Root Cause](#2-diagnostic-workflows-by-symptom-root-cause) (Lines 78-230)
-    -   [Scenario 1: The Bully Query (Unpartitioned Runaway Scan)](#scenario-1-the-bully-query-unpartitioned-runaway-scan) (Lines 80-116)
-    -   [Scenario 2: Hidden RLS Redacted Costs](#scenario-2-hidden-rls-redacted-costs) (Lines 118-144)
-    -   [Scenario 3: BQML Model Training Rates](#scenario-3-bqml-model-training-rates) (Lines 146-172)
-    -   [Scenario 4: User / Service Account Bursting & Missing Quotas](#scenario-4-user-service-account-bursting-missing-quotas) (Lines 174-198)
-    -   [Scenario 5: Querying Very Small Tables (10 MiB Minimum Billed Data Floor)](#scenario-5-querying-very-small-tables-10-mib-minimum-billed-data-floor) (Lines 200-230)
--   [3. Telemetry & Data Retrieval Reference](#3-telemetry-data-retrieval-reference) (Lines 232-249)
+-   [2. Diagnostic Workflows by Symptom & Root Cause](#2-diagnostic-workflows-by-symptom-root-cause) (Lines 78-255)
+    -   [Scenario 1: The Bully Query (Unpartitioned Runaway Scan)](#scenario-1-the-bully-query-unpartitioned-runaway-scan) (Lines 80-141)
+    -   [Scenario 2: Hidden RLS Redacted Costs](#scenario-2-hidden-rls-redacted-costs) (Lines 143-169)
+    -   [Scenario 3: BQML Model Training Rates](#scenario-3-bqml-model-training-rates) (Lines 171-197)
+    -   [Scenario 4: User / Service Account Bursting & Missing Quotas](#scenario-4-user-service-account-bursting-missing-quotas) (Lines 199-223)
+    -   [Scenario 5: Querying Very Small Tables (10 MiB Minimum Billed Data Floor)](#scenario-5-querying-very-small-tables-10-mib-minimum-billed-data-floor) (Lines 225-255)
+-   [3. Telemetry & Data Retrieval Reference](#3-telemetry-data-retrieval-reference) (Lines 257-279)
 
 ## 1. 4-Step Diagnostic Funnel
 
@@ -87,20 +87,44 @@ Month-over-Month comparisons):
     missing cluster filters, unconstrained `SELECT *` scans, non-selective or
     cross joins, or repeated full-table scans across multi-terabyte tables.
 *   **Key Telemetry & Tables:**
-    *   **Table:** `INFORMATION_SCHEMA.JOBS`.
+    *   **Table:** `INFORMATION_SCHEMA.JOBS_BY_PROJECT` (or
+        `INFORMATION_SCHEMA.JOBS`), `INFORMATION_SCHEMA.COLUMNS`,
+        `INFORMATION_SCHEMA.TABLE_OPTIONS`.
     *   **Filters:** `job_type = 'QUERY'`, `statement_type != 'SCRIPT'`,
         `creation_time >= TIMESTAMP_SUB(...)`.
     *   **Key Fields:** `project_id` (crucial for org/folder-level views),
         `job_id`, `user_email`, `total_bytes_billed`, `total_bytes_processed`,
-        `statement_type`, `query_info.query_hashes.normalized_literals`.
+        `referenced_tables`, `statement_type`,
+        `query_info.query_hashes.normalized_literals` (in `JOBS_BY_PROJECT`);
+        `table_name`, `column_name`, `data_type`, `is_partitioning_column`,
+        `clustering_ordinal_position` (in `COLUMNS`); `option_name =
+        'require_partition_filter'`, `option_value` (in `TABLE_OPTIONS`).
 *   **Diagnostic Procedure & Telemetry:** See **Telemetry & Data Retrieval
     Reference** below to calculate canonical billed TiB, account for BQML
-    multipliers, and sort by spend descending. Group by
-    `query_info.query_hashes.normalized_literals` to identify recurring
-    scheduled queries accumulating unbounded spend.
+    multipliers, and sort by spend descending:
+    1.  **Query-Template Spend Attribution:** Group `JOBS_BY_PROJECT` by
+        `query_info.query_hashes.normalized_literals` to sum job-level
+        `total_bytes_billed` and `total_bytes_processed` (and project
+        `ANY_VALUE(referenced_tables)`) without double-counting multi-table
+        joins.
+    2.  **Candidate Table Discovery & Partitioning Audit:** Unnest
+        `referenced_tables` to identify which tables those high-scan queries
+        touch (do not sum job-level bytes across joined tables; cross-check
+        actual table size via `total_logical_bytes` in
+        `INFORMATION_SCHEMA.TABLE_STORAGE`), then query
+        `INFORMATION_SCHEMA.COLUMNS` and `INFORMATION_SCHEMA.TABLE_OPTIONS` to
+        verify whether each referenced table has `DATE`, `TIMESTAMP`,
+        `DATETIME`, or `INT64` integer-range partitioning, clustering columns,
+        and `require_partition_filter = 'true'`.
 *   **Remediation & Actions:**
+    *   **Partition & Cluster Unpartitioned Tables:** Unpartitioned tables
+        cannot be converted in place or replaced via `OR REPLACE` with a
+        different kind of partitioning; use `CREATE TABLE ... PARTITION BY ...
+        CLUSTER BY ... AS SELECT * FROM ...` (CTAS) to create a new partitioned
+        and clustered table (or `DROP` and recreate it). For table partitioning
+        and clustering design, refer to the `bigquery-optimization` skill.
     *   **Enforce Partition Filtering:** Require partition filters on large
-        tables:
+        partitioned tables:
         *   *DDL:* `ALTER TABLE {dataset_id}.{table_id} SET OPTIONS
             (require_partition_filter = true);`
         *   *CLI:* `bq update --require_partition_filter=true
@@ -112,8 +136,9 @@ Month-over-Month comparisons):
             cap).
         *   *Client Libraries:* Set `job_config.maximum_bytes_billed =
             107374182400` in `QueryJobConfig`.
-    *   **Optimize Query Syntax:** Add partition pruning filters and select only
-        required columns instead of `SELECT *`.
+    *   **Optimize Query Syntax:** Add partition pruning filters, filter or
+        aggregate by clustered columns (such as high-cardinality columns), and
+        select only required columns instead of `SELECT *`.
 
 ### Scenario 2: Hidden RLS Redacted Costs
 
@@ -240,6 +265,11 @@ levers are self-contained within this guide.
     skill (`references/compute_ondemand_billable.md`, section "CORE RULE: The
     Golden Base CTE (bytes_billed_cte)") for the canonical bytes billed CTE with
     BQML multipliers and timezone alignment.
+*   **Table Partitioning, Clustering & Filter Enforcement Audit:** See the
+    `bigquery-observability` skill (`references/storage_footprints.md`, section
+    "Table Partitioning, Clustering & Filter Enforcement Audit") to inspect
+    `INFORMATION_SCHEMA.COLUMNS` and `INFORMATION_SCHEMA.TABLE_OPTIONS` for
+    partitioning columns, clustering columns, and `require_partition_filter`.
 *   **Job Metadata:** See the `bigquery-observability` skill
     (`references/schema_compute.md`, section "1. Jobs & Compute Telemetry
     Views") for `INFORMATION_SCHEMA.JOBS` view schema.

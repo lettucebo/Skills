@@ -1,23 +1,23 @@
 ---
 name: datalineage-bigquery-asset-impact-analysis
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   category: BigDataAndAnalytics
-description: "Analyzes the downstream impact (blast radius) when a BigQuery
-  table or view is broken, stale, or modified. Identifies all downstream tables,
-  dashboards, and processes that will be affected. Use when: - Performing a
-  blast radius or impact analysis for a BigQuery table or view. - Assessing the
-  consequences of modifying, deleting, or pausing updates to a BigQuery asset. -
-  Identifying downstream dependencies (tables, dashboards, processes) of a
-  BigQuery asset. Don't use for: - General BigQuery querying or data analysis
-  (use BigQuery-related tools instead). - Non-BigQuery assets (e.g., Cloud
-  Storage files) unless they are part of the BigQuery lineage. - Creating or
-  modifying lineage links directly."
+description: "Analyzes the downstream impact (blast radius) using data lineage
+  on Google Cloud when a BigQuery table or view is broken, stale, or modified.
+  Identifies all downstream tables, dashboards, and processes that will be
+  affected. Use when: - Performing a blast radius or impact analysis for a
+  BigQuery table or view. - Assessing the consequences of modifying, deleting,
+  or pausing updates to a BigQuery asset. - Identifying downstream dependencies
+  (tables, dashboards, processes) of a BigQuery asset. Don't use for: - General
+  BigQuery querying or data analysis (use BigQuery-related tools instead). -
+  Non-BigQuery assets (e.g., Cloud Storage files) unless they are part of the
+  BigQuery lineage. - Creating or modifying lineage links directly."
 x-source: google/skills
 x-source-ref: refs/heads/main
 x-source-path: skills/cloud/datalineage-bigquery-asset-impact-analysis
-x-source-commit: 99c871efb402aba106c3ce7432451d253efd77b1
-x-version: 1.0.0
+x-source-commit: 4b940dd4b5f5759794cc257266cb8cb7524b7a66
+x-version: 1.0.1
 ---
 
 # BigQuery Asset Impact Analysis
@@ -27,12 +27,12 @@ radius assessment) when a BigQuery table or view is reported as broken, stale,
 missing, or when a user is planning maintenance and wants to know the
 consequences of modifying or pausing updates to an asset.
 
-It relies primarily on the **Google Cloud Data Lineage (Knowledge Catalog) MCP Server**
-to discover relationships between assets.
+It relies primarily on the **data lineage (Knowledge Catalog) MCP Server** on
+Google Cloud to discover relationships between assets.
 
 ## Prerequisites
 
-This skill requires access to the Google Cloud Data Lineage API and an active
+This skill requires access to the data lineage API on Google Cloud and an active
 client connection to the Data Lineage MCP Server. For detailed connection
 configurations and tool schemas, refer to [MCP Usage](references/mcp-usage.md).
 
@@ -131,11 +131,11 @@ Present your findings clearly to the user using the following structure:
 
 ## Reference Directory
 
--   [MCP Usage](references/mcp-usage.md): Using the Google Cloud Data Lineage
-    remote MCP server and tool preferences.
+-   [MCP Usage](references/mcp-usage.md): Using the data lineage remote MCP
+    server on Google Cloud and tool preferences.
 
 ## External Documentation
 
--   [Google Cloud Knowledge Catalog Data Lineage Documentation](https://cloud.google.com/dataplex/docs/about-data-lineage)
+-   [Knowledge Catalog Data Lineage Documentation](https://cloud.google.com/dataplex/docs/about-data-lineage)
 -   [Use the Data Lineage MCP server](https://docs.cloud.google.com/dataplex/docs/use-lineage-mcp)
 -   [Knowledge Catalog Data Lineage API Reference](https://cloud.google.com/dataplex/docs/reference/data-lineage/rest)
