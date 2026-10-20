@@ -1,8 +1,18 @@
 ---
 name: plantuml-ascii
-description: "Generate ASCII art diagrams using PlantUML text mode. Use when user asks to create ASCII diagrams, text-based diagrams, terminal-friendly diagrams, or mentions plantuml ascii, text diagram, ascii art diagram. Supports: Converting PlantUML diagrams to ASCII art, Creating sequence diagrams, class diagrams, flowcharts in ASCII format, Generating Unicode-enhanced ASCII art with -utxt flag"
+description: "Generate ASCII art diagrams using PlantUML text mode. Use when
+  user asks to create ASCII diagrams, text-based diagrams, terminal-friendly
+  diagrams, or mentions plantuml ascii, text diagram, ascii art diagram.
+  Supports: Converting PlantUML diagrams to ASCII art, Creating sequence
+  diagrams, class diagrams, flowcharts in ASCII format, Generating
+  Unicode-enhanced ASCII art with -utxt flag"
 license: MIT
 allowed-tools: Bash, Write, Read
+x-source: github/awesome-copilot
+x-source-ref: refs/heads/main
+x-source-path: skills/plantuml-ascii
+x-source-commit: 997e95a6e42869c350f8ca6ec4c066287697c9f0
+x-version: 1.0.0
 ---
 
 # PlantUML ASCII Art Diagram Generator

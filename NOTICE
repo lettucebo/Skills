@@ -12,7 +12,7 @@ deterministically from `catalog/skills.lock.json`; do not edit it by hand.
 | anthropics/skills | refs/heads/main | 13 |
 | cloudflare/skills | refs/heads/main | 13 |
 | expo/skills | refs/heads/main | 24 |
-| github/awesome-copilot | refs/heads/main | 58 |
+| github/awesome-copilot | refs/heads/main | 59 |
 | google/skills | refs/heads/main | 150 |
 | henkisdabro/wookstar-claude-plugins | refs/heads/main | 1 |
 | microsoft/skills | refs/heads/main | 10 |
@@ -23,7 +23,7 @@ deterministically from `catalog/skills.lock.json`; do not edit it by hand.
 | License | Skills |
 |---------|:------:|
 | Apache-2.0 | 175 |
-| MIT | 109 |
+| MIT | 110 |
 | Unknown | 5 |
 
 ## Third-party root licenses

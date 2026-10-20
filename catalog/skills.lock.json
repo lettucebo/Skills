@@ -1,10 +1,10 @@
 {
-  "release": "2.1.8",
-  "generatedAt": "2026-10-11T09:44:29.404Z",
+  "release": "2.2.0",
+  "generatedAt": "2026-10-20T13:52:32.383Z",
   "licenseEvidenceVersion": 1,
   "counts": {
-    "total": 289,
-    "mapped": 286,
+    "total": 290,
+    "mapped": 287,
     "orphan": 3,
     "local": 0
   },
@@ -2062,6 +2062,31 @@
         "repository": "github/awesome-copilot",
         "reference": "refs/heads/main",
         "source": "skills/github-issues",
+        "commit": "997e95a6e42869c350f8ca6ec4c066287697c9f0"
+      }
+    },
+    {
+      "path": "skills/github/plantuml-ascii",
+      "name": "plantuml-ascii",
+      "category": "mapped",
+      "version": "1.0.0",
+      "baseline": "verified",
+      "license": "MIT",
+      "redistributable": true,
+      "licenseEvidence": {
+        "source": "frontmatter",
+        "path": "skills/plantuml-ascii/SKILL.md",
+        "hash": "sha256:e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "commit": "997e95a6e42869c350f8ca6ec4c066287697c9f0"
+      },
+      "snapshotHash": "sha256:50f9044ea8a5986b2eeb421182c803c23ce149508397c1008752548605a5edee",
+      "contentHash": "sha256:c4fc8b844de7895a5d816f6dcb1d2a40670265a715a066e6956cf3bf293c9ecf",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "reference": "refs/heads/main",
+        "source": "skills/plantuml-ascii",
         "commit": "997e95a6e42869c350f8ca6ec4c066287697c9f0"
       }
     },
