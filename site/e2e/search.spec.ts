@@ -84,7 +84,7 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
       await card.locator('a').first().click();
 
       await expect(page).toHaveURL(new RegExp(`/${locale}/skills/github/plantuml-ascii/$`));
-      await expect(page.locator('h1')).toHaveText('plantuml-ascii');
+      await expect(page.getByRole('heading', { level: 1, name: 'plantuml-ascii', exact: true })).toBeVisible();
       await expect(page.locator('[data-pagefind-meta="version"]')).toHaveText('v1.0.0');
       await expect(page.locator('[data-pagefind-meta="license"]')).toHaveText('MIT');
       await expect(page.locator('.skill-summary dd')).toHaveCount(3);
