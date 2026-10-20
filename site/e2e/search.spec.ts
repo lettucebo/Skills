@@ -73,6 +73,30 @@ test.describe('Search — keyword, filters, rapid input, click-through', () => {
     await page.goto(HOME);
   });
 
+  test('plantuml-ascii is searchable with localized metadata and installation instructions', async ({ page }) => {
+    for (const locale of ['en', 'zh-tw', 'zh-cn']) {
+      await page.goto(`/${locale}/`);
+      await page.locator('#search-input').fill('plantuml');
+      await waitForRenderedResults(page);
+      const card = page.locator('[data-skill-card][data-name="plantuml-ascii"]');
+      await expect(card).toBeVisible();
+      await expect(card).toHaveAttribute('data-source', 'github');
+      await card.locator('a').first().click();
+
+      await expect(page).toHaveURL(new RegExp(`/${locale}/skills/github/plantuml-ascii/$`));
+      await expect(page.locator('h1')).toHaveText('plantuml-ascii');
+      await expect(page.locator('[data-pagefind-meta="version"]')).toHaveText('v1.0.0');
+      await expect(page.locator('[data-pagefind-meta="license"]')).toHaveText('MIT');
+      await expect(page.locator('.skill-summary dd')).toHaveCount(3);
+      await expect(page.locator('.upstream-changes')).toBeVisible();
+      await expect(page.locator('.install-block code').first()).toContainText('@plantuml-ascii" --full-depth');
+      await expect(page.getByRole('link', {
+        name: 'github/awesome-copilot/skills/plantuml-ascii',
+        exact: true,
+      })).toHaveAttribute('href', /github\.com\/github\/awesome-copilot\/tree\/[^/]+\/skills\/plantuml-ascii$/);
+    }
+  });
+
   // ── Keyword search ───────────────────────────────────────────────────
 
   test('keyword search filters the canonical cards and keeps the catalog visible', async ({ page }) => {

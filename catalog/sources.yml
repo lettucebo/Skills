@@ -110,6 +110,9 @@ mappings:
   - path: skills/github/github-issues
     upstream: awesome-copilot
     source: skills/github-issues
+  - path: skills/github/plantuml-ascii
+    upstream: awesome-copilot
+    source: skills/plantuml-ascii
   - path: skills/github/publish-to-pages
     upstream: awesome-copilot
     source: skills/publish-to-pages

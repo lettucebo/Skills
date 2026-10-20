@@ -85,7 +85,7 @@ test('createSmokePlan pins the CLI package and local smoke coverage', async () =
       {
         name: 'full-repo',
         sourcePathSuffix: '',
-        expectedCount: 289,
+        expectedCount: 290,
         includesFullDepth: true,
       },
       {
@@ -117,7 +117,7 @@ test('full-repo smoke uses default public selection and the exact active lock in
   const activeNames = lock.skills.filter((entry) => entry.category !== 'removed')
     .map((entry) => entry.name).sort();
 
-  assert.equal(activeNames.length, 289);
+  assert.equal(activeNames.length, 290);
   assert.deepEqual(full.expectedNames, activeNames);
   assert.ok(!full.expectedNames.includes('release'));
   assert.ok(full.argv.includes('-y'));

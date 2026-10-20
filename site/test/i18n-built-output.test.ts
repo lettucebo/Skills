@@ -45,16 +45,16 @@ function escapeHtmlText(value: string): string {
     .replace(/>/g, '&gt;');
 }
 
-test('build emits exactly 1224 static pages with approved localized and redirect arithmetic', {
+test('build emits exactly 1228 static pages with approved localized and redirect arithmetic', {
   skip: !distExists && 'dist/ not found (run npm run build first)',
 }, async () => {
   const catalog = await loadCatalog(repoRoot);
   const localized = getLocalizedRouteEntries(catalog);
   const redirects = getLegacyRedirectEntries(catalog);
 
-  assert.equal(localized.length, 918);
-  assert.equal(redirects.length, 306);
-  assert.equal(allHtmlFiles(distDir).length, 1224);
+  assert.equal(localized.length, 921);
+  assert.equal(redirects.length, 307);
+  assert.equal(allHtmlFiles(distDir).length, 1228);
   for (const entry of [...localized.map(({ path }) => path), ...redirects.map(({ from }) => from)]) {
     assert.ok(fs.existsSync(htmlPath(entry)), `missing built page for ${entry}`);
   }
@@ -93,7 +93,7 @@ test('all current legacy redirects contain exact redirect metadata and a compact
   const redirects = getLegacyRedirectEntries(catalog);
   const activeSkillCount = catalog.skills.filter((skill) => !skill.isTombstone).length;
   assert.equal(redirects.length, 3 + catalog.sources.length + activeSkillCount);
-  assert.equal(redirects.length, 306);
+  assert.equal(redirects.length, 307);
 
   for (const { from, to } of redirects) {
     const html = fs.readFileSync(htmlPath(from), 'utf8');
@@ -252,23 +252,23 @@ test('removed proprietary pages and their legacy redirects are absent', {
   }
 });
 
-test('Pagefind indexes exactly 867 localized skill pages across all three languages', {
+test('Pagefind indexes exactly 870 localized skill pages across all three languages', {
   skip: !distExists && 'dist/ not found',
 }, () => {
   const entry = JSON.parse(
     fs.readFileSync(path.join(distDir, 'pagefind', 'pagefind-entry.json'), 'utf8'),
   );
-  assert.equal(entry.languages.en.page_count, 289);
-  assert.equal(entry.languages['zh-tw'].page_count, 289);
-  assert.equal(entry.languages['zh-cn'].page_count, 289);
+  assert.equal(entry.languages.en.page_count, 290);
+  assert.equal(entry.languages['zh-tw'].page_count, 290);
+  assert.equal(entry.languages['zh-cn'].page_count, 290);
   assert.equal(
     Object.values(entry.languages).reduce(
       (sum: number, language: any) => sum + language.page_count,
       0,
     ),
-    867,
+    870,
   );
   const fragments = fs.readdirSync(path.join(distDir, 'pagefind', 'fragment'))
     .filter((name) => name.endsWith('.pf_fragment'));
-  assert.equal(fragments.length, 867);
+  assert.equal(fragments.length, 870);
 });

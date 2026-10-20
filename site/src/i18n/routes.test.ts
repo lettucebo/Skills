@@ -12,23 +12,23 @@ import {
 
 const repoRoot = path.resolve(process.cwd(), '..');
 
-test('route expansion emits exactly 918 localized pages and 306 legacy redirects', async () => {
+test('route expansion emits exactly 921 localized pages and 307 legacy redirects', async () => {
   const catalog = await loadCatalog(repoRoot);
   const localized = getLocalizedRouteEntries(catalog);
   const redirects = getLegacyRedirectEntries(catalog);
 
-  assert.equal(localized.length, 918);
-  assert.equal(redirects.length, 306);
-  assert.equal(localized.length + redirects.length, 1224);
+  assert.equal(localized.length, 921);
+  assert.equal(redirects.length, 307);
+  assert.equal(localized.length + redirects.length, 1228);
 });
 
-test('each locale emits exactly 289 skill pages and 14 source pages', async () => {
+test('each locale emits exactly 290 skill pages and 14 source pages', async () => {
   const catalog = await loadCatalog(repoRoot);
 
-  assert.equal(catalog.skills.filter((skill) => !skill.isTombstone).length, 289);
+  assert.equal(catalog.skills.filter((skill) => !skill.isTombstone).length, 290);
   assert.equal(catalog.sources.length, 14);
   for (const locale of ['en', 'zh-tw', 'zh-cn'] as const) {
-    assert.equal(localizedSkillPaths(catalog, locale).length, 289);
+    assert.equal(localizedSkillPaths(catalog, locale).length, 290);
     assert.equal(localizedSourcePaths(catalog, locale).length, 14);
   }
 });
