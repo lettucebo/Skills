@@ -1,6 +1,6 @@
 ---
 name: release
-description: Use when publishing a new Skills registry version, adopting upstream skills for a release, tagging a registry snapshot, creating a GitHub Release, or diagnosing a release that is tagged but not published on the catalog site.
+description: Use when explicitly publishing a Skills registry version, tagging a registry snapshot, creating a GitHub Release, or diagnosing a release that is tagged but not published on the catalog site.
 metadata:
   internal: true
 ---
@@ -8,6 +8,10 @@ metadata:
 # Releasing the Skills registry
 
 The sync transaction creates a version; a tag, GitHub Release, and site deployment publish it. Never invent a version by editing the lockfile or tagging an unchanged snapshot. Read [sync and releases](../../../docs/en/sync-and-releases.md) and [skill management](../../../docs/en/skill-management.md) before acting.
+
+For adding a skill or its metadata without publication, **required sub-skill:**
+`adding-skills` ([entrypoint](../adding-skills/SKILL.md)). An adoption request
+does not authorize push, merge, tag, Release, deployment, or scheduling changes.
 
 ## Choose the route
 
@@ -30,6 +34,15 @@ The sync transaction creates a version; a tag, GitHub Release, and site deployme
 - **Manual tag handoff:** On the merged `main`, verify that the reviewed snapshot and lock release are present, create the annotated `v<release>` tag at the merge commit, and push it. A tag push alone does not deploy. Rerun the successful `main` push's `deploy-site.yml` run (or make a reviewed follow-up commit), and verify `RELEASE_PUBLISHED=true` in the build log.
 - **Either route:** After the tag exists remotely, verify release notes against the applied report and changes since the prior tag, then create the GitHub Release with `gh release create v<release> --verify-tag --notes-file <verified-notes-file>`. Verify the published site, release label, `#v<release>` installation command, new source/skill routes, and search. Enable scheduled sync with `gh variable set SKILLS_SYNC_ENABLED --body true` only after the release tag is published; read the variable back.
 
-Enrichment is a separate sidecar, not part of the sync transaction. Regenerate summaries/changelogs in a follow-up PR, run both `--check` commands and `npm run validate:enrichment -- --strict`, then rebuild/test the site. Check the pinned Copilot model against current policy **before** invoking generators: changing its contract invalidates existing signatures and needs a separately reviewed full-regeneration plan. A non-strict safety pass does not prove freshness. If enrichment is blocked, report that explicitly; do not claim strict validation passed.
+Enrichment is a separate sidecar, not part of the sync transaction. Follow the
+runbook's [metadata completion](../../../docs/en/skill-management.md#metadata-completion)
+steps; explicitly requested adoption metadata belongs in that adoption, not an
+automatic follow-up PR. Before publication, run both global `--check` commands
+and `npm run validate:enrichment -- --strict`, then rebuild/test the site.
+Check the pinned Copilot model against current policy **before** invoking
+generators: changing its contract invalidates existing signatures and needs a
+separately reviewed full-regeneration plan. A non-strict safety pass does not
+prove freshness. If enrichment is blocked, report that explicitly; do not claim
+strict validation passed.
 
 If a rollback, guard, test, review, deploy, or publication check fails, stop before irreversible steps; investigate and resolve the cause rather than forcing a tag. Preserve transaction journals/backups for recovery. Do not enable scheduled sync against an unpublished lock release.
