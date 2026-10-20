@@ -148,10 +148,23 @@ test('no mapping depends on an unimplemented command-to-skill transform', async 
   }
 });
 
-test('the registry covers 286 mapped skills and 3 frozen orphans', async () => {
+test('plantuml-ascii maps to its canonical awesome-copilot upstream', async () => {
+  const manifest = await loadManifest(manifestPath);
+  const mapping = manifest.mappings.find(
+    (entry) => entry.path === 'skills/github/plantuml-ascii',
+  );
+
+  assert.deepEqual(mapping, {
+    path: 'skills/github/plantuml-ascii',
+    upstream: 'awesome-copilot',
+    source: 'skills/plantuml-ascii',
+  });
+});
+
+test('the registry covers 287 mapped skills and 3 frozen orphans', async () => {
   const manifest = await loadManifest(manifestPath);
 
-  assert.equal(manifest.mappings.length, 286);
+  assert.equal(manifest.mappings.length, 287);
   assert.equal(manifest.orphans.length, 3);
 });
 

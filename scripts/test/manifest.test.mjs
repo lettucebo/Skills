@@ -439,18 +439,18 @@ linkExceptions:
   });
 });
 
-test('loadManifest accepts the repository manifest with exact 289-skill coverage', async () => {
+test('loadManifest accepts the repository manifest with exact 290-skill coverage', async () => {
   const manifestPath = path.join(repoRoot, 'catalog', 'sources.yml');
   const manifest = await loadManifest(manifestPath);
   const localCoverage = await countExistingLocalSkills(repoRoot, manifest.local);
   const coveredSkills =
     manifest.mappings.length + manifest.orphans.length + localCoverage;
 
-  assert.equal(manifest.mappings.length, 286);
+  assert.equal(manifest.mappings.length, 287);
   assert.equal(manifest.orphans.length, 3);
   assert.equal(manifest.linkExceptions.length, 0);
   assert.equal(localCoverage, 0);
-  assert.equal(coveredSkills, 289);
+  assert.equal(coveredSkills, 290);
   assert.equal(
     manifest.local.map((entry) => entry.root).join(','),
     'skills/lettucebo',

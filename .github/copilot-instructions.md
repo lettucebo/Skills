@@ -20,6 +20,11 @@ Root `instructions/` contains vendored instruction examples outside the skill
 registry. It is not declared by `catalog/sources.yml` and is not validated as
 installable skill content.
 
+For skill additions and requested metadata, use the internal `adding-skills`
+skill and the canonical runbook in `docs/en/skill-management.md` (or its
+Traditional Chinese counterpart). Use `release` only for explicitly
+authorized publication; adoption alone does not authorize it.
+
 ## Setup and Commands
 
 Use Node.js 22, matching the GitHub Actions workflows.

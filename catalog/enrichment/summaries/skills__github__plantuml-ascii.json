@@ -1,0 +1,44 @@
+{
+  "path": "skills/github/plantuml-ascii",
+  "schemaVersion": 1,
+  "freshnessKey": {
+    "contentHash": "sha256:c4fc8b844de7895a5d816f6dcb1d2a40670265a715a066e6956cf3bf293c9ecf"
+  },
+  "locales": {
+    "en": {
+      "signature": "sha256:75d7dea6b12927b5c776925c8a38b9cae2252e7aecf903fdd3df53f3ec6b776a",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "Turns PlantUML descriptions into readable plain-text diagrams using ASCII or Unicode box-drawing characters.",
+        "whenToUse": "Use it when diagrams need to be reviewed or shared in terminals, emails, README files, or version-controlled documentation without relying on images.",
+        "outputs": "Produces .atxt files with ASCII characters or .utxt files with Unicode box-drawing characters."
+      }
+    },
+    "zh-tw": {
+      "signature": "sha256:7957e7e65fca80a3a3491ed8add309fcb4af405eff113dbd49950f0b2ede8bad",
+      "producer": "llm",
+      "model": "gpt-6-luna",
+      "promptHash": "sha256:42b1dd67508ef2ad2df3c7cdd0309c6fd421a4db42b96f3495519c6690777ee0",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "將 PlantUML 描述轉換為易讀的純文字圖表，並可使用 ASCII 或 Unicode 框線字元。",
+        "whenToUse": "當圖表需要在終端機、電子郵件、README 或版本控制文件中檢視與分享，且不適合使用圖片時，請使用此技能。",
+        "outputs": "產生使用 ASCII 字元的 .atxt 檔案，或使用 Unicode 框線字元的 .utxt 檔案。"
+      }
+    },
+    "zh-cn": {
+      "signature": "sha256:1917f2fa576d7abc2a2b192e75b72142f64585578bdc70ad147bedc3049b779b",
+      "producer": "opencc",
+      "converterVersion": "opencc-js:twp-to-cn@1.4.2",
+      "generatorVersion": 1,
+      "content": {
+        "purpose": "将 PlantUML 描述转换为易读的纯文字图表，并可使用 ASCII 或 Unicode 框线字符。",
+        "whenToUse": "当图表需要在终端机、电子邮件、README 或版本控制文档中查看与分享，且不适合使用图片时，请使用此技能。",
+        "outputs": "产生使用 ASCII 字符的 .atxt 文件，或使用 Unicode 框线字符的 .utxt 文件。"
+      }
+    }
+  }
+}

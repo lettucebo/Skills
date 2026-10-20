@@ -375,7 +375,7 @@ test('source without restricted skills has a source command', async () => {
 
 // ─── Route Parameter Derivation ─────────────────────────────────────
 
-test('route params derived from all 289 active skills are unique', async () => {
+test('route params derived from all 290 active skills are unique', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const params = catalog.skills.filter((skill) => !skill.isTombstone).map((s) => deriveRouteParams(s));
   const keys = params.map((p) => `${p.source}/${p.skill}`);
@@ -385,18 +385,37 @@ test('route params derived from all 289 active skills are unique', async () => {
 
 // ─── Count Verification ─────────────────────────────────────────────
 
-test('current lock yields counts: 289 total, 286 mapped, 3 orphan, 0 local, 0 restricted', async () => {
+test('current lock yields counts: 290 total, 287 mapped, 3 orphan, 0 local, 0 restricted', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const counts = computeCounts(catalog.skills);
 
-  assert.equal(counts.total, 289);
-  assert.equal(counts.mapped, 286);
+  assert.equal(counts.total, 290);
+  assert.equal(counts.mapped, 287);
   assert.equal(counts.orphan, 3);
   assert.equal(counts.local, 0);
   assert.equal(counts.restricted, 0);
   assert.equal(
     catalog.skills.filter((skill) => skill.source === 'claude' && !skill.isTombstone).length,
     13,
+  );
+});
+
+test('plantuml-ascii exposes verified upstream metadata and a full-depth install command', async () => {
+  const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
+  const skill = catalog.skills.find((entry) => entry.name === 'plantuml-ascii');
+
+  assert.ok(skill, 'plantuml-ascii must be included in the catalog');
+  assert.equal(skill.source, 'github');
+  assert.equal(skill.version, '1.0.0');
+  assert.equal(skill.license, 'MIT');
+  assert.equal(skill.isMapped, true);
+  assert.equal(skill.isRestricted, false);
+  assert.equal(skill.upstreamRepo, 'github/awesome-copilot');
+  assert.match(skill.upstreamCommit ?? '', /^[0-9a-f]{40}$/);
+  assert.deepEqual(deriveRouteParams(skill), { source: 'github', skill: 'plantuml-ascii' });
+  assert.equal(
+    generateSingleSkillInstallCommand(skill.name),
+    `npx skills add "lettucebo/Skills#v${RELEASE_VERSION}@plantuml-ascii" --full-depth`,
   );
 });
 
@@ -623,13 +642,13 @@ test('computeBaselineVerification counts restricted mapped skills too', () => {
   });
 });
 
-test('current lock has 286 of 286 active mapped skills verified', async () => {
+test('current lock has 287 of 287 active mapped skills verified', async () => {
   const catalog = await loadCatalog(path.resolve(repoRoot, '..'));
   const verification = computeBaselineVerification(catalog.skills);
 
   assert.equal(verification.mapped, catalog.counts.mapped);
-  assert.equal(verification.mapped, 286);
-  assert.equal(verification.verified, 286);
+  assert.equal(verification.mapped, 287);
+  assert.equal(verification.verified, 287);
   assert.equal(verification.unverified, 0);
   assert.equal(verification.allVerified, true);
 });

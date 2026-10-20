@@ -1,0 +1,16 @@
+{
+  "path": "skills/github/plantuml-ascii",
+  "name": "plantuml-ascii",
+  "category": "mapped",
+  "entries": [
+    {
+      "release": "2.2.0",
+      "kind": "mapping-added",
+      "version": "1.0.0",
+      "firstSeen": "2026-10-20T13:52:32.383Z",
+      "upstreamCommit": "997e95a6e42869c350f8ca6ec4c066287697c9f0",
+      "diffUrl": null,
+      "contentHash": "sha256:c4fc8b844de7895a5d816f6dcb1d2a40670265a715a066e6956cf3bf293c9ecf"
+    }
+  ]
+}

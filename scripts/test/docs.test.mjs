@@ -350,7 +350,11 @@ function isExternalLink(target) {
 }
 
 test('DOC3: all relative Markdown links in docs resolve, including fragments', async () => {
-  const documents = [path.join(docsRoot, 'README.md')];
+  const documents = [
+    path.join(docsRoot, 'README.md'),
+    path.join(repoRoot, '.github', 'skills', 'adding-skills', 'SKILL.md'),
+    path.join(repoRoot, '.github', 'skills', 'release', 'SKILL.md'),
+  ];
 
   for (const locale of locales) {
     for (const page of expectedPages) {
@@ -419,6 +423,40 @@ test('DOC3: all relative Markdown links in docs resolve, including fragments', a
       );
     }
   }
+});
+
+test('adoption entrypoints share the bilingual runbook and separate publication freshness', async () => {
+  const entrypoint = await readFile(
+    path.join(repoRoot, '.github', 'skills', 'adding-skills', 'SKILL.md'), 'utf8',
+  );
+  for (const locale of locales) {
+    assert.ok(markdownLinks(entrypoint).includes(`../../../docs/${locale}/skill-management.md`));
+    const document = await readFile(localizedPath(locale, 'skill-management.md'), 'utf8');
+    const requiredSlugs = locale === 'en'
+      ? ['adoption-runbook', 'metadata-completion', 'finishing-an-adoption', 'publishing-an-adopted-release']
+      : ['新增收錄流程', 'metadata-完成條件', '收編收尾流程', '發布已收錄的版本'];
+    const slugs = collectHeadingSlugs(document);
+    for (const slug of requiredSlugs) {
+      assert.ok(slugs.includes(slug), `${locale} must keep the ${slug} runbook section`);
+    }
+    assert.ok(markdownLinks(document).includes('../../.github/skills/adding-skills/SKILL.md'));
+    assert.match(document, /metadata\.internal: true/);
+    assert.match(document, /npm run enrich:summaries -- --skill \$SkillPath --check/);
+    assert.match(document, /npm run enrich:changelog -- --skill \$SkillPath --check/);
+    assert.match(document, /npm run validate:enrichment\r?\n/);
+    assert.match(document, /npm run validate:enrichment -- --strict/);
+    const publishingHeading = locale === 'en'
+      ? '## Publishing an adopted release'
+      : '## 發布已收錄的版本';
+    const strictCommand = document.indexOf('npm run validate:enrichment -- --strict');
+    assert.ok(strictCommand > document.indexOf(publishingHeading));
+    assert.doesNotMatch(document, /If its terms are proprietary, add|如果其條款為專有授權，請把/);
+  }
+  const release = await readFile(
+    path.join(repoRoot, '.github', 'skills', 'release', 'SKILL.md'), 'utf8',
+  );
+  assert.ok(markdownLinks(release).includes('../adding-skills/SKILL.md'));
+  assert.doesNotMatch(release, /Regenerate summaries\/changelogs in a follow-up PR/);
 });
 
 test('DOC4: neutral and repository landing pages expose the documentation', async () => {

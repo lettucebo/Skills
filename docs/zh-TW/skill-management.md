@@ -8,7 +8,7 @@
 
 ## Skill 生命週期
 
-每個 skill 恰好屬於一種分類，宣告於 `catalog/sources.yml`，並記錄在
+每個 registry skill 恰好屬於一種分類，宣告於 `catalog/sources.yml`，並記錄在
 `catalog/skills.lock.json` 中：
 
 ### Mapped skill
@@ -41,6 +41,52 @@ mapping 或 active lock 項目。這次遷移是「先提交宣告／內容，�
 一般規則的刻意例外：manifest 與 materialized state 在同一個 journaled
 transaction 中一起變更。
 
+## 新增收錄流程
+
+儲存庫內部的 [adding-skills 入口](../../.github/skills/adding-skills/SKILL.md)
+將新增／匯入需求導向本頁。本頁是統一操作流程，英文對照頁描述相同流程。
+
+1. **確認範圍與權利。** 辨識上游 repository、reference、來源資料夾、目的路徑、
+   既有 mapping／名稱衝突與要求的 metadata。複製前檢查實際上游 skill 及附屬
+   檔案、最近的來源指引與再散布條款。拒絕 proprietary 或 denylist 內容；
+   新增 denylist 項目不等於取得再散布權利。以 manifest overrides 解決支援的
+   名稱衝突，不手改鏡射。
+2. **選擇分類。** 追蹤上游用 mapped、明確凍結的快照用 orphan，公開原創內容
+   放在 `skills/lettucebo/` 並用 local。僅供儲存庫操作的流程放在
+   `.github/skills/<name>/SKILL.md`，標記 `metadata.internal: true`：驗證連結、
+   discovery 與行為，但不新增 registry mapping、lock 項目、enrichment 或
+   release 版本。若要更新既有 local／orphan 內容，先停止並規劃受支援的
+   engine／migration 變更：apply 會原樣保留這些項目，不能更新其版本、雜湊與歷史。
+3. **規劃與審查。** 遵循目前儲存庫的 review 與 skill 撰寫規定。公開新增項目
+   依下方分類步驟準備宣告／內容。新增 source 時補上 `SOURCE_META`。
+   搜尋 `scripts/test/`、`site/test/`、`site/src/`（含 `i18n/routes.test.ts`）
+   與 `site/e2e/` 中受影響的 inventory／數量斷言，涵蓋 active／mapped／orphan／
+   source 數量、各語系 routes、相容性 redirects 與 Pagefind 輸出。不要只更新
+   provenance 測試，也不要在本流程寫死當前總數。
+4. **準備已提交的 candidate。** 將宣告、鏡射或原創內容與受影響的 apply 前斷言
+   一起提交。先更新遠端 refs／tags，再檢查[先決條件](#上線任何新-skill-的先決條件)。
+   保留無關工作檔案；使用隔離環境，不 stash 或覆寫別人的變更。
+5. **套用前檢視。** 在儲存庫根目錄執行：
+
+   ```powershell
+   node scripts\sync.mjs --dry-run --output sync-report\changeset.json
+   ```
+
+   檢查新增、更新、移除、無法取得的來源、guards 與受影響路徑。Apply 會重新
+   staging 全部 mapped skills，不會採用手動篩選的報告，也沒有單一 skill 的
+   apply 旗標。如果無關變更超出授權範圍，停止並取得範圍決策，或另行規劃、
+   審查受支援的來源選擇方式。不得默默擴大收錄、修改產生的狀態、捏造上游
+   commit，或重用 `--bootstrap`、`--baseline`、`--deproprietize`。
+6. **套用並核對結果。** 僅在工作目錄乾淨、內容已提交且 changeset 經核准後執行：
+
+   ```powershell
+   node scripts\sync.mjs --apply --output sync-report\result.json
+   ```
+
+   核對 `applied`、`release`、`nextTag` 與受影響 skills 是否符合核准計畫。
+   失敗時保留 journals／backups。接著完成 [metadata](#metadata-完成條件)
+   與[本機驗證](#收編收尾流程)。讀到 `nextTag` 不代表獲准建立該 tag。
+
 ## 上線任何新 skill 的先決條件
 
 不論分類為何，透過同步引擎（`node scripts/sync.mjs --apply`）新增一個 skill
@@ -61,29 +107,30 @@ transaction 中一起變更。
 1. 如果尚未宣告，先在 `catalog/sources.yml` 的 `upstreams` 中加入該上游。
 2. 在 `skills/<source>/<skill>/` 底下新增 skill 資料夾（一開始可以先複製上游
    內容），並在同一次 commit 中加入其 `mappings` 項目。
-3. 更新 `scripts/test/provenance.test.mjs` 中固定的 mapping 數量。若 mapping
+3. 更新統一流程辨識出的所有受影響斷言，包含 `scripts/test/provenance.test.mjs`
+   中固定的 mapping 數量。若 mapping
    屬於 `microsoft` 或 `cloudflare`，也要更新該測試中精確核准的 source 清單。
    Workflow 會在 apply 前執行這些斷言，因此 manifest 與 provenance 契約必須
    一起變更。
-4. 如果其條款為專有授權，請把目的路徑加入 `scripts/catalog.mjs` 的
-   `RESTRICTED_SKILL_PATHS`。這項政策不會從 `LICENSE.txt` 推導，也不在
-   `catalog/sources.yml` 中設定。
+4. 確認再散布權利。拒絕 proprietary 與永久 denylist 內容；
+   `RESTRICTED_SKILL_PATHS` 是拒絕政策，不是收錄機制。
 5. 提交，並確認目前 lock `release` 的 tag 已經發布且是 `HEAD` 的祖先。
 6. 執行 `node scripts/sync.mjs --apply`。引擎會從真正的上游重新 staging 該
    skill、驗證其來源證明、蓋上 `x-source*` frontmatter 欄位戳記、在該 staged
    commit 解析授權證據、需要時更新第三方根授權原文包，並記錄一筆從版本
    `1.0.0` 開始的 `mapping-added` 歷史項目。
-7. 完成[收編收尾流程](#收編收尾流程)中的驗證、commit、merge 與 tag 交接。
+7. 完成[收編收尾流程](#收編收尾流程)中的 metadata、驗證與 commit。
 
 ## 新增一個 orphan skill
 
 1. 在 `skills/<source>/<skill>/` 底下新增 skill 資料夾。
 2. 在同一次 commit 中加入其 `orphans` 項目（附上 `note` 說明為何沒有追蹤上
    游）。
-3. 更新 `scripts/test/provenance.test.mjs` 中固定的 orphan 數量。
-4. 如果其條款為專有授權，請把路徑加入 `scripts/catalog.mjs` 的
-   `RESTRICTED_SKILL_PATHS`。
-5. 在相同的乾淨工作目錄與目前 tag 的先決條件下執行
+3. 更新所有受影響斷言，包含 `scripts/test/provenance.test.mjs` 中固定的
+   orphan 數量。
+4. 確認再散布權利，拒絕 proprietary／denylist 內容。
+   提交宣告、內容與受影響的 apply 前斷言。
+5. 檢視 dry-run，再於相同的乾淨工作目錄與目前 tag 的先決條件下執行
    `node scripts/sync.mjs --apply`。引擎會直接對已提交的內容原樣雜湊，並記錄
    一筆版本 `1.0.0` 的 `orphan-added` 歷史項目 — 它絕不會自行抓取或改寫內容。
 6. 完成[收編收尾流程](#收編收尾流程)。
@@ -94,33 +141,91 @@ transaction 中一起變更。
    夾。
 2. 除了既有的 `local` root 宣告之外不需要新增 manifest 項目，因為該 root 底下
    的每個路徑都會被自動涵蓋。
-3. 如果其條款為專有授權，請把路徑加入 `scripts/catalog.mjs` 的
-   `RESTRICTED_SKILL_PATHS`。
-4. 在相同的先決條件下執行 `node scripts/sync.mjs --apply`。引擎會依據已提交
+3. 確認再散布權利，拒絕 proprietary／denylist 內容。
+   更新受影響的 inventory 斷言，並提交內容與測試。
+4. 檢視 dry-run，再於相同的先決條件下執行 `node scripts/sync.mjs --apply`。引擎會依據已提交
    內容的雜湊，記錄一筆版本 `1.0.0` 的 `local-added` 歷史項目。Candidate 交易
    會保留這些位元組，不會用 staged 上游內容取代它們。
 5. 完成[收編收尾流程](#收編收尾流程)。
 
+## Metadata 完成條件
+
+檢查兩組不同的 metadata，兩者不能互相替代：
+
+| 類型 | 驗收依據 |
+|---|---|
+| Registry 交易 | 正確的 category／name／path、從 `1.0.0` 開始的 skill 版本、雜湊、適用的 provenance 欄位與釘選上游 commit、符合事實的結構化授權證據／原文包、收錄歷史，以及一致的 README／NOTICE 產生檢視 |
+| Enrichment sidecars | `catalog/enrichment/` 中符合資格且本次要求的 summaries 與上游 changelog；對應目前 lock、具有 schema 正確的 `en`／`zh-tw`／`zh-cn` 內容與有效的 locale signatures |
+
+需求包含 metadata 時，在同一次收錄中完成符合資格的 sidecars；目標 artifacts
+缺少就代表**未完成**，不能默默改成後續工作。Summaries 支援 active 且可再散布的
+registry 項目；changelog 需要上游 provenance。不符合資格的種類記為 N/A，
+不要捏造歷史或停用 enrichment。Internal skills 兩種都不適用。
+
+產生前先確認 `scripts/lib/llm.mjs` 當前 generator 的 model／effort 契約符合
+適用政策。衝突時停止產生；修改契約／signatures 需要獨立審查的重新產生計畫。
+將 `$SkillPath` 設為精確的 lock 項目路徑，僅對符合資格的種類執行下列對應指令
+（mapped 收錄通常兩種都執行）：
+
+```powershell
+$SkillPath = 'skills/github/plantuml-ascii'
+npm run enrich:summaries -- --skill $SkillPath
+npm run enrich:changelog -- --skill $SkillPath
+npm run enrich:summaries -- --skill $SkillPath --check
+npm run enrich:changelog -- --skill $SkillPath --check
+npm run validate:enrichment
+```
+
+確認三種語系、摘要有來源支持、原始 commit subject 保持原樣，且歷史來自
+lock 釘選 revision，不是即時上游 HEAD。提交前檢查 pruning 副作用；只能移除
+不再符合資格的 artifacts，不能為了讓檢查通過而刪除符合資格但過期的項目。
+
+Default safety 刻意允許符合資格的 artifacts 缺少或過期：
+**通過它不等於本次要求的 metadata 已完整**。Targeted `--check` 驗證收錄 skill
+的新鮮度，不重新產生無關 artifacts。全庫 strict freshness 是獨立的
+[發布門檻](#發布已收錄的版本)。
+
 ## 收編收尾流程
 
-`--apply` 重新產生 lock 與衍生檔案之後：
+`--apply` 重新產生 lock 與衍生檔案之後，完成上方要求的 metadata。
+僅收錄的工作在本節結束，不代表獲准 push、merge、tag、GitHub Release、
+workflow 發布、部署或變更排程同步。
 
 1. 提交**全部**交易輸出，包括 `skills/**`、lockfile、history、
-   `catalog/licenses/`、`NOTICE` 與 README 區塊。納入清除不再符合資格的
-   artifacts 所產生的 `catalog/enrichment/` 變更，以及相關網站與測試變更。
+   `catalog/licenses/`、`NOTICE` 與 README 區塊。納入產生／清除 artifacts
+   所產生的 `catalog/enrichment/` 變更，以及相關網站與測試變更。
    確認 `git status --porcelain` 沒有輸出；報告放在儲存庫外，或已忽略的
    `sync-report/`。
-2. 執行 `npm run smoke:npx -- --ref HEAD`，再執行 `npm test` 與
-   `node scripts/validate.mjs`。Smoke 檢查必須在 lockfile 與全部 skill 內容
-   **已提交之後**執行。完成相關網站建置、單元與 E2E 檢查，再把經過審查的
-   變更合併至 `main`。
-3. Release 發布前保持排程同步停用。在更新後的 `main` 上，於合併後的 release
-   commit 建立 lockfile 所指定的 annotated `v<release>` tag 並推送。不要在
-   feature branch 上打 tag。由於 PR merge 時 commit 已先到遠端，這條手動路徑
-   無法事後讓 commit 與 tag 的發布具備原子性。Merge push 也會在 tag 存在前先
-   部署，而 tag push 不會觸發 `deploy-site.yml`；打 tag 後請重新執行先前的
-   deploy workflow，讓它抓取 tags 並重新計算發布狀態。在 `main` 落下一筆後續
-   commit 也會觸發新部署。
+2. 執行 `npm test`、`npm run validate`、default enrichment safety 與上方的
+   targeted freshness 檢查，再執行 `npm run smoke:npx -- --ref HEAD`。
+   Smoke 檢查必須在 lockfile 與全部 skill 內容**已提交之後**執行。
+   完成相關網站建置、單元與 E2E 檢查，並親自檢視受影響頁面、搜尋與安裝控制。
+   依目前政策，針對最終 diff 與檢查證據完成必要的獨立審查。
+3. 回報收錄路徑／分類、metadata 完整性、指令／結果、審查、未解問題與未發布狀態。
+   必要檢查失敗或要求的 metadata 缺少時，工作未完成。有證據證明與本次無關的
+   既有 freshness 失敗，本身不阻擋其他條件皆已驗證的本機收錄，但仍會阻擋發布；
+   不得宣稱全庫 freshness 通過，也不得默默豁免其他失敗的檢查。
+
+## 發布已收錄的版本
+
+僅在取得明確發布授權後，使用內部 `release` skill 與
+[同步／發布指引](sync-and-releases.md)。發布前，兩種全庫 cache 檢查與 strict
+completeness 都必須通過：
+
+```powershell
+npm run enrich:summaries -- --check
+npm run enrich:changelog -- --check
+npm run validate:enrichment -- --strict
+```
+
+若採用經審查且已在本機產生快照的路徑，獲得授權後才把經過審查的變更合併至
+`main`。Release 發布前保持排程同步停用。在更新後的 `main` 上，於合併後的 release
+commit 建立 lockfile 所指定的 annotated `v<release>` tag 並推送。不要在
+feature branch 上打 tag。由於 PR merge 時 commit 已先到遠端，這條手動路徑
+無法事後讓 commit 與 tag 的發布具備原子性。Merge push 也會在 tag 存在前先
+部署，而 tag push 不會觸發 `deploy-site.yml`；打 tag 後請重新執行先前的
+deploy workflow，讓它抓取 tags 並重新計算發布狀態。在 `main` 落下一筆後續
+commit 也會觸發新部署。
 
 若要原子發布，請改用建議的操作者路徑：只先合併經審查的
 source／manifest／policy 變更，然後在 `main` 手動觸發
