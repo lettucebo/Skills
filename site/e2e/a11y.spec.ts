@@ -11,9 +11,13 @@
  *   visible card text keeps AA contrast, focus stays on the input
  */
 import { test, expect } from '@playwright/test';
+import { fileURLToPath } from 'node:url';
+import { loadCatalog } from '../src/lib/catalog';
+import { loadSkillChangelog } from '../src/lib/enrichment';
 import { BASE, resolveColorToken, waitForRenderedResults } from './_helpers';
 
 const SKILL_PAGE = `${BASE}skills/azure/az-cost-optimize/`;
+const REPO_ROOT = fileURLToPath(new URL('../..', import.meta.url));
 
 /**
  * Representative pages for the 375px overflow sweep. The review's browser pass
@@ -183,24 +187,85 @@ test.describe('375px viewport — no overflow, vertical filters', () => {
     });
   }
 
-  for (const path of [
-    'skills/tampermonkey/tampermonkey/',
-    'skills/dotnet/csharp-mstest/',
-  ]) {
-    test(`opened upstream disclosure does not overflow — ${path}`, async ({ page }) => {
-      await page.goto(`${BASE}${path}`);
-      const details = page.locator('details.upstream-changes');
-      await expect(details).toHaveCount(1);
-      await details.locator('summary').click();
-      await expect(details).toHaveAttribute('open', '');
+  test.describe('Current upstream disclosures', () => {
+    let fixtures: { path: string; commitCount: number; textLength: number }[];
 
-      const widths = await page.evaluate(() => ({
-        scrollWidth: document.documentElement.scrollWidth,
-        clientWidth: document.documentElement.clientWidth,
+    test.beforeAll(async () => {
+      const catalog = await loadCatalog(REPO_ROOT);
+      const candidates = await Promise.all(catalog.skills.filter(
+        (skill) => !skill.isRestricted && !skill.isTombstone && skill.upstreamRepo !== null,
+      ).map(async (skill) => {
+        const changelog = await loadSkillChangelog({
+          repoRoot: REPO_ROOT,
+          skill: skill.lockEntry,
+          locale: 'en',
+        });
+        const commits = changelog?.content.commits ?? [];
+        return {
+          path: skill.path,
+          commitCount: commits.length,
+          textLength: Math.max(0, ...commits.map(
+            (commit) => commit.subject.length + commit.summary.length,
+          )),
+        };
       }));
-      expect(widths.scrollWidth).toBeLessThanOrEqual(widths.clientWidth + 1);
+      fixtures = candidates.filter((candidate) => candidate.commitCount > 0)
+        .sort((a, b) => b.textLength - a.textLength || a.path.localeCompare(b.path))
+        .slice(0, 2);
+      expect(fixtures, 'mobile disclosure coverage requires two current nonempty changelogs')
+        .toHaveLength(2);
     });
-  }
+
+    for (const rank of [0, 1]) {
+      test(`opened upstream disclosure does not overflow — long-text fixture ${rank + 1}`, async ({ page }, testInfo) => {
+        const fixture = fixtures[rank];
+        testInfo.annotations.push({ type: 'skill', description: fixture.path });
+        await page.goto(`${BASE}${fixture.path}/`);
+        const details = page.locator('details.upstream-changes');
+        await expect(details).toHaveCount(1);
+        await expect(details.locator('.timeline-entry')).toHaveCount(fixture.commitCount);
+        await details.locator('summary').click();
+        await expect(details).toHaveAttribute('open', '');
+
+        const widths = await page.evaluate(() => ({
+          scrollWidth: document.documentElement.scrollWidth,
+          clientWidth: document.documentElement.clientWidth,
+        }));
+        expect(widths.scrollWidth, fixture.path).toBeLessThanOrEqual(widths.clientWidth + 1);
+      });
+    }
+  });
+
+  test('Tampermonkey disclosure reflects verified metadata availability', async ({ page }) => {
+    const catalog = await loadCatalog(REPO_ROOT);
+    const skill = catalog.skills.find((entry) => entry.path === 'skills/tampermonkey/tampermonkey');
+    expect(skill, 'Tampermonkey representative fixture must exist').toBeDefined();
+    if (!skill) throw new Error('Tampermonkey representative fixture is missing');
+    const changelog = await loadSkillChangelog({
+      repoRoot: REPO_ROOT,
+      skill: skill.lockEntry,
+      locale: 'en',
+    });
+    expect(changelog).not.toBeNull();
+    if (!changelog) throw new Error('Tampermonkey changelog view is unavailable');
+
+    await page.goto(`${BASE}${skill.path}/`);
+    await expect(page.locator('.detail-header h1')).toHaveText(skill.name);
+    const metadata = page.locator('.detail-meta .latest-included-change');
+    await expect(metadata).toHaveAttribute(
+      'data-latest-included-change', changelog.latestIncludedChange.reason,
+    );
+    const details = page.locator('details.upstream-changes');
+    if (changelog.content.commits.length > 0 && changelog.latestIncludedChange.date) {
+      await expect(details).toHaveCount(1);
+      await expect(details.locator('.timeline-entry')).toHaveCount(changelog.content.commits.length);
+    } else {
+      await expect(details).toHaveCount(0);
+      await expect(metadata.locator('time')).toHaveCount(0);
+      await expect(metadata.locator('.latest-included-change-unavailable')).toBeVisible();
+    }
+    await expect(page.locator('.detail-body')).toBeVisible();
+  });
 
   for (const page_ of RESPONSIVE_PAGES.filter((p) => p.tables)) {
     test(`tables scroll locally and keep their semantics — ${page_.name}`, async ({ page }) => {
