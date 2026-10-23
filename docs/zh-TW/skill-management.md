@@ -41,6 +41,14 @@ mapping 或 active lock 項目。這次遷移是「先提交宣告／內容，�
 一般規則的刻意例外：manifest 與 materialized state 在同一個 journaled
 transaction 中一起變更。
 
+## 更新已收錄技能
+
+更新既有 skill 與其 metadata 時，使用內部
+[update-repo-skill 入口](../../.github/skills/update-repo-skill/SKILL.md)。
+它會在存取上游前核對已收錄範圍與實際工具足跡。候選探索／新增收錄與發布
+屬於獨立需求；篩選報告不會限制完整 clone 或候選內容掃描的範圍。
+若沒有符合邊界的受支援工具，交付本機發現與涵蓋限制，不默默擴大工作。
+
 ## 新增收錄流程
 
 儲存庫內部的 [adding-skills 入口](../../.github/skills/adding-skills/SKILL.md)

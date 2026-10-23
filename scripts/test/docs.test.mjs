@@ -354,6 +354,8 @@ test('DOC3: all relative Markdown links in docs resolve, including fragments', a
     path.join(docsRoot, 'README.md'),
     path.join(repoRoot, '.github', 'skills', 'adding-skills', 'SKILL.md'),
     path.join(repoRoot, '.github', 'skills', 'release', 'SKILL.md'),
+    path.join(repoRoot, '.github', 'skills', 'update-repo-skill', 'SKILL.md'),
+    path.join(repoRoot, '.github', 'skills', 'update-repo-skill', 'references', 'update-workflow.md'),
   ];
 
   for (const locale of locales) {
@@ -457,6 +459,17 @@ test('adoption entrypoints share the bilingual runbook and separate publication 
   );
   assert.ok(markdownLinks(release).includes('../adding-skills/SKILL.md'));
   assert.doesNotMatch(release, /Regenerate summaries\/changelogs in a follow-up PR/);
+});
+
+test('registered update entrypoint is linked from both runbook locales', async () => {
+  const skill = await readFile(
+    path.join(repoRoot, '.github', 'skills', 'update-repo-skill', 'SKILL.md'), 'utf8',
+  );
+  for (const locale of locales) {
+    const document = await readFile(localizedPath(locale, 'skill-management.md'), 'utf8');
+    assert.ok(markdownLinks(document).includes('../../.github/skills/update-repo-skill/SKILL.md'));
+    assert.ok(markdownLinks(skill).includes(`../../../docs/${locale}/skill-management.md`));
+  }
 });
 
 test('DOC4: neutral and repository landing pages expose the documentation', async () => {

@@ -121,6 +121,7 @@ test('full-repo smoke uses default public selection and the exact active lock in
   assert.deepEqual(full.expectedNames, activeNames);
   assert.ok(!full.expectedNames.includes('release'));
   assert.ok(!full.expectedNames.includes('adding-skills'));
+  assert.ok(!full.expectedNames.includes('update-repo-skill'));
   assert.ok(full.argv.includes('-y'));
   assert.ok(full.argv.includes('--full-depth'));
   assert.ok(!full.argv.includes('--skill'), 'explicit filters also discover internal skills');
@@ -131,7 +132,7 @@ test('full-repo smoke uses default public selection and the exact active lock in
 
 test('repository-local skills are internal without changing the vendored git-commit', async () => {
   const { repoRoot } = await createSmokePlan();
-  for (const name of ['git-commit', 'release', 'adding-skills']) {
+  for (const name of ['git-commit', 'release', 'adding-skills', 'update-repo-skill']) {
     const file = path.join(repoRoot, '.github', 'skills', name, 'SKILL.md');
     const metadata = parseSkillFrontmatter(await readFile(file, 'utf8'), file);
     assert.equal(metadata.metadata?.internal, true, `${name} must be excluded from default consumer discovery`);
@@ -154,6 +155,24 @@ test('adding-skills is a concise internal entrypoint with discoverable trigger m
   assert.ok(frontmatter[1].length <= 1024);
   assert.ok(content.split(/\s+/).filter(Boolean).length < 500);
   assert.ok(content.split(/\r?\n/).length < 500);
+});
+
+test('update-repo-skill is a concise internal update entrypoint', async () => {
+  const { repoRoot } = await createSmokePlan();
+  const file = path.join(repoRoot, '.github', 'skills', 'update-repo-skill', 'SKILL.md');
+  const content = await readFile(file, 'utf8');
+  const metadata = parseSkillFrontmatter(content, file);
+  assert.equal(metadata.name, 'update-repo-skill');
+  assert.equal(metadata.metadata?.internal, true);
+  assert.match(metadata.description, /^Use when /);
+  assert.match(metadata.description, /registered|already adopted/);
+  assert.ok(metadata.description.length < 500);
+  const frontmatter = /^---\r?\n([\s\S]*?)\r?\n---/.exec(content);
+  assert.ok(frontmatter);
+  assert.ok(frontmatter[1].length <= 1024);
+  assert.ok(content.split(/\s+/).filter(Boolean).length < 500);
+  assert.ok(content.split(/\r?\n/).length < 500);
+  assert.match(content, /\]\(references\/update-workflow\.md\)/);
 });
 
 test('installed skill content verification accepts exact bytes and rejects a same-name internal copy', async () => {
