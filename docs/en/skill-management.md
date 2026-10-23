@@ -46,6 +46,16 @@ lock entries. This migration was the deliberate exception to the normal rule
 that declaration/content changes are committed before `--apply`: it changed
 the manifest and materialized state inside the same journaled transaction.
 
+## Updating registered skills
+
+For existing skills and their metadata, use the internal
+[update-repo-skill entrypoint](../../.github/skills/update-repo-skill/SKILL.md).
+It checks registered scope and actual tool footprint before upstream access.
+Candidate exploration/adoption and publication are separate requests; a
+filtered report does not limit a full clone or candidate-content scan.
+If no supported tool satisfies the boundary, deliver local findings and the
+coverage limitation rather than silently broadening the task.
+
 ## Adoption runbook
 
 The repository-local [adding-skills entrypoint](../../.github/skills/adding-skills/SKILL.md)
